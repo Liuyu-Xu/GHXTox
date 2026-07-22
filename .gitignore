@@ -1,13 +1,10 @@
-# =========================
-# 1. Python 缓存和运行文件
-# =========================
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 
-# =========================
-# 2. 虚拟环境（最容易导致体积超标）
-# =========================
+# Virtual environments
 venv/
 env/
 .env/
@@ -15,31 +12,59 @@ env/
 Scripts/
 Lib/
 
-# =========================
-# 3. 深度学习模型权重
-# =========================
+# Local configuration
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Deep-learning checkpoints and model artifacts
 *.pt
 *.pth
 *.h5
 *.ckpt
 *.safetensors
 
-# =========================
-# 4. 数据集和临时大文件
-# =========================
+# Raw, processed, and intermediate data
+/data/
+/dataset/
+/temp/
+*.fasta
+*.fa
+*.faa
 *.csv
 *.tsv
 *.npy
 *.npz
-*.fasta
-/data/
-/dataset/
-/temp/
+*.pdb
 
-# =========================
-# 5. IDE 配置和系统缓存
-# =========================
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
+# Keep small paper/report tables versioned.
+!reports/**/*.csv
+!reports/**/*.tsv
+
+# Training runs are usually reproducible intermediates. Keep already tracked
+# historical summaries, but do not add new run directories by accident.
+/runs/
+
+# Logs and local archives
+*.log
+*.out
+*.err
+*.tar
+*.tar.gz
+*.zip
+*.7z
+
+# Paper/source-document extraction scratch space
+/hyptox_doc_extract/
+/jcim_doc_extract/
+*.docx
+*.pptx
+*.xlsx
+*.xls
+
+# Local planning/smoke artifacts
+/findings.md
+/progress.md
+/task_plan.md
+/reports/*_smoke/

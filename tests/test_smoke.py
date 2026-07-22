@@ -18,7 +18,9 @@ from ghxtox.train import SmoothedBCEWithLogitsLoss, _apply_coordinate_noise
 from ghxtox.models.layers import PLDDTAwareEGNNLayer
 from ghxtox.models.chemical_sites import ChemicalSiteInteractionBranch
 from ghxtox.bootstrap_ci import bootstrap_confidence_intervals
+from ghxtox.calibrate_predictions import apply_calibration, fit_temperature
 from ghxtox.chemical_site_report import summarize as summarize_chemical_site
+from ghxtox.ensemble_evaluate import _search_weights
 from ghxtox.sequence_similarity import alignment_identity, audit_similarity
 from ghxtox.similarity_subset_eval import evaluate_similarity_subsets
 from ghxtox.prepare_cdhit import prepare_cdhit_fasta
@@ -413,6 +415,90 @@ def test_model_forwards_with_plm_features():
     }
     output = GHXToxModel(config)(collated)
     assert output["logits"].shape == (2,)
+
+
+def test_prott5_textcnn_sequence_expert_forwards():
+    batch = [
+        {
+            "sample_id": "prot_1",
+            "sequence": "ACDE",
+            "aa_ids": torch.tensor([2, 3, 4, 5]),
+            "group_ids": torch.tensor([0, 1, 2, 3]),
+            "residue_features": torch.zeros(4, RESIDUE_FEATURE_DIM),
+            "plm_features": torch.randn(4, 1024),
+            "coords": torch.zeros(4, 3),
+            "plddt": torch.ones(4),
+            "label": 1,
+        },
+        {
+            "sample_id": "prot_2",
+            "sequence": "KWR",
+            "aa_ids": torch.tensor([10, 18, 19]),
+            "group_ids": torch.tensor([3, 6, 6]),
+            "residue_features": torch.zeros(3, RESIDUE_FEATURE_DIM),
+            "plm_features": torch.randn(3, 1024),
+            "coords": torch.zeros(3, 3),
+            "plddt": torch.ones(3),
+            "label": 0,
+        },
+    ]
+    collated = collate_peptides(batch, include_structure=False, include_atom=False)
+    config = {
+        "model": {
+            "modality": "sequence_only",
+            "sequence_architecture": "prott5_textcnn",
+            "sequence_kernels": [3, 5, 7],
+            "sequence_use_residual": True,
+            "textcnn_use_sequence_features": False,
+            "hidden_dim": 32,
+            "plm_embedding_dim": 1024,
+            "aa_embedding_dim": 8,
+            "group_embedding_dim": 4,
+            "dropout": 0.1,
+            "global_features": True,
+        }
+    }
+    output = GHXToxModel(config)(collated)
+    assert output["logits"].shape == (2,)
+    assert output["embedding"].shape == (2, 64)
+
+
+def test_plm_embed_does_not_reuse_mismatched_existing_plm(tmp_path, monkeypatch):
+    input_path = tmp_path / "input.pt"
+    output_path = tmp_path / "output.pt"
+    cache_dir = tmp_path / "cache"
+    record = {
+        "sample_id": "sample_1",
+        "sequence": "AC",
+        "plm_features": torch.randn(2, 1280),
+        "plm_model": "esm2_t33_650M_UR50D",
+    }
+    torch.save({"records": [record]}, input_path)
+    prott5_embedding = torch.randn(2, 1024)
+    plm_embed._save_cached_embedding(
+        cache_dir,
+        "sample_1",
+        "AC",
+        prott5_embedding,
+        "prot_t5_xl_half_uniref50-enc",
+    )
+
+    def fail_if_loaded(*_args, **_kwargs):
+        raise AssertionError("ProtT5 model should not load when matching cache exists")
+
+    monkeypatch.setattr(plm_embed, "_load_prott5", fail_if_loaded)
+    stats = plm_embed.attach_prott5_embeddings(
+        input_path,
+        output_path,
+        "prot_t5_xl_half_uniref50-enc",
+        "cuda",
+        batch_size=1,
+        cache_dir=cache_dir,
+    )
+    payload = torch.load(output_path, map_location="cpu", weights_only=False)
+    assert stats == {"attached": 1, "generated": 0, "cached": 1, "dim": 1024}
+    assert payload["records"][0]["plm_model"] == "prot_t5_xl_half_uniref50-enc"
+    assert torch.equal(payload["records"][0]["plm_features"], prott5_embedding)
 
 def test_evaluate_parser_constructs():
     args = build_evaluate_arg_parser().parse_args([])
@@ -884,6 +970,39 @@ def test_bootstrap_confidence_intervals_are_reproducible(tmp_path):
     assert first == second
     assert first["protocol"]["num_positive"] == 2
     assert first["aggregate"]["point_estimate"]["mcc"] == 1.0
+
+
+def test_ensemble_weight_search_can_select_stronger_expert():
+    probabilities = torch.tensor(
+        [
+            [0.90, 0.80, 0.20, 0.10],
+            [0.10, 0.20, 0.80, 0.90],
+        ],
+        dtype=torch.float32,
+    )
+    labels = torch.tensor([0.0, 0.0, 1.0, 1.0])
+    weights, summary = _search_weights(
+        probabilities,
+        labels,
+        metric="mcc",
+        threshold=0.5,
+        threshold_metric=None,
+        trials=0,
+        seed=7,
+        alpha=1.0,
+    )
+    assert weights.tolist() == pytest.approx([0.0, 1.0])
+    assert summary["best_metrics"]["mcc"] == 1.0
+
+
+def test_temperature_calibration_outputs_valid_probabilities():
+    probabilities = torch.tensor([0.05, 0.20, 0.80, 0.95], dtype=torch.float32)
+    labels = torch.tensor([0.0, 0.0, 1.0, 1.0])
+    calibration = fit_temperature(probabilities, labels, steps=20)
+    calibrated = apply_calibration(probabilities, calibration)
+    assert calibration["method"] == "temperature"
+    assert torch.all((calibrated >= 0.0) & (calibrated <= 1.0))
+    assert calibrated.shape == probabilities.shape
 
 
 def test_prediction_csv_preserves_float32_probability(tmp_path):

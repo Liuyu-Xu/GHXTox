@@ -16,6 +16,7 @@ from ghxtox.models.layers import (
     PLDDTAwareFusion,
     SequenceBranch,
     SequenceMultiscaleBranch,
+    SequenceTextCNNBranch,
     SpatialBranch,
     masked_max,
     masked_mean,
@@ -46,7 +47,12 @@ class GHXToxModel(nn.Module):
         classifier_input_dim += GLOBAL_FEATURE_DIM if self.use_global_features else 0
 
         sequence_architecture = str(model_cfg.get("sequence_architecture", "transformer")).lower()
-        sequence_class = SequenceMultiscaleBranch if sequence_architecture == "multiscale_1d" else SequenceBranch
+        if sequence_architecture == "multiscale_1d":
+            sequence_class = SequenceMultiscaleBranch
+        elif sequence_architecture in {"textcnn", "toxpltc_textcnn", "prott5_textcnn"}:
+            sequence_class = SequenceTextCNNBranch
+        else:
+            sequence_class = SequenceBranch
         sequence_kwargs = dict(
             vocab_size=len(AA_TO_IDX),
             group_size=len(FUNCTIONAL_GROUPS),
@@ -62,6 +68,12 @@ class GHXToxModel(nn.Module):
                 kernels=tuple(int(value) for value in model_cfg.get("sequence_kernels", [3, 5, 7])),
                 use_multiscale=bool(model_cfg.get("sequence_use_multiscale", True)),
                 use_bilstm=bool(model_cfg.get("sequence_use_bilstm", True)),
+                use_residual=bool(model_cfg.get("sequence_use_residual", True)),
+            )
+        elif sequence_class is SequenceTextCNNBranch:
+            sequence_kwargs.update(
+                kernels=tuple(int(value) for value in model_cfg.get("sequence_kernels", [3, 5, 7])),
+                use_sequence_features=bool(model_cfg.get("textcnn_use_sequence_features", False)),
                 use_residual=bool(model_cfg.get("sequence_use_residual", True)),
             )
         else:

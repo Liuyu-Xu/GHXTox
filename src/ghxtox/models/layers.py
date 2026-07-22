@@ -213,6 +213,108 @@ class SequenceMultiscaleBranch(nn.Module):
         return output * mask.unsqueeze(-1)
 
 
+class SequenceTextCNNBranch(nn.Module):
+    """ProtT5/TextCNN-style sequence expert with feature adjustment."""
+
+    def __init__(
+        self,
+        vocab_size: int,
+        group_size: int,
+        residue_feature_dim: int,
+        plm_embedding_dim: int,
+        aa_embedding_dim: int,
+        group_embedding_dim: int,
+        hidden_dim: int,
+        dropout: float,
+        kernels: tuple[int, ...] = (3, 5, 7),
+        use_sequence_features: bool = False,
+        use_residual: bool = True,
+        max_positions: int = 512,
+    ) -> None:
+        super().__init__()
+        if not kernels:
+            raise ValueError("SequenceTextCNNBranch requires at least one kernel size.")
+        if any(kernel <= 0 or kernel % 2 == 0 for kernel in kernels):
+            raise ValueError("SequenceTextCNNBranch kernel sizes must be positive odd integers.")
+        self.plm_embedding_dim = max(int(plm_embedding_dim), 0)
+        self.use_sequence_features = bool(use_sequence_features) or self.plm_embedding_dim <= 0
+        self.use_residual = bool(use_residual)
+        self.aa_embedding = nn.Embedding(vocab_size, aa_embedding_dim, padding_idx=0)
+        self.group_embedding = nn.Embedding(group_size, group_embedding_dim, padding_idx=0)
+        self.plm_linear = nn.Linear(self.plm_embedding_dim, hidden_dim) if self.plm_embedding_dim > 0 else None
+        self.plm_batch_norm = nn.BatchNorm1d(hidden_dim) if self.plm_embedding_dim > 0 else None
+        self.sequence_projection = (
+            nn.Linear(aa_embedding_dim + group_embedding_dim + residue_feature_dim, hidden_dim)
+            if self.use_sequence_features
+            else None
+        )
+        self.position_embedding = nn.Embedding(max_positions, hidden_dim)
+        self.input_dropout = nn.Dropout(dropout)
+        self.convolutions = nn.ModuleList(
+            [nn.Conv1d(hidden_dim, hidden_dim, kernel, padding=kernel // 2) for kernel in kernels]
+        )
+        self.scale_projection = nn.Linear(hidden_dim * len(kernels), hidden_dim)
+        self.output_norm = nn.LayerNorm(hidden_dim)
+        self.dropout = nn.Dropout(dropout)
+
+    def _adjust_plm(self, plm_features: torch.Tensor, reference: torch.Tensor) -> torch.Tensor:
+        if self.plm_linear is None or self.plm_batch_norm is None:
+            raise ValueError("ProtT5/TextCNN PLM adjustment was not configured.")
+        if plm_features.shape[-1] != self.plm_embedding_dim:
+            raise ValueError(
+                f"Expected PLM embedding dim {self.plm_embedding_dim}, got {plm_features.shape[-1]}."
+            )
+        adjusted = self.plm_linear(plm_features.to(device=reference.device, dtype=reference.dtype))
+        adjusted = self.plm_batch_norm(adjusted.transpose(1, 2)).transpose(1, 2)
+        return torch.relu(adjusted)
+
+    def forward(
+        self,
+        aa_ids: torch.Tensor,
+        group_ids: torch.Tensor,
+        residue_features: torch.Tensor,
+        mask: torch.Tensor,
+        plm_features: torch.Tensor | None = None,
+    ) -> torch.Tensor:
+        parts = []
+        if self.plm_linear is not None:
+            if plm_features is None:
+                plm_features = residue_features.new_zeros(
+                    (*residue_features.shape[:2], self.plm_embedding_dim)
+                )
+            parts.append(self._adjust_plm(plm_features, residue_features))
+        if self.sequence_projection is not None:
+            sequence_input = torch.cat(
+                [
+                    self.aa_embedding(aa_ids),
+                    self.group_embedding(group_ids),
+                    residue_features,
+                ],
+                dim=-1,
+            )
+            parts.append(torch.relu(self.sequence_projection(sequence_input)))
+        if not parts:
+            raise ValueError("SequenceTextCNNBranch needs PLM features or sequence feature inputs.")
+
+        h = sum(parts) / math.sqrt(float(len(parts)))
+        positions = torch.arange(h.shape[1], device=h.device).clamp_max(
+            self.position_embedding.num_embeddings - 1
+        )
+        h = self.input_dropout(h + self.position_embedding(positions).unsqueeze(0))
+        h = h * mask.unsqueeze(-1)
+
+        channels = h.transpose(1, 2)
+        scales = []
+        for conv in self.convolutions:
+            scale = torch.relu(conv(channels)).transpose(1, 2)
+            scales.append(scale * mask.unsqueeze(-1))
+        output = self.scale_projection(torch.cat(scales, dim=-1))
+        if self.use_residual:
+            output = output + h
+        output = self.output_norm(self.dropout(output))
+        return output * mask.unsqueeze(-1)
+
+
 class PLDDTAwareEGNNLayer(nn.Module):
     def __init__(
         self,

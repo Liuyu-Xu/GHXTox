@@ -18,6 +18,7 @@ metrics = ["scikit-learn>=1.2"]
 similarity = ["biopython>=1.80"]
 reporting = ["matplotlib>=3.7", "scikit-learn>=1.2"]
 plm = ["fair-esm>=2.0.0"]
+prott5 = ["transformers>=4.30", "sentencepiece>=0.1.99", "protobuf>=3.20"]
 esmfold = ["fair-esm[esmfold]>=2.0.0"]
 atom-graph = ["rdkit>=2023.9"]
 
@@ -32,7 +33,14 @@ ghxtox-evaluate = "ghxtox.evaluate:main"
 ghxtox-esmfold-cache = "ghxtox.esmfold_cache:main"
 ghxtox-esmfold-predict = "ghxtox.esmfold_predict:main"
 ghxtox-plm-embed = "ghxtox.plm_embed:main"
+ghxtox-augment-processed = "ghxtox.augment_processed:main"
+ghxtox-ensemble-evaluate = "ghxtox.ensemble_evaluate:main"
+ghxtox-calibrate-predictions = "ghxtox.calibrate_predictions:main"
+ghxtox-hypeptox-paper-analysis = "ghxtox.hypeptox_paper_analysis:main"
+ghxtox-hypeptox-tuning-matrix = "ghxtox.hypeptox_tuning_matrix:main"
 ghxtox-optimize-threshold = "ghxtox.optimize_threshold:main"
+ghxtox-threshold-predictions = "ghxtox.threshold_predictions:main"
+ghxtox-prediction-ensemble-search = "ghxtox.prediction_ensemble_search:main"
 ghxtox-atom-graph = "ghxtox.atom_graph:main"
 ghxtox-bootstrap-ci = "ghxtox.bootstrap_ci:main"
 ghxtox-sequence-similarity = "ghxtox.sequence_similarity:main"

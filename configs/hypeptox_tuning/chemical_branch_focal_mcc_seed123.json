@@ -1,0 +1,103 @@
+{
+  "seed": 123,
+  "data": {
+    "max_length": 128,
+    "structure_mode": "cached",
+    "structure_cache_dir": "data/structures"
+  },
+  "model": {
+    "aa_embedding_dim": 32,
+    "group_embedding_dim": 12,
+    "hidden_dim": 128,
+    "num_sequence_layers": 2,
+    "num_egnn_layers": 3,
+    "num_attention_heads": 4,
+    "dropout": 0.22,
+    "graph_mode": "hybrid",
+    "spatial_top_k": 10,
+    "rbf_bins": 16,
+    "rbf_max_distance": 24.0,
+    "fusion_gate": "learned_confidence",
+    "ahp_initial_3d_weight": 0.35,
+    "plddt_gate_center": 0.7,
+    "plddt_gate_temperature": 0.12,
+    "plddt_edge_min": 0.1,
+    "plddt_edge_power": 1.5,
+    "plm_embedding_dim": 1280,
+    "structure_feature_dim": 16,
+    "global_features": true,
+    "chemical_site_branch": true,
+    "chemical_site_type_dim": 8,
+    "chemical_site_hidden_dim": 96,
+    "chemical_site_layers": 2,
+    "chemical_site_raw_rbf_bins": 16,
+    "chemical_site_normalized_rbf_bins": 8,
+    "chemical_site_max_distance": 16.0,
+    "chemical_site_normalized_max_distance": 4.0,
+    "chemical_site_dropout": 0.16,
+    "chemical_site_use_raw_rbf": true,
+    "chemical_site_use_normalized_rbf": true,
+    "chemical_site_use_orientation": true,
+    "chemical_site_use_interaction_types": true,
+    "chemical_site_use_plddt": true,
+    "chemical_site_use_hydrophobic_sites": true,
+    "chemical_site_max_site_slots": 2,
+    "chemical_site_exclude_same_residue_edges": false,
+    "chemical_site_zero_init_residual": true
+  },
+  "train": {
+    "epochs": 45,
+    "batch_size": 32,
+    "learning_rate": 0.00045,
+    "weight_decay": 0.00015,
+    "val_fraction": 0.15,
+    "early_stop_patience": 10,
+    "pos_weight": "auto",
+    "coord_noise_std": 0.12,
+    "coord_noise_plddt_scale": 2.0,
+    "monitor": "mcc",
+    "initial_checkpoint": "runs/hypeptox_fuse_plm_fusion_esm2_geometry_confidence_augmix_noleak/best_model.pt",
+    "allowed_missing_prefixes": [
+      "chemical_site_branch."
+    ],
+    "trainable_prefixes": [
+      "chemical_site_branch."
+    ],
+    "scheduler": "cosine",
+    "min_learning_rate": 3e-05,
+    "ema_decay": 0.995,
+    "ema_start_epoch": 2,
+    "selection_score": {
+      "mcc": 1.0,
+      "auroc": 0.2,
+      "auprc": 0.2
+    },
+    "selection_constraints": {
+      "sn": {
+        "min": 0.875
+      },
+      "sp": {
+        "min": 0.91
+      }
+    },
+    "selection_penalty_weight": 8.0,
+    "loss": "focal_bce",
+    "focal_gamma": 1.2,
+    "save_auxiliary_checkpoints": true
+  },
+  "inference": {
+    "default_checkpoint": "runs/hypeptox_fuse_3d_v2_augmix_noleak/best_model.pt",
+    "default_threshold": 0.5,
+    "threshold_source": "fixed neutral threshold for no-leak augmented HyPepTox-Fuse trial",
+    "fallback_checkpoint": "runs/hypeptox_fuse_plm_fusion_esm2_geometry_confidence_augmix_noleak/best_model.pt",
+    "fallback_threshold": 0.5,
+    "fallback_condition": "chemical-site tensors are unavailable"
+  },
+  "experiment": {
+    "name": "hypeptox_tuning_chemical_branch_focal_mcc_seed123",
+    "selection_data": "HyPepTox-Fuse train-fit/train-val split; independent test untouched.",
+    "external_sets_used_for_selection": false,
+    "tuning_variant": "chemical_branch_focal_mcc",
+    "reason": "Tune only the chemical-site expert capacity around the current 3D-v2 branch."
+  }
+}

@@ -192,11 +192,15 @@ def evaluate(args: argparse.Namespace) -> dict[str, float]:
         "accuracy",
         "balanced_accuracy",
         "precision",
+        "sensitivity",
         "recall",
+        "specificity",
         "f1",
         "mcc",
         "auroc",
         "auprc",
+        "brier",
+        "ece_10",
         "mean_global_gate",
     ]:
         value = metrics[key]

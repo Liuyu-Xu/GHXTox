@@ -1,7 +1,126 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-07-17
-状态：默认模型为3D-v2；现有数据上的交叉验证、组件消融、配对统计、分层分析和案例解释已完成
+更新时间：2026-07-22
+状态：HyPepTox-Fuse 平衡数据集阶段训练、调参、集成、校准和论文分析图表已完成；下一步优先做预测级集成搜索和更强模型融合验证
+
+## 2026-07-22 最新进度
+
+本轮工作的目标是把项目从“能跑通”推进到“可以复现实验、能和 HyPepTox-Fuse / ToxMSRC 做论文级对比”。当前已经完成 HyPepTox-Fuse 平衡训练集与独立测试集上的主线实验，包含无泄漏平衡增强、16 组调参矩阵、多种专家分支、集成模型、阈值搜索、概率校准和结果打包。
+
+### 当前推荐模型
+
+论文主结果建议采用 **ESM2 + 3D 7-model ensemble + validation threshold + Platt calibration**。
+
+选择理由：
+
+- 在 HyPepTox-Fuse 平衡独立集上，ACC、SN、F1、MCC 均略高于 HyPepTox-Fuse 论文报告值；
+- AUROC/AUPRC 仍保持较高水平，AUPRC 可补充 HyPepTox-Fuse 未报告的概率排序证据；
+- Platt calibration 明显降低 Brier 和 ECE-10，使“毒性概率”更可靠，适合论文讨论模型可用性；
+- Top5 + Platt 可作为轻量化/校准消融，不建议作为最终主模型，因为核心分类指标低于 7-model。
+
+### HyPepTox-Fuse 平衡独立集结果
+
+平衡测试集含 1104 toxic + 1104 non-toxic。由于正负样本完全平衡，论文主表中不再突出 BACC，重点报告 ACC、SN、SP、F1、MCC、AUROC、AUPRC、Brier、ECE-10。
+
+| Model | ACC | SN | SP | F1 | MCC | AUROC | AUPRC | Brier | ECE-10 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| HyPepTox-Fuse paper | 0.9067 | 0.8832 | 0.9303 | 0.9045 | 0.8143 | 0.9624 | NA | NA | NA |
+| Ours 7-model + Platt | 0.9085 | 0.8958 | 0.9212 | 0.9073 | 0.8173 | 0.9580 | 0.9611 | 0.0770 | 0.0330 |
+| Ours Top5 + Platt | 0.9022 | 0.8804 | 0.9239 | 0.9000 | 0.8051 | 0.9521 | 0.9517 | 0.0780 | 0.0162 |
+| Ours Top8 tuned | 0.9013 | 0.8759 | 0.9266 | 0.8987 | 0.8036 | 0.9590 | 0.9606 | 0.0760 | 0.0255 |
+
+结论边界：
+
+- 当前结果已经具备“略高于 HyPepTox-Fuse 的核心分类指标 + 更完整概率可靠性分析”的论文基础；
+- SP 和 AUROC 仍略低于 HyPepTox-Fuse，因此不能写成全面碾压，只能写成多指标互补优势；
+- Top5 + Platt 的意义是证明轻量集成和校准可以显著改善概率可靠性，不是主性能模型；
+- 若要让论文优势更明显，下一轮应优先搜索更优预测级集成权重，再考虑新增模型结构。
+
+### 已完成的算法与工程改动
+
+- **数据增强**：加入训练集内无泄漏 AugMix/特征扰动增强，避免把验证或独立测试集信息用于样本生成。
+- **ESM2 专家分支**：完成 BiLSTM/Transformer 序列专家、ESM2 embedding 输入和多随机种子训练配置。
+- **3D/化学位点分支**：完成 ESMFold 缓存输入、pLDDT-aware 结构图、化学位点交互残差分支和 learned-confidence fusion。
+- **ProtT5/TextCNN 方向**：增加 ProtT5/TextCNN 配置和入口，用于后续服务器补充实验。
+- **调参矩阵**：生成并跑完 16 组 HyPepTox-Fuse 调参配置，结果保存为 tuning summary。
+- **阈值优化**：支持在 validation prediction CSV 上按 MCC/AUPRC 等目标搜索阈值，并设置 SN/SP 约束。
+- **概率校准**：支持 temperature scaling 和 Platt calibration，并输出 Brier/ECE-10 前后变化。
+- **集成评估**：支持 checkpoint-level ensemble 和 prediction-level ensemble search；后者用于下一轮搜索更优权重组合。
+- **论文分析**：已生成无 BACC 主表、消融表、bootstrap 对比表、ROC/PR/校准图和 headline delta 图。
+
+### 复现实验入口
+
+本地调试：
+
+```bash
+python -m py_compile src/ghxtox/prediction_ensemble_search.py src/ghxtox/threshold_predictions.py
+```
+
+AutoDL 主流程：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export PYTHONPATH=/root/autodl-tmp/GHXTox/src:$PYTHONPATH
+
+python -m ghxtox.hypeptox_tuning_matrix --device cuda
+nohup bash docs/hypeptox_fuse_tuning_commands.sh > hypeptox_tuning.log 2>&1 &
+```
+
+Top5 集成和校准：
+
+```bash
+python -m ghxtox.ensemble_evaluate \
+  --processed data/external/hypeptox_fuse/processed/train_val_chemical_sites_esm2.pt \
+  --checkpoints <top5 best_model.pt paths> \
+  --optimize-threshold-metric mcc \
+  --output runs/hypeptox_tuning/ensemble_top5_tuned_fast/val_metrics.json \
+  --predictions runs/hypeptox_tuning/ensemble_top5_tuned_fast/val_predictions.csv \
+  --device cuda
+
+python -m ghxtox.calibrate_predictions \
+  --validation runs/hypeptox_tuning/ensemble_top5_tuned_fast/val_predictions.csv \
+  --apply runs/hypeptox_tuning/ensemble_top5_tuned_fast/test_predictions.csv \
+  --method platt \
+  --optimize-threshold-metric mcc \
+  --output-dir runs/hypeptox_tuning/ensemble_top5_tuned_fast/calibrated_platt \
+  --output-json runs/hypeptox_tuning/ensemble_top5_tuned_fast/calibration_platt_summary.json
+```
+
+下一轮推荐先跑预测级集成搜索：
+
+```bash
+python -m ghxtox.prediction_ensemble_search \
+  --manifest configs/hypeptox_tuning/manifest.json \
+  --output-dir runs/hypeptox_tuning/prediction_ensemble_search_mcc \
+  --min-k 3 \
+  --max-k 10 \
+  --refine-top 80 \
+  --weight-trials 4000 \
+  --weight-alpha 0.8 \
+  --objective mcc \
+  --min-sn 0.88 \
+  --min-sp 0.91 \
+  --weight-seed 2026 \
+  --output-top 100
+```
+
+### GitHub 上传策略
+
+上传到 GitHub 的内容应包括：
+
+- 源码、测试、配置、README、docs；
+- `reports/hypeptox_fuse_paper_analysis/` 中的小型 summary、表格和图；
+- 必要的复现实验命令脚本。
+
+不上传：
+
+- `data/`、`dataset/` 下新生成的数据副本；
+- ESMFold PDB/NPZ 缓存、PLM embedding 缓存；
+- `.pt/.pth/.ckpt/.safetensors` checkpoint；
+- 逐样本预测 CSV、中间训练日志、AutoDL 打包 tar.gz；
+- 论文原文 docx/pdf 和临时提取目录。
+
+如需共享大文件，使用 AutoDL、网盘或 GitHub Release，避免直接进入 Git 历史。
 
 ## 阅读导航与当前结论
 

@@ -23,7 +23,8 @@ def attach_chemical_sites(
 ) -> dict[str, int | float]:
     payload = torch.load(processed_path, map_location="cpu", weights_only=False)
     records = payload["records"]
-    pdb_paths = sorted(Path(pdb_dir).glob("*.pdb"))
+    pdb_root = Path(pdb_dir)
+    pdb_paths = {path.stem: path for path in pdb_root.glob("*.pdb")}
     if len(pdb_paths) != len(records):
         raise ValueError(f"Record/PDB count mismatch: records={len(records)}, pdb={len(pdb_paths)}")
 
@@ -31,7 +32,11 @@ def attach_chemical_sites(
     residue_with_site_count = 0
     residue_count = 0
     output_records = []
-    for index, (record, pdb_path) in enumerate(zip(records, pdb_paths, strict=True), start=1):
+    for index, record in enumerate(records, start=1):
+        sample_id = str(record["sample_id"])
+        pdb_path = pdb_paths.get(sample_id)
+        if pdb_path is None:
+            raise FileNotFoundError(f"Missing PDB for record {index}: {sample_id} in {pdb_root}")
         parsed = parse_esmfold_pdb(pdb_path)
         sites = parse_chemical_sites(pdb_path)
         sequence = record["sequence"]

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 from functools import partial
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 import torch
 from torch import nn
@@ -196,6 +197,133 @@ def _make_criterion(train_cfg: dict[str, Any], pos_weight: torch.Tensor | None) 
     raise ValueError(f"Unsupported train.loss={loss_name!r}. Expected 'bce' or 'focal_bce'.")
 
 
+class ExponentialMovingAverage:
+    """Maintain trainable-parameter EMA weights for validation/checkpointing."""
+
+    def __init__(self, model: nn.Module, decay: float) -> None:
+        if not 0.0 < float(decay) < 1.0:
+            raise ValueError("EMA decay must be between 0 and 1.")
+        self.decay = float(decay)
+        self.shadow = {
+            name: parameter.detach().clone()
+            for name, parameter in model.named_parameters()
+            if parameter.requires_grad and parameter.detach().is_floating_point()
+        }
+        if not self.shadow:
+            raise ValueError("EMA requested but no trainable floating-point parameters were found.")
+
+    def update(self, model: nn.Module) -> None:
+        with torch.no_grad():
+            for name, parameter in model.named_parameters():
+                if name not in self.shadow:
+                    continue
+                self.shadow[name].mul_(self.decay).add_(parameter.detach(), alpha=1.0 - self.decay)
+
+    @contextmanager
+    def average_parameters(self, model: nn.Module) -> Iterator[None]:
+        backup: dict[str, torch.Tensor] = {}
+        with torch.no_grad():
+            for name, parameter in model.named_parameters():
+                if name not in self.shadow:
+                    continue
+                backup[name] = parameter.detach().clone()
+                parameter.copy_(self.shadow[name])
+        try:
+            yield
+        finally:
+            with torch.no_grad():
+                for name, parameter in model.named_parameters():
+                    if name in backup:
+                        parameter.copy_(backup[name])
+
+
+def _state_dict_for_checkpoint(
+    model: nn.Module,
+    ema: ExponentialMovingAverage | None = None,
+) -> dict[str, torch.Tensor]:
+    if ema is None:
+        return {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+    with ema.average_parameters(model):
+        return {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+
+
+def _metric_score(value: float, metric: str, monitor_modes: dict[str, str]) -> float:
+    return -float(value) if monitor_modes[metric] == "min" else float(value)
+
+
+def _selection_score(
+    metrics: dict[str, Any],
+    train_cfg: dict[str, Any],
+    monitor: str,
+    monitor_modes: dict[str, str],
+) -> tuple[float, dict[str, Any]]:
+    weights = train_cfg.get("selection_score")
+    if not weights:
+        value = _metric_score(float(metrics[monitor]), monitor, monitor_modes)
+        return value, {"mode": "monitor", "metric": monitor, "value": float(metrics[monitor])}
+    if not isinstance(weights, dict):
+        raise ValueError("train.selection_score must be a metric-to-weight object.")
+    score = 0.0
+    components: dict[str, float] = {}
+    for metric, weight in weights.items():
+        metric = str(metric)
+        if metric not in monitor_modes:
+            raise ValueError(f"Unsupported selection_score metric: {metric}")
+        component = float(weight) * _metric_score(float(metrics[metric]), metric, monitor_modes)
+        components[metric] = component
+        score += component
+
+    penalty_weight = float(train_cfg.get("selection_penalty_weight", 10.0))
+    penalties: dict[str, float] = {}
+    constraints = train_cfg.get("selection_constraints", {}) or {}
+    if not isinstance(constraints, dict):
+        raise ValueError("train.selection_constraints must be an object.")
+    for metric, constraint in constraints.items():
+        metric = str(metric)
+        if metric not in metrics or not isinstance(constraint, dict):
+            continue
+        value = float(metrics[metric])
+        penalty = 0.0
+        if "min" in constraint and value < float(constraint["min"]):
+            penalty += float(constraint["min"]) - value
+        if "max" in constraint and value > float(constraint["max"]):
+            penalty += value - float(constraint["max"])
+        if penalty > 0.0:
+            penalties[metric] = penalty_weight * penalty
+            score -= penalties[metric]
+    return score, {
+        "mode": "composite",
+        "weights": {str(key): float(value) for key, value in weights.items()},
+        "components": components,
+        "constraints": constraints,
+        "penalties": penalties,
+        "score": float(score),
+    }
+
+
+def _make_scheduler(
+    optimizer: torch.optim.Optimizer,
+    train_cfg: dict[str, Any],
+    epochs: int,
+) -> torch.optim.lr_scheduler.LRScheduler | None:
+    scheduler_name = str(train_cfg.get("scheduler", "none")).lower()
+    if scheduler_name in {"none", ""}:
+        return None
+    if scheduler_name == "cosine":
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(int(train_cfg.get("scheduler_t_max", epochs)), 1),
+            eta_min=float(train_cfg.get("min_learning_rate", 0.0)),
+        )
+    raise ValueError(f"Unsupported train.scheduler={scheduler_name!r}. Expected 'none' or 'cosine'.")
+
+
+def _current_learning_rate(optimizer: torch.optim.Optimizer) -> float:
+    if not optimizer.param_groups:
+        return float("nan")
+    return float(optimizer.param_groups[0].get("lr", float("nan")))
+
+
 def _apply_coordinate_noise(
     batch: dict[str, Any],
     base_std: float,
@@ -251,6 +379,7 @@ def _run_epoch(
     criterion: nn.Module,
     device: torch.device,
     optimizer: torch.optim.Optimizer | None = None,
+    ema: ExponentialMovingAverage | None = None,
     coord_noise_std: float = 0.0,
     coord_noise_plddt_scale: float = 0.0,
     contrastive_weight: float = 0.0,
@@ -296,6 +425,8 @@ def _run_epoch(
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
             optimizer.step()
+            if ema is not None:
+                ema.update(model)
 
         batch_size = labels.shape[0]
         total_loss += float(loss.detach().cpu()) * batch_size
@@ -372,6 +503,7 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             f"prefixes={trainable_prefixes}"
         )
     trainable_parameters = [parameter for parameter in model.parameters() if parameter.requires_grad]
+    epochs = int(args.epochs or train_cfg["epochs"])
     pos_weight = _pos_weight(train_loader, args.pos_weight or train_cfg.get("pos_weight", "auto"))
     if pos_weight is not None:
         pos_weight = pos_weight.to(device)
@@ -381,6 +513,10 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         lr=float(args.learning_rate or train_cfg["learning_rate"]),
         weight_decay=float(train_cfg.get("weight_decay", 0.0)),
     )
+    scheduler = _make_scheduler(optimizer, train_cfg, epochs)
+    ema_decay = float(train_cfg.get("ema_decay", 0.0))
+    ema_start_epoch = int(train_cfg.get("ema_start_epoch", 1))
+    ema = ExponentialMovingAverage(model, ema_decay) if ema_decay > 0.0 else None
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -414,6 +550,8 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         fixed_epochs = int(args.full_data_epochs)
         if fixed_epochs <= 0:
             raise ValueError("--full-data-epochs must be positive.")
+        scheduler = _make_scheduler(optimizer, train_cfg, fixed_epochs)
+        ema = ExponentialMovingAverage(model, ema_decay) if ema_decay > 0.0 else None
         history = []
         coord_noise_std = float(train_cfg.get("coord_noise_std", 0.0))
         coord_noise_plddt_scale = float(train_cfg.get("coord_noise_plddt_scale", 0.0))
@@ -421,31 +559,46 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         contrastive_temperature = float(train_cfg.get("contrastive_temperature", 0.2))
         atom_residual_l1 = float(train_cfg.get("atom_residual_l1", 0.0))
         for epoch in range(1, fixed_epochs + 1):
+            active_ema = ema if ema is not None and epoch >= ema_start_epoch else None
             train_metrics = _run_epoch(
                 model,
                 full_loader,
                 criterion,
                 device,
                 optimizer,
+                ema=active_ema,
                 coord_noise_std=coord_noise_std,
                 coord_noise_plddt_scale=coord_noise_plddt_scale,
                 contrastive_weight=contrastive_weight,
                 contrastive_temperature=contrastive_temperature,
                 atom_residual_l1=atom_residual_l1,
             )
-            history.append({"epoch": epoch, "train": train_metrics})
+            history.append(
+                {
+                    "epoch": epoch,
+                    "learning_rate": _current_learning_rate(optimizer),
+                    "ema_active": active_ema is not None,
+                    "train": train_metrics,
+                }
+            )
             print(
                 f"epoch={epoch:03d} train_loss={train_metrics['loss']:.4f} "
                 f"train_auprc={train_metrics['auprc']:.4f} train_mcc={train_metrics['mcc']:.4f}"
             )
+            if scheduler is not None:
+                scheduler.step()
         best_path = output_dir / "best_model.pt"
         torch.save(
             {
-                "model_state": model.state_dict(),
+                "model_state": _state_dict_for_checkpoint(
+                    model,
+                    ema if ema is not None and fixed_epochs >= ema_start_epoch else None,
+                ),
                 "config": config,
                 "epoch": fixed_epochs,
                 "train_metrics": history[-1]["train"],
                 "monitor": "fixed_epoch_full_data_refit",
+                "ema_decay": ema_decay if ema is not None and fixed_epochs >= ema_start_epoch else 0.0,
                 "refit_protocol": {
                     "full_training_data": True,
                     "fixed_epochs": fixed_epochs,
@@ -464,19 +617,24 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         "accuracy": "max",
         "balanced_accuracy": "max",
         "precision": "max",
+        "sensitivity": "max",
+        "sn": "max",
         "recall": "max",
+        "specificity": "max",
+        "sp": "max",
         "f1": "max",
         "mcc": "max",
         "auroc": "max",
         "auprc": "max",
+        "brier": "min",
+        "ece_10": "min",
     }
     monitor_mode = monitor_modes[monitor]
-    best_score = float("inf") if monitor_mode == "min" else -float("inf")
+    best_score = -float("inf")
     best_path = output_dir / "best_model.pt"
     patience = int(train_cfg.get("early_stop_patience", 8))
     stale_epochs = 0
     history = []
-    epochs = int(args.epochs or train_cfg["epochs"])
     coord_noise_std = float(train_cfg.get("coord_noise_std", 0.0))
     coord_noise_plddt_scale = float(train_cfg.get("coord_noise_plddt_scale", 0.0))
     contrastive_weight = float(train_cfg.get("contrastive_weight", 0.0))
@@ -508,12 +666,14 @@ def train(config: dict, args: argparse.Namespace) -> Path:
     save_auxiliary = bool(train_cfg.get("save_auxiliary_checkpoints", False))
 
     for epoch in range(1, epochs + 1):
+        active_ema = ema if ema is not None and epoch >= ema_start_epoch else None
         train_metrics = _run_epoch(
             model,
             train_loader,
             criterion,
             device,
             optimizer,
+            ema=active_ema,
             coord_noise_std=coord_noise_std,
             coord_noise_plddt_scale=coord_noise_plddt_scale,
             contrastive_weight=contrastive_weight,
@@ -523,9 +683,19 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             residual_delta_l1=residual_delta_l1,
         )
         with torch.no_grad():
-            val_metrics = _run_epoch(model, val_loader, criterion, device, optimizer=None)
+            if active_ema is not None:
+                with active_ema.average_parameters(model):
+                    val_metrics = _run_epoch(model, val_loader, criterion, device, optimizer=None)
+            else:
+                val_metrics = _run_epoch(model, val_loader, criterion, device, optimizer=None)
 
-        row = {"epoch": epoch, "train": train_metrics, "val": val_metrics}
+        row = {
+            "epoch": epoch,
+            "learning_rate": _current_learning_rate(optimizer),
+            "ema_active": active_ema is not None,
+            "train": train_metrics,
+            "val": val_metrics,
+        }
         history.append(row)
         print(
             f"epoch={epoch:03d} "
@@ -543,7 +713,7 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                     auxiliary_best[metric_name] = metric_value
                     torch.save(
                         {
-                            "model_state": model.state_dict(),
+                            "model_state": _state_dict_for_checkpoint(model, active_ema),
                             "config": config,
                             "epoch": epoch,
                             "val_metrics": val_metrics,
@@ -568,23 +738,20 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                 "feasible": feasible,
             }
         else:
-            current_score = float(val_metrics[monitor])
-            improved = (
-                current_score < best_score
-                if monitor_mode == "min"
-                else current_score > best_score
+            current_score, selection_details = _selection_score(
+                val_metrics,
+                train_cfg,
+                monitor,
+                monitor_modes,
             )
-            row["selection"] = {
-                "mode": "monitor",
-                "metric": monitor,
-                "value": current_score,
-            }
+            improved = current_score > best_score
+            row["selection"] = selection_details
         if improved:
             best_score = current_score
             stale_epochs = 0
             torch.save(
                 {
-                    "model_state": model.state_dict(),
+                    "model_state": _state_dict_for_checkpoint(model, active_ema),
                     "config": config,
                     "epoch": epoch,
                     "val_metrics": val_metrics,
@@ -595,6 +762,9 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                         else monitor_mode
                     ),
                     "monitor_value": current_score,
+                    "ema_decay": ema_decay if active_ema is not None else 0.0,
+                    "ema_start_epoch": ema_start_epoch if ema is not None else None,
+                    "selection_details": row["selection"],
                     "selection_mode": selection_mode,
                     "pareto_constraint": (
                         {
@@ -617,6 +787,8 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                 if stale_epochs >= patience:
                     print(f"Early stopping after {epoch} epochs.")
                     break
+        if scheduler is not None:
+            scheduler.step()
 
     save_json({"history": history}, output_dir / "history.json")
     if selection_mode == "pareto" and best_score == -float("inf"):
@@ -652,7 +824,23 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--monitor",
-        choices=["loss", "accuracy", "balanced_accuracy", "precision", "recall", "f1", "mcc", "auroc", "auprc"],
+        choices=[
+            "loss",
+            "accuracy",
+            "balanced_accuracy",
+            "precision",
+            "sensitivity",
+            "sn",
+            "recall",
+            "specificity",
+            "sp",
+            "f1",
+            "mcc",
+            "auroc",
+            "auprc",
+            "brier",
+            "ece_10",
+        ],
         default=None,
         help="Validation metric used for checkpoint selection and early stopping.",
     )

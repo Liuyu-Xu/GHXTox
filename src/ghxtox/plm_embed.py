@@ -115,6 +115,19 @@ def _validate_embedding(record: dict[str, Any], embedding: torch.Tensor, expecte
     return embedding[: len(sequence)].contiguous().float()
 
 
+def _reusable_existing_embedding(record: dict[str, Any], expected_dim: int, model_name: str) -> torch.Tensor | None:
+    embedding = record.get("plm_features")
+    if not torch.is_tensor(embedding):
+        return None
+    existing_model = record.get("plm_model")
+    if existing_model not in (None, model_name):
+        return None
+    try:
+        return _validate_embedding(record, embedding, expected_dim)
+    except ValueError:
+        return None
+
+
 def attach_esm2_embeddings(
     input_path: str | Path,
     output_path: str | Path,
@@ -140,8 +153,9 @@ def attach_esm2_embeddings(
     pending: list[dict[str, Any]] = []
 
     for record in records:
-        if skip_existing and torch.is_tensor(record.get("plm_features")):
-            record["plm_features"] = _validate_embedding(record, record["plm_features"], expected_dim)
+        existing = _reusable_existing_embedding(record, expected_dim, model_name) if skip_existing else None
+        if existing is not None:
+            record["plm_features"] = existing
             record["plm_model"] = model_name
             attached += 1
             continue
@@ -210,8 +224,10 @@ def attach_prott5_embeddings(
     cache_path = Path(cache_dir) if cache_dir else None
     payload = torch.load(input_path, map_location="cpu", weights_only=False)
     records: list[dict[str, Any]] = payload["records"]
-    device = resolve_device(device_name)
-    model, tokenizer, expected_dim = _load_prott5(model_name, device, model_path=model_path)
+    if model_name not in PROTT5_MODELS:
+        choices = ", ".join(sorted(PROTT5_MODELS))
+        raise ValueError(f"Unsupported ProtT5 model '{model_name}'. Available: {choices}")
+    _, expected_dim = PROTT5_MODELS[model_name]
 
     attached = 0
     loaded_from_cache = 0
@@ -219,8 +235,9 @@ def attach_prott5_embeddings(
     pending: list[dict[str, Any]] = []
 
     for record in records:
-        if skip_existing and torch.is_tensor(record.get("plm_features")):
-            record["plm_features"] = _validate_embedding(record, record["plm_features"], expected_dim)
+        existing = _reusable_existing_embedding(record, expected_dim, model_name) if skip_existing else None
+        if existing is not None:
+            record["plm_features"] = existing
             record["plm_model"] = model_name
             attached += 1
             continue
@@ -233,8 +250,21 @@ def attach_prott5_embeddings(
         else:
             pending.append(record)
 
+    model = None
+    tokenizer = None
+    device = None
+    if pending:
+        device = resolve_device(device_name)
+        model, tokenizer, loaded_dim = _load_prott5(model_name, device, model_path=model_path)
+        if loaded_dim != expected_dim:
+            raise RuntimeError(
+                f"Loaded ProtT5 metadata differs from registry for {model_name}: "
+                f"dim={loaded_dim}/{expected_dim}"
+            )
+
     with torch.no_grad():
         for start in range(0, len(pending), batch_size):
+            assert model is not None and tokenizer is not None and device is not None
             chunk = pending[start : start + batch_size]
             sequences = [_format_prott5_sequence(item["sequence"]) for item in chunk]
             encoded = tokenizer(
