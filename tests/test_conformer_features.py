@@ -82,6 +82,30 @@ def test_attach_maps_indexed_cache_to_original_id(tmp_path: Path) -> None:
     assert payload["records"][1]["conformer_available"] is False
 
 
+def test_attach_uses_portable_manifest_paths_across_cache_roots(tmp_path: Path, monkeypatch) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("pep_1"), _record("pep_2")]}, processed)
+    first = tmp_path / "cache_a" / "indexed_1"
+    second = tmp_path / "cache_b" / "pep_2"
+    first.mkdir(parents=True)
+    second.mkdir(parents=True)
+    _summary(first / "ensemble_summary.npz")
+    _summary(second / "ensemble_summary.npz")
+    manifest = tmp_path / "manifest.csv"
+    manifest.write_text(
+        "source_index,sample_id,original_id,sequence,label,conformer_index,cache_path\n"
+        "0,indexed_1,pep_1,ACD,1,0,cache_a/indexed_1/conformer_0000.npz\n"
+        "1,pep_2,pep_2,ACD,1,0,cache_b/pep_2/conformer_0000.npz\n",
+        encoding="utf-8",
+    )
+    monkeypatch.chdir(tmp_path)
+    output = tmp_path / "augmented.pt"
+    summary = attach_conformer_features(processed, manifest, tmp_path / "unused", output)
+    payload = torch.load(output, map_location="cpu", weights_only=False)
+    assert summary["covered_records"] == 2
+    assert all(record["conformer_available"] for record in payload["records"])
+
+
 def test_unavailable_conformer_branch_is_exact_fallback() -> None:
     config = {
         "model": {

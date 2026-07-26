@@ -20,6 +20,9 @@ Lib/
 /scripts/*
 !/scripts/generate_prott5_pooled_autodl.sh
 !/scripts/generate_prott5_tokens_autodl.sh
+!/scripts/install_colabfold_autodl.sh
+!/scripts/run_colabfold_16_30_autodl.sh
+!/scripts/evaluate_colabfold_16_30_oof.ps1
 
 # =========================
 # 3. 深度学习模型权重
@@ -43,6 +46,15 @@ Lib/
 /data/pepflow_pilot/*
 !/data/pepflow_pilot/train_pilot_250.fasta
 !/data/pepflow_pilot/train_pilot_250.csv
+!/data/af2_ensemble_16_30/
+/data/af2_ensemble_16_30/*
+!/data/af2_ensemble_16_30/smoke_2.fasta
+!/data/af2_ensemble_16_30/smoke_2.csv
+!/data/af2_ensemble_16_30/train_pilot_400.fasta
+!/data/af2_ensemble_16_30/train_pilot_400.csv
+!/data/af2_ensemble_16_30/train_full_2034.fasta
+!/data/af2_ensemble_16_30/train_full_2034.csv
+!/data/af2_ensemble_16_30/task_summary.json
 /dataset/
 /temp/
 

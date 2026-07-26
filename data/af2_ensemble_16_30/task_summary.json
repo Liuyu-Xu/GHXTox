@@ -1,0 +1,37 @@
+{
+  "selection_seed": 2026,
+  "length_range": [16, 30],
+  "ensemble_protocol": {
+    "generator": "ColabFold AlphaFold2-ptm",
+    "num_seeds": 4,
+    "models_per_seed": 5,
+    "generated_per_sample": 20,
+    "retained_by_backbone_rmsd_kmedoids": 8,
+    "max_seq": 16,
+    "max_extra_seq": 32,
+    "num_recycles": 3,
+    "dropout": false,
+    "mean_plddt_quality_floor": 50,
+    "interpretation": "prediction-uncertainty ensemble, not a thermodynamic ensemble"
+  },
+  "smoke": {
+    "samples": 2,
+    "positive": 1,
+    "negative": 1
+  },
+  "pilot": {
+    "samples": 400,
+    "positive": 197,
+    "negative": 203,
+    "fold_counts": {"0": 80, "1": 84, "2": 80, "3": 78, "4": 78},
+    "length_bin_counts": {"16-20": 102, "21-25": 100, "26-30": 198}
+  },
+  "full": {
+    "samples": 2034,
+    "positive": 670,
+    "negative": 1364,
+    "fold_counts": {"0": 366, "1": 401, "2": 403, "3": 436, "4": 428},
+    "length_bin_counts": {"16-20": 664, "21-25": 593, "26-30": 777}
+  },
+  "execution_order": ["smoke", "pilot", "full_after_pilot_retention_gate"]
+}

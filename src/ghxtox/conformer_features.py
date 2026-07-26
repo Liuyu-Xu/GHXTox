@@ -78,13 +78,32 @@ def _manifest_summaries(manifest: str | Path, cache_root: str | Path) -> dict[st
         for row in csv.DictReader(handle):
             original_id = str(row.get("original_id") or row["sample_id"])
             indexed_id = str(row["sample_id"])
+            # Full-cohort archives may combine several cache roots.  Prefer a
+            # portable manifest cache_path when it resolves locally; legacy
+            # server-absolute paths transparently fall back to cache_root.
+            cache_path_text = str(row.get("cache_path") or "").strip()
             path = cache_root / indexed_id / "ensemble_summary.npz"
+            if cache_path_text:
+                cache_path = Path(cache_path_text)
+                manifest_summary = cache_path.parent / "ensemble_summary.npz"
+                if manifest_summary.exists():
+                    path = manifest_summary
             if not path.exists():
                 raise FileNotFoundError(f"Missing ensemble summary for {original_id}: {path}")
             previous = summaries.setdefault(original_id, path)
             if previous != path:
                 raise ValueError(f"Multiple ensemble summaries were mapped to {original_id}.")
     return summaries
+
+
+def _manifest_sources(manifest: str | Path) -> list[str]:
+    with Path(manifest).open("r", encoding="utf-8-sig", newline="") as handle:
+        sources = {
+            str(row.get("source") or "").strip()
+            for row in csv.DictReader(handle)
+            if str(row.get("source") or "").strip()
+        }
+    return sorted(sources) or ["unknown_conformer_generator"]
 
 
 def attach_conformer_features(
@@ -101,6 +120,7 @@ def attach_conformer_features(
     payload = torch.load(processed, map_location="cpu", weights_only=False)
     records = payload["records"]
     summaries = _manifest_summaries(conformer_manifest, cache_root)
+    sources = _manifest_sources(conformer_manifest)
     covered_indices: list[int] = []
     for source_index, record in enumerate(records):
         sample_id = str(record["sample_id"])
@@ -130,7 +150,7 @@ def attach_conformer_features(
     if missing_ids:
         raise ValueError(f"{len(missing_ids)} manifest IDs are absent from processed data, e.g. {missing_ids[:3]}")
     payload.setdefault("metadata", {})["conformer_ensemble"] = {
-        "source": "PepFlow",
+        "source": sources[0] if len(sources) == 1 else sources,
         "manifest": str(conformer_manifest),
         "cache_root": str(cache_root),
         "covered_records": len(covered_indices),
@@ -149,7 +169,7 @@ def attach_conformer_features(
             "metadata": {
                 **payload.get("metadata", {}),
                 "source_indices": covered_indices,
-                "subset": "PepFlow-covered training pilot",
+                "subset": "conformer-covered training subset",
             },
         }
         pilot_output = Path(pilot_output)

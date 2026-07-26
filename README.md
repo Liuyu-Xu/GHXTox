@@ -1,6 +1,6 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-07-23
+更新时间：2026-07-26
 状态：工程默认为3D-v2构象统计残差结构专家与三随机种子pooled ProtT5专家的OOF冻结联合模型
 
 ## 阅读导航与当前结论
@@ -15,7 +15,8 @@
 - HyPepTox-Fuse启发的传统描述符专家、ESM2–ProtT5逐残基交互和受限三专家融合均已完成严格组感知OOF。传统描述符与交互专家分别达到MCC `0.8036/0.8116`；三专家融合虽把AUPRC提高到`0.9518`，但BACC/MCC降至`0.9277/0.8558`，因此未查看Test1/Test2、不修改默认模型，并禁止在当前数据上重复调权重。
 - 队友在HyPepTox-Fuse平衡基准上完成的七模型集成提供了“多成员概率平均、验证阈值与Platt校准”的工程参考。本项目已吸收为通用的组感知OOF集成筛选和单调概率校准工具，但不移植其平衡数据权重，不用已查看测试集继续搜模型，也不改变当前3D-v2/ProtT5默认模型。
 - 3D置信度机制已按优先级完成固定pLDDT门控、轻量可学习回退门控、8次MC-dropout、3D-v1/v2分歧和双3D-v2 checkpoint集成。严格nested outer-test中最高MCC为`0.8616`，仍低于当前默认`0.8666`，因此不更换默认权重，也不读取Test1/Test2继续筛选。
-- PepFlow真实构象集合已完成本地验证：250条训练内短肽、每条8构象，共2000个构象NPZ。直接对旧模型的构象概率求均几乎不改变排序；显式编码RMSF、成对距离方差和6/8/10 Å接触占有率的残差子路在固定`0.677819`下将全量OOF BACC/MCC由`0.91325/0.83620`提高到`0.91501/0.83902`；联合ProtT5后MCC由`0.86895`提高到`0.86935`。这是仅覆盖3.91%训练样本的探索性OOF证据，不代替新独立外部验证。
+- PepFlow真实构象集合已完成全部可支持短肽的生成与验证：761条3–15 aa训练肽、每条8构象，共6088个构象NPZ。250条分层pilot的构象统计残差在固定`0.677819`下将全量OOF BACC/MCC由`0.91325/0.83620`提高到`0.91501/0.83902`，联合ProtT5后MCC由`0.86895`提高到`0.86935`。扩展到761条后，未加权训练仅改善AUROC/AUPRC/Brier至`0.96064/0.92810/0.05936`，固定阈值MCC仍为`0.83620`；按扩展前类别贡献校正后固定阈值MCC降至`0.83550`。因此全量扩展作为负消融保留结论，工程默认仍使用性能更好的250条分层pilot候选。
+- 16–30 aa已新增AF2/ColabFold多构象结构增强接口，但尚未产生真实预测结果，因此不修改默认模型和现有指标。方案先对400条正负近似平衡pilot运行每条`4 seeds × 5 models=20`个AlphaFold2-ptm候选，再以mean pLDDT质量下限和N/CA/C主链RMSD k-medoids保留8个代表构象；只有组感知OOF满足“MCC不下降且BACC/AUROC/AUPRC至少一项提高”的既定门槛，才生成2034条全量。AF2多seed结果只解释为预测不确定性结构集合，不解释为热力学平衡构象。
 - 在构象残差默认之上又依次复验了样本级质量门控、四成员非负stacking和有符号结构残差。三者的严格nested MCC分别为`0.8614/0.8633/0.8627`，均低于冻结默认`0.8693`；后两类残差虽把SN提高到`0.8889/0.8966`，却因假阳性增加而降低MCC和排序指标，故临时代码与结果已清理。当前停止在同一OOF上继续搜索融合公式。
 - 拓扑审计显示train/Test1/Test2中至少含两个Cys的样本比例为`40.52%/39.43%/25.26%`，高Cys拓扑风险比例为`22.84%/21.94%/9.45%`。这支持后续拓扑感知建模，但FASTA不能确定成环方式或二硫键连接，不能把Cys富集样本直接视为环肽。
 - 历史3D-v1 Cα模型保留为无化学位点输入时的自动回退，阈值仍为`0.85`。
@@ -48,7 +49,9 @@
 
 得到PepFlow构象残差后，项目按同一保留门槛复验了三种不会移除多维输入的融合方式。第一，使用更新后的结构概率重新训练样本级质量门控，nested BACC/SN由默认`0.9275/0.8812`提高到`0.9289/0.8944`，但MCC/AUROC/AUPRC降至`0.8614/0.9764/0.9513`，只在2/5折提高MCC。第二，对构象3D专家和三个ProtT5种子做非负stacking，MCC为`0.8633`，且MCC、AUROC、AUPRC和折胜数门槛均失败。第三，以当前联合概率为不可移除基线，允许一个强正则有符号结构残差利用专家分歧、ProtT5不确定性、pLDDT、结构门控、长度和构象变化；其SN提高到`0.8966`，但SP降至`0.9632`，最终MCC为`0.8627`，同样只有2/5折胜出。
 
-这轮结果把融合瓶颈定位得更具体：三维专家确实能救回部分毒性假阴性，但现有质量统计不能可靠区分这些获益样本与随之增加的非毒性假阳性。继续加深门控、调整固定权重或在当前OOF上搜阈值，增加的是选择自由度而不是新证据。因此工程默认保留`ProtT5 0.62 + 构象能力感知3D 0.38`，下一轮只接受三类信息增量：将PepFlow覆盖从250条扩到全部761条支持长度样本、独立训练的3D-v2随机种子、以及事先冻结且具备构象输入的新验证集。
+这轮结果把融合瓶颈定位得更具体：三维专家确实能救回部分毒性假阴性，但现有质量统计不能可靠区分这些获益样本与随之增加的非毒性假阳性。继续加深门控、调整固定权重或在当前OOF上搜阈值，增加的是选择自由度而不是新证据。因此工程默认保留`ProtT5 0.62 + 构象能力感知3D 0.38`。
+
+随后已经把PepFlow覆盖从250条扩展到全部761条支持长度样本。新增511条全部属于非毒性类，因而“样本更多”没有带来新的毒性构象覆盖：未加权五折训练在固定阈值下与基础3D的BACC/MCC完全相同，仅带来极小排序和Brier改善；按`650/139=4.6763`对正类损失校正以恢复pilot时期的相对类别贡献后，固定阈值MCC反而由`0.83620`降到`0.83550`，AUROC/AUPRC/Brier也不再改善。联合ProtT5后，未加权全量候选MCC为`0.86895`，类别校正版虽回到`0.86935`，但AUROC/AUPRC/Brier均低于当前默认，因此两者都未通过预设保留门槛。下一轮只接受两类真正的信息增量：独立训练的3D-v2随机种子，以及事先冻结且同时具备正、负构象输入的新验证集。
 
 没有照搬的部分包括：对全部候选反复计算独立测试集指标、看过测试结果后继续搜索集成、用同一验证集同时承担所有模型选择和最终结论、以及把校准带来的Brier/ECE改善描述成ACC/MCC提升。当前Test1/Test2和ToxinPred3标签已经被历史开发查看，仍只能用于冻结历史比较；新的集成筛选必须使用训练内group-aware OOF，最终无偏结论需要新的预冻结外部集。
 
@@ -757,20 +760,22 @@ ToxinPred3 strict上的历史3D-v1 precision为0.9162、recall为0.5428、MCC为
 
 | 优先级 | 前沿方法 | 本项目的使用方式 | 当前状态 |
 | ---: | --- | --- | --- |
-| 1 | PepFlow全原子构象集合 | 每条肽8个构象；计算6/8/10 Å接触占有率、残基RMSF、构象RMSD、回转半径及成对距离均值/方差，以可用性硬掩码的小logit残差融入3D-v2 | **250条/2000构象已生成，五折OOF训练、全量预测和配对分析已完成；已进入能力感知默认结构checkpoint** |
-| 2 | PepFlow覆盖扩展 | 使用已经冻结的相同8构象与统计协议，把训练覆盖从250条扩展到全部761条3–15 aa样本；按fold与标签做覆盖平衡采样，不改变Test1/Test2阈值 | **当前最高优先级；需要在服务器继续生成剩余511条，不属于新增训练标签** |
-| 3 | 独立3D-v2随机种子 | 在相同fold、相同数据和相同结构上补齐至少seed 123/2025，用种子间结构概率方差替代单checkpoint MC-dropout，并只在nested角色训练残差 | 当前只有完整seed 42；这是检验3D增益是否稳定、能否形成可靠门控的必要条件 |
-| 4 | 预冻结构象验证集 | 在查看标签指标前先冻结样本、构象生成器、融合权重、阈值和保留门槛，再生成ESMFold/PepFlow输入 | 当前没有；完成后才允许决定多维默认是否真正超过同数据论文 |
+| 1 | PepFlow全原子构象集合 | 每条肽8个构象；计算6/8/10 Å接触占有率、残基RMSF、构象RMSD、回转半径及成对距离均值/方差，以可用性硬掩码的小logit残差融入3D-v2 | **761条/6088构象均已生成并完成五折OOF；250条分层pilot候选仍是性能最优的能力感知结构checkpoint** |
+| 2 | PepFlow覆盖扩展 | 使用冻结的相同8构象与统计协议，把训练覆盖从250条扩展到全部761条3–15 aa样本；不改变Test1/Test2阈值 | **已完成；新增511条全为负类，未加权与类别校正训练均未超过250条pilot，作为负消融结束** |
+| 3 | 独立3D-v2随机种子 | 在相同fold、相同数据和相同结构上补齐至少seed 123/2025，用种子间结构概率方差替代单checkpoint MC-dropout，并只在nested角色训练残差 | **当前最高优先级**；当前只有完整seed 42，这是检验3D增益是否稳定、能否形成可靠门控的必要条件 |
+| 4 | 预冻结构象验证集 | 在查看标签指标前先冻结样本、构象生成器、融合权重、阈值和保留门槛，并保证短肽正负类均有构象输入 | 当前没有；完成后才允许决定多维默认是否真正超过同数据论文 |
 | 5 | BioEmu平衡态采样 | 作为独立构象来源验证PepFlow结论，并用于模型间/生成器间分歧；不把蛋白质单体上的论文性能直接外推到短肽 | 接口兼容，尚未生成；用于检验PepFlow改善是否跨生成器稳定 |
 | 6 | AF3/Boltz跨模型静态共识 | 在同一pilot上与ESMFold比较接触图、官能团位置和分类概率分歧；用于结构可靠性，不把多次扩散sample直接称为热力学平衡态 | Boltz可作为开源入口，尚无本地缓存 |
 | 7 | AfCycDesign/PepFlow约束采样 | 只对有实验或数据库拓扑标注的环肽/二硫键肽显式加入闭环或共价约束 | 已完成序列可见风险审计；缺少真实连接标签，暂不生成伪拓扑 |
 | 8 | AlphaFold约束MD、MDGen或短程物理精修 | 只处理构象分歧高、序列/结构专家冲突或拟进入湿实验的少量样本 | 高成本后续项，不用于当前全量筛查 |
 
-当前实际完成的拓扑审计见[`runs/peptide_topology_audit/summary.json`](runs/peptide_topology_audit/summary.json)。PepFlow官方实现硬限制长度不超过15 aa，训练集6387条中有761条长度为3–15 aa，而不是旧文档中的3–30 aa/2795条。本轮pilot为250条，实际长度11–15 aa。为避免服务器重复计算，已用`source_index`显式排除这250条，并生成剩余511条的[`FASTA`](data/pepflow_pilot/train_remaining_511_le15.fasta)和[`清单`](data/pepflow_pilot/train_remaining_511_le15.csv)；两份清单合并后恰为761条且无重复。2588条至少含两个Cys，1459条达到预设高Cys风险规则；这些仍只是序列风险审计，不是二硫键或成环连接标签。
+当前实际完成的拓扑审计见[`runs/peptide_topology_audit/summary.json`](runs/peptide_topology_audit/summary.json)。PepFlow官方实现硬限制长度不超过15 aa，训练集6387条中有761条长度为3–15 aa，而不是旧文档中的3–30 aa/2795条。首轮pilot为250条，实际长度11–15 aa，并已用`source_index`排除重复后生成剩余511条的[`FASTA`](data/pepflow_pilot/train_remaining_511_le15.fasta)和[`清单`](data/pepflow_pilot/train_remaining_511_le15.csv)。现在两批均已完成：761条样本、6088个构象NPZ、761个集合统计NPZ，清单无重复且每条均为8构象。标签审计显示pilot为111正/139负，新增511条全部为负，合并后为111正/650负；这也是覆盖扩展没有提高分类指标的关键限制。2588条至少含两个Cys，1459条达到预设高Cys风险规则；这些仍只是序列风险审计，不是二硫键或成环连接标签。
 
 第一轮pilot严格限制在训练数据内部：[`data/pepflow_pilot/train_pilot_250_le15.fasta`](data/pepflow_pilot/train_pilot_250_le15.fasta)由固定CD-HIT fold、标签和拓扑风险分层，实际覆盖27个非空fold×标签×风险组合。旧模型的直接构象均值在固定阈值下0次翻转，只使Brier/ECE小幅变好，说明旧Cα-EGNN对这些坐标扰动近乎不变。因此新模型改为显式柔性残差：每折只用其余四折pilot样本学习15个新张量，旧主干全部冻结，再预测held-out fold和全部6387条。
 
 在pilot上，固定旧阈值`0.677819`时BACC/MCC由`0.73521/0.51615`提高到`0.76583/0.57218`，AUROC/AUPRC由`0.81885/0.82234`提高到`0.82112/0.82484`，Brier/ECE-10由`0.20460/0.19846`降为`0.20128/0.19599`。在全量OOF上，同一阈值的BACC/MCC由`0.91325/0.83620`提高到`0.91501/0.83902`，AUROC/AUPRC由`0.96059/0.92800`提高到`0.96069/0.92817`。配对bootstrap虽为六个指标给出同向区间，但方案参数仍来自同一训练OOF开发过程，只能称为内部探索性改善。
+
+覆盖扩展采用相同fold、相同冻结3D-v2主干、相同15个可训练构象张量和相同固定阈值。未加权761条训练的固定阈值BACC/MCC仍为`0.91325/0.83620`，AUROC/AUPRC由基础值小幅升到`0.96064/0.92810`，Brier从`0.05953`降到`0.05936`；与250条候选相比，MCC低`0.00282`。由于新增511条均为负类，预先限定的唯一优化是按`650/139=4.6763`恢复pilot时期正负类对损失的相对贡献；该版本固定阈值BACC/MCC为`0.91320/0.83550`，AUROC/AUPRC/Brier为`0.96058/0.92789/0.05987`，未通过MCC、BACC、排序和校准保留门槛。该结果说明瓶颈是毒性短肽构象覆盖不足，而不是训练轮数或网络深度不足。
 
 PepFlow或BioEmu生成的PDB没有ESMFold pLDDT。本轮缓存明确标记`confidence_imputed=1`；构象统计子路不把该伪置信度当作pLDDT，仍由原ESMFold主干提供单结构质量，PepFlow只提供跨构象的方差和占有率。生成器物理可靠性仍未标定，下一步不是继续在同一OOF上放大残差，而是用BioEmu/短程MD或新外部集检验跨生成器一致性。
 
@@ -923,7 +928,7 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 
 ## 8. 创新点及参考论文来源
 
-本项目的贡献不在于重新发明ESM2、EGNN、原子图或跨注意力，而在于把毒性预测参考工作和最新多肽构象建模工作中分散的序列、原子化学、等变几何、多尺度建模、不平衡学习、构象集合与拓扑约束思路，组织成一个能够显式处理结构置信度、能够回退、也能被消融检验的框架。其中，“多化学位点—方向—连续双尺度相互作用残差”和“构象占有率—柔性统计残差”都已进入能力感知默认结构专家；前者覆盖所有有全原子ESMFold缓存的样本，后者目前只覆盖250条PepFlow pilot，其余样本硬回退3D-v2。
+本项目的贡献不在于重新发明ESM2、EGNN、原子图或跨注意力，而在于把毒性预测参考工作和最新多肽构象建模工作中分散的序列、原子化学、等变几何、多尺度建模、不平衡学习、构象集合与拓扑约束思路，组织成一个能够显式处理结构置信度、能够回退、也能被消融检验的框架。其中，“多化学位点—方向—连续双尺度相互作用残差”和“构象占有率—柔性统计残差”都已进入能力感知默认结构专家；前者覆盖所有有全原子ESMFold缓存的样本，后者已生成761条PepFlow输入，但依据OOF保留门槛仍使用250条分层pilot训练得到的残差权重，其余样本硬回退3D-v2。
 
 | 本项目组成 | 主要思想来源 | 原论文做法 | 本项目的具体改造或新增 |
 | --- | --- | --- | --- |
@@ -934,7 +939,7 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 | 预训练均值表征与边界少数类增强 | ToxPLTC（JCIM 2026） | ProtT5-XL-UniRef50 1024维均值向量、Borderline-SMOTE、4/5/6窗口TextCNN | 实现pooled-PLM TextCNN；合成样本严格限制在每个训练折内；完成真实ProtT5、1:1增强和三种子消融，并将最终专家按留一同源组折OOF冻结权重接入3D-v2联合默认 |
 | 多PLM交互与传统描述符补充 | HyPepTox-Fuse（JPA 2025） | ESM-1/ESM-2/ProtT5逐残基交互、Transformer融合、40类描述符排序与LightGBM筛选、BCE+NT-Xent | 只迁移当前数据可验证的部分：AAC/DPC/CKSAAP/ASDC折内筛选，以及已有ESM2/ProtT5缓存的双向交互；两者都带来排序互补但降低留一折BACC/MCC，故作为负消融而非默认模块 |
 | 多化学位点、方向与连续多尺度相互作用图 | 本项目提出；受 PeptiTox 多原子几何、ToxiPep 原子化学和 StrucToxNet EGNN 启发 | 三篇工作分别提供多原子几何、原子级化学或等变图思想，但没有采用本项目这一组合 | 从全原子 PDB 拆分芳香/极性/电荷/疏水等位点，加入键方向或平面法向，以原始 Å 距离和回转半径归一化距离的连续 RBF 编码六类候选相互作用，经零初始化残差并入 Cα-EGNN；Pareto checkpoint 五折 MCC/AUPRC 均为正增益，同残基位点边提供极小附加排序增益，但仍未在新独立数据上确认 |
-| 全原子构象集合与接触占有率 | PepFlow；BioEmu和MDGen作为后续独立来源 | PepFlow直接采样多肽全原子构象；BioEmu近似蛋白单体平衡分布；MDGen生成动力学轨迹 | 不把8个构象当成8条样本；将对齐后的RMSF、距离方差、接触占有率、RMSD和回转半径编码为可用性硬掩码的logit残差。250条真实PepFlow pilot已完成泄漏隔离OOF，全量OOF MCC小幅提高；仍需新外部集或第二生成器确认 |
+| 全原子构象集合与接触占有率 | PepFlow；BioEmu和MDGen作为后续独立来源 | PepFlow直接采样多肽全原子构象；BioEmu近似蛋白单体平衡分布；MDGen生成动力学轨迹 | 不把8个构象当成8条样本；将对齐后的RMSF、距离方差、接触占有率、RMSD和回转半径编码为可用性硬掩码的logit残差。761条真实PepFlow样本已完成泄漏隔离OOF；250条分层pilot有效，而仅增加负类的全覆盖版本未通过门槛，提示构象数据也需要标签覆盖而非只追求数量 |
 | 跨结构模型一致性 | AlphaFold 3与Boltz-1 | 扩散式全原子结构/复合物预测，可产生多个结构sample | 把AF3/Boltz作为ESMFold之外的结构来源，用接触图与分类概率分歧估计可靠度；不把多个扩散sample解释为平衡构象集合 |
 | 环肽与二硫键拓扑感知 | AfCycDesign；PepFlow macrocyclization约束 | 循环相对位置编码或显式原子距离/成键约束 | 先审计Cys与显式header注释；只有连接关系可追溯时才加入闭环/二硫键，不从序列Cys数量猜测连接 |
 
@@ -1017,6 +1022,7 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 | 残差专家 / 动态路由 | 残差专家平均MCC `-0.0030`；路由校准改善但Test2 MCC未超过冻结3D | 保留为可靠度分析，不替换默认分类器 |
 | PepFlow构象逐个前向后等权均值 | 250条pilot概率相关`0.99981`、平均绝对变化`0.00204`、阈值翻转`0` | 旧单构象主干未显式使用跨构象占有率；不保留多次昂贵前向作为默认 |
 | PepFlow构象统计残差 | pilot固定阈值BACC/MCC `+0.03062/+0.05604`；全量OOF `+0.00176/+0.00282`，AUROC/AUPRC/Brier同向 | 保留为可选3D子路；无构象数据硬回退3D-v2，新外部集前只称探索性改善 |
+| PepFlow覆盖扩展到761条 | 新增511条全为负类；未加权固定阈值MCC与基础3D同为`0.83620`，类别校正版为`0.83550`；联合ProtT5后前者`0.86895`、后者`0.86935`，但均未同时守住排序与校准门槛 | 拒绝替换250条pilot默认；说明关键瓶颈是新增毒性短肽构象，而不是单纯增加负类构象数量 |
 | 构象残差后的质量门控/非负stacking/有符号结构残差 | 严格nested MCC分别为`0.8614/0.8633/0.8627`，均低于构象能力感知默认`0.8693`；有符号残差SN升至`0.8966`但SP降至`0.9632` | 三维能救回部分假阴性，但现有质量特征无法抑制新增假阳性；三项均拒绝，不再在当前OOF搜索融合公式 |
 
 这些消融共同支持的不是“模型越复杂越好”，而是三个更具体的选择：序列信息始终作为基础；结构信息需要根据置信度连续降权；侧链化学只以小残差方式修正Cα空间表示，避免破坏已稳定的主干。
@@ -1027,7 +1033,7 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 
 本项目将单构象的“距离小于阈值”改写为跨构象占有率，并把残基RMSF、构象概率标准差和结构生成器分歧保留为不确定性。生物学上，持续高占有率的接触比单个预测坐标中的偶然接触更接近稳定空间倾向；高构象方差则提示该位点关系依赖构象选择。它们仍然不是溶液NMR、膜环境MD或实验成键证据，因此当前只能作为待验证的模型结构统计量。
 
-实验结果进一步限定了这个创新的作用位置：把每个PepFlow坐标直接送入原3D-v2后做概率平均，平均绝对概率变化只有`0.00204`且无阈值翻转；说明单构象主干并不会自动学到“哪个接触在多少构象中出现”。显式集合统计残差则在pilot固定阈值下使MCC提高`0.0560`，折算到仅有3.91%样本带构象的全量OOF仍提高`0.00282`。这支持“柔性和接触占有率是单结构之外的条件信息”，但幅度与覆盖率都不支持普遍性因果声称。
+实验结果进一步限定了这个创新的作用位置：把每个PepFlow坐标直接送入原3D-v2后做概率平均，平均绝对概率变化只有`0.00204`且无阈值翻转；说明单构象主干并不会自动学到“哪个接触在多少构象中出现”。显式集合统计残差在250条分层pilot固定阈值下使MCC提高`0.0560`，折算到全量OOF仍提高`0.00282`。但把输入扩到761条后，由于新样本全部为负类，增益没有继续扩大；这支持“柔性和接触占有率是单结构之外的条件信息”，同时说明该证据依赖正负类构象覆盖，不能把样本数量增长解释为普遍性增强。
 
 ---
 
@@ -1111,7 +1117,21 @@ MODEL_PATH=/root/autodl-tmp/models/prot_t5_xl_half_uniref50-enc \
 
 论文：Abdin 与 Kim，[*Direct conformational sampling from peptide energy landscapes through hypernetwork-conditioned diffusion*](https://www.nature.com/articles/s42256-024-00860-4)，Nature Machine Intelligence 6, 775–786 (2024)；[官方代码](https://gitlab.com/oabdin/pepflow)。PepFlow以扩散训练和等价flow进行可迁移的全原子多肽构象采样，并支持macrocyclization约束。它直接针对短肽柔性，比“换一个静态结构预测器”更贴近本项目单ESMFold构象的局限。
 
-本项目不复现PepFlow训练，只调用官方冻结参数生成构象。已对250条短肽生成每条8个构象，并完成两阶段验证：首先证明旧模型的等权构象概率聚合几乎不改变排序；随后将接触占有率、RMSF、RMSD、回转半径和距离方差显式编码为零初始化logit残差，五折泄漏隔离OOF取得小幅同向改善。因此该子路已进入默认结构checkpoint，但只在输入实际附带构象统计时生效，无数据样本严格回退原3D-v2。
+本项目不复现PepFlow训练，只调用官方冻结参数生成构象。现已对全部761条受支持短肽生成每条8个构象，并完成三阶段验证：首先证明旧模型的等权构象概率聚合几乎不改变排序；随后在250条分层pilot上将接触占有率、RMSF、RMSD、回转半径和距离方差显式编码为零初始化logit残差，五折泄漏隔离OOF取得小幅同向改善；最后在全部761条上复训未加权和类别校正版本。由于新增511条均为负类，两个全覆盖版本均未同时超过pilot的MCC、排序和校准指标。因此默认仍保留pilot训练得到的构象残差，只在输入实际附带相应构象统计时生效，无数据样本严格回退原3D-v2。
+
+### 9.7A AF2/ColabFold：16–30 aa的预测不确定性结构增强
+
+16–30 aa超出PepFlow官方实现的长度上限，但仍处于已有AlphaFold2短肽基准覆盖的10–40 aa范围。两项短肽研究分别在557条和588条肽上评估了AF2/ColabFold：结果支持它对部分α螺旋、β-hairpin和二硫键丰富肽产生有价值的候选结构，同时指出短肽类别差异、主链二面角/二硫键配对误差，以及“最高pLDDT不一定最接近实验构象”的限制（[McDonald等，2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11642853/)；[Alderson等，2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9883802/)）。因此本项目不再取单一rank-1结构，也不把多seed输出称为真实平衡态构象。
+
+当前已实现但尚未获得服务器真实结果的协议如下：
+
+1. 训练集中共有2034条16–30 aa肽，其中670条毒性、1364条非毒性；先固定400条近似平衡pilot（197/203），不读取Test1/Test2选择结构方案。
+2. 每条肽用AlphaFold2-ptm、浅MSA `16:32`、4个随机seed和5个模型生成20个未松弛候选；3次recycle、不使用模板、dropout或`--save-all`。该设置是对短肽论文“16 seeds × 5 models=80”的四分之一成本pilot，若结构覆盖不足可在不改变评估协议的前提下补到16 seeds。
+3. 先检查序列/残基/原子完整性；mean pLDDT `<50`只在高质量候选不足8个时作为低可信回退。其余候选按N/CA/C主链Kabsch对齐RMSD做确定性k-medoids聚类，保留8个代表构象，而不是按pLDDT或rank截取8个近重复结构。
+4. 8个代表构象复用现有全原子化学位点与构象统计接口，得到逐构象NPZ、RMSF、构象RMSD、回转半径、成对距离均值/方差和6/8/10 Å接触占有率；真实AF2 pLDDT来自PDB B-factor列，不使用PepFlow的插补置信度。
+5. 集合统计仍通过零初始化、小权重、`conformer_available`硬掩码的logit残差接入3D-v2。无AF2数据时严格回退ESMFold 3D-v2，因此该实验增加结构能力但不移除ESM2序列、全原子化学位点或ProtT5联合维度。
+
+预先声明的保留门槛沿用现有构象实验规则：400条pilot的group-aware OOF中MCC不得下降，并且BACC、AUROC或AUPRC至少一项提高；同时报告Brier/ECE、bootstrap区间和五折稳定性。未通过则停止，不生成2034条全量，只在消融表保留负结果；通过后才生成全量并检查冻结`ProtT5 0.62 + 结构 0.38`联合结果。AF2多seed频率不能解释为构象占有率或自由能，膜环境、pH、受体结合态、非天然残基和真实二硫键拓扑仍是该路线的主要生物学边界。
 
 ### 9.8 BioEmu：独立的平衡态构象来源
 
@@ -1305,7 +1325,7 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 - 当前3D-v2没有新的预冻结独立外部集；ToxinPred3只支持历史1D/2D/3D-v1的冻结迁移结论；
 - ESMFold 对短肽、柔性肽和多构象体系可能不稳定；
 - 当前3D-v2已加入侧链化学位点，但仍不能完整表达真实氢键、溶剂作用、膜环境、质子化状态和构象集合；
-- PepFlow构象统计目前只覆盖250/6387条训练样本（3.91%），且没有Test1/Test2或新独立集的对应构象；内部OOF改善不能外推为全数据域稳定增益；
+- PepFlow已覆盖全部761/6387条受支持的3–15 aa训练样本（11.91%），但其中仅111条为毒性肽，新增511条全部为非毒性肽；Test1/Test2或新独立集仍没有对应构象，内部OOF结果不能外推为全数据域稳定增益；
 - 当前 2D 图没有独立的结构质量分数，也没有真实构象；
 - 逐残基ProtT5缓存额外占用约498 MiB，但局部CNN没有超过pooled候选，更高存储和局部建模成本尚未转化为泛化收益；
 - 只处理标准线性序列，对环肽、非天然残基和翻译后修饰支持不足；
@@ -1328,7 +1348,7 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 - “在严格ToxinPred3集上，1D ESM2-BiLSTM的冻结迁移性能高于历史2D和3D-v1；3D-v2尚无新的独立外部结论。”
 - “高 pLDDT 子集性能更好，但硬筛选高 pLDDT 训练样本没有改善完整测试域，因此采用连续质量感知。”
 - “多化学位点、方向和连续双尺度距离残差支路经MCC约束的AUPRC Pareto checkpoint选择后，在五个训练内同源分组fold上一致小幅改善MCC、F1和AUPRC，并已成为联合默认中的3D-v2结构专家。”
-- “对250条训练内短肽的PepFlow全原子构象集合，显式编码RMSF、成对距离方差和接触占有率的可用性掩码残差在组感知OOF上改善了结构专家指标；该结论属于有限覆盖的训练内探索证据。”
+- “对761条受支持训练短肽均已生成PepFlow全原子构象集合；250条正负分层pilot上的RMSF、成对距离方差和接触占有率残差改善了组感知OOF结构指标，而新增全为负类的511条没有进一步提高MCC，因此默认保留pilot权重，该结论仍属于训练内探索证据。”
 - “配对分析支持训练内OOF AUROC/AUPRC提高，但不支持OOF MCC或Test1/Test2 MCC已经显著提高。”
 - “16条去重TP/TN/FP/FN案例显示化学位点残差可双向修正毒性logit；该干预属于模型解释，不是物理相互作用的实验确认。”
 - “已完成长度、pLDDT、净电荷、疏水性、Cys数量和位点覆盖率分层；低pLDDT Test1与富Cys Test2的AUPRC改善属于探索性假说。”
@@ -1381,13 +1401,17 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | 历史3D-v1回退checkpoint | [`runs/plm_fusion_esm2_geometry_confidence/best_model.pt`](runs/plm_fusion_esm2_geometry_confidence/best_model.pt) |
 | 全原子 ESMFold PDB（9,072 条） | [`data/esmfold_fullatom/pdb/`](data/esmfold_fullatom/pdb/) |
 | PepFlow训练内250条分层pilot | [`data/pepflow_pilot/train_pilot_250_le15.fasta`](data/pepflow_pilot/train_pilot_250_le15.fasta)、[`data/pepflow_pilot/train_pilot_250_le15.csv`](data/pepflow_pilot/train_pilot_250_le15.csv) |
-| PepFlow尚未生成的511条去重扩展集 | [`data/pepflow_pilot/train_remaining_511_le15.fasta`](data/pepflow_pilot/train_remaining_511_le15.fasta)、[`data/pepflow_pilot/train_remaining_511_le15.csv`](data/pepflow_pilot/train_remaining_511_le15.csv) |
+| PepFlow已完成的511条去重扩展集 | [`data/pepflow_pilot/train_remaining_511_le15.fasta`](data/pepflow_pilot/train_remaining_511_le15.fasta)、[`data/pepflow_pilot/train_remaining_511_le15.csv`](data/pepflow_pilot/train_remaining_511_le15.csv)、`data/pepflow_pilot/cache_remaining_le15/` |
 | PepFlow可断点批量生成入口 | [`src/ghxtox/pepflow_batch.py`](src/ghxtox/pepflow_batch.py) |
 | multi-model PDB与构象统计缓存 | [`src/ghxtox/conformer_cache.py`](src/ghxtox/conformer_cache.py) |
 | fold-specific构象集合OOF评估 | [`src/ghxtox/conformer_ensemble_eval.py`](src/ghxtox/conformer_ensemble_eval.py) |
 | PepFlow统计挂接与维度定义 | [`src/ghxtox/conformer_features.py`](src/ghxtox/conformer_features.py) |
 | 构象统计残差配置 | [`configs/conformer_ensemble_residual_calibrated.json`](configs/conformer_ensemble_residual_calibrated.json) |
 | 构象残差五折与全量OOF结果 | [`runs/conformer_ensemble_residual_oof/`](runs/conformer_ensemble_residual_oof/) |
+| 761条全覆盖训练与类别校正负消融 | [`runs/conformer_full761_screen/decision.json`](runs/conformer_full761_screen/decision.json) |
+| AF2/ColabFold 16–30 aa任务清单 | [`data/af2_ensemble_16_30/task_summary.json`](data/af2_ensemble_16_30/task_summary.json) |
+| ColabFold多模型收集、质量检查与RMSD medoid缓存 | [`src/ghxtox/colabfold_ensemble_cache.py`](src/ghxtox/colabfold_ensemble_cache.py) |
+| AutoDL安装、生成与本地OOF入口 | [`scripts/install_colabfold_autodl.sh`](scripts/install_colabfold_autodl.sh)、[`scripts/run_colabfold_16_30_autodl.sh`](scripts/run_colabfold_16_30_autodl.sh)、[`scripts/evaluate_colabfold_16_30_oof.ps1`](scripts/evaluate_colabfold_16_30_oof.ps1) |
 | 新结构专家与ProtT5冻结融合OOF | [`runs/3d_v2_conformer_prott5_frozen_oof/`](runs/3d_v2_conformer_prott5_frozen_oof/) |
 | 成环/二硫键序列风险审计 | [`src/ghxtox/peptide_topology_audit.py`](src/ghxtox/peptide_topology_audit.py)、[`runs/peptide_topology_audit/summary.json`](runs/peptide_topology_audit/summary.json) |
 | 官能团中心与主链几何解析 | [`src/ghxtox/esmfold_cache.py`](src/ghxtox/esmfold_cache.py) |
@@ -1520,7 +1544,7 @@ GHXTox 当前最有价值的贡献不是单一指标上的绝对领先，而是�
 - 3D-v2在pLDDT约束下联合使用1D序列、Cα空间邻域、全原子化学位点和可用时的PepFlow构象统计，因此当前默认模型使用的是1D+3D两个维度；
 - ToxPLTC启发的pooled ProtT5、折内Borderline-SMOTE、TextCNN和三种子集成已通过留一同源组折OOF接入3D-v2；冻结权重为ProtT5/3D-v2=`0.62/0.38`，形成当前工程默认；
 - 化学位点支路经Pareto checkpoint后在五折上稳定小幅改善MCC、F1和AUPRC；同残基位点边提供极小附加排序增益，随后完成8轮全训练集重拟合；
-- PepFlow构象子路表明，直接平均单构象预测不足以利用柔性，而显式RMSF/接触占有率残差可在有限覆盖OOF上同时改善阈值指标、排序和概率误差；当前仍属训练内探索性证据；
+- PepFlow构象子路表明，直接平均单构象预测不足以利用柔性，而显式RMSF/接触占有率残差可在正负分层pilot OOF上同时改善阈值指标、排序和概率误差；761条全覆盖负消融进一步表明，仅增加非毒性构象不会继续提高分类性能；
 - 5000次配对分析确认训练内OOF AUROC/AUPRC增益，但MCC和现有Test1/Test2差异没有形成统计确认；
 - 严格外部结果显示复杂结构信息并非总能迁移，因此项目保留1D回退并报告结构质量；
 - 生物学解释已扩展为16条去重TP/TN/FP/FN案例的遮蔽、IG、门控、空间热点和化学位点删除干预，同时明确保留单checkpoint与无湿实验限制；
@@ -1614,6 +1638,33 @@ $checkpoints = 0..4 | ForEach-Object {
 ```
 
 五折候选只用于OOF评估；`runs/3d_v2_conformer_ensemble_candidate/best_model.pt`才是用全250条pilot重拟合的工程checkpoint。其中仅新增构象子路可训练，原3D-v2主干冻结；12轮取自五折最佳epoch `23/18/9/12/1`的中位数。
+
+### AF2/ColabFold 16–30 aa多构象（AutoDL）
+
+服务器只负责结构生成与NPZ转换，不需要上传本地训练`.pt`、checkpoint、ESM2或ProtT5缓存。上传最新的`af2_colabfold_16_30_server_inputs_20260726.tar.gz`及`.sha256`到`/root/autodl-tmp/`，按以下顺序执行：
+
+```bash
+cd /root/autodl-tmp
+sha256sum -c af2_colabfold_16_30_server_inputs_20260726.tar.gz.sha256
+mkdir -p GHXTox
+tar -xzf af2_colabfold_16_30_server_inputs_20260726.tar.gz -C GHXTox
+
+# pixi隔离安装，不修改GHXTox的Conda环境，也不下载约940 GB本地MSA数据库
+cd /root/autodl-tmp/GHXTox
+bash scripts/install_colabfold_autodl.sh
+
+# 先2条smoke，成功后才运行400条pilot
+bash scripts/run_colabfold_16_30_autodl.sh smoke
+bash scripts/run_colabfold_16_30_autodl.sh pilot
+```
+
+长任务建议放入`screen`；日志位于`runs/af2_ensemble_16_30_{scope}/`。脚本可在同一路径重跑并复用已有MSA/预测，完成后自动生成`/root/autodl-tmp/af2_ensemble_16_30_{scope}_YYYYMMDD.tar.gz`及校验文件。smoke/pilot应分别得到`2/400`条集合和`16/3200`个构象NPZ。本地解压pilot包后运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/evaluate_colabfold_16_30_oof.ps1 -Scope pilot
+```
+
+只有`runs/af2_16_30_pilot400_residual_oof/decision.json`中`retained=true`才回服务器执行`bash scripts/run_colabfold_16_30_autodl.sh full`。full预期2034条集合、16272个构象NPZ。安装和运行脚本会保留ColabFold帮助、协议、MSA/预测/缓存日志、收集清单与真实pLDDT，便于论文复现。
 
 ### PepFlow构象集合pilot（AutoDL）
 
