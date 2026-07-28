@@ -126,6 +126,29 @@ def _classification_metrics(
     }
 
 
+def _combine_probabilities(
+    baseline_probabilities: np.ndarray,
+    expert_probabilities: np.ndarray,
+    expert_weight: float,
+    fusion_space: str,
+) -> np.ndarray:
+    weight = float(expert_weight)
+    if fusion_space == "probability":
+        return (
+            weight * expert_probabilities
+            + (1.0 - weight) * baseline_probabilities
+        )
+    if fusion_space == "logit":
+        epsilon = 1e-6
+        baseline = np.clip(baseline_probabilities, epsilon, 1.0 - epsilon)
+        expert = np.clip(expert_probabilities, epsilon, 1.0 - epsilon)
+        baseline_logit = np.log(baseline / (1.0 - baseline))
+        expert_logit = np.log(expert / (1.0 - expert))
+        fused_logit = (1.0 - weight) * baseline_logit + weight * expert_logit
+        return 1.0 / (1.0 + np.exp(-np.clip(fused_logit, -40.0, 40.0)))
+    raise ValueError("fusion_space must be 'probability' or 'logit'.")
+
+
 def _select_weight_threshold(
     labels: np.ndarray,
     baseline_probabilities: np.ndarray,
@@ -134,15 +157,28 @@ def _select_weight_threshold(
     weight_step: float,
     threshold_step: float,
     objective: str,
+    expert_weight_min: float = 0.0,
+    expert_weight_max: float = 1.0,
+    fusion_space: str = "probability",
 ) -> dict[str, float]:
+    if not 0.0 <= expert_weight_min <= expert_weight_max <= 1.0:
+        raise ValueError("Expert-weight bounds must satisfy 0 <= min <= max <= 1.")
     labels_bool = np.asarray(labels, dtype=bool)
-    weights = np.arange(0.0, 1.0 + weight_step / 2.0, weight_step)
+    weights = np.arange(
+        expert_weight_min,
+        expert_weight_max + weight_step / 2.0,
+        weight_step,
+    )
+    weights = np.clip(weights, expert_weight_min, expert_weight_max)
+    weights = np.unique(np.append(weights, expert_weight_max))
     thresholds = np.arange(threshold_step, 1.0, threshold_step)
     best: tuple[float, float, float, float, float] | None = None
     for expert_weight in weights:
-        probabilities = (
-            float(expert_weight) * expert_probabilities
-            + (1.0 - float(expert_weight)) * baseline_probabilities
+        probabilities = _combine_probabilities(
+            baseline_probabilities,
+            expert_probabilities,
+            float(expert_weight),
+            fusion_space,
         )
         predictions = probabilities[:, None] >= thresholds[None, :]
         labels_column = labels_bool[:, None]
@@ -203,6 +239,9 @@ def screen_oof_fusion(
     fold_manifest: str | Path | None = None,
     baseline_threshold: float = 0.5,
     expert_threshold: float = 0.5,
+    expert_weight_min: float = 0.0,
+    expert_weight_max: float = 1.0,
+    fusion_space: str = "probability",
 ) -> dict[str, Any]:
     rows, labels, baseline_probabilities, expert_probabilities, folds = _aligned_arrays(
         baseline_path,
@@ -224,10 +263,15 @@ def screen_oof_fusion(
             weight_step=weight_step,
             threshold_step=threshold_step,
             objective=objective,
+            expert_weight_min=expert_weight_min,
+            expert_weight_max=expert_weight_max,
+            fusion_space=fusion_space,
         )
-        probabilities = (
-            selected["expert_weight"] * expert_probabilities[heldout_mask]
-            + selected["baseline_weight"] * baseline_probabilities[heldout_mask]
+        probabilities = _combine_probabilities(
+            baseline_probabilities[heldout_mask],
+            expert_probabilities[heldout_mask],
+            selected["expert_weight"],
+            fusion_space,
         )
         crossfit_probabilities[heldout_mask] = probabilities
         crossfit_predictions[heldout_mask] = probabilities >= selected["threshold"]
@@ -242,10 +286,15 @@ def screen_oof_fusion(
         weight_step=weight_step,
         threshold_step=threshold_step,
         objective=objective,
+        expert_weight_min=expert_weight_min,
+        expert_weight_max=expert_weight_max,
+        fusion_space=fusion_space,
     )
-    frozen_probabilities = (
-        frozen["expert_weight"] * expert_probabilities
-        + frozen["baseline_weight"] * baseline_probabilities
+    frozen_probabilities = _combine_probabilities(
+        baseline_probabilities,
+        expert_probabilities,
+        frozen["expert_weight"],
+        fusion_space,
     )
     summary: dict[str, Any] = {
         "protocol": {
@@ -254,6 +303,9 @@ def screen_oof_fusion(
             "selection": f"leave-one-fold-out weight and threshold selection; {objective} primary",
             "weight_step": float(weight_step),
             "threshold_step": float(threshold_step),
+            "expert_weight_min": float(expert_weight_min),
+            "expert_weight_max": float(expert_weight_max),
+            "fusion_space": fusion_space,
             "num_samples": int(len(labels)),
             "num_folds": int(len(np.unique(folds))),
             "fold_manifest": None if fold_manifest is None else str(fold_manifest),
@@ -382,6 +434,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
     screen.add_argument("--fold-manifest")
     screen.add_argument("--baseline-threshold", type=float, default=0.5)
     screen.add_argument("--expert-threshold", type=float, default=0.5)
+    screen.add_argument("--expert-weight-min", type=float, default=0.0)
+    screen.add_argument("--expert-weight-max", type=float, default=1.0)
+    screen.add_argument(
+        "--fusion-space",
+        choices=["probability", "logit"],
+        default="probability",
+    )
     screen.add_argument(
         "--objective",
         choices=["mcc", "balanced_accuracy", "balanced_mcc"],
@@ -409,6 +468,9 @@ def main() -> None:
             fold_manifest=args.fold_manifest,
             baseline_threshold=args.baseline_threshold,
             expert_threshold=args.expert_threshold,
+            expert_weight_min=args.expert_weight_min,
+            expert_weight_max=args.expert_weight_max,
+            fusion_space=args.fusion_space,
         )
         print(json.dumps(result["crossfit_metrics"], indent=2))
         print(json.dumps(result["frozen_parameters_from_all_oof"], indent=2))

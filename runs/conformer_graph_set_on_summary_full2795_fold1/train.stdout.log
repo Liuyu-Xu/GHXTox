@@ -1,0 +1,12 @@
+Initialized from runs/multisource_1_30_full2795_rank_stable_fold1/best_model.pt; new_parameters=56 unexpected_parameters=0
+Frozen-base training: trainable_tensors=54 prefixes=('conformer_graph_set_encoder.', 'conformer_graph_source_heads.', 'conformer_graph_source_logits')
+epoch=001 train_loss=0.1320 val_loss=0.3672 val_auprc=0.9008 val_mcc=0.7302 gate=0.369
+epoch=002 train_loss=0.1295 val_loss=0.3672 val_auprc=0.9008 val_mcc=0.7302 gate=0.369
+epoch=003 train_loss=0.1289 val_loss=0.3673 val_auprc=0.9008 val_mcc=0.7302 gate=0.369
+epoch=004 train_loss=0.1318 val_loss=0.3674 val_auprc=0.9006 val_mcc=0.7302 gate=0.369
+epoch=005 train_loss=0.1295 val_loss=0.3676 val_auprc=0.9006 val_mcc=0.7302 gate=0.369
+epoch=006 train_loss=0.1289 val_loss=0.3676 val_auprc=0.9006 val_mcc=0.7302 gate=0.369
+epoch=007 train_loss=0.1302 val_loss=0.3681 val_auprc=0.9004 val_mcc=0.7347 gate=0.369
+epoch=008 train_loss=0.1301 val_loss=0.3683 val_auprc=0.9004 val_mcc=0.7306 gate=0.369
+Early stopping after 8 epochs.
+Best checkpoint saved to runs\conformer_graph_set_on_summary_full2795_fold1\best_model.pt (auprc=0.900850)

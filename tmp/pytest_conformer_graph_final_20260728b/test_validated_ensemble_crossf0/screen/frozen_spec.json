@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "selection_data_role": "group-aware OOF/validation only",
+  "test_labels_used_for_selection": false,
+  "all_member_names": [
+    "first",
+    "second",
+    "inverted"
+  ],
+  "selected_member_indices": [
+    0,
+    1
+  ],
+  "selected_member_names": [
+    "first",
+    "second"
+  ],
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "threshold": 0.5,
+  "objective": "mcc",
+  "threshold_metric": "mcc",
+  "constraints": {
+    "min_sn": null,
+    "min_sp": null
+  }
+}

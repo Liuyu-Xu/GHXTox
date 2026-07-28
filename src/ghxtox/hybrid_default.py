@@ -16,6 +16,11 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
+from ghxtox.cross_modal_adapter import (
+    CoupledFeatureDataset,
+    ProtT5StructureAdapter,
+    collate_coupled,
+)
 from ghxtox.data import PeptideTensorDataset, collate_peptides, validate_plm_feature_dim
 from ghxtox.models import GHXToxModel
 from ghxtox.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
@@ -148,6 +153,51 @@ def _predict_prott5(
     return np.mean(np.stack(members, axis=0), axis=0)
 
 
+def _apply_interaction_adapter(
+    probabilities: np.ndarray,
+    sequences: list[str],
+    feature_cache_path: str | Path,
+    checkpoint_path: str | Path,
+    *,
+    device: torch.device,
+    batch_size: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    payload = torch.load(feature_cache_path, map_location="cpu", weights_only=False)
+    if list(payload.get("sequences", [])) != list(sequences):
+        raise ValueError("Hybrid/interaction-adapter sequence alignment mismatch.")
+    baseline = torch.as_tensor(probabilities, dtype=torch.float32)
+    if baseline.numel() != len(sequences):
+        raise ValueError("Hybrid probabilities do not cover the adapter feature cache.")
+    payload["base_probabilities"] = baseline
+    dataset = CoupledFeatureDataset(payload)
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    model = ProtT5StructureAdapter(**checkpoint["model_config"]).to(device)
+    model.load_state_dict(checkpoint["model_state"])
+    model.eval()
+    loader = DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        collate_fn=collate_coupled,
+    )
+    adapted = []
+    deltas = []
+    with torch.inference_mode():
+        for batch in loader:
+            batch = move_batch_to_device(batch, device)
+            output = model(
+                tokens=batch["tokens"],
+                spatial=batch["spatial"],
+                plddt=batch["plddt"],
+                mask=batch["mask"],
+                base_probability=batch["base_probability"],
+                chemical=batch.get("chemical"),
+            )
+            adapted.append(torch.sigmoid(output["logits"]).cpu())
+            deltas.append(output["interaction_delta"].cpu())
+    return torch.cat(adapted).numpy(), torch.cat(deltas).numpy()
+
+
 def predict_hybrid(
     config_path: str | Path,
     processed_path: str | Path,
@@ -157,6 +207,7 @@ def predict_hybrid(
     metrics_path: str | Path | None,
     device_name: str,
     batch_size: int,
+    adapter_feature_cache_path: str | Path | None = None,
 ) -> dict[str, Any]:
     config = load_json(config_path)
     device = resolve_device(device_name)
@@ -178,6 +229,8 @@ def predict_hybrid(
     )
 
     fallback_used = bool(structure["fallback_used"])
+    adapter_applied = False
+    interaction_delta = np.zeros(len(prott5_probabilities), dtype=np.float64)
     if fallback_used and config["inference"].get("fallback_mode") == "prott5_only":
         probabilities = prott5_probabilities.astype(np.float64)
         threshold = float(config["prott5_expert"]["standalone_threshold"])
@@ -190,6 +243,17 @@ def predict_hybrid(
             prott5_weight=prott5_weight,
         )
         threshold = float(config["fusion"]["threshold"])
+        adapter_config = config.get("interaction_adapter")
+        if adapter_config and adapter_feature_cache_path is not None:
+            probabilities, interaction_delta = _apply_interaction_adapter(
+                probabilities,
+                structure["sequences"],
+                adapter_feature_cache_path,
+                adapter_config["checkpoint"],
+                device=device,
+                batch_size=batch_size,
+            )
+            adapter_applied = True
 
     destination = Path(output_path)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -206,6 +270,8 @@ def predict_hybrid(
         "prott5_weight",
         "global_3d_gate",
         "fallback_used",
+        "interaction_delta",
+        "interaction_adapter_applied",
     ]
     with destination.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -225,6 +291,8 @@ def predict_hybrid(
                     "prott5_weight": f"{prott5_weight:.10g}",
                     "global_3d_gate": f"{float(structure['gates'][index]):.10g}",
                     "fallback_used": int(fallback_used),
+                    "interaction_delta": f"{float(interaction_delta[index]):.10g}",
+                    "interaction_adapter_applied": int(adapter_applied),
                 }
             )
 
@@ -246,6 +314,15 @@ def predict_hybrid(
             "structure_weight": 1.0 - prott5_weight,
             "threshold": threshold,
             "fallback_used": fallback_used,
+            "interaction_adapter_checkpoint": (
+                config.get("interaction_adapter", {}).get("checkpoint")
+                if adapter_applied
+                else None
+            ),
+            "interaction_adapter_features": (
+                str(adapter_feature_cache_path) if adapter_applied else None
+            ),
+            "interaction_adapter_applied": adapter_applied,
             "parameters_selected_from_test_labels": False,
         },
         "metrics": metrics,
@@ -265,6 +342,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--metrics")
     parser.add_argument("--device", default="auto")
     parser.add_argument("--batch-size", type=int, default=128)
+    parser.add_argument(
+        "--adapter-feature-cache",
+        help=(
+            "Residue-aligned ProtT5/3D/chemical feature cache. When omitted, "
+            "the retained pre-adapter hybrid is used as an exact fallback."
+        ),
+    )
     return parser
 
 
@@ -278,6 +362,7 @@ def main() -> None:
         metrics_path=args.metrics,
         device_name=args.device,
         batch_size=args.batch_size,
+        adapter_feature_cache_path=args.adapter_feature_cache,
     )
 
 

@@ -7,12 +7,17 @@ from torch import nn
 
 from ghxtox.constants import AA_TO_IDX, FUNCTIONAL_GROUPS
 from ghxtox.data import GLOBAL_FEATURE_DIM
-from ghxtox.conformer_features import CONFORMER_GLOBAL_FEATURE_DIM, CONFORMER_RESIDUE_FEATURE_DIM
+from ghxtox.conformer_features import (
+    CONFORMER_GLOBAL_FEATURE_DIM,
+    CONFORMER_RESIDUE_FEATURE_DIM,
+    CONFORMER_SOURCE_FEATURE_DIM,
+)
 from ghxtox.features import RESIDUE_FEATURE_DIM
 from ghxtox.geometry_features import STRUCTURE_FEATURE_DIM
 from ghxtox.atom_graph import ATOM_FEATURE_DIM, EDGE_FEATURE_DIM
 from ghxtox.models.atom_graph import AtomGraphBranch
 from ghxtox.models.chemical_sites import ChemicalSiteInteractionBranch
+from ghxtox.models.conformer_graph import ConformerChemicalSetEncoder
 from ghxtox.models.layers import (
     PLDDTAwareFusion,
     SequenceBranch,
@@ -203,6 +208,9 @@ class GHXToxModel(nn.Module):
             nn.Linear(hidden_dim // 2, 1),
         )
         self.conformer_ensemble_branch = None
+        self.conformer_source_encoder = None
+        self.conformer_graph_set_encoder = None
+        self.conformer_graph_source_heads = None
         if bool(model_cfg.get("conformer_ensemble_branch", False)):
             conformer_hidden = int(model_cfg.get("conformer_ensemble_hidden_dim", 48))
             conformer_dropout = float(model_cfg.get("conformer_ensemble_dropout", dropout))
@@ -218,8 +226,18 @@ class GHXToxModel(nn.Module):
                 nn.GELU(),
                 nn.Dropout(conformer_dropout),
             )
+            source_aware = bool(model_cfg.get("conformer_ensemble_source_aware", False))
+            if source_aware:
+                self.conformer_source_encoder = nn.Sequential(
+                    nn.Linear(CONFORMER_SOURCE_FEATURE_DIM, conformer_hidden),
+                    nn.LayerNorm(conformer_hidden),
+                    nn.GELU(),
+                )
+            conformer_branch_input_dim = hidden_dim * 2 + conformer_hidden * (
+                4 if source_aware else 3
+            )
             self.conformer_ensemble_branch = nn.Sequential(
-                nn.Linear(hidden_dim * 2 + conformer_hidden * 3, conformer_hidden),
+                nn.Linear(conformer_branch_input_dim, conformer_hidden),
                 nn.LayerNorm(conformer_hidden),
                 nn.GELU(),
                 nn.Dropout(conformer_dropout),
@@ -233,6 +251,47 @@ class GHXToxModel(nn.Module):
             )
             self.conformer_ensemble_logit = nn.Parameter(
                 torch.logit(torch.tensor(initial_weight, dtype=torch.float32))
+            )
+        if bool(model_cfg.get("conformer_graph_set_branch", False)):
+            graph_hidden = int(model_cfg.get("conformer_graph_hidden_dim", 32))
+            graph_dropout = float(model_cfg.get("conformer_graph_dropout", 0.15))
+            self.conformer_graph_set_encoder = ConformerChemicalSetEncoder(
+                hidden_dim=graph_hidden,
+                num_layers=int(model_cfg.get("conformer_graph_layers", 2)),
+                num_heads=int(model_cfg.get("conformer_set_attention_heads", 4)),
+                raw_rbf_bins=int(model_cfg.get("conformer_graph_raw_rbf_bins", 8)),
+                normalized_rbf_bins=int(
+                    model_cfg.get("conformer_graph_normalized_rbf_bins", 8)
+                ),
+                max_distance=float(model_cfg.get("conformer_graph_max_distance", 16.0)),
+                normalized_max_distance=float(
+                    model_cfg.get("conformer_graph_normalized_max_distance", 4.0)
+                ),
+                dropout=graph_dropout,
+            )
+            self.conformer_graph_source_heads = nn.ModuleList(
+                [
+                    nn.Sequential(
+                        nn.Linear(hidden_dim * 2 + graph_hidden, graph_hidden * 2),
+                        nn.GELU(),
+                        nn.Dropout(graph_dropout),
+                        nn.Linear(graph_hidden * 2, 1),
+                    )
+                    for _ in range(CONFORMER_SOURCE_FEATURE_DIM)
+                ]
+            )
+            for head in self.conformer_graph_source_heads:
+                nn.init.zeros_(head[-1].weight)
+                nn.init.zeros_(head[-1].bias)
+            initial_weight = min(
+                max(float(model_cfg.get("conformer_graph_initial_weight", 0.20)), 1e-4),
+                1.0 - 1e-4,
+            )
+            self.conformer_graph_source_logits = nn.Parameter(
+                torch.full(
+                    (CONFORMER_SOURCE_FEATURE_DIM,),
+                    float(torch.logit(torch.tensor(initial_weight))),
+                )
             )
 
     def _classifier_input(self, pooled: torch.Tensor, batch: dict[str, torch.Tensor]) -> torch.Tensor:
@@ -261,8 +320,12 @@ class GHXToxModel(nn.Module):
             [masked_mean(residue_h, mask), masked_max(residue_h, mask)], dim=-1
         )
         global_h = self.conformer_global_encoder(global_value)
+        branch_parts = [pooled, conformer_pooled, global_h]
+        if self.conformer_source_encoder is not None:
+            source = batch["conformer_source_features"].to(dtype=pooled.dtype)
+            branch_parts.append(self.conformer_source_encoder(source))
         raw_delta = self.conformer_ensemble_branch(
-            torch.cat([pooled, conformer_pooled, global_h], dim=-1)
+            torch.cat(branch_parts, dim=-1)
         ).squeeze(-1)
         weight = torch.sigmoid(self.conformer_ensemble_logit)
         delta = available * weight * raw_delta
@@ -271,6 +334,53 @@ class GHXToxModel(nn.Module):
             "conformer_delta": delta,
             "conformer_ensemble_weight": weight,
             "conformer_available": available,
+        }
+
+    def _apply_conformer_graph_residual(
+        self,
+        logits: torch.Tensor,
+        pooled: torch.Tensor,
+        mask: torch.Tensor,
+        batch: dict[str, torch.Tensor],
+    ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+        if self.conformer_graph_set_encoder is None:
+            return logits, {}
+        required = (
+            "conformer_graph_residue_coords",
+            "conformer_graph_plddt",
+            "conformer_graph_site_coords",
+            "conformer_graph_site_types",
+            "conformer_graph_site_mask",
+            "conformer_graph_conformer_mask",
+        )
+        missing = [key for key in required if key not in batch]
+        if missing:
+            raise ValueError(f"conformer_graph_set_branch requires graph fields; missing {missing}.")
+        graph_embedding, diagnostics = self.conformer_graph_set_encoder(
+            site_coords=batch["conformer_graph_site_coords"].to(dtype=pooled.dtype),
+            site_types=batch["conformer_graph_site_types"].to(dtype=pooled.dtype),
+            site_mask=batch["conformer_graph_site_mask"],
+            residue_coords=batch["conformer_graph_residue_coords"].to(dtype=pooled.dtype),
+            residue_mask=mask,
+            plddt=batch["conformer_graph_plddt"].to(dtype=pooled.dtype),
+            conformer_mask=batch["conformer_graph_conformer_mask"],
+        )
+        head_input = torch.cat([pooled, graph_embedding], dim=-1)
+        source_deltas = torch.stack(
+            [head(head_input).squeeze(-1) for head in self.conformer_graph_source_heads],
+            dim=-1,
+        )
+        source = batch["conformer_source_features"].to(dtype=pooled.dtype)
+        weights = torch.sigmoid(self.conformer_graph_source_logits)
+        selected_delta = (source_deltas * source * weights.unsqueeze(0)).sum(dim=-1)
+        available = batch["conformer_available"].to(dtype=pooled.dtype)
+        delta = available * selected_delta
+        return logits + delta, {
+            "base_logits": logits,
+            "conformer_delta": delta,
+            "conformer_graph_source_weights": weights,
+            "conformer_available": available,
+            **diagnostics,
         }
 
     def forward(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
@@ -295,15 +405,18 @@ class GHXToxModel(nn.Module):
                 "global_gate": pooled.new_zeros(mask.shape[0]),
             }
         plm_features = batch.get("plm_features")
-        sequence_h = self.sequence_branch(
-            aa_ids=batch["aa_ids"],
-            group_ids=batch["group_ids"],
-            residue_features=batch["residue_features"],
-            mask=mask,
-            plm_features=plm_features,
-        )
+        sequence_h = None
+        if self.modality != "spatial_only":
+            sequence_h = self.sequence_branch(
+                aa_ids=batch["aa_ids"],
+                group_ids=batch["group_ids"],
+                residue_features=batch["residue_features"],
+                mask=mask,
+                plm_features=plm_features,
+            )
 
         if self.modality == "sequence_atom":
+            assert sequence_h is not None
             required = (
                 "atom_features",
                 "atom_edge_index",
@@ -351,6 +464,7 @@ class GHXToxModel(nn.Module):
             }
 
         if self.modality == "sequence_only":
+            assert sequence_h is not None
             pooled = torch.cat([masked_mean(sequence_h, mask), masked_max(sequence_h, mask)], dim=-1)
             logits = self.classifier(self._classifier_input(pooled, batch)).squeeze(-1)
             batch_size = sequence_h.shape[0]
@@ -406,6 +520,7 @@ class GHXToxModel(nn.Module):
             spatial_h = spatial_h + chemical_residual
 
         if self.modality == "residual_experts":
+            assert sequence_h is not None
             required = (
                 "atom_features", "atom_edge_index", "atom_edge_features", "atom_batch", "atom_residue_index"
             )
@@ -471,6 +586,7 @@ class GHXToxModel(nn.Module):
                 "global_gate": torch.ones(batch_size, device=spatial_h.device, dtype=spatial_h.dtype),
             }
 
+        assert sequence_h is not None
         fused_nodes, diagnostics = self.fusion(
             sequence_h=sequence_h,
             spatial_h=spatial_h,
@@ -508,11 +624,18 @@ class GHXToxModel(nn.Module):
         logits, conformer_diagnostics = self._apply_conformer_ensemble_residual(
             logits, pooled, mask, batch
         )
+        logits, conformer_graph_diagnostics = self._apply_conformer_graph_residual(
+            logits, pooled, mask, batch
+        )
         return {
             "logits": logits,
             "embedding": pooled,
+            "sequence_nodes": sequence_h,
+            "spatial_nodes": spatial_h,
+            "fused_nodes": fused_nodes,
             **diagnostics,
             **chemical_diagnostics,
             **conformer_diagnostics,
+            **conformer_graph_diagnostics,
         }
 

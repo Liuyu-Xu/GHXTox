@@ -1,5 +1,5 @@
 {
-  "name": "GHXTox 3D-v2 conformer-residual + ToxPLTC-derived pooled ProtT5 hybrid default",
+  "name": "GHXTox ProtT5-to-3D chemical cross-attention hybrid default",
   "structure_expert": {
     "checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
     "inputs": "ESM2 sequence Transformer + pLDDT-aware C-alpha EGNN + all-atom chemical-site residual + optional PepFlow ensemble-statistics residual",
@@ -26,9 +26,22 @@
     "threshold_step": 0.005,
     "test_labels_used_for_selection": false
   },
+  "interaction_adapter": {
+    "checkpoint": "runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt",
+    "inputs": "residue-aligned frozen ProtT5 tokens + OOF-trained pLDDT-aware 3D residue states + 12D rotation-invariant chemical-site summaries",
+    "architecture": "ProtT5-query one-way cross-attention with a local functional-site semantic gate and bounded zero-initialized logit residual",
+    "training": "five group-aware OOF folds over immutable legacy-default probabilities; six-epoch full refit selected by the median OOF best epoch",
+    "structure_dropout": 0.25,
+    "delta_l1": 0.02,
+    "max_logit_delta": 1.25,
+    "selection_threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
   "inference": {
     "requires_full_chemical_sites_for_hybrid": true,
     "fallback_mode": "prott5_only",
-    "fallback_reason": "the 0.62/0.38 weight was validated for full 3D-v2, not the historical 3D-v1 fallback"
+    "fallback_reason": "the 0.62/0.38 weight was validated for full 3D-v2, not the historical 3D-v1 fallback",
+    "missing_adapter_cache": "use the retained pre-adapter 0.62/0.38 hybrid exactly; never synthesize residue tokens",
+    "adapter_cache_requirement": "aligned ProtT5 token, 3D residue-state and chemical-site cache generated without changing the frozen 0.60 threshold"
   }
 }

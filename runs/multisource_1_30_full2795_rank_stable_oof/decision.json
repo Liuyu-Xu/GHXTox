@@ -1,0 +1,57 @@
+{
+  "date": "2026-07-28",
+  "scope": "group-aware training OOF; 761 PepFlow <=15 aa samples (actual 11-15 aa) plus 2034 AF2/ColabFold 16-30 aa samples",
+  "data_audit": {
+    "archive_sha256_verified": true,
+    "actual_af2_length_range": "16-30 aa",
+    "requested_but_not_generated_range": "31-39 aa",
+    "pepflow_samples": 761,
+    "af2_samples": 2034,
+    "covered_records": 2795,
+    "training_records": 6387,
+    "coverage_fraction": 0.43760764051980583,
+    "conformers_per_covered_sample": 8
+  },
+  "architecture": {
+    "base": "frozen 3D-v2 ESM2 + pLDDT-aware C-alpha EGNN + full-atom chemical-site residual",
+    "ensemble_features": "8 residue descriptors plus 12 peptide descriptors",
+    "source_conditioning": "three-way generator one-hot encoded by a learned source encoder",
+    "missing_policy": "hard-zero conformer residual and exact fallback to 3D-v2",
+    "checkpoint_selection": "validation AUPRC, fixed group-aware folds",
+    "full_data_refit_epochs": 6
+  },
+  "structure_oof_fixed_threshold": {
+    "threshold": 0.677819,
+    "base_3d_v2": {
+      "balanced_accuracy": 0.9132485967,
+      "mcc": 0.8362022452,
+      "auroc": 0.9605914301,
+      "auprc": 0.9280011613,
+      "brier": 0.0595294536
+    },
+    "multisource_rank_stable": {
+      "balanced_accuracy": 0.9135740068,
+      "mcc": 0.8383585333,
+      "auroc": 0.9608815664,
+      "auprc": 0.9289807582,
+      "brier": 0.0593591444
+    }
+  },
+  "frozen_prott5_fusion": {
+    "weights": {
+      "prott5": 0.62,
+      "structure": 0.38
+    },
+    "threshold": 0.6,
+    "current_default_mcc": 0.8693461083,
+    "multisource_candidate_mcc": 0.8677637342,
+    "current_default_auprc": 0.9535979034,
+    "multisource_candidate_auprc": 0.9531963312
+  },
+  "decision": {
+    "retain_as_structure_candidate": true,
+    "replace_structure_default": false,
+    "replace_multidimensional_default": false,
+    "reason": "The rank-stable multi-source structure expert improves full-training OOF MCC and AUPRC, but the frozen ProtT5 fusion loses MCC, AUROC, AUPRC and Brier relative to the current pilot250 hybrid default. External conformer-enabled validation is also absent."
+  }
+}

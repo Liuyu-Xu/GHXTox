@@ -3,7 +3,8 @@ param(
     [string]$Scope = 'pilot',
     [string]$Python = 'D:\anaconda3\envs\dachuang-26\python.exe',
     [ValidateSet('cuda', 'cpu')]
-    [string]$Device = 'cuda'
+    [string]$Device = 'cuda',
+    [string]$Archive = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -12,16 +13,45 @@ $env:PYTHONPATH = Join-Path (Get-Location) 'src'
 
 if ($Scope -eq 'pilot') {
     $Tag = 'pilot400'
+    $ExpectedSamples = 400
 } else {
     $Tag = 'full2034'
+    $ExpectedSamples = 2034
 }
+$ExpectedConformers = $ExpectedSamples * 8
 $CacheRoot = "data/af2_ensemble_16_30/cache_$Scope"
 $Manifest = "$CacheRoot/conformer_manifest.csv"
+$TaskManifest = "data/af2_ensemble_16_30/train_${Scope}_$ExpectedSamples.csv"
 $Augmented = "data/processed/train_chemical_sites_final_esm2_af2_16_30_$Tag.pt"
 $Subset = "data/processed/train_chemical_sites_final_esm2_af2_16_30_${Tag}_subset.pt"
 $SubsetFolds = "data/folds/af2_16_30_${Tag}_folds.csv"
 $RunPrefix = "runs/af2_16_30_${Tag}_residual"
 $BasePrefix = 'runs/chemical_site_ablation_include_same_residue'
+
+if ($Archive) {
+    if (-not (Test-Path $Archive)) {
+        throw "Archive not found: $Archive"
+    }
+    $Checksum = "$Archive.sha256"
+    if (Test-Path $Checksum) {
+        $ExpectedHash = ((Get-Content $Checksum -Raw).Trim() -split '\s+')[0].ToLowerInvariant()
+        $ActualHash = (Get-FileHash $Archive -Algorithm SHA256).Hash.ToLowerInvariant()
+        if ($ActualHash -ne $ExpectedHash) {
+            throw "SHA256 mismatch for $Archive"
+        }
+    }
+    tar -xzf $Archive -C .
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
+
+if (-not (Test-Path $Manifest)) {
+    throw "Conformer manifest not found: $Manifest"
+}
+$ManifestRows = Import-Csv $Manifest
+$UniqueSamples = @($ManifestRows.sample_id | Sort-Object -Unique).Count
+if ($UniqueSamples -ne $ExpectedSamples -or $ManifestRows.Count -ne $ExpectedConformers) {
+    throw "Expected $ExpectedSamples samples/$ExpectedConformers conformers; found $UniqueSamples/$($ManifestRows.Count)."
+}
 
 & $Python -u -B -m ghxtox.conformer_features `
     --processed data/processed/train_chemical_sites_final_esm2.pt `
@@ -85,6 +115,16 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     --output "$OofDir/covered_paired_vs_base.json"
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+& $Python -B -m ghxtox.conformer_cohort_analysis `
+    --baseline "$OofDir/covered_base_predictions.csv" `
+    --candidate "$OofDir/covered_candidate_predictions.csv" `
+    --task-manifest $TaskManifest `
+    --cache-root $CacheRoot `
+    --threshold 0.677819 `
+    --output "$OofDir/structure_cohort_analysis.json" `
+    --sample-output "$OofDir/structure_sample_analysis.csv"
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
 & $Python -u -B -m ghxtox.oof `
     --checkpoints $CandidateCheckpoints `
     --processed $Augmented `
@@ -143,10 +183,35 @@ if (-not $Retain) {
     exit 0
 }
 
+$BestEpochs = @(
+    foreach ($Checkpoint in $CandidateCheckpoints) {
+        & $Python -B -c @"
+import torch
+payload = torch.load(r'$Checkpoint', map_location='cpu', weights_only=False)
+print(int(payload['epoch']))
+"@
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    }
+) | ForEach-Object { [int]$_ } | Sort-Object
+$RefitEpochs = [int]$BestEpochs[[Math]::Floor($BestEpochs.Count / 2)]
+$RefitDir = "runs/af2_16_30_${Tag}_residual_candidate"
+
+& $Python -u -B -m ghxtox.train `
+    --train $Subset `
+    --config configs/conformer_ensemble_residual_calibrated.json `
+    --initial-checkpoint runs/3d_v2_default/best_model.pt `
+    --output-dir $RefitDir `
+    --full-data-epochs $RefitEpochs `
+    --device $Device
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
 & $Python -B -m ghxtox.oof_fusion apply `
     --baseline "$OofDir/full_predictions.csv" `
     --expert runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv `
     --output-dir "${RunPrefix}_prott5_frozen_oof" `
     --expert-weight 0.62 `
     --threshold 0.60
-exit $LASTEXITCODE
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+Write-Host "Retained AF2 conformer candidate: $RefitDir/best_model.pt"
+Write-Host "Full-data refit epochs (median fold-best epoch): $RefitEpochs"

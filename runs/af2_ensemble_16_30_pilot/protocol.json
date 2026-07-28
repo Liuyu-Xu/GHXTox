@@ -1,0 +1,15 @@
+{
+  "generator": "ColabFold AlphaFold2-ptm",
+  "scope": "pilot",
+  "num_models": 5,
+  "num_seeds": 4,
+  "raw_candidates_per_sample": 20,
+  "max_msa": "16:32",
+  "num_recycles": 3,
+  "dropout": false,
+  "templates": false,
+  "retained_conformers": 8,
+  "selection": "backbone-RMSD k-medoids after mean-pLDDT quality floor",
+  "min_mean_plddt": 50,
+  "interpretation": "AF2 prediction-uncertainty ensemble; not a thermodynamic equilibrium ensemble"
+}

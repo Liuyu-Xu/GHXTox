@@ -1,0 +1,12 @@
+Initialized from runs/chemical_site_ablation_include_same_residue_fold2/best_model.pt; new_parameters=56 unexpected_parameters=0
+Frozen-base training: trainable_tensors=54 prefixes=('conformer_graph_set_encoder.', 'conformer_graph_source_heads.', 'conformer_graph_source_logits')
+epoch=001 train_loss=0.0412 val_loss=0.3429 val_auprc=0.9118 val_mcc=0.7646 gate=0.374
+epoch=002 train_loss=0.0414 val_loss=0.3475 val_auprc=0.9109 val_mcc=0.7691 gate=0.374
+epoch=003 train_loss=0.0388 val_loss=0.3553 val_auprc=0.9096 val_mcc=0.7646 gate=0.374
+epoch=004 train_loss=0.0413 val_loss=0.3605 val_auprc=0.9100 val_mcc=0.7691 gate=0.374
+epoch=005 train_loss=0.0371 val_loss=0.3702 val_auprc=0.9078 val_mcc=0.7646 gate=0.374
+epoch=006 train_loss=0.0376 val_loss=0.3710 val_auprc=0.9093 val_mcc=0.7601 gate=0.374
+epoch=007 train_loss=0.0387 val_loss=0.3768 val_auprc=0.9091 val_mcc=0.7646 gate=0.374
+epoch=008 train_loss=0.0377 val_loss=0.3831 val_auprc=0.9068 val_mcc=0.7646 gate=0.374
+Early stopping after 8 epochs.
+Best checkpoint saved to runs\conformer_graph_set_full2795_fold2\best_model.pt (auprc=0.911764)

@@ -1,0 +1,31 @@
+Initialized from runs/multisource_1_30_full2795_rank_stable_fold0/best_model.pt; new_parameters=56 unexpected_parameters=0
+Frozen-base training: trainable_tensors=54 prefixes=('conformer_graph_set_encoder.', 'conformer_graph_source_heads.', 'conformer_graph_source_logits')
+epoch=001 train_loss=0.0132 val_loss=0.5433 val_auprc=0.9194 val_mcc=0.8233 gate=0.375
+epoch=002 train_loss=0.0114 val_loss=0.5433 val_auprc=0.9194 val_mcc=0.8233 gate=0.375
+epoch=003 train_loss=0.0092 val_loss=0.5433 val_auprc=0.9194 val_mcc=0.8233 gate=0.375
+epoch=004 train_loss=0.0115 val_loss=0.5433 val_auprc=0.9194 val_mcc=0.8233 gate=0.375
+epoch=005 train_loss=0.0139 val_loss=0.5433 val_auprc=0.9193 val_mcc=0.8233 gate=0.375
+epoch=006 train_loss=0.0119 val_loss=0.5433 val_auprc=0.9193 val_mcc=0.8233 gate=0.375
+epoch=007 train_loss=0.0116 val_loss=0.5433 val_auprc=0.9195 val_mcc=0.8233 gate=0.375
+epoch=008 train_loss=0.0127 val_loss=0.5431 val_auprc=0.9196 val_mcc=0.8233 gate=0.375
+epoch=009 train_loss=0.0087 val_loss=0.5432 val_auprc=0.9195 val_mcc=0.8233 gate=0.375
+epoch=010 train_loss=0.0123 val_loss=0.5430 val_auprc=0.9196 val_mcc=0.8233 gate=0.375
+epoch=011 train_loss=0.0100 val_loss=0.5430 val_auprc=0.9196 val_mcc=0.8233 gate=0.375
+epoch=012 train_loss=0.0133 val_loss=0.5431 val_auprc=0.9195 val_mcc=0.8233 gate=0.375
+epoch=013 train_loss=0.0093 val_loss=0.5434 val_auprc=0.9196 val_mcc=0.8233 gate=0.375
+epoch=014 train_loss=0.0103 val_loss=0.5433 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=015 train_loss=0.0117 val_loss=0.5429 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=016 train_loss=0.0120 val_loss=0.5430 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=017 train_loss=0.0089 val_loss=0.5426 val_auprc=0.9198 val_mcc=0.8187 gate=0.375
+epoch=018 train_loss=0.0108 val_loss=0.5426 val_auprc=0.9198 val_mcc=0.8187 gate=0.375
+epoch=019 train_loss=0.0097 val_loss=0.5443 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=020 train_loss=0.0115 val_loss=0.5428 val_auprc=0.9194 val_mcc=0.8187 gate=0.375
+epoch=021 train_loss=0.0094 val_loss=0.5439 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=022 train_loss=0.0106 val_loss=0.5424 val_auprc=0.9198 val_mcc=0.8187 gate=0.375
+epoch=023 train_loss=0.0085 val_loss=0.5435 val_auprc=0.9198 val_mcc=0.8187 gate=0.375
+epoch=024 train_loss=0.0123 val_loss=0.5432 val_auprc=0.9195 val_mcc=0.8187 gate=0.375
+epoch=025 train_loss=0.0119 val_loss=0.5430 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=026 train_loss=0.0105 val_loss=0.5437 val_auprc=0.9197 val_mcc=0.8187 gate=0.375
+epoch=027 train_loss=0.0099 val_loss=0.5432 val_auprc=0.9192 val_mcc=0.8187 gate=0.375
+Early stopping after 27 epochs.
+Best checkpoint saved to runs\conformer_graph_set_on_summary_full2795_fold0\best_model.pt (auprc=0.919783)

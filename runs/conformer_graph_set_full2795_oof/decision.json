@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-28",
+  "retained": false,
+  "candidate": "per-conformer functional-group graph + set-attention replacing the retained summary-statistics residual",
+  "reference": "runs/multisource_1_30_full2795_rank_stable_oof/full_predictions.csv",
+  "fixed_threshold": 0.677819,
+  "delta_candidate_minus_reference": {
+    "balanced_accuracy": -0.0007718106019399817,
+    "mcc": -0.0005070507761248955,
+    "auroc": -0.00008336902852024153,
+    "auprc": -0.0007585835106337369,
+    "brier": -0.0005892457645468377
+  },
+  "decision": "Do not replace the summary-statistics residual. Keep the graph encoder only as a second residual on top of the retained summary branch."
+}

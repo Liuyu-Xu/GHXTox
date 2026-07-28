@@ -1,0 +1,601 @@
+{
+  "protocol": {
+    "selection_data": "aligned base-model OOF predictions",
+    "nested_manifest": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_nested_stacking_keeps_cal0\\nested.csv",
+    "weight_fit_roles": [
+      "train",
+      "validation"
+    ],
+    "calibration_role": "calibration only",
+    "evaluation_role": "outer test only",
+    "member_names": [
+      "first",
+      "second"
+    ],
+    "model": "non-negative probability weights + monotonic Platt + calibration-only MCC threshold",
+    "steps": 80,
+    "learning_rate": 0.03,
+    "regularization": 0.001,
+    "restarts": 1,
+    "threshold_step": 0.005,
+    "constraints": {
+      "min_sn": null,
+      "min_sp": null
+    },
+    "test1_or_test2_predictions_read": false
+  },
+  "current_default": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "sensitivity": 1.0,
+    "sn": 1.0,
+    "recall": 1.0,
+    "specificity": 1.0,
+    "sp": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "brier": 0.04,
+    "ece_10": 0.20000000000000007,
+    "tp": 50.0,
+    "tn": 50.0,
+    "fp": 0.0,
+    "fn": 0.0
+  },
+  "nested_recalibrated_baseline": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "sensitivity": 1.0,
+    "sn": 1.0,
+    "recall": 1.0,
+    "specificity": 1.0,
+    "sp": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "brier": 2.22444044022088e-15,
+    "ece_10": 1.860656588803522e-08,
+    "tp": 50.0,
+    "tn": 50.0,
+    "fp": 0.0,
+    "fn": 0.0
+  },
+  "nested_stacking": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "sensitivity": 1.0,
+    "sn": 1.0,
+    "recall": 1.0,
+    "specificity": 1.0,
+    "sp": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "brier": 2.8228243938484416e-17,
+    "ece_10": 3.4986933350467098e-09,
+    "tp": 50.0,
+    "tn": 50.0,
+    "fp": 0.0,
+    "fn": 0.0
+  },
+  "delta_stacking_minus_current_default": {
+    "mcc": 0.0,
+    "auroc": 0.0,
+    "auprc": 0.0,
+    "brier_lower_is_better": 0.03999999999999997,
+    "ece_10_lower_is_better": 0.19999999650130673
+  },
+  "delta_stacking_minus_nested_recalibrated_baseline": {
+    "mcc": 0.0,
+    "auroc": 0.0,
+    "auprc": 0.0,
+    "brier_lower_is_better": 2.1962121962823958e-15,
+    "ece_10_lower_is_better": 1.510787255298851e-08
+  },
+  "fold_results": [
+    {
+      "outer_fold": 0,
+      "role_sizes": {
+        "weight_fit": 60,
+        "calibration": 20,
+        "outer_test": 20
+      },
+      "weights": {
+        "first": 0.9591138362884521,
+        "second": 0.04088615998625755
+      },
+      "candidate_platt": {
+        "method": "platt",
+        "scale": 13.854388236999512,
+        "bias": -0.0018515177071094513,
+        "monotonic": true
+      },
+      "candidate_threshold": 0.5,
+      "baseline_platt": {
+        "method": "platt",
+        "scale": 13.32242202758789,
+        "bias": -0.014667501673102379,
+        "monotonic": true
+      },
+      "baseline_threshold": 0.5,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0902572045143625e-17,
+        "ece_10": 3.232844880685093e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "nested_recalibrated_baseline_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 4.409975263235756e-17,
+        "ece_10": 4.695729582948616e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "current_default_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 0.04,
+        "ece_10": 0.19999999999999998,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "mcc_gain_vs_current_default": 0.0
+    },
+    {
+      "outer_fold": 1,
+      "role_sizes": {
+        "weight_fit": 60,
+        "calibration": 20,
+        "outer_test": 20
+      },
+      "weights": {
+        "first": 0.9591138362884521,
+        "second": 0.04088617116212845
+      },
+      "candidate_platt": {
+        "method": "platt",
+        "scale": 13.721388816833496,
+        "bias": -0.099882110953331,
+        "monotonic": true
+      },
+      "candidate_threshold": 0.5,
+      "baseline_platt": {
+        "method": "platt",
+        "scale": 11.728976249694824,
+        "bias": 0.5330233573913574,
+        "monotonic": true
+      },
+      "baseline_threshold": 0.5,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.4675700311196776e-17,
+        "ece_10": 3.512527602111959e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "nested_recalibrated_baseline_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 1.0935888767322791e-14,
+        "ece_10": 7.39455501275188e-08,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "current_default_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 0.04,
+        "ece_10": 0.19999999999999998,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "mcc_gain_vs_current_default": 0.0
+    },
+    {
+      "outer_fold": 2,
+      "role_sizes": {
+        "weight_fit": 60,
+        "calibration": 20,
+        "outer_test": 20
+      },
+      "weights": {
+        "first": 0.9591138362884521,
+        "second": 0.04088618978857994
+      },
+      "candidate_platt": {
+        "method": "platt",
+        "scale": 13.801793098449707,
+        "bias": -0.7579301595687866,
+        "monotonic": true
+      },
+      "candidate_threshold": 0.5,
+      "baseline_platt": {
+        "method": "platt",
+        "scale": 12.84892749786377,
+        "bias": -0.7423509955406189,
+        "monotonic": true
+      },
+      "baseline_threshold": 0.5,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 5.316805345607594e-18,
+        "ece_10": 1.6304608774220242e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "nested_recalibrated_baseline_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 3.824034999555274e-17,
+        "ece_10": 4.3726622322992625e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "current_default_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 0.04,
+        "ece_10": 0.19999999999999998,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "mcc_gain_vs_current_default": 0.0
+    },
+    {
+      "outer_fold": 3,
+      "role_sizes": {
+        "weight_fit": 60,
+        "calibration": 20,
+        "outer_test": 20
+      },
+      "weights": {
+        "first": 0.9591138362884521,
+        "second": 0.040886182337999344
+      },
+      "candidate_platt": {
+        "method": "platt",
+        "scale": 13.856159210205078,
+        "bias": -0.001832330017350614,
+        "monotonic": true
+      },
+      "candidate_threshold": 0.5,
+      "baseline_platt": {
+        "method": "platt",
+        "scale": 13.43404483795166,
+        "bias": -0.005052798893302679,
+        "monotonic": true
+      },
+      "baseline_threshold": 0.5,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0802897626312934e-17,
+        "ece_10": 3.2251277204409234e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "nested_recalibrated_baseline_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 3.298977569446602e-17,
+        "ece_10": 4.061389891063527e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "current_default_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 0.04,
+        "ece_10": 0.19999999999999998,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "mcc_gain_vs_current_default": 0.0
+    },
+    {
+      "outer_fold": 4,
+      "role_sizes": {
+        "weight_fit": 60,
+        "calibration": 20,
+        "outer_test": 20
+      },
+      "weights": {
+        "first": 0.9591138362884521,
+        "second": 0.04088617116212845
+      },
+      "candidate_platt": {
+        "method": "platt",
+        "scale": 13.44845962524414,
+        "bias": 0.04602339118719101,
+        "monotonic": true
+      },
+      "candidate_threshold": 0.5,
+      "baseline_platt": {
+        "method": "platt",
+        "scale": 13.193050384521484,
+        "bias": 0.04398304969072342,
+        "monotonic": true
+      },
+      "baseline_threshold": 0.5,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 6.944324436416116e-17,
+        "ece_10": 5.892505594573549e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "nested_recalibrated_baseline_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 7.098355545923417e-17,
+        "ece_10": 5.957497606345896e-09,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "current_default_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 0.04,
+        "ece_10": 0.19999999999999998,
+        "tp": 10.0,
+        "tn": 10.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "mcc_gain_vs_current_default": 0.0
+    }
+  ],
+  "fold_mcc_wins": 0,
+  "weight_stability": {
+    "first": {
+      "mean": 0.9591138362884521,
+      "std": 0.0
+    },
+    "second": {
+      "mean": 0.04088617488741875,
+      "std": 1.026991661793755e-08
+    }
+  },
+  "frozen_all_oof_pipeline": {
+    "weights": {
+      "first": 0.9591138362884521,
+      "second": 0.040886182337999344
+    },
+    "platt": {
+      "method": "platt",
+      "scale": 13.490094184875488,
+      "bias": 0.0022577198687940836,
+      "monotonic": true
+    },
+    "threshold": {
+      "threshold": 0.5,
+      "metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 5.680672293532582e-17,
+        "ece_10": 5.329480412541443e-09,
+        "tp": 50.0,
+        "tn": 50.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "threshold": 0.5
+      },
+      "constraints_satisfied": true
+    },
+    "warning": "Fitted on all OOF rows for later untouched external application; nested outer-test metrics control retention."
+  },
+  "retention_gates": {
+    "mcc_strictly_improves_current_default": false,
+    "auroc_within_0.0005_of_current_default": true,
+    "auprc_not_lower_than_current_default": true,
+    "brier_within_0.0005_of_current_default": true,
+    "ece_within_0.002_of_current_default": true,
+    "mcc_improves_in_at_least_three_folds": false
+  },
+  "decision": {
+    "retain_stacking": false,
+    "replace_default": false,
+    "run_historical_tests": false,
+    "reason": "At least one gate against the current frozen default failed."
+  }
+}

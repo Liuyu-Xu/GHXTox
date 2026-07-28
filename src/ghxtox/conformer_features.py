@@ -1,4 +1,4 @@
-"""Attach PepFlow conformer-ensemble descriptors to processed GHXTox records."""
+"""Attach one or more conformer-ensemble sources to processed GHXTox records."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import argparse
 import csv
 import json
 from pathlib import Path
+from collections.abc import Sequence
 from typing import Any
 
 import numpy as np
@@ -14,6 +15,10 @@ import torch
 
 CONFORMER_RESIDUE_FEATURE_DIM = 8
 CONFORMER_GLOBAL_FEATURE_DIM = 12
+CONFORMER_SOURCE_FEATURE_DIM = 3
+CONFORMER_SOURCE_NAMES = ("pepflow", "colabfold_af2", "other")
+CONFORMER_GRAPH_MAX_CONFORMERS = 8
+CONFORMER_GRAPH_MAX_SITE_SLOTS = 2
 
 
 def _off_diagonal_mean(matrix: np.ndarray) -> np.ndarray:
@@ -71,13 +76,79 @@ def ensemble_feature_tensors(summary_path: str | Path) -> tuple[torch.Tensor, to
     return torch.from_numpy(residue_features), torch.from_numpy(global_features)
 
 
-def _manifest_summaries(manifest: str | Path, cache_root: str | Path) -> dict[str, Path]:
+def conformer_graph_tensors(
+    summary_path: str | Path,
+    max_conformers: int = CONFORMER_GRAPH_MAX_CONFORMERS,
+) -> dict[str, torch.Tensor]:
+    """Load aligned per-conformer chemical-site graphs without copying PDB files."""
+
+    paths = sorted(Path(summary_path).parent.glob("conformer_*.npz"))[:max_conformers]
+    if not paths:
+        raise FileNotFoundError(f"No conformer NPZ files beside {summary_path}.")
+    values: dict[str, list[np.ndarray]] = {
+        "residue_coords": [],
+        "plddt": [],
+        "site_coords": [],
+        "site_types": [],
+        "site_mask": [],
+    }
+    sequence = None
+    for path in paths:
+        with np.load(path) as payload:
+            current_sequence = str(payload["sequence"].item())
+            if sequence is None:
+                sequence = current_sequence
+            elif current_sequence != sequence:
+                raise ValueError(f"Conformer sequence mismatch in {path}.")
+            values["residue_coords"].append(payload["coords"].astype(np.float32))
+            values["plddt"].append(payload["plddt"].astype(np.float32))
+            values["site_coords"].append(
+                payload["chemical_site_coords"][:, :CONFORMER_GRAPH_MAX_SITE_SLOTS].astype(
+                    np.float32
+                )
+            )
+            values["site_types"].append(
+                payload["chemical_site_types"][:, :CONFORMER_GRAPH_MAX_SITE_SLOTS].astype(
+                    np.float32
+                )
+            )
+            values["site_mask"].append(
+                payload["chemical_site_mask"][:, :CONFORMER_GRAPH_MAX_SITE_SLOTS].astype(
+                    np.bool_
+                )
+            )
+    tensors = {
+        key: torch.from_numpy(np.stack(items))
+        for key, items in values.items()
+    }
+    tensors["conformer_mask"] = torch.ones(len(paths), dtype=torch.bool)
+    return tensors
+
+
+def _source_feature(source: str) -> torch.Tensor:
+    normalized = source.strip().lower()
+    if "pepflow" in normalized:
+        index = 0
+    elif "colabfold" in normalized or "alphafold" in normalized or normalized.startswith("af2"):
+        index = 1
+    else:
+        index = 2
+    feature = torch.zeros(CONFORMER_SOURCE_FEATURE_DIM, dtype=torch.float32)
+    feature[index] = 1.0
+    return feature
+
+
+def _manifest_summaries(
+    manifest: str | Path,
+    cache_root: str | Path,
+) -> dict[str, tuple[Path, str]]:
     cache_root = Path(cache_root)
-    summaries: dict[str, Path] = {}
+    summaries: dict[str, tuple[Path, str]] = {}
     with Path(manifest).open("r", encoding="utf-8", newline="") as handle:
         for row in csv.DictReader(handle):
             original_id = str(row.get("original_id") or row["sample_id"])
             indexed_id = str(row["sample_id"])
+            source = str(row.get("source") or "unknown_conformer_generator").strip()
             # Full-cohort archives may combine several cache roots.  Prefer a
             # portable manifest cache_path when it resolves locally; legacy
             # server-absolute paths transparently fall back to cache_root.
@@ -90,8 +161,8 @@ def _manifest_summaries(manifest: str | Path, cache_root: str | Path) -> dict[st
                     path = manifest_summary
             if not path.exists():
                 raise FileNotFoundError(f"Missing ensemble summary for {original_id}: {path}")
-            previous = summaries.setdefault(original_id, path)
-            if previous != path:
+            previous = summaries.setdefault(original_id, (path, source))
+            if previous != (path, source):
                 raise ValueError(f"Multiple ensemble summaries were mapped to {original_id}.")
     return summaries
 
@@ -106,27 +177,52 @@ def _manifest_sources(manifest: str | Path) -> list[str]:
     return sorted(sources) or ["unknown_conformer_generator"]
 
 
+def _as_paths(value: str | Path | Sequence[str | Path]) -> list[str | Path]:
+    if isinstance(value, (str, Path)):
+        return [value]
+    return list(value)
+
+
 def attach_conformer_features(
     processed: str | Path,
-    conformer_manifest: str | Path,
-    cache_root: str | Path,
+    conformer_manifest: str | Path | Sequence[str | Path],
+    cache_root: str | Path | Sequence[str | Path],
     output: str | Path,
     pilot_output: str | Path | None = None,
     pilot_fold_manifest: str | Path | None = None,
     source_fold_manifest: str | Path | None = None,
+    include_conformer_graphs: bool = False,
 ) -> dict[str, Any]:
     """Attach descriptors by original sample ID and optionally create pilot-only files."""
 
     payload = torch.load(processed, map_location="cpu", weights_only=False)
     records = payload["records"]
-    summaries = _manifest_summaries(conformer_manifest, cache_root)
-    sources = _manifest_sources(conformer_manifest)
+    manifests = _as_paths(conformer_manifest)
+    cache_roots = _as_paths(cache_root)
+    if len(cache_roots) == 1 and len(manifests) > 1:
+        cache_roots *= len(manifests)
+    if len(manifests) != len(cache_roots):
+        raise ValueError(
+            "conformer_manifest and cache_root must have equal counts, or one cache_root "
+            "must be supplied for all manifests."
+        )
+    summaries: dict[str, tuple[Path, str]] = {}
+    sources: set[str] = set()
+    for manifest, root in zip(manifests, cache_roots):
+        current = _manifest_summaries(manifest, root)
+        overlap = sorted(set(summaries).intersection(current))
+        if overlap:
+            raise ValueError(
+                f"Conformer manifests overlap on {len(overlap)} original IDs, e.g. {overlap[:3]}"
+            )
+        summaries.update(current)
+        sources.update(_manifest_sources(manifest))
     covered_indices: list[int] = []
     for source_index, record in enumerate(records):
         sample_id = str(record["sample_id"])
-        summary_path = summaries.get(sample_id)
+        summary_entry = summaries.get(sample_id)
         length = int(record["aa_ids"].shape[0])
-        if summary_path is None:
+        if summary_entry is None:
             record["conformer_residue_features"] = torch.zeros(
                 length, CONFORMER_RESIDUE_FEATURE_DIM, dtype=torch.float32
             )
@@ -134,7 +230,14 @@ def attach_conformer_features(
                 CONFORMER_GLOBAL_FEATURE_DIM, dtype=torch.float32
             )
             record["conformer_available"] = False
+            record["conformer_source_features"] = torch.zeros(
+                CONFORMER_SOURCE_FEATURE_DIM, dtype=torch.float32
+            )
+            record["conformer_source"] = "none"
+            if include_conformer_graphs:
+                record["conformer_graph_expected"] = True
             continue
+        summary_path, source = summary_entry
         residue_features, global_features = ensemble_feature_tensors(summary_path)
         if residue_features.shape[0] != length:
             raise ValueError(
@@ -144,19 +247,40 @@ def attach_conformer_features(
         record["conformer_global_features"] = global_features
         record["conformer_available"] = True
         record["conformer_summary_path"] = str(summary_path)
+        record["conformer_source_features"] = _source_feature(source)
+        record["conformer_source"] = source
+        if include_conformer_graphs:
+            graph = conformer_graph_tensors(summary_path)
+            if int(graph["residue_coords"].shape[1]) != length:
+                raise ValueError(
+                    f"Conformer graph length mismatch for {sample_id}: "
+                    f"processed={length}, graph={graph['residue_coords'].shape[1]}"
+                )
+            record["conformer_graph_residue_coords"] = graph["residue_coords"].half()
+            record["conformer_graph_plddt"] = graph["plddt"].half()
+            record["conformer_graph_site_coords"] = graph["site_coords"].half()
+            record["conformer_graph_site_types"] = graph["site_types"].half()
+            record["conformer_graph_site_mask"] = graph["site_mask"]
+            record["conformer_graph_conformer_mask"] = graph["conformer_mask"]
+            record["conformer_graph_expected"] = True
         covered_indices.append(source_index)
 
     missing_ids = sorted(set(summaries) - {str(record["sample_id"]) for record in records})
     if missing_ids:
         raise ValueError(f"{len(missing_ids)} manifest IDs are absent from processed data, e.g. {missing_ids[:3]}")
     payload.setdefault("metadata", {})["conformer_ensemble"] = {
-        "source": sources[0] if len(sources) == 1 else sources,
-        "manifest": str(conformer_manifest),
-        "cache_root": str(cache_root),
+        "source": sorted(sources)[0] if len(sources) == 1 else sorted(sources),
+        "manifest": [str(value) for value in manifests],
+        "cache_root": [str(value) for value in cache_roots],
         "covered_records": len(covered_indices),
         "residue_feature_dim": CONFORMER_RESIDUE_FEATURE_DIM,
         "global_feature_dim": CONFORMER_GLOBAL_FEATURE_DIM,
+        "source_feature_dim": CONFORMER_SOURCE_FEATURE_DIM,
+        "source_feature_names": CONFORMER_SOURCE_NAMES,
         "missing_policy": "zero features with hard availability mask",
+        "per_conformer_graphs": bool(include_conformer_graphs),
+        "max_conformers": CONFORMER_GRAPH_MAX_CONFORMERS,
+        "max_site_slots": CONFORMER_GRAPH_MAX_SITE_SLOTS,
     }
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -217,12 +341,13 @@ def attach_conformer_features(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--processed", required=True)
-    parser.add_argument("--conformer-manifest", required=True)
-    parser.add_argument("--cache-root", required=True)
+    parser.add_argument("--conformer-manifest", nargs="+", required=True)
+    parser.add_argument("--cache-root", nargs="+", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--pilot-output")
     parser.add_argument("--pilot-fold-manifest")
     parser.add_argument("--source-fold-manifest")
+    parser.add_argument("--include-conformer-graphs", action="store_true")
     args = parser.parse_args()
     summary = attach_conformer_features(
         args.processed,
@@ -232,6 +357,7 @@ def main() -> None:
         pilot_output=args.pilot_output,
         pilot_fold_manifest=args.pilot_fold_manifest,
         source_fold_manifest=args.source_fold_manifest,
+        include_conformer_graphs=args.include_conformer_graphs,
     )
     print(json.dumps(summary, indent=2))
 

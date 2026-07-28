@@ -27,7 +27,7 @@ from ghxtox.subset_processed import subset_processed
 from ghxtox.report_figures import generate_evaluation_figure
 from ghxtox.folds import assign_reference_groups, load_fold_indices
 from ghxtox.oof import _best_threshold
-from ghxtox.utils import resolve_inference_checkpoint
+from ghxtox.utils import load_json, resolve_inference_checkpoint
 from ghxtox.native_cdhit_audit import (
     combine_bucket_outputs,
     prepare_inputs,
@@ -543,6 +543,53 @@ def test_spatial_branch_can_exclude_plm_without_removing_sequence_plm():
     model = GHXToxModel(config)
     assert model.sequence_branch.plm_projection is not None
     assert model.spatial_branch.plm_projection is None
+
+
+def test_independent_structure_config_excludes_all_plm_projections():
+    config = load_json("configs/independent_structure_spatial_chemical.json")
+    model = GHXToxModel(config)
+
+    assert model.modality == "spatial_only"
+    assert model.sequence_branch.plm_projection is None
+    assert model.spatial_branch.plm_projection is None
+    assert not any("plm_projection" in name for name, _ in model.named_parameters())
+
+
+def test_spatial_only_forward_does_not_execute_sequence_branch():
+    record = {
+        "sample_id": "isolated_structure",
+        "sequence": "ACDE",
+        "aa_ids": torch.tensor([2, 3, 4, 5]),
+        "group_ids": torch.tensor([0, 1, 2, 3]),
+        "residue_features": torch.zeros(4, RESIDUE_FEATURE_DIM),
+        "coords": torch.randn(4, 3),
+        "plddt": torch.tensor([0.9, 0.8, 0.7, 0.6]),
+        "label": 1,
+    }
+    config = {
+        "model": {
+            "modality": "spatial_only",
+            "plm_embedding_dim": 0,
+            "spatial_plm_embedding_dim": 0,
+            "structure_feature_dim": 0,
+            "hidden_dim": 32,
+            "aa_embedding_dim": 8,
+            "group_embedding_dim": 4,
+            "num_sequence_layers": 1,
+            "num_egnn_layers": 1,
+            "num_attention_heads": 4,
+            "dropout": 0.0,
+        }
+    }
+    model = GHXToxModel(config).eval()
+
+    def fail_if_called(*_args, **_kwargs):
+        raise AssertionError("The isolated spatial expert must not execute the sequence branch.")
+
+    model.sequence_branch.forward = fail_if_called
+    output = model(collate_peptides([record]))
+    assert output["logits"].shape == (1,)
+    assert output["global_gate"].item() == pytest.approx(1.0)
 
 
 def test_atom_graph_and_atom_only_forward():

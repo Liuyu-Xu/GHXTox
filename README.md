@@ -1,7 +1,7 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-07-26
-状态：工程默认为3D-v2构象统计残差结构专家与三随机种子pooled ProtT5专家的OOF冻结联合模型
+更新时间：2026-07-28
+状态：工程默认为ProtT5主导、pLDDT约束的逐残基序列—3D化学交互模型；原0.62/0.38联合模型保留为精确回退
 
 ## 阅读导航与当前结论
 
@@ -9,14 +9,17 @@
 - 默认结构专家为3D-v2构象统计残差版：ESM2序列Transformer + pLDDT-aware Cα-EGNN + 全原子化学位点残差 + 可选PepFlow柔性/接触占有率残差。无构象统计时硬掩码严格回退原3D-v2；联合权重仍为ProtT5/结构=`0.62/0.38`、阈值`0.60`。
 - 新论文ToxPLTC路线已完成真实ProtT5验证：三随机种子TextCNN概率平均后，组感知OOF的BACC/MCC/AUROC/AUPRC为`0.9317/0.8586/0.9724/0.9436`，阈值`0.45`只由OOF-BACC平台规则确定。
 - 在相同Test1/Test2历史对照上，ProtT5性能候选分别达到BACC/MCC/AUROC/AUPRC `0.9342/0.8598/0.9802/0.9578`和`0.8860/0.6526/0.9588/0.7495`。相对ToxPLTC，Test1全部论文指标超过；Test2灵敏度在论文四位小数上持平`0.8261`，其余指标超过。相对导师ToxMSRC，当前仅Test2 MCC仍低约`0.0024`。
-- 当前构象能力感知联合默认在训练OOF上达到BACC/MCC/AUROC/AUPRC `0.9275/0.8693/0.9773/0.9536`；由于Test1/Test2尚无PepFlow构象统计，两套历史测试严格回退原联合线路，仍分别为`0.9236/0.8588/0.9815/0.9649`和`0.8500/0.6456/0.9577/0.7851`。相对原3D-v2，两套历史测试的MCC和排序指标均提高，但它仍没有全面超过纯ProtT5性能候选或导师论文。
+- 原构象能力感知联合基线在训练OOF上的BACC/MCC/AUROC/AUPRC为`0.92746/0.86935/0.97730/0.95360`。在不改变`ProtT5/结构=0.62/0.38`和阈值`0.60`的前提下，新增逐残基非对称交互适配层：冻结ProtT5 token作Query，pLDDT降权后的3D残基状态作Key/Value，12维旋转不变官能团摘要通过局部门控写入结构状态，最后只允许有界、零初始化logit残差修正原联合概率。严格五折OOF达到BACC/MCC/AUROC/AUPRC/Brier `0.92718/0.87118/0.97729/0.95363/0.04449`，MCC提高`0.00184`、Brier降低`0.00017`并在3/5折提高MCC，因此升级为工程默认；BACC和AUROC分别微降`0.00028/0.000009`，不能写成全面提升。
+- 冻结后Test1的BACC/MCC/AUROC/AUPRC由`0.92355/0.85884/0.98153/0.96492`提高到`0.92512/0.86113/0.98157/0.96497`，少1个假阴性；Test2混淆矩阵和MCC保持不变，AUROC/Brier改善而AUPRC由`0.78514`微降至`0.78493`。这些仍是多次用于历史开发的同数据测试，不是新的独立外部确认。缺少逐残基适配缓存时严格回退原0.62/0.38联合概率；缺少完整化学位点时继续回退纯ProtT5。
 - 另冻结一个不替换主模型的BACC/召回优先操作点：OOF选择ProtT5/ESM2权重`0.64/0.36`和阈值`0.305`，Test1/Test2 BACC提高到`0.9421/0.8993`；但Test2 MCC降至`0.6325`，因此只作为应用侧高召回辅助输出。
 - 逐残基ProtT5的`3/5/7 CNN + gated-attention`已完成：单模型OOF BACC/MCC为`0.9260/0.8494`，低于pooled候选；与pooled融合的OOF BACC虽升至`0.9341`，但Test1/Test2仅为`0.9340/0.8776`，没有超过现有主模型或BACC辅助模型，因此不进入默认线路。
 - HyPepTox-Fuse启发的传统描述符专家、ESM2–ProtT5逐残基交互和受限三专家融合均已完成严格组感知OOF。传统描述符与交互专家分别达到MCC `0.8036/0.8116`；三专家融合虽把AUPRC提高到`0.9518`，但BACC/MCC降至`0.9277/0.8558`，因此未查看Test1/Test2、不修改默认模型，并禁止在当前数据上重复调权重。
-- 队友在HyPepTox-Fuse平衡基准上完成的七模型集成提供了“多成员概率平均、验证阈值与Platt校准”的工程参考。本项目已吸收为通用的组感知OOF集成筛选和单调概率校准工具，但不移植其平衡数据权重，不用已查看测试集继续搜模型，也不改变当前3D-v2/ProtT5默认模型。
+- 队友在HyPepTox-Fuse平衡基准上完成的七模型集成提供了“多成员概率平均、验证阈值与Platt校准”的工程参考。本项目已吸收为通用的组感知OOF集成筛选和单调概率校准工具，但不移植其平衡数据权重，也不用已查看测试集搜索模型；当前新增交互层来自本项目训练OOF，而不是复制其平衡数据集权重。
 - 3D置信度机制已按优先级完成固定pLDDT门控、轻量可学习回退门控、8次MC-dropout、3D-v1/v2分歧和双3D-v2 checkpoint集成。严格nested outer-test中最高MCC为`0.8616`，仍低于当前默认`0.8666`，因此不更换默认权重，也不读取Test1/Test2继续筛选。
-- PepFlow真实构象集合已完成全部可支持短肽的生成与验证：761条3–15 aa训练肽、每条8构象，共6088个构象NPZ。250条分层pilot的构象统计残差在固定`0.677819`下将全量OOF BACC/MCC由`0.91325/0.83620`提高到`0.91501/0.83902`，联合ProtT5后MCC由`0.86895`提高到`0.86935`。扩展到761条后，未加权训练仅改善AUROC/AUPRC/Brier至`0.96064/0.92810/0.05936`，固定阈值MCC仍为`0.83620`；按扩展前类别贡献校正后固定阈值MCC降至`0.83550`。因此全量扩展作为负消融保留结论，工程默认仍使用性能更好的250条分层pilot候选。
-- 16–30 aa已新增AF2/ColabFold多构象结构增强接口，但尚未产生真实预测结果，因此不修改默认模型和现有指标。方案先对400条正负近似平衡pilot运行每条`4 seeds × 5 models=20`个AlphaFold2-ptm候选，再以mean pLDDT质量下限和N/CA/C主链RMSD k-medoids保留8个代表构象；只有组感知OOF满足“MCC不下降且BACC/AUROC/AUPRC至少一项提高”的既定门槛，才生成2034条全量。AF2多seed结果只解释为预测不确定性结构集合，不解释为热力学平衡构象。
+- PepFlow真实构象集合已完成全部可支持短肽的生成与验证：761条不超过15 aa的训练肽（本数据中实际为11–15 aa）、每条8构象，共6088个构象NPZ。250条分层pilot的构象统计残差在固定`0.677819`下将全量OOF BACC/MCC由`0.91325/0.83620`提高到`0.91501/0.83902`，联合ProtT5后MCC由`0.86895`提高到`0.86935`。扩展到761条后，未加权训练仅改善AUROC/AUPRC/Brier至`0.96064/0.92810/0.05936`，固定阈值MCC仍为`0.83620`；按扩展前类别贡献校正后固定阈值MCC降至`0.83550`。因此全量扩展作为负消融保留结论，工程默认仍使用性能更好的250条分层pilot候选。
+- AF2/ColabFold全量已经完成并核验：压缩包实际覆盖2034条16–30 aa训练肽，每条从`4 seeds × 5 models`候选中保留8个代表构象，共16272个构象NPZ；它不包含31–39 aa，不能写成16–39 aa增强。与PepFlow的761条1–15 aa集合并后，多构象覆盖达到2795/6387=`43.76%`。来源感知残差用三维one-hot区分PepFlow、AF2与其他生成器，并按验证AUPRC选择checkpoint；在全部6387条固定折OOF上，结构专家的BACC/MCC/AUROC/AUPRC由`0.91325/0.83620/0.96059/0.92800`提高到`0.91357/0.83836/0.96088/0.92898`，AUPRC配对95%区间为正。冻结`ProtT5/结构=0.62/0.38`后，联合MCC/AUROC/AUPRC却只有`0.86776/0.97706/0.95320`，低于当前pilot250联合默认的`0.86935/0.97730/0.95360`，因此全量多来源模型只保留为3D性能候选，不替换多维默认。
+- 在上述全量多来源统计残差之上，已完成“PepFlow/AF2独立残差头 + 逐构象官能团图 + set-attention”五折验证。直接用图分支替换集合统计时MCC/AUROC/AUPRC均下降，因此拒绝替换；把图分支作为第二级小残差后，固定阈值BACC/MCC保持`0.91357/0.83836`，AUROC/AUPRC提高到`0.96092/0.92908`，增量`+0.0000406/+0.0001003`的配对bootstrap 95%区间均高于0，Brier由`0.059359`降至`0.059330`。该结构按门槛保留为新的full2795结构性能候选；冻结ProtT5联合仅达到MCC/AUROC/AUPRC `0.86776/0.97708/0.95322`，仍未超过交互前pilot250多维基线`0.86935/0.97730/0.95360`，故不替换底层结构专家和融合权重。
+- 为检验“两专家共享序列语义是否限制互补性”，已完成彻底移除ESM2/ProtT5嵌入的独立结构专家：结构模式不再执行序列Transformer，只保留残基理化属性、pLDDT-aware Cα-EGNN、全原子化学位点图和整肽物化描述符。五折OOF BACC/MCC/AUROC/AUPRC为`0.8992/0.7998/0.9479/0.8997`；与ProtT5的概率相关性由原组合的`0.906`降至`0.881`，但能独自纠正ProtT5错误的样本由152条降为137条，共同错误由218条增为233条。结构权重上限35%的概率/logit留一折融合MCC仅为`0.8557/0.8548`，均低于纯ProtT5的`0.8586`和当前多维默认的`0.8693`。因此隔离方向作为重要负消融保留，不替换默认模型；后续若重启，只允许先做无标签几何/构象预训练以增强独立结构表征，不再直接重复调融合权重。
 - 在构象残差默认之上又依次复验了样本级质量门控、四成员非负stacking和有符号结构残差。三者的严格nested MCC分别为`0.8614/0.8633/0.8627`，均低于冻结默认`0.8693`；后两类残差虽把SN提高到`0.8889/0.8966`，却因假阳性增加而降低MCC和排序指标，故临时代码与结果已清理。当前停止在同一OOF上继续搜索融合公式。
 - 拓扑审计显示train/Test1/Test2中至少含两个Cys的样本比例为`40.52%/39.43%/25.26%`，高Cys拓扑风险比例为`22.84%/21.94%/9.45%`。这支持后续拓扑感知建模，但FASTA不能确定成环方式或二硫键连接，不能把Cys富集样本直接视为环肽。
 - 历史3D-v1 Cα模型保留为无化学位点输入时的自动回退，阈值仍为`0.85`。
@@ -41,15 +44,21 @@
 
 在等权子集失败后，项目按预设优先级继续完成非负stacking，但没有追加Test1/Test2调参。第一阶段在每次四个OOF fold上拟合七个非负且和为1的权重、单调仿射概率尺度和MCC阈值，再评估未参与拟合的第五fold；MCC/AUROC/AUPRC达到`0.86940/0.97754/0.95558`，Brier/ECE-10降到`0.04355/0.01626`，五折中四折MCC提高，满足初始保留门槛。第二阶段进一步使用nested manifest严格分开权重拟合、Platt校准和outer-test：SN由默认`0.87789`提高到`0.90044`，AUROC/AUPRC和Brier/ECE仍改善，但SP降至`0.96236`，MCC为`0.86409`，没有超过默认`0.86656`。这说明七路专家确有排序和概率可靠性互补，但独立校准后的操作点偏向更高召回，尚不能形成综合决策升级。
 
-因此[`src/ghxtox/nonnegative_stacking.py`](src/ghxtox/nonnegative_stacking.py)和小型结果作为正向消融保留，当前工程默认仍是3D-v2/三种子ProtT5的`0.38/0.62`融合。stacking冻结候选只允许在未来预冻结外部集上比较，不再读取当前历史测试来决定是否升级；完整边界见[`runs/nonnegative_stacking_screen/summary.json`](runs/nonnegative_stacking_screen/summary.json)。
+因此[`src/ghxtox/nonnegative_stacking.py`](src/ghxtox/nonnegative_stacking.py)和小型结果作为正向消融保留，底层稳定基线仍是3D-v2/三种子ProtT5的`0.38/0.62`融合；当前默认只在它上面增加受控交互适配层。stacking冻结候选只允许在未来预冻结外部集上比较，不再读取当前历史测试来决定是否升级；完整边界见[`runs/nonnegative_stacking_screen/summary.json`](runs/nonnegative_stacking_screen/summary.json)。
 
 针对3D迁移不稳定，项目随后单独检查了置信度机制。现有3D-v2内部`global_gate`在训练OOF上的均值/标准差约为`0.3546/0.0324`；在Test1/Test2上均值又都约为`0.3656`，未显示明显数据域区分；外层默认则对所有样本固定使用`0.38`的3D权重。为此新增了以ProtT5为安全回退的受限残差公式`p = p_ProtT5 + g(x)(p_3D-p_ProtT5)`，并严格使用nested角色隔离：train拟合门控、validation选择最大3D权重和回退惩罚、calibration拟合Platt与阈值、outer-test只评估。固定pLDDT门控和可学习门控的MCC分别为`0.8548/0.8603`；加入8次MC-dropout后为`0.8605`；加入3D-v1/v2版本分歧后为`0.8593`。进一步使用现有checkpoint做ProtT5+3D-v1/v2非负融合得到本轮最高MCC `0.8616`，含/不含同残基位点边的双3D-v2集成为`0.8597`，均没有超过当前默认`0.8666`。
 
-这组负结果说明：pLDDT仍适合在图消息和残基层面对低可信坐标连续降权，但它不是“某条3D毒性预测是否正确”的充分统计量；单checkpoint的dropout方差和相近结构checkpoint之间的分歧也没有形成稳定的样本级路由依据。当前不继续在同一OOF上搜索门控公式，默认模型保持不变。下一项有信息增量的3D置信度工作必须来自独立训练的3D-v2多随机种子或新的预冻结外部集，而不是继续观察Test1/Test2。机器可读结论见[`runs/selective_3d_confidence_screen/final_decision.json`](runs/selective_3d_confidence_screen/final_decision.json)。
+这组负结果说明：pLDDT仍适合在图消息和残基层面对低可信坐标连续降权，但它不是“某条3D毒性预测是否正确”的充分统计量；单checkpoint的dropout方差和相近结构checkpoint之间的分歧也没有形成稳定的样本级路由依据。因此底层质量门控和融合权重保持不变，后续只接受有新信息的残基层交互或新外部结构证据。机器可读结论见[`runs/selective_3d_confidence_screen/final_decision.json`](runs/selective_3d_confidence_screen/final_decision.json)。
 
 得到PepFlow构象残差后，项目按同一保留门槛复验了三种不会移除多维输入的融合方式。第一，使用更新后的结构概率重新训练样本级质量门控，nested BACC/SN由默认`0.9275/0.8812`提高到`0.9289/0.8944`，但MCC/AUROC/AUPRC降至`0.8614/0.9764/0.9513`，只在2/5折提高MCC。第二，对构象3D专家和三个ProtT5种子做非负stacking，MCC为`0.8633`，且MCC、AUROC、AUPRC和折胜数门槛均失败。第三，以当前联合概率为不可移除基线，允许一个强正则有符号结构残差利用专家分歧、ProtT5不确定性、pLDDT、结构门控、长度和构象变化；其SN提高到`0.8966`，但SP降至`0.9632`，最终MCC为`0.8627`，同样只有2/5折胜出。
 
 这轮结果把融合瓶颈定位得更具体：三维专家确实能救回部分毒性假阴性，但现有质量统计不能可靠区分这些获益样本与随之增加的非毒性假阳性。继续加深门控、调整固定权重或在当前OOF上搜阈值，增加的是选择自由度而不是新证据。因此工程默认保留`ProtT5 0.62 + 构象能力感知3D 0.38`。
+
+项目进一步检验了“彻底隔离两个专家”能否增加互补性。独立结构配置将`modality`设为`spatial_only`，把序列和空间两处PLM维度都设为0，并在前向阶段完全跳过序列Transformer；模型从零训练，避免从含ESM2的checkpoint继承偏差。它仍使用确定性的残基理化属性，因为空间图必须知道节点的电荷、疏水、芳香和含硫等化学身份；这里的“隔离”指不使用预训练序列语义和独立分类权重，而不是把残基化学身份也删除。五折最佳epoch为`8/30/8/11/21`，固定0.5时各折MCC为`0.8096/0.8208/0.7853/0.7879/0.7965`，统一OOF阈值`0.498057`下MCC为`0.79975`。
+
+隔离确实让两位专家更不相似：独立结构与ProtT5的OOF概率Pearson相关性为`0.8812`，低于原3D-v2/ProtT5的`0.9055`，预测分歧达到424条。但新增差异没有转化成更可靠的结构证据：ProtT5正确而结构错误287条，结构正确而ProtT5错误仅137条，二者同时错误233条。以ProtT5为不可移除基线、把结构权重限制在35%以内时，五个留一折选出的结构权重为`0.31/0.33/0.30/0.21/0.08`，跨折明显下降；概率空间cross-fit MCC/AUROC/AUPRC为`0.85567/0.97204/0.94574`。改为独立logit尺度融合后AUROC/AUPRC小幅变为`0.97374/0.94607`，MCC进一步降至`0.85477`。全OOF拟合的点估计可达到`0.8622–0.8627`，但这不是未参与选择的结果，且仍低于当前默认`0.86935`，因此不用于升级。
+
+这项消融说明，当前共享ESM2并不是多维默认的主要瓶颈。预训练序列语义虽然提高了专家相关性，也为结构图提供了稳定的残基上下文；简单删除它会同时丢失有用信息。下一次只有在新增训练信号后才值得重启隔离路线，例如同一肽多构象对比、遮蔽官能团类型恢复、距离/接触占有率预测或结构来源一致性预训练；完成预训练后再冻结独立结构编码器，并只允许其以有界残差修正ProtT5。当前不继续在相同OOF上搜索结构权重、阈值或校准器。
 
 随后已经把PepFlow覆盖从250条扩展到全部761条支持长度样本。新增511条全部属于非毒性类，因而“样本更多”没有带来新的毒性构象覆盖：未加权五折训练在固定阈值下与基础3D的BACC/MCC完全相同，仅带来极小排序和Brier改善；按`650/139=4.6763`对正类损失校正以恢复pilot时期的相对类别贡献后，固定阈值MCC反而由`0.83620`降到`0.83550`，AUROC/AUPRC/Brier也不再改善。联合ProtT5后，未加权全量候选MCC为`0.86895`，类别校正版虽回到`0.86935`，但AUROC/AUPRC/Brier均低于当前默认，因此两者都未通过预设保留门槛。下一轮只接受两类真正的信息增量：独立训练的3D-v2随机种子，以及事先冻结且同时具备正、负构象输入的新验证集。
 
@@ -222,7 +231,7 @@ ToxinPred3 结果支持以下预测策略，但不直接改变单条样本概率
 
 | 使用场景 | 建议 |
 | --- | --- |
-| 有全原子ESMFold/化学位点缓存和ProtT5特征、样本接近训练域 | 使用3D-v2/ProtT5联合默认，同时报告两位专家概率与pLDDT |
+| 有全原子ESMFold/化学位点、pooled与逐残基ProtT5缓存，样本接近训练域 | 使用ProtT5→3D化学交互联合默认，同时报告两位专家、交互前后概率、交互残差与pLDDT |
 | 有完整结构但暂未生成ProtT5 | 可单独使用3D-v2结构专家，并明确不是联合默认 |
 | 缺少化学位点但已有ProtT5 | 联合入口回退到纯ProtT5候选并标记`fallback_used=1` |
 | 无结构且无ProtT5、或上游生成失败 | 使用1D ESM2-BiLSTM回退 |
@@ -538,6 +547,30 @@ PepFlow构象统计（可选）       |
 
 序列分支与2D路线相同，使用ESM2增强的两层Transformer。Cα空间主干输入ESMFold预测的Cα坐标、逐残基pLDDT、42维残基属性、16维几何描述符以及ESM2表征，再通过三层等变图消息传递更新残基状态和坐标。化学位点支路从全原子PDB提取侧链功能中心，以零初始化残差写入Cα空间表示。新构象子路不重复对8个构象分别做完整EGNN前向，而是将对齐后构象集合压缩为8维逐残基柔性/接触特征和12维整肽统计，再对base logit做小残差修正。缺少PepFlow统计时`conformer_available=0`，该残差数学上精确为0；缺少化学位点张量时才回退历史3D-v1。
 
+#### 5.1A full2795逐构象官能团图候选
+
+新的full2795结构性能候选不移除上面的集合统计残差，而是在其logit之后增加第二级、零初始化的小残差：
+
+```text
+每个样本的8个PepFlow或AF2代表构象
+  -> 每个残基最多2个官能团位点节点（8类可重叠化学属性）
+  -> 到N端Cα / 全肽Cα几何中心 / C端Cα的距离，以回转半径归一化
+  -> 节点间原始Å距离RBF + 回转半径归一化距离RBF
+  -> 异号电荷、供体-受体、芳香、含硫、疏水5类相容通道
+  -> 两层稠密官能团图注意力
+  -> 每个构象得到一个32维向量
+  -> learned-query set-attention聚合无序的8构象集合
+  -> PepFlow头 / AF2头 / 其他生成器头三套完全独立MLP
+  -> source one-hot只选择对应头
+  -> availability硬掩码 × 小权重 × delta logit
+```
+
+这里的“独立头”指三套输出MLP和三个残差权重不共享；底层官能团几何编码器共享，以避免761条PepFlow样本上的参数量失控。锚点距离先除以每个构象的回转半径，再与原始Å距离并行输入，因此模型同时看到绝对接触尺度和不同肽长之间可比较的相对位置。set-attention把8个构象视为集合而非时间序列，不给构象编号附加虚假的先后含义。没有构象输入时，构象掩码、来源one-hot和可用性掩码共同保证新增残差严格为0。
+
+该候选只冻结并复用已有3D-v2、集合统计残差和ESM2参数，五折中只训练56个新增图分支张量。全量重拟合审计显示旧checkpoint的161个张量逐元素未改变。代码见[`src/ghxtox/models/conformer_graph.py`](src/ghxtox/models/conformer_graph.py)，配置见[`configs/conformer_graph_set_on_summary_residual.json`](configs/conformer_graph_set_on_summary_residual.json)，保留决定见[`decision.json`](runs/conformer_graph_set_on_summary_full2795_oof/decision.json)。
+
+生物学上，这一支路检验的不是“某个单一预测结构是否正确”，而是带电、供受体、芳香、含硫和疏水中心在不同候选构象中的空间组织是否含有集合统计之外的毒性排序信息。PepFlow队列的MCC/AUPRC相对旧统计候选提高`+0.00700/+0.00181`；AF2队列MCC下降`−0.00118`、AUPRC仅提高`+0.000035`。因此目前的分类增益主要来自11–15 aa短肽，AF2 16–30 aa更多体现为极小的排序和校准修正。效应也很稀疏：覆盖队列绝对概率变化的中位数约`1.2×10⁻⁷`、99分位数`0.0131`、最大值`0.2787`，需要新数据检验少数大残差是否稳定。PepFlow NPZ中的`0.7`置信度为全体常数插补，在独立PepFlow头内不能提供样本间质量排序；AF2才使用真实逐残基pLDDT。这些预测位点关系不能写成已确认的氢键、盐桥、膜插入构象或热力学占有率。
+
 ### 5.2 16 维几何描述符
 
 当前冻结模型实际使用的 16 维 Cα 几何特征为：
@@ -762,7 +795,7 @@ ToxinPred3 strict上的历史3D-v1 precision为0.9162、recall为0.5428、MCC为
 | ---: | --- | --- | --- |
 | 1 | PepFlow全原子构象集合 | 每条肽8个构象；计算6/8/10 Å接触占有率、残基RMSF、构象RMSD、回转半径及成对距离均值/方差，以可用性硬掩码的小logit残差融入3D-v2 | **761条/6088构象均已生成并完成五折OOF；250条分层pilot候选仍是性能最优的能力感知结构checkpoint** |
 | 2 | PepFlow覆盖扩展 | 使用冻结的相同8构象与统计协议，把训练覆盖从250条扩展到全部761条3–15 aa样本；不改变Test1/Test2阈值 | **已完成；新增511条全为负类，未加权与类别校正训练均未超过250条pilot，作为负消融结束** |
-| 3 | 独立3D-v2随机种子 | 在相同fold、相同数据和相同结构上补齐至少seed 123/2025，用种子间结构概率方差替代单checkpoint MC-dropout，并只在nested角色训练残差 | **当前最高优先级**；当前只有完整seed 42，这是检验3D增益是否稳定、能否形成可靠门控的必要条件 |
+| 3 | 逐构象官能团图与set-attention | 每个构象单独建立官能团—三锚点双尺度图，集合注意力聚合8个构象，PepFlow/AF2使用独立残差头 | **已完成五折；替换统计分支失败，叠加为第二级残差后AUROC/AUPRC小幅提高并保留为full2795结构候选，不替换多维默认** |
 | 4 | 预冻结构象验证集 | 在查看标签指标前先冻结样本、构象生成器、融合权重、阈值和保留门槛，并保证短肽正负类均有构象输入 | 当前没有；完成后才允许决定多维默认是否真正超过同数据论文 |
 | 5 | BioEmu平衡态采样 | 作为独立构象来源验证PepFlow结论，并用于模型间/生成器间分歧；不把蛋白质单体上的论文性能直接外推到短肽 | 接口兼容，尚未生成；用于检验PepFlow改善是否跨生成器稳定 |
 | 6 | AF3/Boltz跨模型静态共识 | 在同一pilot上与ESMFold比较接触图、官能团位置和分类概率分歧；用于结构可靠性，不把多次扩散sample直接称为热力学平衡态 | Boltz可作为开源入口，尚无本地缓存 |
@@ -778,6 +811,22 @@ ToxinPred3 strict上的历史3D-v1 precision为0.9162、recall为0.5428、MCC为
 覆盖扩展采用相同fold、相同冻结3D-v2主干、相同15个可训练构象张量和相同固定阈值。未加权761条训练的固定阈值BACC/MCC仍为`0.91325/0.83620`，AUROC/AUPRC由基础值小幅升到`0.96064/0.92810`，Brier从`0.05953`降到`0.05936`；与250条候选相比，MCC低`0.00282`。由于新增511条均为负类，预先限定的唯一优化是按`650/139=4.6763`恢复pilot时期正负类对损失的相对贡献；该版本固定阈值BACC/MCC为`0.91320/0.83550`，AUROC/AUPRC/Brier为`0.96058/0.92789/0.05987`，未通过MCC、BACC、排序和校准保留门槛。该结果说明瓶颈是毒性短肽构象覆盖不足，而不是训练轮数或网络深度不足。
 
 PepFlow或BioEmu生成的PDB没有ESMFold pLDDT。本轮缓存明确标记`confidence_imputed=1`；构象统计子路不把该伪置信度当作pLDDT，仍由原ESMFold主干提供单结构质量，PepFlow只提供跨构象的方差和占有率。生成器物理可靠性仍未标定，下一步不是继续在同一OOF上放大残差，而是用BioEmu/短程MD或新外部集检验跨生成器一致性。
+
+### 5.11 ProtT5主导的逐残基序列—3D化学交互适配层
+
+彻底隔离结构专家降低相关性却同时损失有效纠错，说明当前瓶颈不是“两支路不够独立”，而是最强pooled ProtT5专家只在概率末端接触3D信息。默认模型因此保留原两位专家和冻结融合概率，并在其上增加受控的非对称残基交互：
+
+```text
+逐残基ProtT5（1024D，冻结） --Query--+
+                                      +--> 单向cross-attention --> mean/max/乘积交互池化
+3D-v2残基状态（128D，折外） --Key/Value-+                           |
+       ^                                                          v
+       +-- pLDDT连续降权 + 官能团局部语义门控       原联合logit + 有界交互残差
+```
+
+官能团输入不是新的2D分支，而是从同一全原子PDB按残基汇总的12维旋转不变量：8类位点占有率、有效位点数、位点到Cα的平均/最大半径和同残基双位点间距。局部门控读取`ProtT5 token × 官能团表示`，学习“某类序列语义在当前空间化学环境中是否应被结构证据修正”。pLDDT继续作用于3D Key/Value和样本级质量门控；最终残差经`tanh`、可学习小权重和最大logit幅度约束，输出层零初始化。适配层只有292,123个可训练参数，不微调ProtT5、ESM2或3D主干；训练时25%结构模态dropout保证缺失结构严格回到原联合概率，而不是由全零结构产生任意预测。
+
+协议上，每条训练样本的3D状态只来自没有见过该样本的fold checkpoint，基础概率也是原模型的OOF概率。第一阶段不显式加入官能团局部门控时，OOF MCC/AUPRC/Brier为`0.87044/0.95364/0.04456`；加入官能团门控后为`0.87118/0.95363/0.04449`，相对原联合基线的MCC/Brier改善更大，因此保留官能团版。五折最佳epoch为`1/6/8/16/5`，使用中位数6轮在全部OOF特征上重拟合轻量适配器。该结果支持“序列语义需要条件化解释三维位点关系”，但增益很小且BACC略降，不能表述为强耦合全面优于晚期融合。
 
 ---
 
@@ -799,7 +848,7 @@ PepFlow或BioEmu生成的PDB没有ESMFold pLDDT。本轮缓存明确标记`confi
 | Test1 | 三种子pooled ESM2-BSMOTE TextCNN（阈值0.36） | 0.8950 | 0.8523 | 0.9807 | 0.9594 | ToxPLTC路线的ESM2机制筛查 |
 | Test1 | 三种子pooled ProtT5-BSMOTE TextCNN（阈值0.45） | **0.9002** | **0.8598** | 0.9802 | 0.9578 | 当前综合决策最强；ToxPLTC同源改进 |
 | Test1 | ESM2/ProtT5 BACC辅助操作点（阈值0.305） | **0.9015** | **0.8616** | **0.9826** | **0.9648** | BACC为0.9421；不替换综合主模型 |
-| Test1 | 3D-v2/ProtT5联合默认（阈值0.60） | 0.8978 | 0.8588 | 0.9815 | 0.9649 | 新工程默认；相对原3D-v2全面提高MCC与排序指标 |
+| Test1 | ProtT5→3D化学交互联合默认（阈值0.60） | 0.8995 | 0.8611 | 0.9816 | 0.9650 | 在原0.62/0.38联合概率上增加受控逐残基交互；少1个假阴性 |
 | Test1 | 逐残基ProtT5多尺度CNN（阈值0.5195） | 0.8948 | 0.8534 | 0.9761 | 0.9552 | 局部建模未超过pooled候选；已停止 |
 | Test1 | pooled/逐残基ProtT5融合（阈值0.30） | 0.8909 | 0.8465 | 0.9804 | 0.9615 | OOF冻结融合未超过现有主模型或BACC辅助 |
 | Test2 | 1D ESM2-BiLSTM | 0.6051 | 0.5773 | **0.9361** | 0.6965 | 排序能力较稳，决策指标偏低 |
@@ -808,11 +857,11 @@ PepFlow或BioEmu生成的PDB没有ESMFold pLDDT。本轮缓存明确标记`confi
 | Test2 | 三种子pooled ESM2-BSMOTE TextCNN（阈值0.36） | 0.6500 | 0.6337 | 0.9455 | 0.7367 | ToxPLTC路线的ESM2机制筛查 |
 | Test2 | 三种子pooled ProtT5-BSMOTE TextCNN（阈值0.45） | **0.6726** | **0.6526** | **0.9588** | **0.7495** | 当前同数据性能候选；距导师论文MCC 0.655约0.0024 |
 | Test2 | ESM2/ProtT5 BACC辅助操作点（阈值0.305） | 0.6452 | 0.6325 | 0.9559 | **0.7634** | BACC提高到0.8993，但MCC明显下降 |
-| Test2 | 3D-v2/ProtT5联合默认（阈值0.60） | **0.6733** | 0.6456 | 0.9577 | **0.7851** | 相对原3D-v2的MCC、AUROC和AUPRC均提高 |
+| Test2 | ProtT5→3D化学交互联合默认（阈值0.60） | **0.6733** | 0.6456 | 0.9578 | **0.7849** | 混淆矩阵不变；AUROC/Brier改善，AUPRC微降 |
 | Test2 | 逐残基ProtT5多尺度CNN（阈值0.5195） | 0.6476 | 0.6190 | 0.9293 | 0.6960 | 局部模式迁移明显弱于pooled候选 |
 | Test2 | pooled/逐残基ProtT5融合（阈值0.30） | 0.6230 | 0.6047 | 0.9548 | 0.7483 | OOF BACC增益未迁移；拒绝替换 |
 
-这张表说明新论文路线带来的主要变化：真实ProtT5预训练均值表征、折内边界增强和多随机种子平均共同把序列线路从“回退模型”推进为当前同数据性能候选，并在两套历史测试上同时提高MCC和排序指标。进一步保留残基位置的ProtT5局部CNN没有形成额外泛化收益，说明“更细粒度”不等于“更强预测”；当前数据更支持全局pooled语义。最终通过留一同源组折OOF将ProtT5全局专家以`0.62`权重接入3D-v2，形成当前联合默认；它保持3D结构与化学解释，同时显著改善原结构模型的排序，但综合BACC/MCC仍未全面超过纯ProtT5候选。
+这张表说明新论文路线带来的主要变化：真实ProtT5预训练均值表征、折内边界增强和多随机种子平均共同把序列线路从“回退模型”推进为当前同数据性能候选。单独的逐残基ProtT5局部CNN没有形成额外泛化收益，但逐残基ProtT5在3D化学条件下作为Query产生了小幅OOF增益，说明有效信息来自“序列模式是否在空间中实现”，而不是无条件增加局部卷积。当前默认先按`0.62/0.38`形成稳定联合概率，再由受控交互适配层做小修正；它仍未全面超过纯ProtT5性能候选或导师论文。
 
 ### 6.1 当前预测结果怎样解读
 
@@ -820,11 +869,11 @@ PepFlow或BioEmu生成的PDB没有ESMFold pLDDT。本轮缓存明确标记`confi
 
 Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9426提高到0.9474。Test2上，AUPRC由0.6969提高到0.7241，但MCC由0.6320降至0.6128，F1由0.6602降至0.6415。因此，Test2说明位点信息可能改善少数正类样本的排序，同时也改变了阈值附近的错误结构。这一取舍已在README和机器可读结果中完整保留。
 
-当前将3D-v2作为联合默认的结构专家，并将三种子pooled ProtT5作为冻结全局序列专家。两者的权重和阈值完全由五个同源分组OOF选择；相对原3D-v2，Test1/Test2的AUROC与AUPRC配对bootstrap增益区间均高于0，MCC点估计分别提高`0.0124/0.0328`但区间跨0。这个选择不代表联合默认已经在新独立外部数据上确认，也不代表它全面超过纯ProtT5候选。论文应把排序提升写成主要收益，把MCC的不确定性写入讨论和局限性。
+当前将3D-v2作为结构专家，将三种子pooled ProtT5作为冻结全局序列专家，并以逐残基ProtT5—3D化学适配器建模两维度的条件关联。原专家权重、阈值和新增适配层均只由同源分组OOF确定。适配层使OOF MCC提高`0.00184`、Brier降低`0.00017`，Test1四项指标同向小幅改善；Test2决策不变且AUPRC微降。这个选择不代表联合默认已在新独立外部数据确认，也不代表它全面超过纯ProtT5候选。论文应把它写成“保守的残基层条件耦合”，同时报告很小的效应量和跨数据集不完全一致。
 
 ### 6.2 实际部署时的线路选择
 
-输入同时具有完整全原子ESMFold/化学位点张量和pooled ProtT5特征时，使用联合默认。若化学位点张量缺失，联合入口不会把未经验证的3D-v1权重代入融合，而是回退到纯ProtT5候选并记录`fallback_used=1`。单独复现结构专家时仍可使用3D-v2入口；结构生成失败、整体置信度很低或数据域明显变化时，应报告ProtT5概率、结构概率、融合概率与回退状态。
+输入同时具有完整全原子ESMFold/化学位点张量、pooled ProtT5特征和逐残基适配缓存时，使用完整联合默认。只有前两者时精确回退原`0.62/0.38`联合概率，并记录`interaction_adapter_applied=0`；化学位点张量缺失时进一步回退纯ProtT5并记录`fallback_used=1`。单独复现结构专家时仍可使用3D-v2入口；结构生成失败、整体置信度很低或数据域明显变化时，应报告ProtT5概率、结构概率、交互前后概率、交互残差与回退状态。
 
 历史三通路动态路由改善了校准和风险分层，但它基于3D-v1完成，且在Test2的MCC/F1上没有超过冻结3D模型。因此它保留为不确定性和分诊工具，不参与默认分类决策。
 
@@ -1010,6 +1059,8 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 | BACC最大化且MCC下降不超过0.002的受约束融合 | 留一折BACC/MCC为`0.9307/0.8511` | 约束在训练折成立但未迁移到留出折；停止 |
 | 三种子pooled ESM2 TextCNN + 3D-v2 OOF凸融合 | 交叉拟合MCC/AUROC/AUPRC为`0.8449/0.9707/0.9448`，但冻结Test2 MCC在MCC/BACC/折中三操作点均未稳定优于三种子序列候选 | ESM2专家与3D主干信息重复较多；融合改善排序但阈值迁移不稳定，停止 |
 | 三种子pooled ProtT5 + 3D-v2 OOF融合 | MCC主目标交叉拟合BACC/MCC/AUROC/AUPRC为`0.9257/0.8666/0.9772/0.9535`；冻结ProtT5/3D权重`0.62/0.38`、阈值`0.60`后，Test1/Test2 MCC为`0.8588/0.6456`、AUPRC为`0.9649/0.7851` | 相对原3D-v2在两套测试上均提高MCC与排序指标，保留为联合工程默认；仍不替代纯ProtT5同数据性能候选 |
+| 原联合概率 + ProtT5→3D逐残基单向注意力 | 固定阈值OOF MCC/AUPRC/Brier由`0.86935/0.95360/0.04466`变为`0.87044/0.95364/0.04456`，3/5折MCC提高 | 证明序列—结构条件交互比彻底隔离更有效；保留为官能团耦合的直接消融 |
+| 上述交互 + 官能团局部语义门控 | 固定阈值OOF BACC/MCC/AUROC/AUPRC/Brier为`0.92718/0.87118/0.97729/0.95363/0.04449`；Test1 MCC提高到`0.86113`，Test2 MCC不变且AUPRC微降 | 通过预设MCC/AUPRC/Brier与折胜数门槛，升级为工程默认；BACC/AUROC并非全面改善 |
 | SupCon | Test1/Test2 MCC `0.8143/0.5709` | 额外表征约束未带来决策收益，停止 |
 | Focal BCE | Test2 AUPRC `0.7273`，但MCC `0.6171` | 对排序有帮助，但不满足默认决策模型的综合标准 |
 | Atom-MPNN only → 序列—原子跨注意力 | 对齐后2D明显改善，最佳Test1/Test2 MCC为`0.8297/0.6183` | 原子化学有互补信息，但必须结合残基上下文 |
@@ -1023,6 +1074,8 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 | PepFlow构象逐个前向后等权均值 | 250条pilot概率相关`0.99981`、平均绝对变化`0.00204`、阈值翻转`0` | 旧单构象主干未显式使用跨构象占有率；不保留多次昂贵前向作为默认 |
 | PepFlow构象统计残差 | pilot固定阈值BACC/MCC `+0.03062/+0.05604`；全量OOF `+0.00176/+0.00282`，AUROC/AUPRC/Brier同向 | 保留为可选3D子路；无构象数据硬回退3D-v2，新外部集前只称探索性改善 |
 | PepFlow覆盖扩展到761条 | 新增511条全为负类；未加权固定阈值MCC与基础3D同为`0.83620`，类别校正版为`0.83550`；联合ProtT5后前者`0.86895`、后者`0.86935`，但均未同时守住排序与校准门槛 | 拒绝替换250条pilot默认；说明关键瓶颈是新增毒性短肽构象，而不是单纯增加负类构象数量 |
+| 逐构象官能团图直接替换集合统计 | 相对full2795统计候选BACC/MCC/AUROC/AUPRC分别变化`−0.00077/−0.00051/−0.00008/−0.00076`，仅Brier改善 | 拒绝替换；单构象局部图不能取代跨构象RMSF、接触占有率和距离方差 |
+| 集合统计 + 独立来源逐构象图 + set-attention | 固定阈值BACC/MCC不变，AUROC/AUPRC `+0.0000406/+0.0001003`且配对95%区间为正；PepFlow子队列MCC `+0.00700` | 保留为full2795结构性能候选；增益很小且冻结ProtT5联合仍低于pilot250默认，不升级工程默认 |
 | 构象残差后的质量门控/非负stacking/有符号结构残差 | 严格nested MCC分别为`0.8614/0.8633/0.8627`，均低于构象能力感知默认`0.8693`；有符号残差SN升至`0.8966`但SP降至`0.9632` | 三维能救回部分假阴性，但现有质量特征无法抑制新增假阳性；三项均拒绝，不再在当前OOF搜索融合公式 |
 
 这些消融共同支持的不是“模型越复杂越好”，而是三个更具体的选择：序列信息始终作为基础；结构信息需要根据置信度连续降权；侧链化学只以小残差方式修正Cα空间表示，避免破坏已稳定的主干。
@@ -1123,7 +1176,7 @@ MODEL_PATH=/root/autodl-tmp/models/prot_t5_xl_half_uniref50-enc \
 
 16–30 aa超出PepFlow官方实现的长度上限，但仍处于已有AlphaFold2短肽基准覆盖的10–40 aa范围。两项短肽研究分别在557条和588条肽上评估了AF2/ColabFold：结果支持它对部分α螺旋、β-hairpin和二硫键丰富肽产生有价值的候选结构，同时指出短肽类别差异、主链二面角/二硫键配对误差，以及“最高pLDDT不一定最接近实验构象”的限制（[McDonald等，2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11642853/)；[Alderson等，2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9883802/)）。因此本项目不再取单一rank-1结构，也不把多seed输出称为真实平衡态构象。
 
-当前已实现但尚未获得服务器真实结果的协议如下：
+当前已实现并完成pilot验证的协议如下：
 
 1. 训练集中共有2034条16–30 aa肽，其中670条毒性、1364条非毒性；先固定400条近似平衡pilot（197/203），不读取Test1/Test2选择结构方案。
 2. 每条肽用AlphaFold2-ptm、浅MSA `16:32`、4个随机seed和5个模型生成20个未松弛候选；3次recycle、不使用模板、dropout或`--save-all`。该设置是对短肽论文“16 seeds × 5 models=80”的四分之一成本pilot，若结构覆盖不足可在不改变评估协议的前提下补到16 seeds。
@@ -1131,7 +1184,25 @@ MODEL_PATH=/root/autodl-tmp/models/prot_t5_xl_half_uniref50-enc \
 4. 8个代表构象复用现有全原子化学位点与构象统计接口，得到逐构象NPZ、RMSF、构象RMSD、回转半径、成对距离均值/方差和6/8/10 Å接触占有率；真实AF2 pLDDT来自PDB B-factor列，不使用PepFlow的插补置信度。
 5. 集合统计仍通过零初始化、小权重、`conformer_available`硬掩码的logit残差接入3D-v2。无AF2数据时严格回退ESMFold 3D-v2，因此该实验增加结构能力但不移除ESM2序列、全原子化学位点或ProtT5联合维度。
 
-预先声明的保留门槛沿用现有构象实验规则：400条pilot的group-aware OOF中MCC不得下降，并且BACC、AUROC或AUPRC至少一项提高；同时报告Brier/ECE、bootstrap区间和五折稳定性。未通过则停止，不生成2034条全量，只在消融表保留负结果；通过后才生成全量并检查冻结`ProtT5 0.62 + 结构 0.38`联合结果。AF2多seed频率不能解释为构象占有率或自由能，膜环境、pH、受体结合态、非天然残基和真实二硫键拓扑仍是该路线的主要生物学边界。
+pilot压缩包经SHA256校验后得到400条、正负`197/203`、每条8构象、共3200个NPZ，序列错配为0；五折样本量为`80/84/80/78/78`。构象pLDDT在缓存中归一化到0–1，中位数`0.731`；样本平均RMSF中位数`1.35 Å`，说明所选集合同时覆盖较刚性和较柔性的候选，不是8份近重复rank结构。
+
+固定阈值`0.677819`的覆盖队列结果如下。该阈值和保留规则均在查看本轮结果前冻结：
+
+| 模型 | BACC | F1 | MCC | AUROC | AUPRC | Brier | ECE-10 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 原3D-v2五折OOF | 0.7765 | 0.7588 | 0.5585 | 0.8519 | 0.8524 | 0.1839 | 0.1757 |
+| + AF2 16–30 aa构象残差 | **0.7914** | **0.7726** | **0.5903** | **0.8596** | **0.8588** | **0.1734** | **0.1665** |
+| 差值 | +0.0149 | +0.0138 | +0.0318 | +0.00765 | +0.00644 | −0.01048 | −0.00924 |
+
+配对bootstrap中AUROC差值95%区间为`[0.00345, 0.01280]`、AUPRC为`[0.00137, 0.01198]`、Brier为`[-0.02039, -0.00180]`，对应随机置换p值约为`0.001/0.027/0.027`；MCC区间`[-0.00789, 0.07313]`仍跨0。因此可靠结论是“排序和概率误差已有pilot支持”，而不是“固定阈值分类已显著提高”。固定阈值下新支路纠正12条原错误，同时使6条原正确转错，净纠正6条。
+
+按长度作事后描述时，16–20、21–25、26–30 aa的MCC差值分别为`+0.0802/+0.0420/+0.0030`，三个长度层的AUROC、AUPRC和Brier均同向改善。构象平均RMSF与概率改变量绝对值的Spearman相关仅`0.124`，mean pLDDT与绝对改变量为`-0.121`：模型更倾向修正柔性较高或置信度较低的样本，但效应较弱，不能据此在pilot后重新设计长度权重或门控。
+
+把该候选放回全部6387条训练OOF时，只有400条具有AF2统计，其余5987条在CSV输出最大`1.2×10⁻⁷`的浮点误差内回退原3D-v2。即便覆盖率只有`6.26%`，总体MCC仍由`0.83620`升至`0.83846`，AUROC/AUPRC由`0.96059/0.92800`升至`0.96095/0.92858`，Brier由`0.05953`降至`0.05887`。与冻结ProtT5按`0.62/0.38`融合后，BACC/MCC保持`0.92746/0.86935`，AUROC/AUPRC由现默认的`0.97730/0.95360`提高到`0.97741/0.95391`，Brier由`0.04466`降至`0.04441`。这说明新结构信号目前主要改善概率排序与可靠性，没有改变联合模型固定阈值混淆矩阵。
+
+五折最佳epoch为`18/44/2/34/1`，中位数为18；已用全部400条pilot重拟合仅15个新增构象张量，得到[`runs/af2_16_30_pilot400_residual_candidate/best_model.pt`](runs/af2_16_30_pilot400_residual_candidate/best_model.pt)。审计确认原主干142个张量逐元素未改变。该checkpoint只作为full到达前的候选和复现产物，不替换当前默认模型。
+
+预先声明的保留门槛为：group-aware OOF中MCC不得下降，并且BACC、AUROC或AUPRC至少一项提高。pilot与2034条full均已完成；full单独训练改善MCC/Brier但损失AUPRC，因此随后与PepFlow 761条合并成2795条来源感知集合，并改用验证AUPRC选择checkpoint。最终统计残差候选通过结构门槛，逐构象官能团图作为第二级残差后又在不改变固定阈值MCC的条件下提高AUROC/AUPRC。完整结论见[`runs/conformer_graph_set_on_summary_full2795_oof/decision.json`](runs/conformer_graph_set_on_summary_full2795_oof/decision.json)。AF2多seed频率仍不能解释为构象占有率或自由能，膜环境、pH、受体结合态、非天然残基和真实二硫键拓扑仍是该路线的主要生物学边界。
 
 ### 9.8 BioEmu：独立的平衡态构象来源
 
@@ -1264,12 +1335,12 @@ AUROC/AUPRC是阈值无关的排序指标；BACC、MCC、F1、Precision和Recall
 | --- | --- | ---: | ---: | ---: |
 | Test1 | 导师 ToxMSRC | **0.9217** | **0.8520** | 0.9650 |
 | Test1 | 3D-v2结构专家 | 0.9208 | 0.8464 | **0.9711** |
-| Test1 | 当前联合默认 | **0.9236** | **0.8588** | **0.9815** |
+| Test1 | 当前交互联合默认 | **0.9251** | **0.8611** | **0.9816** |
 | Test1 | 当前性能候选 | **0.9342** | **0.8598** | **0.9802** |
 | Test1 | 性能候选减导师 | +0.0125 | +0.0078 | +0.0152 |
 | Test2 | 导师 ToxMSRC | **0.8689** | **0.6550** | **0.9430** |
 | Test2 | 3D-v2结构专家 | 0.8453 | 0.6128 | 0.9295 |
-| Test2 | 当前联合默认 | 0.8500 | 0.6456 | **0.9577** |
+| Test2 | 当前交互联合默认 | 0.8500 | 0.6456 | **0.9578** |
 | Test2 | 当前性能候选 | **0.8860** | 0.6526 | **0.9588** |
 | Test2 | 性能候选减导师 | +0.0171 | -0.0024 | +0.0158 |
 
@@ -1379,6 +1450,10 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | 当前联合默认推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
 | 联合默认OOF筛选 | [`runs/3d_v2_prott5_global_mcc_oof/summary.json`](runs/3d_v2_prott5_global_mcc_oof/summary.json) |
 | 联合默认保留决定与冻结结果 | [`runs/3d_v2_prott5_global_mcc/decision.json`](runs/3d_v2_prott5_global_mcc/decision.json) |
+| ProtT5→3D交互适配器实现与训练入口 | [`src/ghxtox/cross_modal_adapter.py`](src/ghxtox/cross_modal_adapter.py) |
+| 无显式官能团门控的交互消融 | [`runs/prott5_structure_cross_attention_oof/summary.json`](runs/prott5_structure_cross_attention_oof/summary.json) |
+| 当前官能团交互默认的五折OOF | [`runs/prott5_structure_chemical_cross_attention_oof/summary.json`](runs/prott5_structure_chemical_cross_attention_oof/summary.json) |
+| 当前官能团交互默认的全数据checkpoint | [`runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt`](runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt) |
 | 3D-v2结构专家配置 | [`configs/default.json`](configs/default.json) |
 | 历史3D-v1回退配置 | [`configs/default_3d_v1.json`](configs/default_3d_v1.json) |
 | 历史3D-v2单结构完整训练checkpoint | [`runs/3d_v2_default/best_model.pt`](runs/3d_v2_default/best_model.pt) |
@@ -1388,6 +1463,8 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | 逐残基ProtT5完整消融与停止决定 | [`runs/prott5_token_multiscale/summary.json`](runs/prott5_token_multiscale/summary.json) |
 | HyPepTox-Fuse迁移筛查与停止决定 | [`runs/hypeptox_fuse_transfer_screen/summary.json`](runs/hypeptox_fuse_transfer_screen/summary.json) |
 | 双专家OOF交叉拟合与冻结应用入口 | [`src/ghxtox/oof_fusion.py`](src/ghxtox/oof_fusion.py) |
+| 无PLM独立结构专家配置与五折入口 | [`configs/independent_structure_spatial_chemical.json`](configs/independent_structure_spatial_chemical.json)、[`scripts/evaluate_independent_structure_oof.ps1`](scripts/evaluate_independent_structure_oof.ps1) |
+| 无PLM独立结构OOF、互补分析与停止决定 | [`runs/independent_structure_spatial_chemical_isolated_oof/`](runs/independent_structure_spatial_chemical_isolated_oof/) |
 | 三种子pooled ESM2-BSMOTE TextCNN候选 | [`runs/plm_textcnn_esm2_bsmote_multiseed_plateau/`](runs/plm_textcnn_esm2_bsmote_multiseed_plateau/) |
 | 三种子候选OOF汇总 | [`runs/plm_textcnn_esm2_bsmote_multiseed/oof_predictions.metrics.json`](runs/plm_textcnn_esm2_bsmote_multiseed/oof_predictions.metrics.json) |
 | 三种子候选阈值与保留决定 | [`runs/plm_textcnn_esm2_bsmote_multiseed/decision.json`](runs/plm_textcnn_esm2_bsmote_multiseed/decision.json) |
@@ -1408,6 +1485,10 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | PepFlow统计挂接与维度定义 | [`src/ghxtox/conformer_features.py`](src/ghxtox/conformer_features.py) |
 | 构象统计残差配置 | [`configs/conformer_ensemble_residual_calibrated.json`](configs/conformer_ensemble_residual_calibrated.json) |
 | 构象残差五折与全量OOF结果 | [`runs/conformer_ensemble_residual_oof/`](runs/conformer_ensemble_residual_oof/) |
+| 逐构象官能团图与set-attention编码器 | [`src/ghxtox/models/conformer_graph.py`](src/ghxtox/models/conformer_graph.py) |
+| full2795统计 + 逐构象图二级残差配置 | [`configs/conformer_graph_set_on_summary_residual.json`](configs/conformer_graph_set_on_summary_residual.json) |
+| full2795逐构象图保留决定与分层分析 | [`decision.json`](runs/conformer_graph_set_on_summary_full2795_oof/decision.json)、[`multisource_analysis.json`](runs/conformer_graph_set_on_summary_full2795_oof/multisource_analysis.json) |
+| full2795逐构象图全数据checkpoint | [`best_model.pt`](runs/conformer_graph_set_on_summary_full2795_candidate/best_model.pt) |
 | 761条全覆盖训练与类别校正负消融 | [`runs/conformer_full761_screen/decision.json`](runs/conformer_full761_screen/decision.json) |
 | AF2/ColabFold 16–30 aa任务清单 | [`data/af2_ensemble_16_30/task_summary.json`](data/af2_ensemble_16_30/task_summary.json) |
 | ColabFold多模型收集、质量检查与RMSD medoid缓存 | [`src/ghxtox/colabfold_ensemble_cache.py`](src/ghxtox/colabfold_ensemble_cache.py) |
@@ -1543,6 +1624,7 @@ GHXTox 当前最有价值的贡献不是单一指标上的绝对领先，而是�
 - 2D线路补充原子与化学键层面的局部化学环境，但当前作为独立对照和解释专家，没有并入默认分类器；
 - 3D-v2在pLDDT约束下联合使用1D序列、Cα空间邻域、全原子化学位点和可用时的PepFlow构象统计，因此当前默认模型使用的是1D+3D两个维度；
 - ToxPLTC启发的pooled ProtT5、折内Borderline-SMOTE、TextCNN和三种子集成已通过留一同源组折OOF接入3D-v2；冻结权重为ProtT5/3D-v2=`0.62/0.38`，形成当前工程默认；
+- 在冻结联合概率之上，ProtT5主导的逐残基3D化学交互适配层进一步将OOF MCC由`0.86935`提高到`0.87118`，并保持AUPRC、改善Brier；它以官能团局部语义门控和pLDDT降权表达两维度的条件关联，现为完整默认的最后一级；
 - 化学位点支路经Pareto checkpoint后在五折上稳定小幅改善MCC、F1和AUPRC；同残基位点边提供极小附加排序增益，随后完成8轮全训练集重拟合；
 - PepFlow构象子路表明，直接平均单构象预测不足以利用柔性，而显式RMSF/接触占有率残差可在正负分层pilot OOF上同时改善阈值指标、排序和概率误差；761条全覆盖负消融进一步表明，仅增加非毒性构象不会继续提高分类性能；
 - 5000次配对分析确认训练内OOF AUROC/AUPRC增益，但MCC和现有Test1/Test2差异没有形成统计确认；
@@ -1551,7 +1633,7 @@ GHXTox 当前最有价值的贡献不是单一指标上的绝对领先，而是�
 - 逐残基ProtT5的局部`3/5/7`卷积、门控注意力、折内正类扰动和pooled/token融合均已完成消融；其OOF局部互补未迁移到Test1/Test2，因此没有进入默认线路；
 - 32个分层和缓存推理效率已经补齐，可直接用于论文结果、讨论和补充材料。
 
-论文可将项目定位为：**建立一个残基对齐的1D/2D/3D肽毒性比较与解释框架，在1D+3D联合默认中融合ToxPLTC启发的ProtT5全局专家与结构质量感知的全原子化学位点/构象统计3D专家，并通过同源分组OOF、完整消融和能力感知回退说明预训练语义、单结构化学与构象柔性的条件性互补。**
+论文可将项目定位为：**建立一个残基对齐的1D/2D/3D肽毒性比较与解释框架，在1D+3D联合默认中先融合ToxPLTC启发的ProtT5全局专家与结构质量感知的全原子化学位点/构象统计3D专家，再以ProtT5主导的逐残基非对称交互学习序列语义与空间化学的条件关联，并通过同源分组OOF、完整消融和能力感知回退说明预训练语义、单结构化学与构象柔性的条件性互补。**
 
 ---
 
@@ -1587,12 +1669,13 @@ $env:PYTHONPATH = "src"
 & $py -B -m ghxtox.hybrid_default `
   --processed data\processed\test2_chemical_sites_final_esm2.pt `
   --prott5-features data\processed\test2_prott5_official_mean.pt `
-  --output runs\3d_v2_prott5_global_mcc\test2\predictions.csv `
-  --metrics runs\3d_v2_prott5_global_mcc\test2\metrics.json `
+  --adapter-feature-cache data\processed\test2_prott5_structure_adapter.pt `
+  --output runs\prott5_structure_chemical_cross_attention_candidate\test2\predictions.csv `
+  --metrics runs\prott5_structure_chemical_cross_attention_candidate\test2\metrics.json `
   --device cuda
 ```
 
-安装项目后，`ghxtox-predict`指向该联合入口；旧的单结构预测保留为`ghxtox-structure-predict`或`python -m ghxtox.predict`。联合配置固定读取3D-v2 checkpoint和三组ProtT5五折checkpoint，共15个ProtT5成员；权重`0.62/0.38`和阈值`0.60`来自训练OOF。若输入缺少化学位点张量，联合入口回退到阈值`0.45`的纯ProtT5候选，而不会把未经验证的3D-v1权重代入联合公式。
+安装项目后，`ghxtox-predict`指向该联合入口；旧的单结构预测保留为`ghxtox-structure-predict`或`python -m ghxtox.predict`。联合配置固定读取3D-v2 checkpoint、三组ProtT5五折checkpoint和一个6轮全数据交互适配器；原权重`0.62/0.38`及阈值`0.60`不变。若未传`--adapter-feature-cache`，联合入口精确返回交互前的旧联合概率；若输入还缺少化学位点张量，则回退到阈值`0.45`的纯ProtT5候选，而不会把未经验证的3D-v1权重代入联合公式。
 
 服务器压缩包解压后，在本地挂接构象统计、五折训练和全量OOF预测的完整命令为：
 
@@ -1658,13 +1741,75 @@ bash scripts/run_colabfold_16_30_autodl.sh smoke
 bash scripts/run_colabfold_16_30_autodl.sh pilot
 ```
 
-长任务建议放入`screen`；日志位于`runs/af2_ensemble_16_30_{scope}/`。脚本可在同一路径重跑并复用已有MSA/预测，完成后自动生成`/root/autodl-tmp/af2_ensemble_16_30_{scope}_YYYYMMDD.tar.gz`及校验文件。smoke/pilot应分别得到`2/400`条集合和`16/3200`个构象NPZ。本地解压pilot包后运行：
+长任务建议放入`screen`；日志位于`runs/af2_ensemble_16_30_{scope}/`。脚本可在同一路径重跑并复用已有MSA/预测，完成后自动生成`/root/autodl-tmp/af2_ensemble_16_30_{scope}_YYYYMMDD.tar.gz`及校验文件。smoke/pilot应分别得到`2/400`条集合和`16/3200`个构象NPZ。本地可以让脚本同时校验、解压并运行pilot：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/evaluate_colabfold_16_30_oof.ps1 -Scope pilot
+powershell -ExecutionPolicy Bypass -File scripts/evaluate_colabfold_16_30_oof.ps1 `
+  -Scope pilot `
+  -Archive .\af2_ensemble_16_30_pilot_20260727.tar.gz
 ```
 
-只有`runs/af2_16_30_pilot400_residual_oof/decision.json`中`retained=true`才回服务器执行`bash scripts/run_colabfold_16_30_autodl.sh full`。full预期2034条集合、16272个构象NPZ。安装和运行脚本会保留ColabFold帮助、协议、MSA/预测/缓存日志、收集清单与真实pLDDT，便于论文复现。
+pilot已通过，`runs/af2_16_30_pilot400_residual_oof/decision.json`中`retained=true`。full压缩包也已完成SHA256核验，实际得到2034条集合、16272个构象NPZ；压缩包返回项目根目录后可以执行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/evaluate_colabfold_16_30_oof.ps1 `
+  -Scope full `
+  -Archive .\af2_ensemble_16_30_full_YYYYMMDD.tar.gz
+```
+
+脚本会先验证同名`.sha256`（若存在），审计样本数和每条8构象，再生成`full2034`增强数据、五折checkpoint、覆盖队列/6387条总体OOF、配对统计、结构分层和冻结ProtT5融合结果；若通过门槛，还会自动按五折最佳epoch中位数生成单一全数据候选checkpoint。pilot和full使用独立文件前缀，不会互相覆盖。安装和运行脚本保留ColabFold帮助、协议、MSA/预测/缓存日志、收集清单与真实pLDDT，便于论文复现。
+
+#### 已完成：PepFlow ≤15 aa与AF2 16–30 aa全量联合
+
+两个生成器使用不同物理近似，不能把同一数值的RMSF或接触占有率无条件视为同分布特征。联合版因此在原来的8维逐残基构象统计和12维肽级统计之外增加生成器来源条件：PepFlow、AF2/ColabFold和其他来源编码为三维one-hot，经独立小型编码器后与ESM2/EGNN结构表征、构象池化表征共同输入零初始化残差头。未获得多构象的样本保持全零来源向量和`conformer_available=false`，残差被硬掩码为零，预测与原3D-v2逐位一致。
+
+全量数据审计与训练结果如下。这里的“全量”是现有生成数据的全部，即PepFlow 761条≤15 aa样本（实际长度11–15 aa）加AF2 2034条16–30 aa样本；当前训练集没有需要PepFlow处理的1–10 aa记录。服务器包没有31–39 aa多构象，31 aa以上样本仍由ESMFold单结构3D-v2处理。
+
+| 版本 | 增强覆盖 | checkpoint选择 | 固定阈值BACC | 固定阈值MCC | AUROC | AUPRC | Brier | 结论 |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| 原3D-v2 | 0 | 原冻结模型 | 0.91325 | 0.83620 | 0.96059 | 0.92800 | 0.05953 | 结构基线 |
+| PepFlow pilot250 | 250 | 验证BCE | 0.91501 | 0.83902 | 0.96069 | 0.92817 | 0.05940 | 当前联合默认使用的结构候选 |
+| PepFlow full761 | 761 | 验证BCE | 0.91325 | 0.83620 | 0.96064 | 0.92810 | 0.05936 | 负消融 |
+| AF2 pilot400覆盖队列 | 400 | 验证BCE | 0.79137 | 0.59027 | 0.85957 | 0.85880 | 0.17340 | pilot正结果，不与6387条总体横比 |
+| AF2 full2034覆盖队列 | 2034 | 验证BCE | 0.88479 | 0.78573 | 0.94131 | 0.91279 | 0.08291 | MCC/Brier改善，AUPRC下降 |
+| 多来源full2795，验证BCE选择 | 2795 | 验证BCE | 0.86975 | 0.76298 | 0.92825 | 0.88522 | 0.08320 | 覆盖队列排序下降，不保留 |
+| 多来源full2795，排序稳定版 | 2795 | 验证AUPRC | 0.87270 | 0.76694 | 0.92940 | 0.88966 | 0.08433 | 通过结构专家门槛 |
+| full2795统计 + 逐构象图二级残差 | 2795 | 验证AUPRC | 0.87270 | 0.76694 | 0.92958 | 0.89001 | 0.08426 | 固定阈值分类不变，排序与Brier改善，保留 |
+
+最后一行在全部6387条OOF上的固定阈值BACC/MCC为`0.91357/0.83836`，AUROC/AUPRC为`0.96088/0.92898`。相对原3D-v2，覆盖队列AUROC/AUPRC分别增加`0.00104/0.00278`，配对95%区间均高于0；全部样本AUPRC增加`0.00098`，区间同样高于0。来源分层显示AF2队列MCC/AUPRC分别增加`0.00515/0.00323`，PepFlow队列MCC增加`0.00520`但AUPRC下降`0.00221`；长度26–30 aa的MCC仍下降`0.00262`。五折中主要增益集中在fold 1，fold 4的MCC反而下降`0.00410`，说明提升尚未达到跨同源组稳定。
+
+结构候选通过了“MCC不下降且至少一个BACC/AUROC/AUPRC提高”的预设门槛，并按五折最佳epoch中位数6轮生成全数据checkpoint：
+
+- `runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt`
+- `runs/multisource_1_30_full2795_rank_stable_oof/decision.json`
+- `runs/multisource_1_30_full2795_rank_stable_oof/multisource_analysis.json`
+
+逐构象图直接替换集合统计时相对上述候选的MCC/AUROC/AUPRC均下降，因此没有保留替代版。第二级残差版在固定阈值下维持BACC/MCC `0.91357/0.83836`，把全6387条AUROC/AUPRC提高到`0.96092/0.92908`，Brier降到`0.059330`；AUROC/AUPRC差值的2000次配对bootstrap 95%区间分别为`[0.00000397, 0.00007923]`与`[0.00001372, 0.00018985]`。五折最佳epoch为`22/3/1/2/1`，中位数2；已完成只训练56个新增张量的全2795重拟合：
+
+- `runs/conformer_graph_set_on_summary_full2795_candidate/best_model.pt`
+- `runs/conformer_graph_set_on_summary_full2795_oof/decision.json`
+- `runs/conformer_graph_set_on_summary_full2795_oof/multisource_analysis.json`
+
+但它没有通过更高一级的多维默认替换门槛。以冻结权重融合ProtT5后，BACC/MCC/AUROC/AUPRC/Brier为`0.92653/0.86776/0.97706/0.95320/0.04473`，均未整体超过当前pilot250联合默认的`0.92746/0.86935/0.97730/0.95360/0.04466`。对新结构概率重新进行留一折融合筛选，cross-fit MCC也只有`0.85727`，因此不继续在同一OOF搜索权重或阈值。
+
+本地完整复现入口为：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/evaluate_multisource_conformer_oof.ps1 `
+  -Python D:\anaconda3\envs\dachuang-26\python.exe `
+  -Device cuda
+```
+
+现阶段不足与下一步边界：
+
+1. 多构象覆盖虽由250条扩大到2795条，仍有3592/6387条只能使用单结构；31–39 aa并未生成，不能通过改名补齐。
+2. PepFlow短肽队列只有111个正类、650个负类，且其置信度是填充值；扩充样本没有带来新的正类构象覆盖，AUPRC反而下降。
+3. AF2多seed集合表达的是预测不确定性，不是热力学平衡采样；浅MSA肽、环化、二硫键配对和翻译后修饰仍可能与真实构象偏离。
+4. 逐构象官能团图已经接入，但全量增益只有万分位排序改善，且AF2队列的固定阈值MCC略降；瓶颈已从“没有逐构象交互”转为“预测构象质量、正类短肽覆盖和外部证据不足”。
+5. 结构专家增益进入ProtT5融合后消失，说明两位专家的纠错样本高度重叠，且原`0.38`结构权重不再适配新的概率尺度；继续在当前OOF调权重会增加选择偏差。
+6. Test1/Test2没有对应的PepFlow/AF2集合，也已经被历史开发查看；当前只能证明训练内组感知排序改善，不能证明外部泛化或全面超过论文。
+
+下一轮只有三类工作具有新增证据价值：先为预冻结的新外部集生成同协议多构象；补做真实31–39 aa结构以验证长度外推；在新增生成器或外部数据到达后检验独立来源头能否稳定路由收益。继续增加共享MLP深度、训练轮数或在当前OOF移动阈值，不属于优先方向。
 
 ### PepFlow构象集合pilot（AutoDL）
 
@@ -2002,7 +2147,8 @@ The table uses each experiment's documented, validation-selected protocol. Thres
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | Historical 3D-v1 learned-confidence fusion | 0.85 | 0.8458 | 0.9426 | 0.6602 | 0.6320 | 0.6969 | Retained fallback |
 | 3D-v2 chemical-site structure expert | 0.677819 | 0.8464 | 0.9474 | 0.6415 | 0.6128 | 0.7241 | Structure innovation submodel; mixed historical-test trade-off |
-| 3D-v2 conformer-capable + three-seed pooled ProtT5 hybrid default | 0.60 | 0.8588 | 0.9649 | 0.6733 | 0.6456 | 0.7851 | Current engineering default; historical tests have no PepFlow statistics and therefore use exact 3D-v2 fallback |
+| Pre-adapter 3D-v2 conformer-capable + pooled ProtT5 hybrid | 0.60 | 0.8588 | 0.9649 | 0.6733 | 0.6456 | 0.7851 | Retained exact fallback when residue-aligned adapter features are unavailable |
+| ProtT5-query 3D chemical interaction hybrid default | 0.60 | 0.8611 | 0.9650 | 0.6733 | 0.6456 | 0.7849 | Current engineering default; OOF MCC/Brier improved, test2 decisions unchanged and AUPRC slightly lower |
 | Three-seed pooled ESM2 + fold-local BSMOTE TextCNN | 0.36 | 0.8523 | 0.9594 | 0.6500 | 0.6337 | 0.7367 | Retained ToxPLTC mechanism-screening ablation |
 | Three-seed pooled ProtT5 + fold-local BSMOTE TextCNN | 0.45 | 0.8598 | 0.9578 | 0.6726 | 0.6526 | 0.7495 | Current same-data performance candidate; OOF-frozen threshold |
 | ESM2/ProtT5 BACC-priority auxiliary | 0.305 | 0.8616 | 0.9648 | 0.6452 | 0.6325 | 0.7634 | Retained auxiliary: higher BACC/recall, not the comprehensive default |
@@ -2017,7 +2163,7 @@ The table uses each experiment's documented, validation-selected protocol. Thres
 | Full-backbone geometry | 0.85 | 0.7626 | 0.9225 | 0.5814 | 0.5497 | 0.6641 | Rejected |
 | High-pLDDT-only training | 0.85 | 0.7232 | 0.8925 | 0.5854 | 0.5593 | 0.5923 | Rejected |
 
-The new three-seed ProtT5 TextCNN candidate exceeds the standalone 3D-v2 expert on test1/test2 MCC, F1, AUROC and AUPRC at its OOF-selected BACC-plateau threshold. OOF-frozen fusion of that expert with the conformer-capable 3D-v2 checkpoint is now the engineering default. Because test1/test2 do not carry PepFlow ensemble statistics, their reported values are unchanged exact-fallback results rather than evidence for the conformer residual. The candidate remains about 0.0024 below the mentor ToxMSRC test2 MCC of 0.655, and no new pre-frozen external set has confirmed either upgrade.
+The three-seed ProtT5 TextCNN candidate exceeds the standalone 3D-v2 expert on test1/test2 MCC, F1, AUROC and AUPRC at its OOF-selected BACC-plateau threshold. The current default keeps the OOF-frozen 0.62/0.38 fusion and adds a bounded ProtT5-query residue interaction adapter. Test1 improves slightly; test2 has the same confusion matrix, a better AUROC/Brier and a slightly lower AUPRC. The pure ProtT5 performance candidate remains about 0.0024 below the mentor ToxMSRC test2 MCC of 0.655, and no new pre-frozen external set has confirmed the adapter.
 
 ### A.8 结构质量分层
 
@@ -2233,13 +2379,13 @@ abstain / requires review
 
 ### B.2 后续优先级
 
-#### 第一优先级：完成PepFlow训练OOF pilot
+#### 第一优先级：新增外部证据与缺失长度
 
-1. 在AutoDL生成固定250条pilot、每条8个全原子构象；
-2. 转换multi-model PDB并检查序列、构象数、有限值和`confidence_imputed`标记；
-3. 用fold-specific held-out checkpoint运行三种预声明等权聚合；
-4. 不读取Test1/Test2，不搜索构象权重和阈值；
-5. pilot未同时满足“MCC不下降且至少一个BACC/AUROC/AUPRC提高”则停止扩展。
+1. 冻结当前ProtT5→3D化学交互默认、其交互前0.62/0.38回退和full2795结构候选，不再使用Test1/Test2搜索结构权重或交互幅度；
+2. 在模型开发前冻结新的外部集，并为其生成与训练一致的PepFlow/AF2多构象；
+3. 单独生成和审计31–39 aa多构象，明确与当前16–30 aa包分开报告；
+4. 外部集同时报告结构专家、ProtT5专家、当前默认和full2795候选，不因结果选择性省略；
+5. 只有外部MCC不下降且排序指标改善，才讨论替换默认。
 
 #### 第二优先级：论文与结果可信度
 
@@ -2260,12 +2406,13 @@ abstain / requires review
 
 该部分只作为历史冻结外部证据，不再用于选择逐残基ProtT5、移动阈值或改变融合权重。新的泛化结论仍需要另一套在模型开发前预冻结的外部数据。
 
-#### 第三优先级：只有PepFlow pilot通过后扩展构象来源
+#### 已完成：逐构象官能团图与分头路由
 
-1. 扩大到PepFlow支持范围内的完整训练样本，并训练共享3D编码器加set-attention聚合器；
-2. 在同一预冻结pilot增加BioEmu，检查接触占有率和柔性是否跨生成器一致；
-3. 增加Boltz/AF3静态结构，计算与ESMFold的接触图及官能团位置分歧；
-4. 所有方法先做训练OOF，仍不根据历史测试集决定保留。
+1. 已保留共享的8维残基/12维全局统计作为轻量底座；
+2. 已对每个代表构象构建官能团—N端/中心/C端锚点双尺度图，并用set-attention聚合8个构象；
+3. PepFlow与AF2已使用独立输出残差头，仅共享底层几何编码器；
+4. 组感知OOF只支持极小排序改善，固定阈值总体MCC不变，AF2子队列MCC略降；
+5. 下一步只在新增BioEmu/Boltz/AF3或预冻结外部集后检查跨生成器复现，不在当前OOF继续调头权重。
 
 #### 第四优先级：新数据条件下重做收益专家
 
@@ -2296,6 +2443,7 @@ abstain / requires review
 6. 系统报告动态路由、残差专家和多种结构/训练改进的正负结果；
 7. 配对结果显示多模态信息可以小幅改善排序，同时决策指标存在明显分布依赖；
 8. 为后续风险可控、可拒识的多肽毒性预测提供实验基础。
+9. 完成PepFlow 1–15 aa与AF2/ColabFold 16–30 aa的来源感知多构象联合建模，在6387条组感知OOF上验证结构专家AUPRC小幅但配对稳定的增益，同时给出该增益未能传递到ProtT5联合默认的负结果。
 
 现有证据尚不足以支持：
 
@@ -2309,7 +2457,7 @@ abstain / requires review
 
 ### B.4 附录结论
 
-当前项目已经完成从1D序列基线到2D原子图、3D几何、多通路可靠度、nested验证、ToxinPred3历史冻结评估、全原子化学位点消融、ToxPLTC路线接入以及HyPepTox-Fuse迁移筛查的完整探索。当前联合默认实际使用1D+3D：3D-v2负责ESM2残基上下文、Cα几何和全原子化学位点，三种子pooled ProtT5负责全局预训练语义；两者按训练OOF冻结权重融合。缺少化学位点时联合入口回退纯ProtT5，单独结构入口仍保留3D-v1历史回退。1D BiLSTM在历史严格外部比较中迁移最好，是低成本备份；2D原子图作为互补对照；动态路由保留为可靠度分析；残差专家、RankNet、选择性风险学习器、逐残基ProtT5 CNN、传统描述符/双PLM交互和conformal未达到对应保留标准。联合默认的排序增益支持当前工程选择，其全面泛化优势仍等待新独立数据检验。
+当前项目已经完成从1D序列基线到2D原子图、3D几何、多通路可靠度、nested验证、ToxinPred3历史冻结评估、全原子化学位点消融、ToxPLTC路线接入以及HyPepTox-Fuse迁移筛查的完整探索。当前联合默认实际使用1D+3D：3D-v2负责ESM2残基上下文、Cα几何和全原子化学位点，三种子pooled ProtT5负责全局预训练语义；两者先按训练OOF冻结权重融合，再由ProtT5-query、pLDDT降权和官能团局部门控的逐残基适配层做有界修正。缺少适配缓存时精确回退交互前联合概率，缺少化学位点时进一步回退纯ProtT5，单独结构入口仍保留3D-v1历史回退。1D BiLSTM在历史严格外部比较中迁移最好，是低成本备份；2D原子图作为互补对照；动态路由保留为可靠度分析；残差专家、RankNet、选择性风险学习器、逐残基ProtT5 CNN、传统描述符/双PLM交互和conformal未达到对应保留标准。交互默认的OOF增益很小且Test2并非全面提高，其泛化优势仍等待新独立数据检验。
 
 当前论文阶段不再继续微调 Test1/Test2。已经形成并应在论文中凝练的证据链是：
 

@@ -90,3 +90,44 @@ def test_screen_accepts_verified_id_aliases_and_external_fold_manifest(tmp_path)
     )
     assert screened["protocol"]["num_folds"] == 5
     assert screened["protocol"]["fold_manifest"] == str(manifest)
+
+
+def test_screen_can_cap_an_auxiliary_expert_weight(tmp_path) -> None:
+    baseline = tmp_path / "baseline.csv"
+    expert = tmp_path / "expert.csv"
+    _write_predictions(
+        baseline,
+        [0.1, 0.7, 0.3, 0.6, 0.2, 0.8, 0.4, 0.55, 0.45, 0.9],
+        with_folds=True,
+    )
+    _write_predictions(
+        expert,
+        [0.2, 0.9, 0.1, 0.7, 0.3, 0.6, 0.2, 0.8, 0.4, 0.7],
+        with_folds=False,
+    )
+    screened = screen_oof_fusion(
+        baseline,
+        expert,
+        tmp_path / "screen_capped",
+        weight_step=0.1,
+        threshold_step=0.1,
+        expert_weight_max=0.3,
+    )
+    assert screened["protocol"]["expert_weight_max"] == 0.3
+    assert screened["frozen_parameters_from_all_oof"]["expert_weight"] <= 0.3
+    assert all(
+        row["expert_weight"] <= 0.3
+        for row in screened["crossfit_fold_selection"]
+    )
+
+    logit_screened = screen_oof_fusion(
+        baseline,
+        expert,
+        tmp_path / "screen_capped_logit",
+        weight_step=0.1,
+        threshold_step=0.1,
+        expert_weight_max=0.3,
+        fusion_space="logit",
+    )
+    assert logit_screened["protocol"]["fusion_space"] == "logit"
+    assert logit_screened["frozen_parameters_from_all_oof"]["expert_weight"] <= 0.3

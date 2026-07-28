@@ -1,0 +1,218 @@
+{
+  "protocol": {
+    "scope": "training-only group-aware OOF exploratory cohort analysis",
+    "baseline": "runs\\af2_16_30_full2034_residual_oof\\covered_base_predictions.csv",
+    "candidate": "runs\\af2_16_30_full2034_residual_oof\\covered_candidate_predictions.csv",
+    "task_manifest": "data\\af2_ensemble_16_30\\train_full_2034.csv",
+    "cache_root": "data\\af2_ensemble_16_30\\cache_full",
+    "fixed_threshold": 0.677819,
+    "selection_warning": "Do not use these post-hoc strata to retune the pilot model."
+  },
+  "cohort": {
+    "samples": 2034,
+    "positive": 670,
+    "negative": 1364,
+    "conformer_caches": 16272
+  },
+  "overall_metrics": {
+    "balanced_accuracy": {
+      "baseline": 0.886752089989933,
+      "candidate": 0.884787937147109,
+      "delta_candidate_minus_baseline": -0.0019641528428240296
+    },
+    "f1": {
+      "baseline": 0.8517110266159695,
+      "candidate": 0.8527131782945736,
+      "delta_candidate_minus_baseline": 0.0010021516786040685
+    },
+    "mcc": {
+      "baseline": 0.7812252492583115,
+      "candidate": 0.7857338828287155,
+      "delta_candidate_minus_baseline": 0.004508633570403986
+    },
+    "auroc": {
+      "baseline": 0.9411755372696633,
+      "candidate": 0.9413528034315227,
+      "delta_candidate_minus_baseline": 0.000177266161859424
+    },
+    "auprc": {
+      "baseline": 0.9135069212397692,
+      "candidate": 0.9127847903884759,
+      "delta_candidate_minus_baseline": -0.0007221308512932456
+    },
+    "brier": {
+      "baseline": 0.08563542366027832,
+      "candidate": 0.08290613442659378,
+      "delta_candidate_minus_baseline": -0.00272928923368454
+    },
+    "ece_10": {
+      "baseline": 0.07297208905220032,
+      "candidate": 0.07075311243534088,
+      "delta_candidate_minus_baseline": -0.002218976616859436
+    }
+  },
+  "classification_transitions": {
+    "baseline_wrong_candidate_correct": 15,
+    "baseline_correct_candidate_wrong": 10,
+    "net_corrections": 5,
+    "unchanged": 2009
+  },
+  "spearman_correlations": {
+    "length": {
+      "absolute_probability_delta": 0.00821945658315495,
+      "per_sample_brier_improvement": -0.032856151165479575
+    },
+    "cysteines": {
+      "absolute_probability_delta": 0.03955588223521091,
+      "per_sample_brier_improvement": -0.17130268949234714
+    },
+    "conformer_mean_plddt": {
+      "absolute_probability_delta": -0.10518916034485933,
+      "per_sample_brier_improvement": 0.027439702143529983
+    },
+    "conformer_low_plddt_fraction": {
+      "absolute_probability_delta": 0.0971926129089977,
+      "per_sample_brier_improvement": -0.03600645244027707
+    },
+    "mean_residue_rmsf": {
+      "absolute_probability_delta": 0.05911768049565899,
+      "per_sample_brier_improvement": -0.02276388510817335
+    },
+    "mean_conformer_rmsd": {
+      "absolute_probability_delta": 0.06010039037182213,
+      "per_sample_brier_improvement": -0.0250946506924673
+    },
+    "mean_radius_gyration": {
+      "absolute_probability_delta": 0.03434982447579845,
+      "per_sample_brier_improvement": 0.18419743575146633
+    }
+  },
+  "length_strata": {
+    "16-20": {
+      "samples": 664,
+      "positive": 184,
+      "negative": 480,
+      "metrics": {
+        "balanced_accuracy": {
+          "baseline": 0.8642210144927536,
+          "candidate": 0.8541666666666667,
+          "delta_candidate_minus_baseline": -0.010054347826086829
+        },
+        "f1": {
+          "baseline": 0.8135593220338984,
+          "candidate": 0.8070175438596491,
+          "delta_candidate_minus_baseline": -0.00654177817424928
+        },
+        "mcc": {
+          "baseline": 0.7470275013947613,
+          "candidate": 0.7444977815158417,
+          "delta_candidate_minus_baseline": -0.0025297198789195896
+        },
+        "auroc": {
+          "baseline": 0.9301517210144928,
+          "candidate": 0.9302196557971014,
+          "delta_candidate_minus_baseline": 6.793478260858077e-05
+        },
+        "auprc": {
+          "baseline": 0.8898127749645933,
+          "candidate": 0.888803502741288,
+          "delta_candidate_minus_baseline": -0.0010092722233052687
+        },
+        "brier": {
+          "baseline": 0.08695162087678909,
+          "candidate": 0.08504964411258698,
+          "delta_candidate_minus_baseline": -0.001901976764202118
+        },
+        "ece_10": {
+          "baseline": 0.07630529999732971,
+          "candidate": 0.07802554965019226,
+          "delta_candidate_minus_baseline": 0.0017202496528625488
+        }
+      }
+    },
+    "21-25": {
+      "samples": 593,
+      "positive": 174,
+      "negative": 419,
+      "metrics": {
+        "balanced_accuracy": {
+          "baseline": 0.8648190821057251,
+          "candidate": 0.8695923517954627,
+          "delta_candidate_minus_baseline": 0.004773269689737569
+        },
+        "f1": {
+          "baseline": 0.8128654970760233,
+          "candidate": 0.8224852071005917,
+          "delta_candidate_minus_baseline": 0.009619710024568406
+        },
+        "mcc": {
+          "baseline": 0.7372929339016793,
+          "candidate": 0.7524610715395337,
+          "delta_candidate_minus_baseline": 0.015168137637854406
+        },
+        "auroc": {
+          "baseline": 0.9171741694785067,
+          "candidate": 0.9173456231311552,
+          "delta_candidate_minus_baseline": 0.0001714536526484789
+        },
+        "auprc": {
+          "baseline": 0.8628594977145173,
+          "candidate": 0.8609252659314331,
+          "delta_candidate_minus_baseline": -0.0019342317830841615
+        },
+        "brier": {
+          "baseline": 0.09992127120494843,
+          "candidate": 0.09566434472799301,
+          "delta_candidate_minus_baseline": -0.004256926476955414
+        },
+        "ece_10": {
+          "baseline": 0.0900743305683136,
+          "candidate": 0.08461248874664307,
+          "delta_candidate_minus_baseline": -0.005461841821670532
+        }
+      }
+    },
+    "26-30": {
+      "samples": 777,
+      "positive": 312,
+      "negative": 465,
+      "metrics": {
+        "balanced_accuracy": {
+          "baseline": 0.9116521918941274,
+          "candidate": 0.9106182795698925,
+          "delta_candidate_minus_baseline": -0.0010339123242348869
+        },
+        "f1": {
+          "baseline": 0.8949919224555735,
+          "candidate": 0.8950819672131146,
+          "delta_candidate_minus_baseline": 9.004475754115226e-05
+        },
+        "mcc": {
+          "baseline": 0.8255551379253805,
+          "candidate": 0.8279348420073112,
+          "delta_candidate_minus_baseline": 0.002379704081930667
+        },
+        "auroc": {
+          "baseline": 0.9606837606837607,
+          "candidate": 0.9608698649021229,
+          "delta_candidate_minus_baseline": 0.00018610421836218194
+        },
+        "auprc": {
+          "baseline": 0.9495075456623703,
+          "candidate": 0.9493629320128799,
+          "delta_candidate_minus_baseline": -0.00014461364949036604
+        },
+        "brier": {
+          "baseline": 0.07360779494047165,
+          "candidate": 0.07133740186691284,
+          "delta_candidate_minus_baseline": -0.0022703930735588074
+        },
+        "ece_10": {
+          "baseline": 0.060765743255615234,
+          "candidate": 0.061282239854335785,
+          "delta_candidate_minus_baseline": 0.0005164965987205505
+        }
+      }
+    }
+  }
+}

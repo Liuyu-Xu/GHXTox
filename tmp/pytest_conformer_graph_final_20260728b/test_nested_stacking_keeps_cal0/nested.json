@@ -1,0 +1,186 @@
+{
+  "base_manifest": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\tmp\\pytest_conformer_graph_final_20260728b\\test_nested_stacking_keeps_cal0\\base_folds.csv",
+  "seed": 11,
+  "num_samples": 100,
+  "num_groups": 100,
+  "outer_folds": 5,
+  "inner_splits": 4,
+  "role_definition": {
+    "test": "the original fixed outer fold",
+    "validation": "inner fold 0, used for checkpoint/model selection",
+    "calibration": "inner fold 1, never used for gradient updates or checkpoint selection",
+    "train": "inner folds 2..3"
+  },
+  "folds": [
+    {
+      "outer_fold": 0,
+      "roles": {
+        "train": {
+          "num_samples": 40,
+          "num_positive": 19,
+          "num_negative": 21,
+          "positive_fraction": 0.475,
+          "num_groups": 40
+        },
+        "validation": {
+          "num_samples": 20,
+          "num_positive": 11,
+          "num_negative": 9,
+          "positive_fraction": 0.55,
+          "num_groups": 20
+        },
+        "calibration": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        },
+        "test": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        }
+      }
+    },
+    {
+      "outer_fold": 1,
+      "roles": {
+        "train": {
+          "num_samples": 40,
+          "num_positive": 20,
+          "num_negative": 20,
+          "positive_fraction": 0.5,
+          "num_groups": 40
+        },
+        "validation": {
+          "num_samples": 20,
+          "num_positive": 12,
+          "num_negative": 8,
+          "positive_fraction": 0.6,
+          "num_groups": 20
+        },
+        "calibration": {
+          "num_samples": 20,
+          "num_positive": 8,
+          "num_negative": 12,
+          "positive_fraction": 0.4,
+          "num_groups": 20
+        },
+        "test": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        }
+      }
+    },
+    {
+      "outer_fold": 2,
+      "roles": {
+        "train": {
+          "num_samples": 40,
+          "num_positive": 16,
+          "num_negative": 24,
+          "positive_fraction": 0.4,
+          "num_groups": 40
+        },
+        "validation": {
+          "num_samples": 20,
+          "num_positive": 8,
+          "num_negative": 12,
+          "positive_fraction": 0.4,
+          "num_groups": 20
+        },
+        "calibration": {
+          "num_samples": 20,
+          "num_positive": 16,
+          "num_negative": 4,
+          "positive_fraction": 0.8,
+          "num_groups": 20
+        },
+        "test": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        }
+      }
+    },
+    {
+      "outer_fold": 3,
+      "roles": {
+        "train": {
+          "num_samples": 40,
+          "num_positive": 20,
+          "num_negative": 20,
+          "positive_fraction": 0.5,
+          "num_groups": 40
+        },
+        "validation": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        },
+        "calibration": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        },
+        "test": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        }
+      }
+    },
+    {
+      "outer_fold": 4,
+      "roles": {
+        "train": {
+          "num_samples": 40,
+          "num_positive": 20,
+          "num_negative": 20,
+          "positive_fraction": 0.5,
+          "num_groups": 40
+        },
+        "validation": {
+          "num_samples": 20,
+          "num_positive": 9,
+          "num_negative": 11,
+          "positive_fraction": 0.45,
+          "num_groups": 20
+        },
+        "calibration": {
+          "num_samples": 20,
+          "num_positive": 11,
+          "num_negative": 9,
+          "positive_fraction": 0.55,
+          "num_groups": 20
+        },
+        "test": {
+          "num_samples": 20,
+          "num_positive": 10,
+          "num_negative": 10,
+          "positive_fraction": 0.5,
+          "num_groups": 20
+        }
+      }
+    }
+  ],
+  "validation": {
+    "every_sample_test_exactly_once": true,
+    "groups_disjoint_within_every_outer_fold": true,
+    "all_roles_contain_both_classes": true
+  }
+}

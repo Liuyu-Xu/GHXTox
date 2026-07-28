@@ -7,6 +7,7 @@ from ghxtox.features import RESIDUE_FEATURE_DIM
 from ghxtox.conformer_features import (
     CONFORMER_GLOBAL_FEATURE_DIM,
     CONFORMER_RESIDUE_FEATURE_DIM,
+    CONFORMER_SOURCE_FEATURE_DIM,
     attach_conformer_features,
     ensemble_feature_tensors,
 )
@@ -30,6 +31,26 @@ def _summary(path: Path, length: int = 3) -> None:
         contact_occupancy_6=(distances < 6).mean(axis=0).astype(np.float32),
         contact_occupancy_8=(distances < 8).mean(axis=0).astype(np.float32),
         contact_occupancy_10=(distances < 10).mean(axis=0).astype(np.float32),
+    )
+
+
+def _conformer(path: Path, offset: float, length: int = 3) -> None:
+    residue_coords = np.zeros((length, 3), dtype=np.float32)
+    residue_coords[:, 0] = np.arange(length, dtype=np.float32)
+    site_coords = np.zeros((length, 2, 3), dtype=np.float32)
+    site_coords[:, 0] = residue_coords + np.asarray([0.0, offset, 0.0], dtype=np.float32)
+    site_types = np.zeros((length, 2, 8), dtype=np.float32)
+    site_types[:, 0, 0] = 1.0
+    site_mask = np.zeros((length, 2), dtype=np.bool_)
+    site_mask[:, 0] = True
+    np.savez_compressed(
+        path,
+        sequence=np.asarray("ACD"),
+        coords=residue_coords,
+        plddt=np.full(length, 0.8, dtype=np.float32),
+        chemical_site_coords=site_coords,
+        chemical_site_types=site_types,
+        chemical_site_mask=site_mask,
     )
 
 
@@ -79,6 +100,9 @@ def test_attach_maps_indexed_cache_to_original_id(tmp_path: Path) -> None:
     payload = torch.load(output, map_location="cpu", weights_only=False)
     assert summary["covered_records"] == 1
     assert payload["records"][0]["conformer_available"] is True
+    assert payload["records"][0]["conformer_source_features"].shape == (
+        CONFORMER_SOURCE_FEATURE_DIM,
+    )
     assert payload["records"][1]["conformer_available"] is False
 
 
@@ -104,6 +128,31 @@ def test_attach_uses_portable_manifest_paths_across_cache_roots(tmp_path: Path, 
     payload = torch.load(output, map_location="cpu", weights_only=False)
     assert summary["covered_records"] == 2
     assert all(record["conformer_available"] for record in payload["records"])
+
+
+def test_attach_combines_disjoint_manifests_and_tracks_generator(tmp_path: Path) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("pep_1"), _record("pep_2")]}, processed)
+    roots = [tmp_path / "pepflow", tmp_path / "af2"]
+    manifests = []
+    sources = ["pepflow", "colabfold_af2_shallow_msa_multiseed"]
+    for index, (sample_id, root, source) in enumerate(zip(("pep_1", "pep_2"), roots, sources)):
+        sample_root = root / sample_id
+        sample_root.mkdir(parents=True)
+        _summary(sample_root / "ensemble_summary.npz")
+        manifest = tmp_path / f"manifest_{index}.csv"
+        manifest.write_text(
+            "source_index,sample_id,original_id,sequence,label,conformer_index,source,cache_path\n"
+            f"{index},{sample_id},{sample_id},ACD,1,0,{source},/server/conformer_0000.npz\n",
+            encoding="utf-8",
+        )
+        manifests.append(manifest)
+    output = tmp_path / "augmented.pt"
+    summary = attach_conformer_features(processed, manifests, roots, output)
+    payload = torch.load(output, map_location="cpu", weights_only=False)
+    assert summary["covered_records"] == 2
+    assert payload["records"][0]["conformer_source_features"].tolist() == [1.0, 0.0, 0.0]
+    assert payload["records"][1]["conformer_source_features"].tolist() == [0.0, 1.0, 0.0]
 
 
 def test_unavailable_conformer_branch_is_exact_fallback() -> None:
@@ -134,3 +183,102 @@ def test_unavailable_conformer_branch_is_exact_fallback() -> None:
         still_fallback = model(unavailable)
     assert not torch.equal(changed["logits"], changed["base_logits"])
     assert torch.equal(still_fallback["logits"], still_fallback["base_logits"])
+
+
+def test_source_aware_conformer_branch_is_exact_fallback() -> None:
+    config = {
+        "model": {
+            "hidden_dim": 16,
+            "num_attention_heads": 4,
+            "num_sequence_layers": 1,
+            "num_egnn_layers": 1,
+            "structure_feature_dim": 16,
+            "conformer_ensemble_branch": True,
+            "conformer_ensemble_source_aware": True,
+            "dropout": 0.0,
+        }
+    }
+    model = GHXToxModel(config).eval()
+    unavailable = collate_peptides([_record("pep_1")], include_atom=False)
+    with torch.no_grad():
+        output = model(unavailable)
+    assert torch.equal(output["logits"], output["base_logits"])
+
+
+def test_attach_and_collate_per_conformer_graphs(tmp_path: Path) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("pep_1"), _record("pep_2")]}, processed)
+    cache = tmp_path / "cache" / "pep_1"
+    cache.mkdir(parents=True)
+    _summary(cache / "ensemble_summary.npz")
+    _conformer(cache / "conformer_0000.npz", 0.5)
+    _conformer(cache / "conformer_0001.npz", 1.0)
+    manifest = tmp_path / "manifest.csv"
+    manifest.write_text(
+        "source_index,sample_id,original_id,sequence,label,conformer_index,source,cache_path\n"
+        "0,pep_1,pep_1,ACD,1,0,pepflow,/server/conformer_0000.npz\n",
+        encoding="utf-8",
+    )
+    output = tmp_path / "augmented.pt"
+    attach_conformer_features(
+        processed,
+        manifest,
+        tmp_path / "cache",
+        output,
+        include_conformer_graphs=True,
+    )
+    records = torch.load(output, map_location="cpu", weights_only=False)["records"]
+    batch = collate_peptides(records, include_atom=False)
+    assert batch["conformer_graph_residue_coords"].shape == (2, 8, 3, 3)
+    assert batch["conformer_graph_site_coords"].shape == (2, 8, 3, 2, 3)
+    assert batch["conformer_graph_site_types"].shape == (2, 8, 3, 2, 8)
+    assert batch["conformer_graph_conformer_mask"][0].sum().item() == 2
+    assert not batch["conformer_graph_conformer_mask"][1].any()
+    assert batch["conformer_graph_site_mask"][0, :2, :, 0].all()
+    assert not batch["conformer_graph_site_mask"][1].any()
+
+
+def test_conformer_graph_heads_are_source_specific_and_missing_is_exact_fallback() -> None:
+    config = {
+        "model": {
+            "hidden_dim": 16,
+            "num_attention_heads": 4,
+            "num_sequence_layers": 1,
+            "num_egnn_layers": 1,
+            "structure_feature_dim": 16,
+            "conformer_graph_set_branch": True,
+            "conformer_graph_hidden_dim": 8,
+            "conformer_set_attention_heads": 2,
+            "dropout": 0.0,
+            "conformer_graph_dropout": 0.0,
+        }
+    }
+    model = GHXToxModel(config).eval()
+    missing = _record("missing")
+    missing["conformer_graph_expected"] = True
+    pepflow = _record("pepflow", available=True)
+    af2 = _record("af2", available=True)
+    for record, source in ((pepflow, 0), (af2, 1)):
+        record["conformer_source_features"] = torch.nn.functional.one_hot(
+            torch.tensor(source), num_classes=3
+        ).float()
+        record["conformer_graph_expected"] = True
+        record["conformer_graph_residue_coords"] = torch.zeros(2, 3, 3)
+        record["conformer_graph_plddt"] = torch.ones(2, 3)
+        record["conformer_graph_site_coords"] = torch.zeros(2, 3, 2, 3)
+        record["conformer_graph_site_types"] = torch.zeros(2, 3, 2, 8)
+        record["conformer_graph_site_types"][:, :, 0, 0] = 1.0
+        record["conformer_graph_site_mask"] = torch.zeros(2, 3, 2, dtype=torch.bool)
+        record["conformer_graph_site_mask"][:, :, 0] = True
+        record["conformer_graph_conformer_mask"] = torch.ones(2, dtype=torch.bool)
+    batch = collate_peptides([missing, pepflow, af2], include_atom=False)
+    with torch.no_grad():
+        initial = model(batch)
+    assert torch.equal(initial["logits"], initial["base_logits"])
+    with torch.no_grad():
+        model.conformer_graph_source_heads[0][-1].bias.fill_(1.0)
+    with torch.no_grad():
+        changed = model(batch)
+    assert torch.equal(changed["logits"][0], changed["base_logits"][0])
+    assert not torch.equal(changed["logits"][1], changed["base_logits"][1])
+    assert torch.equal(changed["logits"][2], changed["base_logits"][2])

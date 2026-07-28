@@ -1,0 +1,42 @@
+{
+  "protocol": {
+    "frozen_spec": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_validated_ensemble_crossf0\\screen\\frozen_spec.json",
+    "frozen_spec_sha256": "e28e90a36674aeb9fcb1841cbf84b1bea8db0c7760ee449391259dfef08991a5",
+    "prediction_paths": [
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_validated_ensemble_crossf0\\first.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_validated_ensemble_crossf0\\second.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_validated_ensemble_crossf0\\inverted.csv"
+    ],
+    "selected_member_names": [
+      "first",
+      "second"
+    ],
+    "weights": [
+      0.5,
+      0.5
+    ],
+    "threshold": 0.5,
+    "parameters_selected_from_applied_labels": false
+  },
+  "metrics": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "sensitivity": 1.0,
+    "sn": 1.0,
+    "recall": 1.0,
+    "specificity": 1.0,
+    "sp": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "brier": 0.12249999999999998,
+    "ece_10": 0.34999999999999987,
+    "tp": 20.0,
+    "tn": 20.0,
+    "fp": 0.0,
+    "fn": 0.0,
+    "threshold": 0.5
+  }
+}

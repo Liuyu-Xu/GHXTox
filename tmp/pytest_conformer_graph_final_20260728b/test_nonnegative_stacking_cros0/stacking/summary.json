@@ -1,0 +1,409 @@
+{
+  "protocol": {
+    "selection_data": "aligned group-aware OOF predictions only",
+    "prediction_paths": [
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_conformer_graph_final_20260728b\\test_nonnegative_stacking_cros0\\first.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_conformer_graph_final_20260728b\\test_nonnegative_stacking_cros0\\second.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_conformer_graph_final_20260728b\\test_nonnegative_stacking_cros0\\noise.csv"
+    ],
+    "baseline_path": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_conformer_graph_final_20260728b\\test_nonnegative_stacking_cros0\\baseline.csv",
+    "member_names": [
+      "first",
+      "second",
+      "noise"
+    ],
+    "fold_manifest": null,
+    "model": "softmax non-negative probability weights followed by monotonic affine-logit scaling",
+    "steps": 120,
+    "learning_rate": 0.03,
+    "regularization": 0.001,
+    "restarts": 1,
+    "threshold_step": 0.005,
+    "constraints": {
+      "min_sn": null,
+      "min_sp": null
+    },
+    "test1_or_test2_predictions_read": false
+  },
+  "baseline_crossfit": {
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "precision": 0.5,
+    "sensitivity": 0.48,
+    "sn": 0.48,
+    "recall": 0.48,
+    "specificity": 0.52,
+    "sp": 0.52,
+    "f1": 0.4897959183673469,
+    "mcc": 0.0,
+    "auroc": 0.7504,
+    "auprc": 0.7956985378872835,
+    "brier": 0.16745000000000002,
+    "ece_10": 0.365,
+    "tp": 12.0,
+    "tn": 13.0,
+    "fp": 12.0,
+    "fn": 13.0
+  },
+  "stacking_crossfit": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "precision": 1.0,
+    "sensitivity": 1.0,
+    "sn": 1.0,
+    "recall": 1.0,
+    "specificity": 1.0,
+    "sp": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "brier": 2.0485139737114764e-05,
+    "ece_10": 0.004526051012799137,
+    "tp": 25.0,
+    "tn": 25.0,
+    "fp": 0.0,
+    "fn": 0.0
+  },
+  "delta_stacking_minus_baseline": {
+    "mcc": 1.0,
+    "auroc": 0.24960000000000004,
+    "auprc": 0.2043014621127165,
+    "brier_lower_is_better": 0.1674295148602629,
+    "ece_10_lower_is_better": 0.36047394898720087
+  },
+  "fold_results": [
+    {
+      "heldout_fold": 0,
+      "weights": {
+        "first": 0.48547011613845825,
+        "second": 0.48547011613845825,
+        "noise": 0.02905976213514805
+      },
+      "scale": 10.0,
+      "bias": 0.0003268917207606137,
+      "threshold": 0.5,
+      "constraints_satisfied": true,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.048493119620855e-05,
+        "ece_10": 0.0045260279439389706,
+        "tp": 5.0,
+        "tn": 5.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "sensitivity": 0.4,
+        "sn": 0.4,
+        "recall": 0.4,
+        "specificity": 0.6,
+        "sp": 0.6,
+        "f1": 0.4444444444444445,
+        "mcc": 0.0,
+        "auroc": 0.76,
+        "auprc": 0.7961904761904762,
+        "brier": 0.16745000000000002,
+        "ece_10": 0.3650000000000001,
+        "tp": 2.0,
+        "tn": 3.0,
+        "fp": 2.0,
+        "fn": 3.0
+      },
+      "mcc_gain": 1.0
+    },
+    {
+      "heldout_fold": 1,
+      "weights": {
+        "first": 0.48547443747520447,
+        "second": 0.4854656457901001,
+        "noise": 0.029059965163469315
+      },
+      "scale": 10.0,
+      "bias": -2.3471009626518935e-05,
+      "threshold": 0.5,
+      "constraints_satisfied": true,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.048516846399036e-05,
+        "ece_10": 0.00452605439350009,
+        "tp": 5.0,
+        "tn": 5.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "sensitivity": 0.6,
+        "sn": 0.6,
+        "recall": 0.6,
+        "specificity": 0.4,
+        "sp": 0.4,
+        "f1": 0.5454545454545454,
+        "mcc": 0.0,
+        "auroc": 0.76,
+        "auprc": 0.8392857142857142,
+        "brier": 0.16745000000000002,
+        "ece_10": 0.36500000000000005,
+        "tp": 3.0,
+        "tn": 2.0,
+        "fp": 3.0,
+        "fn": 2.0
+      },
+      "mcc_gain": 1.0
+    },
+    {
+      "heldout_fold": 2,
+      "weights": {
+        "first": 0.48547011613845825,
+        "second": 0.48547011613845825,
+        "noise": 0.029059769585728645
+      },
+      "scale": 10.0,
+      "bias": 0.00032805983209982514,
+      "threshold": 0.5,
+      "constraints_satisfied": true,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0484950170863406e-05,
+        "ece_10": 0.0045260300394147635,
+        "tp": 5.0,
+        "tn": 5.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "sensitivity": 0.4,
+        "sn": 0.4,
+        "recall": 0.4,
+        "specificity": 0.6,
+        "sp": 0.6,
+        "f1": 0.4444444444444445,
+        "mcc": 0.0,
+        "auroc": 0.76,
+        "auprc": 0.7961904761904762,
+        "brier": 0.16745000000000002,
+        "ece_10": 0.3650000000000001,
+        "tp": 2.0,
+        "tn": 3.0,
+        "fp": 2.0,
+        "fn": 3.0
+      },
+      "mcc_gain": 1.0
+    },
+    {
+      "heldout_fold": 3,
+      "weights": {
+        "first": 0.4854840934276581,
+        "second": 0.4854559600353241,
+        "noise": 0.029059940949082375
+      },
+      "scale": 10.0,
+      "bias": 0.00028108779224567115,
+      "threshold": 0.5,
+      "constraints_satisfied": true,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0485377168146922e-05,
+        "ece_10": 0.004526077117770899,
+        "tp": 5.0,
+        "tn": 5.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "sensitivity": 0.6,
+        "sn": 0.6,
+        "recall": 0.6,
+        "specificity": 0.4,
+        "sp": 0.4,
+        "f1": 0.5454545454545454,
+        "mcc": 0.0,
+        "auroc": 0.76,
+        "auprc": 0.8392857142857142,
+        "brier": 0.16745000000000002,
+        "ece_10": 0.36500000000000005,
+        "tp": 3.0,
+        "tn": 2.0,
+        "fp": 3.0,
+        "fn": 2.0
+      },
+      "mcc_gain": 1.0
+    },
+    {
+      "heldout_fold": 4,
+      "weights": {
+        "first": 0.485470175743103,
+        "second": 0.4854700565338135,
+        "noise": 0.02905978634953499
+      },
+      "scale": 10.0,
+      "bias": 0.0003257553034927696,
+      "threshold": 0.5,
+      "constraints_satisfied": true,
+      "candidate_metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0485271686364586e-05,
+        "ece_10": 0.004526065569370963,
+        "tp": 5.0,
+        "tn": 5.0,
+        "fp": 0.0,
+        "fn": 0.0
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "sensitivity": 0.4,
+        "sn": 0.4,
+        "recall": 0.4,
+        "specificity": 0.6,
+        "sp": 0.6,
+        "f1": 0.4444444444444445,
+        "mcc": 0.0,
+        "auroc": 0.76,
+        "auprc": 0.7961904761904762,
+        "brier": 0.16745000000000002,
+        "ece_10": 0.3650000000000001,
+        "tp": 2.0,
+        "tn": 3.0,
+        "fp": 2.0,
+        "fn": 3.0
+      },
+      "mcc_gain": 1.0
+    }
+  ],
+  "fold_mcc_wins": 5,
+  "weight_stability": {
+    "first": {
+      "mean": 0.4854737877845764,
+      "std": 5.415481350321262e-06
+    },
+    "second": {
+      "mean": 0.4854663789272308,
+      "std": 5.487241279734549e-06
+    },
+    "noise": {
+      "mean": 0.029059844836592675,
+      "std": 8.903833479514364e-08
+    }
+  },
+  "frozen_all_oof_candidate": {
+    "parameters": {
+      "weights": [
+        0.48547089099884033,
+        0.48546934127807617,
+        0.0290597602725029
+      ],
+      "scale": 10.0,
+      "bias": 0.00021903024753555655,
+      "training_regularized_bce": 0.0076242960058152676,
+      "restart": 0
+    },
+    "threshold": {
+      "threshold": 0.5,
+      "metrics": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "sn": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "sp": 1.0,
+        "f1": 1.0,
+        "mcc": 1.0,
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "brier": 2.0485163953142625e-05,
+        "ece_10": 0.004526053797453616,
+        "tp": 25.0,
+        "tn": 25.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "threshold": 0.5
+      },
+      "constraints_satisfied": true
+    },
+    "warning": "Optimistic all-OOF fit; the cross-fit result controls retention."
+  },
+  "retention_gates": {
+    "mcc_strictly_improves": true,
+    "auroc_within_0.0005": true,
+    "auprc_not_lower": true,
+    "brier_within_0.0005": true,
+    "ece_within_0.002": true,
+    "mcc_improves_in_at_least_three_folds": true
+  },
+  "decision": {
+    "retain_stacking": true,
+    "run_historical_tests": false,
+    "reason": "All predeclared cross-fit gates passed."
+  }
+}

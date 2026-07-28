@@ -1,0 +1,41 @@
+{
+  "method": "Abdin-Kim PepFlow all-atom conformational sampling",
+  "fasta": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_header_mode_preserves_pre0\\pilot.fasta",
+  "num_samples_per_peptide": 8,
+  "chunk_size": 4,
+  "supported_length_filter": [
+    3,
+    30
+  ],
+  "sample_id_mode": "header",
+  "counts": {
+    "dry_run": 1
+  },
+  "records": [
+    {
+      "source_index": 0,
+      "sample_id": "peptide_42",
+      "original_id": "peptide_42",
+      "sequence": "ACDE",
+      "length": 4,
+      "output_dir": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_header_mode_preserves_pre0\\out\\peptide_42",
+      "pdb_path": "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_header_mode_preserves_pre0\\out\\peptide_42\\ACDE.pdb",
+      "command": [
+        "D:\\anaconda3\\envs\\dachuang-26\\python.exe",
+        "\\opt\\pepflow\\generate_peptide_samples.py",
+        "-s",
+        "ACDE",
+        "-o",
+        "D:\\code\\Python\\26大创\\GHXTox\\tmp\\pytest_cross_modal_tests_only\\test_header_mode_preserves_pre0\\out\\peptide_42",
+        "-fm",
+        "/opt/pepflow/params/full_model.pth",
+        "-n",
+        "8",
+        "-c",
+        "4",
+        "--e"
+      ],
+      "status": "dry_run"
+    }
+  ]
+}

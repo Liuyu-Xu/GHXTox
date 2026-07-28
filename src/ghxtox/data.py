@@ -18,8 +18,11 @@ from ghxtox.geometry_features import (
     structure_feature_matrix,
 )
 from ghxtox.conformer_features import (
+    CONFORMER_GRAPH_MAX_CONFORMERS,
+    CONFORMER_GRAPH_MAX_SITE_SLOTS,
     CONFORMER_GLOBAL_FEATURE_DIM,
     CONFORMER_RESIDUE_FEATURE_DIM,
+    CONFORMER_SOURCE_FEATURE_DIM,
 )
 
 
@@ -112,6 +115,28 @@ def _pad_3d(
     return out
 
 
+def _pad_conformer_tensor(
+    tensor: torch.Tensor,
+    conformers: int,
+    length: int,
+    trailing_shape: tuple[int, ...],
+    value: float | int | bool = 0,
+) -> torch.Tensor:
+    out = tensor.new_full((conformers, length, *trailing_shape), value)
+    count = min(int(tensor.shape[0]), conformers)
+    rows = min(int(tensor.shape[1]), length)
+    source_slices = (slice(0, count), slice(0, rows)) + tuple(
+        slice(0, min(int(tensor.shape[index + 2]), size))
+        for index, size in enumerate(trailing_shape)
+    )
+    target_slices = (slice(0, count), slice(0, rows)) + tuple(
+        slice(0, min(int(tensor.shape[index + 2]), size))
+        for index, size in enumerate(trailing_shape)
+    )
+    out[target_slices] = tensor[source_slices]
+    return out
+
+
 def _global_feature_tensor(item: dict[str, Any]) -> torch.Tensor:
     sequence = item.get("sequence", "")
     features = sequence_global_features(sequence) if sequence else {}
@@ -179,6 +204,7 @@ def collate_peptides(
     conformer_residue_features = []
     conformer_global_features = []
     conformer_available = []
+    conformer_source_features = []
     for item in batch:
         length = int(item["aa_ids"].shape[0])
         residue = item.get("conformer_residue_features")
@@ -195,9 +221,114 @@ def collate_peptides(
         )
         conformer_global_features.append(global_value.float()[:CONFORMER_GLOBAL_FEATURE_DIM])
         conformer_available.append(available)
+        source = item.get("conformer_source_features")
+        if not torch.is_tensor(source):
+            source = torch.zeros(CONFORMER_SOURCE_FEATURE_DIM, dtype=torch.float32)
+        conformer_source_features.append(source.float()[:CONFORMER_SOURCE_FEATURE_DIM])
     result["conformer_residue_features"] = torch.stack(conformer_residue_features)
     result["conformer_global_features"] = torch.stack(conformer_global_features)
     result["conformer_available"] = torch.tensor(conformer_available, dtype=torch.bool)
+    result["conformer_source_features"] = torch.stack(conformer_source_features)
+    if any(bool(item.get("conformer_graph_expected", False)) for item in batch):
+        graph_residue_coords = []
+        graph_plddt = []
+        graph_site_coords = []
+        graph_site_types = []
+        graph_site_mask = []
+        graph_conformer_mask = []
+        for item in batch:
+            residue_coords = item.get("conformer_graph_residue_coords")
+            item_plddt = item.get("conformer_graph_plddt")
+            site_coords = item.get("conformer_graph_site_coords")
+            site_types = item.get("conformer_graph_site_types")
+            site_mask = item.get("conformer_graph_site_mask")
+            conformer_mask = item.get("conformer_graph_conformer_mask")
+            if not torch.is_tensor(residue_coords):
+                residue_coords = torch.zeros(
+                    0, int(item["aa_ids"].shape[0]), 3, dtype=torch.float32
+                )
+            if not torch.is_tensor(item_plddt):
+                item_plddt = torch.zeros(
+                    0, int(item["aa_ids"].shape[0]), dtype=torch.float32
+                )
+            if not torch.is_tensor(site_coords):
+                site_coords = torch.zeros(
+                    0,
+                    int(item["aa_ids"].shape[0]),
+                    CONFORMER_GRAPH_MAX_SITE_SLOTS,
+                    3,
+                    dtype=torch.float32,
+                )
+            if not torch.is_tensor(site_types):
+                site_types = torch.zeros(
+                    0,
+                    int(item["aa_ids"].shape[0]),
+                    CONFORMER_GRAPH_MAX_SITE_SLOTS,
+                    8,
+                    dtype=torch.float32,
+                )
+            if not torch.is_tensor(site_mask):
+                site_mask = torch.zeros(
+                    0,
+                    int(item["aa_ids"].shape[0]),
+                    CONFORMER_GRAPH_MAX_SITE_SLOTS,
+                    dtype=torch.bool,
+                )
+            if not torch.is_tensor(conformer_mask):
+                conformer_mask = torch.zeros(0, dtype=torch.bool)
+            graph_residue_coords.append(
+                _pad_conformer_tensor(
+                    residue_coords.float(),
+                    CONFORMER_GRAPH_MAX_CONFORMERS,
+                    max_len,
+                    (3,),
+                )
+            )
+            graph_plddt.append(
+                _pad_conformer_tensor(
+                    item_plddt.float().unsqueeze(-1),
+                    CONFORMER_GRAPH_MAX_CONFORMERS,
+                    max_len,
+                    (1,),
+                ).squeeze(-1)
+            )
+            graph_site_coords.append(
+                _pad_conformer_tensor(
+                    site_coords.float(),
+                    CONFORMER_GRAPH_MAX_CONFORMERS,
+                    max_len,
+                    (CONFORMER_GRAPH_MAX_SITE_SLOTS, 3),
+                )
+            )
+            graph_site_types.append(
+                _pad_conformer_tensor(
+                    site_types.float(),
+                    CONFORMER_GRAPH_MAX_CONFORMERS,
+                    max_len,
+                    (CONFORMER_GRAPH_MAX_SITE_SLOTS, 8),
+                )
+            )
+            graph_site_mask.append(
+                _pad_conformer_tensor(
+                    site_mask.bool(),
+                    CONFORMER_GRAPH_MAX_CONFORMERS,
+                    max_len,
+                    (CONFORMER_GRAPH_MAX_SITE_SLOTS,),
+                    False,
+                )
+            )
+            padded_conformer_mask = torch.zeros(
+                CONFORMER_GRAPH_MAX_CONFORMERS, dtype=torch.bool
+            )
+            count = min(int(conformer_mask.numel()), CONFORMER_GRAPH_MAX_CONFORMERS)
+            padded_conformer_mask[:count] = conformer_mask[:count].bool()
+            graph_conformer_mask.append(padded_conformer_mask)
+        result["conformer_graph_residue_coords"] = torch.stack(graph_residue_coords)
+        result["conformer_graph_plddt"] = torch.stack(graph_plddt)
+        result["conformer_graph_site_coords"] = torch.stack(graph_site_coords)
+        result["conformer_graph_site_types"] = torch.stack(graph_site_types)
+        result["conformer_graph_site_mask"] = torch.stack(graph_site_mask)
+        result["conformer_graph_conformer_mask"] = torch.stack(graph_conformer_mask)
     if include_structure:
         result["coords"] = torch.stack([_pad_2d(item["coords"], max_len, 3) for item in batch])
         backbone_coords = []
