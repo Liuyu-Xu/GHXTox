@@ -1,0 +1,53 @@
+{
+  "checkpoint": "runs\\prott5_structure_hierarchical_ssl_candidate\\best_model.pt",
+  "epochs": 6,
+  "model_config": {
+    "token_dim": 1024,
+    "spatial_dim": 128,
+    "chemical_dim": 12,
+    "geometry_ssl_dim": 96,
+    "hierarchical_fusion": true,
+    "hidden_dim": 128,
+    "num_heads": 4,
+    "dropout": 0.2,
+    "initial_interaction_weight": 0.1,
+    "max_logit_delta": 1.25
+  },
+  "adapter_config": {
+    "threshold": 0.6,
+    "structure_dropout": 0.25,
+    "delta_l1": 0.02,
+    "hard_example_weight": 0.0,
+    "seed": 42,
+    "use_chemical_sites": true,
+    "use_geometry_ssl": true,
+    "hierarchical_fusion": true,
+    "auxiliary_weight": 0.05
+  },
+  "final_training_metrics": {
+    "accuracy": 0.9488022545796149,
+    "balanced_accuracy": 0.9284469812706813,
+    "precision": 0.9352014010507881,
+    "sensitivity": 0.8811881188118812,
+    "sn": 0.8811881188118812,
+    "recall": 0.8811881188118812,
+    "specificity": 0.9757058437294813,
+    "sp": 0.9757058437294813,
+    "f1": 0.9073916737468138,
+    "mcc": 0.8727936258533775,
+    "brier": 0.04373644292354584,
+    "ece_10": 0.027033096179366112,
+    "tp": 1602.0,
+    "tn": 4458.0,
+    "fp": 111.0,
+    "fn": 216.0,
+    "auroc": 0.977986603650516,
+    "auprc": 0.9550803077724321
+  },
+  "refit_protocol": {
+    "full_training_data": true,
+    "training_features": "strict OOF base probabilities and structure states",
+    "fixed_epochs": 6,
+    "epoch_source": "median best epoch from five group-aware OOF folds"
+  }
+}

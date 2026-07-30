@@ -1,0 +1,124 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785356580.554346   31919 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785356582.574517   31919 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+WARNING: You are welcome to use the default MSA server, however keep in mind that it's a
+limited shared resource only capable of processing a few thousand MSAs per day. Please
+submit jobs only from a single IP address. We reserve the right to limit access to the
+server case-by-case when usage exceeds fair use. If you require more MSAs: You can 
+precompute all MSAs with `colabfold_search` or host your own API and pass it to `--host-url`
+
+2026-07-30 04:23:03,639 Running colabfold 1.6.2 (90327af088c51108f4779916c8f1b11ec623b18f)
+2026-07-30 04:23:04,181 Running on GPU
+2026-07-30 04:23:04,299 Found 4 citations for tools or databases
+2026-07-30 04:23:04,300 Query 1/20: peptide_1905_0 (length 31)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:05,676 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1905_0.pickle
+2026-07-30 04:23:06,170 Query 2/20: peptide_2078_0 (length 32)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:07,695 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2078_0.pickle
+2026-07-30 04:23:08,339 Query 3/20: peptide_1832_0 (length 33)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:09,703 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1832_0.pickle
+2026-07-30 04:23:10,118 Query 4/20: peptide_2008_0 (length 33)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:11,506 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2008_0.pickle
+2026-07-30 04:23:11,828 Query 5/20: peptide_2085_0 (length 33)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:13,809 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2085_0.pickle
+2026-07-30 04:23:14,428 Query 6/20: peptide_2011_0 (length 35)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:23:15,808 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2011_0.pickle
+2026-07-30 04:23:16,230 Query 7/20: peptide_2065_0 (length 35)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:06 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:06 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:15 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:15 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:20 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:20 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:28 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:28 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:34 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:34 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:43 remaining: ?]RUNNING:   5%|▌         | 8/150 [elapsed: 00:43 remaining: 12:45]                                                                 RUNNING:   5%|▌         | 8/150 [elapsed: 00:43 remaining: 12:45]COMPLETE:   5%|▌         | 8/150 [elapsed: 00:52 remaining: 12:45]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:52 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:53 remaining: 00:00]
+2026-07-30 04:23:16,923 Sleeping for 5s. Reason: PENDING
+2026-07-30 04:23:22,606 Sleeping for 8s. Reason: PENDING
+2026-07-30 04:23:31,288 Sleeping for 5s. Reason: PENDING
+2026-07-30 04:23:36,975 Sleeping for 7s. Reason: PENDING
+2026-07-30 04:23:44,656 Sleeping for 5s. Reason: PENDING
+2026-07-30 04:23:50,342 Sleeping for 8s. Reason: PENDING
+2026-07-30 04:23:59,372 Sleeping for 9s. Reason: RUNNING
+2026-07-30 04:24:09,736 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2065_0.pickle
+2026-07-30 04:24:10,119 Query 8/20: peptide_2180_0 (length 35)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:11 remaining: ?]RUNNING:   7%|▋         | 10/150 [elapsed: 00:11 remaining: 02:39]                                                                  RUNNING:   7%|▋         | 10/150 [elapsed: 00:11 remaining: 02:39]COMPLETE:   7%|▋         | 10/150 [elapsed: 00:21 remaining: 02:39]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:21 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:22 remaining: 00:00]
+2026-07-30 04:24:10,794 Sleeping for 10s. Reason: PENDING
+2026-07-30 04:24:21,494 Sleeping for 9s. Reason: RUNNING
+2026-07-30 04:24:32,512 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2180_0.pickle
+2026-07-30 04:24:33,271 Query 9/20: peptide_1846_0 (length 38)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:24:35,105 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1846_0.pickle
+2026-07-30 04:24:35,757 Query 10/20: peptide_2023_0 (length 40)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:06 remaining: ?]RUNNING:   3%|▎         | 5/150 [elapsed: 00:06 remaining: 03:04]                                                                 RUNNING:   3%|▎         | 5/150 [elapsed: 00:06 remaining: 03:04]COMPLETE:   3%|▎         | 5/150 [elapsed: 00:14 remaining: 03:04]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:14 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:14 remaining: 00:00]
+2026-07-30 04:24:36,434 Sleeping for 5s. Reason: PENDING
+2026-07-30 04:24:42,121 Sleeping for 7s. Reason: RUNNING
+2026-07-30 04:24:50,485 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2023_0.pickle
+2026-07-30 04:24:50,895 Query 11/20: peptide_2005_0 (length 41)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:24:52,741 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2005_0.pickle
+2026-07-30 04:24:53,451 Query 12/20: peptide_1948_0 (length 42)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:01 remaining: 00:00]
+2026-07-30 04:24:54,827 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1948_0.pickle
+2026-07-30 04:24:55,240 Query 13/20: peptide_2176_0 (length 42)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:08 remaining: ?]RUNNING:   5%|▍         | 7/150 [elapsed: 00:08 remaining: 02:50]                                                                 RUNNING:   5%|▍         | 7/150 [elapsed: 00:08 remaining: 02:50]COMPLETE:   5%|▍         | 7/150 [elapsed: 00:17 remaining: 02:50]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:17 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:17 remaining: 00:00]
+2026-07-30 04:24:55,923 Sleeping for 7s. Reason: PENDING
+2026-07-30 04:25:03,610 Sleeping for 8s. Reason: RUNNING
+2026-07-30 04:25:12,988 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2176_0.pickle
+2026-07-30 04:25:13,420 Query 14/20: peptide_2042_0 (length 43)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:10 remaining: ?]RUNNING:   6%|▌         | 9/150 [elapsed: 00:10 remaining: 02:42]                                                                 RUNNING:   6%|▌         | 9/150 [elapsed: 00:10 remaining: 02:42]COMPLETE:   6%|▌         | 9/150 [elapsed: 00:18 remaining: 02:42]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:18 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:19 remaining: 00:00]
+2026-07-30 04:25:14,121 Sleeping for 9s. Reason: PENDING
+2026-07-30 04:25:23,800 Sleeping for 7s. Reason: RUNNING
+2026-07-30 04:25:32,645 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2042_0.pickle
+2026-07-30 04:25:33,379 Query 15/20: peptide_1998_0 (length 45)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:11 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:11 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:17 remaining: ?]RUNNING:   3%|▎         | 5/150 [elapsed: 00:17 remaining: 08:14]                                                                 RUNNING:   3%|▎         | 5/150 [elapsed: 00:17 remaining: 08:14]RUNNING:   3%|▎         | 5/150 [elapsed: 00:27 remaining: 08:14]RUNNING:  10%|█         | 15/150 [elapsed: 00:27 remaining: 03:46]                                                                  RUNNING:  10%|█         | 15/150 [elapsed: 00:27 remaining: 03:46]COMPLETE:  10%|█         | 15/150 [elapsed: 00:35 remaining: 03:46]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:35 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:36 remaining: 00:00]
+2026-07-30 04:25:34,053 Sleeping for 10s. Reason: RATELIMIT
+2026-07-30 04:25:44,753 Sleeping for 5s. Reason: PENDING
+2026-07-30 04:25:50,440 Sleeping for 10s. Reason: RUNNING
+2026-07-30 04:26:01,136 Sleeping for 7s. Reason: RUNNING
+2026-07-30 04:26:09,641 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1998_0.pickle
+2026-07-30 04:26:10,483 Query 16/20: peptide_2074_0 (length 45)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:08 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:14 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:24 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:24 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:31 remaining: ?]RUNNING:   4%|▍         | 6/150 [elapsed: 00:31 remaining: 12:33]                                                                 RUNNING:   4%|▍         | 6/150 [elapsed: 00:31 remaining: 12:33]COMPLETE:   4%|▍         | 6/150 [elapsed: 00:38 remaining: 12:33]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:38 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:38 remaining: 00:00]
+2026-07-30 04:26:11,154 Sleeping for 7s. Reason: RATELIMIT
+2026-07-30 04:26:18,842 Sleeping for 5s. Reason: RATELIMIT
+2026-07-30 04:26:24,523 Sleeping for 10s. Reason: RATELIMIT
+2026-07-30 04:26:35,205 Sleeping for 6s. Reason: PENDING
+2026-07-30 04:26:41,895 Sleeping for 6s. Reason: RUNNING
+2026-07-30 04:26:49,256 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2074_0.pickle
+2026-07-30 04:26:49,650 Query 17/20: peptide_2170_0 (length 45)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:06 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:17 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:27 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:27 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:38 remaining: ?]RUNNING:   7%|▋         | 10/150 [elapsed: 00:38 remaining: 08:58]                                                                  RUNNING:   7%|▋         | 10/150 [elapsed: 00:38 remaining: 08:58]COMPLETE:   7%|▋         | 10/150 [elapsed: 00:49 remaining: 08:58]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:49 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:50 remaining: 00:00]
+2026-07-30 04:26:50,330 Sleeping for 5s. Reason: RATELIMIT
+2026-07-30 04:26:56,011 Sleeping for 10s. Reason: RATELIMIT
+2026-07-30 04:27:06,696 Sleeping for 10s. Reason: RATELIMIT
+2026-07-30 04:27:17,391 Sleeping for 10s. Reason: PENDING
+2026-07-30 04:27:28,081 Sleeping for 10s. Reason: RUNNING
+2026-07-30 04:27:39,957 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2170_0.pickle
+2026-07-30 04:27:40,844 Query 18/20: peptide_2192_0 (length 45)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:10 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:18 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:26 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:26 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:27 remaining: 00:00]
+2026-07-30 04:27:41,530 Sleeping for 9s. Reason: RATELIMIT
+2026-07-30 04:27:51,222 Sleeping for 7s. Reason: RATELIMIT
+2026-07-30 04:27:58,898 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:28:08,270 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2192_0.pickle
+2026-07-30 04:28:08,672 Query 19/20: peptide_2050_0 (length 48)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:09 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:16 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:24 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:30 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:39 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:44 remaining: ?]COMPLETE:   0%|          | 0/150 [elapsed: 00:54 remaining: ?]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:54 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:56 remaining: 00:00]
+2026-07-30 04:28:09,347 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:28:18,041 Sleeping for 6s. Reason: RATELIMIT
+2026-07-30 04:28:24,719 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:28:33,408 Sleeping for 5s. Reason: RATELIMIT
+2026-07-30 04:28:39,092 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:28:47,776 Sleeping for 5s. Reason: RATELIMIT
+2026-07-30 04:28:53,470 Sleeping for 9s. Reason: RATELIMIT
+2026-07-30 04:29:05,047 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_2050_0.pickle
+2026-07-30 04:29:06,171 Query 20/20: peptide_1893_0 (length 49)
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:07 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:16 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:22 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:31 remaining: ?]                                                            SUBMIT:   0%|          | 0/150 [elapsed: 00:38 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:43 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:43 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:51 remaining: ?]RUNNING:   5%|▍         | 7/150 [elapsed: 00:51 remaining: 17:32]                                                                 RUNNING:   5%|▍         | 7/150 [elapsed: 00:51 remaining: 17:32]RUNNING:   5%|▍         | 7/150 [elapsed: 00:57 remaining: 17:32]RUNNING:   8%|▊         | 12/150 [elapsed: 00:57 remaining: 09:41]                                                                  RUNNING:   8%|▊         | 12/150 [elapsed: 00:57 remaining: 09:41]RUNNING:   8%|▊         | 12/150 [elapsed: 01:07 remaining: 09:41]RUNNING:  15%|█▍        | 22/150 [elapsed: 01:07 remaining: 05:01]                                                                  RUNNING:  15%|█▍        | 22/150 [elapsed: 01:07 remaining: 05:01]COMPLETE:  15%|█▍        | 22/150 [elapsed: 01:14 remaining: 05:01]COMPLETE: 100%|██████████| 150/150 [elapsed: 01:14 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 01:15 remaining: 00:00]
+2026-07-30 04:29:06,851 Sleeping for 6s. Reason: RATELIMIT
+2026-07-30 04:29:13,531 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:29:22,214 Sleeping for 6s. Reason: RATELIMIT
+2026-07-30 04:29:28,900 Sleeping for 8s. Reason: RATELIMIT
+2026-07-30 04:29:37,590 Sleeping for 6s. Reason: RATELIMIT
+2026-07-30 04:29:44,268 Sleeping for 5s. Reason: RATELIMIT
+2026-07-30 04:29:49,979 Sleeping for 7s. Reason: PENDING
+2026-07-30 04:29:57,671 Sleeping for 5s. Reason: RUNNING
+2026-07-30 04:30:03,359 Sleeping for 10s. Reason: RUNNING
+2026-07-30 04:30:14,033 Sleeping for 6s. Reason: RUNNING
+2026-07-30 04:30:21,394 Saved /root/autodl-tmp/GHXTox/data/af2_ensemble_31_50/msa_pilot_split/chunk_010.attempt1.1785356580/peptide_1893_0.pickle
+2026-07-30 04:30:21,797 Done

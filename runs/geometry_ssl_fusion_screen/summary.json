@@ -1,0 +1,89 @@
+{
+  "protocol": {
+    "date": "2026-07-29",
+    "selection_scope": "training-only fixed CD-HIT 0.80 group-aware five-fold OOF",
+    "toxicity_labels_used_for_geometry_pretraining": false,
+    "test_labels_used_for_architecture_or_threshold_selection": false,
+    "default_threshold": 0.6,
+    "server_required_routes_skipped": [
+      "ProtT5 LoRA",
+      "ESM2 fine-tuning"
+    ]
+  },
+  "current_default_oof": {
+    "balanced_accuracy": 0.9271811918932835,
+    "mcc": 0.8711842927776112,
+    "auroc": 0.9772887678662371,
+    "auprc": 0.9536310442019848,
+    "brier": 0.044491976499557495
+  },
+  "geometry_ssl_simple_gate_oof": {
+    "balanced_accuracy": 0.9269062493905332,
+    "mcc": 0.8707855076871978,
+    "auroc": 0.9772941290627204,
+    "auprc": 0.9536093381661618,
+    "brier": 0.044527411460876465,
+    "fold_mcc_wins_vs_pre_adapter_baseline": 3,
+    "decision": "Rejected because it did not exceed the current chemical-interaction default."
+  },
+  "hierarchical_geometry_ssl_oof": {
+    "architecture": "fold-pure sequence-free geometry SSL plus residue, motif and peptide-level ProtT5-to-3D fusion with sequence and structure auxiliary heads",
+    "balanced_accuracy": 0.9283375481343276,
+    "sensitivity": 0.8811881188118812,
+    "specificity": 0.9754869774567739,
+    "mcc": 0.8724094499480568,
+    "auroc": 0.9773493271848525,
+    "auprc": 0.9537574612366163,
+    "brier": 0.044500041753053665,
+    "fold_mcc_wins_vs_pre_adapter_baseline": 4,
+    "oof_decision": "Passed the training-only screen and proceeded to frozen historical-test evaluation."
+  },
+  "positive_loss_weight_1_10_oof": {
+    "balanced_accuracy": 0.9276780599924733,
+    "sensitivity": 0.8800880088008801,
+    "specificity": 0.9752681111840665,
+    "mcc": 0.8712272486357985,
+    "auroc": 0.9772979213001186,
+    "auprc": 0.9536557170984375,
+    "brier": 0.04455821216106415,
+    "decision": "Rejected without further weight search because recall, MCC, ranking and Brier all worsened relative to the unweighted hierarchical model."
+  },
+  "hierarchical_full_refit_historical_tests": {
+    "test1": {
+      "balanced_accuracy": 0.9204288151364763,
+      "mcc": 0.8542643424029518,
+      "auroc": 0.981540787841191,
+      "auprc": 0.9649432417705127,
+      "brier": 0.04314178600907326
+    },
+    "test2": {
+      "balanced_accuracy": 0.8499756651524983,
+      "mcc": 0.6455687533467624,
+      "auroc": 0.9575356911096691,
+      "auprc": 0.7841688782476394,
+      "brier": 0.04649820551276207
+    }
+  },
+  "paired_fold_ensemble_historical_tests": {
+    "test1": {
+      "balanced_accuracy": 0.9219913151364765,
+      "mcc": 0.8565535521910328,
+      "auroc": 0.981610576923077,
+      "auprc": 0.9651231324621848,
+      "brier": 0.043080547641723255
+    },
+    "test2": {
+      "balanced_accuracy": 0.8499756651524983,
+      "mcc": 0.6455687533467624,
+      "auroc": 0.9574951330304997,
+      "auprc": 0.7843144011459534,
+      "brier": 0.04714076795310439
+    }
+  },
+  "final_decision": {
+    "replace_default": false,
+    "reason": "The hierarchical model improved training-only OOF but reduced historical Test1 MCC and did not improve historical Test2 ranking. Fold-paired ensembling did not remove the transfer regression.",
+    "default_remains": "ProtT5-query 3D chemical interaction hybrid at ProtT5/structure=0.62/0.38 and threshold=0.60",
+    "next_local_route": "No lower-value local fusion search is authorized on the already viewed historical tests. Resume with parameter-efficient PLM adaptation only when server compute is available, or with a new pre-frozen evaluation set."
+  }
+}

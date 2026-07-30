@@ -1,0 +1,24 @@
+geometry_ssl epoch=1/4 loss=0.378898 distance=0.018397 contact=0.349122
+geometry_ssl epoch=2/4 loss=0.202345 distance=0.004721 contact=0.187550
+geometry_ssl epoch=3/4 loss=0.162341 distance=0.003088 contact=0.149382
+geometry_ssl epoch=4/4 loss=0.141259 distance=0.002515 contact=0.129050
+{
+  "checkpoint": "runs\\geometry_ssl_full\\geometry_ssl.pt",
+  "processed": "data/processed/train_chemical_sites_final_esm2.pt",
+  "num_samples": 6387,
+  "toxicity_labels_used": false,
+  "epochs": 4,
+  "model_config": {
+    "structure_feature_dim": 16,
+    "hidden_dim": 96,
+    "num_layers": 2,
+    "dropout": 0.1
+  },
+  "final": {
+    "epoch": 4,
+    "loss": 0.14125914374170717,
+    "node": 0.03877553374219131,
+    "distance": 0.0025150445878639274,
+    "contact": 0.12905021604306263
+  }
+}

@@ -68,7 +68,15 @@ def _bucket(length: int) -> str:
         return "21-25"
     if length <= 30:
         return "26-30"
-    return "31+"
+    if length <= 35:
+        return "31-35"
+    if length <= 40:
+        return "36-40"
+    if length <= 45:
+        return "41-45"
+    if length <= 50:
+        return "46-50"
+    return "51+"
 
 
 def _summary_features(path: Path) -> dict[str, float]:
@@ -173,7 +181,17 @@ def analyse_multisource(
         },
         "by_length": {
             bucket: summarize([row for row in rows if row["length_bucket"] == bucket])
-            for bucket in ("1-15", "16-20", "21-25", "26-30")
+            for bucket in (
+                "1-15",
+                "16-20",
+                "21-25",
+                "26-30",
+                "31-35",
+                "36-40",
+                "41-45",
+                "46-50",
+                "51+",
+            )
             if any(row["length_bucket"] == bucket for row in rows)
         },
         "folds": {

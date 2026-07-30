@@ -13,6 +13,7 @@ from ghxtox.conformer_features import (
 )
 from ghxtox.data import collate_peptides
 from ghxtox.models import GHXToxModel
+from ghxtox.models.conformer_graph import DenseChemicalGraphLayer
 
 
 def _summary(path: Path, length: int = 3) -> None:
@@ -282,3 +283,19 @@ def test_conformer_graph_heads_are_source_specific_and_missing_is_exact_fallback
     assert torch.equal(changed["logits"][0], changed["base_logits"][0])
     assert not torch.equal(changed["logits"][1], changed["base_logits"][1])
     assert torch.equal(changed["logits"][2], changed["base_logits"][2])
+
+
+def test_dense_chemical_graph_edge_bias_chunking_is_exact() -> None:
+    torch.manual_seed(7)
+    layer = DenseChemicalGraphLayer(hidden_dim=8, edge_dim=5, dropout=0.0).eval()
+    hidden = torch.randn(2, 4, 8)
+    edge_features = torch.randn(2, 4, 4, 5)
+    edge_mask = ~torch.eye(4, dtype=torch.bool).unsqueeze(0).expand(2, -1, -1)
+    node_mask = torch.ones(2, 4, dtype=torch.bool)
+
+    layer.edge_bias_chunk_size = edge_features.numel()
+    unchunked = layer(hidden, edge_features, edge_mask, node_mask)
+    layer.edge_bias_chunk_size = 3
+    chunked = layer(hidden, edge_features, edge_mask, node_mask)
+
+    torch.testing.assert_close(chunked, unchunked, rtol=0.0, atol=0.0)

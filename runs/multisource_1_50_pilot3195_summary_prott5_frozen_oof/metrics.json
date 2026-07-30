@@ -1,0 +1,31 @@
+{
+  "protocol": {
+    "baseline_predictions": "runs/multisource_1_50_pilot3195_summary_oof/full_predictions.csv",
+    "expert_predictions": "runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv",
+    "expert_weight": 0.62,
+    "baseline_weight": 0.38,
+    "threshold": 0.6,
+    "parameters_selected_from_test_labels": false
+  },
+  "metrics": {
+    "accuracy": 0.9466103021762956,
+    "balanced_accuracy": 0.9259213511633501,
+    "precision": 0.9306122448979591,
+    "sensitivity": 0.8778877887788779,
+    "sn": 0.8778877887788779,
+    "recall": 0.8778877887788779,
+    "specificity": 0.9739549135478223,
+    "sp": 0.9739549135478223,
+    "f1": 0.903481460515143,
+    "mcc": 0.8673281586597045,
+    "auroc": 0.9772371853074999,
+    "auprc": 0.9532294411813537,
+    "brier": 0.04440899967677359,
+    "ece_10": 0.024523429521669148,
+    "tp": 1596.0,
+    "tn": 4450.0,
+    "fp": 119.0,
+    "fn": 222.0,
+    "threshold": 0.6
+  }
+}

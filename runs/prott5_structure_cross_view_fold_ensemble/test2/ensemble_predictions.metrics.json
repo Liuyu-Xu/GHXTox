@@ -1,0 +1,35 @@
+{
+  "protocol": {
+    "inputs": [
+      "D:\\code\\Python\\26大创\\GHXTox\\runs\\prott5_structure_cross_view_fold_ensemble\\test2\\member_fold0.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\runs\\prott5_structure_cross_view_fold_ensemble\\test2\\member_fold1.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\runs\\prott5_structure_cross_view_fold_ensemble\\test2\\member_fold2.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\runs\\prott5_structure_cross_view_fold_ensemble\\test2\\member_fold3.csv",
+      "D:\\code\\Python\\26大创\\GHXTox\\runs\\prott5_structure_cross_view_fold_ensemble\\test2\\member_fold4.csv"
+    ],
+    "ensemble": "unweighted arithmetic mean of aligned probabilities",
+    "threshold": 0.6,
+    "threshold_selected_from_test_labels": false
+  },
+  "metrics": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "auroc": 0.957414016872161,
+    "auprc": 0.78381059181291,
+    "brier": 0.04707649198541041,
+    "ece_10": 0.0430245737898541,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "threshold": 0.6
+  }
+}

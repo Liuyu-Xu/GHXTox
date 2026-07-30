@@ -1,0 +1,106 @@
+geometry_ssl fold=1/5
+geometry_ssl epoch=1/4 loss=0.409855 distance=0.021111 contact=0.377094
+geometry_ssl epoch=2/4 loss=0.229433 distance=0.005672 contact=0.213587
+geometry_ssl epoch=3/4 loss=0.177924 distance=0.003610 contact=0.164356
+geometry_ssl epoch=4/4 loss=0.156443 distance=0.002828 contact=0.143804
+geometry_ssl fold=2/5
+geometry_ssl epoch=1/4 loss=0.401597 distance=0.018145 contact=0.371948
+geometry_ssl epoch=2/4 loss=0.224534 distance=0.006184 contact=0.208221
+geometry_ssl epoch=3/4 loss=0.175269 distance=0.003739 contact=0.161651
+geometry_ssl epoch=4/4 loss=0.154210 distance=0.002949 contact=0.141514
+geometry_ssl fold=3/5
+geometry_ssl epoch=1/4 loss=0.391902 distance=0.016127 contact=0.364414
+geometry_ssl epoch=2/4 loss=0.225781 distance=0.006052 contact=0.209548
+geometry_ssl epoch=3/4 loss=0.178476 distance=0.003626 contact=0.164876
+geometry_ssl epoch=4/4 loss=0.157038 distance=0.002710 contact=0.144440
+geometry_ssl fold=4/5
+geometry_ssl epoch=1/4 loss=0.379175 distance=0.013580 contact=0.354276
+geometry_ssl epoch=2/4 loss=0.223181 distance=0.005426 contact=0.207635
+geometry_ssl epoch=3/4 loss=0.180225 distance=0.003569 contact=0.166686
+geometry_ssl epoch=4/4 loss=0.159100 distance=0.002782 contact=0.146519
+geometry_ssl fold=5/5
+geometry_ssl epoch=1/4 loss=0.396697 distance=0.019073 contact=0.366125
+geometry_ssl epoch=2/4 loss=0.224591 distance=0.005950 contact=0.208483
+geometry_ssl epoch=3/4 loss=0.175970 distance=0.003498 contact=0.162539
+geometry_ssl epoch=4/4 loss=0.155418 distance=0.002790 contact=0.142808
+{
+  "protocol": {
+    "processed": "data/processed/train_chemical_sites_final_esm2.pt",
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "adapter_feature_cache": "data/processed/train_prott5_structure_oof_adapter.pt",
+    "output_cache": "data/processed/train_prott5_structure_oof_geometry_ssl.pt",
+    "toxicity_labels_used": false,
+    "fold_pure": true,
+    "epochs": 4,
+    "model_config": {
+      "structure_feature_dim": 16,
+      "hidden_dim": 96,
+      "num_layers": 2,
+      "dropout": 0.1
+    }
+  },
+  "num_samples": 6387,
+  "num_residues": 201994,
+  "fold_reports": [
+    {
+      "fold": 0,
+      "num_train": 5116,
+      "num_validation": 1271,
+      "final": {
+        "epoch": 4,
+        "loss": 0.15644312840453156,
+        "node": 0.039243381339372184,
+        "distance": 0.002828099398434663,
+        "contact": 0.1438041837001984
+      }
+    },
+    {
+      "fold": 1,
+      "num_train": 5158,
+      "num_validation": 1229,
+      "final": {
+        "epoch": 4,
+        "loss": 0.15420952326639442,
+        "node": 0.03898292835390166,
+        "distance": 0.0029493805976023376,
+        "contact": 0.14151441082560587
+      }
+    },
+    {
+      "fold": 2,
+      "num_train": 5114,
+      "num_validation": 1273,
+      "final": {
+        "epoch": 4,
+        "loss": 0.1570376588478189,
+        "node": 0.039553194170206564,
+        "distance": 0.002709841531146672,
+        "contact": 0.14443951913351932
+      }
+    },
+    {
+      "fold": 3,
+      "num_train": 5096,
+      "num_validation": 1291,
+      "final": {
+        "epoch": 4,
+        "loss": 0.15910018620255229,
+        "node": 0.03919673968381373,
+        "distance": 0.002782264111777022,
+        "contact": 0.14651873728824746
+      }
+    },
+    {
+      "fold": 4,
+      "num_train": 5064,
+      "num_validation": 1323,
+      "final": {
+        "epoch": 4,
+        "loss": 0.1554179555290683,
+        "node": 0.039282106934188855,
+        "distance": 0.002789728870574167,
+        "contact": 0.14280770015189245
+      }
+    }
+  ]
+}

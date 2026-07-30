@@ -1,0 +1,138 @@
+cross_view_geometry fold=1/5
+cross_view_geometry epoch=1/3 loss=0.224523 consistency=0.047169 ensemble_pair=0.239911
+cross_view_geometry epoch=2/3 loss=0.204636 consistency=0.030460 ensemble_pair=0.221204
+cross_view_geometry epoch=3/3 loss=0.205607 consistency=0.026503 ensemble_pair=0.223258
+cross_view_geometry fold=2/5
+cross_view_geometry epoch=1/3 loss=0.217808 consistency=0.041843 ensemble_pair=0.232170
+cross_view_geometry epoch=2/3 loss=0.203501 consistency=0.028370 ensemble_pair=0.220040
+cross_view_geometry epoch=3/3 loss=0.200058 consistency=0.025119 ensemble_pair=0.218749
+cross_view_geometry fold=3/5
+cross_view_geometry epoch=1/3 loss=0.230558 consistency=0.046507 ensemble_pair=0.246153
+cross_view_geometry epoch=2/3 loss=0.211677 consistency=0.029531 ensemble_pair=0.228815
+cross_view_geometry epoch=3/3 loss=0.210685 consistency=0.026036 ensemble_pair=0.228558
+cross_view_geometry fold=4/5
+cross_view_geometry epoch=1/3 loss=0.220495 consistency=0.044407 ensemble_pair=0.234411
+cross_view_geometry epoch=2/3 loss=0.206935 consistency=0.029117 ensemble_pair=0.223102
+cross_view_geometry epoch=3/3 loss=0.203881 consistency=0.026046 ensemble_pair=0.222463
+cross_view_geometry fold=5/5
+cross_view_geometry epoch=1/3 loss=0.222110 consistency=0.047825 ensemble_pair=0.234665
+cross_view_geometry epoch=2/3 loss=0.209726 consistency=0.031419 ensemble_pair=0.226041
+cross_view_geometry epoch=3/3 loss=0.204169 consistency=0.027076 ensemble_pair=0.221271
+{
+  "protocol": {
+    "processed": "data/processed/train_chemical_sites_final_esm2_conformer_graph_full2795.pt",
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "adapter_feature_cache": "data/processed/train_prott5_structure_oof_adapter.pt",
+    "output_cache": "data/processed/train_prott5_structure_oof_cross_view.pt",
+    "initialization_pattern": "runs/geometry_ssl_oof/fold{fold}/geometry_ssl.pt",
+    "toxicity_labels_used": false,
+    "fold_pure": true,
+    "source_balanced_sampling": true,
+    "epochs": 3
+  },
+  "num_samples": 6387,
+  "num_multiview_samples": 2795,
+  "num_residues": 201994,
+  "fold_reports": [
+    {
+      "fold": 0,
+      "num_train_multiview": 2258,
+      "num_validation": 1271,
+      "source_counts": {
+        "colabfold_af2_shallow_msa_multiseed": 1668,
+        "pepflow": 590
+      },
+      "final": {
+        "epoch": 3,
+        "loss": 0.20560701682411325,
+        "anchor_ssl": 0.1718995311719005,
+        "view_ssl": 0.1615215923680047,
+        "ensemble_pair": 0.22325764354928812,
+        "consistency": 0.026503291344014388,
+        "variance": 0.057588807796354946,
+        "anchor_contact": 0.16040297745470455,
+        "view_contact": 0.15015950420190002
+      }
+    },
+    {
+      "fold": 1,
+      "num_train_multiview": 2244,
+      "num_validation": 1229,
+      "source_counts": {
+        "colabfold_af2_shallow_msa_multiseed": 1633,
+        "pepflow": 611
+      },
+      "final": {
+        "epoch": 3,
+        "loss": 0.20005829919149531,
+        "anchor_ssl": 0.1655902939046768,
+        "view_ssl": 0.15506790578365326,
+        "ensemble_pair": 0.21874907549052314,
+        "consistency": 0.025118550823573123,
+        "variance": 0.06110779313559838,
+        "anchor_contact": 0.15419253292568227,
+        "view_contact": 0.14371487498283386
+      }
+    },
+    {
+      "fold": 2,
+      "num_train_multiview": 2252,
+      "num_validation": 1273,
+      "source_counts": {
+        "colabfold_af2_shallow_msa_multiseed": 1631,
+        "pepflow": 621
+      },
+      "final": {
+        "epoch": 3,
+        "loss": 0.21068503613687958,
+        "anchor_ssl": 0.17680334534039505,
+        "view_ssl": 0.1673954485735292,
+        "ensemble_pair": 0.22855785147652533,
+        "consistency": 0.026035906177933856,
+        "variance": 0.062410042073650425,
+        "anchor_contact": 0.16540167257057414,
+        "view_contact": 0.15597232898323404
+      }
+    },
+    {
+      "fold": 3,
+      "num_train_multiview": 2202,
+      "num_validation": 1291,
+      "source_counts": {
+        "colabfold_af2_shallow_msa_multiseed": 1598,
+        "pepflow": 604
+      },
+      "final": {
+        "epoch": 3,
+        "loss": 0.203880659200515,
+        "anchor_ssl": 0.1695061497775995,
+        "view_ssl": 0.15903300099704182,
+        "ensemble_pair": 0.22246285639601768,
+        "consistency": 0.026046481831075385,
+        "variance": 0.05590026199371029,
+        "anchor_contact": 0.15815984918570974,
+        "view_contact": 0.14780309743549908
+      }
+    },
+    {
+      "fold": 4,
+      "num_train_multiview": 2224,
+      "num_validation": 1323,
+      "source_counts": {
+        "colabfold_af2_shallow_msa_multiseed": 1606,
+        "pepflow": 618
+      },
+      "final": {
+        "epoch": 3,
+        "loss": 0.20416910769484883,
+        "anchor_ssl": 0.17056791417354303,
+        "view_ssl": 0.15980372108894286,
+        "ensemble_pair": 0.22127141299650824,
+        "consistency": 0.027075938210427333,
+        "variance": 0.05715060311791708,
+        "anchor_contact": 0.15915335232405353,
+        "view_contact": 0.1484128801728324
+      }
+    }
+  ]
+}

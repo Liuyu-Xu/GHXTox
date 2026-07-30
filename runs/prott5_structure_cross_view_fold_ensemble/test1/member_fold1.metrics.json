@@ -1,0 +1,60 @@
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_cross_view_fold1.temporary.pt",
+    "checkpoint": "runs/prott5_structure_cross_view_oof/fold1/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9440497335701599,
+    "balanced_accuracy": 0.9251163151364764,
+    "precision": 0.9185667752442996,
+    "sensitivity": 0.88125,
+    "sn": 0.88125,
+    "recall": 0.88125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8995215311004784,
+    "mcc": 0.8611308334793081,
+    "brier": 0.043368563055992126,
+    "ece_10": 0.02217746153473854,
+    "tp": 282.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 38.0,
+    "auroc": 0.9815407878411911,
+    "auprc": 0.9650023148357794
+  },
+  "delta": {
+    "balanced_accuracy": 0.0015625000000000222,
+    "mcc": 0.0022884584170850264,
+    "auroc": 1.1631513647802905e-05,
+    "auprc": 8.295605594565991e-05,
+    "brier": 5.369260907173157e-05
+  },
+  "interaction_delta": {
+    "mean": 0.02701888047158718,
+    "mean_absolute": 0.03648517280817032,
+    "max_absolute": 0.11566323041915894
+  }
+}

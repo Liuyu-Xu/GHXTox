@@ -14,6 +14,10 @@ from ghxtox.models.layers import RadialBasis
 class DenseChemicalGraphLayer(nn.Module):
     def __init__(self, hidden_dim: int, edge_dim: int, dropout: float) -> None:
         super().__init__()
+        # Long peptides create B * conformers * (2L)^2 dense edge rows.
+        # The edge MLP is pointwise, so chunking preserves the exact model
+        # while avoiding a very large transient cuBLAS output tensor.
+        self.edge_bias_chunk_size = 262_144
         self.query = nn.Linear(hidden_dim, hidden_dim, bias=False)
         self.key = nn.Linear(hidden_dim, hidden_dim, bias=False)
         self.value = nn.Linear(hidden_dim, hidden_dim, bias=False)
@@ -40,7 +44,18 @@ class DenseChemicalGraphLayer(nn.Module):
         query = self.query(hidden)
         key = self.key(hidden)
         scores = torch.einsum("bih,bjh->bij", query, key) / math.sqrt(hidden.shape[-1])
-        scores = scores + self.edge_bias(edge_features).squeeze(-1)
+        flat_edges = edge_features.reshape(-1, edge_features.shape[-1])
+        if flat_edges.shape[0] > self.edge_bias_chunk_size:
+            edge_bias = torch.cat(
+                [
+                    self.edge_bias(chunk)
+                    for chunk in flat_edges.split(self.edge_bias_chunk_size, dim=0)
+                ],
+                dim=0,
+            )
+        else:
+            edge_bias = self.edge_bias(flat_edges)
+        scores = scores + edge_bias.reshape(*edge_features.shape[:-1])
         scores = scores.masked_fill(~edge_mask, -1e4)
         weights = torch.softmax(scores, dim=-1) * edge_mask.to(dtype=hidden.dtype)
         weights = weights / weights.sum(dim=-1, keepdim=True).clamp_min(1e-6)

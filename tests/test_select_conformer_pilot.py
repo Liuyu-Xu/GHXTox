@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import torch
+
 from ghxtox.select_conformer_pilot import select_pilot
 
 
@@ -43,3 +45,64 @@ def test_select_pilot_excludes_already_generated_source_indices(tmp_path: Path) 
         exclude_manifest=excluded,
     )
     assert [row["source_index"] for row in rows] == [0, 2]
+
+
+def test_balanced_length_bins_are_exact_across_fold_and_label(tmp_path: Path) -> None:
+    entries = [
+        (0, 1, "ACCA"),
+        (0, 0, "AAAA"),
+        (1, 1, "CCCC"),
+        (1, 0, "GGGG"),
+        (0, 1, "ACCAC"),
+        (0, 0, "AAAAA"),
+        (1, 1, "CCCCC"),
+        (1, 0, "GGGGG"),
+    ]
+    fasta = tmp_path / "train.fasta"
+    fasta.write_text(
+        "".join(f">pep|{label}\n{sequence}\n" for _, label, sequence in entries),
+        encoding="utf-8",
+    )
+    folds = tmp_path / "folds.csv"
+    folds.write_text(
+        "source_index,sample_id,label,sequence,group_id,fold\n"
+        + "".join(
+            f"{index},pep_{index},{label},{sequence},g{index},{fold}\n"
+            for index, (fold, label, sequence) in enumerate(entries)
+        ),
+        encoding="utf-8",
+    )
+    processed = tmp_path / "processed.pt"
+    torch.save(
+        {
+            "records": [
+                {
+                    "sequence": sequence,
+                    "plddt": torch.full((len(sequence),), 0.6 if index % 2 else 0.9),
+                }
+                for index, (_, _, sequence) in enumerate(entries)
+            ]
+        },
+        processed,
+    )
+    rows = select_pilot(
+        fasta,
+        folds,
+        tmp_path / "pilot.fasta",
+        tmp_path / "pilot.csv",
+        target_size=8,
+        min_length=4,
+        max_length=5,
+        processed=processed,
+        length_bins=[(4, 4), (5, 5)],
+    )
+    assert len(rows) == 8
+    assert {
+        (row["length_bin"], row["fold"], row["label"])
+        for row in rows
+    } == {
+        (length_bin, fold, label)
+        for length_bin in ("4-4", "5-5")
+        for fold in (0, 1)
+        for label in (0, 1)
+    }

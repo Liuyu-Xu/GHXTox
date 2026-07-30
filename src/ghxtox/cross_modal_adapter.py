@@ -433,6 +433,8 @@ class CoupledFeatureDataset(Dataset):
         }
         if "chemical_features" in self.payload:
             result["chemical"] = self.payload["chemical_features"][start:stop]
+        if "geometry_ssl_embeddings" in self.payload:
+            result["geometry_ssl"] = self.payload["geometry_ssl_embeddings"][start:stop]
         return result
 
 
@@ -473,6 +475,15 @@ def collate_coupled(batch: list[dict[str, Any]]) -> dict[str, Any]:
             length = int(item["chemical"].shape[0])
             chemical[index, :length] = item["chemical"].float()
         result["chemical"] = chemical
+    if all("geometry_ssl" in item for item in batch):
+        geometry_dim = int(batch[0]["geometry_ssl"].shape[1])
+        geometry_ssl = torch.zeros(
+            len(batch), max_length, geometry_dim, dtype=torch.float32
+        )
+        for index, item in enumerate(batch):
+            length = int(item["geometry_ssl"].shape[0])
+            geometry_ssl[index, :length] = item["geometry_ssl"].float()
+        result["geometry_ssl"] = geometry_ssl
     return result
 
 
@@ -500,10 +511,16 @@ class ProtT5StructureAdapter(nn.Module):
         initial_interaction_weight: float = 0.10,
         max_logit_delta: float = 1.25,
         chemical_dim: int = 0,
+        geometry_ssl_dim: int = 0,
+        hierarchical_fusion: bool = False,
+        num_motifs: int = 4,
     ) -> None:
         super().__init__()
         self.max_logit_delta = float(max_logit_delta)
         self.chemical_dim = max(int(chemical_dim), 0)
+        self.geometry_ssl_dim = max(int(geometry_ssl_dim), 0)
+        self.hierarchical_fusion = bool(hierarchical_fusion)
+        self.num_motifs = max(int(num_motifs), 1)
         self.token_projection = nn.Sequential(
             nn.LayerNorm(token_dim),
             nn.Linear(token_dim, hidden_dim),
@@ -535,8 +552,63 @@ class ProtT5StructureAdapter(nn.Module):
                 nn.Linear(hidden_dim // 2, 1),
                 nn.Sigmoid(),
             )
+        self.geometry_ssl_projection = None
+        self.geometry_ssl_gate = None
+        if self.geometry_ssl_dim > 0:
+            self.geometry_ssl_projection = nn.Sequential(
+                nn.LayerNorm(self.geometry_ssl_dim),
+                nn.Linear(self.geometry_ssl_dim, hidden_dim),
+                nn.GELU(),
+            )
+            self.geometry_ssl_gate = nn.Sequential(
+                nn.Linear(hidden_dim * 3, hidden_dim // 2),
+                nn.GELU(),
+                nn.Linear(hidden_dim // 2, 1),
+                nn.Sigmoid(),
+            )
+        delta_input_dim = hidden_dim * 3
+        self.local_fusion = None
+        self.motif_queries = None
+        self.motif_attention = None
+        self.global_motif_attention = None
+        self.sequence_aux_head = None
+        self.structure_aux_head = None
+        if self.hierarchical_fusion:
+            self.local_fusion = nn.Sequential(
+                nn.LayerNorm(hidden_dim * 4),
+                nn.Linear(hidden_dim * 4, hidden_dim),
+                nn.GELU(),
+            )
+            self.motif_queries = nn.Parameter(
+                torch.randn(1, self.num_motifs, hidden_dim) * 0.02
+            )
+            self.motif_attention = nn.MultiheadAttention(
+                hidden_dim,
+                num_heads,
+                dropout=dropout,
+                batch_first=True,
+            )
+            self.global_motif_attention = nn.MultiheadAttention(
+                hidden_dim,
+                num_heads,
+                dropout=dropout,
+                batch_first=True,
+            )
+            self.sequence_aux_head = nn.Sequential(
+                nn.LayerNorm(hidden_dim * 2),
+                nn.Linear(hidden_dim * 2, hidden_dim // 2),
+                nn.GELU(),
+                nn.Linear(hidden_dim // 2, 1),
+            )
+            self.structure_aux_head = nn.Sequential(
+                nn.LayerNorm(hidden_dim * 2),
+                nn.Linear(hidden_dim * 2, hidden_dim // 2),
+                nn.GELU(),
+                nn.Linear(hidden_dim // 2, 1),
+            )
+            delta_input_dim = hidden_dim * 6
         self.delta_head = nn.Sequential(
-            nn.Linear(hidden_dim * 3, hidden_dim),
+            nn.Linear(delta_input_dim, hidden_dim),
             nn.GELU(),
             nn.Dropout(dropout),
             nn.Linear(hidden_dim, 1),
@@ -556,6 +628,7 @@ class ProtT5StructureAdapter(nn.Module):
         base_probability: torch.Tensor,
         structure_available: torch.Tensor | None = None,
         chemical: torch.Tensor | None = None,
+        geometry_ssl: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
         mask = mask.bool()
         token_h = self.token_projection(tokens)
@@ -569,6 +642,14 @@ class ProtT5StructureAdapter(nn.Module):
                 torch.cat([token_h, chemical_h, token_h * chemical_h], dim=-1)
             )
             spatial_h = spatial_h + chemical_gate * chemical_h
+        if self.geometry_ssl_projection is not None:
+            if geometry_ssl is None:
+                raise ValueError("The geometry-SSL adapter requires geometry embeddings.")
+            geometry_h = self.geometry_ssl_projection(geometry_ssl)
+            geometry_gate = self.geometry_ssl_gate(
+                torch.cat([token_h, geometry_h, token_h * geometry_h], dim=-1)
+            )
+            spatial_h = spatial_h + geometry_gate * geometry_h
         spatial_h = spatial_h * confidence.unsqueeze(-1)
         context, _ = self.cross_attention(
             query=token_h,
@@ -578,14 +659,67 @@ class ProtT5StructureAdapter(nn.Module):
             need_weights=False,
         )
         context = self.context_norm(context)
-        interaction = torch.cat(
-            [
-                _masked_mean(context, mask),
-                _masked_max(context, mask),
-                _masked_mean(token_h * context, mask),
-            ],
-            dim=-1,
-        )
+        sequence_aux_logits = None
+        structure_aux_logits = None
+        if self.hierarchical_fusion:
+            local_h = self.local_fusion(
+                torch.cat(
+                    [
+                        token_h,
+                        spatial_h,
+                        token_h * spatial_h,
+                        (token_h - spatial_h).abs(),
+                    ],
+                    dim=-1,
+                )
+            )
+            motif_query = self.motif_queries.expand(token_h.shape[0], -1, -1)
+            motifs, _ = self.motif_attention(
+                query=motif_query,
+                key=local_h,
+                value=local_h,
+                key_padding_mask=~mask,
+                need_weights=False,
+            )
+            peptide_query = _masked_mean(token_h, mask).unsqueeze(1)
+            global_context, _ = self.global_motif_attention(
+                query=peptide_query,
+                key=motifs,
+                value=motifs,
+                need_weights=False,
+            )
+            interaction = torch.cat(
+                [
+                    _masked_mean(local_h, mask),
+                    _masked_max(local_h, mask),
+                    motifs.mean(dim=1),
+                    motifs.max(dim=1).values,
+                    global_context.squeeze(1),
+                    _masked_mean(token_h * context, mask),
+                ],
+                dim=-1,
+            )
+            sequence_aux_logits = self.sequence_aux_head(
+                torch.cat(
+                    [_masked_mean(token_h, mask), _masked_max(token_h, mask)],
+                    dim=-1,
+                )
+            ).squeeze(-1)
+            structure_aux_logits = self.structure_aux_head(
+                torch.cat(
+                    [_masked_mean(spatial_h, mask), _masked_max(spatial_h, mask)],
+                    dim=-1,
+                )
+            ).squeeze(-1)
+        else:
+            interaction = torch.cat(
+                [
+                    _masked_mean(context, mask),
+                    _masked_max(context, mask),
+                    _masked_mean(token_h * context, mask),
+                ],
+                dim=-1,
+            )
         raw_delta = torch.tanh(self.delta_head(interaction).squeeze(-1))
         mean_confidence = confidence.sum(dim=1) / mask.sum(dim=1).clamp_min(1)
         quality_gate = torch.sigmoid((mean_confidence - 0.55) / 0.12)
@@ -600,13 +734,17 @@ class ProtT5StructureAdapter(nn.Module):
             * raw_delta
         )
         base_logit = _safe_logit(base_probability)
-        return {
+        result = {
             "logits": base_logit + delta,
             "base_logits": base_logit,
             "interaction_delta": delta,
             "quality_gate": quality_gate,
             "interaction_weight": interaction_weight,
         }
+        if sequence_aux_logits is not None and structure_aux_logits is not None:
+            result["sequence_aux_logits"] = sequence_aux_logits
+            result["structure_aux_logits"] = structure_aux_logits
+        return result
 
 
 @dataclass
@@ -629,6 +767,7 @@ def _run_adapter_epoch(
     structure_dropout: float,
     delta_l1: float,
     hard_example_weight: float,
+    auxiliary_weight: float = 0.0,
 ) -> EpochResult:
     training = optimizer is not None
     model.train(training)
@@ -655,6 +794,7 @@ def _run_adapter_epoch(
             base_probability=batch["base_probability"],
             structure_available=available,
             chemical=batch.get("chemical"),
+            geometry_ssl=batch.get("geometry_ssl"),
         )
         per_sample = torch.nn.functional.binary_cross_entropy_with_logits(
             output["logits"], batch["labels"], reduction="none"
@@ -670,6 +810,14 @@ def _run_adapter_epoch(
         loss = per_sample.mean()
         if training and delta_l1 > 0:
             loss = loss + delta_l1 * output["interaction_delta"].abs().mean()
+        if training and auxiliary_weight > 0 and "sequence_aux_logits" in output:
+            sequence_aux_loss = torch.nn.functional.binary_cross_entropy_with_logits(
+                output["sequence_aux_logits"], batch["labels"]
+            )
+            structure_aux_loss = torch.nn.functional.binary_cross_entropy_with_logits(
+                output["structure_aux_logits"], batch["labels"]
+            )
+            loss = loss + auxiliary_weight * (sequence_aux_loss + structure_aux_loss)
         if training:
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), 5.0)
@@ -709,6 +857,9 @@ def train_oof_adapter(
     hard_example_weight: float = 0.0,
     seed: int = 42,
     use_chemical_sites: bool = False,
+    use_geometry_ssl: bool = False,
+    hierarchical_fusion: bool = False,
+    auxiliary_weight: float = 0.0,
 ) -> dict[str, Any]:
     payload = torch.load(feature_cache, map_location="cpu", weights_only=False)
     dataset = CoupledFeatureDataset(payload)
@@ -737,15 +888,22 @@ def train_oof_adapter(
             shuffle=False,
             collate_fn=collate_coupled,
         )
-        model = ProtT5StructureAdapter(
-            token_dim=int(payload["metadata"]["token_dim"]),
-            spatial_dim=int(payload["metadata"]["spatial_dim"]),
-            chemical_dim=(
+        model_config = {
+            "token_dim": int(payload["metadata"]["token_dim"]),
+            "spatial_dim": int(payload["metadata"]["spatial_dim"]),
+            "chemical_dim": (
                 int(payload["metadata"].get("chemical_dim", 0))
                 if use_chemical_sites
                 else 0
             ),
-        ).to(device)
+            "geometry_ssl_dim": (
+                int(payload["metadata"].get("geometry_ssl_dim", 0))
+                if use_geometry_ssl
+                else 0
+            ),
+            "hierarchical_fusion": hierarchical_fusion,
+        }
+        model = ProtT5StructureAdapter(**model_config).to(device)
         optimizer = torch.optim.AdamW(
             model.parameters(), lr=learning_rate, weight_decay=weight_decay
         )
@@ -765,6 +923,7 @@ def train_oof_adapter(
                 structure_dropout=structure_dropout,
                 delta_l1=delta_l1,
                 hard_example_weight=hard_example_weight,
+                auxiliary_weight=auxiliary_weight,
             )
             validation_result = _run_adapter_epoch(
                 model,
@@ -827,6 +986,7 @@ def train_oof_adapter(
         torch.save(
             {
                 "model_state": best_state,
+                "model_config": model_config,
                 "epoch": best_epoch,
                 "feature_metadata": payload["metadata"],
                 "adapter_config": {
@@ -836,6 +996,9 @@ def train_oof_adapter(
                     "hard_example_weight": hard_example_weight,
                     "seed": seed + fold,
                     "use_chemical_sites": use_chemical_sites,
+                    "use_geometry_ssl": use_geometry_ssl,
+                    "hierarchical_fusion": hierarchical_fusion,
+                    "auxiliary_weight": auxiliary_weight,
                 },
                 "validation_metrics": final_result.metrics,
             },
@@ -919,6 +1082,9 @@ def train_oof_adapter(
             "delta_l1": delta_l1,
             "hard_example_weight": hard_example_weight,
             "use_chemical_sites": use_chemical_sites,
+            "use_geometry_ssl": use_geometry_ssl,
+            "hierarchical_fusion": hierarchical_fusion,
+            "auxiliary_weight": auxiliary_weight,
         },
         "baseline": base_metrics,
         "adapter": adapter_metrics,
@@ -956,6 +1122,9 @@ def train_full_adapter(
     hard_example_weight: float = 0.0,
     seed: int = 42,
     use_chemical_sites: bool = True,
+    use_geometry_ssl: bool = False,
+    hierarchical_fusion: bool = False,
+    auxiliary_weight: float = 0.0,
 ) -> dict[str, Any]:
     """Refit the selected adapter for a fixed OOF-derived epoch count."""
 
@@ -979,6 +1148,12 @@ def train_full_adapter(
             if use_chemical_sites
             else 0
         ),
+        "geometry_ssl_dim": (
+            int(payload["metadata"].get("geometry_ssl_dim", 0))
+            if use_geometry_ssl
+            else 0
+        ),
+        "hierarchical_fusion": hierarchical_fusion,
         "hidden_dim": 128,
         "num_heads": 4,
         "dropout": 0.2,
@@ -1000,6 +1175,7 @@ def train_full_adapter(
             structure_dropout=structure_dropout,
             delta_l1=delta_l1,
             hard_example_weight=hard_example_weight,
+            auxiliary_weight=auxiliary_weight,
         )
         history.append({"epoch": epoch, "loss": result.loss, "metrics": result.metrics})
     output_root = Path(output_dir)
@@ -1018,6 +1194,9 @@ def train_full_adapter(
             "hard_example_weight": hard_example_weight,
             "seed": seed,
             "use_chemical_sites": use_chemical_sites,
+            "use_geometry_ssl": use_geometry_ssl,
+            "hierarchical_fusion": hierarchical_fusion,
+            "auxiliary_weight": auxiliary_weight,
         },
         "refit_protocol": {
             "full_training_data": True,
@@ -1177,6 +1356,9 @@ def build_parser() -> argparse.ArgumentParser:
     train.add_argument("--hard-example-weight", type=float, default=0.0)
     train.add_argument("--seed", type=int, default=42)
     train.add_argument("--use-chemical-sites", action="store_true")
+    train.add_argument("--use-geometry-ssl", action="store_true")
+    train.add_argument("--hierarchical-fusion", action="store_true")
+    train.add_argument("--auxiliary-weight", type=float, default=0.0)
 
     refit = subparsers.add_parser("train-full")
     refit.add_argument("--feature-cache", required=True)
@@ -1192,6 +1374,9 @@ def build_parser() -> argparse.ArgumentParser:
     refit.add_argument("--hard-example-weight", type=float, default=0.0)
     refit.add_argument("--seed", type=int, default=42)
     refit.add_argument("--without-chemical-sites", action="store_true")
+    refit.add_argument("--use-geometry-ssl", action="store_true")
+    refit.add_argument("--hierarchical-fusion", action="store_true")
+    refit.add_argument("--auxiliary-weight", type=float, default=0.0)
 
     predict = subparsers.add_parser("predict")
     predict.add_argument("--feature-cache", required=True)
@@ -1244,6 +1429,9 @@ def main() -> None:
             hard_example_weight=args.hard_example_weight,
             seed=args.seed,
             use_chemical_sites=args.use_chemical_sites,
+            use_geometry_ssl=args.use_geometry_ssl,
+            hierarchical_fusion=args.hierarchical_fusion,
+            auxiliary_weight=args.auxiliary_weight,
         )
     elif args.command == "train-full":
         result = train_full_adapter(
@@ -1260,6 +1448,9 @@ def main() -> None:
             hard_example_weight=args.hard_example_weight,
             seed=args.seed,
             use_chemical_sites=not args.without_chemical_sites,
+            use_geometry_ssl=args.use_geometry_ssl,
+            hierarchical_fusion=args.hierarchical_fusion,
+            auxiliary_weight=args.auxiliary_weight,
         )
     else:
         result = predict_adapter(

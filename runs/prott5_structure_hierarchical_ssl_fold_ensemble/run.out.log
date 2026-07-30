@@ -1,0 +1,732 @@
+{
+  "processed": "data/processed/test1_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold0.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold0/geometry_ssl.pt",
+  "num_samples": 1126,
+  "num_residues": 35532,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test1_geometry_ssl_fold0.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold0/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.04331083223223686,
+    "ece_10": 0.020800035446882248,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275435,
+    "auprc": 0.9649193587798337
+  },
+  "delta": {
+    "balanced_accuracy": 0.0,
+    "mcc": 0.0,
+    "auroc": 1.1102230246251565e-16,
+    "auprc": 0.0,
+    "brier": -4.038214683532715e-06
+  },
+  "interaction_delta": {
+    "mean": -0.0006359201506711543,
+    "mean_absolute": 0.0006508408696390688,
+    "max_absolute": 0.0024922178126871586
+  }
+}
+{
+  "processed": "data/processed/test2_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test2_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test2_geometry_ssl_fold0.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold0/geometry_ssl.pt",
+  "num_samples": 582,
+  "num_residues": 17403,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test2_geometry_ssl_fold0.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold0/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04749530553817749,
+    "ece_10": 0.04384057596325874,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "adapter": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04748229309916496,
+    "ece_10": 0.04382691904902458,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "delta": {
+    "balanced_accuracy": 0.0,
+    "mcc": 0.0,
+    "auroc": 0.0,
+    "auprc": 0.0,
+    "brier": -1.3012439012527466e-05
+  },
+  "interaction_delta": {
+    "mean": -0.00039873147034086287,
+    "mean_absolute": 0.00041534268530085683,
+    "max_absolute": 0.002369048073887825
+  }
+}
+{
+  "processed": "data/processed/test1_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold1.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold1/geometry_ssl.pt",
+  "num_samples": 1126,
+  "num_residues": 35532,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test1_geometry_ssl_fold1.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold1/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9440497335701599,
+    "balanced_accuracy": 0.9251163151364764,
+    "precision": 0.9185667752442996,
+    "sensitivity": 0.88125,
+    "sn": 0.88125,
+    "recall": 0.88125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8995215311004784,
+    "mcc": 0.8611308334793081,
+    "brier": 0.043393220752477646,
+    "ece_10": 0.025817763060331345,
+    "tp": 282.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 38.0,
+    "auroc": 0.9815718052109181,
+    "auprc": 0.9650515275511453
+  },
+  "delta": {
+    "balanced_accuracy": 0.0015625000000000222,
+    "mcc": 0.0022884584170850264,
+    "auroc": 4.264888337479622e-05,
+    "auprc": 0.00013216877131161375,
+    "brier": 7.835030555725098e-05
+  },
+  "interaction_delta": {
+    "mean": 0.03681910037994385,
+    "mean_absolute": 0.04394664242863655,
+    "max_absolute": 0.12021162360906601
+  }
+}
+{
+  "processed": "data/processed/test2_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test2_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test2_geometry_ssl_fold1.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold1/geometry_ssl.pt",
+  "num_samples": 582,
+  "num_residues": 17403,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test2_geometry_ssl_fold1.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold1/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04749530553817749,
+    "ece_10": 0.04384057596325874,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "adapter": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.048043571412563324,
+    "ece_10": 0.044968198984861374,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9573329007138222,
+    "auprc": 0.7842638384998188
+  },
+  "delta": {
+    "balanced_accuracy": 0.0,
+    "mcc": 0.0,
+    "auroc": -0.00036502271252436547,
+    "auprc": -0.0008792133612963715,
+    "brier": 0.0005482658743858337
+  },
+  "interaction_delta": {
+    "mean": 0.024433854967355728,
+    "mean_absolute": 0.03473174199461937,
+    "max_absolute": 0.12016581743955612
+  }
+}
+{
+  "processed": "data/processed/test1_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold2.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold2/geometry_ssl.pt",
+  "num_samples": 1126,
+  "num_residues": 35532,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test1_geometry_ssl_fold2.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold2/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9226116625310175,
+    "precision": 0.9210526315789473,
+    "sensitivity": 0.875,
+    "sn": 0.875,
+    "recall": 0.875,
+    "specificity": 0.9702233250620348,
+    "sp": 0.9702233250620348,
+    "f1": 0.8974358974358975,
+    "mcc": 0.8586996442351019,
+    "brier": 0.042702607810497284,
+    "ece_10": 0.02420940436422825,
+    "tp": 280.0,
+    "tn": 782.0,
+    "fp": 24.0,
+    "fn": 40.0,
+    "auroc": 0.9816958746898263,
+    "auprc": 0.9653911691122588
+  },
+  "delta": {
+    "balanced_accuracy": -0.0009421526054589346,
+    "mcc": -0.00014273082712112917,
+    "auroc": 0.00016671836228299153,
+    "auprc": 0.0004718103324250489,
+    "brier": -0.000612262636423111
+  },
+  "interaction_delta": {
+    "mean": -0.03900011628866196,
+    "mean_absolute": 0.06539037823677063,
+    "max_absolute": 0.18918900191783905
+  }
+}
+{
+  "processed": "data/processed/test2_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test2_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test2_geometry_ssl_fold2.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold2/geometry_ssl.pt",
+  "num_samples": 582,
+  "num_residues": 17403,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test2_geometry_ssl_fold2.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold2/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04749530553817749,
+    "ece_10": 0.04384057596325874,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "adapter": {
+    "accuracy": 0.9450171821305842,
+    "balanced_accuracy": 0.8509085009733939,
+    "precision": 0.6296296296296297,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.9626865671641791,
+    "sp": 0.9626865671641791,
+    "f1": 0.68,
+    "mcc": 0.6526364934599134,
+    "brier": 0.046295031905174255,
+    "ece_10": 0.04191910848021507,
+    "tp": 34.0,
+    "tn": 516.0,
+    "fp": 20.0,
+    "fn": 12.0,
+    "auroc": 0.9576168072680078,
+    "auprc": 0.7852472586862262
+  },
+  "delta": {
+    "balanced_accuracy": 0.000932835820895539,
+    "mcc": 0.007067740113150922,
+    "auroc": -8.111615833872321e-05,
+    "auprc": 0.00010420682511103063,
+    "brier": -0.0012002736330032349
+  },
+  "interaction_delta": {
+    "mean": -0.04798025265336037,
+    "mean_absolute": 0.058316487818956375,
+    "max_absolute": 0.188819020986557
+  }
+}
+{
+  "processed": "data/processed/test1_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold3.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold3/geometry_ssl.pt",
+  "num_samples": 1126,
+  "num_residues": 35532,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test1_geometry_ssl_fold3.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold3/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9413854351687388,
+    "balanced_accuracy": 0.9204288151364763,
+    "precision": 0.9177631578947368,
+    "sensitivity": 0.871875,
+    "sn": 0.871875,
+    "recall": 0.871875,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8942307692307692,
+    "mcc": 0.8542643424029518,
+    "brier": 0.043093081563711166,
+    "ece_10": 0.020964477211236954,
+    "tp": 279.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 41.0,
+    "auroc": 0.9815873138957816,
+    "auprc": 0.9650005423683693
+  },
+  "delta": {
+    "balanced_accuracy": -0.0031250000000000444,
+    "mcc": -0.004578032659271258,
+    "auroc": 5.815756823823737e-05,
+    "auprc": 8.118358853559382e-05,
+    "brier": -0.00022178888320922852
+  },
+  "interaction_delta": {
+    "mean": -0.03707434982061386,
+    "mean_absolute": 0.0435759611427784,
+    "max_absolute": 0.12710221111774445
+  }
+}
+{
+  "processed": "data/processed/test2_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test2_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test2_geometry_ssl_fold3.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold3/geometry_ssl.pt",
+  "num_samples": 582,
+  "num_residues": 17403,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test2_geometry_ssl_fold3.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold3/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04749530553817749,
+    "ece_10": 0.04384057596325874,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "adapter": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04678827151656151,
+    "ece_10": 0.0424981527030468,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9573329007138223,
+    "auprc": 0.7821542862323408
+  },
+  "delta": {
+    "balanced_accuracy": 0.0,
+    "mcc": 0.0,
+    "auroc": -0.00036502271252425444,
+    "auprc": -0.0029887656287743702,
+    "brier": -0.0007070340216159821
+  },
+  "interaction_delta": {
+    "mean": -0.03522253409028053,
+    "mean_absolute": 0.0395633690059185,
+    "max_absolute": 0.1220686212182045
+  }
+}
+{
+  "processed": "data/processed/test1_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold4.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold4/geometry_ssl.pt",
+  "num_samples": 1126,
+  "num_residues": 35532,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test1_geometry_ssl_fold4.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold4/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9440497335701599,
+    "balanced_accuracy": 0.9241741625310174,
+    "precision": 0.921311475409836,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9702233250620348,
+    "sp": 0.9702233250620348,
+    "f1": 0.8992000000000001,
+    "mcc": 0.8609842729727634,
+    "brier": 0.042993661016225815,
+    "ece_10": 0.01968827098608017,
+    "tp": 281.0,
+    "tn": 782.0,
+    "fp": 24.0,
+    "fn": 39.0,
+    "auroc": 0.9817307692307693,
+    "auprc": 0.9653843736109705
+  },
+  "delta": {
+    "balanced_accuracy": 0.0006203473945409765,
+    "mcc": 0.0021418979105403135,
+    "auroc": 0.00020161290322595615,
+    "auprc": 0.00046501483113681186,
+    "brier": -0.0003212094306945801
+  },
+  "interaction_delta": {
+    "mean": -0.01637958735227585,
+    "mean_absolute": 0.060174360871315,
+    "max_absolute": 0.13638684153556824
+  }
+}
+{
+  "processed": "data/processed/test2_chemical_sites_final_esm2.pt",
+  "adapter_feature_cache": "data/processed/test2_prott5_structure_adapter.pt",
+  "output_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test2_geometry_ssl_fold4.temporary.pt",
+  "checkpoint": "runs/geometry_ssl_oof/fold4/geometry_ssl.pt",
+  "num_samples": 582,
+  "num_residues": 17403,
+  "geometry_ssl_dim": 96
+}
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26大创\\GHXTox\\data\\processed\\test2_geometry_ssl_fold4.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold4/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9432989690721649,
+    "balanced_accuracy": 0.8499756651524983,
+    "precision": 0.6181818181818182,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.960820895522388,
+    "sp": 0.960820895522388,
+    "f1": 0.6732673267326733,
+    "mcc": 0.6455687533467624,
+    "brier": 0.04749530553817749,
+    "ece_10": 0.04384057596325874,
+    "tp": 34.0,
+    "tn": 515.0,
+    "fp": 21.0,
+    "fn": 12.0,
+    "auroc": 0.9576979234263465,
+    "auprc": 0.7851430518611152
+  },
+  "adapter": {
+    "accuracy": 0.9450171821305842,
+    "balanced_accuracy": 0.8509085009733939,
+    "precision": 0.6296296296296297,
+    "sensitivity": 0.7391304347826086,
+    "sn": 0.7391304347826086,
+    "recall": 0.7391304347826086,
+    "specificity": 0.9626865671641791,
+    "sp": 0.9626865671641791,
+    "f1": 0.68,
+    "mcc": 0.6526364934599134,
+    "brier": 0.04717731848359108,
+    "ece_10": 0.04313356429338455,
+    "tp": 34.0,
+    "tn": 516.0,
+    "fp": 20.0,
+    "fn": 12.0,
+    "auroc": 0.9579412719013627,
+    "auprc": 0.7875773573286835
+  },
+  "delta": {
+    "balanced_accuracy": 0.000932835820895539,
+    "mcc": 0.007067740113150922,
+    "auroc": 0.00024334847501616963,
+    "auprc": 0.0024343054675682874,
+    "brier": -0.0003179870545864105
+  },
+  "interaction_delta": {
+    "mean": -0.04015808552503586,
+    "mean_absolute": 0.055129650980234146,
+    "max_absolute": 0.13465048372745514
+  }
+}
+{
+  "accuracy": 0.9422735346358793,
+  "balanced_accuracy": 0.9219913151364765,
+  "precision": 0.9180327868852459,
+  "sensitivity": 0.875,
+  "sn": 0.875,
+  "recall": 0.875,
+  "specificity": 0.9689826302729528,
+  "sp": 0.9689826302729528,
+  "f1": 0.8959999999999999,
+  "mcc": 0.8565535521910328,
+  "auroc": 0.981610576923077,
+  "auprc": 0.9651231324621848,
+  "brier": 0.043080547641723255,
+  "ece_10": 0.021515101632651776,
+  "tp": 280.0,
+  "tn": 781.0,
+  "fp": 25.0,
+  "fn": 40.0,
+  "threshold": 0.6
+}
+{
+  "accuracy": 0.9432989690721649,
+  "balanced_accuracy": 0.8499756651524983,
+  "precision": 0.6181818181818182,
+  "sensitivity": 0.7391304347826086,
+  "sn": 0.7391304347826086,
+  "recall": 0.7391304347826086,
+  "specificity": 0.960820895522388,
+  "sp": 0.960820895522388,
+  "f1": 0.6732673267326733,
+  "mcc": 0.6455687533467624,
+  "auroc": 0.9574951330304997,
+  "auprc": 0.7843144011459534,
+  "brier": 0.04714076795310439,
+  "ece_10": 0.04312848430629468,
+  "tp": 34.0,
+  "tn": 515.0,
+  "fp": 21.0,
+  "fn": 12.0,
+  "threshold": 0.6
+}
