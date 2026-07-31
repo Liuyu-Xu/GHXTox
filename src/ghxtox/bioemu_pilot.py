@@ -295,7 +295,11 @@ def build_sample_command(
     num_samples: int = REQUESTED_CONFORMERS,
     cache_embeds_dir: str | Path | None = None,
     cache_so3_dir: str | Path | None = None,
+    ckpt_path: str | Path | None = None,
+    model_config_path: str | Path | None = None,
 ) -> list[str]:
+    if (ckpt_path is None) != (model_config_path is None):
+        raise ValueError("ckpt_path and model_config_path must be provided together.")
     command = [
         python,
         "-m",
@@ -303,10 +307,18 @@ def build_sample_command(
         f"--sequence={row['sequence']}",
         f"--num_samples={num_samples}",
         f"--output_dir={output_dir}",
-        f"--model_name={MODEL_NAME}",
         f"--base_seed={_sample_seed(str(row['sample_id']), seed)}",
         "--filter_samples=True",
     ]
+    if ckpt_path is not None:
+        command.extend(
+            [
+                f"--ckpt_path={ckpt_path}",
+                f"--model_config_path={model_config_path}",
+            ]
+        )
+    else:
+        command.append(f"--model_name={MODEL_NAME}")
     if cache_embeds_dir:
         command.append(f"--cache_embeds_dir={cache_embeds_dir}")
     if cache_so3_dir:
@@ -326,6 +338,8 @@ def run_manifest(
     num_samples: int = REQUESTED_CONFORMERS,
     cache_embeds_dir: str | Path | None = None,
     cache_so3_dir: str | Path | None = None,
+    ckpt_path: str | Path | None = None,
+    model_config_path: str | Path | None = None,
 ) -> list[dict[str, Any]]:
     rows = _read_csv(manifest)
     if len(rows) > PILOT_SIZE:
@@ -358,6 +372,11 @@ def run_manifest(
         "num_samples_per_sequence": num_samples,
         "filter_samples": True,
         "msa_protocol": "bundled ColabFold/MMseqs2 default remote MSA",
+        "checkpoint_source": "explicit_local" if ckpt_path is not None else "named_model",
+        "ckpt_path": str(ckpt_path) if ckpt_path is not None else None,
+        "model_config_path": (
+            str(model_config_path) if model_config_path is not None else None
+        ),
         "dry_run": dry_run,
     }
     save_json(protocol, root / "protocol.json")
@@ -375,6 +394,8 @@ def run_manifest(
             num_samples=num_samples,
             cache_embeds_dir=cache_embeds_dir,
             cache_so3_dir=cache_so3_dir,
+            ckpt_path=ckpt_path,
+            model_config_path=model_config_path,
         )
         status = {
             "sample_id": sample_id,
@@ -518,7 +539,7 @@ def decide_feasibility(
         radius = float(row["median_radius_gyration_nm"])
         max_gap = float(row["max_adjacent_ca_distance_nm"])
         return bool(
-            row.get("returncode") in (None, 0)
+            row.get("returncode") == 0
             and not row.get("error")
             and row.get("sequence_match")
             and row.get("residue_count_match")
@@ -549,11 +570,16 @@ def decide_feasibility(
             ),
         }
 
+    runtime_complete = all(row.get("returncode") == 0 for row in rows)
     nonzero_seconds = [
-        float(row["elapsed_seconds"]) for row in rows if row["elapsed_seconds"] > 0
+        float(row["elapsed_seconds"])
+        for row in rows
+        if row.get("returncode") == 0 and row["elapsed_seconds"] > 0
     ]
     bytes_per_sample = [
-        int(row["storage_bytes"]) for row in rows if row["storage_bytes"] > 0
+        int(row["storage_bytes"])
+        for row in rows
+        if row.get("returncode") == 0 and row["storage_bytes"] > 0
     ]
     projected_hours = (
         float(np.median(nonzero_seconds) * total_training_samples / 3600)
@@ -570,22 +596,34 @@ def decide_feasibility(
         value["samples"] > 0 and value["success_rate"] >= 0.90
         for value in strata.values()
     )
-    cost_feasible = (
-        projected_hours <= max_projected_gpu_hours
+    cost_feasible = bool(
+        runtime_complete
+        and nonzero_seconds
+        and bytes_per_sample
+        and projected_hours <= max_projected_gpu_hours
         and projected_storage_gb <= max_projected_storage_gb
     )
-    passed = overall_rate >= 0.90 and all_strata_stable and cost_feasible
+    passed = (
+        runtime_complete
+        and overall_rate >= 0.90
+        and all_strata_stable
+        and cost_feasible
+    )
+    if not runtime_complete:
+        decision = "retry_bioemu_smoke_after_infrastructure_fix"
+        next_stage = "rerun the same frozen six-row BioEmu smoke"
+    elif passed:
+        decision = "continue_bioemu_200_pilot"
+        next_stage = "complete the frozen 200-sample BioEmu pilot"
+    else:
+        decision = "switch_to_esmflow_small_pilot"
+        next_stage = "prepare a small ESMFlow feasibility pilot"
     return {
-        "decision": (
-            "continue_bioemu_200_pilot" if passed else "switch_to_esmflow_small_pilot"
-        ),
+        "decision": decision,
         "full_generation_authorized": False,
-        "next_authorized_stage": (
-            "complete the frozen 200-sample BioEmu pilot"
-            if passed
-            else "prepare a small ESMFlow feasibility pilot"
-        ),
+        "next_authorized_stage": next_stage,
         "gate": {
+            "runtime_completed_without_errors": runtime_complete,
             "overall_success_rate_at_least_0_90": overall_rate >= 0.90,
             "every_length_stratum_at_least_0_90": all_strata_stable,
             "projected_cost_within_limits": cost_feasible,
@@ -666,6 +704,8 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--num-samples", type=int, default=REQUESTED_CONFORMERS)
     run.add_argument("--cache-embeds-dir")
     run.add_argument("--cache-so3-dir")
+    run.add_argument("--ckpt-path")
+    run.add_argument("--model-config-path")
 
     assess = subparsers.add_parser("assess")
     _add_common_manifest_args(assess)
@@ -713,6 +753,8 @@ def main() -> None:
             num_samples=args.num_samples,
             cache_embeds_dir=args.cache_embeds_dir,
             cache_so3_dir=args.cache_so3_dir,
+            ckpt_path=args.ckpt_path,
+            model_config_path=args.model_config_path,
         )
     else:
         report = assess_manifest(

@@ -8,6 +8,40 @@ OUTPUT_ROOT="${OUTPUT_ROOT:-${PROJECT_ROOT}/runs/bioemu_pilot_200}"
 MODE="${1:-smoke}"
 LIMIT=6
 ALLOW_ARGS=()
+MODEL_ARGS=()
+
+BIOEMU_CKPT_PATH="${BIOEMU_CKPT_PATH:-}"
+BIOEMU_MODEL_CONFIG_PATH="${BIOEMU_MODEL_CONFIG_PATH:-}"
+if [[ -z "${BIOEMU_CKPT_PATH}" && -z "${BIOEMU_MODEL_CONFIG_PATH}" ]]; then
+  for HF_CACHE_ROOT in \
+    "${HF_HOME:-${HOME}/.cache/huggingface}" \
+    "/root/autodl-tmp/cache/huggingface"; do
+    SNAPSHOT_ROOT="${HF_CACHE_ROOT}/hub/models--microsoft--bioemu/snapshots"
+    [[ -d "${SNAPSHOT_ROOT}" ]] || continue
+    BIOEMU_CKPT_PATH="$(
+      find -L "${SNAPSHOT_ROOT}" \
+        -path "*/checkpoints/${MODEL_NAME:-bioemu-v1.2}/checkpoint.ckpt" \
+        -type f -print -quit 2>/dev/null || true
+    )"
+    BIOEMU_MODEL_CONFIG_PATH="$(
+      find -L "${SNAPSHOT_ROOT}" \
+        -path "*/checkpoints/${MODEL_NAME:-bioemu-v1.2}/config.yaml" \
+        -type f -print -quit 2>/dev/null || true
+    )"
+    [[ -n "${BIOEMU_CKPT_PATH}" ]] && break
+  done
+fi
+if [[ -n "${BIOEMU_CKPT_PATH}" || -n "${BIOEMU_MODEL_CONFIG_PATH}" ]]; then
+  if [[ ! -s "${BIOEMU_CKPT_PATH}" || ! -s "${BIOEMU_MODEL_CONFIG_PATH}" ]]; then
+    echo "Local BioEmu checkpoint and config must both exist and be non-empty." >&2
+    exit 2
+  fi
+  MODEL_ARGS+=(
+    --ckpt-path "${BIOEMU_CKPT_PATH}"
+    --model-config-path "${BIOEMU_MODEL_CONFIG_PATH}"
+  )
+  echo "Using local BioEmu checkpoint: ${BIOEMU_CKPT_PATH}"
+fi
 
 if [[ "${MODE}" == "pilot" ]]; then
   if [[ "${GHXTOX_ALLOW_BIOEMU_PILOT:-0}" != "1" ]]; then
@@ -36,6 +70,7 @@ mkdir -p "${OUTPUT_ROOT}"
   --num-samples 32 \
   --cache-embeds-dir "${OUTPUT_ROOT}/shared_cache/embeds" \
   --cache-so3-dir "${OUTPUT_ROOT}/shared_cache/so3" \
+  "${MODEL_ARGS[@]}" \
   "${ALLOW_ARGS[@]}"
 
 "${BIOEMU_PYTHON}" -m ghxtox.bioemu_pilot assess \

@@ -77,6 +77,26 @@ def test_bioemu_command_is_seeded_filtered_and_resumable_by_output_dir() -> None
     assert "--output_dir=/tmp/bioemu/peptide_1" in command
 
 
+def test_bioemu_command_can_use_explicit_local_model_files() -> None:
+    row = {"sample_id": "peptide_1", "sequence": "ACDE", "source_index": 0}
+    command = build_sample_command(
+        row,
+        "/tmp/bioemu/peptide_1",
+        ckpt_path="/cache/checkpoint.ckpt",
+        model_config_path="/cache/config.yaml",
+    )
+    assert "--ckpt_path=/cache/checkpoint.ckpt" in command
+    assert "--model_config_path=/cache/config.yaml" in command
+    assert not any(value.startswith("--model_name=") for value in command)
+
+    with pytest.raises(ValueError, match="provided together"):
+        build_sample_command(
+            row,
+            "/tmp/bioemu/peptide_1",
+            ckpt_path="/cache/checkpoint.ckpt",
+        )
+
+
 def _feasible_row(length_bin: str, length: int) -> dict:
     return {
         "sample_id": f"{length_bin}-{length}",
@@ -109,6 +129,21 @@ def test_bioemu_feasibility_never_authorizes_full_generation() -> None:
     failed[0]["valid_conformers"] = 2
     report = decide_feasibility(failed)
     assert report["decision"] == "switch_to_esmflow_small_pilot"
+
+
+def test_bioemu_runtime_failure_requires_same_smoke_retry() -> None:
+    rows = [
+        {**_feasible_row("11-15", 12), "returncode": 1},
+        {**_feasible_row("16-30", 20), "returncode": None},
+        {**_feasible_row("31-50", 40), "returncode": None},
+    ]
+    report = decide_feasibility(rows)
+    assert report["decision"] == "retry_bioemu_smoke_after_infrastructure_fix"
+    assert report["next_authorized_stage"] == (
+        "rerun the same frozen six-row BioEmu smoke"
+    )
+    assert report["gate"]["runtime_completed_without_errors"] is False
+    assert report["full_generation_authorized"] is False
 
 
 def test_bioemu_selection_rejects_undersupplied_cell(tmp_path: Path) -> None:

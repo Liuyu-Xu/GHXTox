@@ -249,3 +249,13 @@
   complete only when `params/download_finished.txt` exists. The safe next route
   is to disable the HF-only proxy, keep Hugging Face in offline cached mode, and
   download AF2 weights directly into a data-disk-backed symlink.
+- The direct aria2 AF2 download completed successfully, but BioEmu 1.4.1 still
+  uses `HfFileSystem.glob()` to list named checkpoints before sampling. A local
+  Hugging Face cache alone therefore does not eliminate the API dependency.
+- BioEmu 1.4.1 accepts paired `ckpt_path` and `model_config_path` arguments.
+  Passing both cached files bypasses `maybe_download_checkpoint()` and its
+  remote model-listing request.
+- A smoke report containing any nonzero or missing return code is an incomplete
+  infrastructure run. It must not trigger ESMFlow selection or extrapolate cost
+  from failed-row elapsed time; only the identical six-row smoke retry is
+  authorized.

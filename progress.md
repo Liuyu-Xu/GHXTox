@@ -411,6 +411,19 @@
   - The first aria2 invocation exited before download because it was launched
     from `/root`, so the relative `runs/bioemu_pilot_200` log path did not exist.
     Aria2 is installed; retry from the project root using absolute log/PID paths.
+  - The AF2 archive subsequently downloaded and extracted successfully, but the
+    next smoke attempt stopped on its first row before sampling because BioEmu
+    queried the Hugging Face model listing and hit a connection timeout.
+  - Diagnosed the reported `switch_to_esmflow_small_pilot` result as invalid:
+    one row had return code 1 and the other five rows were never attempted.
+  - Added automatic local BioEmu checkpoint/config discovery to the AutoDL
+    launcher so a cached `bioemu-v1.2` model bypasses the remote listing call.
+  - Changed feasibility handling so any failed or unattempted row authorizes
+    only a retry of the same frozen six-row smoke, with no cost extrapolation
+    from failed rows.
+  - Added focused local-model and infrastructure-failure regressions; the BioEmu
+    test module now passes 6 tests, and the AutoDL shell script passes Bash syntax
+    validation.
 
 ### GitHub Project Snapshot
 - **Status:** complete
