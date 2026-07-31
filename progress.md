@@ -505,6 +505,25 @@
   - Final related regression suite: 47 passed with three known Transformer
     warnings. Ruff, JSON/CSV consistency assertions, CLI help, and Git
     whitespace checks also passed.
+  - Opened Phase 23 at the user's request. Froze a single CPU-only bounded
+    BioEmu residual, its cross-fitting protocol, and an anti-regression gate
+    before computing any fused result; Test1/Test2 remain sealed.
+  - Implemented the bounded-fusion CLI and a synthetic fold-integrity/
+    anti-regression test. The structure classifier never consumes 1D OOF
+    probabilities during fitting; the fixed 1D combination happens only after
+    cross-fitted structure predictions are complete.
+  - The first synthetic test omitted the 31-50 stratum, so reporting its empty
+    subset emitted two NumPy mean warnings despite passing. Added the missing
+    stratum to exercise the full frozen cohort layout and remove the warnings.
+  - Ran the frozen Phase 23 candidate on all 200 rows. It changed one decision,
+    newly misclassifying `peptide_800`; MCC decreased 0.009037 while AUPRC,
+    Brier, and ECE changed only slightly in the favorable direction.
+  - The primary and strict-usable sensitivity analyses agree. Froze
+    `stop_bounded_bioemu_candidate`; no second weight, threshold, feature set,
+    Test1/Test2 label, or GPU generation job was tried.
+  - Final Phase 23 verification passed: Ruff, CLI help, JSON/CSV/frozen-formula
+    assertions, Git whitespace, and 48 related regression tests with three
+    known Transformer warnings.
 
 ### GitHub Project Snapshot
 - **Status:** complete

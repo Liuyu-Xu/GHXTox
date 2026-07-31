@@ -309,3 +309,14 @@
   BioEmu descriptor classifier. Across 66 disagreements, BioEmu corrects nine
   1D errors but introduces 57 new errors (net -48), so direct replacement or
   unbounded expansion is not justified.
+- The single preregistered Phase 23 bounded residual leaves 199/200 decisions
+  unchanged. It raises AUPRC from 0.922592 to 0.922792 and lowers Brier from
+  0.140379 to 0.140219, but MCC falls from 0.727161 to 0.718125.
+- The only decision change is `peptide_800` (fold 3, positive, 11-15 aa): the
+  frozen 1D probability 0.453088 is moved to 0.449308, crossing the unchanged
+  0.45 threshold in the wrong direction. Thus corrected/newly-incorrect is 0/1.
+- Excluding the two prespecified strict-quality exceptions does not change the
+  conclusion: MCC falls from 0.742514 to 0.733250 even though AUPRC, Brier, and
+  ECE improve slightly.
+- The bounded candidate fails the preregistered MCC and net-correction gates.
+  It must be stopped without trying another residual weight on the same pilot.

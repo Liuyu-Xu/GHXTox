@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 22 complete
+Phase 23 complete
 
 ## Phases
 
@@ -174,6 +174,29 @@ Phase 22 complete
   generation. BioEmu descriptors contain significant train-only toxicity
   signal, while the same-sample source fingerprint is strong and fixed
   descriptor decisions are substantially weaker than the 1D OOF anchor.
+- **Status:** complete
+
+### Phase 23: Frozen 200-Row Bounded BioEmu Fusion Probe
+- [x] Implement one leakage-aware candidate using the existing canonical folds,
+  frozen 1D OOF probabilities, and exactly four BioEmu ensemble descriptors
+- [x] Cross-fit a standardized L2 logistic structure score using only the other
+  four folds; do not train a fusion/meta-model on 1D OOF probabilities
+- [x] Apply the preregistered formula
+  `logit(p_final)=logit(p_1d)+0.25*(valid_conformers/32)*clip(logit(p_3d),-1,1)`
+  with the unchanged 1D decision threshold 0.45
+- [x] Report all 200 rows as primary and the two strict-quality exceptions only
+  as a prespecified sensitivity analysis
+- [x] Freeze the retain/stop decision without reading Test1/Test2 labels
+- **Fixed structure model:** `StandardScaler` plus L2 `LogisticRegression`,
+  `C=1`, `class_weight=balanced`, `solver=liblinear`, seed `20260731`; no search
+- **Retention gate:** candidate MCC strictly exceeds 1D; AUPRC is no more than
+  0.002 lower; Brier is no more than 0.002 higher; ECE-10 is no more than 0.005
+  higher; corrected decisions exceed newly incorrect decisions; and at least
+  three of five fold MCC values are non-decreasing. All conditions must pass.
+- **Decision:** `stop_bounded_bioemu_candidate`. The candidate slightly improves
+  ranking/calibration but lowers MCC from 0.727161 to 0.718125 and changes one
+  correct 1D decision into an error. Keep the frozen 1D anchor and do not expand
+  BioEmu generation.
 - **Status:** complete
 
 ## Key Questions
