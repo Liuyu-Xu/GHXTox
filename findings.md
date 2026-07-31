@@ -320,3 +320,63 @@
   ECE improve slightly.
 - The bounded candidate fails the preregistered MCC and net-correction gates.
   It must be stopped without trying another residual weight on the same pilot.
+- Phase 24 can reuse a common ensemble-summary schema for AF2-16-30,
+  AF2-31-50, and BioEmu: aligned C-alpha coordinates, residue RMSF,
+  conformer RMSD/Rg, pair-distance mean/std, and 6/8/10 A contact occupancy.
+- The PepFlow full manifest contains 6,088 conformer rows for 761 unique
+  peptides rather than one row per peptide. Phase 24 must deduplicate by
+  `original_id` and resolve the per-sample ensemble summary instead of treating
+  conformers as independent labeled examples.
+- BioEmu contributes 200 unique samples and 143 same-sample overlaps with the
+  legacy sources. Paired versions must stay together in the canonical fold so
+  no generator view of a held-out peptide appears in training.
+- All four sources resolve to the same ensemble-summary keys. The unique
+  training union is 3,252 peptides: 3,195 legacy-covered plus 57 BioEmu-only;
+  the three legacy sources are mutually disjoint by construction.
+- The reusable `ensemble_feature_tensors()` already defines eight bounded
+  residue features and twelve global features from the ensemble statistics.
+  Phase 24 should extend this with explicit pairwise distance/contact channels
+  rather than collapse the contact matrices to row means again.
+- Existing all-training baselines are aligned by `source_index`: 6,387-row
+  3D-v2 and calibrated conformer-residual OOF files plus the canonical five-fold
+  manifest. The new standalone output can therefore be compared on exactly its
+  3,252-sample union and exported with a missing-structure mask for all rows.
+- The workstation PyTorch environment has CUDA-enabled PyTorch 2.3.1 on an RTX
+  4060 Laptop GPU, so a small fixed five-fold contact graph can run locally;
+  AutoDL is not required for Phase 24.
+- The frozen existing 3D-v2 decision threshold is 0.677819. Its all-training OOF
+  MCC is 0.836202 and AUPRC 0.928001; matched-cohort comparisons must use this
+  existing threshold rather than retune it on the new 3D-covered subset.
+- Fixed-epoch outer-fold training is preferable to early stopping on each held
+  OOF fold, because using the evaluation fold for checkpoint selection would
+  make the claimed OOF performance optimistic.
+- PepFlow and BioEmu manifests preserve canonical `source_index`, but the two
+  AF2 manifests use a local 0-based subset index. Canonical alignment for every
+  source must be derived from `original_id=peptide_N` as `N-1`, then validated
+  against sequence and label in the 6,387-row fold manifest.
+- After canonical `peptide_N -> N-1` alignment, the exact union is 3,252 rows
+  with 1,008 positives and 2,244 negatives. Matched 3D-v2 at its frozen 0.677819
+  threshold has MCC 0.764328 and AUPRC 0.887914 on this union.
+- The fixed Phase 24 graph encoder finishes five folds locally in about 78
+  seconds. Its OOF MCC/AUPRC are 0.594800/0.818271, below matched 3D-v2
+  0.764328/0.887914, with zero fold MCC wins and weaker results in all three
+  length strata.
+- Pair consistency partially works: held same-sample legacy/BioEmu embeddings
+  have mean cosine 0.941583 and mean absolute probability delta 0.077696.
+  However, a fold-local source probe still achieves BACC 0.814685, so the
+  representation retains substantial generator identity and is not suitable
+  for fusion handoff.
+- Phase 24 must stop without increasing the consistency weight or searching a
+  new architecture on the same OOF result. The useful team deliverable should
+  instead package the already retained 3D-v2 plus capability-aware conformer
+  residual stream and its quality/missingness metadata.
+- The retained team handoff covers all 6,387 canonical training rows with exact
+  fold/label/sequence alignment. At frozen threshold 0.677819 it has MCC
+  0.839018, AUPRC 0.928171, Brier 0.059399, and ECE-10 0.051109.
+- Exactly 3,195 rows expose conformer features (PepFlow 761, AF2-16-30 2,034,
+  AF2-long-pilot 400); the other 3,192 rows preserve the exact base-3D fallback
+  and an explicit missing-conformer mask.
+- OOF handoff tables are valid base inputs but cannot be fitted and scored by a
+  fusion meta-model on the same rows. Formal fusion claims require the existing
+  nested protocol because upstream predictions for other folds may have been
+  trained using the outer evaluation fold.

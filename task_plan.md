@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 23 complete
+Phase 25 complete
 
 ## Phases
 
@@ -197,6 +197,59 @@ Phase 23 complete
   ranking/calibration but lowers MCC from 0.727161 to 0.718125 and changes one
   correct 1D decision into an error. Keep the frozen 1D anchor and do not expand
   BioEmu generation.
+- **Status:** complete
+
+### Phase 24: Standalone Source-Robust Multi-Conformer 3D Encoder
+- [x] Audit the existing 3D tensor/cache schemas and reusable model/training code
+- [x] Build one fold-safe dataset joining the 3,195 legacy conformer samples,
+  200 BioEmu samples, and 143 same-sample cross-generator pairs
+- [x] Freeze a lightweight variable-length contact-graph encoder and paired
+  representation-consistency objective before viewing OOF metrics
+- [x] Run smoke tests followed by canonical five-fold 3D-only OOF training
+- [x] Export standalone 3D OOF predictions, embeddings, quality scores, missing
+  masks, fold checkpoints, and a handoff manifest for the fusion teammates
+- [x] Compare against the existing 3D-v2/multi-conformer branch and freeze the
+  retain/stop decision without reading Test1/Test2 labels
+- **Boundary:** this phase produces a standalone 3D deliverable only; it does
+  not search 1D/2D/3D fusion weights and does not authorize full BioEmu generation.
+- **Frozen input:** 21-channel residue identity, eight existing bounded ensemble
+  residue features, normalized position/length, twelve global ensemble features,
+  and six pair channels (distance mean/std plus 6/8/10 A occupancy and 8 A
+  occupancy uncertainty). Maximum sequence length is 50.
+- **Frozen encoder:** hidden/embedding dimension 32, two edge-gated message
+  passing layers, mean/max pooling, dropout 0.10, and one standalone toxicity
+  logit. Paired source views share every parameter.
+- **Frozen optimization:** seed 20260731, 15 epochs, batch size 64, AdamW learning
+  rate `3e-4`, weight decay `1e-4`, training-fold positive class weight, BCE on
+  each available view, and cosine consistency weight 0.10 for the 143 paired
+  legacy/BioEmu samples. No early stopping or hyperparameter search.
+- **Primary threshold:** 0.50 for the new standalone branch. Existing 3D-v2 is
+  compared at its already frozen threshold 0.677819 on the identical 3,252 rows.
+- **Replacement gate:** new MCC strictly exceeds matched 3D-v2 MCC 0.764328,
+  AUPRC is at least 0.885914, and at least three of five folds improve MCC.
+- **Fusion-handoff gate:** new MCC is at least 0.70, AUPRC at least 0.85,
+  cross-generator source-classifier BACC at most 0.65, paired embedding cosine
+  at least 0.90, and paired mean absolute probability difference at most 0.10.
+  This gate may authorize an experimental 3D handoff but never a default-model
+  replacement or full BioEmu generation.
+- **Decision:** `stop_multiconformer_graph_candidate`. Candidate MCC/AUPRC are
+  0.594800/0.818271 versus matched 3D-v2 0.764328/0.887914, with zero fold MCC
+  wins. Paired cosine and probability-delta gates pass, but the source probe
+  remains high at BACC 0.814685 and the predictive handoff gate fails.
+- **Status:** complete
+
+### Phase 25: Retained 3D Team Handoff Package
+- [x] Join the retained capability-aware 3D OOF stream to canonical folds and
+  the train-only conformer/source diagnostics without changing probabilities
+- [x] Export one 6,387-row prediction contract with fixed threshold, structure
+  availability, generator source, quality fields, and exact missing mask
+- [x] Export compact schema/provenance/checksum metadata for the fusion teammates
+- [x] Verify alignment, labels, folds, probabilities, and no Test1/Test2 access
+- **Boundary:** package only the already retained 3D model; do not recalibrate,
+  retune thresholds, or mix any 1D/2D prediction into this artifact.
+- **Decision:** deliver the retained capability-aware 3D OOF stream to the
+  fusion team: 6,387/6,387 rows, fixed MCC 0.839018/AUPRC 0.928171, 3,195
+  conformer-covered rows and 3,192 explicit missing-conformer fallbacks.
 - **Status:** complete
 
 ## Key Questions

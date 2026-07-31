@@ -1,0 +1,56 @@
+{
+  "status": "complete",
+  "decision": "stop_multiconformer_graph_candidate",
+  "standalone_replacement_authorized": false,
+  "experimental_fusion_handoff_authorized": false,
+  "full_bioemu_generation_authorized": false,
+  "default_model_change_authorized": false,
+  "external_test_labels_read": false,
+  "primary": {
+    "candidate": {
+      "accuracy": 0.8151906519065191,
+      "balanced_accuracy": 0.8103514132925898,
+      "precision": 0.6694421315570358,
+      "recall": 0.7976190476190477,
+      "f1": 0.7279311905839746,
+      "mcc": 0.5948001666932575,
+      "auroc": 0.8854675077101548,
+      "auprc": 0.8182713589857723,
+      "brier": 0.135257334160694,
+      "ece_10": 0.11038850695421737
+    },
+    "baseline_3d_v2": {
+      "accuracy": 0.9006765067650676,
+      "balanced_accuracy": 0.8744800950683304,
+      "precision": 0.8647497337593184,
+      "recall": 0.8055555555555556,
+      "f1": 0.8341037493579866,
+      "mcc": 0.7643280779074602,
+      "auroc": 0.9279014320374614,
+      "auprc": 0.8879140508992039,
+      "brier": 0.08998733735804222,
+      "ece_10": 0.0785110355946731
+    }
+  },
+  "source_robustness": {
+    "paired_samples": 143,
+    "source_classifier_balanced_accuracy": 0.8146853146853147,
+    "mean_paired_embedding_cosine": 0.9415827264318933,
+    "mean_absolute_paired_probability_delta": 0.07769562994370928
+  },
+  "replacement_gate": {
+    "mcc_strictly_higher_than_3d_v2": false,
+    "auprc_at_least_baseline_minus_0_002": false,
+    "at_least_three_fold_mcc_wins": false,
+    "all_conditions_passed": false,
+    "fold_mcc_wins": 0
+  },
+  "fusion_handoff_gate": {
+    "mcc_at_least_0_70": false,
+    "auprc_at_least_0_85": false,
+    "source_classifier_bacc_at_most_0_65": false,
+    "paired_embedding_cosine_at_least_0_90": true,
+    "paired_probability_delta_at_most_0_10": true,
+    "all_conditions_passed": false
+  }
+}

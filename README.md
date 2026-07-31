@@ -3162,3 +3162,27 @@ logit(p_final)
 候选只改变`1/200`个决策：正例`peptide_800`的1D概率为`0.453088`，结构残差把它降至`0.449308`，跨过固定阈值后由正确变为错误。因此纠正`0`条、新增错误`1`条、净纠正`-1`。五折中四折MCC不变，fold 3下降；排除`peptide_9`和`peptide_876`后的198条预注册敏感性分析仍由MCC `0.742514`降至`0.733250`。
 
 最终决定为`stop_bounded_bioemu_candidate`。虽然排序和校准指标有极小改善，但候选未通过“MCC严格提高”和“净纠正为正”两项冻结门槛。不得在同一200条上继续搜索第二个残差权重或阈值；保留当前1D主干，不授权全量BioEmu生成，也不改变默认模型。Test1/Test2在本阶段仍未读取。
+
+### C.12 已完成：来源鲁棒多构象接触图3D编码器（2026-07-31）
+
+为避免把上一节的四个全局统计量误解为完整3D上限，本阶段实现了独立的变长接触图编码器。输入包含21维残基身份、8维残基级ensemble统计、位置/长度、12维全局统计，以及距离均值/标准差、6/8/10 Å接触占据率和接触不确定性组成的6维边特征。模型固定为两层edge-gated message passing、32维embedding、15个epoch；143条同样本PepFlow/AF2与BioEmu视图使用权重0.10的余弦一致性。全部超参数、门槛和固定epoch协议均在查看OOF前写入计划。
+
+数据按`original_id=peptide_N -> source_index=N-1`与canonical fold对齐，去重后为3252条唯一训练肽：3195条legacy覆盖、200条BioEmu，其中143条双来源、57条BioEmu-only。多个构象从未被当作独立标签样本。五折在本机RTX 4060上约78秒完成，Test1/Test2未读取。
+
+| 指标 | 新接触图3D | 匹配的冻结3D-v2 |
+|---|---:|---:|
+| MCC | 0.594800 | 0.764328 |
+| AUPRC | 0.818271 | 0.887914 |
+| AUROC | 0.885468 | 0.927901 |
+| Brier | 0.135257 | 0.089987 |
+| ECE-10 | 0.110389 | 0.078511 |
+
+新候选五折MCC胜场为`0/5`，三个长度区间均低于匹配3D-v2。配对一致性本身部分生效：143条held-out配对的embedding平均余弦为`0.941583`，两种来源的平均绝对概率差为`0.077696`；但fold-local生成器分类器仍达到BACC `0.814685`，说明embedding保留明显来源指纹。最终决定为`stop_multiconformer_graph_candidate`，不授权替换、融合交付或全量BioEmu生成，也不得在同一OOF上继续搜索一致性权重。代码、五折checkpoint和完整诊断保留为负消融证据；实际团队交付转回已经验证更强的3D-v2与capability-aware多构象残差流。
+
+### C.13 已完成：保留3D分支的团队融合交付包（2026-07-31）
+
+最终交给1D/2D/3D融合队友的不是失败的新接触图候选，而是已通过原冻结门槛的capability-aware 3D-v2多构象残差流。交付入口为[`runs/three_d_team_handoff`](runs/three_d_team_handoff)，使用说明见其中的[`README.md`](runs/three_d_team_handoff/README.md)，机器契约见[`handoff_contract.json`](runs/three_d_team_handoff/handoff_contract.json)。
+
+`oof_3d_predictions.csv`严格覆盖全部6387条训练记录，保留canonical `source_index/fold/label`、固定3D概率、阈值`0.677819`、置信度/不确定性、结构质量、多构象来源和缺失掩码；没有重新校准或修改任何概率。固定指标重新计算为MCC `0.839018`、AUPRC `0.928171`、Brier `0.059399`、ECE-10 `0.051109`。其中3195条有多构象增强，3192条通过`missing_conformer_mask=1`明确标记为精确base-3D回退，空的ensemble字段不得被直接解释为物理零值。
+
+队友只能按`source_index`连接，并核对fold与label。该表是base OOF输入，不允许直接在整张表上拟合fusion/meta-model后再在同一表报告结果；正式融合指标必须使用项目已有的nested OOF协议，使一个outer fold的上游预测和融合参数均不接触该fold。Test1/Test2不得用于选择融合权重、校准、阈值或缺失处理。

@@ -524,6 +524,64 @@
   - Final Phase 23 verification passed: Ruff, CLI help, JSON/CSV/frozen-formula
     assertions, Git whitespace, and 48 related regression tests with three
     known Transformer warnings.
+  - Opened Phase 24 after the user clarified ownership of the 3D workstream.
+    Scope is a standalone multi-conformer contact-graph representation plus
+    paired source-consistency, with fusion left to the user's teammates.
+  - An initial matched-baseline audit incorrectly unioned raw manifest
+    `source_index` values and obtained 2,734 rows. Diagnosed AF2 indices as
+    subset-local; Phase 24 will derive canonical indices from `original_id`
+    and rerun the audit before freezing the performance gate.
+  - Reran the matched audit with canonical IDs: 3,252 rows, matched 3D-v2 MCC
+    0.764328/AUPRC 0.887914. Froze the Phase 24 graph architecture, fixed-epoch
+    optimization, source-robustness measurements, replacement gate, and weaker
+    experimental fusion-handoff gate before training.
+  - Implemented the variable-length edge-gated contact encoder, fold-safe
+    legacy/BioEmu sample builder, paired-view training objective, source-probe
+    evaluation, OOF/checkpoint export, and full 6,387-row fusion handoff schema.
+  - Added a synthetic end-to-end test covering paired folds, checkpoints,
+    primary/BioEmu OOF views, full missing mask, and fixed-size embeddings.
+  - First lint pass found three unused imports in the new standalone module;
+    removed them before running the end-to-end test.
+  - Synthetic end-to-end graph OOF test passed. The real-data preflight then
+    resolved all 3,252 samples and all four source tensor variants with node
+    shape `L x 31`, edge shape `L x L x 6`, global dimension 12, five complete
+    folds, 143 pairs, and maximum length 50.
+  - Completed fixed 15-epoch training for all five folds on the local RTX 4060
+    in about 78 seconds; losses were finite and declined in every fold.
+  - Candidate failed both frozen gates: MCC 0.594800, AUPRC 0.818271, zero fold
+    wins, and source-probe BACC 0.814685. Paired cosine/probability-delta gates
+    passed, but no replacement or experimental fusion handoff is authorized.
+  - Froze `stop_multiconformer_graph_candidate` without a second architecture,
+    consistency weight, threshold, or Test1/Test2 inspection. Opened Phase 25 to
+    package the already retained strong 3D stream for the fusion teammates.
+  - Implemented the Phase 25 handoff packager and a synthetic alignment test.
+    It preserves all retained probabilities, joins only by canonical index,
+    exports conformer missingness separately from base-structure availability,
+    and records SHA256 provenance plus explicit no-retuning rules.
+  - Generated the real 6,387-row 3D team package. Recomputed fixed metrics match
+    the retained decision exactly (MCC 0.839018/AUPRC 0.928171); counts are
+    3,195 conformer-available and 3,192 explicit fallbacks.
+  - Added a teammate README and strengthened the contract to require nested OOF
+    rather than allowing a biased meta-model fit/score on the same OOF table.
+  - Completed Phase 25 without changing any 3D probability, threshold, model,
+    Test1/Test2 artifact, or fusion parameter.
+  - Regenerated the handoff contract after the leakage-rule clarification.
+    Verified all 6,387 folds and labels, zero numerical probability drift,
+    3,195 conformer-available rows, and 3,192 explicit conformer fallbacks.
+  - Verified the stopped graph branch exports 6,387 x 32 embeddings with 3,252
+    structure-available rows and preserves `external_test_labels_read=false`.
+  - Final focused tests passed (2/2), Ruff and Python compilation passed, and
+    the dependency-compatible regression suite passed 128 tests. Five legacy
+    RDKit-bound smoke tests were deselected because neither local Conda
+    environment contains RDKit; `MPLBACKEND=Agg` avoids the unrelated Qt crash.
+  - The first module-help command used a login shell without `PYTHONPATH`, so
+    the blocked PowerShell profile and src-layout import both failed. Reran with
+    a non-login shell and explicit `PYTHONPATH=src`; CLI help passed.
+  - The PyTorch environment also lacks a Ruff module; the existing standalone
+    `D:\anaconda\Scripts\ruff.exe` completed the same four-file check.
+  - An initial artifact assertion compared CSV probability strings exactly and
+    rejected harmless formatting differences. Parsed numeric values instead;
+    the maximum absolute probability difference is exactly zero.
 
 ### GitHub Project Snapshot
 - **Status:** complete
