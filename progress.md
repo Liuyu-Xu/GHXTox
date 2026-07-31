@@ -413,7 +413,7 @@
     Aria2 is installed; retry from the project root using absolute log/PID paths.
 
 ### GitHub Project Snapshot
-- **Status:** in_progress
+- **Status:** complete
 - Actions taken:
   - User requested that the current engineering state be uploaded to the existing
     `https://github.com/Suiyumanbu/GHXTox.git` remote on `main`.
@@ -423,9 +423,12 @@
     sequences.
   - Ran 38 focused BioEmu, OOF-diagnostic, fusion, conformer, and adapter tests;
     all passed.
-  - The locally recorded remote is one commit ahead (`907acc9`), so the upload
-    will create a local recovery commit first, then fetch/rebase and push without
-    force.
+  - Fetched remote commit `907acc9`, resolved the seven overlapping integration
+    conflicts, and reran the same focused suite; all 38 tests still passed.
+  - Rebased the engineering snapshot without force and pushed commit `bf1f1e2`
+    to remote `main`.
+  - Verified local `main` and `origin/main` have zero divergence and resolve to
+    the same commit.
   - Next: await completion and inspect the regenerated feasibility JSON before
     any 200-row authorization.
   - Next: import `smoke_feasibility.json` and the failing sample logs. Keep the
