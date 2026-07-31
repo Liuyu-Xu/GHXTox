@@ -274,3 +274,38 @@
 - The archived 200-row manifest and selection summary are byte-identical to the
   frozen local inputs (SHA256 `ffc477c...409ff` and `c1408e...8b3d7`), so the
   returned structures correspond to the authorized cohort.
+- The deferred Phase 19 diagnostic implementation already exists and is covered
+  by a focused alignment/confounding test. It fixes the three training-only
+  length strata, uses immutable model thresholds, reports confusion/metrics by
+  stratum and generator, and explicitly records that external test labels are
+  not read.
+- The fixed Phase 19 run covers 6,387 training OOF rows and 3,195 conformer
+  rows. Covered generator source and length stratum are perfectly associated
+  (Cramér's V 1.0): PepFlow is exclusively 11-15 aa, full AF2 exclusively
+  16-30 aa, and the long AF2 pilot exclusively 31-50 aa.
+- Fixed-threshold joint OOF MCC by length is 0.649187 (11-15), 0.827701
+  (16-30), and 0.919805 (31-50). The corresponding 1D MCCs are 0.594277,
+  0.813335, and 0.915097; however, on the balanced 400-row long-AF2 pilot the
+  joint MCC 0.740333 remains below the 1D MCC 0.756600.
+- BioEmu stores XTC coordinates in nanometers while the existing conformer
+  descriptor/cache implementation uses Angstrom cutoffs (6/8/10 A). The new
+  converter multiplies filtered C-alpha XTC coordinates by 10 before reusing the
+  established descriptor implementation.
+- All 200 BioEmu trajectories convert successfully with exact agreement to the
+  feasibility report's per-sample valid-frame counts, totaling 5,683 filtered
+  conformers.
+- Under one BioEmu source, conformer features predict length stratum with
+  cross-fitted balanced accuracy 0.729685, so length remains physically encoded
+  even after generator unification.
+- On 143 same-sample pairs, BioEmu versus the legacy PepFlow/AF2 source is
+  distinguishable with balanced accuracy 0.870629. The unified generator
+  removes the old length/source identity but does not make its descriptors
+  interchangeable with legacy-source features.
+- Fixed BioEmu descriptors predict training-only toxicity at balanced accuracy
+  0.620. A 1,000-permutation test that preserves fold, length, and label counts
+  gives p=0.000999 overall; by length the balanced accuracies are 0.507130,
+  0.655971, and 0.818182.
+- The same 200-row fixed 1D OOF anchor is correct on 172 rows versus 124 for the
+  BioEmu descriptor classifier. Across 66 disagreements, BioEmu corrects nine
+  1D errors but introduces 57 new errors (net -48), so direct replacement or
+  unbounded expansion is not justified.

@@ -451,6 +451,60 @@
     40-test related regression suite with three known Transformer warnings.
   - Completed Phases 20A and 21. Returned to Phase 19, the deferred train-only
     length/generator-source OOF diagnostic, as the next priority.
+  - Committed the cached-model/runtime-failure fix as `63d274c` and the verified
+    pilot import/README decision as `5156554`.
+  - GitHub push retried after local completion but the HTTPS connection reset;
+    local `main` is safely two commits ahead of `origin/main`. Continue Phase 19
+    locally and retry one consolidated push after the next bounded phase.
+  - Ran the fixed Phase 19 diagnostic over all 6,387 training OOF rows and 3,195
+    conformer-covered rows; emitted `summary.json` and a 6,387-row audit CSV.
+  - Added aggregate probability-divergence and corrected/newly-incorrect
+    comparisons without changing any model threshold or weight; Ruff and the
+    focused diagnostic test passed and outputs were regenerated.
+  - A one-off reporting snippet had an unmatched bracket. No artifact was
+    modified; replace it with simple sequential loops rather than repeating the
+    failed expression.
+  - Completed Phase 19: existing conformer source and length are perfectly
+    confounded (Cramér's V 1.0); the balanced long-AF2 pilot remains negative
+    versus 1D despite a small aggregate 31-50 joint advantage.
+  - Added the fixed metrics, decision-disagreement transitions, machine-readable
+    decision, and no-retuning boundary to README.
+  - Opened Phase 22 to convert and evaluate the imported 200-row unified BioEmu
+    cohort across all three length strata.
+  - Installed fixed `mdtraj==1.10.3` into the existing analysis environment
+    without changing NumPy/PyTorch, so filtered XTC trajectories can be read
+    rather than substituting unfiltered raw batches.
+  - Added a BioEmu XTC-to-ensemble-summary converter with explicit nm-to-Angstrom
+    conversion and frame-count/sequence/C-alpha alignment checks.
+  - Converter/cache tests passed (3 total), and all 200 trajectories converted
+    into 200 summaries containing exactly 5,683 filtered conformers.
+  - A test-expansion patch initially missed because Ruff had reformatted the
+    target context. No file changed; reread the current test and applied a
+    smaller exact patch.
+  - A report-only inspection used the obsolete key `paired_feature_deltas` and
+    raised `KeyError` after printing the new predictability results. No artifact
+    changed; inspect the current `by_length` and `by_legacy_source` keys instead.
+  - A combined permutation-test patch again missed Ruff-formatted test context.
+    No file changed; split the source and test/progress edits into exact patches.
+  - Added a deterministic 1,000-permutation toxicity-signal check that preserves
+    canonical fold and length-stratum label counts; focused lint/tests passed.
+  - Regenerated the 200-row source analysis with the frozen 1D OOF anchor. The
+    BioEmu descriptor classifier corrects 9 anchor errors but introduces 57,
+    while the same-sample generator fingerprint remains strong (BACC 0.870629).
+  - Completed Phase 22 with `hold_bioemu_full_generation`; no external test
+    labels, model weights, thresholds, or GPU jobs were touched.
+  - The first final-suite command referenced a nonexistent
+    `tests/test_bioemu_selection.py`, so pytest collected no tests in that
+    invocation. Enumerated the actual BioEmu tests and reran the suite with the
+    valid paths.
+  - The broader related suite hit a pre-existing collection mismatch:
+    `test_multisource_conformer_analysis.py` imports `_bucket`, which the current
+    committed module does not expose. This is outside the Phase 22 changes;
+    excluded that single incompatible test and reran the remaining related
+    regression suite.
+  - Final related regression suite: 47 passed with three known Transformer
+    warnings. Ruff, JSON/CSV consistency assertions, CLI help, and Git
+    whitespace checks also passed.
 
 ### GitHub Project Snapshot
 - **Status:** complete

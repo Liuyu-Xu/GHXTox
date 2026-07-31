@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 19
+Phase 22 complete
 
 ## Phases
 
@@ -128,10 +128,13 @@ Phase 19
 
 ### Phase 19: Length and Generator-Source OOF Diagnostics
 - [x] Audit the frozen OOF inputs and existing cohort-analysis utilities
-- [ ] Report 1D, 3D, and retained joint OOF metrics for 11-15, 16-30, and 31-50 aa
-- [ ] Quantify source/length predictability, label balance, quality/divergence, and error types
-- [ ] Emit machine-readable JSON/CSV without reading Test1/Test2 labels
-- **Status:** in_progress
+- [x] Report 1D, 3D, and retained joint OOF metrics for 11-15, 16-30, and 31-50 aa
+- [x] Quantify source/length predictability, label balance, quality/divergence, and error types
+- [x] Emit machine-readable JSON/CSV without reading Test1/Test2 labels
+- **Decision:** generator source and length are perfectly confounded in the
+  existing 3,195-row conformer coverage (Cramér's V 1.0); no threshold, weight,
+  or default-model change is authorized.
+- **Status:** complete
 
 ### Phase 20: Reproducible 200-Sample BioEmu Pilot Preparation
 - [x] Build a deterministic train-only label/length-stratified 200-sample manifest
@@ -157,6 +160,20 @@ Phase 19
   execution, and infrastructure-failure decision logic
 - [x] Run final lint, regression, archive-integrity, CLI, and whitespace checks
 - [x] Document manifest counts, smoke protocol, feasibility criteria, and next decision
+- **Status:** complete
+
+### Phase 22: BioEmu Cross-Length Descriptor Evaluation
+- [x] Convert the 200 imported BioEmu trajectories into aligned, reusable
+  ensemble-summary descriptors without changing the frozen sample cohort
+- [x] Audit same-sample overlap with PepFlow/AF2 sources and compare descriptor
+  shifts under one unified generator
+- [x] Measure cross-fitted length/source predictability and quality/divergence
+  without reading Test1/Test2 labels
+- [x] Emit compact JSON/CSV evidence and freeze the expand/stop decision
+- **Decision:** retain the verified 200-row pilot, but hold full BioEmu
+  generation. BioEmu descriptors contain significant train-only toxicity
+  signal, while the same-sample source fingerprint is strong and fixed
+  descriptor decisions are substantially weaker than the 1D OOF anchor.
 - **Status:** complete
 
 ## Key Questions

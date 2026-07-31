@@ -79,6 +79,46 @@ def _model_summary(
     }
 
 
+def _comparison_summary(
+    selected: list[dict[str, Any]],
+    baseline: str,
+    candidate: str,
+) -> dict[str, Any]:
+    labels = np.asarray([row["label"] for row in selected], dtype=np.int64)
+    baseline_probability = np.asarray(
+        [row[f"{baseline}_probability"] for row in selected], dtype=np.float64
+    )
+    candidate_probability = np.asarray(
+        [row[f"{candidate}_probability"] for row in selected], dtype=np.float64
+    )
+    baseline_prediction = np.asarray(
+        [row[f"{baseline}_prediction"] for row in selected], dtype=np.int64
+    )
+    candidate_prediction = np.asarray(
+        [row[f"{candidate}_prediction"] for row in selected], dtype=np.int64
+    )
+    baseline_correct = baseline_prediction == labels
+    candidate_correct = candidate_prediction == labels
+    probability_delta = candidate_probability - baseline_probability
+    corrected = ~baseline_correct & candidate_correct
+    newly_incorrect = baseline_correct & ~candidate_correct
+    return {
+        "baseline": baseline,
+        "candidate": candidate,
+        "samples": len(selected),
+        "mean_probability_delta": float(np.mean(probability_delta)),
+        "mean_absolute_probability_delta": float(np.mean(np.abs(probability_delta))),
+        "decision_disagreement_rate": float(
+            np.mean(baseline_prediction != candidate_prediction)
+        ),
+        "both_correct": int(np.sum(baseline_correct & candidate_correct)),
+        "corrected_by_candidate": int(np.sum(corrected)),
+        "newly_incorrect": int(np.sum(newly_incorrect)),
+        "both_incorrect": int(np.sum(~baseline_correct & ~candidate_correct)),
+        "net_corrected": int(np.sum(corrected) - np.sum(newly_incorrect)),
+    }
+
+
 def _balanced_accuracy(labels: np.ndarray, predictions: np.ndarray) -> float:
     recalls = []
     for label in np.unique(labels):
@@ -87,12 +127,12 @@ def _balanced_accuracy(labels: np.ndarray, predictions: np.ndarray) -> float:
     return float(np.mean(recalls))
 
 
-def _cross_fitted_nearest_centroid(
+def _cross_fitted_nearest_centroid_predictions(
     rows: list[dict[str, Any]],
     feature_names: tuple[str, ...],
     target: str,
-) -> dict[str, Any]:
-    """Evaluate a fixed, parameter-free classifier on the existing five OOF folds."""
+) -> tuple[np.ndarray, np.ndarray, list[str]]:
+    """Return labels and predictions from the fixed five-fold classifier."""
 
     features = np.asarray(
         [[float(row[name]) for name in feature_names] for row in rows],
@@ -127,6 +167,23 @@ def _cross_fitted_nearest_centroid(
             axis=1,
         )
         predictions[test] = np.argmin(distances, axis=1)
+    return labels, predictions, classes
+
+
+def _cross_fitted_nearest_centroid(
+    rows: list[dict[str, Any]],
+    feature_names: tuple[str, ...],
+    target: str,
+) -> dict[str, Any]:
+    """Evaluate a fixed, parameter-free classifier on the existing five OOF folds."""
+
+    labels, predictions, classes = _cross_fitted_nearest_centroid_predictions(
+        rows,
+        feature_names,
+        target,
+    )
+    class_to_index = {value: index for index, value in enumerate(classes)}
+    labels_text = [str(row[target]) for row in rows]
 
     confusion = {
         actual: {
@@ -292,6 +349,10 @@ def diagnose_oof_sources(
                 )
                 for model, spec in models.items()
             },
+            "comparisons": {
+                "joint_vs_one_d": _comparison_summary(selected, "one_d", "joint"),
+                "joint_vs_three_d": _comparison_summary(selected, "three_d", "joint"),
+            },
         }
 
     by_source = {}
@@ -317,6 +378,10 @@ def diagnose_oof_sources(
                 )
                 for model, spec in models.items()
             },
+            "comparisons": {
+                "joint_vs_one_d": _comparison_summary(selected, "one_d", "joint"),
+                "joint_vs_three_d": _comparison_summary(selected, "three_d", "joint"),
+            },
         }
 
     covered = [row for row in rows if row["generator_source"] != "not_generated"]
@@ -333,6 +398,16 @@ def diagnose_oof_sources(
             "positive": int(sum(row["label"] for row in rows)),
             "negative": int(len(rows) - sum(row["label"] for row in rows)),
             "conformer_covered": len(covered),
+        },
+        "overall": {
+            "models": {
+                model: _model_summary(rows, f"{model}_probability", spec["threshold"])
+                for model, spec in models.items()
+            },
+            "comparisons": {
+                "joint_vs_one_d": _comparison_summary(rows, "one_d", "joint"),
+                "joint_vs_three_d": _comparison_summary(rows, "three_d", "joint"),
+            },
         },
         "by_length": by_length,
         "by_generator_source": by_source,

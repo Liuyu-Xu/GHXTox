@@ -1,0 +1,55 @@
+{
+  "status": "complete",
+  "decision": "length_generator_confounding_confirmed",
+  "scope": "training-only fixed group-aware OOF diagnostic",
+  "external_test_labels_read": false,
+  "model_change_authorized": false,
+  "threshold_or_weight_retuning_authorized": false,
+  "cohort": {
+    "samples": 6387,
+    "positive": 1818,
+    "negative": 4569,
+    "conformer_covered": 3195
+  },
+  "confounding": {
+    "covered_generator_vs_length_cramers_v": 1.0,
+    "generator_from_quality_features_balanced_accuracy": 0.6453874432501182,
+    "generator_from_quality_features_majority_accuracy": 0.6366197183098592,
+    "interpretation": "PepFlow, AF2-16-30, and AF2-31-50-pilot occupy disjoint length strata, so their effects cannot be identified separately from length."
+  },
+  "fixed_threshold_mcc_by_length": {
+    "11-15": {
+      "one_d": 0.594277,
+      "three_d": 0.650427,
+      "joint": 0.649187
+    },
+    "16-30": {
+      "one_d": 0.813335,
+      "three_d": 0.781225,
+      "joint": 0.827701
+    },
+    "31-50": {
+      "one_d": 0.915097,
+      "three_d": 0.891905,
+      "joint": 0.919805
+    }
+  },
+  "joint_vs_one_d": {
+    "all_training": {
+      "decision_disagreement_rate": 0.02552058869578832,
+      "corrected": 101,
+      "newly_incorrect": 62,
+      "net_corrected": 39
+    },
+    "af2_31_50_pilot": {
+      "samples": 400,
+      "one_d_mcc": 0.7566,
+      "joint_mcc": 0.740333,
+      "decision_disagreement_rate": 0.0525,
+      "corrected": 9,
+      "newly_incorrect": 12,
+      "net_corrected": -3
+    }
+  },
+  "next_authorized_stage": "derive aligned descriptors from the completed 200-sample BioEmu pilot and test source/length invariance without changing model thresholds or reading Test1/Test2 labels"
+}

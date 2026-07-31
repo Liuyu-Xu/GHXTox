@@ -118,6 +118,14 @@ def test_oof_source_diagnostics_aligns_models_and_detects_confounding(
     assert set(report["by_length"]) == {"11-15", "16-30", "31-50"}
     assert report["confounding"]["covered_generator_vs_length_cramers_v"] == 1.0
     assert (
+        report["overall"]["comparisons"]["joint_vs_one_d"]["decision_disagreement_rate"]
+        == 0.0
+    )
+    assert (
+        report["by_length"]["11-15"]["comparisons"]["joint_vs_one_d"]["net_corrected"]
+        == 0
+    )
+    assert (
         report["feature_predictability"][
             "generator_cohort_from_structure_and_conformer_features"
         ]["balanced_accuracy"]
