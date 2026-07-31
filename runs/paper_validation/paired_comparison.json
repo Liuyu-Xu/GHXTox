@@ -246,12 +246,12 @@
         "paired_randomization_two_sided_p": 0.0001999600079984003
       },
       "brier": {
-        "v1": 0.05964099838657321,
+        "v1": 0.05964099771454246,
         "v2": 0.05952945358642396,
-        "delta_v2_minus_v1": -0.00011154480014925056,
+        "delta_v2_minus_v1": -0.00011154412811850006,
         "paired_bootstrap_95_ci": {
-          "lower": -0.0010080991115746338,
-          "upper": 0.0007851730304894105
+          "lower": -0.0010080989158978754,
+          "upper": 0.000785173513571398
         },
         "bootstrap_probability_v2_better": 0.4036,
         "paired_randomization_two_sided_p": 0.8004399120175965

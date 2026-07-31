@@ -12,6 +12,7 @@ venv/
 env/
 .env/
 .venv/
+.venv-bioemu-*/
 Scripts/
 Lib/
 
@@ -23,6 +24,11 @@ Lib/
 !/scripts/install_colabfold_autodl.sh
 !/scripts/run_colabfold_16_30_autodl.sh
 !/scripts/evaluate_colabfold_16_30_oof.ps1
+!/scripts/evaluate_colabfold_31_50_oof.ps1
+!/scripts/evaluate_bidirectional_coupling_oof.ps1
+!/scripts/evaluate_bidirectional_coupling_oof.sh
+!/scripts/install_bioemu_autodl.sh
+!/scripts/run_bioemu_pilot_autodl.sh
 
 # =========================
 # 3. 深度学习模型权重
@@ -41,6 +47,7 @@ Lib/
 *.npy
 *.npz
 *.fasta
+!/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
 /data/*
 !/data/pepflow_pilot/
 /data/pepflow_pilot/*
@@ -55,8 +62,24 @@ Lib/
 !/data/af2_ensemble_16_30/train_full_2034.fasta
 !/data/af2_ensemble_16_30/train_full_2034.csv
 !/data/af2_ensemble_16_30/task_summary.json
+!/data/af2_ensemble_31_50/
+/data/af2_ensemble_31_50/*
+!/data/af2_ensemble_31_50/train_pilot_400.fasta
+!/data/af2_ensemble_31_50/train_pilot_400.csv
+!/data/bioemu_pilot/
+/data/bioemu_pilot/*
+!/data/bioemu_pilot/train_pilot_200.fasta
+!/data/bioemu_pilot/train_pilot_200.csv
+!/data/bioemu_pilot/smoke_6.fasta
+!/data/bioemu_pilot/smoke_6.csv
+!/data/bioemu_pilot/selection_summary.json
 /dataset/
 /temp/
+
+# BioEmu raw trajectories, batches and caches stay off Git; keep only the decision.
+/runs/bioemu_pilot_200/*
+!/runs/bioemu_pilot_200/decision.json
+/runs/bioemu_pilot_200_dry_run/
 
 # =========================
 # 5. IDE 配置和系统缓存

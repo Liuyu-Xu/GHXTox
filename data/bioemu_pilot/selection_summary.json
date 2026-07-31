@@ -1,0 +1,63 @@
+{
+  "protocol": {
+    "scope": "train-only BioEmu unified-generator feasibility pilot",
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "target_size": 200,
+    "seed": 20260731,
+    "length_bins": [
+      "11-15",
+      "16-30",
+      "31-50"
+    ],
+    "stratification": "exact label/fold balance and nearest-possible length balance",
+    "external_test_labels_read": false,
+    "requested_conformers_per_sequence": 32,
+    "bioemu_package": "1.4.1",
+    "bioemu_model": "bioemu-v1.2",
+    "physical_filter": "filter_samples=True",
+    "full_generation_authorized": false
+  },
+  "pilot": {
+    "samples": 200,
+    "by_length": {
+      "11-15": 67,
+      "31-50": 66,
+      "16-30": 67
+    },
+    "by_label": {
+      "1": 100,
+      "0": 100
+    },
+    "by_fold": {
+      "1": 40,
+      "2": 40,
+      "4": 40,
+      "0": 40,
+      "3": 40
+    },
+    "cell_quota_range": [
+      6,
+      7
+    ]
+  },
+  "smoke": {
+    "samples": 6,
+    "sample_ids": [
+      "peptide_5477",
+      "peptide_1734",
+      "peptide_4936",
+      "peptide_928",
+      "peptide_3517",
+      "peptide_647"
+    ],
+    "by_length": {
+      "11-15": 2,
+      "16-30": 2,
+      "31-50": 2
+    },
+    "by_label": {
+      "0": 3,
+      "1": 3
+    }
+  }
+}

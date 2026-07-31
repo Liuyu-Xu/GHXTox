@@ -9,7 +9,12 @@ from typing import Any
 
 import numpy as np
 
-from ghxtox.conformer_cohort_analysis import _metric_deltas, _spearman
+from ghxtox.conformer_cohort_analysis import (
+    LENGTH_BUCKETS,
+    _length_bucket,
+    _metric_deltas,
+    _spearman,
+)
 from ghxtox.utils import save_json
 
 
@@ -57,26 +62,6 @@ def _manifest_entries(
             if previous != entry:
                 raise ValueError(f"Inconsistent manifest rows for {original_id}.")
     return entries
-
-
-def _bucket(length: int) -> str:
-    if length <= 15:
-        return "1-15"
-    if length <= 20:
-        return "16-20"
-    if length <= 25:
-        return "21-25"
-    if length <= 30:
-        return "26-30"
-    if length <= 35:
-        return "31-35"
-    if length <= 40:
-        return "36-40"
-    if length <= 45:
-        return "41-45"
-    if length <= 50:
-        return "46-50"
-    return "51+"
 
 
 def _summary_features(path: Path) -> dict[str, float]:
@@ -129,7 +114,7 @@ def analyse_multisource(
                 "label": label,
                 "sequence": entry["sequence"],
                 "length": length,
-                "length_bucket": _bucket(length),
+                "length_bucket": _length_bucket(length),
                 "source": source,
                 "baseline_probability": first_probability,
                 "candidate_probability": second_probability,
@@ -181,17 +166,7 @@ def analyse_multisource(
         },
         "by_length": {
             bucket: summarize([row for row in rows if row["length_bucket"] == bucket])
-            for bucket in (
-                "1-15",
-                "16-20",
-                "21-25",
-                "26-30",
-                "31-35",
-                "36-40",
-                "41-45",
-                "46-50",
-                "51+",
-            )
+            for bucket in LENGTH_BUCKETS
             if any(row["length_bucket"] == bucket for row in rows)
         },
         "folds": {

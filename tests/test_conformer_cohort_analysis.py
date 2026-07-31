@@ -3,7 +3,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ghxtox.conformer_cohort_analysis import analyse_conformer_cohort
+from ghxtox.conformer_cohort_analysis import _length_bucket, analyse_conformer_cohort
 
 
 def _write_csv(path: Path, rows: list[dict]) -> None:
@@ -70,3 +70,25 @@ def test_conformer_cohort_analysis_aligns_predictions_and_structure(tmp_path: Pa
     assert report["classification_transitions"]["net_corrections"] == 2
     assert len(rows) == 3
     assert set(report["length_strata"]) == {"16-20", "21-25", "26-30"}
+
+
+def test_length_bucket_covers_long_training_peptides() -> None:
+    expected = {
+        15: "1-15",
+        16: "16-20",
+        20: "16-20",
+        21: "21-25",
+        25: "21-25",
+        26: "26-30",
+        30: "26-30",
+        31: "31-35",
+        35: "31-35",
+        36: "36-40",
+        40: "36-40",
+        41: "41-45",
+        45: "41-45",
+        46: "46-50",
+        50: "46-50",
+        51: "51+",
+    }
+    assert {length: _length_bucket(length) for length in expected} == expected

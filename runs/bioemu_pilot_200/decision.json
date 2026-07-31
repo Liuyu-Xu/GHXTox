@@ -1,0 +1,30 @@
+{
+  "status": "pending_smoke",
+  "decision": "await_bioemu_smoke",
+  "full_generation_authorized": false,
+  "next_authorized_stage": "run the frozen six-sequence smoke on a Linux CUDA host",
+  "protocol": {
+    "pilot_samples": 200,
+    "smoke_samples": 6,
+    "requested_conformers_per_sequence": 32,
+    "bioemu_package": "1.4.1",
+    "bioemu_model": "bioemu-v1.2",
+    "python": "3.11",
+    "base_seed": 20260731,
+    "msa_protocol": "BioEmu bundled ColabFold/MMseqs2 default remote MSA",
+    "physical_filter": "filter_samples=True",
+    "external_test_labels_read": false
+  },
+  "gate": {
+    "at_least_90_percent_with_at_least_8_valid_conformers": null,
+    "all_three_length_strata_stable": null,
+    "no_systematic_sequence_or_residue_mismatch": null,
+    "nonzero_bounded_diversity": null,
+    "projected_time_and_storage_feasible": null
+  },
+  "local_execution": {
+    "available_gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 8 GB",
+    "blocked_reason": "BioEmu is Linux-only and this workstation has no WSL distribution; no AutoDL SSH host is configured",
+    "engineering_validation": "manifest generation, dry-run commands, Bash syntax, Ruff, and four focused tests passed"
+  }
+}

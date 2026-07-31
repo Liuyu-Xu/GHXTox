@@ -1,0 +1,12 @@
+{
+  "processed": "data\\processed\\train_chemical_sites_final_esm2_multisource_conformer.pt",
+  "token_cache": "data\\processed\\prott5_tokens\\train",
+  "baseline_predictions": "runs\\conformer_prott5_frozen_oof\\predictions.csv",
+  "fold_manifest": "data\\folds\\train_cdhit080_fallback_folds.csv",
+  "checkpoint_pattern": "runs\\chemical_site_ablation_include_same_residue_fold{fold}\\best_model.pt",
+  "num_samples": 6387,
+  "num_residues": 201994,
+  "token_dim": 1024,
+  "spatial_dim": 128,
+  "protocol": "each spatial state comes from the checkpoint that excluded its fold"
+}

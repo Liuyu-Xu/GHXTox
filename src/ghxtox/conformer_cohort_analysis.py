@@ -20,6 +20,17 @@ from ghxtox.utils import save_json
 
 
 PROBABILITY_COLUMN = "toxicity_probability"
+LENGTH_BUCKETS = (
+    "1-15",
+    "16-20",
+    "21-25",
+    "26-30",
+    "31-35",
+    "36-40",
+    "41-45",
+    "46-50",
+    "51+",
+)
 
 
 def _read_csv(path: str | Path) -> list[dict[str, str]]:
@@ -101,11 +112,23 @@ def _ensemble_features(cache_root: Path, sample_id: str) -> dict[str, float]:
 
 
 def _length_bucket(length: int) -> str:
+    if length <= 15:
+        return "1-15"
     if length <= 20:
         return "16-20"
     if length <= 25:
         return "21-25"
-    return "26-30"
+    if length <= 30:
+        return "26-30"
+    if length <= 35:
+        return "31-35"
+    if length <= 40:
+        return "36-40"
+    if length <= 45:
+        return "41-45"
+    if length <= 50:
+        return "46-50"
+    return "51+"
 
 
 def analyse_conformer_cohort(
@@ -203,7 +226,10 @@ def analyse_conformer_cohort(
     }
 
     strata: dict[str, Any] = {}
-    for bucket in ("16-20", "21-25", "26-30"):
+    observed_buckets = {str(row["length_bucket"]) for row in sample_rows}
+    for bucket in LENGTH_BUCKETS:
+        if bucket not in observed_buckets:
+            continue
         selected = [index for index, row in enumerate(sample_rows) if row["length_bucket"] == bucket]
         selected_labels = labels[selected]
         strata[bucket] = {
