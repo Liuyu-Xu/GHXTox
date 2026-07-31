@@ -29,6 +29,8 @@ Lib/
 !/scripts/evaluate_bidirectional_coupling_oof.sh
 !/scripts/install_bioemu_autodl.sh
 !/scripts/run_bioemu_pilot_autodl.sh
+!/scripts/evaluate_3d_v2_multiseed_oof.ps1
+!/scripts/evaluate_3d_v2_multiseed_oof.sh
 
 # =========================
 # 3. 深度学习模型权重
@@ -80,6 +82,11 @@ Lib/
 /runs/bioemu_pilot_200/*
 !/runs/bioemu_pilot_200/decision.json
 /runs/bioemu_pilot_200_dry_run/
+
+# Keep the frozen Phase 26 protocol and compact reports, not fold weights/logs.
+/runs/3d_v2_multiseed/seed_*/driver*.log
+/runs/3d_v2_multiseed/seed_*/base/fold*/
+/runs/3d_v2_multiseed/seed_*/residual/fold*/
 
 # =========================
 # 5. IDE 配置和系统缓存

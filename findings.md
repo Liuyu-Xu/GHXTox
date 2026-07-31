@@ -380,3 +380,66 @@
   fusion meta-model on the same rows. Formal fusion claims require the existing
   nested protocol because upstream predictions for other folds may have been
   trained using the outer evaluation fold.
+- Phase 26 audit finds that the retained capability-aware conformer checkpoint
+  is currently a seed-42 residual trained fold-wise from fixed chemical-site
+  3D-v2 checkpoints. Its frozen config uses up to 50 epochs, batch size 32,
+  learning rate 0.001, held-fold-internal validation fraction 0.15, patience 8,
+  BCE-loss monitoring, and only the conformer encoders/branch/logit trainable.
+- A valid multi-seed experiment must distinguish residual-head randomness from
+  independently trained 3D-v2 randomness. Merely rerunning the small conformer
+  residual under new seeds would not support the claim that 3D-v2 itself is a
+  multi-seed ensemble; the upstream base-fold training provenance must be
+  audited before the frozen seed set is finalized.
+- Crosswalking the earlier nine-item 3D roadmap against completed work shows
+  that BioEmu-200, length/source diagnostics, bounded quality residuals,
+  contact-occupancy graph aggregation, cross-modal coupling, and masked geometry
+  pretraining have already been executed or integrated. Their outcomes do not
+  support repeating the same experiments under new names.
+- Full BioEmu generation is no longer justified by the 200-row evidence: the
+  pilot is operationally feasible, but same-sample generator identity remains
+  strong and the bounded downstream candidate lowered MCC. ESMFlow and
+  AFsample2 are therefore fallback-generator research, not current priorities.
+- The still-useful part of the old contact-occupancy proposal is the bounded
+  ensemble descriptors plus explicit missingness/quality contract already
+  included in the retained 3D handoff. A new standalone contact graph was tested
+  and failed substantially, so only the descriptors—not that graph model—should
+  be retained.
+- The exact Mac-Diff-inspired idea from the old roadmap—a 3D residue reading
+  only 1D tokens in a high-contact-occupancy spatial neighborhood—has not been
+  evaluated verbatim. Existing work tested residue interaction, conformer
+  residuals, and a global bidirectional agreement gate; the latter improved
+  calibration but lost MCC in all five folds. A strictly local contact-masked
+  coupler remains technically distinct, but it belongs to the fusion workstream
+  and should wait for a new frozen validation setting rather than become another
+  search on the exhausted current OOF.
+- Phase 26 local preflight confirms all five retained chemical-site 3D-v2 fold
+  checkpoints and all five seed-42 conformer-residual fold checkpoints exist.
+  Required processed tensors/fold manifests are present; the two largest full
+  processed caches are about 1.16 GB and 1.17 GB, while the pilot250 training
+  tensor is about 20 MB.
+- `ghxtox.train` reads the seed only from the JSON config; its CLI has no seed
+  override. Multi-seed automation must therefore materialize immutable
+  seed-specific config files instead of editing the retained seed-42 config.
+- The current `set_seed()` covers Python and PyTorch CPU/CUDA RNGs but does not
+  request deterministic CUDA algorithms. Exact byte-for-byte retraining is not
+  guaranteed across devices; the reference gate needs exact row/fold alignment
+  plus preregistered metric/probability tolerances rather than checkpoint hashes.
+- The original 3D-v2 seed-42 protocol trains only the zero-initialized chemical
+  site branch from fixed `chemical_site_final_control_fold{fold}` checkpoints;
+  it uses 30 epochs, batch 32, LR `5e-4`, weight decay `1e-4`, coordinate noise
+  `0.12`, and Pareto AUPRC selection subject to matched-control MCC. Varying the
+  seed at this exact branch-training stage is therefore the faithful independent
+  3D-v2 seed experiment; the frozen upstream control remains common by design.
+- Seed-specific conformer residuals must then initialize from the matching
+  seed-specific 3D-v2 fold checkpoints and train on the same pilot250 folds.
+  Averaging only base branches or attaching every residual to seed 42 would not
+  represent the preregistered complete-path ensemble.
+- Phase 26 protocol preparation initially recomputed AUPRC as `0.927682`
+  because the shared training metric helper casts serialized probabilities to
+  float32 before ranking. This creates artificial ties among very close scores.
+  Phase 26 now uses the exact float64 metric implementation already used by the
+  retained handoff, whose `0.928171` AUPRC remains the frozen baseline.
+- Phase 26's first aggregation implementation covered seed/fold/length metrics
+  and calibration but did not yet emit the preregistered generator-source
+  cohorts, decision-disagreement accounting, or measured artifact time/storage.
+  These report fields must be added before the three-seed gate is consumed.

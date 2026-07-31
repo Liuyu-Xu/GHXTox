@@ -3186,3 +3186,24 @@ logit(p_final)
 `oof_3d_predictions.csv`严格覆盖全部6387条训练记录，保留canonical `source_index/fold/label`、固定3D概率、阈值`0.677819`、置信度/不确定性、结构质量、多构象来源和缺失掩码；没有重新校准或修改任何概率。固定指标重新计算为MCC `0.839018`、AUPRC `0.928171`、Brier `0.059399`、ECE-10 `0.051109`。其中3195条有多构象增强，3192条通过`missing_conformer_mask=1`明确标记为精确base-3D回退，空的ensemble字段不得被直接解释为物理零值。
 
 队友只能按`source_index`连接，并核对fold与label。该表是base OOF输入，不允许直接在整张表上拟合fusion/meta-model后再在同一表报告结果；正式融合指标必须使用项目已有的nested OOF协议，使一个outer fold的上游预测和融合参数均不接触该fold。Test1/Test2不得用于选择融合权重、校准、阈值或缺失处理。
+
+### C.14 进行中：3D-v2预注册多随机种子稳定性与等权集成（Phase 26）
+
+当前3D最高优先级不是继续扩大BioEmu生成，也不是从多个随机种子中只挑最高分，而是验证保留3D-v2完整路径的稳定性。协议已在查看新种子结果前冻结：随机种子固定为`42/123/2025`，canonical五折、网络、训练日程、预处理、缺失构象回退和阈值`0.677819`均不改变。每个种子先从同一组冻结control checkpoint训练chemical-site 3D-v2分支，再从该种子对应的五折checkpoint训练capability-aware conformer residual；最终只允许三个种子的毒性概率做无权算术平均。
+
+冻结协议及输入SHA256见[`protocol.json`](runs/3d_v2_multiseed/protocol.json)。参考handoff基线已用同一float64指标实现精确复核：6387行、MCC `0.839018`、AUPRC `0.928171`、Brier `0.05939949`、ECE-10 `0.05110903`。种子42必须先达到概率Pearson不少于`0.995`，且MCC/AUPRC/Brier绝对差分别不超过`0.003/0.001/0.001`；未通过时脚本会阻止123和2025启动。
+
+Windows RTX环境：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_3d_v2_multiseed_oof.ps1 `
+  -Seed 42 -Stage all -Resume -Device cuda
+
+# 仅当seed_42/reference_gate.json通过后，依次运行：
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\evaluate_3d_v2_multiseed_oof.ps1 -Seed 123 -Stage all -Resume -Device cuda
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\evaluate_3d_v2_multiseed_oof.ps1 -Seed 2025 -Stage all -Resume -Device cuda
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\evaluate_3d_v2_multiseed_oof.ps1 -Stage aggregate
+```
+
+AutoDL/Linux环境使用`bash scripts/evaluate_3d_v2_multiseed_oof.sh 42 all --resume`，并可通过`GHXTOX_PYTHON`和`GHXTOX_DEVICE`指定解释器与设备。汇总报告将同时给出各种子、五折、三个长度层、生成器来源cohort、决策分歧、校准及运行/存储统计。只有等权集成同时满足MCC严格高于`0.839018`、AUPRC不低于`0.928171`、至少3/5折MCC不下降以及冻结的Brier/ECE/长度层退化限制，才允许重建团队handoff；最佳单种子永不作为选择结果。Test1/Test2保持封存。

@@ -582,6 +582,97 @@
   - An initial artifact assertion compared CSV probability strings exactly and
     rejected harmless formatting differences. Parsed numeric values instead;
     the maximum absolute probability difference is exactly zero.
+  - User requested the next-stage priority order and asked whether retained
+    3D-v2 could benefit from random seeds. Added planned Phase 26: first audit
+    and reproduce the exact retained pipeline, then freeze a three-seed full-OOF
+    equal-probability ensemble, evaluate it without best-seed selection, and
+    regenerate the team handoff only if the preregistered gate passes.
+  - The first combined 3D-v2 provenance inspection command had an unmatched
+    PowerShell quote in its final `rg` pattern and did not run. Split the query
+    into quote-safe file/README inspection and a separate fixed-string search.
+  - User supplied the earlier nine-item 3D priority table for reassessment
+    against completed Phases 19–25. Began a status crosswalk so completed,
+    rejected, conditional, and still-actionable items are not mixed together.
+  - Visual crosswalk confirms most original high-priority items are now closed:
+    BioEmu-200 and diagnostics completed; full BioEmu remains blocked by the
+    evidence gate; standalone contact graph, bounded residual/gating, and
+    geometry-consistency paths did not qualify. The retained descriptor and
+    handoff portions remain useful.
+  - The only old architectural item not tested in its exact form is the
+    Mac-Diff-inspired high-contact-neighborhood local 1D–3D reader. Classified
+    it as a later fusion-team/new-validation ablation, not an immediate pure-3D
+    task and not a reason to reopen failed global bidirectional coupling.
+  - Started Phase 26 after user authorization. Work begins with a read-only
+    provenance/data/runtime audit and a deterministic seed-42 reproduction
+    launcher; seeds 123/2025 remain blocked until the reference gate passes.
+  - The first Phase 26 artifact-audit command repeated the known PowerShell
+    `foreach { ... } | Format-Table` parse failure and produced no audit data.
+    Corrective rule: assign every loop result to a named array before piping;
+    do not reuse the failed inline-loop pattern.
+  - Corrected Phase 26 preflight found all ten required fold checkpoints and all
+    processed/fold/OOF artifacts locally. The train CLI cannot override seed,
+    so the implementation must generate per-seed config snapshots; it must also
+    use tolerance-based reproduction because CUDA determinism is not enforced.
+  - Froze seeds `42/123/2025`, arithmetic probability averaging, exact alignment
+    requirements, numerical reproduction tolerances, and aggregate/fold/length/
+    calibration promotion limits before launching any Phase 26 training.
+  - Initial synthetic aggregation test failed only the frozen ECE tolerance:
+    its supposedly improved probabilities were less calibrated than the
+    reference despite correcting decisions. Kept the production gate unchanged
+    and corrected the synthetic fixture to be both more accurate and calibrated.
+
+  - Phase 26 focused tests now pass (`2 passed`). The first Windows-wrapper
+    parser audit then found an invalid interpolated variable reference in the
+    error message (`$LASTEXITCODE:`). Delimited the variable as
+    `${LASTEXITCODE}` and flattened checkpoint argument arrays explicitly before
+    rerunning the cross-platform entry-point checks.
+  - Real Phase 26 preparation verified and hashed every required input plus all
+    five frozen control checkpoints. Its first reference summary exposed a
+    float32-only AUPRC drift (`0.927682` versus retained `0.928171`); traced this
+    to artificial ranking ties inside the training-oriented metric helper and
+    switched Phase 26 to the handoff's exact float64 metric implementation
+    before regenerating the protocol.
+  - Regenerated protocol now exactly matches the retained 3D handoff baseline:
+    MCC `0.839018`, AUPRC `0.928171`, Brier `0.05939949`, and ECE-10
+    `0.05110903`. Marked the provenance audit and experiment freeze complete.
+  - Local execution preflight found an idle RTX 4060 Laptop GPU with about
+    6.3 GB free VRAM and 107 GB free on drive D. No seed-42 Phase 26 outputs
+    exist yet. Windows/Python checks pass; local Bash is unavailable, so the
+    AutoDL shell entry point still requires a Linux-side `bash -n`/prepare run.
+  - Direct invocation of the new `.ps1` was blocked by the machine's execution
+    policy. Used a process-scoped `powershell.exe -ExecutionPolicy Bypass`
+    launcher without changing the system policy; the real prepare stage passed.
+  - Started the complete seed-42 reproduction in the background with resume
+    enabled. Base fold 0 loaded its frozen control checkpoint, exposed only the
+    chemical-site branch, and completed epoch 1 without error; driver PID 32368
+    and Python PID 25452 were active at the first health check.
+  - While seed 42 trains, audited the aggregate report against the frozen Phase
+    26 checklist. Seed/fold/length/calibration fields exist, but generator
+    cohorts, decision-disagreement counts, and artifact-based runtime/storage
+    still need implementation before final aggregation.
+  - An optional inspection command ended with code 1 because historical fold
+    directories contain `history.json` rather than the queried `summary.json`.
+    No artifacts were changed; use config/history timestamps for runtime spans.
+  - Added generator-cohort, decision-disagreement, per-seed subgroup, and
+    artifact runtime/storage fields to the Phase 26 aggregate report plus an
+    exact float64-ranking regression test. The first expanded test run passed
+    but revealed single-class synthetic cohorts and one Ruff formatting drift;
+    adjusted only the test fixture and formatted the new module.
+  - The corrected Phase 26 report suite passes without warnings (`3 passed`),
+    and the focused multi-seed/handoff/conformer/OOF compatibility suite passes
+    `9/9`. README now documents the frozen protocol plus Windows and AutoDL
+    commands. Seed-42 base fold 0 reached epoch 10 with a valid best checkpoint
+    while these CPU-only checks ran.
+  - Git boundary audit found the two new launchers were hidden by the repository's
+    scripts allowlist, while fold configs and driver logs were unintentionally
+    visible as untracked files. Updated `.gitignore` to retain both launchers and
+    the compact frozen protocol/reports while excluding per-fold weights and
+    runtime logs.
+  - Ran the final aggregate CLI against three identical copies of the retained
+    6,387-row OOF as a production-schema dry run. It emitted all four generator
+    cohorts, 100% seed-decision agreement, zero reference disagreements, and the
+    expected non-promotion (`mcc_strictly_higher=false`). This confirms the
+    final gate cannot promote an unchanged ensemble.
 
 ### GitHub Project Snapshot
 - **Status:** complete

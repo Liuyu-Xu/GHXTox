@@ -1,0 +1,163 @@
+{
+  "status": "prepared",
+  "protocol": "phase26_preregistered_v1",
+  "seeds": [
+    42,
+    123,
+    2025
+  ],
+  "fixed_threshold": 0.677819,
+  "ensemble_rule": "unweighted arithmetic mean of the three OOF toxicity probabilities",
+  "external_test_labels_read": false,
+  "reference": {
+    "rows": 6387,
+    "fold_counts": {
+      "0": 1271,
+      "1": 1229,
+      "2": 1273,
+      "3": 1291,
+      "4": 1323
+    },
+    "label_counts": {
+      "0": 4569,
+      "1": 1818
+    },
+    "metrics_at_fixed_threshold": {
+      "accuracy": 0.9350242680444654,
+      "balanced_accuracy": 0.9150081948444352,
+      "precision": 0.8997150997150997,
+      "recall": 0.8685368536853685,
+      "f1": 0.8838511055135739,
+      "mcc": 0.8390181404798325,
+      "auroc": 0.960692676840457,
+      "auprc": 0.9281708597568626,
+      "brier": 0.05939949004168534,
+      "ece_10": 0.05110902710928455
+    }
+  },
+  "reference_reproduction_tolerances": {
+    "minimum_probability_pearson": 0.995,
+    "maximum_absolute_mcc_difference": 0.003,
+    "maximum_absolute_auprc_difference": 0.001,
+    "maximum_absolute_brier_difference": 0.001
+  },
+  "promotion_tolerances": {
+    "maximum_brier_increase": 0.001,
+    "maximum_ece_10_increase": 0.002,
+    "maximum_length_stratum_mcc_decrease": 0.005,
+    "maximum_length_stratum_auprc_decrease": 0.002
+  },
+  "promotion_requirements": {
+    "ensemble_mcc_strictly_higher_than_reference": true,
+    "ensemble_auprc_at_least_reference": true,
+    "fold_mcc_non_decrease_count_at_least": 3,
+    "all_length_strata_within_frozen_tolerances": true
+  },
+  "input_artifacts": {
+    "base_config": {
+      "path": "configs/chemical_site_interaction_pareto_same_residue.json",
+      "bytes": 2185,
+      "sha256": "a3ffd1ece961749ddbafc79469263e7dcfcb9d9e45a72dcb43401f9af64b8a69"
+    },
+    "residual_config": {
+      "path": "configs/conformer_ensemble_residual_calibrated.json",
+      "bytes": 3191,
+      "sha256": "3559ad368c1570b046a92c0bf36cd928cc0190e6fb3fd7ca587b615fe808c1f1"
+    },
+    "base_processed": {
+      "path": "data/processed/train_chemical_sites_final_esm2.pt",
+      "bytes": 1158126695,
+      "sha256": "d185ab9a6661056738eea0868ace4ce623b352cdaedc7fdb936411d323b094f3"
+    },
+    "residual_train_processed": {
+      "path": "data/processed/train_chemical_sites_final_esm2_pepflow_pilot250.pt",
+      "bytes": 19970910,
+      "sha256": "bd4bb6e59457a52cc14eb7c449852766e47c145c856aa93472d4b264da8b9bad"
+    },
+    "residual_oof_processed": {
+      "path": "data/processed/train_chemical_sites_final_esm2_pepflow.pt",
+      "bytes": 1172563139,
+      "sha256": "8bf53d35485ea4232092e9fd00eace739ac31359ab3f3824a9bc13e3c9cbbfda"
+    },
+    "base_fold_manifest": {
+      "path": "data/folds/train_cdhit080_fallback_folds.csv",
+      "bytes": 461697,
+      "sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4"
+    },
+    "residual_fold_manifest": {
+      "path": "data/folds/pepflow_pilot250_folds.csv",
+      "bytes": 14250,
+      "sha256": "0fa4fd8c955ce67a2fdc04afddadd8574504b7a1c487fc77d4b6009cf3d2e7bd"
+    },
+    "reference_oof": {
+      "path": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
+      "bytes": 1062931,
+      "sha256": "13aa080dea07af24945c89115575b592cc74106204e34741d6cdbb0f8ea05dc0"
+    }
+  },
+  "base_control_checkpoints": [
+    {
+      "path": "runs/chemical_site_final_control_fold0/best_model.pt",
+      "bytes": 5892227,
+      "sha256": "c84e01431272aba5e313c94a614279fb387a0a7e60c23d474b2939e3e0161f72"
+    },
+    {
+      "path": "runs/chemical_site_final_control_fold1/best_model.pt",
+      "bytes": 5892227,
+      "sha256": "8d8b818a5919933b8ae587bddc8ed5e9d10eb9273d3bd8f2c7d39443ec990124"
+    },
+    {
+      "path": "runs/chemical_site_final_control_fold2/best_model.pt",
+      "bytes": 5892227,
+      "sha256": "26d8261955d99bd080ba899335cb1bd3ce26a2382533bc74ba88746df085a6a0"
+    },
+    {
+      "path": "runs/chemical_site_final_control_fold3/best_model.pt",
+      "bytes": 5892227,
+      "sha256": "d5b93dc2e72505ed61dbb1db4ae7b1de9e3cb8a5d707c467d46a488ffee33d7f"
+    },
+    {
+      "path": "runs/chemical_site_final_control_fold4/best_model.pt",
+      "bytes": 5892227,
+      "sha256": "9a728f0feb5dc2ab65b507fda300200c5e7252722a92762838148e113f0d1ce3"
+    }
+  ],
+  "generated_configs": [
+    {
+      "path": "runs/3d_v2_multiseed/configs/base_seed42.json",
+      "bytes": 2395,
+      "sha256": "4a623c4f50ddf76c762427ee406e887a3b94457778156d891a8217cd39b4747c"
+    },
+    {
+      "path": "runs/3d_v2_multiseed/configs/residual_seed42.json",
+      "bytes": 3085,
+      "sha256": "a6954dc67f1857dc5d9328c09ca63ceea704b386b453f9dcf939cb629cfe9c70"
+    },
+    {
+      "path": "runs/3d_v2_multiseed/configs/base_seed123.json",
+      "bytes": 2397,
+      "sha256": "deabed3c295fb0db3fbd14ab25068e7feebaf6ab7e8b7ef6526e8cc221058862"
+    },
+    {
+      "path": "runs/3d_v2_multiseed/configs/residual_seed123.json",
+      "bytes": 3088,
+      "sha256": "ea179c363c2f75deb41fda1fad419aec37b7b793b0def5a45f71122032ea3eaf"
+    },
+    {
+      "path": "runs/3d_v2_multiseed/configs/base_seed2025.json",
+      "bytes": 2399,
+      "sha256": "7350bdc06bd824583d669867cb26d4d7cafd4b2ec63a45b4da5ae22fcbe1e216"
+    },
+    {
+      "path": "runs/3d_v2_multiseed/configs/residual_seed2025.json",
+      "bytes": 3091,
+      "sha256": "9a5809e6a197c0e9a598bd939a64d3b5c4a0e08e25249a9a62f5852e3e931d67"
+    }
+  ],
+  "output_layout": {
+    "base_fold": "runs/3d_v2_multiseed/seed_{seed}/base/fold{fold}",
+    "base_oof": "runs/3d_v2_multiseed/seed_{seed}/base/oof_predictions.csv",
+    "residual_fold": "runs/3d_v2_multiseed/seed_{seed}/residual/fold{fold}",
+    "residual_oof": "runs/3d_v2_multiseed/seed_{seed}/residual/oof_predictions.csv"
+  }
+}

@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 25 complete
+Phase 26 in progress
 
 ## Phases
 
@@ -252,6 +252,43 @@ Phase 25 complete
   conformer-covered rows and 3,192 explicit missing-conformer fallbacks.
 - **Status:** complete
 
+### Phase 26: Preregistered 3D-v2 Multi-Seed Stability and Ensemble
+- [x] **P0 — Reproducibility audit:** identify the exact retained 3D-v2 plus
+  capability-aware conformer-residual training entrypoints, original seed,
+  fold checkpoints, data hashes, environment, and expected GPU cost
+- [ ] **P0 — Reference reproduction gate:** rerun the original seed first and
+  require aligned 6,387-row OOF predictions and retained metrics within the
+  documented serialization/training tolerance before launching more seeds
+- [x] **P1 — Freeze the experiment:** before viewing any new-seed outcome,
+  record exactly three seeds `42/123/2025`, unchanged canonical
+  folds, architecture, preprocessing, training schedule, fallback behavior,
+  threshold `0.677819`, and equal-probability ensemble rule
+- [ ] **P1 — Execute three complete OOF runs:** produce five held-fold
+  predictions for each seed; every seed must run the same full retained 3D
+  path, including the capability-aware conformer residual rather than only the
+  base 3D-v2 branch
+- [ ] **P2 — Robustness report:** report each seed, mean plus standard deviation,
+  fixed equal-weight ensemble, all five folds, three length strata, generator
+  cohorts, calibration, decision disagreements, and runtime/storage
+- [ ] **P2 — Frozen promotion gate:** promote only the equal-weight ensemble if
+  aggregate MCC exceeds `0.839018`, AUPRC is at least `0.928171`, at least three
+  of five fold MCC values do not decrease, and Brier/ECE plus every length
+  stratum show no material regression; never promote the best single seed
+- [ ] **P3 — Handoff regeneration:** if and only if the gate passes, rebuild the
+  6,387-row 3D team handoff with new checksums; otherwise retain Phase 25 exactly
+- **Boundary:** Test1/Test2 remain sealed. No seed, threshold, epoch count,
+  architecture, loss, or ensemble weight may be chosen after viewing the new
+  OOF outcomes.
+- **Reference reproduction tolerance:** exact 6,387-row ID/fold/label/sequence
+  alignment, probability Pearson correlation at least `0.995`, absolute MCC
+  difference at most `0.003`, absolute AUPRC difference at most `0.001`, and
+  absolute Brier difference at most `0.001` versus the retained seed-42 OOF.
+- **Frozen no-material-regression tolerances:** ensemble Brier may increase by
+  at most `0.001`, ECE-10 by at most `0.002`, and each length stratum may lose
+  at most `0.005` MCC and `0.002` AUPRC versus the retained handoff. These are
+  evaluated in addition to the stricter aggregate/fold promotion conditions.
+- **Status:** in_progress
+
 ## Key Questions
 1. Can the conformer residual OOF stream be aligned with all 6,387 training records?
 2. Which available columns provide reliable per-sample structure quality signals?
@@ -269,6 +306,10 @@ Phase 25 complete
 | Error | Attempt | Resolution |
 |-------|---------|------------|
 | PowerShell profile execution-policy warning | 1 | Treat as harmless because commands still execute successfully |
+| Phase 26 wrapper parsed `$LASTEXITCODE:` as a drive-qualified variable | 1 | Delimit it as `${LASTEXITCODE}` and rerun the parser audit |
+| Direct `.ps1` launch was blocked by Windows ExecutionPolicy | 1 | Use a one-process `powershell.exe -NoProfile -ExecutionPolicy Bypass -File` launcher; do not change machine policy |
+| Historical fold inspection queried nonexistent `summary.json` files | 1 | Use the existing `config.json`/`history.json` artifacts and their timestamps instead |
+| Phase 26 prepare reported AUPRC 0.927682 instead of retained 0.928171 | 1 | Preserve CSV probabilities as float64 to avoid ranking ties, then regenerate the frozen protocol |
 | PowerShell audit command had an empty pipeline element | 1 | Collect objects in a variable before piping to `Format-List` |
 | Repeated `foreach` followed by pipeline parse failure | 2 | Ban that shell pattern for this task; emit collected arrays only |
 | Planning-file multi-hunk patch did not match | 1 | Re-read the files and apply smaller exact-context edits |
