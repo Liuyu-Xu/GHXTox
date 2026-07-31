@@ -372,7 +372,9 @@ def run_manifest(
         "num_samples_per_sequence": num_samples,
         "filter_samples": True,
         "msa_protocol": "bundled ColabFold/MMseqs2 default remote MSA",
-        "checkpoint_source": "explicit_local" if ckpt_path is not None else "named_model",
+        "checkpoint_source": "explicit_local"
+        if ckpt_path is not None
+        else "named_model",
         "ckpt_path": str(ckpt_path) if ckpt_path is not None else None,
         "model_config_path": (
             str(model_config_path) if model_config_path is not None else None

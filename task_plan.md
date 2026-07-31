@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 20A
+Phase 19
 
 ## Phases
 
@@ -127,11 +127,11 @@ Phase 20A
 - **Status:** complete
 
 ### Phase 19: Length and Generator-Source OOF Diagnostics
-- [ ] Audit the frozen OOF inputs and existing cohort-analysis utilities
+- [x] Audit the frozen OOF inputs and existing cohort-analysis utilities
 - [ ] Report 1D, 3D, and retained joint OOF metrics for 11-15, 16-30, and 31-50 aa
 - [ ] Quantify source/length predictability, label balance, quality/divergence, and error types
 - [ ] Emit machine-readable JSON/CSV without reading Test1/Test2 labels
-- **Status:** pending
+- **Status:** in_progress
 
 ### Phase 20: Reproducible 200-Sample BioEmu Pilot Preparation
 - [x] Build a deterministic train-only label/length-stratified 200-sample manifest
@@ -141,21 +141,23 @@ Phase 20A
 - **Status:** complete
 
 ### Phase 20A: Execute BioEmu on Linux GPU
-- [ ] Upload and verify the frozen server-input archive on AutoDL/Linux CUDA
+- [x] Upload and verify the frozen server-input archive on AutoDL/Linux CUDA
 - [x] Run the six-sample smoke and collect the machine-readable gate decision
-- [x] Stop before the 200-sample manifest because the smoke gate returned
-  `switch_to_esmflow_small_pilot`
-- [ ] Import the result archive and freeze the continue/switch decision
-- **Current handoff:** obtain the complete smoke feasibility report and the
-  failing sample log(s) to determine whether this is a true BioEmu feasibility
-  failure or a recoverable environment/download failure.
-- **Status:** pending
+- [x] Diagnose the initial infrastructure-only smoke failure and rerun the exact
+  frozen smoke with cached BioEmu/AF2 weights
+- [x] Run the authorized 200-sample pilot after every smoke gate passed
+- [x] Verify and import the result archive and freeze the continue/switch decision
+- **Decision:** the 200-row BioEmu pilot is feasible (198/200 strict usable,
+  5,683 valid conformers, 3.062 GPU hours), but the protocol still does not
+  authorize generation of all 6,387 rows.
+- **Status:** complete
 
 ### Phase 21: Verification and README Handoff
-- [ ] Add focused tests for diagnostics, sampling, filtering, and decision logic
-- [ ] Run lint, regression, CLI, and whitespace checks
-- [ ] Document manifest counts, smoke protocol, feasibility criteria, and next decision
-- **Status:** pending
+- [x] Add focused tests for diagnostics, sampling, filtering, local cached-model
+  execution, and infrastructure-failure decision logic
+- [x] Run final lint, regression, archive-integrity, CLI, and whitespace checks
+- [x] Document manifest counts, smoke protocol, feasibility criteria, and next decision
+- **Status:** complete
 
 ## Key Questions
 1. Can the conformer residual OOF stream be aligned with all 6,387 training records?

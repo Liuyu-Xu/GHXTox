@@ -424,6 +424,33 @@
   - Added focused local-model and infrastructure-failure regressions; the BioEmu
     test module now passes 6 tests, and the AutoDL shell script passes Bash syntax
     validation.
+  - Reran the frozen smoke with the cached Hugging Face model and extracted AF2
+    parameters; all six rows passed and authorized only the 200-row pilot.
+  - Completed the authorized pilot with 200/200 zero return codes, 198/200 strict
+    usable samples, 5,683 valid conformers, and 3.062 actual GPU hours.
+  - Downloaded the 17,469,312-byte result archive and checksum to the workstation;
+    local SHA256 verification matches
+    `f1c10dbba383c9df3bd62ac0614bb1cd87520d18834175883ba14acd63339cfc`.
+  - Audited all 1,430 archive paths before extraction: zero unsafe/duplicate
+    paths and exactly 200 trajectories, topologies, run statuses, and batch NPZs.
+  - Confirmed the archived manifest/selection summary are byte-identical to the
+    frozen local inputs, then extracted into an isolated staging directory.
+  - Independently aligned all 200 manifest/report/directory/status rows, confirmed
+    200 non-empty core output sets and 200 zero return codes, and identified the
+    two strict-quality failures as `peptide_9` (RMSD just below 0.05 nm) and
+    `peptide_876` (short-peptide radius just above 1.0 nm).
+  - Imported 72,340,756 bytes of verified raw results and four runtime
+    reproducibility records into `runs/bioemu_pilot_200/`.
+  - Replaced the tracked pending decision with the completed pilot evidence while
+    preserving `full_generation_authorized=false`.
+  - Updated README with the real AutoDL environment, infrastructure recovery,
+    200-row metrics, two strict-quality exceptions, runtime/storage projection,
+    archive integrity, and the frozen no-full-generation boundary.
+  - Final BioEmu verification passed: archive/import assertions, Bash syntax,
+    Python compilation, Ruff format/check, six focused BioEmu tests, and a
+    40-test related regression suite with three known Transformer warnings.
+  - Completed Phases 20A and 21. Returned to Phase 19, the deferred train-only
+    length/generator-source OOF diagnostic, as the next priority.
 
 ### GitHub Project Snapshot
 - **Status:** complete

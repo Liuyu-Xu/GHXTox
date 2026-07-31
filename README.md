@@ -3060,11 +3060,13 @@ pilot通过后：
 
 ### C.8 已优先完成：BioEmu 200条pilot工程包（2026-07-31）
 
-按用户指定顺序，GPU侧BioEmu pilot先于CPU侧OOF分层诊断完成工程准备。当前只完成**清单、脚本、smoke门槛和服务器输入包**，尚未在Linux GPU上产生真实构象，因此不得填写生成成功率、有效构象数、平均耗时或正式继续结论。
+按用户指定顺序，GPU侧BioEmu pilot先于CPU侧OOF分层诊断执行。该任务现已在AutoDL RTX 4090上完成：冻结的6条smoke通过全部门槛，随后同一冻结清单的200条pilot全部以返回码0完成。机器可读结论见[`runs/bioemu_pilot_200/decision.json`](runs/bioemu_pilot_200/decision.json)：`bioemu_200_pilot_feasible`，但`full_generation_authorized=false`，因此该结果只证明200条pilot工程可行，不授权直接生成全部6387条。
 
 冻结的训练集pilot为[`data/bioemu_pilot/train_pilot_200.csv`](data/bioemu_pilot/train_pilot_200.csv)：标签严格平衡为`100/100`，五个group-aware fold各`40`条，长度分层为11–15 aa `67`条、16–30 aa `67`条、31–50 aa `66`条；30个“长度×fold×标签”单元各取`6–7`条。六条smoke见[`data/bioemu_pilot/smoke_6.csv`](data/bioemu_pilot/smoke_6.csv)，三个长度区间各2条、正负标签各3条。选择协议和计数见[`data/bioemu_pilot/selection_summary.json`](data/bioemu_pilot/selection_summary.json)。
 
-复现协议固定为Linux、Python 3.11、`bioemu==1.4.1`、`huggingface-hub==0.36.0`、模型`bioemu-v1.2`、基础种子`20260731`、每条请求32个构象、BioEmu内置ColabFold/MMseqs2默认MSA和`filter_samples=True`物理过滤。安装、断点续跑、评估与SHA256入口分别为[`scripts/install_bioemu_autodl.sh`](scripts/install_bioemu_autodl.sh)和[`scripts/run_bioemu_pilot_autodl.sh`](scripts/run_bioemu_pilot_autodl.sh)。首次AutoDL smoke中未约束的Hugging Face Hub HTTPX客户端在checkpoint元数据请求时异常关闭，属于下载基础设施失败，不构成BioEmu质量结论；固定兼容版本并预下载官方`microsoft/bioemu`模型文件后，必须重跑同一六条smoke。修正版服务器输入包仍为`bioemu_pilot_200_server_inputs_20260731.tar.gz`，SHA256为`2e3812743c48bafdca4fb68d657bc89cfaf7d3a406bc143f00b9509e157d8cff`。
+复现协议固定为Linux、Python 3.11、`bioemu==1.4.1`、`huggingface-hub==0.36.0`、模型`bioemu-v1.2`、基础种子`20260731`、每条请求32个构象、BioEmu内置ColabFold/MMseqs2默认MSA和`filter_samples=True`物理过滤。服务器实测环境为PyTorch `2.13.0+cu130`、CUDA 13.0和NVIDIA GeForce RTX 4090。安装、断点续跑、评估与SHA256入口分别为[`scripts/install_bioemu_autodl.sh`](scripts/install_bioemu_autodl.sh)和[`scripts/run_bioemu_pilot_autodl.sh`](scripts/run_bioemu_pilot_autodl.sh)。
+
+首次smoke失败于Hugging Face/Google Storage下载基础设施，并未进入采样，故没有作为质量失败计入。最终运行将`HF_HOME`固定到AutoDL数据盘、离线复用预下载的`microsoft/bioemu` checkpoint/config，并把3.4 GiB AlphaFold2参数解压到数据盘支持的`~/.cache/colabfold/params`；修正后的启动器也会自动发现本地BioEmu模型文件，避免再次请求远端模型列表。修正版服务器输入包仍为`bioemu_pilot_200_server_inputs_20260731.tar.gz`，SHA256为`2e3812743c48bafdca4fb68d657bc89cfaf7d3a406bc143f00b9509e157d8cff`。
 
 ```bash
 cd /root/autodl-tmp
@@ -3074,6 +3076,9 @@ tar -xzf bioemu_pilot_200_server_inputs_20260731.tar.gz -C GHXTox
 cd GHXTox
 bash scripts/install_bioemu_autodl.sh
 
+export HF_HOME=/root/autodl-tmp/cache/huggingface
+export HF_HUB_OFFLINE=1
+
 # 第一阶段只允许6条smoke
 bash scripts/run_bioemu_pilot_autodl.sh smoke
 
@@ -3082,4 +3087,18 @@ bash scripts/run_bioemu_pilot_autodl.sh smoke
 GHXTOX_ALLOW_BIOEMU_PILOT=1 bash scripts/run_bioemu_pilot_autodl.sh pilot
 ```
 
-smoke固定检查：至少90%序列获得不少于8个有效构象，三个长度区间均达到90%，序列和残基数匹配，无大于0.50 nm的相邻Cα链断裂，Cα RMSD具有非零且有界多样性，并且外推6387条后的GPU时间不超过96小时、存储不超过500 GB。无论smoke是否通过，脚本都不会授权6387条全量生成；当前机器可读状态为[`runs/bioemu_pilot_200/decision.json`](runs/bioemu_pilot_200/decision.json)中的`pending_smoke`。本机虽然有8 GB RTX 4060，但BioEmu只支持Linux，当前又没有WSL或已配置的AutoDL SSH连接，所以真实成功率、耗时、存储量和最终`继续/切换`决定必须等待GPU服务器回传。
+smoke固定检查：至少90%序列获得不少于8个有效构象，三个长度区间均达到90%，序列和残基数匹配，无大于0.50 nm的相邻Cα链断裂，Cα RMSD具有非零且有界多样性，并且外推6387条后的GPU时间不超过96小时、存储不超过500 GB。smoke达到`100%`严格可用率后才启动200条。
+
+200条pilot共请求`6400`个构象，物理过滤后保留`5683`个；每条最少`12`个、中位数`29`个、平均`28.41`个有效构象。严格可用样本为`198/200=99.0%`：
+
+| 长度区间 | 样本数 | 严格可用 | 成功率 | 平均有效构象数 |
+|---|---:|---:|---:|---:|
+| 11–15 aa | 67 | 65 | 97.01% | 30.30 |
+| 16–30 aa | 67 | 67 | 100.00% | 28.76 |
+| 31–50 aa | 66 | 66 | 100.00% | 26.15 |
+
+两条严格不可用样本均成功生成且拥有足量有效帧：`peptide_9`的中位Cα RMSD为`0.049746 nm`，略低于冻结的`0.05 nm`多样性下限；`peptide_876`的中位回转半径为`1.079936 nm`，略高于短肽`1.0 nm`上限。不存在序列/残基错配、运行失败或系统性链断裂。
+
+实际200条总耗时为`3.062 GPU小时`，单条中位耗时`50.545秒`。按中位耗时外推6387条为`89.675 GPU小时`，低于96小时门槛；按每条平均`358714`字节外推结果存储为`2.291 GB`，低于500 GB门槛。回传压缩包为`17,469,312`字节，SHA256为`f1c10dbba383c9df3bd62ac0614bb1cd87520d18834175883ba14acd63339cfc`；独立导入审计确认200个轨迹、200个拓扑、200个批次NPZ和200个零返回码状态与冻结manifest逐条一致。
+
+下一优先项不是全量BioEmu生成，而是完成原定的训练集OOF长度/生成器来源分层诊断，并在不读取Test1/Test2标签的前提下评估这200条统一生成器构象是否提供新的、可迁移的结构信息。只有该阶段给出新的预注册收益证据，才允许讨论扩大生成范围。

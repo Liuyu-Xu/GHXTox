@@ -259,3 +259,18 @@
   infrastructure run. It must not trigger ESMFlow selection or extrapolate cost
   from failed-row elapsed time; only the identical six-row smoke retry is
   authorized.
+- The corrected six-row smoke passed every frozen gate, and the authorized
+  200-row BioEmu pilot completed with 200/200 zero return codes.
+- The server pilot report records 99.0% strict usability: 198/200 samples pass,
+  with 65/67 usable at 11-15 aa and 67/67 plus 66/66 usable in the longer strata.
+  It contains 5,683 valid conformers (minimum 12, median 29, mean 28.41) and
+  consumed 3.062 GPU hours.
+- The result archive downloaded to the workstation is 17,469,312 bytes. Its
+  computed SHA256 `f1c10dbba383c9df3bd62ac0614bb1cd87520d18834175883ba14acd63339cfc`
+  exactly matches the supplied checksum file.
+- Pre-extraction inspection found 1,430 archive entries, zero unsafe paths, zero
+  duplicate paths, and exactly 200 each of trajectories, topologies, run-status
+  records, and raw batch NPZ files.
+- The archived 200-row manifest and selection summary are byte-identical to the
+  frozen local inputs (SHA256 `ffc477c...409ff` and `c1408e...8b3d7`), so the
+  returned structures correspond to the authorized cohort.
