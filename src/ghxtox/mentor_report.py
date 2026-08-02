@@ -503,6 +503,7 @@ def _reproducibility_manifest(output_dir: Path) -> dict[str, Any]:
         Path("2025ToxMSRC.docx"),
         Path.home() / "Downloads/2026JCIM.docx",
         Path(__file__),
+        output_dir / "REPORT.md",
     ]
     for directory in (
         Path("runs/plm_textcnn_prott5_bsmote"),
@@ -523,7 +524,7 @@ def _reproducibility_manifest(output_dir: Path) -> dict[str, Any]:
         )
     manifest = {
         "report_scope": "Only ProtT5-3Seed default test predictions are compared with papers.",
-        "excluded_from_report": "Archived and experimental model test predictions.",
+        "excluded_from_report": "All non-default model test predictions.",
         "default_threshold": DEFAULT_THRESHOLD,
         "test_labels_used_for_model_or_threshold_selection": False,
         "command": "python -m ghxtox.mentor_report --bootstrap-iterations 5000 --output-dir reports/mentor_report",

@@ -1,6 +1,6 @@
 {
   "report_scope": "Only ProtT5-3Seed default test predictions are compared with papers.",
-  "excluded_from_report": "Archived and experimental model test predictions.",
+  "excluded_from_report": "All non-default model test predictions.",
   "default_threshold": 0.45,
   "test_labels_used_for_model_or_threshold_selection": false,
   "command": "python -m ghxtox.mentor_report --bootstrap-iterations 5000 --output-dir reports/mentor_report",
@@ -56,8 +56,14 @@
     {
       "path": "D:\\code\\Python\\26大创\\GHXTox\\src\\ghxtox\\mentor_report.py",
       "exists": true,
-      "bytes": 22446,
-      "sha256": "48d139a027589e8ababb10443aa4af3fbd0e6cd078d92b54a8076587f1b78973"
+      "bytes": 22322,
+      "sha256": "42ec3073da8c9e5de50046283765973bcca84b9f46c0c2cdea36a56fd98b3c7b"
+    },
+    {
+      "path": "reports\\mentor_report\\REPORT.md",
+      "exists": true,
+      "bytes": 14057,
+      "sha256": "2b3cdb1cb7352e1f6392d457700f0f7fe7df4e95dcb62d70605bb864adbc2dfe"
     },
     {
       "path": "runs\\plm_textcnn_prott5_bsmote\\fold0_best_model.pt",
