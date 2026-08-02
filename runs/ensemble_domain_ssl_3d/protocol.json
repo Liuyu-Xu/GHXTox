@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "phase": 30,
+  "status": "frozen_before_candidate_oof",
+  "scope": "existing-data fold-pure ensemble-only residue SSL plus matched-source invariance and one bounded 3D residual fine-tune",
+  "external_test_labels_read": false,
+  "inputs": {
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "legacy_manifests": [
+      "data/pepflow_pilot/full761_conformer_manifest.csv",
+      "data/af2_ensemble_16_30/cache_full/conformer_manifest.csv",
+      "data/af2_ensemble_31_50/cache_pilot_split/conformer_manifest.csv"
+    ],
+    "legacy_cache_roots": [
+      "data/pepflow_pilot/cache_le15",
+      "data/af2_ensemble_16_30/cache_full",
+      "data/af2_ensemble_31_50/cache_pilot_split"
+    ],
+    "legacy_source_names": [
+      "PepFlow",
+      "AF2-16-30",
+      "AF2-31-50-pilot"
+    ],
+    "bioemu_manifest": "data/bioemu_pilot/cache_200/conformer_manifest.csv",
+    "bioemu_cache_root": "data/bioemu_pilot/cache_200",
+    "reference_oof": "runs/three_d_team_handoff/oof_3d_predictions.csv",
+    "sha256": {
+      "data/folds/train_cdhit080_fallback_folds.csv": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4",
+      "data/pepflow_pilot/full761_conformer_manifest.csv": "b8df863275e5711fda9e4e594e6442e3f53d2fe1b6773f4c1a29e43c586b2fb6",
+      "data/af2_ensemble_16_30/cache_full/conformer_manifest.csv": "b5797a3a80d1f49104e4c8676e754d5edae4aceb92a5f3668ad7351d2367fbcd",
+      "data/af2_ensemble_31_50/cache_pilot_split/conformer_manifest.csv": "8a6de5845eb8e80fe38f807022a8c1bab16e8f482a032561c7eafc984dc88278",
+      "data/bioemu_pilot/cache_200/conformer_manifest.csv": "2fb962d2fca726ab2335517301f79d25fab1d04c36177aa1c282a3a8f6d7efc4",
+      "runs/three_d_team_handoff/oof_3d_predictions.csv": "4a241180743ad9e7c68165e636b67f24dfb6751de07ebc4fbe6241c2d7845fda"
+    }
+  },
+  "cohort": {
+    "canonical_union_samples": 3252,
+    "legacy_samples": 3195,
+    "bioemu_samples": 200,
+    "matched_legacy_bioemu_pairs": 143,
+    "bioemu_only_samples": 57,
+    "generator_invariance_scope": "same-sequence matched pairs only"
+  },
+  "pretraining": {
+    "toxicity_labels_used": false,
+    "outer_fold_policy": "encoder sees only the other four canonical folds",
+    "encoder": "GeometrySSLModel",
+    "structure_feature_dim": 16,
+    "hidden_dim": 64,
+    "num_layers": 2,
+    "dropout": 0.1,
+    "epochs": 4,
+    "batch_size": 32,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "seed": 20260801,
+    "max_conformers_per_source": 8,
+    "view_sampling": "two distinct aligned conformers when available",
+    "confidence_policy": "constant_one_in_ssl_views",
+    "same_source_objective": "masked residue reconstruction plus per-view distance/contact reconstruction plus ensemble median-distance/contact-occupancy targets plus residue consistency and variance floor",
+    "matched_source_objective": "the same two-view objective on one legacy and one BioEmu conformer with the combined matched ensemble target",
+    "matched_source_weight": 0.25,
+    "unpaired_source_adversary": false
+  },
+  "fine_tuning": {
+    "encoder_frozen": true,
+    "residue_embedding": "per-residue conformer mean concatenated with conformer standard deviation",
+    "head": "layernorm projection plus residue attention and masked max pooling plus zero-initialized bounded logit residual",
+    "hidden_dim": 64,
+    "dropout": 0.1,
+    "epochs": 15,
+    "batch_size": 64,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "delta_l1": 0.01,
+    "maximum_absolute_logit_delta": 0.35,
+    "early_stopping": false,
+    "class_reweighting": false,
+    "threshold_search": false,
+    "seed_search": false,
+    "missing_policy": "exact Phase 25 probability fallback"
+  },
+  "evaluation": {
+    "decision_threshold": 0.677819,
+    "reference": {
+      "mcc": 0.8390181404798325,
+      "auprc": 0.9281708597568626,
+      "brier": 0.05939949004168534,
+      "ece_10": 0.05110902710928455
+    },
+    "length_reference_mcc": {
+      "11-15": 0.6504267492346457,
+      "16-30": 0.7812252492583115,
+      "31-50": 0.8919053414967528
+    },
+    "length_reference_auprc": {
+      "11-15": 0.6925766243278225,
+      "16-30": 0.9135098658052947,
+      "31-50": 0.9516045421689131
+    },
+    "source_probe": "fold-local standardized L2 logistic classifier over matched legacy/BioEmu embeddings",
+    "external_test_labels_read": false
+  },
+  "promotion_gate": {
+    "global_mcc_strictly_above": 0.8390181404798325,
+    "global_auprc_at_least": 0.9281708597568626,
+    "maximum_brier": 0.06039949004168534,
+    "maximum_ece_10": 0.05310902710928455,
+    "minimum_fold_mcc_non_decreases": 3,
+    "maximum_length_mcc_regression": 0.005,
+    "maximum_length_auprc_regression": 0.002,
+    "minimum_net_decision_corrections": 1,
+    "maximum_matched_source_probe_bacc": 0.7,
+    "minimum_matched_embedding_cosine": 0.9,
+    "all_conditions_required": true
+  },
+  "prohibitions": [
+    "Test1/Test2 access",
+    "post-hoc architecture or loss changes",
+    "epoch, seed, threshold, subset, residual-weight, or checkpoint search",
+    "full BioEmu generation",
+    "3D handoff regeneration unless every promotion gate passes"
+  ]
+}

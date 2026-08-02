@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import math
 from dataclasses import dataclass
 from pathlib import Path
 

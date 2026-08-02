@@ -1,0 +1,25 @@
+{
+  "status": "ready_for_phase33_boundary_specialist",
+  "selected": 600,
+  "generated": 574,
+  "reused": 26,
+  "cache_root": "data\\bioemu_boundary_600\\cache_600",
+  "conformer_manifest": "data\\bioemu_boundary_600\\cache_600\\conformer_manifest.csv",
+  "server_report": "runs\\bioemu_boundary_600_server\\generation_feasibility.json",
+  "boundary_specialist_training_authorized": true,
+  "external_test_labels_read": false,
+  "total_filtered_conformers": 16510,
+  "generated_total_filtered_conformers": 15809,
+  "length_strata": {
+    "16-30": 246,
+    "31-50": 285,
+    "11-15": 69
+  },
+  "folds": {
+    "3": 145,
+    "1": 235,
+    "0": 53,
+    "2": 108,
+    "4": 59
+  }
+}

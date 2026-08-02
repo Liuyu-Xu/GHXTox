@@ -1,0 +1,45 @@
+{
+  "status": "ready_for_autodl_generation",
+  "selection_was_label_blind": true,
+  "external_test_labels_read": false,
+  "selected": 600,
+  "reuse_existing": 26,
+  "new_generation_required": 574,
+  "by_fold": {
+    "0": 53,
+    "1": 235,
+    "2": 108,
+    "3": 145,
+    "4": 59
+  },
+  "by_length": {
+    "31-50": 285,
+    "16-30": 246,
+    "11-15": 69
+  },
+  "by_existing_generator": {
+    "AF2-31-50-pilot": 68,
+    "AF2-16-30": 246,
+    "not_generated": 217,
+    "PepFlow": 69
+  },
+  "post_freeze_label_diagnostics": {
+    "positive": 394,
+    "negative": 206,
+    "phase25_errors": 157,
+    "note": "Labels were joined only after deterministic membership was frozen."
+  },
+  "cost_projection_from_verified_pilot": {
+    "median_seconds_per_sequence": 50.54500307235867,
+    "mean_storage_bytes_per_sequence": 358714.39,
+    "projected_new_gpu_hours": 8.059119934314966,
+    "projected_new_storage_gb": 0.20590205986000001
+  },
+  "files": {
+    "protocol": "protocol.json",
+    "selected_manifest": "selected_600.csv",
+    "generation_manifest": "generate_missing.csv",
+    "generation_fasta": "generate_missing.fasta",
+    "reuse_manifest": "reuse_existing.csv"
+  }
+}

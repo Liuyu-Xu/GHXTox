@@ -2159,12 +2159,6 @@ def train_full_adapter(
             if use_conformer_features
             else 0
         ),
-        "geometry_ssl_dim": (
-            int(payload["metadata"].get("geometry_ssl_dim", 0))
-            if use_geometry_ssl
-            else 0
-        ),
-        "hierarchical_fusion": hierarchical_fusion,
         "hidden_dim": 128,
         "num_heads": 4,
         "dropout": 0.2,

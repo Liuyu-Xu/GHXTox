@@ -1,4 +1,4 @@
-from ghxtox.multisource_conformer_analysis import _bucket
+from ghxtox.multisource_conformer_analysis import _length_bucket
 
 
 def test_length_buckets_cover_long_peptide_pilot_strata():
@@ -13,4 +13,4 @@ def test_length_buckets_cover_long_peptide_pilot_strata():
         46: "46-50",
         51: "51+",
     }
-    assert {length: _bucket(length) for length in expected} == expected
+    assert {length: _length_bucket(length) for length in expected} == expected

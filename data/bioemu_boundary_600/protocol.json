@@ -1,0 +1,42 @@
+{
+  "status": "frozen_before_phase33_generation",
+  "artifact": "phase33_unified_bioemu_decision_boundary_cohort",
+  "input": {
+    "retained_handoff": "runs\\three_d_team_handoff\\oof_3d_predictions.csv",
+    "retained_handoff_sha256": "4a241180743ad9e7c68165e636b67f24dfb6751de07ebc4fbe6241c2d7845fda",
+    "rows": 6387
+  },
+  "selection": {
+    "uses_training_labels": false,
+    "uses_external_test_labels": false,
+    "target_size": 600,
+    "fixed_threshold": 0.677819,
+    "rank": "abs(toxicity_probability - fixed_threshold)",
+    "tie_breaker": "source_index ascending",
+    "minimum_rows_per_outer_fold": 50,
+    "post_selection_rule_search_allowed": false
+  },
+  "generation": {
+    "bioemu_package": "1.4.1",
+    "bioemu_model": "bioemu-v1.2",
+    "base_seed": 20260731,
+    "requested_conformers_per_sequence": 32,
+    "physical_filter": "filter_samples=True",
+    "msa_protocol": "BioEmu bundled ColabFold/MMseqs2 default remote MSA",
+    "resume_existing_completed_outputs": true,
+    "full_6387_generation_authorized": false
+  },
+  "evaluation_boundary": {
+    "phase25_exact_fallback_outside_selected_cohort": true,
+    "fixed_threshold": 0.677819,
+    "test1_test2_labels_sealed": true,
+    "seed_threshold_subset_checkpoint_search_after_oof": false
+  },
+  "reuse_source": {
+    "report": "runs/bioemu_pilot_200/pilot_feasibility.json",
+    "report_sha256": "9a58f9626a2bc5db9f03234f00a7083e8ac4e206a94e2eb804f61597092d1308",
+    "manifest": "data/bioemu_pilot/train_pilot_200.csv",
+    "manifest_sha256": "ffc477c39273950d721b650db9e7540bb7c9de7219468d5a91be6c8c091409ff",
+    "requires_same_package_model_seed_and_32_samples": true
+  }
+}

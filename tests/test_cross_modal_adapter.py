@@ -23,11 +23,6 @@ from ghxtox.geometry_pretrain import (
     cross_view_geometry_loss,
     geometry_ssl_loss,
 )
-from ghxtox.geometry_pretrain import (
-    GeometrySSLModel,
-    cross_view_geometry_loss,
-    geometry_ssl_loss,
-)
 
 
 def _payload() -> dict:

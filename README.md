@@ -3187,11 +3187,17 @@ logit(p_final)
 
 队友只能按`source_index`连接，并核对fold与label。该表是base OOF输入，不允许直接在整张表上拟合fusion/meta-model后再在同一表报告结果；正式融合指标必须使用项目已有的nested OOF协议，使一个outer fold的上游预测和融合参数均不接触该fold。Test1/Test2不得用于选择融合权重、校准、阈值或缺失处理。
 
-### C.14 进行中：3D-v2预注册多随机种子稳定性与等权集成（Phase 26）
+### C.14 已完成：3D-v2预注册多随机种子稳定性与等权集成（Phase 26）
 
 当前3D最高优先级不是继续扩大BioEmu生成，也不是从多个随机种子中只挑最高分，而是验证保留3D-v2完整路径的稳定性。协议已在查看新种子结果前冻结：随机种子固定为`42/123/2025`，canonical五折、网络、训练日程、预处理、缺失构象回退和阈值`0.677819`均不改变。每个种子先从同一组冻结control checkpoint训练chemical-site 3D-v2分支，再从该种子对应的五折checkpoint训练capability-aware conformer residual；最终只允许三个种子的毒性概率做无权算术平均。
 
-冻结协议及输入SHA256见[`protocol.json`](runs/3d_v2_multiseed/protocol.json)。参考handoff基线已用同一float64指标实现精确复核：6387行、MCC `0.839018`、AUPRC `0.928171`、Brier `0.05939949`、ECE-10 `0.05110903`。种子42必须先达到概率Pearson不少于`0.995`，且MCC/AUPRC/Brier绝对差分别不超过`0.003/0.001/0.001`；未通过时脚本会阻止123和2025启动。
+冻结协议及输入SHA256见[`protocol.json`](runs/3d_v2_multiseed/protocol.json)。参考handoff基线已用同一float64指标实现精确复核：6387行、MCC `0.839018`、AUPRC `0.928171`、Brier `0.05939949`、ECE-10 `0.05110903`。种子42已通过参考复现门：6387行精确对齐，概率Pearson `0.999564`，MCC/AUPRC/Brier绝对差为`0.002000/0.000269/0.000275`，均在预注册容差内，因此授权AutoDL继续运行种子123和2025。
+
+三个完整种子均完成6,387行OOF；单种子MCC分别为`0.837018/0.836632/0.836202`，AUPRC分别为`0.927901/0.926662/0.927475`。三种子等权集成MCC/AUPRC为`0.835649/0.927630`，低于保留参考`0.839018/0.928171`；Brier/ECE-10从`0.059399/0.051109`改善到`0.058648/0.048849`，但不足以覆盖主判别指标退化。
+
+冻结推广门未通过：MCC未严格提高、AUPRC未达到参考、11-15 aa长度层MCC/AUPRC退化超限；虽然五折中有3折MCC不下降且Brier/ECE合格，所有条件并未同时满足。等权集成相对参考只有16个阈值决策不同，修正4个参考错误但新增12个错误，净修正为`-8`；三种子预测高度一致，全部seed决策一致率`0.991545`，说明失败不是单次运行异常，而是多seed平均不适合替换当前3D handoff。
+
+最终决定为[`retain_seed42_3d_handoff`](runs/3d_v2_multiseed/ensemble/decision.json)：保留C.13团队交付包，不重建handoff，不从三个seed中挑最高者，不移动阈值，不读取Test1/Test2。机器可读汇总见[`summary.json`](runs/3d_v2_multiseed/ensemble/summary.json)，种子42复现门见[`reference_gate.json`](runs/3d_v2_multiseed/seed_42/reference_gate.json)。
 
 Windows RTX环境：
 
@@ -3206,4 +3212,350 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\evaluate_3d_v2_m
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\evaluate_3d_v2_multiseed_oof.ps1 -Stage aggregate
 ```
 
-AutoDL/Linux环境使用`bash scripts/evaluate_3d_v2_multiseed_oof.sh 42 all --resume`，并可通过`GHXTOX_PYTHON`和`GHXTOX_DEVICE`指定解释器与设备。汇总报告将同时给出各种子、五折、三个长度层、生成器来源cohort、决策分歧、校准及运行/存储统计。只有等权集成同时满足MCC严格高于`0.839018`、AUPRC不低于`0.928171`、至少3/5折MCC不下降以及冻结的Brier/ECE/长度层退化限制，才允许重建团队handoff；最佳单种子永不作为选择结果。Test1/Test2保持封存。
+AutoDL/Linux环境使用`bash scripts/evaluate_3d_v2_multiseed_oof.sh 42 all --resume`，并可通过`GHXTOX_PYTHON`和`GHXTOX_DEVICE`指定解释器与设备；123/2025已在RTX 4090上完成，结果已导入本地工程。汇总报告同时给出各种子、五折、三个长度层、生成器来源cohort、决策分歧、校准及运行/存储统计。最佳单种子永不作为选择结果，Test1/Test2保持封存。
+
+### C.15 已完成：来源标准化物理化学3D描述符检验（Phase 27）
+
+本阶段没有继续刷随机种子，而是在查看候选OOF前冻结20个可解释的Cα空间物理化学描述符，包括归一化回转半径、形状非球性、接触密度/接触序、暴露残基比例、疏水/正负电荷斑块、疏水矩/电荷矩、正负电荷接触、Cys空间接近以及骨架螺旋/伸展几何代理。冻结协议见[`protocol.json`](runs/physical_3d_descriptors/protocol.json)，实现见[`physical_3d_descriptors.py`](src/ghxtox/physical_3d_descriptors.py)。这些特征来自现有3195条训练构象摘要，不需要重新生成结构，也没有读取Test1/Test2。
+
+为降低“生成器来源=长度层”的混杂，每个canonical外折只用其余四折、并在PepFlow、AF2-16-30和AF2-31-50-pilot内部单独拟合`StandardScaler`。随后使用固定L2 logistic regression（`C=0.1`、`class_weight=balanced`、`solver=liblinear`、seed `20260801`）得到结构描述符概率，并按预注册公式加入保留3D logit：
+
+```text
+candidate_logit
+  = retained_3d_logit
+  + 0.15 * clip(descriptor_logit, -1, 1)
+```
+
+阈值继续固定为`0.677819`；3192条无多构象行逐位保持原概率。没有搜索特征子集、残差权重、阈值或随机种子。完整汇总和决定分别见[`summary.json`](runs/physical_3d_descriptors/summary.json)与[`decision.json`](runs/physical_3d_descriptors/decision.json)。
+
+| 指标 | Phase 25保留3D | 物理描述符候选 | 候选减参考 |
+|---|---:|---:|---:|
+| MCC | 0.839018 | 0.838166 | -0.000853 |
+| AUPRC | 0.928171 | 0.928202 | +0.000031 |
+| Brier | 0.059399 | 0.059270 | -0.000129 |
+| ECE-10 | 0.051109 | 0.051295 | +0.000186 |
+
+折内来源标准化把held-fold线性来源分类BACC从`0.917099`降至`0.333333`，说明主要线性来源均值/尺度信号被有效消除；但这没有转化为固定阈值MCC提升。候选只改变8条决策：修正3条、破坏5条，净修正`-2`。五折中3折MCC不下降，fold 3下降`0.007737`。11–15 aa/PepFlow是主要失败层，MCC由`0.650427`降至`0.643650`，超过预注册`0.005`退化容差；16–30 aa基本持平，31–50 aa也轻微下降。
+
+最终决定为`retain_phase25_3d_handoff`：保留C.13团队交付，不重建handoff，不修改本阶段描述符、残差权重或阈值。下一项3D研究若继续，应采用单独冻结的全原子表面化学短肽方案，计算本阶段Cα代理没有提供的SASA、暴露疏水表面和电荷表面组织；该方案必须作为新阶段重新预注册，不能用于事后挽救本结果。
+
+复现命令：
+
+```powershell
+$env:PYTHONPATH = "src"
+D:\anaconda\envs\pytorch_env\python.exe -m ghxtox.physical_3d_descriptors `
+  --protocol runs\physical_3d_descriptors\protocol.json `
+  --output-root runs\physical_3d_descriptors
+```
+
+### C.16 已完成：全原子表面化学短肽专用检验（Phase 28）
+
+为验证C.15的Cα暴露代理是否遗漏真实表面化学，本阶段另行预注册了只作用于PepFlow 11–15 aa的全原子候选。协议见[`protocol.json`](runs/surface_3d_short_specialist/protocol.json)，实现见[`surface_3d_short_specialist.py`](src/ghxtox/surface_3d_short_specialist.py)。输入固定为761条短肽、每条8个PepFlow模型；每个模型移除显式氢原子后，使用Biopython Shrake–Rupley（探针1.4 Å、100个球面点）计算重原子SASA。
+
+12个冻结描述符覆盖总SASA/残基、疏水和带电残基SASA比例、电荷SASA不平衡、硫/骨架暴露、最大暴露疏水/正电/负电斑块、SASA加权疏水矩/电荷矩以及跨构象总SASA变异系数。每个外折只在其余四折短肽上拟合`StandardScaler + L2 LogisticRegression`（`C=0.1`、balanced、seed `20260801`），然后按固定公式：
+
+```text
+short_candidate_logit
+  = retained_3d_logit
+  + 0.10 * clip(surface_logit, -1, 1)
+```
+
+只修改held-out PepFlow短肽；其余5626条中长肽或非目标来源逐位保持Phase 25概率。761条×8模型的完整提取与五折评估耗时`101.5`秒CPU，不需要GPU；回退一致性检查为`0`处不匹配。完整结果和决定分别见[`summary.json`](runs/surface_3d_short_specialist/summary.json)和[`decision.json`](runs/surface_3d_short_specialist/decision.json)。
+
+| 指标 | Phase 25保留3D | 全原子短肽候选 | 候选减参考 |
+|---|---:|---:|---:|
+| 全局MCC | 0.839018 | 0.838649 | -0.000370 |
+| 全局AUPRC | 0.928171 | 0.928200 | +0.000029 |
+| 全局Brier | 0.059399 | 0.059343 | -0.000056 |
+| 全局ECE-10 | 0.051109 | 0.050989 | -0.000120 |
+| 11–15 aa MCC | 0.650427 | 0.645344 | -0.005083 |
+| 11–15 aa AUPRC | 0.692577 | 0.693980 | +0.001404 |
+
+五折中4折MCC完全不变，仅fold 3下降`0.001830`。候选在6387条中只改变1个固定阈值决策，且该决策由正确变为错误，纠正`0`、新增错误`1`。因此总体MCC严格提高、短肽MCC严格提高和净修正为正三项冻结门槛均失败，最终决定为`retain_phase25_3d_handoff`。不得调整`0.10`权重、挑选表面特征或更换阈值后重跑；本结果证明全原子表面描述符含有微弱排序/校准信号，但目前不具备替换或增强保留3D分支的固定阈值证据。
+
+```powershell
+$env:PYTHONPATH = "src"
+D:\anaconda\envs\pytorch_env\python.exe -m ghxtox.surface_3d_short_specialist `
+  --protocol runs\surface_3d_short_specialist\protocol.json `
+  --output-root runs\surface_3d_short_specialist
+```
+
+### C.17 已完成：固定阈值短肽3D端到端margin专用检验（Phase 29）
+
+为避免C.15/C.16的样本级描述符只能改善排序而不能改善固定阈值决策，本阶段把阈值邻域非对称margin loss直接加入3D-v2训练器。协议在查看候选OOF前冻结于[`protocol.json`](runs/short_margin_3d/protocol.json)，实现与汇总器分别见[`train.py`](src/ghxtox/train.py)和[`short_margin_3d.py`](src/ghxtox/short_margin_3d.py)。Test1/Test2标签未读取。
+
+训练只使用原有分层PepFlow pilot250（111正、139负），不把后来新增且全为负类的511条短肽重新用于监督拟合。每个canonical外折从与Phase 25相同的`chemical_site_ablation_include_same_residue_fold{fold}` checkpoint初始化，只训练15个构象残差张量；seed固定为42，epoch固定为12，batch size为32，学习率为`0.001`，不使用类别重加权。损失固定为：
+
+```text
+loss = BCEWithLogits
+     + 0.005 * abs(conformer_delta)
+     + 0.10 * asymmetric_hinge(
+           threshold=0.677819,
+           logit_margin=0.15,
+           positive_multiplier=1.5)
+```
+
+epoch 12的最终状态无条件作为checkpoint；held-out折指标只记录、不参与最佳epoch选择。最终只替换pilot250的250条OOF概率，其余6137条逐位沿用Phase 25。完整结果和决定分别见[`summary.json`](runs/short_margin_3d/aggregate/summary.json)和[`decision.json`](runs/short_margin_3d/aggregate/decision.json)。本机RTX 4060从哈希预检、五折训练到6387条推理和汇总共耗时`173.1`秒。
+
+| 指标 | Phase 25保留3D | Phase 29候选 | 候选减参考 |
+|---|---:|---:|---:|
+| 全局MCC | 0.839018 | 0.838611 | -0.000408 |
+| 全局AUPRC | 0.928171 | 0.928100 | -0.000071 |
+| 全局Brier | 0.059399 | 0.059428 | +0.000029 |
+| 全局ECE-10 | 0.051109 | 0.051066 | -0.000043 |
+| pilot250 MCC | 0.572184 | 0.564547 | -0.007636 |
+| pilot250 AUPRC | 0.824843 | 0.823187 | -0.001656 |
+
+五折中fold 0/2/3/4的固定阈值MCC不变，fold 1下降`0.038184`；250条中只改变1个决策，且由正确变为错误，纠正`0`、新增错误`1`。因此全局MCC不下降、pilot MCC至少提高`0.005`、最差折回退不超过`0.02`、净纠错为正四项冻结门槛均失败，最终决定为`retain_phase25_3d_handoff`。正式评估入口显式使用`--fixed-threshold 0.677819`并禁用OOF阈值搜索；也不得再从阈值、中间epoch、随机种子或margin权重中挑最好者。
+
+Windows复现：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_short_margin_3d_oof.ps1 `
+  -Stage all -Resume -Device cuda
+```
+
+AutoDL/Linux复现：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export GHXTOX_PYTHON=python
+export GHXTOX_DEVICE=cuda
+bash scripts/evaluate_short_margin_3d_oof.sh all --resume
+```
+
+这一负结果说明当前短肽瓶颈主要是正类构象覆盖和折间方差，而不是缺少另一个margin常数。下一项3D研究不应继续刷本pilot的epoch/seed/阈值；若继续使用现有数据，优先方向应是对全部多构象样本做不使用毒性标签的残基级几何预训练和生成器域不变约束，再只进行一次预注册微调。更高价值的外部条件是新增独立正类短肽构象或预冻结外部验证集。
+
+### C.18 已完成：现有数据多构象域稳健残基级预训练（Phase 30）
+
+在用户确认没有新数据后，本阶段执行了C.17预先规定的最高优先级现有数据方案。协议在候选OOF前冻结于[`protocol.json`](runs/ensemble_domain_ssl_3d/protocol.json)：每个外折的3D编码器只看其余四折的现有结构，不使用毒性标签；同一来源随机选择两个不同对齐构象，学习残基恢复、距离/接触恢复、集合中位距离和接触占据率，并只在143条同序列legacy/BioEmu配对上施加权重`0.25`的跨来源一致性。由于生成器和长度仍混杂，没有对全部未配对样本使用来源对抗器。
+
+编码器固定为两层、64维、4个epoch，每个来源最多使用8个构象；随后冻结编码器，把每个残基的构象均值与标准差交给一个零初始化的注意力残差头。残差绝对logit上限固定为`0.35`，只训练15个epoch；阈值继续固定为`0.677819`，不搜索epoch、seed、阈值、权重或子集。3,252条有现成构象的记录接受折外残差，其余3,135条逐位精确回退Phase 25。实现见[`ensemble_domain_ssl_3d.py`](src/ghxtox/ensemble_domain_ssl_3d.py)，完整汇总与决定分别见[`summary.json`](runs/ensemble_domain_ssl_3d/summary.json)和[`decision.json`](runs/ensemble_domain_ssl_3d/decision.json)。本机RTX 4060五折总耗时`336.3`秒。
+
+| 指标 | Phase 25保留3D | Phase 30候选 | 候选减参考 |
+|---|---:|---:|---:|
+| MCC | 0.839018 | 0.837986 | -0.001032 |
+| AUPRC | 0.928171 | 0.928654 | +0.000484 |
+| Brier | 0.059399 | 0.058481 | -0.000919 |
+| ECE-10 | 0.051109 | 0.048398 | -0.002711 |
+
+候选改善了排序与校准，但只改变14条固定阈值决策：纠正6条、破坏8条，净纠正`-2`；五折中只有fold 0持平、fold 4提高，其余三折下降。11–15 aa仍是主要瓶颈，MCC由`0.650427`降至`0.632203`，超过冻结容差；16–30 aa由`0.781225`升至`0.783248`，31–50 aa由`0.891905`轻微降至`0.890492`。跨生成器配对embedding平均余弦达到`0.993872`，但fold-local线性来源探针BACC仍为`0.779720`，高于`0.70`门槛，说明高余弦并未消除可线性分离的来源指纹。
+
+最终决定为`retain_phase25_3d_handoff`。Phase 30不得通过事后更换随机种子、一致性权重、残差上限、阈值或checkpoint进行挽救，也不授权全量BioEmu生成或重建团队handoff。现有数据条件下，高优先级的3D seed稳定性、可解释物理描述符、全原子表面化学、短肽margin和多构象无标签预训练路线均已按预注册协议完成；正式交付仍使用C.13的Phase 25文件。
+
+Windows复现：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_ensemble_domain_ssl_3d_oof.ps1 `
+  -Resume -Device cuda
+```
+
+AutoDL/Linux复现：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export GHXTOX_PYTHON=python
+export GHXTOX_DEVICE=cuda
+bash scripts/evaluate_ensemble_domain_ssl_3d_oof.sh --resume
+```
+
+### C.19 已完成：共享斜率、长度截距收缩校准筛查（Phase 31）
+
+本阶段采纳“不要分别拟合三个自由Platt模型”的建议，在候选结果产生前冻结四参数公式：
+
+```text
+logit(p_cal)
+  = exp(alpha) * logit(p_Phase25)
+  + b0
+  + bs * I(length 11-15)
+  + bl * I(length 31-50)
+```
+
+16–30 aa为参考层，`alpha`限制在`[-3,3]`，目标函数固定为平均logistic loss加`0.01*alpha^2 + 0.25*(bs^2+bl^2)`；每个held fold只应用另外四折拟合的参数，校准阈值固定为`0.5`。不使用生成器、pLDDT、质量、标签比例、Phase 30或1D/2D特征，也不搜索阈值、正则或参数化。协议见[`protocol.json`](runs/length_calibration_3d/protocol.json)，实现见[`length_conditioned_calibration_3d.py`](src/ghxtox/length_conditioned_calibration_3d.py)。
+
+需要特别说明证据等级：Phase25已经生成的其他四折OOF分数可能来自训练时包含当前held fold的上游模型，因此这只是cross-fitted低成本筛查，不是严格嵌套的二级模型评估。代码强制`direct_handoff_promotion_allowed=false`；即使门禁通过，也只能授权按`train_nested_groupcv`重新训练完整Phase25上游路径，不能直接覆盖正式handoff。
+
+五折CPU筛查耗时约`4.9`秒，所有L-BFGS-B拟合均收敛。共享斜率为`0.3413–0.4227`；强L2把短截距限制在`-0.0050–-0.0030`，长截距限制在`+0.0035–+0.0075`，说明实际变化主要是全局概率压缩，而非明显长度修正。
+
+| 指标 | Phase25原始3D | Phase31校准 | 校准减原始 |
+|---|---:|---:|---:|
+| MCC | 0.839018 | 0.835319 | -0.003700 |
+| AUPRC | 0.928171 | 0.924213 | -0.003958 |
+| Brier | 0.059399 | 0.056150 | -0.003249 |
+| ECE-10 | 0.051109 | 0.018028 | -0.033081 |
+
+概率校准确实明显改善，但固定阈值分类退化：27条决策改变，纠正8条、破坏19条，净纠正`-11`。11–15 aa MCC由`0.650427`降至`0.632614`，16–30 aa由`0.781225`降至`0.779625`，31–50 aa由`0.891905`降至`0.888832`；fold 0提高、fold 3/4持平，fold 1下降`0.016927`。原始/校准概率Pearson和Spearman仍为`0.986097/0.996198`，排除了数值异常。
+
+最终决定见[`decision.json`](runs/length_calibration_3d/decision.json)：`retain_phase25_and_stop_length_calibration`。由于筛查同时未通过全局MCC、全局/分层AUPRC、短肽MCC和净纠错门槛，不值得继续消耗GPU做严格嵌套Phase25重训练。正式3D交付保持C.13不变；供融合队友审计的原始/校准双列文件保存在[`fusion_handoff.csv`](runs/length_calibration_3d/fusion_handoff.csv)，但校准列不得作为已晋级模型使用。
+
+Windows复现：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_length_calibration_3d_oof.ps1
+```
+
+AutoDL/Linux复现：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export GHXTOX_PYTHON=python
+bash scripts/evaluate_length_calibration_3d_oof.sh
+```
+
+### C.20 已完成：Phase30编码器末层有限解冻的独立3D证据（Phase 32）
+
+在共享斜率校准未通过后，本阶段执行了一个仍能保持严格外折边界的有限解冻方案。每个外折从对应的Phase30无标签编码器checkpoint初始化，只解冻第二个也是最后一个EGNN层`encoder.layers.1`；输入投影、第一层、最终归一化和SSL解码器全部冻结。监督训练只接收其余四折的多构象张量与毒性标签，完全不接收Phase25概率或logit，因此不会出现C.19所述的二级OOF协变量来源问题。
+
+训练协议在候选预测前冻结于[`protocol.json`](runs/partial_unfreeze_3d/protocol.json)：每条训练样本随机取两个构象，推理固定聚合最多八个构象的残基均值与标准差；独立注意力头训练8个epoch，encoder/head学习率分别为`1e-5/3e-4`，使用训练四折内计算的正类权重，不做early stopping或checkpoint选择。只有在独立3D头预测held fold之后，才应用固定公式：
+
+```text
+candidate_logit
+  = phase25_held_logit
+  + 0.15 * tanh(standalone_3d_logit)
+```
+
+阈值保持`0.677819`。3,252条现有ensemble覆盖行获得折外证据，其余3,135条逐位精确回退Phase25。零构象方差通道使用固定`1e-6`数值稳定项，防止标准差在零点产生非有限梯度；真实批次有限值检查和针对性回归测试均通过。实现见[`partial_unfreeze_3d.py`](src/ghxtox/partial_unfreeze_3d.py)，完整汇总与决定分别见[`summary.json`](runs/partial_unfreeze_3d/summary.json)和[`decision.json`](runs/partial_unfreeze_3d/decision.json)。成功的本机RTX 4060五折运行约耗时267秒。
+
+| 指标 | Phase25保留3D | Phase32候选 | 候选减参考 |
+|---|---:|---:|---:|
+| MCC | 0.839018 | 0.838129 | -0.000889 |
+| AUPRC | 0.928171 | 0.928231 | +0.000061 |
+| Brier | 0.059399 | 0.059289 | -0.000110 |
+| ECE-10 | 0.051109 | 0.050691 | -0.000418 |
+
+候选仍呈现“排序/校准略好、固定阈值判别略差”的模式：10条决策发生变化，其中纠正4条、破坏6条，净纠正`-2`。fold 0持平、fold 1和4提高，达到3折不下降；fold 2和3下降。11–15、16–30、31–50 aa的MCC分别变化`-0.003092/-0.000116/-0.001360`，虽然均未超过容差，但没有长度层提供正向MCC证据。独立3D头在3,252条覆盖样本上的MCC/AUPRC仅为`0.601901/0.768539`；配对embedding余弦`0.991944`、来源探针BACC `0.776224`，说明来源稳定性没有明显恶化，却也没有转化为更好的决策边界。
+
+最终决定为`retain_phase25_3d_handoff`：全局MCC严格提高与净纠错为正两项冻结门失败，故不重建团队handoff，不调整`0.15`证据权重，不挑epoch/seed/长度层或checkpoint进行事后挽救。恢复模式重跑已复现byte-identical的summary、decision和6387行OOF CSV；正式3D交付仍使用C.13的Phase25文件。
+
+Windows复现：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_partial_unfreeze_3d_oof.ps1 `
+  -Device cuda
+```
+
+AutoDL/Linux复现：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export GHXTOX_PYTHON=python
+export GHXTOX_DEVICE=cuda
+bash scripts/evaluate_partial_unfreeze_3d_oof.sh --resume
+```
+
+### C.21 已完成：Phase33 统一 BioEmu 决策边界 3D 专家
+本阶段使用已经冻结的 600 条 Phase25 决策边界样本，不重新选择 seed、阈值、epoch、残差权重或样本子集。AutoDL 端只生成 label-free BioEmu 结构；本地导入后再按 canonical fold 加回训练标签。最终缓存为 `data/bioemu_boundary_600/cache_600/conformer_manifest.csv`，共 600 条，其中 574 条来自本次 AutoDL 生成、26 条复用已验证 BioEmu pilot，合计 16,510 个过滤后构象。
+
+训练协议冻结于 [`protocol.json`](runs/bioemu_boundary_specialist_3d/protocol.json)。每个外折仅使用其他四折的 BioEmu ensemble 和标签训练一个独立 3D evidence head，从对应 Phase30 encoder checkpoint 初始化，只解冻 `encoder.layers.1`。推理后只对冻结的 600 条边界样本应用固定残差：
+
+```text
+candidate_logit
+  = phase25_held_logit
+  + 0.15 * tanh(standalone_3d_logit)
+```
+
+其他 5,787 条训练 OOF 行逐位精确回退 Phase25。Test1/Test2 未读取，阈值固定为 `0.677819`。完整汇总见 [`summary.json`](runs/bioemu_boundary_specialist_3d/summary.json)，最终决定见 [`decision.json`](runs/bioemu_boundary_specialist_3d/decision.json)。
+
+| 指标 | Phase25 3D | Phase33 3D | 变化 |
+|---|---:|---:|---:|
+| MCC | 0.839018 | 0.839758 | +0.000740 |
+| AUPRC | 0.928171 | 0.928204 | +0.000033 |
+| Brier | 0.059399 | 0.059378 | -0.000021 |
+| ECE-10 | 0.051109 | 0.051094 | -0.000015 |
+
+固定阈值下共有 4 条决策改变，其中 3 条纠正、1 条退化，净纠正 `+2`。五折中 4 折 MCC 不下降，三个长度层均在冻结容差内。因此本阶段通过预先声明的 promotion gate，并生成新的团队交付目录 [`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33)。融合队友应使用其中 `oof_3d_predictions.csv::toxicity_probability` 作为升级后的 3D OOF 分数；旧的 [`runs/three_d_team_handoff`](runs/three_d_team_handoff) 保留为 Phase25 基线，不被覆盖。
+
+Windows 复现：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_boundary_specialist_3d_oof.ps1 `
+  -Device cuda `
+  -OutputRoot runs\bioemu_boundary_specialist_3d_reproduction
+
+# 只有由当前代码生成、且携带相同 protocol SHA256 的中断结果才能安全续跑
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  scripts\evaluate_boundary_specialist_3d_oof.ps1 `
+  -Device cuda `
+  -OutputRoot runs\bioemu_boundary_specialist_3d_reproduction `
+  -Resume
+```
+
+AutoDL/Linux 复现：
+
+```bash
+cd /root/autodl-tmp/GHXTox
+export GHXTOX_PYTHON=python
+export GHXTOX_DEVICE=cuda
+export GHXTOX_PHASE33_OUTPUT_ROOT=runs/bioemu_boundary_specialist_3d_reproduction
+bash scripts/evaluate_boundary_specialist_3d_oof.sh
+
+# 中断后只允许续跑同一冻结 protocol 产生的带签名 fold 结果
+bash scripts/evaluate_boundary_specialist_3d_oof.sh --resume
+```
+
+团队交付目录可以从 Phase25 基线和 Phase33 OOF 结果确定性重建；生成器会验证 promotion gate、全部 6,387 行身份/折/标签对齐、600 条 BioEmu 边界行、5,787 条逐值精确回退、`0.15` 残差上限和输出 SHA256：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m ghxtox.phase33_team_handoff `
+  --reference-root runs/three_d_team_handoff `
+  --phase33-root runs/bioemu_boundary_specialist_3d `
+  --output-root runs/three_d_team_handoff_phase33
+```
+
+### C.22 冻结的 1D/2D/3D 融合方案与算法审计（2026-08-02）
+
+#### C.22.1 当前结论与输入边界
+
+现在不需要为全部 6,387 条训练样本重新生成 BioEmu。Phase33 的有效作用是对冻结的 600 条低置信度边界样本作小幅 3D 残差修正，而不是让独立 BioEmu 分类头接管全局预测；后者在 600 条上的 MCC 只有 `0.170354`。因此融合使用完整的 6,387 行 Phase33 3D OOF 分数，但新增 BioEmu 构象仍只覆盖 600 行；其余 5,787 行严格使用 Phase25 分数。
+
+融合队友必须准备三份训练 OOF 表：1D、2D 和 [`Phase33 3D`](runs/three_d_team_handoff_phase33/oof_3d_predictions.csv)。每份表至少包含 `source_index/sample_id/fold/label/sequence/toxicity_probability`，并满足：
+
+1. `source_index` 唯一且三表集合完全相同；只按 `source_index` 连接，禁止依赖 CSV 当前行序；
+2. `sample_id/sequence/label/fold` 逐行一致，概率有限且位于 `[0,1]`；
+3. Phase33 的 `phase33_*`、生成器来源、pLDDT、标签比例和质量字段只用于审计，不能作为本轮主融合的监督特征；
+4. Test1/Test2 标签不得进入对齐、权重、校准、阈值、模型选择或消融决策。
+
+#### C.22.2 正式指标：严格 outer-nested 融合
+
+普通基模型 OOF 表上的“留一折拟合融合器”只能作为探索性筛查，不能直接作为论文 headline：对元训练行生成 OOF 特征的上游模型，可能训练时见过当前元测试折。正式结果必须基于 [`train_nested_groupcv.csv`](data/folds/train_nested_groupcv.csv) 为每个 outer fold 重新产生上游预测：
+
+1. 对 outer fold `k`，1D、2D、Phase25/33 3D 的模型、归一化、特征选择、checkpoint 选择和构象残差训练均不得读取 outer-`k` 的标签；
+2. `train` 角色只用于训练各上游模型和融合权重；`validation` 角色只用于上游 checkpoint/预冻结选择；`calibration` 角色只用于最终单调校准；`test` 角色只预测一次；
+3. 五个 outer-test 预测拼接后才计算全局 MCC、AUPRC、AUROC、Brier、ECE-10、五折 MCC、三个长度层指标和混淆矩阵；
+4. 如果队友暂时没有这套 outer-nested 1D/2D/3D 预测，只能把当前 OOF 融合写成“exploratory second-level OOF screen”，不能据此替换默认模型或报告无偏泛化提升。
+
+#### C.22.3 预先冻结的低自由度融合器
+
+主融合只使用三个概率，先裁剪到 `[1e-6,1-1e-6]` 并转为 logit：
+
+```text
+z = w1 * logit(p_1d) + w2 * logit(p_2d) + w3 * logit(p_3d)
+w1,w2,w3 >= 0,  w1+w2+w3 = 1
+p_final = sigmoid(a * z + b),  a > 0
+```
+
+- 非负凸权重 `w` 仅在 outer-train 上按 log-loss 拟合；不做模型子集、随机种子或权重网格后选；
+- 单调校准参数 `a,b` 仅在 outer-calibration 上拟合；校准后分类阈值固定为 `0.5`，不再搜索 MCC 阈值；
+- 三个预声明消融必须使用完全相同的 outer split 和训练流程：`1D+2D`、`1D+2D+Phase25 3D`、`1D+2D+Phase33 3D`；
+- Phase33 只有在相对 `1D+2D+Phase25 3D` 同时满足以下冻结门槛时才进入最终融合：全局 MCC 严格提高、AUPRC 不下降、Brier 增加不超过 `0.0005`、ECE-10 增加不超过 `0.001`、至少 3/5 outer-fold MCC 不下降、每个长度层 MCC 回退不超过 `0.005`，且固定 0.5 下净纠正数为正；所有条件必须同时通过；
+- 不允许在看到上述结果后改用最佳单折、最佳 seed、最佳 3D 子集、质量门控或重新搜索阈值。未通过时保留 Phase25 3D 融合对照。
+
+#### C.22.4 当前可做与尚未授权的工作
+
+[`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33) 是训练 OOF 交付包，不是 Test1/Test2 或任意新序列的生产推理模型。当前允许队友完成三路 OOF 对齐、探索性筛查，并准备严格 nested 上游流；尚未授权直接把训练 OOF specialist 用到测试集。
+
+正式部署前还需单独冻结：用全部 600 条训练 BioEmu 样本拟合的 full-train 3D specialist，以及对未知样本仅依赖 Phase25 概率的 label-free 边界选择规则。该规则必须在查看任何测试结果前确定；测试集只为被该规则选中的边界样本生成 BioEmu，不需要全量重跑训练集。当前 600/6,387=`9.3941%` 和训练 OOF 第 600 名绝对概率边距 `0.317708327` 仅作为协议设计记录，二者不能在看到 Test1/Test2 表现后择优。
+
+#### C.22.5 本轮算法审计修复
+
+- `oof_fusion` 现在明确把普通二层 OOF 标记为探索性，并输出 strict-nested provenance 警告；
+- 修复了筛选允许 `fusion_space=logit`、冻结应用却始终按概率空间平均的不一致；
+- 新增 source-index 重复、跨专家 fold 不一致、非二元标签、NaN/Inf 和越界概率检查；
+- Phase33 `--resume` 现在验证 fold、seed、完整冻结配置、protocol SHA256、held ID 集和 probability/logit 一致性，旧或串用结果会拒绝载入；
+- Phase33 交付包改为可重复生成，并把自身 CSV SHA256、`train_oof_only` 和 `production_unseen_inference_ready=false` 写入机器合同。

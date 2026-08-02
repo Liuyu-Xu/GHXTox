@@ -1,8 +1,11 @@
-"""Leakage-controlled fusion of two aligned OOF prediction streams.
+"""Second-level screening of two aligned OOF prediction streams.
 
-The fusion weight and decision threshold are selected only from training OOF
-predictions.  A leave-one-fold-out screening pass estimates whether the
-fusion generalizes before the final parameters are frozen on all OOF rows.
+The held row's label is excluded when its fusion weight and threshold are
+selected.  This is useful as an exploratory screen, but existing upstream OOF
+features do not by themselves prove strict nested provenance: meta-training
+features may have been produced by upstream models that saw the current
+meta-held fold.  A headline generalization claim therefore requires separately
+generated outer-nested upstream streams.
 """
 
 from __future__ import annotations
@@ -28,7 +31,9 @@ def _read_predictions(path: str | Path) -> list[dict[str, str]]:
     required = {"sample_id", "sequence", "label", "toxicity_probability"}
     missing = required.difference(rows[0])
     if missing:
-        raise ValueError(f"Prediction file {path} is missing columns: {sorted(missing)}")
+        raise ValueError(
+            f"Prediction file {path} is missing columns: {sorted(missing)}"
+        )
     return rows
 
 
@@ -42,18 +47,34 @@ def _aligned_arrays(
     baseline = _read_predictions(baseline_path)
     expert = _read_predictions(expert_path)
     if len(baseline) != len(expert):
-        raise ValueError(f"Prediction row counts differ: {len(baseline)} versus {len(expert)}")
+        raise ValueError(
+            f"Prediction row counts differ: {len(baseline)} versus {len(expert)}"
+        )
+    for name, rows in (("baseline", baseline), ("expert", expert)):
+        if "source_index" in rows[0]:
+            source_indices = [int(row["source_index"]) for row in rows]
+            if len(source_indices) != len(set(source_indices)):
+                raise ValueError(
+                    f"{name} predictions contain duplicate source_index rows."
+                )
     for index, (left, right) in enumerate(zip(baseline, expert)):
         # Historical project assets use both ``peptide_1`` and
         # ``train_000001|1`` for the same row.  Permit that identifier alias
         # only after the immutable row index, sequence and label agree.
         for key in ("sequence", "label"):
             if left[key] != right[key]:
-                raise ValueError(f"Prediction alignment mismatch at row {index}, column {key}.")
+                raise ValueError(
+                    f"Prediction alignment mismatch at row {index}, column {key}."
+                )
         if "source_index" in left and "source_index" in right:
             if int(left["source_index"]) != int(right["source_index"]):
                 raise ValueError(
                     f"Prediction alignment mismatch at row {index}, column source_index."
+                )
+        if "fold" in left and "fold" in right:
+            if int(left["fold"]) != int(right["fold"]):
+                raise ValueError(
+                    f"Prediction alignment mismatch at row {index}, column fold."
                 )
     labels = np.asarray([int(row["label"]) for row in baseline], dtype=np.int64)
     baseline_probabilities = np.asarray(
@@ -62,6 +83,16 @@ def _aligned_arrays(
     expert_probabilities = np.asarray(
         [float(row["toxicity_probability"]) for row in expert], dtype=np.float64
     )
+    if not set(labels.tolist()).issubset({0, 1}):
+        raise ValueError("Prediction labels must be binary.")
+    for name, probabilities in (
+        ("baseline", baseline_probabilities),
+        ("expert", expert_probabilities),
+    ):
+        if not np.isfinite(probabilities).all():
+            raise ValueError(f"{name} probabilities must all be finite.")
+        if np.any((probabilities < 0.0) | (probabilities > 1.0)):
+            raise ValueError(f"{name} probabilities must lie in [0, 1].")
     folds: np.ndarray | None = None
     if require_folds:
         if "fold" in baseline[0]:
@@ -74,7 +105,9 @@ def _aligned_arrays(
             for position, row in enumerate(baseline):
                 source_index = int(row.get("source_index", position))
                 if source_index not in by_index:
-                    raise ValueError(f"Fold manifest is missing source_index {source_index}.")
+                    raise ValueError(
+                        f"Fold manifest is missing source_index {source_index}."
+                    )
                 manifest_row = by_index[source_index]
                 for key in ("sequence", "label"):
                     if row[key] != manifest_row[key]:
@@ -134,10 +167,7 @@ def _combine_probabilities(
 ) -> np.ndarray:
     weight = float(expert_weight)
     if fusion_space == "probability":
-        return (
-            weight * expert_probabilities
-            + (1.0 - weight) * baseline_probabilities
-        )
+        return weight * expert_probabilities + (1.0 - weight) * baseline_probabilities
     if fusion_space == "logit":
         epsilon = 1e-6
         baseline = np.clip(baseline_probabilities, epsilon, 1.0 - epsilon)
@@ -222,6 +252,7 @@ def _select_weight_threshold(
         "expert_weight": best[3],
         "baseline_weight": 1.0 - best[3],
         "threshold": best[4],
+        "fusion_space": fusion_space,
         "selection_objective": objective,
         "training_primary_metric": best[0],
         "training_secondary_metric": best[1],
@@ -277,7 +308,9 @@ def screen_oof_fusion(
         crossfit_predictions[heldout_mask] = probabilities >= selected["threshold"]
         fold_selection.append({"heldout_fold": int(fold), **selected})
     if np.isnan(crossfit_probabilities).any():
-        raise RuntimeError("At least one OOF row did not receive a cross-fitted fusion prediction.")
+        raise RuntimeError(
+            "At least one OOF row did not receive a cross-fitted fusion prediction."
+        )
 
     frozen = _select_weight_threshold(
         labels,
@@ -300,7 +333,13 @@ def screen_oof_fusion(
         "protocol": {
             "baseline_predictions": str(baseline_path),
             "expert_predictions": str(expert_path),
-            "selection": f"leave-one-fold-out weight and threshold selection; {objective} primary",
+            "selection": f"exploratory leave-one-fold-out second-level weight and threshold selection; {objective} primary",
+            "provenance_level": "exploratory_second_level_oof",
+            "strict_nested_claim_authorized_by_this_artifact": False,
+            "strict_nested_requirement": (
+                "For each outer fold, regenerate every upstream train/calibration/held "
+                "prediction using models and preprocessing fitted without that outer fold."
+            ),
             "weight_step": float(weight_step),
             "threshold_step": float(threshold_step),
             "expert_weight_min": float(expert_weight_min),
@@ -370,13 +409,16 @@ def apply_frozen_fusion(
     *,
     expert_weight: float,
     threshold: float,
+    fusion_space: str = "probability",
 ) -> dict[str, Any]:
     rows, labels, baseline_probabilities, expert_probabilities, _ = _aligned_arrays(
         baseline_path, expert_path, require_folds=False
     )
-    probabilities = (
-        float(expert_weight) * expert_probabilities
-        + (1.0 - float(expert_weight)) * baseline_probabilities
+    probabilities = _combine_probabilities(
+        baseline_probabilities,
+        expert_probabilities,
+        float(expert_weight),
+        fusion_space,
     )
     metrics = _probability_metrics(labels, probabilities, threshold=float(threshold))
     summary = {
@@ -386,6 +428,7 @@ def apply_frozen_fusion(
             "expert_weight": float(expert_weight),
             "baseline_weight": 1.0 - float(expert_weight),
             "threshold": float(threshold),
+            "fusion_space": fusion_space,
             "parameters_selected_from_test_labels": False,
         },
         "metrics": metrics,
@@ -393,7 +436,9 @@ def apply_frozen_fusion(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     save_json(summary, output_path / "metrics.json")
-    with (output_path / "predictions.csv").open("w", encoding="utf-8", newline="") as handle:
+    with (output_path / "predictions.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as handle:
         fieldnames = [
             "sample_id",
             "sequence",
@@ -423,9 +468,14 @@ def apply_frozen_fusion(
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="OOF-selected two-model probability fusion.")
+    parser = argparse.ArgumentParser(
+        description="Exploratory second-level OOF screening and frozen two-model fusion."
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
-    screen = subparsers.add_parser("screen", help="Cross-fit and freeze OOF fusion parameters.")
+    screen = subparsers.add_parser(
+        "screen",
+        help="Exploratorily cross-fit and freeze OOF fusion parameters.",
+    )
     screen.add_argument("--baseline", required=True)
     screen.add_argument("--expert", required=True)
     screen.add_argument("--output-dir", required=True)
@@ -446,12 +496,19 @@ def build_arg_parser() -> argparse.ArgumentParser:
         choices=["mcc", "balanced_accuracy", "balanced_mcc"],
         default="mcc",
     )
-    apply = subparsers.add_parser("apply", help="Apply already frozen fusion parameters.")
+    apply = subparsers.add_parser(
+        "apply", help="Apply already frozen fusion parameters."
+    )
     apply.add_argument("--baseline", required=True)
     apply.add_argument("--expert", required=True)
     apply.add_argument("--output-dir", required=True)
     apply.add_argument("--expert-weight", type=float, required=True)
     apply.add_argument("--threshold", type=float, required=True)
+    apply.add_argument(
+        "--fusion-space",
+        choices=["probability", "logit"],
+        default="probability",
+    )
     return parser
 
 
@@ -481,6 +538,7 @@ def main() -> None:
         args.output_dir,
         expert_weight=args.expert_weight,
         threshold=args.threshold,
+        fusion_space=args.fusion_space,
     )
     print(json.dumps(result["metrics"], indent=2))
 

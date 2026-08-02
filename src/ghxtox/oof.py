@@ -83,6 +83,24 @@ def _best_threshold(logits: torch.Tensor, labels: torch.Tensor, metric: str) -> 
     return threshold, metrics
 
 
+def _resolve_evaluation_threshold(
+    logits: torch.Tensor,
+    labels: torch.Tensor,
+    metric: str,
+    fixed_threshold: float | None,
+) -> tuple[float, dict, str]:
+    """Select the legacy OOF optimum or apply one externally frozen threshold."""
+
+    if fixed_threshold is None:
+        threshold, metrics = _best_threshold(logits, labels, metric)
+        return threshold, metrics, f"all OOF predictions maximize {metric}"
+    if not 0.0 < fixed_threshold < 1.0:
+        raise ValueError("fixed_threshold must be strictly between zero and one.")
+    threshold = float(fixed_threshold)
+    metrics = binary_metrics(logits, labels, threshold=threshold)
+    return threshold, metrics, "externally frozen; OOF threshold search disabled"
+
+
 def evaluate_oof(
     checkpoints: list[str | Path],
     processed: str | Path,
@@ -93,6 +111,7 @@ def evaluate_oof(
     batch_size: int = 64,
     metric: str = "mcc",
     mc_samples: int = 0,
+    fixed_threshold: float | None = None,
 ) -> dict:
     device = resolve_device(device_name)
     dataset = PeptideTensorDataset(processed, require_labels=True)
@@ -196,14 +215,19 @@ def evaluate_oof(
         raise RuntimeError(f"OOF coverage is {len(logits_by_index)}/{len(dataset)}.")
     ordered_logits = torch.stack([logits_by_index[index] for index in range(len(dataset))]).float()
     ordered_labels = torch.stack([labels_by_index[index] for index in range(len(dataset))]).float()
-    threshold, optimized = _best_threshold(ordered_logits, ordered_labels, metric)
+    threshold, optimized, threshold_protocol = _resolve_evaluation_threshold(
+        ordered_logits,
+        ordered_labels,
+        metric,
+        fixed_threshold,
+    )
     summary = {
         "protocol": {
             "processed": str(processed),
             "fold_manifest": str(fold_manifest),
             "num_folds": len(checkpoints),
             "num_samples": len(dataset),
-            "threshold_selection": f"all OOF predictions maximize {metric}",
+            "threshold_selection": threshold_protocol,
             "mc_dropout_samples": mc_samples,
         },
         "fold_metrics_at_0.5": fold_metrics,
@@ -234,6 +258,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--metric", default="mcc", choices=["accuracy", "balanced_accuracy", "f1", "mcc"])
     parser.add_argument("--mc-samples", type=int, default=0)
+    parser.add_argument(
+        "--fixed-threshold",
+        type=float,
+        default=None,
+        help="Evaluate only this external threshold and disable OOF threshold search.",
+    )
     return parser
 
 
@@ -249,6 +279,7 @@ def main() -> None:
         batch_size=args.batch_size,
         metric=args.metric,
         mc_samples=args.mc_samples,
+        fixed_threshold=args.fixed_threshold,
     )
     print(json.dumps(result, indent=2))
 

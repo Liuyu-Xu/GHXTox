@@ -464,7 +464,7 @@ def assess_sample(row: dict[str, str], sample_root: Path) -> dict[str, Any]:
         "sample_id": str(row["sample_id"]),
         "length_bin": str(row["length_bin"]),
         "length": len(expected_sequence),
-        "label": int(row["label"]),
+        "label": int(row["label"]) if row.get("label") not in (None, "") else None,
         "elapsed_seconds": float(status.get("elapsed_seconds", 0.0)),
         "storage_bytes": _directory_bytes(sample_root) if sample_root.exists() else 0,
         "returncode": status.get("returncode"),

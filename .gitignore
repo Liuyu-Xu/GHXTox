@@ -31,6 +31,23 @@ Lib/
 !/scripts/run_bioemu_pilot_autodl.sh
 !/scripts/evaluate_3d_v2_multiseed_oof.ps1
 !/scripts/evaluate_3d_v2_multiseed_oof.sh
+!/scripts/evaluate_short_margin_3d_oof.ps1
+!/scripts/evaluate_short_margin_3d_oof.sh
+!/scripts/evaluate_ensemble_domain_ssl_3d_oof.ps1
+!/scripts/evaluate_ensemble_domain_ssl_3d_oof.sh
+!/scripts/evaluate_length_calibration_3d_oof.ps1
+!/scripts/evaluate_length_calibration_3d_oof.sh
+!/scripts/evaluate_partial_unfreeze_3d_oof.ps1
+!/scripts/evaluate_partial_unfreeze_3d_oof.sh
+!/scripts/run_boundary_bioemu_autodl.sh
+
+# Keep the frozen Phase 30 protocol and compact reports, not fold weights/logs.
+/runs/ensemble_domain_ssl_3d/fold_*/
+/runs/partial_unfreeze_3d/fold_*/
+/runs/partial_unfreeze_3d/*.log
+
+# Keep the frozen Phase 29 protocol and compact reports, not fold weights/logs.
+/runs/short_margin_3d/fold*/
 
 # =========================
 # 3. 深度学习模型权重
@@ -50,6 +67,13 @@ Lib/
 *.npz
 *.fasta
 !/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
+!/runs/length_calibration_3d/oof_predictions.csv
+!/runs/length_calibration_3d/fusion_handoff.csv
+!/runs/length_calibration_3d/fold_coefficients.csv
+!/runs/partial_unfreeze_3d/oof_predictions.csv
+!/runs/bioemu_boundary_specialist_3d/oof_predictions.csv
+!/runs/three_d_team_handoff_phase33/oof_3d_predictions.csv
+!/runs/three_d_team_handoff_phase33/oof_3d_quality.csv
 /data/*
 !/data/pepflow_pilot/
 /data/pepflow_pilot/*
@@ -75,6 +99,22 @@ Lib/
 !/data/bioemu_pilot/smoke_6.fasta
 !/data/bioemu_pilot/smoke_6.csv
 !/data/bioemu_pilot/selection_summary.json
+!/data/bioemu_boundary_600/
+/data/bioemu_boundary_600/*
+!/data/bioemu_boundary_600/protocol.json
+!/data/bioemu_boundary_600/selection_summary.json
+!/data/bioemu_boundary_600/checksums.sha256
+!/data/bioemu_boundary_600/selected_600.csv
+!/data/bioemu_boundary_600/selected_600.fasta
+!/data/bioemu_boundary_600/generate_missing.csv
+!/data/bioemu_boundary_600/generate_missing.fasta
+!/data/bioemu_boundary_600/reuse_existing.csv
+!/data/bioemu_boundary_600/README_AUTODL.md
+!/data/bioemu_boundary_600/cache_600/
+/data/bioemu_boundary_600/cache_600/*
+!/data/bioemu_boundary_600/cache_600/conformer_manifest.csv
+!/data/bioemu_boundary_600/cache_600/import_summary.json
+!/data/bioemu_boundary_600/cache_600/import_checksums.sha256
 /dataset/
 /temp/
 
@@ -82,8 +122,11 @@ Lib/
 /runs/bioemu_pilot_200/*
 !/runs/bioemu_pilot_200/decision.json
 /runs/bioemu_pilot_200_dry_run/
+/runs/bioemu_boundary_600_server/*
+!/runs/bioemu_boundary_600_server/generation_feasibility.json
 
 # Keep the frozen Phase 26 protocol and compact reports, not fold weights/logs.
+/runs/3d_v2_multiseed/logs/
 /runs/3d_v2_multiseed/seed_*/driver*.log
 /runs/3d_v2_multiseed/seed_*/base/fold*/
 /runs/3d_v2_multiseed/seed_*/residual/fold*/

@@ -1,0 +1,127 @@
+{
+  "status": "frozen_before_candidate_oof",
+  "phase": 28,
+  "scope": "train-only all-atom PepFlow 11-15 aa surface-chemistry specialist",
+  "frozen_at": "2026-08-01",
+  "external_test_labels_read": false,
+  "reference": {
+    "artifact": "runs/three_d_team_handoff/oof_3d_predictions.csv",
+    "rows": 6387,
+    "threshold": 0.677819,
+    "overall_mcc": 0.8390181404798325,
+    "overall_auprc": 0.9281708597568626,
+    "overall_brier": 0.05939949004168534,
+    "overall_ece_10": 0.05110902710928455,
+    "short_rows": 761,
+    "short_mcc": 0.6504267492346457,
+    "short_auprc": 0.6925766243278225
+  },
+  "inputs": {
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "manifests": [
+      "data/pepflow_pilot/cache_le15/conformer_manifest.csv",
+      "data/pepflow_pilot/cache_remaining_le15/conformer_manifest.csv"
+    ],
+    "pdb_roots": [
+      "data/pepflow_pilot/raw_le15",
+      "data/pepflow_pilot/raw_remaining_le15"
+    ],
+    "expected_unique_rows": 761,
+    "expected_models_per_row": 8,
+    "target_length_stratum": "11-15",
+    "target_generator": "PepFlow"
+  },
+  "sasa_contract": {
+    "implementation": "Bio.PDB.SASA.ShrakeRupley",
+    "sphere_points": 100,
+    "probe_radius_angstrom": 1.4,
+    "atoms": "heavy atoms only; element H is removed before SASA",
+    "model_aggregation": "arithmetic mean unless the descriptor explicitly specifies coefficient of variation",
+    "relative_exposure_threshold": 0.25,
+    "surface_patch_centroid_cutoff_angstrom": 8.0,
+    "maximum_residue_sasa_angstrom2": {
+      "A": 129.0,
+      "R": 274.0,
+      "N": 195.0,
+      "D": 193.0,
+      "C": 167.0,
+      "Q": 225.0,
+      "E": 223.0,
+      "G": 104.0,
+      "H": 224.0,
+      "I": 197.0,
+      "L": 201.0,
+      "K": 236.0,
+      "M": 224.0,
+      "F": 240.0,
+      "P": 159.0,
+      "S": 155.0,
+      "T": 172.0,
+      "W": 285.0,
+      "Y": 263.0,
+      "V": 174.0
+    }
+  },
+  "descriptor_names": [
+    "total_sasa_per_residue_mean",
+    "hydrophobic_sasa_fraction_mean",
+    "charged_sasa_fraction_mean",
+    "charge_sasa_imbalance_mean",
+    "sulfur_sasa_fraction_mean",
+    "backbone_sasa_fraction_mean",
+    "largest_hydrophobic_surface_patch_fraction_mean",
+    "largest_positive_surface_patch_fraction_mean",
+    "largest_negative_surface_patch_fraction_mean",
+    "sasa_weighted_hydrophobic_moment_mean",
+    "sasa_weighted_charge_moment_mean",
+    "total_sasa_coefficient_of_variation"
+  ],
+  "physicochemical_contract": {
+    "hydrophobic_residues": ["A", "V", "I", "L", "M", "F", "W", "Y", "C"],
+    "positive_residues": ["K", "R", "H"],
+    "negative_residues": ["D", "E"],
+    "charge_values": {"K": 1.0, "R": 1.0, "H": 0.1, "D": -1.0, "E": -1.0},
+    "hydrophobic_scale": "Kyte-Doolittle divided by 4.5",
+    "backbone_atom_names": ["N", "CA", "C", "O", "OXT"],
+    "surface_patch_weight": "residue SASA divided by total model SASA",
+    "surface_patch_nodes": "matching-class residues with relative SASA at least 0.25",
+    "surface_patch_edges": "heavy-atom residue centroid distance strictly below 8.0 angstrom"
+  },
+  "outer_oof_candidate": {
+    "folds": [0, 1, 2, 3, 4],
+    "feature_preprocessing": "StandardScaler fit on target rows from the four outer-training folds only; held fold transformed and clipped to [-5,5]",
+    "model": "sklearn LogisticRegression",
+    "solver": "liblinear",
+    "penalty": "l2",
+    "C": 0.1,
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "random_seed": 20260801,
+    "residual_logit_clip": [-1.0, 1.0],
+    "residual_weight": 0.1,
+    "formula": "target candidate_logit = reference_logit + 0.10 * clip(surface_logit, -1, 1)",
+    "fallback": "all non-PepFlow or non-11-15 rows retain the reference probability exactly",
+    "threshold": 0.677819,
+    "feature_subset_search": false,
+    "threshold_search": false,
+    "seed_search": false
+  },
+  "promotion_gate": {
+    "overall_mcc_strictly_above": 0.8390181404798325,
+    "overall_auprc_at_least": 0.9281708597568626,
+    "short_mcc_strictly_above": 0.6504267492346457,
+    "short_auprc_at_least": 0.6925766243278225,
+    "fold_mcc_non_decrease_count_at_least": 3,
+    "max_overall_brier_increase": 0.001,
+    "max_overall_ece_10_increase": 0.002,
+    "net_decision_corrections_strictly_positive": true,
+    "all_conditions_required": true
+  },
+  "prohibitions": [
+    "Do not access Test1/Test2 labels.",
+    "Do not change SASA settings, descriptors, residual weight, threshold, seed, or model after viewing candidate OOF metrics.",
+    "Do not apply the short specialist to AF2 or missing-surface rows.",
+    "Do not select a feature subset, conformer subset, fold, checkpoint, seed, or threshold post hoc.",
+    "Do not regenerate the team handoff unless every promotion condition passes."
+  ]
+}

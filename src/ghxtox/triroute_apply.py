@@ -9,7 +9,6 @@ import math
 from pathlib import Path
 
 import torch
-from torch.nn import functional as F
 
 from ghxtox.metrics import binary_metrics
 from ghxtox.triroute import (

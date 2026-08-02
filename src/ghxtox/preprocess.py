@@ -14,7 +14,7 @@ from ghxtox.features import (
     residue_feature_matrix,
     sequence_global_features,
 )
-from ghxtox.geometry_features import chemical_structure_feature_matrix, structure_feature_matrix
+from ghxtox.geometry_features import structure_feature_matrix
 from ghxtox.structure import make_structure_provider
 from ghxtox.utils import DEFAULT_STRUCTURE_CACHE_DIR, DEFAULT_TRAIN_FASTA, DEFAULT_TRAIN_PROCESSED
 

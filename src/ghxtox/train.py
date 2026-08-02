@@ -245,6 +245,30 @@ def _supervised_contrastive_loss(
     return -mean_log_prob_pos[valid].mean()
 
 
+def _decision_margin_penalty(
+    logits: torch.Tensor,
+    labels: torch.Tensor,
+    *,
+    threshold: float,
+    margin: float,
+    positive_multiplier: float,
+) -> torch.Tensor:
+    """Return an asymmetric per-sample hinge penalty around a fixed threshold."""
+
+    threshold_logit = torch.logit(logits.new_tensor(threshold).clamp(1e-6, 1.0 - 1e-6))
+    signed_margin = torch.where(
+        labels > 0.5,
+        logits - threshold_logit,
+        threshold_logit - logits,
+    )
+    penalty = torch.relu(margin - signed_margin)
+    return penalty * torch.where(
+        labels > 0.5,
+        penalty.new_tensor(positive_multiplier),
+        penalty.new_tensor(1.0),
+    )
+
+
 def _run_epoch(
     model: GHXToxModel,
     loader: DataLoader,
@@ -259,6 +283,10 @@ def _run_epoch(
     residual_base_aux_weight: float = 0.0,
     residual_delta_l1: float = 0.0,
     conformer_delta_l1: float = 0.0,
+    decision_margin_weight: float = 0.0,
+    decision_threshold: float = 0.5,
+    decision_margin: float = 0.15,
+    positive_margin_multiplier: float = 1.5,
 ) -> dict[str, Any]:
     training = optimizer is not None
     model.train(training)
@@ -267,6 +295,7 @@ def _run_epoch(
     logits_all = []
     labels_all = []
     gates = []
+    total_margin_loss = 0.0
 
     for batch in loader:
         batch = move_batch_to_device(batch, device)
@@ -298,6 +327,16 @@ def _run_epoch(
                 temperature=contrastive_temperature,
             )
             loss = loss + contrastive_weight * contrastive
+        margin_loss = logits.new_zeros(())
+        if training and decision_margin_weight > 0.0:
+            margin_loss = _decision_margin_penalty(
+                logits,
+                labels,
+                threshold=decision_threshold,
+                margin=decision_margin,
+                positive_multiplier=positive_margin_multiplier,
+            ).mean()
+            loss = loss + decision_margin_weight * margin_loss
         if training:
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
@@ -305,6 +344,7 @@ def _run_epoch(
 
         batch_size = labels.shape[0]
         total_loss += float(loss.detach().cpu()) * batch_size
+        total_margin_loss += float(margin_loss.detach().cpu()) * batch_size
         total_items += batch_size
         logits_all.append(logits.detach().cpu())
         labels_all.append(labels.detach().cpu())
@@ -316,6 +356,7 @@ def _run_epoch(
     labels_cat = torch.cat(labels_all)
     result = binary_metrics(logits_cat, labels_cat)
     result["loss"] = total_loss / total_items
+    result["decision_margin_loss"] = total_margin_loss / total_items
     result["mean_global_gate"] = float(torch.cat(gates).mean()) if gates else float("nan")
     return result
 
@@ -382,6 +423,16 @@ def train(config: dict, args: argparse.Namespace) -> Path:
     if pos_weight is not None:
         pos_weight = pos_weight.to(device)
     criterion = _make_criterion(train_cfg, pos_weight)
+    decision_margin_weight = float(train_cfg.get("decision_margin_weight", 0.0))
+    decision_threshold = float(train_cfg.get("decision_threshold", 0.5))
+    decision_margin = float(train_cfg.get("decision_margin", 0.15))
+    positive_margin_multiplier = float(train_cfg.get("positive_margin_multiplier", 1.5))
+    if decision_margin_weight < 0.0 or decision_margin < 0.0:
+        raise ValueError("Decision-margin weight and width cannot be negative.")
+    if not 0.0 < decision_threshold < 1.0:
+        raise ValueError("Decision threshold must be strictly between zero and one.")
+    if positive_margin_multiplier <= 0.0:
+        raise ValueError("Positive margin multiplier must be positive.")
     optimizer = torch.optim.AdamW(
         trainable_parameters,
         lr=float(args.learning_rate or train_cfg["learning_rate"]),
@@ -442,6 +493,10 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                 contrastive_weight=contrastive_weight,
                 contrastive_temperature=contrastive_temperature,
                 atom_residual_l1=atom_residual_l1,
+                decision_margin_weight=decision_margin_weight,
+                decision_threshold=decision_threshold,
+                decision_margin=decision_margin,
+                positive_margin_multiplier=positive_margin_multiplier,
             )
             history.append({"epoch": epoch, "train": train_metrics})
             print(
@@ -496,8 +551,10 @@ def train(config: dict, args: argparse.Namespace) -> Path:
     residual_delta_l1 = float(train_cfg.get("residual_delta_l1", 0.0))
     conformer_delta_l1 = float(train_cfg.get("conformer_delta_l1", 0.0))
     selection_mode = str(train_cfg.get("selection_mode", "monitor")).lower()
-    if selection_mode not in {"monitor", "pareto"}:
-        raise ValueError("train.selection_mode must be 'monitor' or 'pareto'.")
+    if selection_mode not in {"monitor", "pareto", "fixed_epoch"}:
+        raise ValueError(
+            "train.selection_mode must be 'monitor', 'pareto', or 'fixed_epoch'."
+        )
     pareto_metric = str(train_cfg.get("pareto_metric", "auprc"))
     pareto_constraint_metric = str(train_cfg.get("pareto_constraint_metric", "mcc"))
     pareto_constraint_margin = float(train_cfg.get("pareto_constraint_margin", 0.0))
@@ -533,6 +590,10 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             residual_base_aux_weight=residual_base_aux_weight,
             residual_delta_l1=residual_delta_l1,
             conformer_delta_l1=conformer_delta_l1,
+            decision_margin_weight=decision_margin_weight,
+            decision_threshold=decision_threshold,
+            decision_margin=decision_margin,
+            positive_margin_multiplier=positive_margin_multiplier,
         )
         with torch.no_grad():
             val_metrics = _run_epoch(model, val_loader, criterion, device, optimizer=None)
@@ -579,6 +640,15 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                 "constraint_value": float(val_metrics[pareto_constraint_metric]),
                 "feasible": feasible,
             }
+        elif selection_mode == "fixed_epoch":
+            current_score = float(epoch)
+            improved = epoch == epochs
+            row["selection"] = {
+                "mode": "fixed_epoch",
+                "selected": improved,
+                "fixed_epoch": epochs,
+                "validation_metrics_are_diagnostic_only": True,
+            }
         else:
             current_score = float(val_metrics[monitor])
             improved = (
@@ -600,10 +670,18 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                     "config": config,
                     "epoch": epoch,
                     "val_metrics": val_metrics,
-                    "monitor": pareto_metric if selection_mode == "pareto" else monitor,
+                    "monitor": (
+                        pareto_metric
+                        if selection_mode == "pareto"
+                        else "fixed_epoch"
+                        if selection_mode == "fixed_epoch"
+                        else monitor
+                    ),
                     "monitor_mode": (
                         monitor_modes[pareto_metric]
                         if selection_mode == "pareto"
+                        else "fixed"
+                        if selection_mode == "fixed_epoch"
                         else monitor_mode
                     ),
                     "monitor_value": current_score,
@@ -624,6 +702,8 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         else:
             # Do not stop a Pareto run before it has produced at least one
             # checkpoint satisfying the control-MCC constraint.
+            if selection_mode == "fixed_epoch":
+                continue
             if selection_mode != "pareto" or best_score > -float("inf"):
                 stale_epochs += 1
                 if stale_epochs >= patience:
@@ -636,7 +716,13 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             "No validation epoch satisfied the Pareto constraint; "
             "auxiliary checkpoints and history were retained for diagnosis."
         )
-    selected_metric = pareto_metric if selection_mode == "pareto" else monitor
+    selected_metric = (
+        pareto_metric
+        if selection_mode == "pareto"
+        else "fixed_epoch"
+        if selection_mode == "fixed_epoch"
+        else monitor
+    )
     print(f"Best checkpoint saved to {best_path} ({selected_metric}={best_score:.6f})")
     return best_path
 

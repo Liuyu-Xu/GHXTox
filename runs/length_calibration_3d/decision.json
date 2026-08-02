@@ -1,0 +1,109 @@
+{
+  "status": "complete",
+  "decision": "retain_phase25_and_stop_length_calibration",
+  "screen_passed": false,
+  "strict_nested_retraining_authorized": false,
+  "promotion_authorized": false,
+  "handoff_regeneration_authorized": false,
+  "official_phase25_handoff_modified": false,
+  "external_test_labels_read": false,
+  "overall": {
+    "reference": {
+      "accuracy": 0.9350242680444654,
+      "balanced_accuracy": 0.9150081948444352,
+      "precision": 0.8997150997150997,
+      "recall": 0.8685368536853685,
+      "f1": 0.8838511055135739,
+      "mcc": 0.8390181404798325,
+      "auroc": 0.960692676840457,
+      "auprc": 0.9281708597568626,
+      "brier": 0.05939949004168534,
+      "ece_10": 0.05110902710928455,
+      "confusion_matrix": [
+        [
+          4393,
+          176
+        ],
+        [
+          239,
+          1579
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.9333020197275717,
+      "balanced_accuracy": 0.9151291852757173,
+      "precision": 0.8905723905723906,
+      "recall": 0.8729372937293729,
+      "f1": 0.8816666666666667,
+      "mcc": 0.8353185273260544,
+      "auroc": 0.957736778274019,
+      "auprc": 0.924213110876664,
+      "brier": 0.056150235594844014,
+      "ece_10": 0.018027644674370565,
+      "confusion_matrix": [
+        [
+          4374,
+          195
+        ],
+        [
+          231,
+          1587
+        ]
+      ]
+    }
+  },
+  "decision_transitions": {
+    "changed": 27,
+    "corrected": 8,
+    "regressed": 19,
+    "net": -11,
+    "corrected_source_indices": [
+      421,
+      581,
+      766,
+      784,
+      881,
+      982,
+      1615,
+      1643
+    ],
+    "regressed_source_indices": [
+      1909,
+      1924,
+      2425,
+      2737,
+      3003,
+      3271,
+      3307,
+      3748,
+      3897,
+      4042,
+      4874,
+      4957,
+      5256,
+      5611,
+      5715,
+      5724,
+      5826,
+      6310,
+      6343
+    ]
+  },
+  "advance_gate": {
+    "global_mcc_strictly_higher": false,
+    "global_auprc_within_tolerance": false,
+    "brier_not_worse": true,
+    "ece_10_within_tolerance": true,
+    "at_least_three_fold_mcc_non_decreases": true,
+    "short_mcc_not_lower": false,
+    "other_length_mcc_within_tolerance": true,
+    "all_length_auprc_within_tolerance": false,
+    "positive_net_decision_corrections": false,
+    "probability_pearson_at_least_minimum": true,
+    "optimizer_converged_every_fold": true,
+    "positive_shared_slope_every_fold": true,
+    "all_conditions_passed": false
+  },
+  "provenance_limitation": "Phase 25 OOF scores in the four calibrator-fitting folds may come from upstream models trained with the current held fold; passing this screen can authorize strict nested Phase 25 retraining but cannot authorize direct handoff replacement."
+}
