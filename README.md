@@ -1,15 +1,38 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-07-31
-状态：工程默认为ProtT5主导、pLDDT约束的逐残基序列—3D化学交互模型；原0.62/0.38联合模型保留为精确回退
+更新时间：2026-08-02
+状态：研究默认已升级为BioEmu决策保护跨维注意力概率主干与BACC优先决策残差（BioEmu-XAttn-DRes）；逐残基ProtT5→3D化学交互模型保留为非边界和未部署BioEmu资产时的精确回退
+
+公开模型名称统一如下；`Phase25/Phase33`仅作为旧文件、CSV字段和哈希合同中的内部阶段ID，不再作为论文或结果表中的模型名：
+
+| 公开名称 | 含义 | 旧内部阶段ID |
+|---|---|---|
+| 构象能力感知多构象3D基线（CAMC-3D） | 3D-v2主干加PepFlow/AF2构象统计残差，缺失构象时精确回退基础3D-v2 | Phase25 |
+| BioEmu决策边界残差3D专家（BioEmu-BR3D） | 只对600条冻结边界样本加入BioEmu证据，其余样本精确回退CAMC-3D | Phase33 |
+| BioEmu边界专家混合适配器（BioEmu-BMoE） | 在600条边界样本内互斥调用ProtT5边界专家或BioEmu获益门控，非边界精确回退逐残基交互模型 | 无 |
+| BioEmu决策保护跨维注意力模型（BioEmu-XAttn） | 以BioEmu-BMoE为基线，1D Query交叉注意CAMC、BioEmu与BR3D三个结构证据令牌，并保护冻结阈值侧别 | 无 |
+| BACC优先双专家决策残差（DRes） | 只在pooled ProtT5与1D+3D主干类别冲突且门控置信度极高时修正最终类别；不改动校准概率 | 无 |
+| 当前完整默认（BioEmu-XAttn-DRes） | BioEmu-XAttn负责概率排序与校准，DRes负责极少量高置信度类别纠错；缺少BioEmu部署资产时以逐残基交互概率主干运行同一DRes | 无 |
 
 ## 阅读导航与当前结论
 
 - 项目完整实现了1D序列、2D原子图和3D预测结构三条线路；当前联合默认实际使用 **1D序列 + 3D结构** 两个维度，其中1D同时包含ESM2残基语义和pooled ProtT5全局先验。
-- 默认结构专家为3D-v2构象统计残差版：ESM2序列Transformer + pLDDT-aware Cα-EGNN + 全原子化学位点残差 + 可选PepFlow柔性/接触占有率残差。无构象统计时硬掩码严格回退原3D-v2；联合权重仍为ProtT5/结构=`0.62/0.38`、阈值`0.60`。
+- 当前研究默认是BioEmu-XAttn：底层仍为ProtT5→3D逐残基化学交互模型；BioEmu-BMoE先在600条冻结边界样本内加入互斥的1D专家或BioEmu软门控残差，随后由1D查询令牌交叉注意CAMC-3D、BioEmu独立3D和BioEmu-BR3D三个结构证据令牌。非边界5,787条样本逐值回退底层模型，固定阈值仍为`0.60`。
+- BioEmu-BMoE相对原逐残基交互默认将OOF BACC/F1/MCC由`0.927181/0.906099/0.871184`提高到`0.927622/0.906463/0.871597`，固定阈值净纠正1条。按项目负责人决定，它已替换原模型成为研究默认；由于规则是在现有OOF误差审计后形成，这一升级不等于独立泛化显著性成立。
+- 决策保护跨维注意力保持上述BACC/F1/MCC和混淆矩阵不变，同时把AUROC/AUPRC从`0.977299/0.953661`提高到`0.977317/0.953692`，Brier/ECE-10从`0.0444774/0.0260303`降低到`0.0443286/0.0256180`，因此作为默认模型的最终概率输出层保留。未经阈值保护的同一注意力会净退化5条分类，证明保护包络是必要组件。
+- 为优先改善不平衡Test2的BACC，又在冻结概率之上加入决策残差。门控仅学习163条ProtT5与逐残基1D+3D主干意见不一致的训练OOF样本，并比较一层/两层/三层与80/240轮。最终按“其他指标不下降，且复杂模型必须带来至少`0.001` OOF BACC实质收益”的规则保留`1×16`隐藏单元、80轮；240轮一层模型的OOF BACC只比它高`0.000275`，不足以抵偿复杂度，两层和三层也没有形成更强的稳定结果。
+- DRes不重写BioEmu-XAttn概率，只覆盖最终类别，因此AUROC、AUPRC、Brier和ECE-10逐值不变。叠加当前研究默认后，OOF BACC/MCC/SN由`0.927622/0.871597/0.879538`提高到`0.928172/0.872395/0.880638`，SP保持`0.975706`；冻结后历史Test1所有汇总指标保持不变，Test2 BACC/MCC/SN由`0.849976/0.645569/0.739130`提高到`0.860845/0.660276/0.760870`，ACC/F1同步提高，SP保持`0.960821`。Test2只有46条正类，本次提升来自净纠正1条假阴性，只能作为历史集点估计，不能替代新外部集确认。
+
+| DRes特征提取层与训练轮数 | OOF BACC | OOF MCC | 净纠正 | 结论 |
+|---|---:|---:|---:|---|
+| 1层×16，80轮 | 0.927731 | 0.871982 | +2 | 保留；最简且在最佳BACC的0.001以内 |
+| 1层×16，240轮 | **0.928006** | **0.872381** | +3 | OOF仅多0.000275 BACC，未通过复杂度增益门槛 |
+| 2层×32/16，80轮 | 0.927456 | 0.871583 | +1 | 不保留 |
+| 2层×32/16，240轮 | 0.927456 | 0.871583 | +1 | 加轮数无增益 |
+| 3层×64/32/16，240轮 | 0.927181 | 0.871184 | 0 | 深层小样本门控失效 |
 - 新论文ToxPLTC路线已完成真实ProtT5验证：三随机种子TextCNN概率平均后，组感知OOF的BACC/MCC/AUROC/AUPRC为`0.9317/0.8586/0.9724/0.9436`，阈值`0.45`只由OOF-BACC平台规则确定。
 - 在相同Test1/Test2历史对照上，ProtT5性能候选分别达到BACC/MCC/AUROC/AUPRC `0.9342/0.8598/0.9802/0.9578`和`0.8860/0.6526/0.9588/0.7495`。相对ToxPLTC，Test1全部论文指标超过；Test2灵敏度在论文四位小数上持平`0.8261`，其余指标超过。相对导师ToxMSRC，当前仅Test2 MCC仍低约`0.0024`。
-- 原构象能力感知联合基线在训练OOF上的BACC/MCC/AUROC/AUPRC为`0.92746/0.86935/0.97730/0.95360`。在不改变`ProtT5/结构=0.62/0.38`和阈值`0.60`的前提下，新增逐残基非对称交互适配层：冻结ProtT5 token作Query，pLDDT降权后的3D残基状态作Key/Value，12维旋转不变官能团摘要通过局部门控写入结构状态，最后只允许有界、零初始化logit残差修正原联合概率。严格五折OOF达到BACC/MCC/AUROC/AUPRC/Brier `0.92718/0.87118/0.97729/0.95363/0.04449`，MCC提高`0.00184`、Brier降低`0.00017`并在3/5折提高MCC，因此升级为工程默认；BACC和AUROC分别微降`0.00028/0.000009`，不能写成全面提升。
+- 原构象能力感知联合基线在训练OOF上的BACC/MCC/AUROC/AUPRC为`0.92746/0.86935/0.97730/0.95360`。在不改变`ProtT5/结构=0.62/0.38`和阈值`0.60`的前提下，新增逐残基非对称交互适配层：冻结ProtT5 token作Query，pLDDT降权后的3D残基状态作Key/Value，12维旋转不变官能团摘要通过局部门控写入结构状态，最后只允许有界、零初始化logit残差修正原联合概率。严格五折OOF达到BACC/MCC/AUROC/AUPRC/Brier `0.92718/0.87118/0.97729/0.95363/0.04449`，MCC提高`0.00184`、Brier降低`0.00017`并在3/5折提高MCC，因此曾升级为底层工程默认；现作为BioEmu-XAttn的非边界精确回退。BACC和AUROC分别微降`0.00028/0.000009`，不能写成全面提升。
 - 冻结后Test1的BACC/MCC/AUROC/AUPRC由`0.92355/0.85884/0.98153/0.96492`提高到`0.92512/0.86113/0.98157/0.96497`，少1个假阴性；Test2混淆矩阵和MCC保持不变，AUROC/Brier改善而AUPRC由`0.78514`微降至`0.78493`。这些仍是多次用于历史开发的同数据测试，不是新的独立外部确认。缺少逐残基适配缓存时严格回退原0.62/0.38联合概率；缺少完整化学位点时继续回退纯ProtT5。
 - 已按后续价值优先级完成本地可运行的“无PLM几何自监督预训练→残基/空间基序/整肽三级1D–3D融合→1D/3D辅助头”验证。五个几何编码器分别只用另外四折结构训练遮蔽残基、距离和6/8/10 Å接触任务；三级融合OOF的BACC/MCC/AUROC/AUPRC/Brier达到`0.92834/0.87241/0.97735/0.95376/0.04450`，相对当前交互默认同时改善BACC、MCC和排序，并在4/5折提高MCC。但按OOF固定6轮全量重拟合后，历史Test1 MCC降至`0.85426`，Test2 AUROC/AUPRC降至`0.95754/0.78417`；五折几何编码器与五折适配器配对集成仍只有Test1 MCC `0.85655`，未消除迁移回退。因此该路线记为“训练内成立、历史域未迁移”的负消融，不替换默认。固定`1.10`正类损失权重还使OOF SN/MCC从`0.88119/0.87241`降至`0.88009/0.87123`，已停止且不再搜索其他权重。机器可读汇总见[`runs/geometry_ssl_fusion_screen/summary.json`](runs/geometry_ssl_fusion_screen/summary.json)。
 - 在此基础上又按迁移价值完成三项3D整合实验。第一项以ESMFold为公共锚点，在每个训练折内让同一肽的ESMFold表示分别与PepFlow或AF2构象对齐，并预测8构象的中位距离和6/8/10 Å接触占有率；它不读取毒性标签，并对两种生成器均衡采样。该候选OOF BACC/MCC/AUROC/AUPRC/Brier为`0.92773/0.87198/0.97732/0.95369/0.04446`，相对当前默认改善MCC、AUPRC和Brier；1–15 aa/PepFlow与16–30 aa/AF2域的MCC分别提高`0.00107/0.00457`，但当时尚无31–50 aa多构象输入的长度域下降`0.00140`。通过OOF最低筛选后只做一次冻结五折配对集成，历史Test1 MCC降至`0.85426`，Test2 AUROC/AUPRC降至`0.95741/0.78381`，因此拒绝升级。第二项以基础几何编码器和跨视图编码器的余弦一致度控制3D残差，虽得到OOF AUPRC/Brier `0.95380/0.04446`，但仅2折提高、1折持平、2折下降；第三项按长度×pLDDT做最坏伪域训练，OOF MCC/AUPRC/Brier只有`0.87084/0.95360/0.04463`。后二者均未查看历史测试并已停止。后续31–50 aa pilot400已单独完成，但仍未解除生成器与长度强耦合；默认模型、`0.62/0.38`权重和`0.60`阈值均不变。机器可读汇总见[`runs/geometry_cross_view_screen/summary.json`](runs/geometry_cross_view_screen/summary.json)。
@@ -305,6 +328,8 @@ ToxinPred3 的标签和结果现已被查看，因此它不再能用于下一轮
 ```
 
 三条线路都以残基为对齐单位，但它们回答的问题不同：1D关注序列语义和排列，2D关注共价键连接的局部化学，3D关注序列上可能相距很远的残基在空间中是否靠近。当前3D分支也接收ESM2表征，因此更准确的名称是 **PLM-enhanced geometric branch**，而不是纯几何模型。
+
+当前默认在上述底层残基模型之后还有两级边界适配：BioEmu-BMoE负责固定阈值纠偏，BioEmu-XAttn负责不跨阈值的概率重排。它们都只处理冻结的600条BioEmu边界样本，因此没有把2D重新并入默认，也没有改变“默认使用1D+3D两个维度”的结论。
 
 共同的 42 维显式残基特征覆盖：疏水性、形式化电荷类别、极性、芳香性、含硫性、正/负电类别、转角倾向、相对分子量、长度为 5 的局部窗口电荷/疏水性/官能团比例、相对位置、N/C 端倾向、脂肪族/支链/小残基类别、G/P/C/M 标记、羟基/酰胺/羧酸盐/伯胺/胍基/咪唑/酚/吲哚等官能团，以及由序列构造的理化关联图社区编号、社区比例和加权度。它们使模型可以直接访问可解释的理化信号，但这些人工描述符仍是序列派生量，不是实验测量值。
 
@@ -1413,16 +1438,16 @@ AUROC/AUPRC是阈值无关的排序指标；BACC、MCC、F1、Precision和Recall
 | --- | --- | ---: | ---: | ---: |
 | Test1 | 导师 ToxMSRC | **0.9217** | **0.8520** | 0.9650 |
 | Test1 | 3D-v2结构专家 | 0.9208 | 0.8464 | **0.9711** |
-| Test1 | 当前交互联合默认 | **0.9251** | **0.8611** | **0.9816** |
+| Test1 | 当前BioEmu-XAttn-DRes默认（部署回退） | **0.9251** | **0.8611** | **0.9816** |
 | Test1 | 当前性能候选 | **0.9342** | **0.8598** | **0.9802** |
 | Test1 | 性能候选减导师 | +0.0125 | +0.0078 | +0.0152 |
 | Test2 | 导师 ToxMSRC | **0.8689** | **0.6550** | **0.9430** |
 | Test2 | 3D-v2结构专家 | 0.8453 | 0.6128 | 0.9295 |
-| Test2 | 当前交互联合默认 | 0.8500 | 0.6456 | **0.9578** |
+| Test2 | 当前BioEmu-XAttn-DRes默认（部署回退） | 0.8608 | **0.6603** | **0.9578** |
 | Test2 | 当前性能候选 | **0.8860** | 0.6526 | **0.9588** |
 | Test2 | 性能候选减导师 | +0.0171 | -0.0024 | +0.0158 |
 
-联合默认相对导师论文在Test1的BACC/MCC/AUROC更高，但Test2 BACC/MCC仍低；它的作用是让默认架构同时体现ProtT5预训练语义和3D结构创新，不是取代纯ProtT5性能上限。三种子ProtT5性能候选已经超过导师论文的Test1 BACC/MCC/AUROC和Test2 BACC/AUROC，但Test2 MCC仍低约`0.0024`，因此仍不能声称全面超过导师论文。相对新ToxPLTC论文，全部指标在其报告精度上达到或超过，但Test2灵敏度只是持平而非严格超过。考虑到Test1/Test2已被历史开发多次查看，这些结果只能作为同数据历史对照；新的显著性或泛化主张仍需要预冻结外部集。
+当前默认相对导师论文在Test1的BACC/MCC/AUROC更高；DRes使Test2 MCC由低于导师`0.0094`变为高出约`0.0053`，但BACC仍低约`0.0081`，所以仍不能声称全面超过。纯ProtT5性能候选的Test2 BACC更高，但MCC为`0.6526`，低于当前DRes默认和导师结果。相对新ToxPLTC论文，性能候选的论文指标在其报告精度上达到或超过，但Test2灵敏度只是持平而非严格超过。考虑到Test1/Test2已被历史开发多次查看，所有这些结果只能作为同数据历史对照；新的显著性或泛化主张仍需要预冻结外部集。
 
 ### 11.2 当前项目相对导师论文的优势
 
@@ -1525,15 +1550,20 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | 1D 冻结配置 | [`configs/sequence_1d_bilstm.json`](configs/sequence_1d_bilstm.json) |
 | 2D 冻结配置 | [`configs/plm_sequence_atom_cross_attention.json`](configs/plm_sequence_atom_cross_attention.json) |
 | 当前联合默认配置 | [`configs/default_toxpltc_hybrid.json`](configs/default_toxpltc_hybrid.json) |
-| 当前联合默认推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
-| 联合默认OOF筛选 | [`runs/3d_v2_prott5_global_mcc_oof/summary.json`](runs/3d_v2_prott5_global_mcc_oof/summary.json) |
-| 联合默认保留决定与冻结结果 | [`runs/3d_v2_prott5_global_mcc/decision.json`](runs/3d_v2_prott5_global_mcc/decision.json) |
+| 当前研究默认OOF结果 | [`runs/bioemu_cross_dimension_attention_oof/summary.json`](runs/bioemu_cross_dimension_attention_oof/summary.json) |
+| 当前研究默认决定 | [`runs/bioemu_cross_dimension_attention_oof/decision.json`](runs/bioemu_cross_dimension_attention_oof/decision.json) |
+| BACC优先决策残差实现与深度/轮数消融 | [`src/ghxtox/bacc_recall_residual.py`](src/ghxtox/bacc_recall_residual.py)、[`runs/bacc_prioritized_decision_residual/summary.json`](runs/bacc_prioritized_decision_residual/summary.json) |
+| 当前完整默认OOF类别输出 | [`runs/bacc_prioritized_decision_residual/research_default_oof_predictions.csv`](runs/bacc_prioritized_decision_residual/research_default_oof_predictions.csv) |
+| BioEmu-BMoE实现与结果 | [`src/ghxtox/bioemu_boundary_moe.py`](src/ghxtox/bioemu_boundary_moe.py)、[`runs/bioemu_boundary_moe_oof/summary.json`](runs/bioemu_boundary_moe_oof/summary.json) |
+| 决策保护跨维注意力实现 | [`src/ghxtox/cross_dimension_attention.py`](src/ghxtox/cross_dimension_attention.py) |
+| 底层逐残基交互推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
+| 历史0.62/0.38联合OOF筛选 | [`runs/3d_v2_prott5_global_mcc_oof/summary.json`](runs/3d_v2_prott5_global_mcc_oof/summary.json) |
 | ProtT5→3D交互适配器实现与训练入口 | [`src/ghxtox/cross_modal_adapter.py`](src/ghxtox/cross_modal_adapter.py) |
 | 无标签几何自监督与跨视图预训练入口 | [`src/ghxtox/geometry_pretrain.py`](src/ghxtox/geometry_pretrain.py) |
 | 几何自监督、三级融合及历史迁移决定 | [`runs/geometry_ssl_fusion_screen/summary.json`](runs/geometry_ssl_fusion_screen/summary.json)、[`runs/geometry_cross_view_screen/summary.json`](runs/geometry_cross_view_screen/summary.json) |
 | 无显式官能团门控的交互消融 | [`runs/prott5_structure_cross_attention_oof/summary.json`](runs/prott5_structure_cross_attention_oof/summary.json) |
-| 当前官能团交互默认的五折OOF | [`runs/prott5_structure_chemical_cross_attention_oof/summary.json`](runs/prott5_structure_chemical_cross_attention_oof/summary.json) |
-| 当前官能团交互默认的全数据checkpoint | [`runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt`](runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt) |
+| 底层官能团交互模型的五折OOF | [`runs/prott5_structure_chemical_cross_attention_oof/summary.json`](runs/prott5_structure_chemical_cross_attention_oof/summary.json) |
+| 底层官能团交互模型的全数据checkpoint | [`runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt`](runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt) |
 | 3D-v2结构专家配置 | [`configs/default.json`](configs/default.json) |
 | 历史3D-v1回退配置 | [`configs/default_3d_v1.json`](configs/default_3d_v1.json) |
 | 历史3D-v2单结构完整训练checkpoint | [`runs/3d_v2_default/best_model.pt`](runs/3d_v2_default/best_model.pt) |
@@ -3367,7 +3397,7 @@ bash scripts/evaluate_ensemble_domain_ssl_3d_oof.sh --resume
 
 ```text
 logit(p_cal)
-  = exp(alpha) * logit(p_Phase25)
+  = exp(alpha) * logit(p_CAMC-3D)
   + b0
   + bs * I(length 11-15)
   + bl * I(length 31-50)
@@ -3375,11 +3405,11 @@ logit(p_cal)
 
 16–30 aa为参考层，`alpha`限制在`[-3,3]`，目标函数固定为平均logistic loss加`0.01*alpha^2 + 0.25*(bs^2+bl^2)`；每个held fold只应用另外四折拟合的参数，校准阈值固定为`0.5`。不使用生成器、pLDDT、质量、标签比例、Phase 30或1D/2D特征，也不搜索阈值、正则或参数化。协议见[`protocol.json`](runs/length_calibration_3d/protocol.json)，实现见[`length_conditioned_calibration_3d.py`](src/ghxtox/length_conditioned_calibration_3d.py)。
 
-需要特别说明证据等级：Phase25已经生成的其他四折OOF分数可能来自训练时包含当前held fold的上游模型，因此这只是cross-fitted低成本筛查，不是严格嵌套的二级模型评估。代码强制`direct_handoff_promotion_allowed=false`；即使门禁通过，也只能授权按`train_nested_groupcv`重新训练完整Phase25上游路径，不能直接覆盖正式handoff。
+需要特别说明证据等级：CAMC-3D已经生成的其他四折OOF分数可能来自训练时包含当前held fold的上游模型，因此这只是cross-fitted低成本筛查，不是严格嵌套的二级模型评估。代码强制`direct_handoff_promotion_allowed=false`；即使门禁通过，也只能授权按`train_nested_groupcv`重新训练完整CAMC-3D上游路径，不能直接覆盖正式handoff。
 
 五折CPU筛查耗时约`4.9`秒，所有L-BFGS-B拟合均收敛。共享斜率为`0.3413–0.4227`；强L2把短截距限制在`-0.0050–-0.0030`，长截距限制在`+0.0035–+0.0075`，说明实际变化主要是全局概率压缩，而非明显长度修正。
 
-| 指标 | Phase25原始3D | Phase31校准 | 校准减原始 |
+| 指标 | CAMC-3D原始分数 | 长度条件校准候选 | 校准减原始 |
 |---|---:|---:|---:|
 | MCC | 0.839018 | 0.835319 | -0.003700 |
 | AUPRC | 0.928171 | 0.924213 | -0.003958 |
@@ -3388,7 +3418,7 @@ logit(p_cal)
 
 概率校准确实明显改善，但固定阈值分类退化：27条决策改变，纠正8条、破坏19条，净纠正`-11`。11–15 aa MCC由`0.650427`降至`0.632614`，16–30 aa由`0.781225`降至`0.779625`，31–50 aa由`0.891905`降至`0.888832`；fold 0提高、fold 3/4持平，fold 1下降`0.016927`。原始/校准概率Pearson和Spearman仍为`0.986097/0.996198`，排除了数值异常。
 
-最终决定见[`decision.json`](runs/length_calibration_3d/decision.json)：`retain_phase25_and_stop_length_calibration`。由于筛查同时未通过全局MCC、全局/分层AUPRC、短肽MCC和净纠错门槛，不值得继续消耗GPU做严格嵌套Phase25重训练。正式3D交付保持C.13不变；供融合队友审计的原始/校准双列文件保存在[`fusion_handoff.csv`](runs/length_calibration_3d/fusion_handoff.csv)，但校准列不得作为已晋级模型使用。
+最终决定见[`decision.json`](runs/length_calibration_3d/decision.json)：内部决定码为`retain_phase25_and_stop_length_calibration`。由于筛查同时未通过全局MCC、全局/分层AUPRC、短肽MCC和净纠错门槛，不值得继续消耗GPU做严格嵌套CAMC-3D重训练。正式3D交付保持C.13不变；供融合队友审计的原始/校准双列文件保存在[`fusion_handoff.csv`](runs/length_calibration_3d/fusion_handoff.csv)，但校准列不得作为已晋级模型使用。
 
 Windows复现：
 
@@ -3407,7 +3437,7 @@ bash scripts/evaluate_length_calibration_3d_oof.sh
 
 ### C.20 已完成：Phase30编码器末层有限解冻的独立3D证据（Phase 32）
 
-在共享斜率校准未通过后，本阶段执行了一个仍能保持严格外折边界的有限解冻方案。每个外折从对应的Phase30无标签编码器checkpoint初始化，只解冻第二个也是最后一个EGNN层`encoder.layers.1`；输入投影、第一层、最终归一化和SSL解码器全部冻结。监督训练只接收其余四折的多构象张量与毒性标签，完全不接收Phase25概率或logit，因此不会出现C.19所述的二级OOF协变量来源问题。
+在共享斜率校准未通过后，本阶段执行了一个仍能保持严格外折边界的有限解冻方案。每个外折从对应的多构象几何自监督编码器checkpoint初始化，只解冻第二个也是最后一个EGNN层`encoder.layers.1`；输入投影、第一层、最终归一化和SSL解码器全部冻结。监督训练只接收其余四折的多构象张量与毒性标签，完全不接收CAMC-3D概率或logit，因此不会出现C.19所述的二级OOF协变量来源问题。
 
 训练协议在候选预测前冻结于[`protocol.json`](runs/partial_unfreeze_3d/protocol.json)：每条训练样本随机取两个构象，推理固定聚合最多八个构象的残基均值与标准差；独立注意力头训练8个epoch，encoder/head学习率分别为`1e-5/3e-4`，使用训练四折内计算的正类权重，不做early stopping或checkpoint选择。只有在独立3D头预测held fold之后，才应用固定公式：
 
@@ -3417,9 +3447,9 @@ candidate_logit
   + 0.15 * tanh(standalone_3d_logit)
 ```
 
-阈值保持`0.677819`。3,252条现有ensemble覆盖行获得折外证据，其余3,135条逐位精确回退Phase25。零构象方差通道使用固定`1e-6`数值稳定项，防止标准差在零点产生非有限梯度；真实批次有限值检查和针对性回归测试均通过。实现见[`partial_unfreeze_3d.py`](src/ghxtox/partial_unfreeze_3d.py)，完整汇总与决定分别见[`summary.json`](runs/partial_unfreeze_3d/summary.json)和[`decision.json`](runs/partial_unfreeze_3d/decision.json)。成功的本机RTX 4060五折运行约耗时267秒。
+阈值保持`0.677819`。3,252条现有ensemble覆盖行获得折外证据，其余3,135条逐位精确回退CAMC-3D。零构象方差通道使用固定`1e-6`数值稳定项，防止标准差在零点产生非有限梯度；真实批次有限值检查和针对性回归测试均通过。实现见[`partial_unfreeze_3d.py`](src/ghxtox/partial_unfreeze_3d.py)，完整汇总与决定分别见[`summary.json`](runs/partial_unfreeze_3d/summary.json)和[`decision.json`](runs/partial_unfreeze_3d/decision.json)。成功的本机RTX 4060五折运行约耗时267秒。
 
-| 指标 | Phase25保留3D | Phase32候选 | 候选减参考 |
+| 指标 | CAMC-3D基线 | 多构象部分解冻候选 | 候选减参考 |
 |---|---:|---:|---:|
 | MCC | 0.839018 | 0.838129 | -0.000889 |
 | AUPRC | 0.928171 | 0.928231 | +0.000061 |
@@ -3428,7 +3458,7 @@ candidate_logit
 
 候选仍呈现“排序/校准略好、固定阈值判别略差”的模式：10条决策发生变化，其中纠正4条、破坏6条，净纠正`-2`。fold 0持平、fold 1和4提高，达到3折不下降；fold 2和3下降。11–15、16–30、31–50 aa的MCC分别变化`-0.003092/-0.000116/-0.001360`，虽然均未超过容差，但没有长度层提供正向MCC证据。独立3D头在3,252条覆盖样本上的MCC/AUPRC仅为`0.601901/0.768539`；配对embedding余弦`0.991944`、来源探针BACC `0.776224`，说明来源稳定性没有明显恶化，却也没有转化为更好的决策边界。
 
-最终决定为`retain_phase25_3d_handoff`：全局MCC严格提高与净纠错为正两项冻结门失败，故不重建团队handoff，不调整`0.15`证据权重，不挑epoch/seed/长度层或checkpoint进行事后挽救。恢复模式重跑已复现byte-identical的summary、decision和6387行OOF CSV；正式3D交付仍使用C.13的Phase25文件。
+最终决定为内部决定码`retain_phase25_3d_handoff`：全局MCC严格提高与净纠错为正两项冻结门失败，故不重建团队handoff，不调整`0.15`证据权重，不挑epoch/seed/长度层或checkpoint进行事后挽救。恢复模式重跑已复现byte-identical的summary、decision和6387行OOF CSV；正式3D交付仍使用C.13的CAMC-3D文件。
 
 Windows复现：
 
@@ -3447,8 +3477,8 @@ export GHXTOX_DEVICE=cuda
 bash scripts/evaluate_partial_unfreeze_3d_oof.sh --resume
 ```
 
-### C.21 已完成：Phase33 统一 BioEmu 决策边界 3D 专家
-本阶段使用已经冻结的 600 条 Phase25 决策边界样本，不重新选择 seed、阈值、epoch、残差权重或样本子集。AutoDL 端只生成 label-free BioEmu 结构；本地导入后再按 canonical fold 加回训练标签。最终缓存为 `data/bioemu_boundary_600/cache_600/conformer_manifest.csv`，共 600 条，其中 574 条来自本次 AutoDL 生成、26 条复用已验证 BioEmu pilot，合计 16,510 个过滤后构象。
+### C.21 已完成：BioEmu决策边界残差3D专家（BioEmu-BR3D）
+本阶段使用已经冻结的600条CAMC-3D决策边界样本，不重新选择seed、阈值、epoch、残差权重或样本子集。AutoDL端只生成label-free BioEmu结构；本地导入后再按canonical fold加回训练标签。最终缓存为`data/bioemu_boundary_600/cache_600/conformer_manifest.csv`，共600条，其中574条来自本次AutoDL生成、26条复用已验证BioEmu pilot，合计16,510个过滤后构象。
 
 训练协议冻结于 [`protocol.json`](runs/bioemu_boundary_specialist_3d/protocol.json)。每个外折仅使用其他四折的 BioEmu ensemble 和标签训练一个独立 3D evidence head，从对应 Phase30 encoder checkpoint 初始化，只解冻 `encoder.layers.1`。推理后只对冻结的 600 条边界样本应用固定残差：
 
@@ -3458,16 +3488,16 @@ candidate_logit
   + 0.15 * tanh(standalone_3d_logit)
 ```
 
-其他 5,787 条训练 OOF 行逐位精确回退 Phase25。Test1/Test2 未读取，阈值固定为 `0.677819`。完整汇总见 [`summary.json`](runs/bioemu_boundary_specialist_3d/summary.json)，最终决定见 [`decision.json`](runs/bioemu_boundary_specialist_3d/decision.json)。
+其他5,787条训练OOF行逐位精确回退CAMC-3D。Test1/Test2未读取，阈值固定为`0.677819`。完整汇总见[`summary.json`](runs/bioemu_boundary_specialist_3d/summary.json)，最终决定见[`decision.json`](runs/bioemu_boundary_specialist_3d/decision.json)。旧产物字段中的`phase33_*`仅为兼容性内部ID，公开模型名统一使用BioEmu-BR3D。
 
-| 指标 | Phase25 3D | Phase33 3D | 变化 |
+| 指标 | CAMC-3D基线 | BioEmu-BR3D | 变化 |
 |---|---:|---:|---:|
 | MCC | 0.839018 | 0.839758 | +0.000740 |
 | AUPRC | 0.928171 | 0.928204 | +0.000033 |
 | Brier | 0.059399 | 0.059378 | -0.000021 |
 | ECE-10 | 0.051109 | 0.051094 | -0.000015 |
 
-固定阈值下共有 4 条决策改变，其中 3 条纠正、1 条退化，净纠正 `+2`。五折中 4 折 MCC 不下降，三个长度层均在冻结容差内。因此本阶段通过预先声明的 promotion gate，并生成新的团队交付目录 [`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33)。融合队友应使用其中 `oof_3d_predictions.csv::toxicity_probability` 作为升级后的 3D OOF 分数；旧的 [`runs/three_d_team_handoff`](runs/three_d_team_handoff) 保留为 Phase25 基线，不被覆盖。
+固定阈值下共有4条决策改变，其中3条纠正、1条退化，净纠正`+2`。五折中4折MCC不下降，三个长度层均在冻结容差内。因此BioEmu-BR3D通过预先声明的promotion gate，并生成新的团队交付目录[`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33)。融合队友应使用其中`oof_3d_predictions.csv::toxicity_probability`作为升级后的3D OOF分数；旧的[`runs/three_d_team_handoff`](runs/three_d_team_handoff)保留为CAMC-3D基线，不被覆盖。
 
 Windows 复现：
 
@@ -3498,7 +3528,7 @@ bash scripts/evaluate_boundary_specialist_3d_oof.sh
 bash scripts/evaluate_boundary_specialist_3d_oof.sh --resume
 ```
 
-团队交付目录可以从 Phase25 基线和 Phase33 OOF 结果确定性重建；生成器会验证 promotion gate、全部 6,387 行身份/折/标签对齐、600 条 BioEmu 边界行、5,787 条逐值精确回退、`0.15` 残差上限和输出 SHA256：
+团队交付目录可以从CAMC-3D基线和BioEmu-BR3D OOF结果确定性重建；生成器会验证promotion gate、全部6,387行身份/折/标签对齐、600条BioEmu边界行、5,787条逐值精确回退、`0.15`残差上限和输出SHA256。以下命令中的`phase33`仅是兼容旧产物的内部模块与参数名：
 
 ```powershell
 $env:PYTHONPATH = "src"
@@ -3512,20 +3542,20 @@ python -m ghxtox.phase33_team_handoff `
 
 #### C.22.1 当前结论与输入边界
 
-现在不需要为全部 6,387 条训练样本重新生成 BioEmu。Phase33 的有效作用是对冻结的 600 条低置信度边界样本作小幅 3D 残差修正，而不是让独立 BioEmu 分类头接管全局预测；后者在 600 条上的 MCC 只有 `0.170354`。因此融合使用完整的 6,387 行 Phase33 3D OOF 分数，但新增 BioEmu 构象仍只覆盖 600 行；其余 5,787 行严格使用 Phase25 分数。
+现在不需要为全部6,387条训练样本重新生成BioEmu。BioEmu-BR3D的有效作用是对冻结的600条低置信度边界样本作小幅3D残差修正，而不是让独立BioEmu分类头接管全局预测；后者在600条上的MCC只有`0.170354`。因此融合使用完整的6,387行BioEmu-BR3D OOF分数，但新增BioEmu构象仍只覆盖600行；其余5,787行严格使用CAMC-3D分数。
 
-融合队友必须准备三份训练 OOF 表：1D、2D 和 [`Phase33 3D`](runs/three_d_team_handoff_phase33/oof_3d_predictions.csv)。每份表至少包含 `source_index/sample_id/fold/label/sequence/toxicity_probability`，并满足：
+融合队友必须准备三份训练OOF表：1D、2D和[`BioEmu-BR3D`](runs/three_d_team_handoff_phase33/oof_3d_predictions.csv)。每份表至少包含`source_index/sample_id/fold/label/sequence/toxicity_probability`，并满足：
 
 1. `source_index` 唯一且三表集合完全相同；只按 `source_index` 连接，禁止依赖 CSV 当前行序；
 2. `sample_id/sequence/label/fold` 逐行一致，概率有限且位于 `[0,1]`；
-3. Phase33 的 `phase33_*`、生成器来源、pLDDT、标签比例和质量字段只用于审计，不能作为本轮主融合的监督特征；
+3. BioEmu-BR3D的旧兼容字段`phase33_*`、生成器来源、pLDDT、标签比例和质量字段只用于审计，不能作为本轮主融合的监督特征；
 4. Test1/Test2 标签不得进入对齐、权重、校准、阈值、模型选择或消融决策。
 
 #### C.22.2 正式指标：严格 outer-nested 融合
 
 普通基模型 OOF 表上的“留一折拟合融合器”只能作为探索性筛查，不能直接作为论文 headline：对元训练行生成 OOF 特征的上游模型，可能训练时见过当前元测试折。正式结果必须基于 [`train_nested_groupcv.csv`](data/folds/train_nested_groupcv.csv) 为每个 outer fold 重新产生上游预测：
 
-1. 对 outer fold `k`，1D、2D、Phase25/33 3D 的模型、归一化、特征选择、checkpoint 选择和构象残差训练均不得读取 outer-`k` 的标签；
+1. 对outer fold `k`，1D、2D、CAMC-3D/BioEmu-BR3D的模型、归一化、特征选择、checkpoint选择和构象残差训练均不得读取outer-`k`的标签；
 2. `train` 角色只用于训练各上游模型和融合权重；`validation` 角色只用于上游 checkpoint/预冻结选择；`calibration` 角色只用于最终单调校准；`test` 角色只预测一次；
 3. 五个 outer-test 预测拼接后才计算全局 MCC、AUPRC、AUROC、Brier、ECE-10、五折 MCC、三个长度层指标和混淆矩阵；
 4. 如果队友暂时没有这套 outer-nested 1D/2D/3D 预测，只能把当前 OOF 融合写成“exploratory second-level OOF screen”，不能据此替换默认模型或报告无偏泛化提升。
@@ -3542,20 +3572,105 @@ p_final = sigmoid(a * z + b),  a > 0
 
 - 非负凸权重 `w` 仅在 outer-train 上按 log-loss 拟合；不做模型子集、随机种子或权重网格后选；
 - 单调校准参数 `a,b` 仅在 outer-calibration 上拟合；校准后分类阈值固定为 `0.5`，不再搜索 MCC 阈值；
-- 三个预声明消融必须使用完全相同的 outer split 和训练流程：`1D+2D`、`1D+2D+Phase25 3D`、`1D+2D+Phase33 3D`；
-- Phase33 只有在相对 `1D+2D+Phase25 3D` 同时满足以下冻结门槛时才进入最终融合：全局 MCC 严格提高、AUPRC 不下降、Brier 增加不超过 `0.0005`、ECE-10 增加不超过 `0.001`、至少 3/5 outer-fold MCC 不下降、每个长度层 MCC 回退不超过 `0.005`，且固定 0.5 下净纠正数为正；所有条件必须同时通过；
-- 不允许在看到上述结果后改用最佳单折、最佳 seed、最佳 3D 子集、质量门控或重新搜索阈值。未通过时保留 Phase25 3D 融合对照。
+- 三个预声明消融必须使用完全相同的outer split和训练流程：`1D+2D`、`1D+2D+CAMC-3D`、`1D+2D+BioEmu-BR3D`；
+- BioEmu-BR3D只有在相对`1D+2D+CAMC-3D`同时满足以下冻结门槛时才进入最终融合：全局MCC严格提高、AUPRC不下降、Brier增加不超过`0.0005`、ECE-10增加不超过`0.001`、至少3/5 outer-fold MCC不下降、每个长度层MCC回退不超过`0.005`，且固定0.5下净纠正数为正；所有条件必须同时通过；
+- 不允许在看到上述结果后改用最佳单折、最佳seed、最佳3D子集、质量门控或重新搜索阈值。未通过时保留CAMC-3D融合对照。
 
 #### C.22.4 当前可做与尚未授权的工作
 
-[`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33) 是训练 OOF 交付包，不是 Test1/Test2 或任意新序列的生产推理模型。当前允许队友完成三路 OOF 对齐、探索性筛查，并准备严格 nested 上游流；尚未授权直接把训练 OOF specialist 用到测试集。
+[`runs/three_d_team_handoff_phase33`](runs/three_d_team_handoff_phase33)是BioEmu-BR3D训练OOF交付包，不是Test1/Test2或任意新序列的生产推理模型。当前允许队友完成三路OOF对齐、探索性筛查，并准备严格nested上游流；尚未授权直接把训练OOF specialist用到测试集。
 
-正式部署前还需单独冻结：用全部 600 条训练 BioEmu 样本拟合的 full-train 3D specialist，以及对未知样本仅依赖 Phase25 概率的 label-free 边界选择规则。该规则必须在查看任何测试结果前确定；测试集只为被该规则选中的边界样本生成 BioEmu，不需要全量重跑训练集。当前 600/6,387=`9.3941%` 和训练 OOF 第 600 名绝对概率边距 `0.317708327` 仅作为协议设计记录，二者不能在看到 Test1/Test2 表现后择优。
+正式部署前还需单独冻结：用全部600条训练BioEmu样本拟合的full-train 3D specialist，以及对未知样本仅依赖CAMC-3D概率的label-free边界选择规则。该规则必须在查看任何测试结果前确定；测试集只为被该规则选中的边界样本生成BioEmu，不需要全量重跑训练集。当前600/6,387=`9.3941%`和训练OOF第600名绝对概率边距`0.317708327`仅作为协议设计记录，二者不能在看到Test1/Test2表现后择优。
 
 #### C.22.5 本轮算法审计修复
 
 - `oof_fusion` 现在明确把普通二层 OOF 标记为探索性，并输出 strict-nested provenance 警告；
 - 修复了筛选允许 `fusion_space=logit`、冻结应用却始终按概率空间平均的不一致；
 - 新增 source-index 重复、跨专家 fold 不一致、非二元标签、NaN/Inf 和越界概率检查；
-- Phase33 `--resume` 现在验证 fold、seed、完整冻结配置、protocol SHA256、held ID 集和 probability/logit 一致性，旧或串用结果会拒绝载入；
-- Phase33 交付包改为可重复生成，并把自身 CSV SHA256、`train_oof_only` 和 `production_unseen_inference_ready=false` 写入机器合同。
+- BioEmu-BR3D的旧内部命令`phase33 --resume`现在验证fold、seed、完整冻结配置、protocol SHA256、held ID集和probability/logit一致性，旧或串用结果会拒绝载入；
+- BioEmu-BR3D交付包改为可重复生成，并把自身CSV SHA256、`train_oof_only`和`production_unseen_inference_ready=false`写入机器合同。
+
+### C.23 已完成：BioEmu-BR3D与ProtT5的本地探索性联合筛选（2026-08-02）
+
+在不读取Test1/Test2、不重新训练上游专家且不扩大服务器结构生成的前提下，项目将三种子pooled ProtT5 OOF分别与CAMC-3D和BioEmu-BR3D handoff按完全相同的受限协议比较。探索性二级筛选使用logit空间、3D权重`0.00–0.40`（步长`0.01`）、阈值步长`0.005`和留一折MCC目标。该协议不具备严格outer-nested上游来源，因此只用于判断是否值得进行昂贵的严格重训，不能直接替换默认模型。
+
+| OOF输入 | BACC | MCC | AUROC | AUPRC |
+| --- | ---: | ---: | ---: | ---: |
+| 纯ProtT5 | 0.931690 | 0.858619 | 0.972422 | 0.943625 |
+| ProtT5 + CAMC-3D | 0.925883 | 0.861155 | 0.976012 | 0.952988 |
+| ProtT5 + BioEmu-BR3D | 0.925826 | 0.861500 | 0.976038 | 0.953029 |
+
+BioEmu-BR3D相对CAMC-3D只提高MCC `0.000345`和AUPRC `0.000041`，BACC降低`0.000056`；两者均低于当前保留的联合交互默认OOF MCC `0.871184`。进一步保持默认`ProtT5/3D=0.62/0.38`、阈值`0.60`和现有五折交互残差完全不变，仅插拔BioEmu-BR3D概率后，MCC/BACC/F1与混淆矩阵均不变；AUPRC提高约`0.000030`、Brier降低约`0.0000034`，没有新增固定阈值纠错。
+
+因此本轮结论为`retain_current_1d_3d_interaction_default`。BioEmu-BR3D作为方向一致但效应很小的3D正消融保留，不升级默认模型，不授权严格nested重训或额外服务器生成。机器可读决定见[`BioEmu-BR3D与ProtT5筛选决定`](runs/phase33_prott5_exploratory_fusion_decision.json)，两组同协议筛选分别见[`CAMC-3D对照`](runs/phase25_prott5_exploratory_logit_fusion_oof/summary.json)和[`BioEmu-BR3D候选`](runs/phase33_prott5_exploratory_logit_fusion_oof/summary.json)。
+
+### C.24 已完成：BioEmu边界专家混合适配器（BioEmu-BMoE，2026-08-02）
+
+本轮没有重复增加普通1D权重，也没有重新搜索融合阈值。误差审计显示，BioEmu-BR3D相对CAMC-3D改变判断的4条样本中，三种子ProtT5原本已经全部判断正确；问题不是缺少更大的1D模型，而是原固定权重融合会把最大仅`0.15`的BioEmu 3D logit残差再次按结构权重衰减。为此只在BioEmu-BR3D冻结的600条边界样本上增加两个折外轻量专家：pooled ProtT5边界1D专家负责高置信共识纠偏；BioEmu获益门控使用全局1D、当前默认、CAMC-3D、BioEmu独立证据、pLDDT和长度层，学习“应用完整BioEmu残差是否降低该训练样本BCE”。两者均为训练折内`StandardScaler + class-weight balanced LogisticRegression(C=0.1)`，每个held fold只使用其余四折拟合。
+
+两个路由互斥，残差总上限仍为`0.15`：
+
+```text
+if 全局1D@0.45 == 边界1D专家@0.5 == BioEmu-BR3D@0.5
+   and 三者判断 != 当前默认@0.6:
+    evidence = tanh(z_boundary_1d)       # 三方共识保护路由
+else:
+    evidence = g_benefit * tanh(z_bioemu) # 质量条件软BioEmu路由
+
+z_candidate = z_default + 0.15 * boundary_mask * evidence
+```
+
+三方共识路由只覆盖3条样本，负责固定阈值纠偏；其余597条边界样本通过连续门控利用BioEmu证据，负责改善概率排序和校准。非边界5,787条样本逐值回退当前默认。与全局重调权重相比，该结构让BioEmu-BR3D拥有独立但受限的边界入口，不再被`0.38`结构权重二次衰减，也不允许结构专家接管全局预测。
+
+| 训练OOF，阈值0.60 | BACC | F1 | MCC | AUROC | AUPRC | Brier | ECE-10 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 当前1D+3D交互默认 | 0.927181 | 0.906099 | 0.871184 | 0.977289 | 0.953632 | 0.0444920 | 0.025994 |
+| BioEmu-BMoE候选 | **0.927622** | **0.906463** | **0.871597** | **0.977299** | **0.953661** | **0.0444774** | 0.026030 |
+| 候选减默认 | +0.000441 | +0.000363 | +0.000413 | +0.000010 | +0.000029 | -0.0000145 | +0.000036 |
+
+固定阈值混淆矩阵由`TP/TN/FP/FN=1597/4459/110/221`变为`1599/4458/111/219`，即修正2条、回退1条、净纠正`+1`；4/5折MCC不下降。单独软门控不改变阈值判断，但使AUROC/AUPRC/Brier/ECE-10全部改善；与三方共识组成互斥专家混合后，保留相同分类增益，并把上一版仅共识方案的AUPRC增量从约`+0.000002`扩大到`+0.000029`、Brier改善从约`0.0000007`扩大到`0.0000145`。普通1D置信锚定和无3D同向约束的边界1D专家均未达到门槛，未保留为独立候选。
+
+完整结果见[`summary.json`](runs/bioemu_boundary_moe_oof/summary.json)、[`decision.json`](runs/bioemu_boundary_moe_oof/decision.json)和[`oof_predictions.csv`](runs/bioemu_boundary_moe_oof/oof_predictions.csv)，实现见[`bioemu_boundary_moe.py`](src/ghxtox/bioemu_boundary_moe.py)。本地复现命令：
+
+```powershell
+$env:PYTHONPATH = "src"
+conda run -n dachuang-26 python -m ghxtox.bioemu_boundary_moe `
+  --one-d runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv `
+  --current-default runs/prott5_structure_chemical_cross_attention_oof/oof_predictions.csv `
+  --bioemu-boundary-3d runs/three_d_team_handoff_phase33/oof_3d_predictions.csv `
+  --prott5-features data/processed/train_prott5_official_mean.pt `
+  --output-dir runs/bioemu_boundary_moe_oof `
+  --threshold 0.60
+```
+
+该方案通过全部保留门槛，并按项目负责人“有提升即替换默认”的决定升级为研究默认模型。必须保留证据边界：分类增益只来自3条阈值变化，门控是在现有OOF流上折外训练，尚未获得新的预冻结外部集确认。因此这里的“默认”是本项目后续比较采用的研究基线，不表示已取得独立泛化显著性。正式未知样本推理还需要full-train边界1D专家、BioEmu获益门控、BioEmu-BR3D full-train 3D specialist和label-free边界选择器，在这些资产完成前`production_unseen_inference_ready=false`。
+
+### C.25 已完成：决策保护的多维度交叉注意力优化（BioEmu-XAttn，2026-08-02）
+
+已有逐残基ProtT5→3D单向注意力、双向残基耦合、ESM2↔ProtT5双PLM注意力和多构象特征注入均已完成，本轮没有重复这些路线。由于本地未解压BioEmu逐残基原始NPZ，本轮采用证据令牌级交叉注意力：1D查询令牌由全局ProtT5、边界ProtT5专家、BioEmu-BMoE概率、置信边距、BioEmu获益门控、长度和共识状态构成；三个3D Key/Value令牌分别来自CAMC-3D、BioEmu独立3D和BioEmu-BR3D，并携带pLDDT、低置信残基比例、结构门控和长度。它属于真正的1D→多3D证据交叉注意力，但不是逐残基/逐原子BioEmu注意力。
+
+每个held canonical fold仅使用另外三折训练，另取一折作BCE早停验证；验证BCE没有改善时该折回退零残差。预先限定的三种轻量配置为单头8维、双头16维和高正则双头16维，最终选择`hidden_dim=16`、`heads=2`、`max_logit_residual=0.10`、`delta_l1=0.03`。非边界样本不进入适配器。
+
+第一版直接残差虽然改善连续概率指标，却改变7条阈值判断，其中只修正1条、退化6条，MCC降至`0.869589`。因此加入label-free决策保护包络：如果注意力残差试图把样本推过冻结阈值`0.60`，就在阈值同侧截断。它不读取真实标签，也不改变BioEmu-BMoE的分类侧别，只允许改善同侧概率排序与校准。
+
+| 训练OOF，阈值0.60 | BACC | F1 | MCC | AUROC | AUPRC | Brier | ECE-10 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 原逐残基1D+3D交互默认 | 0.927181 | 0.906099 | 0.871184 | 0.977289 | 0.953632 | 0.0444920 | 0.025994 |
+| BioEmu-BMoE | **0.927622** | **0.906463** | **0.871597** | 0.977299 | 0.953661 | 0.0444774 | 0.026030 |
+| **BioEmu-XAttn最终默认** | **0.927622** | **0.906463** | **0.871597** | **0.977317** | **0.953692** | **0.0443286** | **0.025618** |
+
+相对BioEmu-BMoE，BioEmu-XAttn保持5/5折MCC不下降和`TP/TN/FP/FN=1599/4458/111/219`不变，同时AUROC/AUPRC提高`0.0000184/0.0000314`、Brier/ECE-10降低`0.0001488/0.0004123`，通过新的非劣分类+连续概率改善门槛。平均注意力权重为CAMC/BioEmu/BioEmu-BR3D=`0.3344/0.3305/0.3351`，尚未形成强烈的单专家偏好，当前收益更接近三种结构证据的联合校准而不是某一3D来源接管预测。
+
+完整结果见[`summary.json`](runs/bioemu_cross_dimension_attention_oof/summary.json)、[`decision.json`](runs/bioemu_cross_dimension_attention_oof/decision.json)和[`oof_predictions.csv`](runs/bioemu_cross_dimension_attention_oof/oof_predictions.csv)，实现见[`cross_dimension_attention.py`](src/ghxtox/cross_dimension_attention.py)。本地复现命令：
+
+```powershell
+$env:PYTHONPATH = "src"
+conda run -n dachuang-26 python -m ghxtox.cross_dimension_attention `
+  --one-d runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv `
+  --current-default runs/bioemu_boundary_moe_oof/oof_predictions.csv `
+  --bioemu-boundary-3d runs/three_d_team_handoff_phase33/oof_3d_predictions.csv `
+  --output-dir runs/bioemu_cross_dimension_attention_oof `
+  --threshold 0.60
+```
+
+BioEmu-XAttn现作为项目研究默认概率输出，但`production_unseen_inference_ready=false`：当前保存的是严格分折的OOF验证结果，没有full-train注意力checkpoint，也没有未知样本可用的无标签边界选择器。论文中应表述为“训练OOF默认候选及消融结果”，不能把它写成已在独立测试集上确认的全面提升。

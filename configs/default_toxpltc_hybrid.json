@@ -1,5 +1,9 @@
 {
-  "name": "GHXTox ProtT5-to-3D chemical cross-attention hybrid default",
+  "name": "GHXTox BioEmu cross-dimension attention with BACC-prioritized decision residual",
+  "public_model_name": "BioEmu-XAttn-DRes",
+  "default_result": "runs/bacc_prioritized_decision_residual/research_default_oof_predictions.csv",
+  "default_probability_result": "runs/bioemu_cross_dimension_attention_oof/oof_predictions.csv",
+  "default_threshold": 0.6,
   "structure_expert": {
     "checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
     "inputs": "ESM2 sequence Transformer + pLDDT-aware C-alpha EGNN + all-atom chemical-site residual + optional PepFlow ensemble-statistics residual",
@@ -37,11 +41,45 @@
     "selection_threshold": 0.6,
     "test_labels_used_for_selection": false
   },
+  "bioemu_boundary_mixture": {
+    "baseline_result": "runs/bioemu_boundary_moe_oof/oof_predictions.csv",
+    "boundary_3d_result": "runs/three_d_team_handoff_phase33/oof_3d_predictions.csv",
+    "coverage": 600,
+    "architecture": "mutually exclusive pooled-ProtT5 consensus specialist or quality-conditioned BioEmu residual",
+    "max_logit_residual": 0.15,
+    "non_boundary_fallback": "exact chemical cross-attention probability",
+    "promotion_scope": "project research default"
+  },
+  "cross_dimension_attention": {
+    "result": "runs/bioemu_cross_dimension_attention_oof/oof_predictions.csv",
+    "architecture": "1D query token cross-attends to CAMC-3D, standalone BioEmu and BioEmu-BR3D evidence tokens",
+    "hidden_dim": 16,
+    "num_heads": 2,
+    "max_logit_residual": 0.1,
+    "delta_l1": 0.03,
+    "scope": "BioEmu boundary cohort only",
+    "decision_protection": "preserve the side of the frozen 0.60 threshold",
+    "selection": "outer-fold prediction with disjoint rotating validation-fold BCE early stopping",
+    "test_labels_used_for_selection": false
+  },
+  "bacc_decision_residual": {
+    "result": "runs/bacc_prioritized_decision_residual/summary.json",
+    "architecture": "one-hidden-layer 16-unit MLP gate over frozen ProtT5 and 1D+3D disagreement features",
+    "epochs": 80,
+    "teacher_threshold": 0.45,
+    "gate_threshold": 0.9298851979999941,
+    "operation": "change only the final class decision; preserve the BioEmu-XAttn calibrated probability",
+    "selection": "group-aware cross-fitted OOF with ACC/F1/MCC/AUROC/AUPRC/SP/Brier/ECE nondegradation",
+    "complexity_rule": "prefer the simplest eligible model within 0.001 OOF BACC of the best depth/epoch screen",
+    "test_labels_used_for_selection": false
+  },
   "inference": {
     "requires_full_chemical_sites_for_hybrid": true,
     "fallback_mode": "prott5_only",
     "fallback_reason": "the 0.62/0.38 weight was validated for full 3D-v2, not the historical 3D-v1 fallback",
     "missing_adapter_cache": "use the retained pre-adapter 0.62/0.38 hybrid exactly; never synthesize residue tokens",
-    "adapter_cache_requirement": "aligned ProtT5 token, 3D residue-state and chemical-site cache generated without changing the frozen 0.60 threshold"
+    "adapter_cache_requirement": "aligned ProtT5 token, 3D residue-state and chemical-site cache generated without changing the frozen 0.60 threshold",
+    "production_unseen_inference_ready": false,
+    "missing_default_assets": "full-train boundary selector, pooled-ProtT5 boundary specialist, BioEmu benefit gate, BioEmu-BR3D specialist and cross-dimension attention checkpoints"
   }
 }
