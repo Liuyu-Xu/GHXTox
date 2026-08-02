@@ -1369,3 +1369,7 @@
 - Full-tree `ruff check src tests` and `compileall -q src` passed. Historical
   Ruff formatting drift remains intentionally untouched outside the files
   edited in this task.
+- Publication review found no credential patterns, no files above 1.86 MiB,
+  and no divergence from `origin/main`; raw conformers and model weights remain
+  ignored. Commit `02c53d5` and the six preceding local engineering commits
+  were pushed successfully to GitHub `main`.

@@ -4,7 +4,7 @@
 Upgrade the GHXTox 1D/3D fusion pipeline with stronger conformer inputs, quality-aware gating, anti-regression selection, nested cross-validation, and reproducible evaluation.
 
 ## Current Phase
-Phase 34 in progress
+Phase 34 complete
 
 ## Phases
 
@@ -18,12 +18,12 @@ Phase 34 in progress
   material gap
 - [x] Run focused tests, lint/compile checks, handoff integrity checks, and Git
   whitespace/status review
-- [ ] Commit only the intended engineering/documentation artifacts and push the
+- [x] Commit only the intended engineering/documentation artifacts and push the
   current branch to the configured GitHub remote
 - **Boundary:** do not fit fusion weights on the same OOF rows used for the
   headline claim; do not read Test1/Test2 labels; do not overwrite the retained
   Phase25 handoff while auditing the promoted Phase33 handoff.
-- **Status:** in_progress
+- **Status:** complete
 
 ### Phase 1: Audit Inputs and Existing Coupler
 - [x] Inspect current coupling and stacking implementations
