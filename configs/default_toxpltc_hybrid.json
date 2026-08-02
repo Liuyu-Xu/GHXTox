@@ -1,6 +1,7 @@
 {
-  "name": "GHXTox BioEmu cross-dimension attention with BACC-prioritized decision residual",
-  "public_model_name": "BioEmu-XAttn-DRes",
+  "name": "ARCHIVED: GHXTox multimodal ProtT5-to-3D hybrid",
+  "public_model_name": "Archived-ProtT5-3D-Chemical-Hybrid",
+  "status": "archived_research_ablation_not_project_default",
   "default_result": "runs/bacc_prioritized_decision_residual/research_default_oof_predictions.csv",
   "default_probability_result": "runs/bioemu_cross_dimension_attention_oof/oof_predictions.csv",
   "default_threshold": 0.6,

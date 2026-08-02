@@ -38,6 +38,8 @@ src/ghxtox/folds.py
 src/ghxtox/geometry_features.py
 src/ghxtox/geometry_pretrain.py
 src/ghxtox/hybrid_default.py
+src/ghxtox/prott5_default.py
+src/ghxtox/publication_analysis.py
 src/ghxtox/length_conditioned_calibration_3d.py
 src/ghxtox/metrics.py
 src/ghxtox/multiconformer_graph_3d.py
@@ -106,6 +108,8 @@ tests/test_coupled_fusion.py
 tests/test_cross_modal_adapter.py
 tests/test_ensemble_domain_ssl_3d.py
 tests/test_hybrid_default.py
+tests/test_prott5_default.py
+tests/test_publication_analysis.py
 tests/test_length_conditioned_calibration_3d.py
 tests/test_multiconformer_graph_3d.py
 tests/test_multisource_conformer_analysis.py

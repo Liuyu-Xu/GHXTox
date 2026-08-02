@@ -1,0 +1,32 @@
+{
+  "name": "GHXTox three-seed ProtT5-BSMOTE TextCNN",
+  "public_model_name": "ProtT5-BSMOTE-TextCNN-3Seed",
+  "status": "project_performance_default",
+  "default_result": "runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv",
+  "default_threshold": 0.45,
+  "primary_metric": "balanced_accuracy",
+  "feature_model": "Rostlab/prot_t5_xl_half_uniref50-enc",
+  "pooling": "official mean including EOS",
+  "classifier": "1024-to-128 projection + BatchNorm + 4/5/6 TextCNN",
+  "augmentation": "1:1 Borderline-SMOTE fitted inside each training fold",
+  "ensemble": "unweighted arithmetic mean of 15 fixed fold/seed checkpoints",
+  "checkpoint_dirs": [
+    "runs/plm_textcnn_prott5_bsmote",
+    "runs/plm_textcnn_prott5_bsmote_seed123",
+    "runs/plm_textcnn_prott5_bsmote_seed2025"
+  ],
+  "selection": {
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "threshold_source": "training OOF only",
+    "threshold_rule": "largest threshold within 0.0005 OOF BACC of the maximum"
+  },
+  "bacc_priority_auxiliary": {
+    "config": "runs/plm_textcnn_esm2_prott5_fusion_bacc/decision.json",
+    "status": "optional_high_recall_output",
+    "reason_not_default": "higher recall/BACC but lower Test2 MCC and precision"
+  },
+  "archived_multimodal_routes": [
+    "configs/default_toxpltc_hybrid.json",
+    "runs/bacc_prioritized_decision_residual"
+  ]
+}

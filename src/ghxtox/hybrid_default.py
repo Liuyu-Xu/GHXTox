@@ -1,7 +1,8 @@
-"""Inference for the retained 3D-v2 + ToxPLTC-derived ProtT5 default.
+"""Inference for the archived 3D-v2 + ToxPLTC-derived ProtT5 hybrid.
 
-The two experts remain independently auditable. Their probability weight and
-decision threshold are frozen from leave-one-group-fold-out OOF selection.
+This module remains available for structural ablations and reproducibility.
+It is not the public ``ghxtox-predict`` entry point; use
+``ghxtox-hybrid-predict`` explicitly when evaluating this archived route.
 """
 
 from __future__ import annotations
