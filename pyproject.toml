@@ -27,8 +27,9 @@ where = ["src"]
 [project.scripts]
 ghxtox-preprocess = "ghxtox.preprocess:main"
 ghxtox-train = "ghxtox.train:main"
-ghxtox-predict = "ghxtox.prott5_default:main"
+ghxtox-predict = "ghxtox.hybrid_default:main"
 ghxtox-hybrid-predict = "ghxtox.hybrid_default:main"
+ghxtox-prott5-predict = "ghxtox.prott5_default:main"
 ghxtox-structure-predict = "ghxtox.predict:main"
 ghxtox-evaluate = "ghxtox.evaluate:main"
 ghxtox-esmfold-cache = "ghxtox.esmfold_cache:main"

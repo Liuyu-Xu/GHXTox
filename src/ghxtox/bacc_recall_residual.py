@@ -486,6 +486,60 @@ def _fit_full_and_predict(
     return gate, active
 
 
+def _serialize_gate(
+    path: Path,
+    scaler: StandardScaler,
+    model: MLPClassifier,
+    config: ResidualConfig,
+    *,
+    gate_threshold: float,
+    teacher_threshold: float,
+    base_threshold: float,
+) -> None:
+    """Write the small gate in a dependency-light, inference-ready format."""
+
+    save_json(
+        {
+            "artifact_type": "ghxtox_bacc_decision_residual",
+            "version": 1,
+            "feature_schema": {
+                "name": "bacc_recall_residual_v1",
+                "dimension": 26,
+                "sequence_features": [
+                    "log1p_length",
+                    "charge_proxy",
+                    "fraction_KRH",
+                    "fraction_DE",
+                    "fraction_AILMFWVY",
+                    "fraction_FWY",
+                    "fraction_CGP",
+                    "fraction_C",
+                    "fraction_GP",
+                    "fraction_STNQ",
+                ],
+            },
+            "model": {
+                "hidden_layers": list(config.hidden_layers),
+                "epochs": int(config.epochs),
+                "alpha": float(config.alpha),
+                "activation": "relu",
+                "coefs": [array.tolist() for array in model.coefs_],
+                "intercepts": [array.tolist() for array in model.intercepts_],
+            },
+            "scaler": {
+                "mean": scaler.mean_.tolist(),
+                "scale": scaler.scale_.tolist(),
+            },
+            "teacher_threshold": float(teacher_threshold),
+            "base_threshold": float(base_threshold),
+            "gate_threshold": float(gate_threshold),
+            "decision_only": True,
+            "selection_source": "training-only group-aware OOF",
+        },
+        path,
+    )
+
+
 def _write_predictions(
     path: Path,
     rows: list[dict[str, str]],
@@ -618,10 +672,26 @@ def run_screen(
     full_gate_threshold = float(selected["gate_threshold"])
     oof_active = disagreement & (oof_gate >= full_gate_threshold)
     train_target = (((teacher_oof >= teacher_threshold) == labels)).astype(np.int64)
+    full_scaler, full_model = _fit_gate(
+        features,
+        train_target,
+        disagreement,
+        selected_config,
+        seed=seed,
+    )
 
     evaluations = {}
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
+    _serialize_gate(
+        output / "deployable_gate.json",
+        full_scaler,
+        full_model,
+        selected_config,
+        gate_threshold=full_gate_threshold,
+        teacher_threshold=teacher_threshold,
+        base_threshold=threshold,
+    )
     _write_predictions(
         output / "oof_predictions.csv",
         base_oof_rows,
@@ -731,16 +801,15 @@ def run_screen(
             teacher_threshold=teacher_threshold,
             base_threshold=threshold,
         )
-        eval_gate, eval_active = _fit_full_and_predict(
-            features,
-            train_target,
-            disagreement,
-            eval_features,
-            eval_disagreement,
-            selected_config,
-            full_gate_threshold,
-            seed=seed,
-        )
+        eval_gate = np.zeros(len(eval_features), dtype=np.float64)
+        eval_active = np.zeros(len(eval_features), dtype=bool)
+        if np.any(eval_disagreement):
+            eval_gate[eval_disagreement] = full_model.predict_proba(
+                full_scaler.transform(eval_features[eval_disagreement])
+            )[:, 1]
+            eval_active[eval_disagreement] = (
+                eval_gate[eval_disagreement] >= full_gate_threshold
+            )
         eval_decision = _apply_decision_residual(
             base_probability,
             teacher_probability,

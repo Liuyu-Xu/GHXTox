@@ -728,7 +728,7 @@ def train(config: dict, args: argparse.Namespace) -> Path:
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Train GHXTox.")
+    parser = argparse.ArgumentParser(description="Train the GHXTox 3D structure expert.")
     parser.add_argument("--train", default=DEFAULT_TRAIN_PROCESSED, help="Preprocessed training .pt file.")
     parser.add_argument("--val", default=None, help="Optional preprocessed validation .pt file.")
     parser.add_argument("--fold-manifest", default=None, help="Fixed fold CSV created by ghxtox.folds.")
@@ -741,7 +741,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional warm-start checkpoint overriding train.initial_checkpoint.",
     )
-    parser.add_argument("--output-dir", default="runs/plm_sequence_only_esm2_mcc")
+    parser.add_argument("--output-dir", default="runs/3d_v2_default")
     parser.add_argument("--device", default=DEFAULT_DEVICE)
     parser.add_argument("--epochs", type=int, default=None)
     parser.add_argument("--batch-size", type=int, default=None)

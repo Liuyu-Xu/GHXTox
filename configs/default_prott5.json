@@ -1,7 +1,7 @@
 {
   "name": "GHXTox three-seed ProtT5-BSMOTE TextCNN",
   "public_model_name": "ProtT5-BSMOTE-TextCNN-3Seed",
-  "status": "project_performance_default",
+  "status": "sequence_ablation_and_fallback_reference",
   "default_result": "runs/plm_textcnn_prott5_bsmote_multiseed/oof_predictions.csv",
   "default_threshold": 0.45,
   "primary_metric": "balanced_accuracy",
@@ -25,8 +25,6 @@
     "status": "optional_high_recall_output",
     "reason_not_default": "higher recall/BACC but lower Test2 MCC and precision"
   },
-  "archived_multimodal_routes": [
-    "configs/default_toxpltc_hybrid.json",
-    "runs/bacc_prioritized_decision_residual"
-  ]
+  "public_default": "configs/default_3d_hybrid.json",
+  "role": "High-BACC/high-sensitivity sequence reference. It is not the public default model."
 }

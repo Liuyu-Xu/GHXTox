@@ -17,6 +17,8 @@ DEFAULT_TRAIN_PROCESSED = "data/processed/train_chemical_sites_final_esm2.pt"
 DEFAULT_TEST_PROCESSED = "data/processed/test1_chemical_sites_final_esm2.pt"
 DEFAULT_CHECKPOINT = "runs/3d_v2_conformer_ensemble_candidate/best_model.pt"
 DEFAULT_FALLBACK_CHECKPOINT = "runs/plm_fusion_esm2_geometry_confidence/best_model.pt"
+DEFAULT_PUBLIC_CONFIG = "configs/default_3d_hybrid.json"
+DEFAULT_PUBLIC_MODEL_NAME = "GHXTox-3D-Chemical-Adapter-Residual"
 DEFAULT_STRUCTURE_CACHE_DIR = "data/structures"
 DEFAULT_THRESHOLD = 0.677819
 

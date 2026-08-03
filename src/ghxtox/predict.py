@@ -1,4 +1,8 @@
-"""Predict toxicity probabilities from preprocessed files or FASTA input."""
+"""Predict with the low-level GHXTox 3D structure expert.
+
+The public default is ghxtox.hybrid_default (ghxtox-predict), which adds the
+frozen ProtT5 ensemble and cross-modal chemical-site adapter.
+"""
 
 from __future__ import annotations
 

@@ -1,191 +1,189 @@
-# GHXTox 导师汇报：默认模型结果、创新点与论文图表
+# GHXTox 导师汇报：3D 联合默认模型与 BACC 残差决策头
 
-更新时间：2026-08-02
-汇报模型：**ProtT5-BSMOTE-TextCNN-3Seed（简称 ProtT5-3Seed）**
+更新时间：2026-08-03
 
-## 一、汇报范围与核心结论
+当前唯一公开默认模型：**GHXTox-3D-Chemical-Adapter-Residual**
 
-本报告只使用当前公开默认模型的 Test1/Test2 预测数据进行论文对比。历史联合模型和实验候选不进入主表、测试曲线或结论，以免产生“默认模型不唯一”的歧义。训练集 OOF 中保留必要的组件消融，用于证明默认模型各设计的作用。
+## 1. 结论摘要
 
-默认模型使用 ProtT5-XL-UniRef50 的 1024 维均值表征、每个训练折内部的 1:1 Borderline-SMOTE、`4/5/6` 并行 TextCNN，以及 3 个随机种子乘 5 折得到的 15 成员概率平均。阈值 `0.45` 只由训练 OOF-BACC 平台规则冻结，Test1/Test2 标签未用于选模型、调权重或调阈值。
+本报告只使用当前项目默认模型在既有 Test1/Test2 数据上的真实预测文件，并与同数据划分的 ToxMSRC、ToxPLTC 论文结果比较。Test1/Test2 已被项目历史开发流程多次查看，因此这里应称为“冻结历史对照”，不能称为新的盲外部验证。
 
-主要结论如下：
+本轮将训练内 group-aware OOF 选出的轻量 **BACC-prioritized disagreement-only residual** 接入默认入口。它不重训 ProtT5 或 3D 主干，不改变 `toxicity_probability`，只在 ProtT5 教师和原联合模型对阈值侧别不一致、且 gate 置信度超过冻结阈值时修改最终 `prediction`。
 
-1. Test1 上，默认模型相对 ToxPLTC 的七项可比指标全部更高；相对 ToxMSRC，除 SP 外其余六项可比指标更高。
-2. Test2 上，默认模型相对 ToxPLTC 的 SN 按四位小数持平，其余六项可比指标更高；相对 ToxMSRC，BACC、SN、AUROC 更高，MCC 低 `0.0024`。
-3. 默认模型在 Test1/Test2 的 BACC 分别为 `0.9342/0.8860`，AUROC 为 `0.9802/0.9588`，AUPRC 为 `0.9578/0.7495`。
-4. Test2 阳性率只有 `46/582=7.90%`。其 AUROC 仍高，但 AUPRC 和 MCC 的 bootstrap 区间明显更宽，论文中必须结合类别不平衡解释。
-5. 消融显示三随机种子稳定化是最完整、最一致的性能来源；ProtT5 在相同三种子协议下优于 ESM2；Borderline-SMOTE 改善 MCC 和排序，但不是所有指标同步提升。
+核心结果：
+
+| 数据集 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier | ECE-10 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Test1 | 0.9440 | 0.9251 | 0.8813 | 0.9690 | 0.8611 | 0.9816 | 0.9650 | 0.0432 | 0.0200 |
+| Test2 | **0.9450** | **0.8608** | **0.7609** | 0.9608 | **0.6603** | 0.9578 | 0.7849 | 0.0473 | 0.0438 |
+
+相对未加残差的冻结联合模型，Test2 的 `BACC +0.01087`、`SN +0.02174`、`MCC +0.01471`，ACC `+0.00172`；Test1 的最终决策指标不变。排序与概率可靠性指标完全不变，这是该模块的设计约束，不是遗漏：`AUROC/AUPRC/Brier/ECE-10` 仍由原始联合概率计算。
 
 ![默认模型架构](figure6_default_architecture.png)
 
-**图 1. 默认模型与无泄漏验证流程。** 黄色表示训练折内部的数据增强或阈值冻结，绿色表示多折多种子集成。Borderline-SMOTE 不接触 held-out fold。
+图 1. 默认模型由 15 成员 ProtT5 序列专家、pLDDT 感知全原子 3D 专家、冻结 `0.62/0.38` 融合、ProtT5-to-3D 交互适配器和最后一级 BACC 决策残差组成。
 
-## 二、九项核心指标
+## 2. 默认模型架构
 
-`ACC、BACC、SN、SP、MCC、AUROC、AUPRC` 越高越好；`Brier、ECE-10` 越低越好。参考论文未报告的指标记为 `NR`，不进行推测或补算。
+1. **序列专家**：3 个随机种子 × 5 个 group fold 的 ProtT5-BSMOTE TextCNN，共 15 个成员；每个种子内部先做五折均值，再得到三种子均值。
+2. **结构专家**：ESM2 状态、pLDDT-aware Cα EGNN、全原子化学位点和构象统计残差；完整结构缓存是默认入口的必要输入。
+3. **概率融合**：按训练内 OOF 冻结的 ProtT5/3D `0.62/0.38` 凸组合，阈值为 `0.60`。
+4. **跨模态适配**：以 ProtT5 residue token 为 Query，以 pLDDT 加权 3D 状态和化学位点摘要为 Key/Value，通过零初始化、有界 logit residual 建模“序列语义需要哪些空间化学证据”。
+5. **BACC 残差决策头**：使用 26 维轻量特征和单隐层 `[16]` MLP，只处理序列教师与联合模型分歧样本。它保存为 `deployable_gate.json`，推理阶段用 NumPy 前向计算，不依赖测试标签。
 
-### Test1
+最终概率和最终决策是两个明确对象：
 
-| 模型 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier↓ | ECE-10↓ |
+```text
+base_probability -> interaction adapter -> toxicity_probability
+                                      -> BACC gate -> prediction
+```
+
+因此该残差头能提高固定阈值下的 BACC/SN/MCC，同时不会伪装成概率排序或校准性能提升。
+
+## 3. 与同数据论文对比
+
+![论文对比](figure1_default_paper_benchmark.png)
+
+| 数据集 | 模型 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Test1 | ToxMSRC | 0.9405 | 0.9217 | 0.8781 | 0.9653 | 0.8520 | 0.9650 | NR |
+| Test1 | ToxPLTC | 0.9378 | 0.9302 | 0.9125 | 0.9479 | 0.8496 | 0.9709 | 0.9426 |
+| Test1 | GHXTox 默认 | 0.9440 | 0.9251 | 0.8813 | 0.9690 | 0.8611 | 0.9816 | 0.9650 |
+| Test2 | ToxMSRC | 0.9416 | 0.8689 | 0.7826 | 0.9552 | 0.6550 | 0.9430 | NR |
+| Test2 | ToxPLTC | 0.9261 | 0.8804 | 0.8261 | 0.9347 | 0.6197 | 0.9295 | 0.7353 |
+| Test2 | GHXTox 默认 | 0.9450 | 0.8608 | 0.7609 | 0.9608 | 0.6603 | 0.9578 | 0.7849 |
+
+Test1 上默认模型超过 ToxMSRC 的 ACC/BACC/SN/SP/MCC/AUROC，超过 ToxPLTC 的 ACC/SP/MCC/AUROC/AUPRC，但 ToxPLTC 的 BACC/SN 更高。Test2 上默认模型超过 ToxMSRC 的 ACC/SP/MCC/AUROC，超过 ToxPLTC 的 ACC/SP/MCC/AUROC/AUPRC，但 ToxPLTC 的 BACC/SN 更高。不能写成“所有指标全面超过所有论文”。
+
+![论文差值](figure2_default_paper_deltas.png)
+
+## 4. BACC 残差的晋级依据与验证边界
+
+残差候选已通过预先冻结的非退化门并接入公开默认。模型结构和 gate threshold 只在训练 OOF 上选择：
+
+| 项目 | 冻结值 |
+|---|---:|
+| teacher threshold | 0.45 |
+| base threshold | 0.60 |
+| MLP hidden layers | `[16]` |
+| training epochs | 80 |
+| alpha | 0.01 |
+| gate threshold | 0.9298851979999941 |
+| OOF selection | group-aware training-only OOF |
+
+OOF 中参考模型为 `BACC 0.927181 / MCC 0.871184`，加入残差后为 `BACC 0.927731 / MCC 0.871982`，净纠正 2 个样本。Test1 改变 2 个决策，1 个纠正、1 个回退，净效果为 0；Test2 改变 1 个决策且纠正 1 个假阴性。Test2 只有 46 个阳性样本，因此单个样本即可使 BACC 改变约 1.09 个百分点，必须结合置信区间谨慎解读。
+
+默认模型的类别分层 bootstrap 95% 区间如下。该区间量化当前默认自身的抽样不确定性，不是与参考论文的配对显著性检验。
+
+| 数据集 | BACC | SN | MCC | AUPRC |
+|---|---:|---:|---:|---:|
+| Test1 | 0.9251 [0.9061, 0.9429] | 0.8813 [0.8438, 0.9156] | 0.8611 [0.8279, 0.8923] | 0.9650 [0.9521, 0.9763] |
+| Test2 | 0.8608 [0.7956, 0.9199] | 0.7609 [0.6304, 0.8696] | 0.6603 [0.5523, 0.7640] | 0.7849 [0.6816, 0.8779] |
+
+![ROC 和 PR](figure3_default_roc_pr.png)
+
+![概率校准](figure4_default_calibration.png)
+
+## 5. 消融与创新点
+
+导师汇报中的消融只保留训练内 OOF 结果和当前默认组成证据：
+
+![OOF 消融](figure5_default_oof_ablation.png)
+
+| OOF 设置 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier | ECE-10 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| ToxMSRC | 0.9405 | 0.9217 | 0.8781 | **0.9653** | 0.8520 | 0.9650 | NR | NR | NR |
-| ToxPLTC | 0.9378 | 0.9302 | 0.9125 | 0.9479 | 0.8496 | 0.9709 | 0.9426 | NR | NR |
-| **ProtT5-3Seed（本项目）** | **0.9423** | **0.9342** | **0.9156** | 0.9529 | **0.8598** | **0.9802** | **0.9578** | 0.0447 | 0.0226 |
+| ProtT5 sequence expert | 0.9421 | **0.9317** | **0.9076** | 0.9558 | 0.8586 | 0.9724 | 0.9436 | 0.0489 | 0.0344 |
+| 3D chemical expert | 0.9350 | 0.9150 | 0.8685 | 0.9615 | 0.8390 | 0.9607 | 0.9282 | 0.0594 | 0.0511 |
+| Frozen 1D+3D fusion | 0.9474 | 0.9275 | 0.8812 | 0.9737 | 0.8693 | **0.9773** | 0.9536 | 0.0447 | **0.0254** |
+| + chemical adapter | 0.9482 | 0.9272 | 0.8784 | **0.9759** | 0.8712 | 0.9773 | **0.9536** | **0.0445** | 0.0260 |
+| + BACC decision residual | **0.9485** | 0.9277 | 0.8795 | **0.9759** | **0.8720** | 0.9773 | **0.9536** | **0.0445** | 0.0260 |
 
-默认模型混淆矩阵：`TP=293、TN=768、FP=38、FN=27`。
+图 5 展示的是默认组成链，而不是从多个历史候选中拼接最佳单项指标。序列和3D两行是独立专家；后三行依次对应冻结联合、化学适配和最终决策残差。
 
-### Test2
+- ProtT5 序列专家提供最高的独立 OOF BACC/SN，3D 化学专家提供与序列不同的空间证据；冻结联合使 MCC/AUPRC/Brier 明显优于两个独立专家。
+- 全原子化学位点、pLDDT-aware 3D 图和跨模态适配器构成从残基语义到空间化学证据的结构化链路，而不是简单拼接一个3D概率。
+- BACC 残差头不是新的 3D 主干，而是最后一级、可部署、决策专用的轻量模块；它利用序列教师与联合模型的 disagreement，避免全局改阈值带来的假阳性扩散。
+- “概率保持不变、决策单独优化”使分类指标和概率指标的解释边界清楚：BACC/SN/MCC 的改善来自受控决策纠正，不宣称 AUROC/AUPRC 或校准能力提高。
+- OOF 复杂度规则优先保留最简单的 `[16]` 模型；其他更深或更久训练候选没有因微小 OOF 差异进入默认。
 
-| 模型 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier↓ | ECE-10↓ |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| ToxMSRC | **0.9416** | 0.8689 | 0.7826 | **0.9552** | **0.6550** | 0.9430 | NR | NR | NR |
-| ToxPLTC | 0.9261 | 0.8804 | **0.8261** | 0.9347 | 0.6197 | 0.9295 | 0.7353 | NR | NR |
-| **ProtT5-3Seed（本项目）** | 0.9364 | **0.8860** | **0.8261** | 0.9459 | 0.6526 | **0.9588** | **0.7495** | 0.0484 | 0.0473 |
+这些是工程和方法学创新组合，不应表述为 ProtT5、EGNN、TextCNN、Borderline-SMOTE 或 cross-attention 的单独原创发明。
 
-默认模型混淆矩阵：`TP=38、TN=507、FP=29、FN=8`。
 
-![默认模型与参考论文](figure1_default_paper_benchmark.png)
+### 5.1 默认模型的创新点汇总
 
-**图 2. 同一 Train/Test1/Test2 划分上的点估计比较。** 只有 ToxMSRC 和 ToxPLTC 与本项目使用相同基础数据和测试划分。StrucToxNet、PeptiTox、ToxiPep 等数据组成或划分不同，不进入直接数值排名。
+导师汇报口径下，默认模型的创新按"架构级 / 方法验证级"两层列出，每条附训练内 OOF 或冻结历史证据：
 
-## 三、相对论文的指标增益
+**架构级创新（已进入默认模型）**
 
-下表为默认模型减去参考论文的百分点差值。
+1. **三维多尺度信息扫描提取**：三维结构专家并非单一几何模块，而是按五个信息尺度对预测结构分层扫描提取，并以 pLDDT 置信度贯穿加权：
 
-| 对照 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Test1 vs ToxMSRC | +0.18 | +1.25 | +3.75 | -1.24 | +0.78 | +1.52 | NR |
-| Test1 vs ToxPLTC | +0.45 | +0.40 | +0.31 | +0.50 | +1.02 | +0.93 | +1.52 |
-| Test2 vs ToxMSRC | -0.52 | +1.71 | +4.35 | -0.93 | -0.24 | +1.58 | NR |
-| Test2 vs ToxPLTC | +1.03 | +0.56 | 0.00 | +1.12 | +3.29 | +2.93 | +1.42 |
+   | 尺度 | 提取内容 | 进入默认 |
+   |---|---|---|
+   | 1. 残基尺度 | 氨基酸/官能团类别嵌入（12D）、42 维显式理化描述符、ESM2-650M 上下文残基向量（1280D→128D，PLM 增强） | ✅ |
+   | 2. 原子/化学位点尺度 | 全原子 PDB 拆分化学位点：每残基最多 2 个、8 类可重叠属性（正/负电、供体/受体、芳香、疏水、含硫、构象约束）；Tyr/Trp 双位点；键方向/平面法向旋转不变量 | ✅ |
+   | 3. 空间邻域尺度 | 16 维 Cα 几何描述符 + 混合图（序列相邻边 + 空间 top-10 近邻边）+ **双尺度距离编码**：0–16 Å 原始距离 RBF 与 0–4 回转半径归一化 RBF 并行，绝对与相对尺度互补 | ✅ |
+   | 4. 肽级全局尺度 | 5 维全局特征（长度、净电荷、芳香族比例、Cys 比例、平均疏水性）+ 全局结构门控（平均/最小 pLDDT、低置信比例）+ 12 维旋转不变官能团摘要 | ✅ |
+   | 5. 构象集合尺度 | 跨构象接触占有率（6/8/10 Å）、残基 RMSF、距离方差、RMSD、回转半径，以 `conformer_available` 硬掩码接入；无构象样本严格回退单结构 3D-v2 | ✅（PepFlow pilot250 权重） |
 
-![相对论文增益](figure2_default_paper_deltas.png)
+   pLDDT 感知贯穿尺度 3–5：进入 EGNN 边消息权重、残基级门控、整肽级全局门控，并对低置信坐标施加更强扰动。支撑证据：化学位点支路（尺度 2+3）Pareto 五折 MCC/AUPRC 均 5/5 折正向（+0.0030/+0.0013）；构象统计残差（尺度 5）pilot 固定阈值 MCC +0.056、AF2 16–30 aa 覆盖队列 MCC +0.032；31–50 aa BioEmu 边界逐构象图长肽段 MCC +0.053，但正样本净纠错为负，确认构象证据是"保守化/校准工具"而非正类决策升级手段。
 
-**图 3. 默认模型相对参考论文的百分点增益。** 绿色为提升，橙色为下降，`NR` 表示原论文未报告。由于参考论文没有公开逐样本预测，本图只能比较点估计，不能计算跨论文的配对显著性。
+2. **全原子化学位点—方向—连续双尺度相互作用残差**：每残基最多 2 个可重叠化学位点（8 类属性）、Tyr/Trp 双位点、键方向/平面法向不变量、原始 Å 与回转半径归一化双尺度 RBF，以零初始化残差并入 Cα-EGNN；Pareto 五折 MCC/AUPRC 均 5/5 折正向（平均 +0.0030/+0.0013）。
+3. **pLDDT 感知的多层级质量门控**：结构置信度进入 EGNN 边权、残基级门控、整肽级全局门控与坐标扰动；对照实验显示"只用高 pLDDT 硬筛选训练"反而降至 MCC 0.7232/0.5593，故采用连续降权。
+4. **ProtT5→3D 逐残基化学交互适配器**：以 ProtT5 逐残基 token 为 Query、pLDDT 加权 3D 状态与化学位点摘要为 Key/Value，零初始化有界 logit 残差建模"序列语义↔空间化学"条件关联；OOF MCC 0.86935→0.87118，Brier 同步改善。
+5. **构象集合证据（单结构→跨构象统计）**：将接触占有率、RMSF、距离方差、RMSD、回转半径编码为 `conformer_available` 硬掩码残差；250 条分层 pilot 固定阈值 MCC +0.056；无构象样本严格逐位回退。
+6. **BACC-prioritized disagreement-only 决策残差**：概率与决策解耦——只修改 `prediction`、不改 `toxicity_probability`；Test2 BACC +0.0109、SN +0.0217，可部署 artifact（NumPy 推理）。
+7. **能力感知显式回退链**：完整 3D 化学缓存 → 冻结 0.62/0.38 融合 → 纯 ProtT5，缺失结构时公开入口显式报错而非静默降级出结果。
 
-## 四、默认模型不确定性
+**方法验证级创新（支撑可信度）**
 
-使用固定种子、5,000 次类别分层 bootstrap 计算默认模型自身的 95% percentile CI。类别分层保持每次重采样中的正负样本数量不变。
+1. **无泄漏不平衡学习**：Borderline-SMOTE 合成严格限制在每个训练折内部，修正参考论文"先对全量增强再划分 CV"的潜在泄漏。
+2. **group-aware OOF + 严格 nested group CV + 配对统计**：同源组感知五折、训练/选择/校准/外层测试角色分离、5,000 次配对分层 bootstrap；Test1/Test2 不参与任何参数选择。
+3. **完整负结果体系**：多尺度 CNN、动态路由、质量门控、非负 stacking、几何自监督、逐构象图替换等大量路线按预注册门槛记录并停止，降低选择性报告风险。
+4. **决策指标与概率指标分离报告**：BACC/SN/MCC（决策）与 AUROC/AUPRC/Brier/ECE（概率）各自独立解释，不混用最优单项。
 
-| 指标 | Test1：估计值 [95% CI] | Test2：估计值 [95% CI] |
-|---|---:|---:|
-| ACC | 0.9423 [0.9281, 0.9556] | 0.9364 [0.9158, 0.9553] |
-| BACC | 0.9342 [0.9168, 0.9505] | 0.8860 [0.8270, 0.9388] |
-| SN | 0.9156 [0.8844, 0.9469] | 0.8261 [0.7174, 0.9348] |
-| SP | 0.9529 [0.9380, 0.9665] | 0.9459 [0.9272, 0.9646] |
-| MCC | 0.8598 [0.8257, 0.8921] | 0.6526 [0.5573, 0.7467] |
-| AUROC | 0.9802 [0.9722, 0.9873] | 0.9588 [0.9334, 0.9799] |
-| AUPRC | 0.9578 [0.9397, 0.9732] | 0.7495 [0.6303, 0.8623] |
-| Brier↓ | 0.0447 [0.0356, 0.0541] | 0.0484 [0.0349, 0.0626] |
-| ECE-10↓ | 0.0226 [0.0168, 0.0381] | 0.0473 [0.0364, 0.0670] |
+**边界**：以上是工程与方法学组合创新，不声称重新发明 ESM2/EGNN/TextCNN/cross-attention；默认模型是"综合指标最优"而非"所有指标全面最优"（纯 ProtT5 序列对照的 BACC/SN 更高）；候选实验（如逐构象图、BioEmu 边界）按协议保留为结构证据，不混入默认能力；五级尺度描述的是模型读取的结构统计关联，不等价于已观测的氢键、盐桥、膜插入或热力学构象，构象集合来自生成器采样而非平衡态或实验构象。
 
-Test2 的 SN、MCC 和 AUPRC 区间较宽，主要原因是只有 46 个阳性样本。论文中宜写“点估计优于 ToxPLTC”，不宜写成未经逐样本检验的“统计显著全面优于所有方法”。
+## 6. 复现与文件
 
-## 五、ROC、PR 与概率校准
+默认配置：`configs/default_3d_hybrid.json`
 
-![默认模型ROC与PR](figure3_default_roc_pr.png)
+默认入口：`src/ghxtox/hybrid_default.py`
 
-**图 4. 默认模型 ROC 与 precision-recall 曲线。** Test1 阳性率为 28.42%，Test2 为 7.90%。Test2 的 AUPRC `0.7495` 显著高于随机排序的阳性率基线 `0.0790`，说明高 AUROC 并非完全由多数类造成。
+残差筛选与 artifact：`src/ghxtox/bacc_recall_residual.py`、`runs/bacc_prioritized_decision_residual/deployable_gate.json`
 
-![默认模型校准](figure4_default_calibration.png)
-
-**图 5. 默认模型 reliability diagram。** Test1 的 Brier/ECE-10 为 `0.0447/0.0226`，概率可靠性较好。Test2 为 `0.0484/0.0473`，中间概率箱波动较大，符合少数类样本稀疏和外部域变化的特征。Brier 受阳性率影响，不能直接用其绝对值比较 Test1 与 Test2 的任务难度。
-
-校准指标作为本项目的补充统计优势：ToxMSRC 和 ToxPLTC 均未报告 Brier/ECE，本项目同时给出分类、排序和概率可靠性，能支撑风险筛选场景中“概率是否可信”的讨论。
-
-## 六、默认模型核心消融
-
-所有消融只使用训练集 group-aware OOF，不读取 Test1/Test2 标签进行选择。
-
-| 设置 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier↓ | ECE-10↓ |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| ProtT5，无 BSMOTE | 0.9286 | 0.9208 | 0.9026 | 0.9389 | 0.8282 | 0.9624 | 0.9167 | 0.0589 | 0.0445 |
-| ProtT5 + BSMOTE，1 seed | 0.9335 | 0.9215 | 0.8938 | 0.9492 | 0.8377 | 0.9657 | 0.9254 | 0.0601 | 0.0523 |
-| ESM2 + BSMOTE，3 seeds | 0.9382 | 0.9208 | 0.8806 | **0.9610** | 0.8472 | 0.9698 | 0.9408 | 0.0526 | 0.0345 |
-| **ProtT5 + BSMOTE，3 seeds（默认）** | **0.9421** | **0.9317** | **0.9076** | 0.9558 | **0.8586** | **0.9724** | **0.9436** | **0.0489** | **0.0344** |
-
-![默认模型消融](figure5_default_oof_ablation.png)
-
-**图 6. 默认模型组件 OOF 消融。** 每一列独立按优劣着色；Brier/ECE 已反向处理，因此颜色只能在同一指标列内比较。
-
-消融结论：
-
-1. 从单种子增加到三种子后，ProtT5 的 BACC/MCC/AUPRC 分别提高 `0.0102/0.0209/0.0182`，Brier/ECE-10 分别降低 `0.0112/0.0180`。这是最完整的正向贡献。
-2. 在相同 BSMOTE 和三种子协议下，ProtT5 相对 ESM2 的 BACC、SN、MCC 分别提高 `0.0109、0.0270、0.0114`，仅 SP 下降 `0.0053`。
-3. 单种子条件下，BSMOTE 相对无增强提高 ACC、SP、MCC、AUROC 和 AUPRC，但 SN、Brier 和 ECE 回退。因此论文应表述为“改善少数类边界与综合排序”，不能写成“所有指标均改善”。
-4. 当前消融已经覆盖参考论文常见的表征模型、类别增强和集成稳定性。投稿前若补实验，优先补 `4 only / 5 only / 6 only / 4+5+6` 卷积窗口，以及参数量匹配的 Linear/MLP/TextCNN 分类头对照；本报告不虚构尚未运行的结果。
-
-## 七、可主张的创新点
-
-需要明确：ProtT5、Borderline-SMOTE 和 TextCNN 单独都不是新算法，且 ToxPLTC 已使用相近的基础模块。项目的新颖性应放在以下可验证组合上，而不是笼统宣称“首次使用 ProtT5”。
-
-### 创新点 1：无泄漏的折内边界增强
-
-Borderline-SMOTE 只在每个训练 fold 内拟合和生成样本，held-out fold 保持真实分布。该设计避免“先对全数据增强、再交叉验证”造成的邻域泄漏，是当前不平衡肽毒性预测中更严格的验证实现。
-
-### 创新点 2：同源组隔离的多种子稳定集成
-
-项目使用 CD-HIT 0.8 同源组感知五折，而不是普通随机划分；三个固定随机种子在完全相同的组折上训练，最终对 15 个 held-out/full-fit 成员做概率平均。消融证明多种子同时改善分类、排序和校准，创新重点是稳定性设计而非单次最优 checkpoint。
-
-### 创新点 3：平台式 OOF 阈值冻结
-
-阈值不是在 Test1/Test2 上调到最优，而是选择训练 OOF 中距离最大 BACC 不超过 `0.0005` 的最大阈值，最终冻结为 `0.45`。这在维持 BACC 的同时偏向更保守的阳性决策，减少阈值对微小 OOF 波动的敏感性。
-
-### 创新点 4：分类、排序、校准和不确定性统一评价
-
-项目在 ACC/BACC/SN/SP/MCC 之外同时报告 AUROC、AUPRC、Brier、ECE-10、ROC/PR、可靠性曲线和类别分层 bootstrap CI。相比只给单次 ACC/AUROC，这套证据能够区分“分类阈值是否合适”“少数类能否正确排序”和“概率能否解释”。
-
-### 创新点 5：性能主模型与机制研究边界分离
-
-论文主结果只采用真正表现最稳定的默认序列模型，不因 2D/3D 模块更复杂就强行并入分类器。结构和化学位点路线可在机制解释或补充材料中单独讨论，但不混入导师版性能主张。这种正、负消融边界增强了结果可信度。
-
-## 八、可直接用于论文的结果分析与讨论
-
-### 结果段落
-
-在与 ToxMSRC 和 ToxPLTC 相同的 Train/Test1/Test2 划分上，ProtT5-3Seed 在 Test1 获得 `ACC=0.9423、BACC=0.9342、SN=0.9156、SP=0.9529、MCC=0.8598、AUROC=0.9802、AUPRC=0.9578`；在类别更不平衡的 Test2 上获得 `0.9364、0.8860、0.8261、0.9459、0.6526、0.9588、0.7495`。相对 ToxPLTC，模型在 Test1 的七项可比指标全部提高，在 Test2 的 SN 持平，其余可比指标均提高。相对 ToxMSRC，模型在两个测试集均提高 BACC、SN 和 AUROC，但 Test2 MCC 仍低 0.0024。
-
-### 讨论段落
-
-默认模型的主要优势集中在 BACC、SN 和排序指标，说明其更适合漏检成本较高的毒性肽初筛。Test2 上 SN 相对 ToxMSRC 提高 4.35 个百分点，同时 SP 降低 0.93 个百分点，体现了明确的灵敏度—特异度权衡，而不是所有决策指标同步增加。由于 Test2 仅包含 46 条毒性肽，单个 FN 的变化即可改变 SN 约 2.17 个百分点，因此 MCC 和 AUPRC 必须结合 bootstrap 区间解释。
-
-ProtT5 相对 ESM2 的 OOF 优势表明，ProtT5-XL-UniRef50 的表示更适合当前肽毒性数据；三种子集成进一步降低了单次初始化和少数类边界采样的方差。Borderline-SMOTE 对 SP、MCC 和排序有帮助，但单种子校准有所下降，说明合成边界样本主要改善决策面，而不会自然保证概率可靠。多种子平均在后续同时降低 Brier 和 ECE，表明稳定集成在本项目中兼具分类与校准价值。
-
-### 限制
-
-1. ToxMSRC/ToxPLTC 未公开逐样本预测，跨论文只能比较点估计，不能进行公平的配对显著性检验。
-2. Test1/Test2 在项目历史开发中已被查看多次，应称为“同数据历史对照”，不能再称为新的盲外部验证。
-3. Test2 正样本很少，SN、MCC、AUPRC 具有较大采样不确定性。
-4. 默认模型依赖 2.42 GB ProtT5 编码器和 15 个小型分类 checkpoint，需在论文效率表中分别报告 embedding 与分类推理成本。
-5. 当前默认模型的直接生物学归因仍应补充跨种子一致的序列 motif/残基归因；结构路线的解释不能代替默认模型解释。
-
-## 九、复现与交付
-
-复现命令：
+重新生成默认 Test2：
 
 ```powershell
-D:\anaconda3\envs\dachuang-26\python.exe -m ghxtox.mentor_report `
+$env:PYTHONPATH = "src"
+python -m ghxtox.hybrid_default `
+  --processed data/processed/test2_chemical_sites_final_esm2.pt `
+  --prott5-features data/processed/test2_prott5_official_mean.pt `
+  --adapter-feature-cache data/processed/test2_prott5_structure_adapter.pt `
+  --output runs/default_3d_hybrid/test2_predictions.csv `
+  --metrics runs/default_3d_hybrid/test2_metrics.json
+```
+
+重新生成图表和机器可读表：
+
+```powershell
+python -m ghxtox.mentor_report `
   --bootstrap-iterations 5000 `
   --bootstrap-seed 20260802 `
   --output-dir reports/mentor_report
 ```
 
-本次复现清单共审计 23 个输入/模型文件，缺失数为 0，包括：
+关键审计文件：
 
-- 默认配置与 CD-HIT 分组 fold manifest；
-- 默认 OOF、Test1、Test2 逐样本预测；
-- 3 个随机种子乘 5 折的 15 个 checkpoint；
-- ToxMSRC/ToxPLTC 参考文档；
-- 导师报告生成源码及 Python/NumPy/scikit-learn/Matplotlib 版本。
+- `runs/default_3d_hybrid/test1_predictions.csv`
+- `runs/default_3d_hybrid/test2_predictions.csv`
+- `runs/default_3d_hybrid/test1_metrics.json`
+- `runs/default_3d_hybrid/test2_metrics.json`
+- `reports/mentor_report/core_metrics_default_only.csv`
+- `reports/mentor_report/default_bootstrap_ci.csv`
+- `reports/mentor_report/paper_deltas.csv`
+- `reports/mentor_report/mentor_summary.json`
+- `reports/mentor_report/reproducibility_manifest.json`
 
-机器可读文件：
+## 7. 限制
 
-- `core_metrics_default_only.csv`：默认模型与两篇同数据论文的九项主表；
-- `default_bootstrap_ci.csv`：默认模型 5,000 次 bootstrap CI；
-- `paper_deltas.csv`：相对参考论文的逐指标差值；
-- `default_oof_ablation.csv`：默认架构核心消融；
-- `default_calibration_bins.csv`：可靠性曲线分箱；
-- `mentor_summary.json`：全部统计结果；
-- `reproducibility_manifest.json`：路径、文件大小和 SHA256；
-- 六张图均同时提供 300 dpi PNG 和矢量 PDF。
+Test2 阳性样本少，BACC/SN/MCC 的点估计对单个样本敏感；Test1/Test2 不是新独立盲外部集；论文只报告公开可复核的点估计和 bootstrap 区间，不把未报告的论文指标补成数值；生物学解释仍是模型信号解释，不等价于实验因果机制。

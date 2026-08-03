@@ -110,6 +110,7 @@ class PredictionData:
     probabilities: np.ndarray
     sequences: list[str]
     threshold: float
+    predictions: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -173,6 +174,11 @@ def _load_prediction(path: str | Path, threshold: float) -> PredictionData:
         ),
         sequences=[row["sequence"] for row in rows],
         threshold=float(threshold),
+        predictions=(
+            np.asarray([int(row["prediction"]) for row in rows], dtype=np.int64)
+            if "prediction" in rows[0]
+            else None
+        ),
     )
 
 
@@ -180,8 +186,9 @@ def _metrics_with_decisions(
     labels: np.ndarray,
     probabilities: np.ndarray,
     predictions: np.ndarray,
+    threshold: float = 0.5,
 ) -> dict[str, float]:
-    base = _probability_metrics(labels, probabilities, threshold=0.5)
+    base = _probability_metrics(labels, probabilities, threshold=threshold)
     positives = labels == 1
     negatives = ~positives
     decisions = np.asarray(predictions, dtype=bool)
@@ -211,6 +218,13 @@ def _metrics_with_decisions(
 
 
 def _core_metrics(data: PredictionData) -> dict[str, float]:
+    if data.predictions is not None:
+        return _metrics_with_decisions(
+            data.labels,
+            data.probabilities,
+            data.predictions,
+            threshold=data.threshold,
+        )
     return _probability_metrics(data.labels, data.probabilities, threshold=data.threshold)
 
 

@@ -1,7 +1,7 @@
 {
-  "report_scope": "Only ProtT5-3Seed default test predictions are compared with papers.",
+  "report_scope": "Only the public GHXTox 3D default test predictions are compared with papers.",
   "excluded_from_report": "All non-default model test predictions.",
-  "default_threshold": 0.45,
+  "default_threshold": 0.6,
   "test_labels_used_for_model_or_threshold_selection": false,
   "command": "python -m ghxtox.mentor_report --bootstrap-iterations 5000 --output-dir reports/mentor_report",
   "environment": {
@@ -12,10 +12,22 @@
   },
   "artifacts": [
     {
+      "path": "configs\\default_3d_hybrid.json",
+      "exists": true,
+      "bytes": 3931,
+      "sha256": "35407092413c232e098e7dc2dcd98763a0046603bc9a854f59c468a6ba9d6c0f"
+    },
+    {
+      "path": "configs\\default.json",
+      "exists": true,
+      "bytes": 2960,
+      "sha256": "e5e52219770be9138b179623ee3149dee6e4f935a118e8c4a3aa36c79680c7f7"
+    },
+    {
       "path": "configs\\default_prott5.json",
       "exists": true,
-      "bytes": 1369,
-      "sha256": "f4abb5be5def560973425d97d2bd0a095f46dd1c9257f91d75aa9ea6eba145ad"
+      "bytes": 1404,
+      "sha256": "853e4c1e01c85ec00529b4dc0bca4e082542cf4ead60a49c9da3b68c8d59700b"
     },
     {
       "path": "data\\folds\\train_cdhit080_fallback_folds.csv",
@@ -30,16 +42,70 @@
       "sha256": "179023cfc277354c886f68b54e381456ac47da62dbd5d1601dc6323722a63b6f"
     },
     {
-      "path": "runs\\plm_textcnn_prott5_bsmote_multiseed\\test1_predictions.csv",
+      "path": "runs\\3d_v2_multiseed\\ensemble\\summary.json",
       "exists": true,
-      "bytes": 134570,
-      "sha256": "75df00b32988c0b0b0739885479c3d96ad730bd75c42674e7103f42a603d15bc"
+      "bytes": 34495,
+      "sha256": "daa39e192951914a88528a2ca5ca31b3dd3be8911d21bc094ad3cf840f1d7a3d"
     },
     {
-      "path": "runs\\plm_textcnn_prott5_bsmote_multiseed\\test2_predictions.csv",
+      "path": "runs\\prott5_structure_chemical_cross_attention_oof\\summary.json",
       "exists": true,
-      "bytes": 69470,
-      "sha256": "8c9e2908a3fe70a89bd7c7ee4c9b43f79e1c12ec5e6ed0274ab9d9886ce2abec"
+      "bytes": 9493,
+      "sha256": "3c73a26398e57729ae39f142af318df37f8a886c18cebeb6e257c946e4881b3f"
+    },
+    {
+      "path": "runs\\bacc_prioritized_decision_residual\\summary.json",
+      "exists": true,
+      "bytes": 33871,
+      "sha256": "e5708827420f8c3aac491e89e1d28092cd276fb7bfab9444f62a6d6616525f15"
+    },
+    {
+      "path": "runs\\bacc_prioritized_decision_residual\\decision.json",
+      "exists": true,
+      "bytes": 2200,
+      "sha256": "4ad84e4652def35b89535082acf35f358bc7b28a9096d7705f1d017b3a64b7db"
+    },
+    {
+      "path": "runs\\bacc_prioritized_decision_residual\\deployable_gate.json",
+      "exists": true,
+      "bytes": 17705,
+      "sha256": "f08412881e9ea77e65b71f6fb08372fd08d368e3487494c5eec6e57e35a911b7"
+    },
+    {
+      "path": "runs\\default_3d_hybrid\\test1_predictions.csv",
+      "exists": true,
+      "bytes": 230498,
+      "sha256": "638bcaa41af3dcadeb287688c7331199b12134064651bd4aa1776934633487e2"
+    },
+    {
+      "path": "runs\\default_3d_hybrid\\test2_predictions.csv",
+      "exists": true,
+      "bytes": 122588,
+      "sha256": "4e62ba437e935cd9cecabf94d414b1bf26e77db86210701011e3a69b40b0bbf4"
+    },
+    {
+      "path": "runs\\default_3d_hybrid\\test1_metrics.json",
+      "exists": true,
+      "bytes": 1656,
+      "sha256": "dbcf833e21cf9fea331a2e0452e4939151b9cca48ead91efedf93ae8207211be"
+    },
+    {
+      "path": "runs\\default_3d_hybrid\\test2_metrics.json",
+      "exists": true,
+      "bytes": 1671,
+      "sha256": "20764555dbab4becbd1fcc2ad9849a18cd0d103a6fea24b8e60b3708f8d96513"
+    },
+    {
+      "path": "runs\\3d_v2_conformer_ensemble_candidate\\best_model.pt",
+      "exists": true,
+      "bytes": 6182574,
+      "sha256": "6ee6b1085c5132a706ad2a8814c7d474bae1a16b8828beeeae30c721705ef134"
+    },
+    {
+      "path": "runs\\prott5_structure_chemical_cross_attention_candidate\\best_model.pt",
+      "exists": true,
+      "bytes": 1178613,
+      "sha256": "38e2e8d23cb1fbfd45d710d78f0ba015a922f2b262dd35c79e3e1d0e92bd4cb3"
     },
     {
       "path": "2025ToxMSRC.docx",
@@ -56,14 +122,14 @@
     {
       "path": "D:\\code\\Python\\26大创\\GHXTox\\src\\ghxtox\\mentor_report.py",
       "exists": true,
-      "bytes": 22322,
-      "sha256": "42ec3073da8c9e5de50046283765973bcca84b9f46c0c2cdea36a56fd98b3c7b"
+      "bytes": 26520,
+      "sha256": "36d453159796f6e66c3ea47134b212ab43f9565da8b690b4245140a1d16a8273"
     },
     {
       "path": "reports\\mentor_report\\REPORT.md",
       "exists": true,
-      "bytes": 14057,
-      "sha256": "2b3cdb1cb7352e1f6392d457700f0f7fe7df4e95dcb62d70605bb864adbc2dfe"
+      "bytes": 9181,
+      "sha256": "3c754c5b8dc4c186e91643b0d7cf553e0eedd7fbcc3ee37dedd1913e3eaa6b9d"
     },
     {
       "path": "runs\\plm_textcnn_prott5_bsmote\\fold0_best_model.pt",

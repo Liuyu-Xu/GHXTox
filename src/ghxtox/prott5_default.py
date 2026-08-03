@@ -1,8 +1,8 @@
-"""Inference for the project performance default.
+"""Inference for the explicit ProtT5 sequence ablation.
 
-The public default is the leakage-controlled three-seed ProtT5 TextCNN
-ensemble. Multimodal structure routes remain explicit research/ablation
-entry points and are intentionally not called from this module.
+The public default is the 3D GHXTox-3D-Chemical-Adapter-Residual route in
+``ghxtox.hybrid_default``. This module intentionally exposes only the
+sequence-only reference, which is useful for ablation and explicit fallback.
 """
 
 from __future__ import annotations
