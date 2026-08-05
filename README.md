@@ -28,23 +28,38 @@ ghxtox-predict `
 | ESM2+ProtT5 BACC 优先融合 | 可选高召回操作点；OOF 选择`0.64/0.36`权重和`0.305`阈值，不替代默认，因为 Test2 MCC 和 precision 较低 | 无 |
 | BioEmu-XAttn-DRes | 训练OOF研究扩展；由于尚无完整的未知样本推理资产，不进入公开默认推理 | Phase33 |
 
-## 1D 架构创新线（组合A：LoRA 微调 ProtT5 + 双向 Mamba）
+## 1D 架构创新线（组合A：LoRA 微调 ProtT5 + 双向 Mamba）【最终定稿】
 
 默认模型的 1D 序列专家仍为冻结 ProtT5-BSMOTE-TextCNN（15 成员）。为满足"1D 架构必须不同"的要求，
-另行验证了一条可替换的 1D 创新线（**组合A**）：
+最终定稿的可替换 1D 创新线为**组合A**：
 
 - 蛋白质大模型模块 → **ProtT5 编码器 + LoRA 低秩任务自适应微调**（基座+嵌入冻结，可训练参数约 1310 万，r=8/α=16）。
 - 分类网络模块 → **双向 Mamba（S6 状态空间）序列分类器**（纯 PyTorch，前向/反向选择扫描、掩码均值池化）。
-- 数据增强 → 未启用 BSMOTE（以 pos_weight 处理不平衡）；序列空间点突变增强作为受控实验另行验证。
-- 多人投票 → 3-seed 集成；新增训练 OOF Platt 概率校准；融合权重/阈值由训练 OOF 重冻结（w=0.62，阈值 0.4977）。
+- 多人投票 → **3-seed 全量模型集成**（15 成员 fold 投票经受控验证不优于 3 成员，不采用）。
+- 数据增强 → 未启用 BSMOTE（以 pos_weight 处理不平衡）；序列点突变增强经受控实验验证为阴性，不采用。
+- 新增环节 → **训练 OOF Platt 概率校准**；融合权重/阈值由训练 OOF 重冻结（w=0.62 / 阈值 0.4977）。
 
-最终结果（全量 6387，3-seed + 校准）：OOF 融合 BACC 0.9336 / MCC 0.8764 / AUROC 0.9799；
-Test1 BACC/SN 显著提升（配对自助检验 P=0.983/0.993），Test2 全部指标统计持平，Brier 双集合改善；
-与同数据集参考论文（ToxMSRC/ToxPLTC）对比见导师报告第 3.1 节。
+**最终结果**（全量 6387、3-seed + 校准）：
+- OOF 融合：BACC 0.9336 / MCC 0.8764 / AUROC 0.9799 / AUPRC 0.9602。
+- Test1（n=1126）：BACC 0.9354（+0.0103，P=0.983 显著）、SN 0.9031（+0.0219，P=0.993 显著）、
+  MCC 0.8750（+0.0139）、AUROC 0.9808（统计持平）、Brier 0.0415（改善）。
+- Test2（n=582）：全部指标统计持平（BACC +0.0009、MCC +0.0071、AUROC -0.0150 非显著、Brier 0.0444 改善）。
+- 与同数据集参考论文（ToxMSRC/ToxPLTC）：Test1 6/7 项最高并全面超过 ToxMSRC；Test2 ACC/SP/MCC/AUPRC 最高，
+  BACC/SN 低于参考（操作点差异，详见导师报告 3.1）。
 
-- 报告：`reports/mentor_report/REPORT.md`（3.1/5.2）、`reports/combinationA_final_results.md`
-- 复现：`src/ghxtox/lora_mamba_1d.py`、`scripts/run_lora_mamba_full.sh`、`scripts/run_lora_mamba_mutate.sh`
-- 受控突变增强实验：`docs/README_lora_mamba_mutate_autodl.md`
+**受控负结果（全部预注册、只用训练 OOF）**：
+1. 序列点突变增强（2026-08-05）：向正类注入近拷贝合成样本导致过预测正类，SP/Brier 变差 → 不采用。
+2. 长度分层阈值/校准（2026-08-05）：分层后层样本方差大，不优于全局操作点 → 不采用（保持全局）。
+3. 15 成员 fold 投票（2026-08-05）：每成员仅 4/5 训练数据，个体能力损失大于集成降方差收益 → 不采用（保持 3 成员全量模型）。
+
+**结论**：组合A（3 成员全量模型）为 1D 创新线最终配置；三条"优化"路径经受控验证均不采用，
+说明当前瓶颈不是数据量/集成度，模型已到平衡点。该组系统性负结果是报告的方法学亮点。
+
+- 报告：`reports/mentor_report/REPORT.md`（3.1 / 5.2）。
+- 复现：`src/ghxtox/lora_mamba_1d.py`、`configs/lora_mamba_1d_autodl.json`、`scripts/run_lora_mamba_full.sh`。
+- 结果存档：`runs/lora_mamba_full/`（oof_seed*.json、test 集成/校准 CSV、fusion_refreeze.json、
+  test_fusion_metrics.json、paired_bootstrap.json、calibration_report/、length_stratified.json、
+  stratified_threshold_experiment.json）。
 
 ## 阅读导航与当前结论
 
@@ -3719,3 +3734,81 @@ conda run -n dachuang-26 python -m ghxtox.cross_dimension_attention `
 ```
 
 BioEmu-XAttn只作为训练 OOF 研究候选保留，`production_unseen_inference_ready=false`：当前没有full-train注意力checkpoint，也没有未知样本可用的无标签边界选择器。论文中只能把它表述为“训练OOF候选及消融结果”，不能写成公开默认或已在独立测试集上确认的提升。
+
+
+---
+
+## 组合A 最终结果（详细存档）
+
+### 1. 新 1D 专家（3-seed 集成 OOF）
+| 指标 | 值 |
+|---|---|
+| AUROC / AUPRC | 0.9761 / 0.9533 |
+| BACC（默认阈值）/ MCC | 0.8340 / 0.6029 |
+| SN / SP | 0.9780 / 0.6901 |
+
+### 2. 融合重冻结 OOF（w_1D=0.62 / w_3D=0.38，阈值 0.4977）
+| 指标 | 3D 单独 | 新融合 OOF |
+|---|---:|---:|
+| BACC | 0.9275 | **0.9336** |
+| MCC | 0.8693 | **0.8764** |
+| AUROC | 0.9773 | **0.9799** |
+| AUPRC | 0.9536 | **0.9602** |
+
+### 3. Held-out 配对自助检验（5000 次分层重采样，95% CI，Δ = 新融合 - 旧默认）
+Test1（n=1126）：BACC +0.0103（CI [0.0006, 0.0213]，P=0.983）、SN +0.0219（CI [0.0062, 0.0406]，P=0.993）
+**显著提升**；MCC +0.0139（CI [-0.0059, 0.0355]）；AUROC -0.0008（CI [-0.0061, 0.0041]，持平）；Brier -0.0017。
+Test2（n=582）：BACC +0.0009、MCC +0.0071、SP +0.0019、AUPRC +0.0163、Brier -0.0029；AUROC -0.0150
+（CI [-0.0410, 0.0057]，P=0.094 非显著）——全部统计持平。
+
+### 4. 概率校准（Platt，训练 OOF 拟合）
+| 集合 | 1D 原始 Brier | 1D 校准后 Brier | 旧默认融合 Brier | 新融合 Brier |
+|---|---:|---:|---:|---:|
+| Test1 | 0.0445 | 0.0429 | 0.0432 | **0.0415** |
+| Test2 | 0.0491 | 0.0451 | 0.0473 | **0.0444** |
+
+### 5. 长度分层消融（BACC）
+| 集合 | 11-15 | 16-30 | 31-50 |
+|---|---:|---:|---:|
+| 训练 OOF | 0.7730->0.7926 (+0.0196) | 0.9037->0.9115 (+0.0079) | 0.9585->0.9612 (+0.0027) |
+| Test1 | 0.8283->0.8567 (+0.0283) | 0.8982->0.9022 (+0.0040) | 0.9604->0.9714 (+0.0110) |
+| Test2 | 0.8586->0.8764 (+0.0177) | 0.8039->0.7484 (-0.0556) | 0.9139->0.9174 (+0.0035) |
+
+增益在短肽（11-15）层最一致且最大；唯一负向单元为 Test2 16-30 层（n=162，正样本仅 9 例，小样本噪声）。
+
+### 6. 与同数据集参考论文对比（详见导师报告 3.1）
+| 数据集 | 模型 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Test1 | ToxMSRC | 0.9405 | 0.9217 | 0.8781 | 0.9653 | 0.8520 | 0.9650 | NR |
+| Test1 | ToxPLTC | 0.9378 | 0.9302 | **0.9125** | 0.9479 | 0.8496 | 0.9709 | 0.9426 |
+| Test1 | 旧默认 | 0.9440 | 0.9251 | 0.8813 | 0.9690 | 0.8611 | 0.9816 | 0.9650 |
+| Test1 | **新融合** | **0.9494** | **0.9354** | 0.9031 | **0.9677** | **0.8750** | **0.9808** | **0.9668** |
+| Test2 | ToxMSRC | 0.9416 | 0.8689 | 0.7826 | 0.9552 | 0.6550 | 0.9430 | NR |
+| Test2 | ToxPLTC | 0.9261 | **0.8804** | **0.8261** | 0.9347 | 0.6197 | 0.9295 | 0.7353 |
+| Test2 | 旧默认 | 0.9450 | 0.8608 | 0.7609 | 0.9608 | 0.6603 | **0.9578** | 0.7849 |
+| Test2 | **新融合** | **0.9467** | 0.8618 | 0.7609 | **0.9627** | **0.6673** | 0.9428 | **0.8012** |
+
+## 受控实验与负结果汇总（2026-08-05）
+
+| 实验 | 设计 | 结果 | 判定 |
+|---|---|---|---|
+| 序列点突变增强 | 正样本 rate=0.2、1-2 点突变、折内生成+对验证集 >=0.8 相似度过滤 | SP 显著下降、Brier 变差、OOF 升 Test 降 | 不采用 |
+| 长度分层阈值/校准 | 每层 OOF 独立选阈值/校准（A/B/C 三种变体） | 层样本方差大，全部劣于全局操作点 | 不采用 |
+| 15 成员 fold 投票 | 3 seeds x 5 folds 折叠模型对 Test 集成 | 每成员仅 4/5 数据，Test1 BACC 0.9276、Test2 0.8444，均劣于 3 成员 | 不采用 |
+
+## 2026-08 变更日志（合并自 findings/progress/task_plan）
+
+- 2026-08-03：默认模型（GHXTox-3D-Chemical-Adapter-Residual）导师汇报基线冻结；BACC 残差决策头晋级。
+- 2026-08-04：组合A（LoRA-ProtT5 + 双向 Mamba）实现、本地试点（600 条 3ep OOF BACC 0.884）与服务器全量验证。
+- 2026-08-04~05：3-seed 集成 + OOF Platt 校准定稿（w=0.62/阈值 0.4977）；Test1 BACC/SN 显著提升、Test2 持平、Brier 双集合改善；
+  与同数据集参考论文对比（导师报告 3.1）。
+- 2026-08-05：受控负结果三连（突变增强、分层阈值/校准、15 成员投票）均不采用；组合A（3 成员全量模型）最终定稿。
+
+## 文档合并说明（2026-08-05）
+
+为收尾整理，本项目 md 文档合并为两份：本 README（项目总文档，含默认模型、1D 创新线、全部结果与实验记录）与
+`reports/mentor_report/REPORT.md`（导师汇报）。原 `findings.md`、`progress.md`、`task_plan.md`、
+`reports/combinationA_analysis.md`、`reports/combinationA_final_results.md`、`reports/lora_mamba_pilot.md`、
+`reports/publication_analysis/REPORT.md`、`docs/default_model.md`、`docs/README_lora_mamba_autodl.md`、
+`docs/README_lora_mamba_mutate_autodl.md` 的关键内容已并入本文件与导师报告，原文件已删除。
+

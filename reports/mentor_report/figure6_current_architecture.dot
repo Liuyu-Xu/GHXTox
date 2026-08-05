@@ -1,0 +1,51 @@
+digraph GHXToxCurrent {
+  rankdir=TB;
+  graph [fontname="Microsoft YaHei", splines=ortho, nodesep=0.4, ranksep=0.5, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fontname="Microsoft YaHei", fontsize=10.5, margin="0.16,0.09"];
+  edge  [color="#4a6fa5", penwidth=1.3, arrowsize=0.8];
+
+  // ===== 输入层 =====
+  subgraph cluster_in {
+    label="输入"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#d9c9a3"; fillcolor="#fffaf0";
+    in_seq [label="肽序列\n(11–50 aa)", fillcolor="#fff3d6", color="#b38600"];
+    in_pdb [label="ESMFold 全原子 PDB\n+ 逐残基 pLDDT + 构象集合", fillcolor="#fff3d6", color="#b38600"];
+  }
+
+  // ===== 1D 序列线路（组合A） =====
+  subgraph cluster_1d {
+    label="1D 序列线路（组合A：架构创新）"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#9db8d2"; fillcolor="#f2f7fc";
+    d1 [label="ProtT5-XL-UniRef50 编码器\n残基级 token → 1024 维", fillcolor="#e3eefb", color="#2f5597"];
+    d2 [label="LoRA 低秩任务自适应微调\n（基座+嵌入冻结，r=8/α=16）", fillcolor="#e3eefb", color="#2f5597"];
+    d3 [label="双向 Mamba（S6）序列分类器\n2 层 · d_model=192\n前向/反向选择扫描 + 残差", fillcolor="#e3eefb", color="#2f5597"];
+    d4 [label="掩码均值池化 → 分类头\n（pos_weight 处理不平衡）", fillcolor="#e3eefb", color="#2f5597"];
+    d5 [label="3-seed 集成\n（全量训练，概率平均）", fillcolor="#e3eefb", color="#2f5597"];
+    d6 [label="OOF Platt 概率校准\n（训练 OOF 拟合，保排序）", fillcolor="#e3eefb", color="#2f5597"];
+    d7 [label="序列概率 p_1D", fillcolor="#cfe0f5", color="#1f5c8b", penwidth=1.8];
+  }
+
+  // ===== 3D 结构线路 =====
+  subgraph cluster_3d {
+    label="3D 结构线路（五级尺度）"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#a8c9b0"; fillcolor="#f2faf4";
+    s1 [label="① 残基尺度\nAA/官能团嵌入 + 42D 理化\n+ ESM2-650M 上下文", fillcolor="#dff0e4", color="#1e7a46"];
+    s2 [label="② 原子化学位点尺度\n8 类可重叠属性 + 方向", fillcolor="#dff0e4", color="#1e7a46"];
+    s3 [label="③ 空间邻域尺度\npLDDT-aware Cα-EGNN\n序列边 + 空间 top-10 近邻\n双尺度 RBF 距离编码", fillcolor="#dff0e4", color="#1e7a46"];
+    s4 [label="③ 全原子化学位点\n相互作用残差（零初始化）", fillcolor="#dff0e4", color="#1e7a46"];
+    s5 [label="④ 肽级全局尺度\n两级 pLDDT 门控 + 5D 全局特征", fillcolor="#dff0e4", color="#1e7a46"];
+    s6 [label="⑤ 构象集合尺度\n接触占有率 / RMSF / 距离方差", fillcolor="#dff0e4", color="#1e7a46"];
+    s7 [label="结构概率 p_3D", fillcolor="#c9e6d2", color="#145a32", penwidth=1.8];
+  }
+
+  // ===== 融合与输出 =====
+  f1 [label="概率融合\n0.62 × p_1D + 0.38 × p_3D\n（训练 OOF 冻结）", fillcolor="#f0e6fb", color="#7b3fa0", penwidth=1.8];
+  out [label="输出\ntoxicity_probability\n（阈值 0.4977）→ prediction", fillcolor="#fef9e7", color="#b7950b", penwidth=1.8];
+
+  // ===== 边 =====
+  in_seq -> d1;
+  in_seq -> s1;
+  in_pdb -> s1;
+  d1 -> d2 -> d3 -> d4 -> d5 -> d6 -> d7;
+  s1 -> s2 -> s3 -> s4 -> s5 -> s6 -> s7;
+  d7 -> f1;
+  s7 -> f1;
+  f1 -> out;
+}
