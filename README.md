@@ -28,6 +28,24 @@ ghxtox-predict `
 | ESM2+ProtT5 BACC 优先融合 | 可选高召回操作点；OOF 选择`0.64/0.36`权重和`0.305`阈值，不替代默认，因为 Test2 MCC 和 precision 较低 | 无 |
 | BioEmu-XAttn-DRes | 训练OOF研究扩展；由于尚无完整的未知样本推理资产，不进入公开默认推理 | Phase33 |
 
+## 1D 架构创新线（组合A：LoRA 微调 ProtT5 + 双向 Mamba）
+
+默认模型的 1D 序列专家仍为冻结 ProtT5-BSMOTE-TextCNN（15 成员）。为满足"1D 架构必须不同"的要求，
+另行验证了一条可替换的 1D 创新线（**组合A**）：
+
+- 蛋白质大模型模块 → **ProtT5 编码器 + LoRA 低秩任务自适应微调**（基座+嵌入冻结，可训练参数约 1310 万，r=8/α=16）。
+- 分类网络模块 → **双向 Mamba（S6 状态空间）序列分类器**（纯 PyTorch，前向/反向选择扫描、掩码均值池化）。
+- 数据增强 → 未启用 BSMOTE（以 pos_weight 处理不平衡）；序列空间点突变增强作为受控实验另行验证。
+- 多人投票 → 3-seed 集成；新增训练 OOF Platt 概率校准；融合权重/阈值由训练 OOF 重冻结（w=0.62，阈值 0.4977）。
+
+最终结果（全量 6387，3-seed + 校准）：OOF 融合 BACC 0.9336 / MCC 0.8764 / AUROC 0.9799；
+Test1 BACC/SN 显著提升（配对自助检验 P=0.983/0.993），Test2 全部指标统计持平，Brier 双集合改善；
+与同数据集参考论文（ToxMSRC/ToxPLTC）对比见导师报告第 3.1 节。
+
+- 报告：`reports/mentor_report/REPORT.md`（3.1/5.2）、`reports/combinationA_final_results.md`
+- 复现：`src/ghxtox/lora_mamba_1d.py`、`scripts/run_lora_mamba_full.sh`、`scripts/run_lora_mamba_mutate.sh`
+- 受控突变增强实验：`docs/README_lora_mamba_mutate_autodl.md`
+
 ## 阅读导航与当前结论
 
 - 项目完整实现了1D序列、2D原子图和3D预测结构三条线路；**当前对外默认必须使用完整3D化学位点缓存和跨模态适配器缓存**。`ghxtox-predict`不会静默把缺失3D的数据伪装成默认结果。

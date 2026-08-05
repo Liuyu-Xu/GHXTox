@@ -1,0 +1,23 @@
+{
+  "metric": "mcc",
+  "best_weight_1d": 0.08,
+  "best_threshold": 0.5985556934000001,
+  "fusion_oof_metrics": {
+    "accuracy": 0.9475497103491467,
+    "balanced_accuracy": 0.9277371105462483,
+    "sensitivity": 0.8817381738173817,
+    "specificity": 0.9737360472751149,
+    "mcc": 0.8697461918689461,
+    "auroc": 0.97729725916343,
+    "auprc": 0.9535979034173743
+  },
+  "new_1d_metrics": {
+    "accuracy": 0.773915766400501,
+    "balanced_accuracy": 0.8363483426477907,
+    "sensitivity": 0.9812981298129813,
+    "specificity": 0.6913985554826001,
+    "mcc": 0.6070995221065023,
+    "auroc": 0.97729725916343,
+    "auprc": 0.9535979034173743
+  }
+}

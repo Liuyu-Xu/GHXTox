@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\huggingface_hub\file_download.py", line 1710, in _get_metadata_or_catch_error
+    raise FileMetadataError(
+huggingface_hub.errors.FileMetadataError: Distant resource does not seem to be on huggingface.co. It is possible that a configuration issue prevents you from downloading resources from https://huggingface.co. Please check your firewall and proxy settings and make sure your SSL certificates are updated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\utils\hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\huggingface_hub\file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\huggingface_hub\file_download.py", line 1161, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\huggingface_hub\file_download.py", line 1799, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\code\Python\26´ó´´\GHXTox\tmp\dl_prott5.py", line 9, in <module>
+    model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", torch_dtype=torch.float16)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\modeling_utils.py", line 4166, in from_pretrained
+    config, model_kwargs = config_class.from_pretrained(
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\configuration_utils.py", line 644, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\configuration_utils.py", line 685, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\configuration_utils.py", line 740, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\utils\hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "D:\anaconda3\envs\dachuang-26\lib\site-packages\transformers\utils\hub.py", line 513, in cached_files
+    raise OSError(
+OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.

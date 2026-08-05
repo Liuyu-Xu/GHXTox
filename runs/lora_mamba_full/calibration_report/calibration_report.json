@@ -1,0 +1,650 @@
+{
+  "weight": 0.62,
+  "threshold": 0.4977,
+  "test1": {
+    "n": 1126,
+    "1d_raw": {
+      "brier": 0.04451029762631575,
+      "ece_10": 0.03498752287368293
+    },
+    "1d_calibrated": {
+      "brier": 0.042892354670430115,
+      "ece_10": 0.018704246338925378
+    },
+    "old_default": {
+      "brier": 0.0431894849742759,
+      "ece_10": 0.019983076581443666
+    },
+    "new_fusion": {
+      "brier": 0.0415019374052607,
+      "ece_10": 0.018936081252726104
+    },
+    "reliability_1d_raw": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test1_1d_raw.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 719,
+          "mean_predicted": 0.005081713227027816,
+          "observed_frequency": 0.02086230876216968
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 23,
+          "mean_predicted": 0.1401195595217391,
+          "observed_frequency": 0.21739130434782608
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 26,
+          "mean_predicted": 0.2570410555,
+          "observed_frequency": 0.15384615384615385
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 31,
+          "mean_predicted": 0.3408129804516129,
+          "observed_frequency": 0.12903225806451613
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 8,
+          "mean_predicted": 0.445047080625,
+          "observed_frequency": 0.375
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 8,
+          "mean_predicted": 0.551772087875,
+          "observed_frequency": 0.625
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 23,
+          "mean_predicted": 0.649494205652174,
+          "observed_frequency": 0.43478260869565216
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 4,
+          "mean_predicted": 0.7430419924999999,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 5,
+          "mean_predicted": 0.8533203124,
+          "observed_frequency": 0.4
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 279,
+          "mean_predicted": 0.9953435354623655,
+          "observed_frequency": 0.967741935483871
+        }
+      ]
+    },
+    "reliability_1d_cal": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test1_1d_cal.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 675,
+          "mean_predicted": 0.017316714600933335,
+          "observed_frequency": 0.016296296296296295
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 45,
+          "mean_predicted": 0.1484256687777778,
+          "observed_frequency": 0.08888888888888889
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 28,
+          "mean_predicted": 0.24487893885714285,
+          "observed_frequency": 0.25
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 51,
+          "mean_predicted": 0.3471577244313726,
+          "observed_frequency": 0.11764705882352941
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 14,
+          "mean_predicted": 0.44274029778571433,
+          "observed_frequency": 0.42857142857142855
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 27,
+          "mean_predicted": 0.5368084044444444,
+          "observed_frequency": 0.48148148148148145
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 5,
+          "mean_predicted": 0.6443296314,
+          "observed_frequency": 0.4
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 8,
+          "mean_predicted": 0.7516900870000001,
+          "observed_frequency": 0.875
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 16,
+          "mean_predicted": 0.856602967,
+          "observed_frequency": 0.8125
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 257,
+          "mean_predicted": 0.9718340690778211,
+          "observed_frequency": 0.9766536964980544
+        }
+      ]
+    },
+    "reliability_old": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test1_old.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 722,
+          "mean_predicted": 0.009068319790712539,
+          "observed_frequency": 0.018005540166204988
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 39,
+          "mean_predicted": 0.14056428311794877,
+          "observed_frequency": 0.15384615384615385
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 15,
+          "mean_predicted": 0.25581391752,
+          "observed_frequency": 0.06666666666666667
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 16,
+          "mean_predicted": 0.3554044813,
+          "observed_frequency": 0.375
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 15,
+          "mean_predicted": 0.45469518503333334,
+          "observed_frequency": 0.4
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 12,
+          "mean_predicted": 0.5483655283833334,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 18,
+          "mean_predicted": 0.6535281638333333,
+          "observed_frequency": 0.6666666666666666
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 13,
+          "mean_predicted": 0.7581844834153847,
+          "observed_frequency": 0.5384615384615384
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 17,
+          "mean_predicted": 0.8704753518058823,
+          "observed_frequency": 0.7647058823529411
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 259,
+          "mean_predicted": 0.9887558095250966,
+          "observed_frequency": 0.9652509652509652
+        }
+      ]
+    },
+    "reliability_fusion": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test1_fusion.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 689,
+          "mean_predicted": 0.013561763514110326,
+          "observed_frequency": 0.018867924528301886
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 47,
+          "mean_predicted": 0.1453452511136527,
+          "observed_frequency": 0.1276595744680851
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 44,
+          "mean_predicted": 0.2315454705644518,
+          "observed_frequency": 0.11363636363636363
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 21,
+          "mean_predicted": 0.3511024647558384,
+          "observed_frequency": 0.19047619047619047
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 10,
+          "mean_predicted": 0.4313795101186,
+          "observed_frequency": 0.3
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 17,
+          "mean_predicted": 0.5531037300559164,
+          "observed_frequency": 0.5882352941176471
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 15,
+          "mean_predicted": 0.6688559586585334,
+          "observed_frequency": 0.7333333333333333
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 11,
+          "mean_predicted": 0.7253334054401819,
+          "observed_frequency": 0.45454545454545453
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 13,
+          "mean_predicted": 0.8640768320546154,
+          "observed_frequency": 0.6923076923076923
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 259,
+          "mean_predicted": 0.9799851556068262,
+          "observed_frequency": 0.9806949806949807
+        }
+      ]
+    },
+    "figures": [
+      "runs\\lora_mamba_full\\calibration_report\\reliability_test1_1d.png",
+      "runs\\lora_mamba_full\\calibration_report\\reliability_test1_fusion.png"
+    ]
+  },
+  "test2": {
+    "n": 582,
+    "1d_raw": {
+      "brier": 0.04912041093042865,
+      "ece_10": 0.05370298060344845
+    },
+    "1d_calibrated": {
+      "brier": 0.045110668806897083,
+      "ece_10": 0.05531502845474227
+    },
+    "old_default": {
+      "brier": 0.047256962968524836,
+      "ece_10": 0.04380254410624518
+    },
+    "new_fusion": {
+      "brier": 0.04437427605649236,
+      "ece_10": 0.04624841878304351
+    },
+    "reliability_1d_raw": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test2_1d_raw.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 466,
+          "mean_predicted": 0.004730052531744635,
+          "observed_frequency": 0.012875536480686695
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 15,
+          "mean_predicted": 0.14528356393333333,
+          "observed_frequency": 0.06666666666666667
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 20,
+          "mean_predicted": 0.2525178752,
+          "observed_frequency": 0.15
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 19,
+          "mean_predicted": 0.3433879174210526,
+          "observed_frequency": 0.05263157894736842
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 4,
+          "mean_predicted": 0.44537830349999996,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 2,
+          "mean_predicted": 0.510536472,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 11,
+          "mean_predicted": 0.6523530555454546,
+          "observed_frequency": 0.09090909090909091
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 3,
+          "mean_predicted": 0.7521158856666667,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 2,
+          "mean_predicted": 0.8758138015,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 40,
+          "mean_predicted": 0.9929728191999999,
+          "observed_frequency": 0.8
+        }
+      ]
+    },
+    "reliability_1d_cal": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test2_1d_cal.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 440,
+          "mean_predicted": 0.018404020196954543,
+          "observed_frequency": 0.011363636363636364
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 26,
+          "mean_predicted": 0.1429695219230769,
+          "observed_frequency": 0.038461538461538464
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 21,
+          "mean_predicted": 0.2506990655238095,
+          "observed_frequency": 0.14285714285714285
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 33,
+          "mean_predicted": 0.3463404987878788,
+          "observed_frequency": 0.06060606060606061
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 6,
+          "mean_predicted": 0.43314347983333334,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 12,
+          "mean_predicted": 0.5414990250833333,
+          "observed_frequency": 0.08333333333333333
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 3,
+          "mean_predicted": 0.637455736,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 2,
+          "mean_predicted": 0.7348327830000001,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 4,
+          "mean_predicted": 0.8455724924999999,
+          "observed_frequency": 0.25
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 35,
+          "mean_predicted": 0.9663794669714286,
+          "observed_frequency": 0.8571428571428571
+        }
+      ]
+    },
+    "reliability_old": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test2_old.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 468,
+          "mean_predicted": 0.00896346656317372,
+          "observed_frequency": 0.010683760683760684
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 27,
+          "mean_predicted": 0.14327010843703705,
+          "observed_frequency": 0.1111111111111111
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 10,
+          "mean_predicted": 0.25063926429,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 9,
+          "mean_predicted": 0.34916939671111114,
+          "observed_frequency": 0.2222222222222222
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 7,
+          "mean_predicted": 0.45174459474285716,
+          "observed_frequency": 0.14285714285714285
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 6,
+          "mean_predicted": 0.5560650924833334,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 5,
+          "mean_predicted": 0.6635949969199999,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 8,
+          "mean_predicted": 0.751631394025,
+          "observed_frequency": 0.375
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 7,
+          "mean_predicted": 0.8693908708285714,
+          "observed_frequency": 0.42857142857142855
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 35,
+          "mean_predicted": 0.9787259408457142,
+          "observed_frequency": 0.8
+        }
+      ]
+    },
+    "reliability_fusion": {
+      "csv": "runs\\lora_mamba_full\\calibration_report\\reliability_test2_fusion.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 448,
+          "mean_predicted": 0.014482737345212746,
+          "observed_frequency": 0.011160714285714286
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 30,
+          "mean_predicted": 0.1551732021268094,
+          "observed_frequency": 0.13333333333333333
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 30,
+          "mean_predicted": 0.23095718740967366,
+          "observed_frequency": 0.03333333333333333
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 13,
+          "mean_predicted": 0.3556174756774074,
+          "observed_frequency": 0.07692307692307693
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 6,
+          "mean_predicted": 0.42873878310700003,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 6,
+          "mean_predicted": 0.5428997473225367,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 4,
+          "mean_predicted": 0.6424541129415,
+          "observed_frequency": 0.25
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 6,
+          "mean_predicted": 0.7140712486003333,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 4,
+          "mean_predicted": 0.8539845998679999,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 35,
+          "mean_predicted": 0.9748960287359429,
+          "observed_frequency": 0.8857142857142857
+        }
+      ]
+    },
+    "figures": [
+      "runs\\lora_mamba_full\\calibration_report\\reliability_test2_1d.png",
+      "runs\\lora_mamba_full\\calibration_report\\reliability_test2_fusion.png"
+    ]
+  }
+}

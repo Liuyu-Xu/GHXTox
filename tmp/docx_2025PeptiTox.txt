@@ -1,0 +1,1641 @@
+pubs.acs.org/jcim
+Article
+Integrating Protein Language Models and Geometric Deep Learning
+for Peptide Toxicity Prediction
+Yanling Wang, Na Li,* Xiao Wang, Feng Cao, Shuwen Xiong,* and Leyi Wei*
+Cite This: https://doi.org/10.1021/acs.jcim.5c01073
+Read Online
+ACCESS
+Metrics &amp; More
+Article Recommendations
+*sı Supporting Information
+ABSTRACT: Peptide toxicity prediction is a critical task in biomedical research, inﬂuencing drug safety and therapeutic
+development. Traditional methods, relying on sequence similarity or handcrafted features, struggle to capture the complex
+relationship between peptide structure and toxicity. In this study, we propose PeptiTox, an advanced deep learning framework that
+integrates protein language models (PLMs) and geometric deep learning to enhance peptide toxicity prediction. Speciﬁcally, ESM2
+is employed to extract sequence embeddings, while ESMFold predicts the three-dimensional (3D) peptide structure. The structural
+information is then transformed into a graph representation, where residues serve as nodes, and interactions between residues form
+edges. A graph neural network (GNN) is subsequently used to learn peptide representations and classify their toxicity. Experimental
+results demonstrate that PeptiTox signiﬁcantly outperforms state-of-the-art models across multiple evaluation metrics. Our ﬁndings
+highlight the importance of integrating sequence and structural knowledge for peptide toxicity prediction, paving the way for safer
+and more eﬀective peptide-based therapeutics.
+I. INTRODUCTION
+homologous toxic peptides. Second, they struggle with
+accuracy and eﬃciency when processing large-scale data sets.
+Finally, they rely on predeﬁned threshold values, which can be
+challenging to optimize in real-world scenarios.18
+Peptides are short chains of amino acids linked by peptide
+,2
+bonds, typically consisting of 6 to 50 residues.1 They play
+crucial roles in various biological processes, including signal
+To overcome these limitations, researchers have introduced
+machine learning-based approaches for peptide toxicity
+transduction, immune responses, and enzymatic activities.3
+−6
+Due to their high speciﬁcity and biocompatibility, peptides
+have emerged as promising candidates for therapeutic
+applications. Compared to small-molecule drugs, peptide-
+based therapeutics oﬀer several advantages, including higher
+prediction. Two representative models, ClanTox and Tox-
+inPred,1
+9,20
+utilize sequence-based features, machine learning
+algorithms, and statistical techniques to classify peptides as
+toxic or nontoxic.
+target speciﬁcity, reduced likelihood of drug resistance, and low
+With the advancements in deep learning, researchers have
+developed deep learning-based models for protein toxicity
+prediction, including ToxDL, ToxMVA, CSM-Toxin, and
+7
+immunogenicity. These attributes have driven the develop-
+ment of a wide range of peptide therapeutics, particularly in
+8
+,9
+10−13
+oncology and antimicrobial therapy.
+VISH-Pred.2
+1−24
+However, these models primarily focus on
+Despite their therapeutic potential, certain peptides exhibit
+toxicity, posing signiﬁcant challenges in drug development.
+Therefore, accurately predicting peptide toxicity is crucial to
+ensure drug safety and eﬃcacy. Traditional toxicity assessment
+methods rely primarily on biological experiments, which are
+time-consuming, costly, and subject to ethical constraints. To
+address these limitations, computational approaches have been
+developed to predict peptide toxicity eﬃciently and cost-
+protein toxicity rather than peptide toxicity. Subsequently,
+deep learning models speciﬁcally designed for peptide toxicity
+2
+5
+18
+prediction have been proposed, such as ATSE, ToxIBTL,
+and CAPTP.26 These methods leverage sequence-based feature
+extraction to improve toxicity prediction accuracy. Despite
+their success, current deep learning models predominantly rely
+1
+4
+Received: May 11, 2025
+eﬀectively.
+Early computational methods were based on
+Revised:
+June 21, 2025
+similarity-based approaches, which infer peptide toxicity by
+comparing novel sequences with known toxic peptides using
+Accepted: June 23, 2025
+homology alignment or similarity scoring techniques.1
+5−17
+However, these methods have several drawbacks. First, their
+eﬀectiveness is limited to cases where the target peptide has
+©
+XXXX American Chemical Society
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+A
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Figure 1. Framework of PeptiTox. (A) The workﬂow of PeptiTox. Given a peptide sequence, PeptiTox utilizes the pretrained protein language
+model ESM2 to extract sequence-based features and employs ESMFold to predict the peptide’s 3D structure. The sequence and geometric features
+are concatenated as node features and input into a graph neural network (GNN), which updates the graph representations. A readout layer
+produces a graph-level embedding that is used by a classiﬁer to predict peptide toxicity. (B) The geometric featurizer. This component extracts
+node features (e.g., angle, distance, direction) and edge features (e.g., angle, distance, direction) from the peptide structure
+on sequence information while overlooking the three-dimen-
+sional (3D) structural properties of peptides.27
+successfully applied to a wide range of structural biology
+problems, including drug-target interaction prediction and
+protein−protein interactions.
+4
+5,46
+By representing biomole-
+Given that the 3D structure is a key determinant of protein
+and peptide function,28 integrating structural information into
+peptide toxicity prediction models is essential for enhancing
+prediction accuracy and reliability. Besides, with the advent of
+cules as graphs, where residues or atoms serve as nodes and
+spatial or functional relationships deﬁne the edges, GNNs can
+learn rich representations that complement sequence-based
+features.
+2
+9
+powerful structure prediction tools such as AlphaFold,
+3
+0
+3
+1
+3
+2
+ESMFold,
+OmegaFold
+and ColabFold,
+it has become
+Recent advances in artiﬁcial intelligence have witnessed
+remarkable progress in large language models (LLMs),
+particularly within the domain of natural language processing.
+Notable examples include OpenAI’s ChatGPT, Google’s
+PaLM, and Meta’s LLaMA models, which demonstrate
+impressive capabilities in tasks such as language generation,
+feasible to obtain high-quality peptide structures directly from
+sequences, enabling large-scale integration of structural
+features into deep learning workﬂows. In downstream
+applications, recent studies have explored how structure-
+informed representations can enhance prediction in tasks
+including drug−target interaction and functional site identi-
+summarization, translation, and reasoning.4
+7−49
+Interestingly,
+ﬁcation.
+Moreover, several recently proposed models
+37
+�
+the structural organization of proteins exhibits notable parallels
+with human language, as amino acid sequences share
+conceptual similarities with linguistic components. In this
+context, individual amino acids can be considered analogous to
+words, while complete protein sequences resemble coherent
+sentences. Building upon these fundamental similarities and
+the demonstrated eﬃcacy of LLMs, computational biologists
+have pioneered the development of specialized protein
+language models (PLMs), such as ESM, ProtBERT, ProGen,
+3
+3−35
+3
+6
+−
+such as MIF-ST and GearNet, as well as hybrid sequence
+structure models like SaProt,
+and ProSST
+3
+8
+39
+40
+ESM-GearNet, ProtSSN,
+�
+have demonstrated that jointly leveraging
+4
+1
+sequence and structural information can signiﬁcantly improve
+performance in related tasks, including protein function
+prediction and subcellular localization. These advances
+motivate our proposed method, which integrates both
+sequence semantics and geometric structural features into a
+uniﬁed deep learning framework for improved peptide toxicity
+prediction.
+and ProtGPT2.3
+strated signiﬁcant utility across diverse proteomic research
+0,50−52
+These innovative tools have demon-
+applications.5
+3−55
+In parallel, graph neural networks (GNNs) have emerged as
+powerful tools for modeling biomolecular structures, owing to
+their ﬂexibility in representing non-Euclidean data such as
+Considering the aforementioned challenges, this study
+integrates protein language models with peptide structural
+information to enhance the accuracy of peptide toxicity
+molecules and proteins.4
+2−44
+GNN-based methods have been
+B
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+prediction, referred to as PeptiTox. Speciﬁcally, given a peptide
+between atomic pairs (including the side chain centroid),
+relative orientations of other internal atoms or the side chain
+centroid with respect to the C atom, as well as bond and
+3
+0
+sequence, we ﬁrst employ the ESM2 protein language model
+to extract its sequence embeddings. Since experimentally
+determined 3D structures are not available for all peptides, we
+α
+torsion angles. Similarly, geometric edge features are
+3
+0
+utilize ESMFold to predict their 3D conformations. Next, we
+constructed using the inter-residue atomic distances, relative
+orientations of all atoms in adjacent residues with respect to
+the central residue’s C , and the spatial transformation
+construct a graph based on the predicted 3D structure and
+compute residue-level geometric features. The sequence
+embeddings obtained from ESM2 are then concatenated
+with the geometric features as node attributes. Finally, the
+model learns peptide representations through a graph neural
+network, and a classiﬁer is used to determine whether the
+peptide exhibits toxicity.
+α
+between the reference frames of neighboring residues. The
+sequence features extracted by ESM2 and the geometric
+features of each residue are concatenated to form the node
+features of the graph. The constructed graph is then fed into a
+graph neural network (GNN) module to iteratively update
+node and edge representations. Finally, a graph-level
+representation is obtained through a readout operation and
+passed to a classiﬁer to determine whether the peptide is toxic.
+III.II. The Sequence Embedding Module. Given a
+II. MATERIALS
+II.I. Data Preparation. The data set employed in this study
+1
+8
+was derived from the work ToxIBTL developed by Wei et al.
+3
+0
+peptide sequence, we utilize ESM2 to extract the sequence
+Positive samples consist of experimentally validated toxic
+peptides collected from three publicly available databases:
+embeddings. Let L represent the sequence length of the
+peptide, the resulting feature matrix can be denoted as X
+ESM
+∈
+5
+6
+57
+58
+ConoServer,
+ArachnoServer,
+and SwissProt.
+In the
+L×D
+R
+, where D denotes the feature dimension of each residue,
+SwissProt database, toxic peptides were identiﬁed using the
+which is 1280 in this study. ESM-2 is a Transformer-based
+protein language model developed by Meta and trained on the
+keyword ″KW-0800″. These toxic peptides range in length
+1
+9
+from 10 to 50 amino acids. After removing duplicate sequences
+across the three databases, a total of 3992 toxic peptides were
+obtained. For negative samples, experimentally veriﬁed non-
+toxic peptides were retrieved from the SwissProt database
+using the keywords ″NOT KW-0800″ and ″NOT KW-0020.″
+To mitigate potential model bias caused by sequence length
+variations, nontoxic peptide sequences were also restricted to a
+length range of 10−50 amino acids, yielding a total of 7009
+nontoxic peptides. To further reduce model bias caused by
+6
+0
+UniRef50 data set. It employs a masked language modeling
+(MLM) strategy, predicting the identity of amino acids masked
+at random within a sequence:
+LMLM
+=
+log p(x|x )
+\M
+i
+(1)
+i
+M
+where M denotes a randomly selected subset containing 15%
+of sequence positions, and the model learns to infer the
+masked amino acids x based on the context information x ,
+5
+9
+high sequence similarity, CD-HIT was employed to remove
+i
+\M
+6
+1
+excluding the masked positions. This pretraining objective
+enables ESM2 to capture contextual dependencies between
+amino acids eﬀectively. Notably, the parameters of the ESM2
+model were kept ﬁxed throughout the training process to
+preserve its pretrained representations and reduce computa-
+tional overhead.
+sequences with more than 90% similarity within both the toxic
+and nontoxic peptide sets. This process resulted in a ﬁnal set of
+1
+932 toxic peptides as positive samples. To maintain a
+balanced data set, 1932 nontoxic peptides were randomly
+selected from the nontoxic set as negative samples. The ﬁnal
+data set comprises 3854 peptide sequences. Of these, 85%
+were randomly allocated to the training set, while the
+remaining 15% were reserved as the test set. To further
+provide an intuitive understanding of the distribution of
+positive and negative samples in the data set, we visualized the
+peptide length distribution and amino acid frequency
+distribution, as shown in Figure S1. The distributions of
+toxic and nontoxic peptides are generally consistent, and it is
+worth noting that the data set contains only 20 standard amino
+acids, with no inclusion of nonstandard amino acids.
+III.III. The Structure Prediction and Preprocessing
+Module. Given a peptide sequence, we utilize ESMFold to
+predict its 3D structure. ESMFold is a state-of-the-art, end-to-
+end protein folding model built upon the ESM-2 backbone.
+Unlike alignment-based methods, ESMFold achieves compa-
+rable accuracy without requiring multiple sequence alignments
+(MSAs) or external database lookups, signiﬁcantly reducing
+inference time compared to AlphaFold2. Once the tertiary
+structure is predicted, we extract the 3D coordinates of key
+atomic positions, including the N, C , C, O, and the centroid
+α
+of the heavy side chain atoms. The ﬁnal 3D structure of a
+III. THE ARCHITECTURE OF THE PROPOSED MODEL
+peptide is represented as a coordinate matrix M ∈ Rn
+×5×3
+,
+III.I. Overview of the Model. As illustrated in Figure 1,
+where n denotes the number of residues in the peptide, 5
+represents the selected atomic positions, and 3 corresponds to
+the spatial coordinates (x, y, z) in 3D space. To construct the
+connectivity of the peptide graph, we compute the pairwise
+distance between the C atoms of all residues. If the distance
+given a peptide sequence, PeptiTox ﬁrst employs the
+3
+0
+pretrained protein language model ESM2 to extract sequence
+features. Additionally, the structure prediction model ESM-
+3
+0
+Fold is used to predict the 3D structure of the peptide. From
+α
+the predicted structure, the 3D coordinates of key atomic
+between two residues’ C atoms is less than 15 Å, an edge is
+α
+positions�including the N, C , C, O, and the centroid of the
+established between them. A peptide graph can be represented
+α
+heavy side chain atoms�are extracted. Based on the structural
+information, the peptide is represented as a graph, where each
+node corresponds to an amino acid residue, and edges
+represent interactions between residues. Notably, edges are
+established by calculating the distance between the C atoms
+as G(A,X,E), where A ∈ Rn (binary) denotes the adjacency
+×
+n
+matrix, X ∈ Rn
+×
+d
+represents the node feature matrix, and E
+∈
+node
+Rm
+×
+d
+denotes the edge feature matrix. Here, n and m
+edge
+correspond to the number of nodes and edges, respectively,
+while d
+node
+and d represent the dimensionality of node and
+edge
+α
+of two residues. Furthermore, geometric features of each
+edge features, respectively. We construct a local coordinate
+residue are computed, which include intramolecular distances
+system Q = [b , n , b × n ] for each residue, where
+i
+i
+i
+i
+i
+C
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+residues serve as edges. Node features include ESM2 features
+and geometric characteristics of the residues, and edge features
+represent the interactions between residues. The resulting
+graph is then input into a graph neural network to update the
+node and edge features.
+Node Update: Given a pair of residues i and j, the node
+features are updated using a multihead attention mechanism,
+with the following computation formula:
+ui = C
+Ni, vi
+i
+=
+=
+Ciui
+C , b
+i
+v
+i
+i , n
+i
+u
+i
+v
+i
+u × v
+=
+i
+i
+ui × vi
+(2)
+C , N , and C denote the coordinates of the α carbon (C ),
+α
+i
+i
+α
+hil+1
+= h +
+i
+l
+a (W h + W e )
+j
+l
+i
+V
+l
+j
+l
+E
+l
+j
+l
+i
+i
+nitrogen (N), and carbon (C) atoms of the ith residue,
+j
+NBi
+i
+(5)
+respectively.
+III.IV. The Geometric Featurizer Module. To compre-
+hensively capture the structural characteristics of peptides, we
+constructed a geometric feature extractor inspired by the works
+ewl
+ji
+l =
+ji
+ewl
+ki
+6
+2
+63
+k
+NBl
+i
+(6)
+(7)
+of Gao et al. and Song et al. This extractor encodes key
+geometric properties at both the residue and edge levels.
+Speciﬁcally, for each residue, it extracts features related to
+distance, angle, and direction information. Similarly, for each
+edge, it encodes geometric attributes, including inter-residue
+distances, directional vectors, and angular relationships.
+III.IV.I. Geometric Node Features. Given the 3D structure of
+a peptide sequence, represented as the previously extracted
+coordinate matrix, the distance feature between two speciﬁed
+atoms, I and J, within residue i is computed using the following
+formula:
+(W hl)T (W h + W e )
+l
+l
+l
+j
+l
+l
+Q
+i
+K
+E ji
+w =
+l
+ji
+d
+where hi
+l represents the node features at the lth layer, and el
+ji
+αl denotes the
+represents the edge features at the lth layer.
+ji
+attention weight, while W
+l , Wl , and Wl are the weight
+Q
+K
+V
+matrices corresponding to the query, key, and value vectors,
+respectively. W
+l represents the weight associated with the edge
+E
+features. NB denotes the neighboring nodes of node i.
+i
+Edge update: The edge information is updated through
+distance = RBF( I
+J )
+(3)
+neighboring nodes, as shown in the following formula:
+where, RBF(·) represents the radial basis function, and I, J ∈
+l+1 = l +
+l+1
+EdgeMLP(hj
+hil+1)
+l
+e
+e
+e
+ji
+ji
+ji
+(8)
+{
+C , C , N , O , R } with I ≠ J, where R denotes the centroid of
+α
+i
+i
+i
+i
+i
+where EdgeMLP( ) represents the multilayer perceptron used
+for edge features, and || denotes the concatenation operation.
+Global Attention: To eﬀectively capture global information
+that is beneﬁcial for peptide toxicity prediction, a global
+attention mechanism is employed. To reduce the computa-
+tional complexity of global attention, the global context vector
+is computed before being used for node representations with
+gate attention. The computation formula is as follows:
+·
+the heavy side chain atoms.
+The directional features are obtained by computing the
+relative orientation of other atoms within residue i with respect
+to the C atom. This is calculated using the following equation:
+α
+I
+I
+C
+C
+direction = Q
+T
+i
+i
+i
+(4)
+where I ∈ {C , N , O , R }.
+i
+i
+i
+i
+n
+1
+l+1
+h
+In addition, we also incorporate the sine and cosine values of
+cl =
+k=0
+n
+k
+the bond angles (α , β , γ ) and torsion angles(φ , ψ , ω ) as
+(9)
+i
+i
+i
+i
+i
+i
+node features. The angles α , β , and γ represent the bond
+i
+i
+i
+angles formed by N − C − C , C
+− N − C , and C − C
+l
++
+1
+=
+l
++
+1
+(GateMLP(cl))
+h
+h
+i
+α
+i
+i
+i−1
+i
+α
+i
+α
+i
+i
+i
+i
+i
+(10)
+−
+N , respectively. Similarly, the dihedral angles φ , ψ , and ω
+i+1
+i
+i
+where n denotes the number of residues in the peptide
+correspond to the torsion angles deﬁned by N − C , C − C ,
+i
+α
+i
+i
+α
+i
+sequence,
+σ represents the sigmoid activation function, and ⊙
+and C − N , respectively.
+i+1
+indicates element-wise multiplication. GateMLP( ) refers to
+the multilayer perceptron (MLP) with gate attention.
+·
+i
+III.IV.II. Geometric Edge Features. Similarly, we construct
+geometric features between adjacent residues as edge features,
+including distance, direction, and angle. Given two residues i
+and j, their distance feature is computed using the radial basis
+function (RBF) as RBF(∥I-J∥) where I ∈ {N , C , C , O , R }
+III.VI. The Classiﬁcation Module.
+Finally, the output of
+the GNN block is subjected to average pooling to obtain
+sequence-level features, which are then input into the classiﬁer
+to categorize the peptide sequence as toxic or nontoxic. The
+computational formula is as follows:
+i
+α
+i
+i
+i
+i
+and J ∈ {N , C , C , O , R }. The direction features are
+j
+α
+i
+j
+j
+j
+calculated by determining the relative direction of all atoms in
+=
+XSeq
+PoolAvg(X)
+(11)
+J
+C
+T
+i
+j
+∈
+residue j to C using the formula Q
+, where J
+{Nj,
+α
+i
+|J C j|
+=
+y
+softmax(MLP(XSeq))
+(12)
+C , C , O , R }. The rotational angle between two residues is
+αj
+j
+j
+j
+represented by the feature q(QT Q ), where q(·) is a quaternion
+where ŷrepresents the probability predicted by the model, with
+a range of [0, 1]. A larger ŷvalue indicates a higher likelihood
+of the peptide being an antimicrobial peptide, and vice versa.
+III.VII. The Objective Function. To train the deep
+learning model for peptide toxicity prediction, we use the
+binary cross-entropy loss function, which is designed for binary
+i
+j
+encoding function that represents the three-dimensional
+6
+4
+rotation matrix as a quaternion vector.
+III.V. The Graph Neural Network Module. After the
+above steps, a peptide sequence is represented as graph-
+structured data, where residues are nodes, interactions between
+D
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Figure 2. Performance comparison with baselines on peptide toxicity prediction. This ﬁgure displays the performance of PeptiTox and other
+baseline methods on the test set across ﬁve metrics, including Sensitivity, Speciﬁcity, FDR, Accuracy and MCC. (A-E) Bar plots show the
+performance of each method in Sensitivity, Speciﬁcity, FDR, Accuracy and MCC, respectively. (F) A Radar chart summarizes the overall
+performance of all methods across all metrics.
+classiﬁcation tasks. Given the predicted label ŷand the true
+label y, the binary cross-entropy loss is computed as
+TP
++
+sensitivity(recall) =
+TP
+FN
+(17)
+L(y, y) = [(y log(y) + (1
+y)log(1
+y))]
+(13)
+MCC =
+TP × TN
+FP × FN
+The model’s training objective is to minimize this loss cross all
+training samples:
+(TP + FN)(TP + FP)(TN + FP)(TN + FN)
+N
+(18)
+(19)
+1
+N
+Ltotal
+=
+L(y, y )
+i
+i
+i=1
+(14)
+FP
+TP + FP
+FDR =
+where N is the number of peptide sequences in a batch, y is
+the true label for sequence i, and y is the model’s predicted
+probability for sequence i to be toxic.
+i
+i
+where True Positive (TP) refers to the number of samples that
+are actually positive and correctly predicted as positive by the
+model. True Negative (TN) denotes the number of samples
+that are actually negative and correctly predicted as negative.
+False Positive (FP) indicates the number of samples that are
+actually negative but incorrectly predicted as positive. False
+Negative (FN) represents the number of samples that are
+actually positive but incorrectly predicted as negative. The
+Sensitivity metric evaluates the predictor’s ability to identify
+positive samples, while the Speciﬁcity metric assesses its ability
+to identify negative samples. False Discovery Rate (FDR)
+measures the proportion of incorrect predictions among the
+positive samples. Accuracy (ACC) and Matthews Correlation
+Coeﬃcient (MCC) are employed to assess the overall
+performance of the predictor.
+III.VIII. Evaluation Metrics. To evaluate the performance
+of the proposed model on the peptide toxicity prediction task,
+the metrics Sensitivity, Speciﬁcity, False Discovery Rate
+(FDR), Accuracy, and Matthews Correlation Coeﬃcient
+(MCC) were utilized to compare the proposed model with
+6
+5−68
+baseline models.
+follows:
+The formulas for these metrics are as
+69
+TP + TN
+accuracy =
+TP + TN + FP + FN
+(15)
+(16)
+TN
+specificity =
+TN + FP
+E
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Table 1. Performance Comparison of PeptiTox and Its Variants
+variants
+w/o ESM2
+w/o geometric features
+w/o structure
+accuracy
+F1
+MCC
+sensitivity
+speciﬁcity
+FDR
+0.9009
+0.9286
+0.9218
+0.9444
+0.8993
+0.9278
+0.9215
+0.9439
+0.8023
+0.8574
+0.8438
+0.8888
+0.8856
+0.9177
+0.9177
+0.9378
+0.9162
+0.9394
+0.926
+0.0863
+0.0619
+0.0746
+0.0499
+PeptiTox
+0.9509
+III.IX. Experimental Setup. All experiments were con-
+PeptiTox consistently occupied the outermost region of the
+chart (except for FDR), indicating its superior performance in
+all metrics.
+ducted on a system equipped with an NVIDIA GeForce GTX
+4
+090 GPU (24GB) running Ubuntu 20.04. The deep learning
+models were implemented using PyTorch 2.4.1 with Python
+.12, and PyTorch Geometric 2.6.1. Model training was
+performed using the Adam optimizer with a learning rate of 1
+10−4. The binary cross-entropy loss (BCELoss) function was
+employed to optimize classiﬁcation performance. Dropout was
+In conclusion, the proposed model exhibits a signiﬁcant
+performance advantage over existing methods, making it a
+promising approach for peptide toxicity prediction.
+3
+×
+IV.II. Ablation Study on the Architectural Compo-
+nents of PeptiTox. To explore the optimal architecture of
+our model and demonstrate that each module is both eﬀective
+and nonredundant, we conducted ablation experiments. In
+these experiments, we systematically removed or replaced one
+module at a time while keeping the rest of the model
+unchanged. Speciﬁcally, we performed the following experi-
+ments: (1) To evaluate the contribution of the ESM2 model,
+we constructed a model variant termed w/o ESM2, in which
+the ESM2 module was removed from the architecture,
+retaining only the peptide’s 3D structure and geometric
+features. (2) To assess the importance of geometric features,
+we implemented a model variant termed w/o geometric
+features, in which node representations were constructed using
+only the sequence features extracted by ESM2, while all
+geometric information was omitted. (3) To examine the role of
+structural information, we designed another variant, referred to
+as w/o structure, where the structural input was removed and
+only sequence features from ESM2 were utilized. To maintain
+model functionality in the absence of structural data, we
+replaced the graph neural network with LSTM and CNN
+layers. We evaluated the performance of the proposed model
+and its variants across six metrics: Accuracy, F1-score, MCC,
+Sensitivity, Speciﬁcity, and FDR. The experimental results are
+presented in Table 1. From the experimental results, we can
+observe that the removal of the ESM2 model leads to a
+substantial decline in performance across all six evaluation
+metrics. Speciﬁcally, Accuracy drops from 0.9444 to 0.9009 (a
+decrease of 4.6%), F1-score from 0.9439 to 0.8993 (4.7%),
+MCC from 0.8888 to 0.8023 (9.7%), Sensitivity from 0.9378
+to 0.8856 (5.6%), Speciﬁcity from 0.9509 to 0.9162 (3.6%),
+and FDR increases from 0.0499 to 0.0863 (73%). These results
+highlight the critical role of the pretrained protein language
+model in capturing sequence information and signiﬁcantly
+improving the model’s ability to distinguish between toxic and
+nontoxic peptides. Similarly, removing structural information
+results in a performance degradation, with Accuracy reducing
+to 0.9218 (2.4% decrease), F1-score to 0.9215 (2.4%
+decrease), and MCC to 0.8438 (5.1% decrease). This indicates
+that structural information plays a crucial role in peptide
+toxicity prediction, reinforcing the idea that peptide con-
+formation signiﬁcantly impacts biological activity. Further-
+more, when geometric features are removed, the model’s
+performance also declines, albeit to a lesser extent than the
+removal of the ESM2 embeddings and structure information,
+suggesting that geometric features contribute to predictive
+performance but are less inﬂuential than sequence-based
+representations and structure information. Comparing the
+performance drop across diﬀerent model variants, we observe
+set to 0.2, weight decay to 1 × 10 , and the graph neural
+−
+3
+network consisted of four layers. The batch size was set to 128,
+and the learning rate was dynamically adjusted using the
+ExponentialLR scheduler.
+IV. RESULTS
+IV.I. Comparative Evaluation of PeptiTox for Peptide
+Toxicity Prediction. To validate the eﬀectiveness of the
+proposed model for peptide toxicity prediction, we compared
+the performance of PeptiTox with four existing methods:
+2
+0
+19
+ClanTox,
+ToxinPred-RF, ToxinPred-SVM,
+and Tox-
+1
+8
+IBTL. Furthermore, to further validate the eﬀectiveness of
+our proposed integration of sequence and structural
+information, we conducted a comparative analysis against
+three representative state-of-the-art sequence−structure hybrid
+3
+8
+40
+41
+models, namely SaProt,
+ProtSSN,
+and ProSST.
+The
+evaluation metrics included Sensitivity, Speciﬁcity, False
+Discovery Rate (FDR), Accuracy, and Matthews Correlation
+Coeﬃcient (MCC). The experimental results are presented in
+Figure 2.
+As shown in Figure 2A−E, PeptiTox outperforms all
+baseline methods across all ﬁve evaluation metrics. Speciﬁcally,
+it achieves a Sensitivity of 0.9378, a Speciﬁcity of 0.9509, an
+FDR of 0.0499, an Accuracy of 0.9444, and an MCC of 0.8888.
+Compared to the second-best method, ToxIBTL, PeptiTox
+improves Sensitivity, Speciﬁcity, FDR, Accuracy, and MCC by
+2
+.25, 0.65, 11.99, 1.44, and 3.06%, respectively. In addition, the
+results demonstrated that PeptiTox achieved superior overall
+performance compared to SaProt, ProtSSN, and ProtSST.
+ProtSSN and SaProt exhibited performance comparable to
+PeptiTox, suggesting that these models are also capable of
+eﬀectively utilizing sequence−structure information for peptide
+toxicity prediction. In contrast, the performance of ProtSST
+was slightly lower, which may be attributed to the model being
+less well-suited to the speciﬁc characteristics of this prediction
+task. This superior performance highlights the eﬀectiveness of
+our proposed strategy for integrating sequence and structural
+information, underscoring its potential advantages in peptide
+toxicity prediction. The high Sensitivity and Speciﬁcity of
+PeptiTox indicates its superior ability to distinguish toxic and
+nontoxic peptides compared to baseline methods. Moreover,
+its lower FDR suggests a reduced false positive rate, which is
+crucial in avoiding the misclassiﬁcation of potential therapeutic
+peptide candidates. Additionally, PeptiTox achieves the highest
+MCC, demonstrating its overall classiﬁcation eﬀectiveness. The
+radar chart in Figure 2F provides a comprehensive visualization
+of the overall performance of each method across all metrics.
+F
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Table 2. Performance Comparison of Transformer-GNN and Baseline GNNs
+variants
+GCN
+ChebConv
+GraphSAGE
+GraphConv
+GAT
+accuracy
+F1
+MCC
+sensitivity
+speciﬁcity
+FDR
+0.9244
+0.9301
+0.9299
+0.5709
+0.9208
+0.9444
+0.924
+0.8492
+0.8604
+0.8602
+0.1473
+0.8422
+0.8888
+0.9203
+0.9229
+0.9208
+0.6848
+0.9275
+0.9378
+0.9286
+0.9374
+0.9389
+0.457
+0.9141
+0.9509
+0.0719
+0.0635
+0.0618
+0.4395
+0.0843
+0.0499
+0.9296
+0.9292
+0.613
+0.9213
+0.9439
+PeptiTox
+Figure 3. Comparison of pLDDT distribution for ColabFold, Omegafold and ESMFold.
+that sequence information contributes the most to model
+performance, followed by structural information, and ﬁnally
+geometric features. This hierarchical importance suggests that
+while peptide sequence embeddings provide a fundamental
+representation, structural and geometric attributes further
+reﬁne toxicity prediction.
+metrics. One striking observation is the poor performance of
+GraphConv, which achieves Accuracy (0.5709), MCC
+(0.1473), and FDR (0.4395)�substantially worse than all
+other GNN variants, suggesting that it may not be well-suited
+for this speciﬁc task.
+Overall, the results demonstrate that our Transformer-based
+approach eﬀectively captures structural and sequential depend-
+encies, leading to more accurate and reliable predictions
+compared to traditional GNN architectures.
+These ﬁndings demonstrate that a comprehensive repre-
+sentation incorporating sequence, structural, and geometric
+features leads to optimal peptide toxicity prediction. The
+ESM2 model provides essential sequence-level embeddings,
+while structural and geometric features enhance the model’s
+ability to capture spatial properties.
+IV.IV. Investigating the Impact of Diﬀerent Structure
+Predictors on Toxicity Prediction. With the development
+of various protein structure prediction models, it is important
+to assess how structural diﬀerences generated by diﬀerent
+models may inﬂuence downstream peptide toxicity prediction.
+To this end, we employed three representative structure
+IV.III. Performance Comparison of Transformer-GNN
+and Baseline GNNs. To validate the eﬀectiveness of the
+proposed Transformer-based graph neural network, we
+compared its performance against ﬁve commonly used GNN
+prediction tools�ESMFold, OmegaFold, and ColabFold�to
+generate peptide structures for comparison. ColabFold was
+used in place of the original AlphaFold due to the high
+computational requirements of AlphaFold, making ColabFold
+a more accessible alternative with similar predictive capa-
+bilities. To provide a visual comparison of the predicted
+structure quality, we calculated the average pLDDT scores for
+each peptide structure generated by ColabFold, OmegaFold,
+and ESMFold, and presented the results as violin plots (Figure
+3). As shown, ColabFold produced peptide structures with the
+highest predicted quality, followed by OmegaFold, and then
+ESMFold. All generated structures were then input into our
+established PeptiTox framework for toxicity classiﬁcation. The
+7
+0
+71
+ChebConv,
+72
+GraphSAGE,
+architectures: GCN,
+Graph-
+Conv, and GAT.74 Table 2 summarizes the performance of
+these models across six evaluation metrics.
+73
+From the results, it is evident that our proposed Trans-
+former-based model consistently outperforms all baseline
+GNN models across all six metrics. Among the baseline
+GNNs, ChebConv and GraphSAGE exhibit relatively strong
+performance, with accuracy values of 0.9301 and 0.9299,
+respectively. However, their FDR values (0.0635 and 0.0618)
+remain higher than the proposed model, indicating a higher
+rate of incorrect positive predictions. While GCN and GAT
+achieve competitive results, they still lag behind PeptiTox in all
+G
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Table 3. Performance Comparison of Diﬀerent Structure Predictors
+methods
+accuracy
+F1
+MCC
+sensitivity
+speciﬁcity
+FDR
+OmegaFold
+ColabFold
+ESMFold
+0.9317
+0.9306
+0.9444
+0.9315
+0.9311
+0.9439
+0.8634
+0.8615
+0.8888
+0.9296
+0.9374
+0.9378
+0.9337
+0.9239
+0.9509
+0.0665
+0.075
+0.0499
+Figure 4. Feature visualization of peptide representations across diﬀerent learning stages. This ﬁgure displays the visualization of the 2D t-SNE
+projections of the feature embedding across the diﬀerent stages. (A) Features encoded by ESM2; (B) Features after concatenating ESM2 and
+geometric features; (C−F) Features progressively reﬁned through four layers of a graph neural network. Dark blue represents nontoxic peptides,
+and light blue represents toxic peptides.
+detailed results are summarized in Table 3. Despite noticeable
+diﬀerences in predicted structural quality, all three structure
+prediction models achieved comparably high performance in
+toxicity classiﬁcation, with only minor variations across
+diﬀerent evaluation metrics. These results suggest that
+structural representations generated by ESMFold, OmegaFold,
+and ColabFold are all suitable for downstream peptide toxicity
+prediction, exhibiting overall similar predictive performance.
+Interestingly, ESMFold consistently outperformed the other
+two models across all evaluation metrics, which appears
+contradictory to its relatively lower predicted structural quality
+shown in Figure 3. We hypothesize that this phenomenon may
+be attributed to the inherent compatibility between ESMFold
+and ESM2, as both models originate from the Meta family.
+The structural features produced by ESMFold, although of
+lower predicted quality, may oﬀer more complementary
+information to the sequence embeddings generated by
+ESM2, thereby facilitating more eﬀective feature learning by
+the downstream toxicity prediction model. Moreover, peptide
+toxicity is a complex property that may depend not only on
+precise global structural accuracy but also on various other
+factors, including critical local structural features. Therefore,
+although ColabFold generates structures with higher predicted
+global quality, these structures may not capture the subtle
+structural determinants directly associated with peptide toxicity
+as eﬀectively as those predicted by ESMFold. Based on these
+results and analyses, we selected ESMFold as the ﬁnal structure
+prediction tool in our framework.
+IV.V. Visualization of Feature Learning Dynamics for
+Peptide Toxicity Prediction. To intuitively understand the
+learning process of the model and evaluate its ability to capture
+peptide toxicity-related features, we conducted a visualization
+analysis of the extracted features at diﬀerent learning stages.
+Speciﬁcally, we ﬁrst extracted features from peptide sequences
+encoded by ESM2, features obtained by concatenating ESM2
+and geometric features, and features learned progressively
+through four layers of graph neural networks. Subsequently, we
+applied t-SNE75 for dimensionality reduction, projecting the
+high-dimensional features into a two-dimensional space and
+selecting the two most important dimensions for analysis.
+H
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Table 4. Performance Comparison of Diﬀerent ESM2 Model Scales on Peptide Toxicity Prediction
+variants
+accuracy
+F1
+MCC
+sensitivity
+speciﬁcity
+FDR
+params
+ESM2_t6_8M_UR50D
+ESM2_t12_35M_UR50D
+ESM2_t30_150M_UR50D
+ESM2_t33_650M_UR50D
+ESM2_t36_3B_UR50D
+ProtBert-BFD
+0.9234
+0.9117
+0.9237
+0.9444
+0.9275
+0.8577
+0.9327
+0.9222
+0.9109
+0.9231
+0.9439
+0.9281
+0.8527
+0.9329
+0.8474
+0.8237
+0.8476
+0.8888
+0.8553
+0.7172
+0.8655
+0.9089
+0.9027
+0.9156
+0.9378
+0.9348
+0.8245
+0.9353
+0.9379
+0.9208
+0.9317
+0.9509
+0.9203
+0.8908
+0.9301
+0.0637
+0.0807
+0.0692
+0.0499
+0.0784
+0.1166
+0.0694
+8M
+35M
+150M
+650M
+3B
+420M
+3B
+ProtT5-XL-UniRef50
+Finally, we visualized the reduced features as scatter plots, as
+shown in Figure 3.
+still slightly lags behind the ESM2 model with 650 M
+parameters.
+As observed in Figure 4A, after encoding with ESM2, the
+features of toxic and nontoxic peptides remain highly mixed,
+making it diﬃcult to establish a clear separation boundary.
+This indicates that ESM2 alone fails to fully capture toxicity-
+related feature representations. After incorporating geometric
+features (Figure 4B), while the data distribution remains
+somewhat mixed, certain regions exhibit a preliminary degree
+of separation compared to using ESM2 alone. As features are
+learned progressively through the GNN layers (Figure 4C−F),
+the distribution of toxic and nontoxic peptides gradually
+exhibits a more pronounced separation trend. Notably, after
+the third (Figure 4E) and fourth GNN layers (Figure 4F), the
+two feature groups become almost entirely distinct. This
+suggests that the GNN eﬀectively captures crucial toxicity-
+related feature patterns through multilayer feature aggregation.
+These results validate the eﬀectiveness of the proposed model,
+demonstrating that it can learn important representations that
+enable accurate identiﬁcation of toxic peptides.
+Overall, the ESM2_t33_650M_UR50D model achieves the
+best performance across all evaluation metrics, striking an
+optimal balance between model accuracy, parameter size, and
+inference eﬃciency. Consequently, we selected
+ESM2_t33_650M_UR50D as the pretrained feature extractor
+for our ﬁnal model.
+V. CONCLUSIONS
+In this study, we introduced PeptiTox, a novel deep learning-
+based framework that integrates protein language models and
+geometric deep learning for peptide toxicity prediction. Our
+results demonstrate that incorporating both sequence embed-
+dings from ESM2 and structural information from ESMFold
+leads to superior predictive performance compared to existing
+methods. Ablation experiments further conﬁrm that sequence,
+structural, and geometric features collectively contribute to
+model performance, with sequence embeddings playing a
+dominant role. Additionally, our comparison of diﬀerent graph
+neural network architectures highlights the eﬀectiveness of
+Transformer-based GNNs in capturing intricate peptide
+relationships.
+In summary, the proposed model eﬀectively learns the
+distinguishing features of toxic and nontoxic peptides and
+progressively enhances its discrimination ability through
+hierarchical learning.
+Despite the promising performance of our approach, there is
+still room for improvement. First, the model lacks interpret-
+ability, making it unclear which speciﬁc patterns in peptide
+sequences contribute to their toxicity. Second, our study
+focuses solely on peptide toxicity prediction and does not
+extend to other properties such as biological activity. In future
+work, we will enhance the model’s interpretability by
+identifying key sequence patterns associated with toxicity.
+Additionally, we will expand the model’s capabilities to enable
+multiattribute prediction, allowing for a more comprehensive
+assessment of peptide properties.
+IV.VI. Performance Comparison of Protein Language
+Models in Peptide Toxicity Prediction. To investigate the
+eﬀect of diﬀerent model sizes on peptide toxicity prediction,
+we conducted experiments using ﬁve diﬀerent parameter scales
+of the ESM2 protein language model: 8M, 35M, 150M, 650M,
+and 3B. Due to GPU memory limitations (NVIDIA RTX
+4
+090, 24GB), we were unable to evaluate the 15B model in
+this study. Table 4 presents the performance of each ESM2
+variant across six metrics.
+■
+From the table, we observe a general upward trend in model
+performance for peptide toxicity prediction as the pretrained
+model size increases from 8 to 650 M, although some
+ﬂuctuations occur across speciﬁc metrics. Interestingly, when
+scaling up from 8 to 35 M, the model exhibits a performance
+drop, suggesting that the 35 M variant may not be as eﬀective
+in capturing relevant sequence features. Moreover, when the
+pretrained model size increases to 3B, the performance starts
+to decline. This may be attributed to the excessive complexity
+introduced by a large number of parameters, combined with
+the relatively short peptide sequences and limited data set size.
+Furthermore, considering the widespread application of
+existing protein language models such as ProtBert-BFD and
+ProtT5-XL-UniRef50, we compared these models with ESM2.
+The experimental results demonstrate that models with various
+parameter sizes of ESM2 consistently outperform ProtBert-
+BFD. ProtT5-XL-UniRef50 achieves results comparable to
+those of ESM2 models with 650 M and 3B parameters, yet it
+ASSOCIATED CONTENT
+Data Availability Statement
+The data used in this study and the source code are openly
+available for those interested at https://github.com/WYLqlit/
+PeptiTox
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acs.jcim.5c01073.
+The statistical information of the data set (Figure S1)
+(PDF)
+■
+AUTHOR INFORMATION
+Corresponding Authors
+Na Li − School of Intelligent Manufacturing and Control
+Engineering, Qilu Institute of Technology, Jinan 250200,
+China; Email: nli@qlit.edu.cn
+I
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+Shuwen Xiong − Faculty of Applied Sciences, Macao
+Language Models. J. Chem. Inf. Model. 2025, 65, 3789−3799,
+DOI: 10.1021/acs.jcim.4c02365.
+(10) Chung, C.-R.; Kuo, T.-R.; Wu, L.-C.; Lee, T.-Y.; Horng, J.-T.
+Characterization and identification of antimicrobial peptides with
+different functional activities. Briefings Bioinf. 2020, 21 (3), 1098−
+Polytechnic University, Macao 999078, China;
+orcid.org/
+0
+000-0002-0935-9787; Email: shuwenx@foxmail.com
+Leyi Wei − Faculty of Applied Sciences, Macao Polytechnic
+University, Macao 999078, China; orcid.org/0000-0003-
+444-190X; Email: weileyi@sdu.edu.cn
+1
+114.
+1
+(11) Thakur, A.; Sharma, A.; Alajangi, H. K.; et al. In pursuit of next-
+generation therapeutics: Antimicrobial peptides against superbugs,
+their sources, mechanism of action, nanotechnology-based delivery,
+and clinical applications. Int. J. Biol. Macromol. 2022, 218, 135−156.
+(12) Zhang, W.; Xu, Y.; Wang, A.; Chen, G.; Zhao, J. Fuse feeds as
+one: cross-modal framework for general identification of AMPs.
+Briefings Bioinf. 2023, 24 (6), No. bbad336.
+Authors
+Yanling Wang − School of Intelligent Manufacturing and
+Control Engineering, Qilu Institute of Technology, Jinan
+2
+50200, China
+Xiao Wang − School of Intelligent Manufacturing and Control
+Engineering, Qilu Institute of Technology, Jinan 250200,
+China
+(13) Yan, K.; Guo, Y.; Liu, B. PreTP-2L: identification of therapeutic
+peptides and their types using two-layer ensemble learning framework.
+Bioinformatics 2023, 39 (4), No. btad125.
+Feng Cao − School of Intelligent Manufacturing and Control
+Engineering, Qilu Institute of Technology, Jinan 250200,
+China
+(14) Liu, M.; Li, C.; Chen, R.; Cao, D.; Zeng, X. Geometric deep
+learning for drug discovery. Expert Syst. Appl. 2024, 240, No. 122498.
+(15) Altschul, S. F.; et al. Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs. Nucleic Acids Res.
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acs.jcim.5c01073
+1
+997, 25 (17), 3389 3402.
+−
+(16) Negi, S. S.; Schein, C. H.; Ladics, G. S.; et al. Functional
+classification of protein toxins as a basis for bioinformatic screening.
+Sci. Rep. 2017, 7 (1), No. 13940.
+Author Contributions
+Y.W.: conceptualization, methodology. N.L.: programming
+and reviewing, X.W.: data curation, F.C.: validation and
+(17) Meng, Q.; Guo, F.; Tang, J. Improved structure-related
+prediction for insufficient homologous proteins using MSA enhance-
+ment and pre-trained language model. Briefings Bioinf. 2023, 24 (4),
+No. bbad217, DOI: 10.1093/bib/bbad217.
+supervision, Y.W.: writing�original draft preparation, S.X.:
+visualization and data analysis. L.W.: writing�reviewing and
+editing.
+Funding
+(18) Wei, L.; Ye, X.; Sakurai, T.; Mu, Z.; Wei, L. ToxIBTL:
+prediction of peptide toxicity based on information bottleneck and
+This work was supported by the National Natural Science
+Foundation of China (No. 62322112), the Internal Research
+Grants of Macao Polytechnic University (No. RP/CAI02/
+023), the Science and Technology Development Fund of
+Macao (No. 0177/2023/RIA3).
+−
+transfer learning. Bioinformatics 2022, 38 (6), 1514 1524.
+(19) Gupta, S.; Kapoor, P.; Chaudhary, K.; et al. In silico approach
+for predicting toxicity of peptides and proteins. PLoS One 2013, 8 (9),
+No. e73957.
+2
+(20) Naamati, G.; Askenazi, M.; Linial, M. ClanTox: a classifier of
+short animal toxins. Nucleic Acids Res. 2009, 37 (suppl\_2), W363−
+W368.
+(21) Mall, R.; Singh, A.; Patel, C. N.; Guirimand, G.; Castiglione, F.
+VISH-Pred: an ensemble of fine-tuned ESM models for protein
+toxicity prediction. Briefings Bioinf. 2024, 25 (4), No. bbae270.
+(22) Pan, X.; Zuallaert, J.; Wang, X.; et al. ToxDL: deep learning
+using primary structure and domain embeddings for assessing protein
+toxicity. Bioinformatics 2021, 36 (21), 5159−5168.
+(23) Shi, H.; Li, Y.; Chen, Y.; et al. ToxMVA: An end-to-end multi-
+view deep autoencoder method for protein toxicity prediction.
+Comput. Biol. Med. 2022, 151, No. 106322.
+(24) Morozov, V.; Rodrigues, C. H. M.; Ascher, D. B. CSM-Toxin: a
+web-server for predicting protein toxicity. Pharmaceutics 2023, 15 (2),
+Notes
+The authors declare no competing ﬁnancial interest.
+■
+REFERENCES
+(1) Guntuboina, C.; Das, A.; Mollaei, P.; Kim, S.; Barati Farimani, A.
+Peptidebert: A language model based on transformers for peptide
+property prediction. J. Phys. Chem. Lett. 2023, 14 (46), 10427−10434.
+(2) Yan, K.; LV, H.; Shao, J.; Chen, S.; Liu, B. TPpred-SC: multi-
+functional therapeutic peptideprediction based on multi-label super-
+visedcontrastive learning. Sci. China Inf. Sci. 2024, 67 (11),
+No. 212105, DOI: 10.1007/s11432-024-4147-8.
+(3) Sundaram, B.; Pandian, N.; Mall, R.; et al. NLRP12-
+PANoptosome activates PANoptosis and pathology in response to
+heme and PAMPs. Cell 2023, 186 (13), 2783−2801.
+(4) Karki, R.; Lee, S.; Mall, R.; et al. ZBP1-dependent inflammatory
+cell death, PANoptosis, and cytokine storm disrupt IFN therapeutic
+efficacy during coronavirus infection. Sci. Immunol. 2022, 7 (74),
+No. eabo6294.
+(5) Alshawwa, S. Z.; Kassem, A. A.; Farid, R. M.; Mostafa, S. K.;
+Labib, G. S. Nanocarrier drug delivery systems: characterization,
+limitations, future perspectives and implementation of artificial
+intelligence. Pharmaceutics 2022, 14 (4), 883.
+4
+31.
+(25) Wei, L.; Ye, X.; Xue, Y.; Sakurai, T.; Wei, L. ATSE: a peptide
+toxicity predictor by exploiting structural and evolutionary informa-
+tion based on graph neural network and attention mechanism.
+Briefings Bioinf. 2021, 22 (5), No. bbab041.
+(26) Jiao, S.; Ye, X.; Sakurai, T.; Zou, Q.; Liu, R. Integrated
+convolution and self-attention for improving peptide toxicity
+prediction. Bioinformatics 2024, 40 (5), No. btae297.
+(27) Zulfiqar, H.; et al. Deep-STP: a deep learning-based approach
+to predict snake toxin proteins by using word embeddings. Front. Med.
+2024, 10, No. 1291352, DOI: 10.3389/fmed.2023.1291352.
+(28) Prabantu, V. M.; Yazhini, A.; Srinivasan, N. Manoeuvring
+protein functions and functional levels by structural excursions.
+(6) Yan, K.; Lv, H.; Guo, Y.; Peng, W.; Liu, B. sAMPpred-GAT:
+Prediction of Antimicrobial Peptide by Graph Attention Network and
+Predicted Peptide Structure. Bioinformatics 2023, 39 (1), No. btac715.
+(7) Baig, M. H.; Ahmad, K.; Saeed, M.; et al. Peptide based
+therapeutics and their use for the treatment of neurodegenerative and
+other diseases. Biomed. Pharmacother. 2018, 103, 574−581.
+(8) Chiangjong, W.; Chutipongtanate, S.; Hongeng, S. Anticancer
+peptide: Physicochemical property, functional aspect and trend in
+clinical application. Int. J. Oncol. 2020, 57 (3), 678−696.
+Phenotypic Switching 2020, 77 104, DOI: 10.1016/B978-0-12-
+−
+817996-3.00006-2.
+(29) Abramson, J.; Adler, J.; Dunger, J.; et al. Accurate structure
+prediction of biomolecular interactions with AlphaFold 3. Nature
+2024, 630 (8016), 493
+−
+500.
+(30) Lin, Z.; Akin, H.; Rao, R.; et al. Evolutionary-scale prediction of
+atomic-level protein structure with a language model. Science 2023,
+379 (6637), 1123−1130.
+(9) Xiong, S.; Cai, J.; Shi, H.; Cui, F.; Zhang, Z.; Wei, L. UMPPI:
+Unveiling Multilevel Protein−Peptide Interaction Prediction via
+J
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX
+Journal of Chemical Information and Modeling
+pubs.acs.org/jcim
+Article
+(31) Wu, R.et al. High-resolution de novo structure prediction from
+primary sequence. BioRxiv, p. 2022.07. 21.500999, 2022.
+(32) Mirdita, M.; Schütze, K.; Moriwaki, Y.; Heo, L.; Ovchinnikov,
+S.; Steinegger, M. ColabFold: making protein folding accessible to all.
+Nat. Methods 2022, 19 (6), 679−682.
+(54) Schmirler, R.; Heinzinger, M.; Rost, B. Fine-tuning protein
+language models boosts predictions across diverse tasks. Nat.
+Commun. 2024, 15 (1), No. 7407.
+(55) Zhang, Q.; Chen, W.; Qin, M.; et al. Integrating protein
+language models and automatic biofoundry for enhanced protein
+evolution. Nat. Commun. 2025, 16 (1), No. 1553.
+(56) Kaas, Q.; Yu, R.; Jin, A.-H.; Dutertre, S.; Craik, D. J.
+ConoServer: updated content, knowledge, and discovery tools in the
+conopeptide database. Nucleic Acids Res. 2012, 40 (D1), D325−D330.
+(57) Wood, D. L.; Cai, R.; Kaas, E.; Herzig, W.; King, G. F.
+ArachnoServer: a database of protein toxins from spiders. BMC
+Genomics 2009, 10 (1), No. 375.
+(58) Apweiler, R.; et al. UniProt: the universal protein knowledge-
+base. Nucleic Acids Res. 2004, 32 (suppl\_1), D115−D119.
+(59) Li, W.; Godzik, A. Cd-hit: a fast program for clustering and
+comparing large sets of protein or nucleotide sequences. Bio-
+informatics 2006, 22 (13), 1658−1659.
+(60) Coudert, E.; Gehant, S.; de Castro, E.; et al. Annotation of
+biologically relevant ligands in UniProtKB using ChEBI. Bioinfor-
+matics 2023, 39 (1), No. btac793.
+(33) Gligorijevic,́V.; Renfrew, P. D.; Kosciolek, T.; et al. Structure-
+based protein function prediction using graph convolutional networks.
+Nat. Commun. 2021, 12 (1), No. 3168.
+(34) Mitra, R.; Li, J.; Sagendorf, J. M.; et al. Geometric deep learning
+of protein−DNA binding specificity. Nat. Methods 2024, 21 (9),
+1
+674−1683.
+(35) van der Weg, K.; Merdivan, E.; Piraud, M.; Gohlke, H. TopEC:
+prediction of Enzyme Commission classes by 3D graph neural
+networks and localized 3D protein descriptor. Nat. Commun. 2025, 16
+(1), No. 2737.
+(36) Yang, K. K.; Zanichelli, N.; Yeh, H. Masked inverse folding with
+sequence transfer for protein representation learning. Protein Eng.,
+Des. Sel. 2023, 36, No. gzad015.
+(37) Zhang, Z.et al. Protein representation learning by geometric
+structure pretraining. arXiv:2203.06125. arXiv.org e-Print archive
+https://arxiv.org/abs/2203.06125. 2022.
+(38) Su, J.; Han, C.; Zhou, Y.; Shan, J.; Zhou, X.; Yuan, F. Saprot:
+Protein language modeling with structure-aware vocabulary.bioRxiv, p.
+(61) Devlin, J.; Chang, M.-W.; Lee, K.; Toutanova, K.Bert: Pre-
+training of deep bidirectional transformers for language under-
+standing. In Proceedings of the 2019 Conference of the North American
+Chapter of the Association for Computational Linguistics: Human
+Language Technologies, volume 1 (long and shortpapers) 2019; pp
+2
+023.10. 01.560349, 2023.
+(39) Zhang, Z.; Xu, M.; Lozano, A.; Chenthamarakshan, V.; Das, P.;
+Tang, J. Enhancing protein language model with structure-based
+encoder and pre-training. In ICLR 2023-Machine Learning for Drug
+Discovery workshop, 2023.
+4
+171−4186.
+(62) Gao, Z.; Tan, C.; Chacn, P.; Li, S. Z. Pifold: Toward eﬀective
+and eﬃcient protein inverse folding. arXiv:2209.12643. arXiv.org e-
+Print archive. https://arxiv.org/abs/2209.12643. 2022.
+(40) Tan, Y.; Zhou, B.; Zheng, L.; Fan, G.; Hong, L. Semantical and
+geometrical protein encoding toward enhanced bioactivity and
+thermostability. Elife 2025, 13, No. RP98033.
+(41) Li, M.et al. Prosst: Protein language modeling with quantized
+structure and disentangled attention. bioRxiv, 2024.
+(42) Wang, Y.; Wang, J.; Cao, Z.; Barati Farimani, A. Molecular
+contrastive learning of representations via graph neural networks. Nat.
+Mach. Intell. 2022, 4 (3), 279−287.
+(43) Corso, G.; Stark, H.; Jegelka, S.; Jaakkola, T.; Barzilay, R. Graph
+neural networks. Nat. Rev. Methods Primers 2024, 4 (1), No. 17.
+(44) Xiong, J.; Xiong, Z.; Chen, K.; Jiang, H.; Zheng, M. Graph
+neural networks for automated de novo drug design. Drug Discovery
+Today 2021, 26 (6), 1382−1393.
+(45) Zhang, Z.; Chen, L.; Zhong, F.; et al. Graph neural network
+approaches for drug-target interactions. Curr. Opin. Struct. Biol. 2022,
+(63) Song, Y.; Yuan, Q.; Chen, S.; Zeng, Y.; Zhao, H.; Yang, Y.
+Accurately predicting enzyme functions through geometric graph
+learning on ESMFold-predicted structures. Nat. Commun. 2024, 15
+(1), No. 8180.
+(64) Huynh, D. Q. Metrics for 3D rotations: Comparison and
+analysis. J. Math. Imaging Vision 2009, 35, 155 164.
+−
+(65) Zhu, H.; Hao, H.; Yu, L. Identification of microbe disease
+signed associations via multi-scale variational graph autoencoder
+based on signed message propagation. BMC Biol. 2024, 22 (1),
+No. 172.
+−
+(66) Guo, X.; Huang, Z.; Ju, F.; Zhao, C.; Yu, L. Highly Accurate
+Estimation of Cell Type Abundance in Bulk Tissues Based on Single-
+Cell Reference and Domain Adaptive Matching. Adv. Sci. 2024, 11
+(7), No. 2306329.
+(67) Huang, Z.; Guo, X.; Qin, J.; et al. Accurate RNA velocity
+estimation based on multibatch network reveals complex lineage in
+batch scRNA-seq data. BMC Biol. 2024, 22 (1), No. 290.
+(68) Li, H.-L.; Pang, Y.; Liu, B. BioSeq-BLM: a platform for
+analyzing DNA, RNA, and protein sequences based on biological
+language models. Nucleic Acids Res. 2021, 49 (22), No. e129.
+(69) Zou, X.; Ren, L.; Cai, P.; et al. Accurately identifying
+hemagglutinin using sequence information and machine learning
+methods. Front. Med. 2023, 10, No. 1281880.
+(70) Kipf, T. N.; Welling, M. Semi-supervised classiﬁcation with
+graph convolutional networks. arXiv:1609.02907. arXiv.org e-Print
+archive. https://arxiv.org/abs/1609.02907. 2016.
+(71) Deﬀerrard, M.; Bresson, X.; Vandergheynst, P. Convolutional
+neural networks on graphs with fast localized spectral ﬁltering Adv.
+Neural Inf. Process Syst. 2016; Vol. 29.
+7
+3, No. 102327.
+(46) Li, R.; Yuan, X.; Radfar, M.; et al. Graph signal processing,
+graph neural network and graph learning on biological data: a
+systematic review. IEEE Rev. Biomed. Eng. 2023, 16, 109−135.
+(47) Brown, T.; et al. Language models are few-shot learners. Adv.
+Neural Inf. Process Syst. 2020, 33, 1877−1901.
+(48) Chowdhery, A.; et al. Palm: Scaling language modeling with
+pathways. J. Mach. Learn. Res. 2023, 24 (240), 1−113.
+(49) Touvron, H.et al. Llama: Open and eﬃcient foundation
+language models. arXiv:2302.13971. arXiv.org e-Print archive.
+https://arxiv.org/abs/2302.13971. 2023.
+(50) Elnaggar, A.; Heinzinger, M.; Dallago, C.; et al. Prottrans:
+Toward understanding the language of life through self-supervised
+learning. IEEE Trans. Pattern Anal. Mach. Intell. 2022, 44 (10), 7112−
+(72) Hamilton, W.; Ying, Z.; Leskovec, J. Inductive representation
+learning on large graphs Adv. Neural Inf. Process Syst. 2017; Vol. 30.
+(73) Morris, C.; Ritzert, M.; Fey, M.et al.Weisfeiler and leman go
+neural: Higher-order graph neural networks. In Proceedings of the
+AAAI Conference on Artiﬁcial Intelligence 2019; Vol. 33, pp 4602−4609
+.
+7
+127.
+(51) Madani, A.; Krause, B.; Greene, E. R.; et al. Large language
+models generate functional protein sequences across diverse families.
+Nat. Biotechnol. 2023, 41 (8), 1099−1106.
+(52) Ferruz, N.; Schmidt, S.; Höcker, B. ProtGPT2 is a deep
+unsupervised language model for protein design. Nat. Commun. 2022,
+(74) Velickovic, P. et al. Graph attention networks Stat, 2017 1050
+1
+3 (1), No. 4348.
+2
+010-48550.
+(53) Guan, C.; Fernandes, F. C.; Franco, O. L.; de la Fuente-Nunez,
+C. Leveraging large language models for peptide antibiotic design. Cell
+Rep. Phys. Sci. 2025, 6 (1), No. 102359, DOI: 10.1016/
+j.xcrp.2024.102359.
+(75) Van der Maaten, L.; Hinton, G. Visualizing data using t-SNE. J.
+Mach. Learn. Res. 2008, 9 (11), 2579−2605.
+K
+https://doi.org/10.1021/acs.jcim.5c01073
+J. Chem. Inf. Model. XXXX, XXX, XXX−XXX

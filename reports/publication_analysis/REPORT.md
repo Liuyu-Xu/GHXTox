@@ -170,3 +170,12 @@ Test1 上两种模型的 Brier/ECE-10 都较低，默认模型为 `0.0447/0.0226
 ```powershell
 ghxtox-publication-analysis --bootstrap-iterations 5000 --output-dir reports/publication_analysis
 ```
+
+---
+
+## 10. 1D 架构创新线（组合A）说明
+
+本报告统计对象为对外默认模型（ProtT5-BSMOTE-TextCNN 序列专家 + 3D 化学位点专家 + 融合 + 适配器 +
+BACC 决策残差）。另有一条已验证的 1D 架构创新线 **组合A（LoRA 微调 ProtT5 + 双向 Mamba）**，
+其结果（OOF/配对自助检验/校准/长度分层/参考论文对比）见 `reports/mentor_report/REPORT.md` 第 3.1、5.2 节
+与 `reports/combinationA_final_results.md`；该线不改变默认模型对外推理路径。

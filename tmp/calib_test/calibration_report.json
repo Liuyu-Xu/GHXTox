@@ -1,0 +1,643 @@
+{
+  "weight": 0.62,
+  "threshold": 0.4977,
+  "test1": {
+    "n": 1126,
+    "1d_raw": {
+      "brier": 0.06370092697966212,
+      "ece_10": 0.06427483873370383
+    },
+    "1d_calibrated": {
+      "brier": 0.055378352737299893,
+      "ece_10": 0.043694585373614606
+    },
+    "old_default": {
+      "brier": 0.0431894849742759,
+      "ece_10": 0.019983076581443666
+    },
+    "new_fusion": {
+      "brier": 0.05650111403773975,
+      "ece_10": 0.0473870435777759
+    },
+    "reliability_1d_raw": {
+      "csv": "tmp\\calib_test\\reliability_test1_1d_raw.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 785,
+          "mean_predicted": 0.0005200448074515033,
+          "observed_frequency": 0.03821656050955414
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 8,
+          "mean_predicted": 0.144172021125,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 3,
+          "mean_predicted": 0.23836460866666667,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 2,
+          "mean_predicted": 0.341064864,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 1,
+          "mean_predicted": 0.409361915,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 2,
+          "mean_predicted": 0.5569430805,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 3,
+          "mean_predicted": 0.640340294,
+          "observed_frequency": 0.6666666666666666
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 6,
+          "mean_predicted": 0.7585700265,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 1,
+          "mean_predicted": 0.896011762,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 315,
+          "mean_predicted": 0.9997409039365078,
+          "observed_frequency": 0.8952380952380953
+        }
+      ]
+    },
+    "reliability_1d_cal": {
+      "csv": "tmp\\calib_test\\reliability_test1_1d_cal.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 774,
+          "mean_predicted": 0.007744098590839794,
+          "observed_frequency": 0.037467700258397935
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 10,
+          "mean_predicted": 0.1394178066,
+          "observed_frequency": 0.1
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 14,
+          "mean_predicted": 0.24410488842857142,
+          "observed_frequency": 0.35714285714285715
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 7,
+          "mean_predicted": 0.36347344242857144,
+          "observed_frequency": 0.2857142857142857
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 6,
+          "mean_predicted": 0.43221116666666665,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 1,
+          "mean_predicted": 0.575454026,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 2,
+          "mean_predicted": 0.6610733470000001,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 6,
+          "mean_predicted": 0.7540947941666666,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 16,
+          "mean_predicted": 0.853600362875,
+          "observed_frequency": 0.5625
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 290,
+          "mean_predicted": 0.9793102393931036,
+          "observed_frequency": 0.9310344827586207
+        }
+      ]
+    },
+    "reliability_old": {
+      "csv": "tmp\\calib_test\\reliability_test1_old.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 722,
+          "mean_predicted": 0.009068319790712539,
+          "observed_frequency": 0.018005540166204988
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 39,
+          "mean_predicted": 0.14056428311794877,
+          "observed_frequency": 0.15384615384615385
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 15,
+          "mean_predicted": 0.25581391752,
+          "observed_frequency": 0.06666666666666667
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 16,
+          "mean_predicted": 0.3554044813,
+          "observed_frequency": 0.375
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 15,
+          "mean_predicted": 0.45469518503333334,
+          "observed_frequency": 0.4
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 12,
+          "mean_predicted": 0.5483655283833334,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 18,
+          "mean_predicted": 0.6535281638333333,
+          "observed_frequency": 0.6666666666666666
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 13,
+          "mean_predicted": 0.7581844834153847,
+          "observed_frequency": 0.5384615384615384
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 17,
+          "mean_predicted": 0.8704753518058823,
+          "observed_frequency": 0.7647058823529411
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 259,
+          "mean_predicted": 0.9887558095250966,
+          "observed_frequency": 0.9652509652509652
+        }
+      ]
+    },
+    "reliability_fusion": {
+      "csv": "tmp\\calib_test\\reliability_test1_fusion.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 777,
+          "mean_predicted": 0.005502961841695702,
+          "observed_frequency": 0.03732303732303732
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 11,
+          "mean_predicted": 0.14931352818934543,
+          "observed_frequency": 0.18181818181818182
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 11,
+          "mean_predicted": 0.23694051217963638,
+          "observed_frequency": 0.36363636363636365
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 6,
+          "mean_predicted": 0.3628303941816667,
+          "observed_frequency": 0.3333333333333333
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 5,
+          "mean_predicted": 0.4203748662724,
+          "observed_frequency": 0.2
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 1,
+          "mean_predicted": 0.503550459926,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 2,
+          "mean_predicted": 0.636960834407,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 4,
+          "mean_predicted": 0.7604971249685,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 14,
+          "mean_predicted": 0.8637842514521428,
+          "observed_frequency": 0.42857142857142855
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 295,
+          "mean_predicted": 0.985393593282156,
+          "observed_frequency": 0.9288135593220339
+        }
+      ]
+    },
+    "figures": [
+      "tmp\\calib_test\\reliability_test1_1d.png",
+      "tmp\\calib_test\\reliability_test1_fusion.png"
+    ]
+  },
+  "test2": {
+    "n": 582,
+    "1d_raw": {
+      "brier": 0.07754850646397109,
+      "ece_10": 0.08082660054961587
+    },
+    "1d_calibrated": {
+      "brier": 0.062479522077354514,
+      "ece_10": 0.0592517621341237
+    },
+    "old_default": {
+      "brier": 0.047256962968524836,
+      "ece_10": 0.04380254410624518
+    },
+    "new_fusion": {
+      "brier": 0.0628206679621413,
+      "ece_10": 0.06354759375792626
+    },
+    "reliability_1d_raw": {
+      "csv": "tmp\\calib_test\\reliability_test2_1d_raw.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 504,
+          "mean_predicted": 0.0005452745558007561,
+          "observed_frequency": 0.021825396825396824
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 2,
+          "mean_predicted": 0.12364482900000001,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 2,
+          "mean_predicted": 0.2776233835,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 2,
+          "mean_predicted": 0.316041671,
+          "observed_frequency": 0.5
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 2,
+          "mean_predicted": 0.449897817,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 1,
+          "mean_predicted": 0.505168853,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 2,
+          "mean_predicted": 0.6609441855,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 1,
+          "mean_predicted": 0.83976865,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 66,
+          "mean_predicted": 0.9936185652272729,
+          "observed_frequency": 0.5151515151515151
+        }
+      ]
+    },
+    "reliability_1d_cal": {
+      "csv": "tmp\\calib_test\\reliability_test2_1d_cal.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 491,
+          "mean_predicted": 0.007956269392953156,
+          "observed_frequency": 0.018329938900203666
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 13,
+          "mean_predicted": 0.12853172246153846,
+          "observed_frequency": 0.15384615384615385
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 6,
+          "mean_predicted": 0.26125199533333326,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 5,
+          "mean_predicted": 0.35000135620000006,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 3,
+          "mean_predicted": 0.4820175136666667,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 3,
+          "mean_predicted": 0.5320811853333334,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 1,
+          "mean_predicted": 0.660435806,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 3,
+          "mean_predicted": 0.7622272803333333,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 7,
+          "mean_predicted": 0.8561624449999999,
+          "observed_frequency": 0.2857142857142857
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 50,
+          "mean_predicted": 0.9752379322799999,
+          "observed_frequency": 0.64
+        }
+      ]
+    },
+    "reliability_old": {
+      "csv": "tmp\\calib_test\\reliability_test2_old.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 468,
+          "mean_predicted": 0.00896346656317372,
+          "observed_frequency": 0.010683760683760684
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 27,
+          "mean_predicted": 0.14327010843703705,
+          "observed_frequency": 0.1111111111111111
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 10,
+          "mean_predicted": 0.25063926429,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 9,
+          "mean_predicted": 0.34916939671111114,
+          "observed_frequency": 0.2222222222222222
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 7,
+          "mean_predicted": 0.45174459474285716,
+          "observed_frequency": 0.14285714285714285
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 6,
+          "mean_predicted": 0.5560650924833334,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 5,
+          "mean_predicted": 0.6635949969199999,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 8,
+          "mean_predicted": 0.751631394025,
+          "observed_frequency": 0.375
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 7,
+          "mean_predicted": 0.8693908708285714,
+          "observed_frequency": 0.42857142857142855
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 35,
+          "mean_predicted": 0.9787259408457142,
+          "observed_frequency": 0.8
+        }
+      ]
+    },
+    "reliability_fusion": {
+      "csv": "tmp\\calib_test\\reliability_test2_fusion.csv",
+      "bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 500,
+          "mean_predicted": 0.006628437568771841,
+          "observed_frequency": 0.022
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 6,
+          "mean_predicted": 0.13195409737583333,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.30000000000000004,
+          "n": 7,
+          "mean_predicted": 0.24889185997742855,
+          "observed_frequency": 0.14285714285714285
+        },
+        {
+          "bin_low": 0.30000000000000004,
+          "bin_high": 0.4,
+          "n": 2,
+          "mean_predicted": 0.331968315958,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 5,
+          "mean_predicted": 0.45599090738479997,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6000000000000001,
+          "n": 1,
+          "mean_predicted": 0.5602915282380001,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.6000000000000001,
+          "bin_high": 0.7000000000000001,
+          "n": 1,
+          "mean_predicted": 0.657653482328,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.7000000000000001,
+          "bin_high": 0.8,
+          "n": 2,
+          "mean_predicted": 0.75473648177,
+          "observed_frequency": 0.0
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 6,
+          "mean_predicted": 0.8550289571320001,
+          "observed_frequency": 0.16666666666666666
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 52,
+          "mean_predicted": 0.9800666896473846,
+          "observed_frequency": 0.6346153846153846
+        }
+      ]
+    },
+    "figures": [
+      "tmp\\calib_test\\reliability_test2_1d.png",
+      "tmp\\calib_test\\reliability_test2_fusion.png"
+    ]
+  }
+}

@@ -27,3 +27,17 @@ The retained local validation artifacts are:
 - Test2: ACC 0.9450, BACC 0.8608, SN 0.7609, SP 0.9608, MCC 0.6603, AUROC 0.9578, AUPRC 0.7849.
 
 Relative to the pre-residual joint decision, the frozen residual changes no Test1 decision metric and corrects one Test2 false negative. These are retained historical artifacts, not permission to tune weights, gates, or thresholds on Test1/Test2.
+
+
+## 1D innovation line (combination A, does not replace the default)
+
+The public default remains GHXTox-3D-Chemical-Adapter-Residual with its frozen
+ProtT5-BSMOTE TextCNN sequence expert.  Separately, an alternative 1D expert --
+**LoRA task-adaptive ProtT5 + bidirectional Mamba (S6) sequence classifier** --
+was developed and validated as an architecture-differentiation innovation
+(3-seed ensemble + training-OOF Platt calibration; fusion weight 0.62/0.38).
+Full results, held-out paired-bootstrap CIs, and a controlled sequence-space
+point-mutation augmentation experiment are documented in:
+- reports/mentor_report/REPORT.md (sections 3.1, 5.2)
+- reports/combinationA_final_results.md
+- docs/README_lora_mamba_mutate_autodl.md

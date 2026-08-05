@@ -945,3 +945,15 @@
   test still imports the removed local alias `_bucket`. The same canonical
   bucket behavior already has direct tests; the stale import should be updated
   rather than reintroducing duplicate logic.
+
+
+---
+
+## 2026-08-05 1D 架构创新线（组合A）定稿 + 受控突变增强实验
+
+- 组合A（LoRA 微调 ProtT5 + 双向 Mamba）全量定稿：3-seed 集成 + 训练 OOF Platt 校准，融合 w=0.62、阈值 0.4977（OOF 冻结）。
+- OOF 融合 BACC 0.9336 / MCC 0.8764 / AUROC 0.9799；Test1 BACC/SN 显著提升（P=0.983/0.993），Test2 全指标统计持平，Brier 双集合改善。
+- 与同数据集参考论文（ToxMSRC/ToxPLTC）：Test1 6/7 项最高并全面超 ToxMSRC；Test2 ACC/SP/MCC/AUPRC 最高，BACC/SN 低于参考（操作点差异）。
+- 长度分层：增益在短肽（11-15）层最一致；唯一负向单元 Test2 16-30（n=162，正样本仅 9），小样本噪声。
+- 受控序列点突变增强（rate=0.2，1-2 点突变，折内生成 + 对验证集 ≥0.8 相似度过滤）已实现并打包
+  （lora_mamba_mutate_upload.zip），在服务器按预注册判定标准验证。
