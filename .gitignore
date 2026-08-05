@@ -66,6 +66,7 @@ Lib/
 *.npy
 *.npz
 *.fasta
+!/reference_papers_innovations.csv
 !/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
 !/runs/length_calibration_3d/oof_predictions.csv
 !/runs/length_calibration_3d/fusion_handoff.csv

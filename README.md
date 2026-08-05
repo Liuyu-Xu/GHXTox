@@ -1,7 +1,7 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-08-03
-状态：对外预测默认是 **GHXTox-3D-Chemical-Adapter-Residual**。该模型将三随机种子 ProtT5-BSMOTE TextCNN 专家与 pLDDT 感知3D化学位点专家按训练OOF冻结的`0.62/0.38`权重融合，再通过逐残基ProtT5-to-3D化学交互适配器作有界logit残差修正，最后接入只修改最终 decision 的 BACC-prioritized disagreement residual。纯ProtT5保留为高BACC/SN序列对照，不再称为默认模型。
+更新时间：2026-08-05
+状态：对外预测默认是**更新后的多维融合模型**：1D 序列专家（组合A：LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + 训练 OOF Platt 校准）与 pLDDT 感知全原子 3D 化学位点专家按训练 OOF 冻结的`0.62/0.38`权重融合，决策阈值`0.4977`；1D 专家以 pos_weight 加权 BCE 处理类别不平衡，不启用 BSMOTE。上一代默认 **GHXTox-3D-Chemical-Adapter-Residual**（ProtT5-BSMOTE TextCNN 15 成员 + 交互适配器 + BACC 决策残差，阈值`0.60`）作为「之前多维融合模型」基线保留，不再称为当前默认。纯ProtT5保留为高BACC/SN序列对照，不再称为默认模型。
 
 导师汇报只保留默认模型测试预测及同数据论文对照，见[导师版报告](reports/mentor_report/REPORT.md)；完整内部统计审计见[论文统计报告](reports/publication_analysis/REPORT.md)。
 
@@ -17,21 +17,24 @@ ghxtox-predict `
   --device cuda
 ```
 
+> 说明：当前 `ghxtox-predict` / `src/ghxtox/hybrid_default.py` 部署入口仍对应**上一代默认（之前多维融合基线）**（ProtT5-TextCNN 15 成员 + 交互适配器 + BACC 决策残差，阈值 `0.60`）。更新后的多维融合默认（组合A 1D + 3D，阈值 `0.4977`）的可复现训练与评估入口为 `scripts/run_lora_mamba_full.sh` + `scripts/evaluate_lora_mamba_fusion.py`，产出存档在 `runs/lora_mamba_full/`（冻结 `w_1D=0.62`、阈值 `0.4977`）。
+
 只有进行显式消融时才允许使用`--allow-pre-adapter`、`--allow-sequence-fallback`或`--disable-bacc-residual`。纯序列对照入口为`ghxtox-prott5-predict`。
 
 公开模型名称统一如下；`Phase25/Phase33`仅作为旧文件、CSV字段和哈希合同中的内部阶段ID，不再作为论文或结果表中的模型名：
 
 | 公开名称 | 定位 | 旧内部阶段ID |
 |---|---|---|
-| GHXTox-3D-Chemical-Adapter-Residual | **唯一对外预测默认**：15成员ProtT5专家 + pLDDT感知Cα-EGNN/全原子化学位点专家 + `0.62/0.38`融合 + ProtT5-to-3D交互残差 + OOF冻结BACC决策残差，阈值`0.60` | Phase25底层资产 |
-| 三种子 ProtT5-BSMOTE TextCNN（ProtT5-3Seed） | 显式序列消融和缺失结构时的参考；阈值`0.45`，Test2 BACC/SN仍高于联合默认 | 无 |
+| 更新后的多维融合模型（组合A 1D + 3D） | **唯一对外预测默认**：LoRA 微调 ProtT5 + 双向 Mamba（3-seed 集成 + 训练 OOF Platt 校准）与 pLDDT 感知全原子 3D 专家按 `0.62/0.38` 融合，决策阈值 `0.4977`；1D 专家用 pos_weight 处理不平衡，不启用 BSMOTE | — |
+| GHXTox-3D-Chemical-Adapter-Residual | **之前多维融合模型（基线）**：15成员 ProtT5-BSMOTE TextCNN + pLDDT感知Cα-EGNN/全原子化学位点专家 + `0.62/0.38`融合 + ProtT5-to-3D交互残差 + OOF冻结BACC决策残差，阈值`0.60` | Phase25底层资产 |
+| 三种子 ProtT5-BSMOTE TextCNN（ProtT5-3Seed） | 显式序列消融和缺失结构时的参考；阈值`0.45`，Test2 BACC/SN仍高于当前默认 | 无 |
 | ESM2+ProtT5 BACC 优先融合 | 可选高召回操作点；OOF 选择`0.64/0.36`权重和`0.305`阈值，不替代默认，因为 Test2 MCC 和 precision 较低 | 无 |
 | BioEmu-XAttn-DRes | 训练OOF研究扩展；由于尚无完整的未知样本推理资产，不进入公开默认推理 | Phase33 |
 
-## 1D 架构创新线（组合A：LoRA 微调 ProtT5 + 双向 Mamba）【最终定稿】
+## 1D 架构创新线（组合A：LoRA 微调 ProtT5 + 双向 Mamba）【最终定稿，当前默认 1D 线路】
 
-默认模型的 1D 序列专家仍为冻结 ProtT5-BSMOTE-TextCNN（15 成员）。为满足"1D 架构必须不同"的要求，
-最终定稿的可替换 1D 创新线为**组合A**：
+当前默认多维融合模型的 1D 序列专家即**组合A**（LoRA 微调 ProtT5 + 双向 Mamba）；上一代默认的
+ProtT5-BSMOTE-TextCNN（15 成员）作为「之前多维融合模型」基线保留。组合A 相对旧 1D 的替换如下：
 
 - 蛋白质大模型模块 → **ProtT5 编码器 + LoRA 低秩任务自适应微调**（基座+嵌入冻结，可训练参数约 1310 万，r=8/α=16）。
 - 分类网络模块 → **双向 Mamba（S6 状态空间）序列分类器**（纯 PyTorch，前向/反向选择扫描、掩码均值池化）。
@@ -63,20 +66,20 @@ ghxtox-predict `
 
 ## 阅读导航与当前结论
 
-- 项目完整实现了1D序列、2D原子图和3D预测结构三条线路；**当前对外默认必须使用完整3D化学位点缓存和跨模态适配器缓存**。`ghxtox-predict`不会静默把缺失3D的数据伪装成默认结果。
-- 序列专家使用 ProtT5-XL-UniRef50 的1024维均值表征、每个训练折内部的1:1 Borderline-SMOTE、`4/5/6`窗口 TextCNN 和三随机种子五折集成；结构专家使用ESM2残基状态、pLDDT感知Cα-EGNN、全原子化学位点相互作用和置信度门控。最终交互适配器以ProtT5 token为Query、3D化学状态为Key/Value，只允许有界残差修正冻结联合概率。
+- 项目完整实现了1D序列、2D原子图和3D预测结构三条线路；**当前对外默认（更新后的多维融合模型）必须使用完整3D化学位点缓存**。推理入口不会静默把缺失3D的数据伪装成默认结果。
+- 当前默认的 1D 序列专家为组合A（LoRA 微调 ProtT5 + 双向 Mamba，pos_weight 加权 BCE 处理不平衡、不启用 BSMOTE）；结构专家使用 ESM2 残基状态、pLDDT 感知 Cα-EGNN、全原子化学位点相互作用和置信度门控。按训练 OOF 冻结 `0.62/0.38` 融合权重与 `0.4977` 决策阈值。上一代默认（ProtT5-BSMOTE TextCNN 15 成员 + 交互适配器 + BACC 决策残差，阈值 `0.60`）作为之前多维融合基线。
 > 新默认并非所有指标都优于纯序列对照。Test2上联合默认的MCC/AUPRC/Brier/ECE更优，而纯ProtT5的BACC/SN更高；二者必须在论文中分别标为默认模型和序列消融，不能混用最优单项指标。
 
-### 当前默认模型真实输出
+### 当前默认模型真实输出（更新后的多维融合模型）
 
 | 数据集 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier | ECE-10 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Test1 | 0.9440 | 0.9251 | 0.8813 | 0.9690 | 0.8611 | 0.9816 | 0.9650 | 0.0432 | 0.0200 |
-| Test2 | **0.9450** | **0.8608** | **0.7609** | 0.9608 | **0.6603** | 0.9578 | 0.7849 | 0.0473 | 0.0438 |
+| Test1 | **0.9494** | **0.9354** | **0.9031** | **0.9677** | **0.8750** | **0.9808** | **0.9668** | **0.0415** | — |
+| Test2 | **0.9467** | 0.8618 | 0.7609 | **0.9627** | **0.6673** | 0.9428 | **0.8012** | **0.0444** | — |
 
-Test2 相对未接入 BACC 残差的冻结联合模型为 `BACC +0.01087`、`SN +0.02174`、`MCC +0.01471`。残差头只修改 CSV 中的 `prediction`，不修改 `toxicity_probability`，所以 AUROC/AUPRC/Brier/ECE-10 不变。Test2 只有 46 个阳性样本，新增 BACC 主要来自 1 个假阴性纠正，论文中必须报告这一限制。
+当前默认（组合A 1D + 3D）相对上一代默认（之前多维融合基线）：Test1 的 BACC 0.9251→0.9354、SN 0.8813→0.9031（配对检验显著）、MCC 0.8611→0.8750、Brier 0.0432→0.0415；Test2 全部指标统计持平（BACC 0.8608→0.8618、MCC 0.6603→0.6673、AUROC 0.9578→0.9428 非显著、Brier 0.0473→0.0444）。完整配对统计见 `reports/mentor_report/REPORT.md` 3.1/3.2。
 
-残差部署 artifact 为 `runs/bacc_prioritized_decision_residual/deployable_gate.json`，配置项为 `1×16 MLP / 80 epochs / alpha=0.01 / gate=0.9298851979999941`。它由训练-only group-aware OOF 选择，公开入口会输出 `base_prediction`、`bacc_gate_probability`、`bacc_residual_active` 和最终 `prediction` 供审计。
+上一代默认（基线）接入的 BACC 决策残差 artifact 为 `runs/bacc_prioritized_decision_residual/deployable_gate.json`，配置项为 `1×16 MLP / 80 epochs / alpha=0.01 / gate=0.9298851979999941`。它由训练-only group-aware OOF 选择，上一代默认入口会输出 `base_prediction`、`bacc_gate_probability`、`bacc_residual_active` 和最终 `prediction` 供审计；该模块不进入当前多维融合默认（见 REPORT 图 1 说明与 3.2）。
 
 ESM2互补召回已按受约束多教师门控完成一次冻结筛查。候选只允许在当前默认判阴性且ProtT5或ESM2教师判阳性时追加正类决策，保持原概率不变；晋级门槛为OOF BACC严格提高，同时ACC/MCC/F1最多回退`0.001`、SP最多回退`0.002`。最简线性门控在OOF上将BACC/MCC由`0.927731/0.871982`提高到`0.928669/0.872440`，9条决策中纠正5条、回退4条；但冻结后在Test1和Test2均未激活样本，BACC及其他指标完全不变。由于没有历史迁移增益且会增加ESM2部署依赖，该候选按预定标准停止，不替换当前默认。实现与机器可读结果见[`src/ghxtox/multi_teacher_bacc_residual.py`](src/ghxtox/multi_teacher_bacc_residual.py)和[`runs/multi_teacher_bacc_residual/summary.json`](runs/multi_teacher_bacc_residual/summary.json)。
 
@@ -196,7 +199,7 @@ GHXTox 面向肽毒性二分类，使用与导师论文 ToxMSRC 一致的基础�
 
 当前结构创新子模型是 **ESM2 + 序列 Transformer + pLDDT-aware Cα-EGNN + 全原子化学位点交互残差 + learned-confidence fusion** 的3D-v2。这个名称中的“3D”表示它使用三维结构，并不意味着模型只有结构输入；它同时保留了完整的1D序列分支。训练内五折结果显示，化学位点支路相对匹配3D-v1对照带来稳定但幅度较小的排序改善；Test1略有提升，Test2则表现为AUPRC提高、MCC/F1下降。因此，当前更准确的结论是“化学位点有助于部分样本的概率排序”，而不是“3D-v2在所有数据域上都优于旧模型”。
 
-针对“同数据指标超过ToxPLTC”的目标，项目现在将包含完整3D结构和跨模态适配器的 GHXTox-3D-Chemical-Adapter-Residual 设为唯一公开默认模型。它保留三随机种子 pooled ProtT5 + fold内1:1 Borderline-SMOTE + TextCNN 作为序列专家，再按训练OOF冻结的 0.62/0.38 权重加入 pLDDT-aware 3D 化学位点专家，并施加有界逐残基交互残差。纯ProtT5仍保留为高BACC/SN序列消融；ESM2+ProtT5融合是BACC优先辅助输出；2D原子图是独立对照。
+针对“同数据指标超过ToxPLTC”的目标，项目最终将**更新后的多维融合模型**设为唯一公开默认：1D 序列专家为组合A（LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + 训练 OOF Platt 校准，pos_weight 加权 BCE 处理不平衡），按训练 OOF 冻结的 0.62/0.38 权重与 pLDDT-aware 3D 化学位点专家融合，决策阈值 0.4977。上一代默认 GHXTox-3D-Chemical-Adapter-Residual（三随机种子 pooled ProtT5 + fold内1:1 Borderline-SMOTE + TextCNN、交互适配器与 BACC 决策残差，阈值 0.60）作为之前多维融合基线。纯ProtT5仍保留为高BACC/SN序列消融；ESM2+ProtT5融合是BACC优先辅助输出；2D原子图是独立对照。
 
 本文档把结论分为三个证据等级：
 
@@ -386,7 +389,7 @@ ToxinPred3 的标签和结果现已被查看，因此它不再能用于下一轮
 
 三条线路都以残基为对齐单位，但它们回答的问题不同：1D关注序列语义和排列，2D关注共价键连接的局部化学，3D关注序列上可能相距很远的残基在空间中是否靠近。当前3D分支也接收ESM2表征，因此更准确的名称是 **PLM-enhanced geometric branch**，而不是纯几何模型。
 
-当前公开默认在上述底层残基模型之后依次使用 ProtT5-to-3D 化学交互适配器和 BACC disagreement-only 决策残差。前者对联合 logit 作有界修正，后者只在序列教师与联合模型分歧且 gate 高置信时修改最终类别，不改变概率。BioEmu-BMoE/BioEmu-XAttn 仅是尚不可用于未知样本的训练 OOF 研究候选，不属于公开默认；2D 也没有重新并入默认。
+上一代公开默认（之前多维融合基线）在上述底层残基模型之后依次使用 ProtT5-to-3D 化学交互适配器和 BACC disagreement-only 决策残差。前者对联合 logit 作有界修正，后者只在序列教师与联合模型分歧且 gate 高置信时修改最终类别，不改变概率。当前默认（组合A 1D + 3D）不含这两级模块（见 REPORT 3.2）。BioEmu-BMoE/BioEmu-XAttn 仅是尚不可用于未知样本的训练 OOF 研究候选，不属于公开默认；2D 也没有重新并入默认。
 
 共同的 42 维显式残基特征覆盖：疏水性、形式化电荷类别、极性、芳香性、含硫性、正/负电类别、转角倾向、相对分子量、长度为 5 的局部窗口电荷/疏水性/官能团比例、相对位置、N/C 端倾向、脂肪族/支链/小残基类别、G/P/C/M 标记、羟基/酰胺/羧酸盐/伯胺/胍基/咪唑/酚/吲哚等官能团，以及由序列构造的理化关联图社区编号、社区比例和加权度。它们使模型可以直接访问可解释的理化信号，但这些人工描述符仍是序列派生量，不是实验测量值。
 
@@ -985,7 +988,7 @@ python -m ghxtox.cross_modal_adapter train-oof \
 | Test1 | 三种子pooled ESM2-BSMOTE TextCNN（阈值0.36） | 0.8950 | 0.8523 | 0.9807 | 0.9594 | ToxPLTC路线的ESM2机制筛查 |
 | Test1 | 三种子pooled ProtT5-BSMOTE TextCNN（阈值0.45） | **0.9002** | 0.8598 | 0.9802 | 0.9578 | 高BACC/SN序列消融；ToxPLTC同源改进 |
 | Test1 | ESM2/ProtT5 BACC辅助操作点（阈值0.305） | **0.9015** | **0.8616** | **0.9826** | **0.9648** | BACC为0.9421；不替换综合主模型 |
-| Test1 | GHXTox-3D-Chemical-Adapter-Residual（阈值0.60） | 0.8995 | **0.8611** | 0.9816 | 0.9650 | 当前公开默认；BACC决策残差在Test1净改变为0 |
+| Test1 | GHXTox-3D-Chemical-Adapter-Residual（阈值0.60） | 0.8995 | **0.8611** | 0.9816 | 0.9650 | 之前公开默认（基线）；BACC决策残差在Test1净改变为0 |
 | Test1 | 逐残基ProtT5多尺度CNN（阈值0.5195） | 0.8948 | 0.8534 | 0.9761 | 0.9552 | 局部建模未超过pooled候选；已停止 |
 | Test1 | pooled/逐残基ProtT5融合（阈值0.30） | 0.8909 | 0.8465 | 0.9804 | 0.9615 | OOF冻结融合未超过现有主模型或BACC辅助 |
 | Test2 | 1D ESM2-BiLSTM | 0.6051 | 0.5773 | **0.9361** | 0.6965 | 排序能力较稳，决策指标偏低 |
@@ -994,11 +997,11 @@ python -m ghxtox.cross_modal_adapter train-oof \
 | Test2 | 三种子pooled ESM2-BSMOTE TextCNN（阈值0.36） | 0.6500 | 0.6337 | 0.9455 | 0.7367 | ToxPLTC路线的ESM2机制筛查 |
 | Test2 | 三种子pooled ProtT5-BSMOTE TextCNN（阈值0.45） | 0.6726 | 0.6526 | **0.9588** | 0.7495 | 高BACC/SN序列消融 |
 | Test2 | ESM2/ProtT5 BACC辅助操作点（阈值0.305） | 0.6452 | 0.6325 | 0.9559 | **0.7634** | BACC提高到0.8993，但MCC明显下降 |
-| Test2 | GHXTox-3D-Chemical-Adapter-Residual（阈值0.60） | **0.6863** | **0.6603** | 0.9578 | **0.7849** | 当前公开默认；决策残差纠正1个假阴性 |
+| Test2 | GHXTox-3D-Chemical-Adapter-Residual（阈值0.60） | **0.6863** | **0.6603** | 0.9578 | **0.7849** | 之前公开默认（基线）；决策残差纠正1个假阴性 |
 | Test2 | 逐残基ProtT5多尺度CNN（阈值0.5195） | 0.6476 | 0.6190 | 0.9293 | 0.6960 | 局部模式迁移明显弱于pooled候选 |
 | Test2 | pooled/逐残基ProtT5融合（阈值0.30） | 0.6230 | 0.6047 | 0.9548 | 0.7483 | OOF BACC增益未迁移；拒绝替换 |
 
-这张表说明真实ProtT5预训练均值表征、折内边界增强和多随机种子平均形成稳定序列专家；当前公开默认进一步加入3D化学专家、逐残基ProtT5-to-3D适配器和BACC disagreement-only决策残差。单独的逐残基ProtT5局部CNN没有形成额外泛化收益。
+这张表说明真实ProtT5预训练均值表征、折内边界增强和多随机种子平均形成稳定序列专家；上一代公开默认（基线）进一步加入3D化学专家、逐残基ProtT5-to-3D适配器和BACC disagreement-only决策残差，当前默认以组合A 1D 专家替换 ProtT5-TextCNN 后再与 3D 融合（见组合A最终结果）。单独的逐残基ProtT5局部CNN没有形成额外泛化收益。
 
 ### 6.1 当前预测结果怎样解读
 
@@ -1195,7 +1198,7 @@ Test1上，3D-v2的MCC为0.8464，相对3D-v1的0.8458略有提高，AUPRC由0.9
 | ProtT5均值特征的平衡Logistic/LinearSVM | 严格嵌套外层BACC为`0.8968/0.8971` | 与TextCNN差距明显，不继续RBF核搜索 |
 | BACC最大化且MCC下降不超过0.002的受约束融合 | 留一折BACC/MCC为`0.9307/0.8511` | 约束在训练折成立但未迁移到留出折；停止 |
 | 三种子pooled ESM2 TextCNN + 3D-v2 OOF凸融合 | 交叉拟合MCC/AUROC/AUPRC为`0.8449/0.9707/0.9448`，但冻结Test2 MCC在MCC/BACC/折中三操作点均未稳定优于三种子序列候选 | ESM2专家与3D主干信息重复较多；融合改善排序但阈值迁移不稳定，停止 |
-| 三种子pooled ProtT5 + 3D-v2 OOF融合 | MCC主目标交叉拟合BACC/MCC/AUROC/AUPRC为`0.9257/0.8666/0.9772/0.9535`；冻结ProtT5/3D权重`0.62/0.38`、阈值`0.60`后，Test1/Test2 MCC为`0.8588/0.6456`、AUPRC为`0.9649/0.7851` | 当前公开默认的交互前底层融合消融；后续适配器和BACC决策残差均以它为冻结基线 |
+| 三种子pooled ProtT5 + 3D-v2 OOF融合 | MCC主目标交叉拟合BACC/MCC/AUROC/AUPRC为`0.9257/0.8666/0.9772/0.9535`；冻结ProtT5/3D权重`0.62/0.38`、阈值`0.60`后，Test1/Test2 MCC为`0.8588/0.6456`、AUPRC为`0.9649/0.7851` | 上一代公开默认（基线）的交互前底层融合消融；后续适配器和BACC决策残差均以它为冻结基线 |
 | 原联合概率 + ProtT5→3D逐残基单向注意力 | 固定阈值OOF MCC/AUPRC/Brier由`0.86935/0.95360/0.04466`变为`0.87044/0.95364/0.04456`，3/5折MCC提高 | 证明序列—结构条件交互比彻底隔离更有效；保留为官能团耦合的直接消融 |
 | 上述交互 + 官能团局部语义门控 | 固定阈值OOF BACC/MCC/AUROC/AUPRC/Brier为`0.92718/0.87118/0.97729/0.95363/0.04449`；Test1 MCC提高到`0.86113`，Test2 MCC不变且AUPRC微降 | 存档结构交互消融；BACC/AUROC并非全面改善 |
 | SupCon | Test1/Test2 MCC `0.8143/0.5709` | 额外表征约束未带来决策收益，停止 |
@@ -1278,7 +1281,7 @@ ToxMSRC 使用 CBOW Word2Vec、SMOTE、多尺度 CNN（核 3/5/7）、BiLSTM、�
 | Test2 | ToxPLTC | 0.9261 | 0.8804 | 0.8261 | 0.9347 | 0.6197 | 0.9295 | 0.7353 |
 | Test2 | 本项目三种子ProtT5-BSMOTE TextCNN | **0.9364** | **0.8860** | 0.8261 | **0.9459** | **0.6526** | **0.9588** | **0.7495** |
 
-这组表格记录的是纯ProtT5序列消融与ToxPLTC的阶段性比较，不是当前公开默认主表。该序列消融在论文报告精度上Test1全部指标更高，Test2灵敏度同为`0.8261`且其余指标更高；但不能把四舍五入后的持平解释为严格胜出，也不能据此宣称统计显著。当前公开默认的同论文比较见第11节和导师报告。
+这组表格记录的是纯ProtT5序列消融与ToxPLTC的阶段性比较，不是当前公开默认主表。该序列消融在论文报告精度上Test1全部指标更高，Test2灵敏度同为`0.8261`且其余指标更高；但不能把四舍五入后的持平解释为严格胜出，也不能据此宣称统计显著。当前公开默认（组合A 多维融合）的同论文比较见第11节和导师报告 3.1/3.2。
 
 项目还曾把三种子pooled ProtT5专家作为冻结全局先验与3D-v2做概率级门控。MCC主目标的留一同源组折选择在五个held-out fold上给出ProtT5权重`0.54–0.64`，全OOF冻结为ProtT5/3D-v2=`0.62/0.38`、阈值`0.60`。交叉拟合OOF MCC由纯ProtT5的`0.8586`提高到`0.8666`，但历史测试的BACC和灵敏度低于纯ProtT5主模型；该路线现仅作为联合结构消融保留。
 
@@ -1495,16 +1498,16 @@ AUROC/AUPRC是阈值无关的排序指标；BACC、MCC、F1、Precision和Recall
 | --- | --- | ---: | ---: | ---: |
 | Test1 | 导师 ToxMSRC | **0.9217** | **0.8520** | 0.9650 |
 | Test1 | 3D-v2结构专家 | 0.9208 | 0.8464 | **0.9711** |
-| Test1 | 当前 GHXTox-3D-Chemical-Adapter-Residual 默认 | 0.9251 | 0.8611 | **0.9816** |
+| Test1 | 上一代 GHXTox-3D-Chemical-Adapter-Residual 默认（基线） | 0.9251 | 0.8611 | **0.9816** |
 | Test1 | ProtT5-3Seed 序列消融 | **0.9342** | **0.8598** | 0.9802 |
-| Test1 | 当前默认减导师 | +0.0034 | +0.0091 | +0.0166 |
+| Test1 | 上一代默认减导师 | +0.0034 | +0.0091 | +0.0166 |
 | Test2 | 导师 ToxMSRC | **0.8689** | **0.6550** | **0.9430** |
 | Test2 | 3D-v2结构专家 | 0.8453 | 0.6128 | 0.9295 |
-| Test2 | 当前 GHXTox-3D-Chemical-Adapter-Residual 默认 | 0.8608 | **0.6603** | **0.9578** |
+| Test2 | 上一代 GHXTox-3D-Chemical-Adapter-Residual 默认（基线） | 0.8608 | **0.6603** | **0.9578** |
 | Test2 | ProtT5-3Seed 序列消融 | **0.8860** | 0.6526 | 0.9588 |
-| Test2 | 当前默认减导师 | -0.0081 | +0.0053 | +0.0148 |
+| Test2 | 上一代默认减导师 | -0.0081 | +0.0053 | +0.0148 |
 
-当前公开默认是包含3D结构和BACC决策残差的 GHXTox-3D-Chemical-Adapter-Residual；ProtT5-3Seed 只作为序列消融。相对导师 ToxMSRC，当前默认在 Test1 的 BACC/MCC/AUROC 更高；Test2 的 MCC/AUROC 更高，但 BACC 仍低 `0.0081`。这反映了跨域分类边界和正类样本量的限制，不能宣称所有指标全面超过。考虑到 Test1/Test2 已被历史开发多次查看，所有这些结果只能作为同数据历史对照；新的显著性或泛化主张仍需要预冻结外部集。
+上表是上一代默认（之前多维融合基线）与导师 ToxMSRC 的对比：Test1 的 BACC/MCC/AUROC 更高；Test2 的 MCC/AUROC 更高，但 BACC 仍低 `0.0081`。当前公开默认（更新后的多维融合模型，组合A 1D + 3D）相对导师 ToxMSRC：Test1 六项指标全面更高；Test2 的 ACC/SP/MCC/AUPRC 更高、AUROC 与 ToxMSRC 基本持平、BACC/SN 低于参考（操作点差异，详见导师报告 3.1）。ProtT5-3Seed 只作为序列消融。这反映了跨域分类边界和正类样本量的限制，不能宣称所有指标全面超过。考虑到 Test1/Test2 已被历史开发多次查看，所有这些结果只能作为同数据历史对照；新的显著性或泛化主张仍需要预冻结外部集。
 
 ### 11.2 当前项目相对导师论文的优势
 
@@ -1574,7 +1577,7 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 
 - “本项目构建了残基对齐的 1D 序列、2D 原子图和 3D 预测结构三条线路。”
 - “项目实现三个维度，当前对外默认模型联合使用1D ProtT5与3D结构/化学位点；2D原子图保留为独立对照与解释线路。”
-- “3D-v2及ProtT5→3D化学交互构成当前公开默认；单独3D-v2和纯ProtT5分别作为结构专家与序列消融报告。”
+- “3D-v2 及 ProtT5→3D 化学交互构成上一代默认；当前默认 1D 专家为组合A（LoRA-ProtT5 + 双向 Mamba）并与 3D 融合；单独 3D-v2 和纯 ProtT5 分别作为结构专家与序列消融报告。”
 - “3D-v2在训练内五折相对匹配3D-v1对照一致小幅改善MCC、F1和AUPRC；完整重拟合后Test1略有提高，Test2表现为AUPRC提高但MCC/F1下降。”
 - “在严格ToxinPred3集上，1D ESM2-BiLSTM的冻结迁移性能高于历史2D和3D-v1；3D-v2尚无新的独立外部结论。”
 - “高 pLDDT 子集性能更好，但硬筛选高 pLDDT 训练样本没有改善完整测试域，因此采用连续质量感知。”
@@ -1606,15 +1609,17 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | --- | --- |
 | 1D 冻结配置 | [`configs/sequence_1d_bilstm.json`](configs/sequence_1d_bilstm.json) |
 | 2D 冻结配置 | [`configs/plm_sequence_atom_cross_attention.json`](configs/plm_sequence_atom_cross_attention.json) |
-| 当前对外默认配置 | [`configs/default_3d_hybrid.json`](configs/default_3d_hybrid.json) |
-| 当前对外默认推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
+| 上一代默认（基线）配置（`ghxtox-predict` 部署入口） | [`configs/default_3d_hybrid.json`](configs/default_3d_hybrid.json) |
+| 上一代默认（基线）推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
 | 纯ProtT5序列消融配置 | [`configs/default_prott5.json`](configs/default_prott5.json) |
 | BACC优先辅助融合 | [`runs/plm_textcnn_esm2_prott5_fusion_bacc/decision.json`](runs/plm_textcnn_esm2_prott5_fusion_bacc/decision.json) |
 | 存档旧联合配置 | [`configs/default_toxpltc_hybrid.json`](configs/default_toxpltc_hybrid.json) |
 | 当前BACC决策残差筛选与部署artifact | [`runs/bacc_prioritized_decision_residual/summary.json`](runs/bacc_prioritized_decision_residual/summary.json)、[`deployable_gate.json`](runs/bacc_prioritized_decision_residual/deployable_gate.json) |
 | BioEmu-BMoE实现与结果 | [`src/ghxtox/bioemu_boundary_moe.py`](src/ghxtox/bioemu_boundary_moe.py)、[`runs/bioemu_boundary_moe_oof/summary.json`](runs/bioemu_boundary_moe_oof/summary.json) |
 | 决策保护跨维注意力实现 | [`src/ghxtox/cross_dimension_attention.py`](src/ghxtox/cross_dimension_attention.py) |
-| 当前3D联合默认推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
+| 上一代3D联合默认（基线）推理入口 | [`src/ghxtox/hybrid_default.py`](src/ghxtox/hybrid_default.py) |
+| 组合A 1D 创新线（当前默认 1D）复现 | [`src/ghxtox/lora_mamba_1d.py`](src/ghxtox/lora_mamba_1d.py)、[`configs/lora_mamba_1d_autodl.json`](configs/lora_mamba_1d_autodl.json)、[`scripts/run_lora_mamba_full.sh`](scripts/run_lora_mamba_full.sh) |
+| 组合A 融合重冻结与评估 | [`scripts/refreeze_lora_mamba_fusion.py`](scripts/refreeze_lora_mamba_fusion.py)、[`scripts/evaluate_lora_mamba_fusion.py`](scripts/evaluate_lora_mamba_fusion.py)、[`runs/lora_mamba_full/fusion_refreeze_local.json`](runs/lora_mamba_full/fusion_refreeze_local.json) |
 | 历史0.62/0.38联合OOF筛选 | [`runs/3d_v2_prott5_global_mcc_oof/summary.json`](runs/3d_v2_prott5_global_mcc_oof/summary.json) |
 | ProtT5→3D交互适配器实现与训练入口 | [`src/ghxtox/cross_modal_adapter.py`](src/ghxtox/cross_modal_adapter.py) |
 | 无标签几何自监督与跨视图预训练入口 | [`src/ghxtox/geometry_pretrain.py`](src/ghxtox/geometry_pretrain.py) |
@@ -1622,7 +1627,7 @@ ToxMSRC 架构更简洁、推理更快，在相同 Test1/Test2 上有较强的 B
 | 无显式官能团门控的交互消融 | [`runs/prott5_structure_cross_attention_oof/summary.json`](runs/prott5_structure_cross_attention_oof/summary.json) |
 | 底层官能团交互模型的五折OOF | [`runs/prott5_structure_chemical_cross_attention_oof/summary.json`](runs/prott5_structure_chemical_cross_attention_oof/summary.json) |
 | 底层官能团交互模型的全数据checkpoint | [`runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt`](runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt) |
-| 3D-v2结构专家配置 | configs/default.json；由 configs/default_3d_hybrid.json 作为公开联合默认调用 |
+| 3D-v2结构专家配置 | configs/default.json；由 configs/default_3d_hybrid.json 作为上一代公开联合默认（基线）调用 |
 | 历史3D-v1回退配置 | [`configs/default_3d_v1.json`](configs/default_3d_v1.json) |
 | 历史3D-v2单结构完整训练checkpoint | [`runs/3d_v2_default/best_model.pt`](runs/3d_v2_default/best_model.pt) |
 | 当前3D-v2构象统计残差checkpoint | [`runs/3d_v2_conformer_ensemble_candidate/best_model.pt`](runs/3d_v2_conformer_ensemble_candidate/best_model.pt) |
@@ -1845,7 +1850,7 @@ $env:PYTHONPATH = "src"
   --device cuda
 ```
 
-安装项目后，`ghxtox-predict`与`ghxtox-hybrid-predict`均指向3D联合默认入口。默认固定读取三组ProtT5五折checkpoint、3D化学位点checkpoint和跨模态适配器checkpoint，使用训练OOF冻结的`0.62/0.38`融合权重与`0.60`阈值。纯ProtT5序列消融通过`ghxtox-prott5-predict`显式运行。
+安装项目后，`ghxtox-predict`与`ghxtox-hybrid-predict`均指向上一代默认（之前多维融合基线）的3D联合入口：固定读取三组ProtT5五折checkpoint、3D化学位点checkpoint和跨模态适配器checkpoint，使用训练OOF冻结的`0.62/0.38`融合权重与`0.60`阈值。更新后的多维融合默认（组合A 1D + 3D，阈值`0.4977`）的可复现评估入口见组合A存档（`scripts/run_lora_mamba_full.sh`、`scripts/evaluate_lora_mamba_fusion.py`，产出在`runs/lora_mamba_full/`）。纯ProtT5序列消融通过`ghxtox-prott5-predict`显式运行。
 
 需要优先召回毒性肽时，使用存档的 BACC 辅助结果和已冻结的`0.64/0.36` ESM2/ProtT5 权重、`0.305`阈值；该输出必须单独标记为“BACC-priority”，不能与综合默认结果混报。
 
@@ -2767,7 +2772,7 @@ bash scripts/evaluate_bidirectional_coupling_oof.sh --resume
 
 ### B.4 附录结论
 
-当前项目已经完成从1D序列基线到2D原子图、3D几何、多通路可靠度、nested验证、ToxinPred3历史冻结评估、全原子化学位点消融、ToxPLTC路线接入以及HyPepTox-Fuse迁移筛查的完整探索。当前唯一对外默认是 GHXTox-3D-Chemical-Adapter-Residual：三种子pooled ProtT5-BSMOTE TextCNN、pLDDT感知3D化学位点专家、ProtT5-to-3D交互适配器和OOF冻结的BACC disagreement-only决策残差共同组成，使用`0.62/0.38`融合和`0.60`联合阈值；纯ProtT5保留为序列消融，ESM2+ProtT5 BACC融合保留为高召回辅助输出。单独3D-v2和BioEmu路线保留为结构创新、解释和消融证据；BioEmu研究残差不属于公开默认。新增无PLM几何自监督、残基—空间基序—整肽三级融合以及ESMFold↔PepFlow/AF2跨视图一致性虽然在训练OOF有过小幅增益，但历史重拟合或折模型集成没有稳定迁移到Test1/Test2，因此均不进入默认。后续提升重点应放在新的预冻结外部集和减少 Test2 小样本方差，而不是继续在已查看测试集上调决策头。
+当前项目已经完成从1D序列基线到2D原子图、3D几何、多通路可靠度、nested验证、ToxinPred3历史冻结评估、全原子化学位点消融、ToxPLTC路线接入以及HyPepTox-Fuse迁移筛查的完整探索。当前唯一对外默认是更新后的多维融合模型：组合A 1D 序列专家（LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + OOF Platt 校准，pos_weight 处理不平衡）与 pLDDT 感知 3D 化学位点专家按 `0.62/0.38` 融合、阈值 `0.4977`；上一代默认 GHXTox-3D-Chemical-Adapter-Residual（ProtT5-BSMOTE TextCNN 15 成员 + 交互适配器 + BACC 决策残差，阈值 `0.60`）作为之前多维融合基线。纯ProtT5保留为序列消融，ESM2+ProtT5 BACC融合保留为高召回辅助输出。单独3D-v2和BioEmu路线保留为结构创新、解释和消融证据；BioEmu研究残差不属于公开默认。新增无PLM几何自监督、残基—空间基序—整肽三级融合以及ESMFold↔PepFlow/AF2跨视图一致性虽然在训练OOF有过小幅增益，但历史重拟合或折模型集成没有稳定迁移到Test1/Test2，因此均不进入默认。后续提升重点应放在新的预冻结外部集和减少 Test2 小样本方差，而不是继续在已查看测试集上调决策头。
 
 在此基础上，工程还实现了fold-pure无标签几何自监督、残基—空间基序—整肽三级融合和ESMFold↔PepFlow/AF2跨视图一致性。它们在训练OOF上出现过小幅MCC/排序增益，但完整重拟合或折模型集成均降低历史Test1 MCC，且没有改善Test2排序，因此都作为负迁移消融保留，不替换当前默认。这进一步说明现阶段瓶颈主要是长度—生成器混杂、同长度缺少跨生成器重叠和新预冻结外部证据，而不是融合头容量不足。
 
@@ -3811,4 +3816,15 @@ Test2（n=582）：BACC +0.0009、MCC +0.0071、SP +0.0019、AUPRC +0.0163、Bri
 `reports/combinationA_analysis.md`、`reports/combinationA_final_results.md`、`reports/lora_mamba_pilot.md`、
 `reports/publication_analysis/REPORT.md`、`docs/default_model.md`、`docs/README_lora_mamba_autodl.md`、
 `docs/README_lora_mamba_mutate_autodl.md` 的关键内容已并入本文件与导师报告，原文件已删除。
+
+## 附录 D：参考论文及对应创新点总表（2026-08-05，论文信息已经联网核实）
+
+| 序号 | 论文名称 | 作者 | 发表时间 | 期刊 | DOI | 参考点 | 创新点 |
+|---|---|---|---|---|---|---|---|
+| 1 | An innovative peptide toxicity prediction model based on multi-scale convolutional neural network and residual connection (ToxMSRC) | Shengli Zhang, Jingyi Ren, Yunyun Liang | 2025 年（Bioinformatics 41(10): btaf462，2025-08-22 在线发表） | Bioinformatics | 10.1093/bioinformatics/btaf462 | 使用与导师论文一致的基础数据框架（CBOW Word2Vec、SMOTE、3/5/7 多尺度 CNN、BiLSTM、残差连接），构成项目最重要的直接同数据基准；吸收其局部多尺度、顺序长程依赖与单位置突变解释思路。 | 序列表示由 Word2Vec 升级为上下文化 ESM2/ProtT5；1D 创新线最终采用 LoRA 微调 ProtT5 + 双向 Mamba（S6 SSM）而非多尺度 TextCNN（多尺度 CNN 实测无提升后停止）；类别不平衡改用 pos_weight 加权 BCE 与折内防泄漏处理（不采用全局 SMOTE）；解释扩展为遮蔽+IG+种子一致性+空间聚集；新增 pLDDT 感知全原子 3D 化学位点专家并与 1D 按 0.62/0.38 融合。 |
+| 2 | ToxPLTC: Peptide Toxicity Prediction by Integrating Pretrained T5 Protein Language Model and Text Convolutional Neural Network | Yunyun Liang, Chenxia Wang | 2026 年（Journal of Chemical Information and Modeling 66(7): 4058-4074，2026-03-23 在线发表） | Journal of Chemical Information and Modeling | 10.1021/acs.jcim.5c02745 | ProtT5-XL-UniRef50 逐残基输出均值（1024 维）+ Borderline-SMOTE + 4/5/6 窗口 TextCNN；与项目使用完全相同的 Train/Test1/Test2 划分并报告同数据指标，是当前必须超过的同数据基准。 | 完成协议修正：合成样本严格限制在每个训练折内部（修正作者公开脚本先全量增强再划分 CV 的潜在泄漏）；真实 ProtT5 三种子集成 OOF BACC/MCC/AUROC/AUPRC 0.9317/0.8586/0.9724/0.9436，Test1 全部论文指标超过 ToxPLTC；1D 最终线路进一步以任务自适应 LoRA + 双向 Mamba 替换 TextCNN，并与 3D 按训练 OOF 冻结 0.62/0.38 融合（阈值 0.4977）。 |
+| 3 | Integrating Protein Language Models and Geometric Deep Learning for Peptide Toxicity Prediction (PeptiTox) | Yanling Wang, Na Li, Xiao Wang, Feng Cao, Shuwen Xiong, Leyi Wei | 2025 年（Journal of Chemical Information and Modeling 65(14): 7800-7810，2025-07-08 在线发表） | Journal of Chemical Information and Modeling | 10.1021/acs.jcim.5c01073 | ESM2 提取序列嵌入 + ESMFold 预测 3D 结构 + 以残基为节点、残基间相互作用为边的图表示 + GNN 分类；说明预测结构中的多原子几何值得建模，是本项目 ESM2+预测结构+几何图主线的最直接启发。 | 拆分序列/空间支路并引入 pLDDT 连续降权与门控（残基级与整肽级），对低置信坐标施加更强扰动，而非硬筛选高 pLDDT；进一步加入全原子多化学位点—方向—连续双尺度相互作用残差与构象集合统计残差，构成五级多尺度 3D 信息提取；与组合A 1D 专家按 OOF 冻结权重融合。 |
+| 4 | ToxiPep: Peptide toxicity prediction via fusion of context-aware representation and atomic-level graph | Jiahui Guan, Peilin Xie, Dian Meng, Lantian Yao, Dan Yu, Ying-Chih Chiang, Tzong-Yi Lee, Junwen Wang | 2025 年（Computational and Structural Biotechnology Journal 27: 2347-2358） | Computational and Structural Biotechnology Journal | 10.1016/j.csbj.2025.05.039 | 双模型框架——上下文感知序列表示 + 原子级图/张量，多尺度 2D CNN 与 cross-attention；说明局部原子化学与序列上下文互补，启发项目建立原子级化学分支与序列—原子对齐。 | 不新增训练数据；原子侧用三层 Atom-MPNN（消息传递网络）而非多尺度 2D CNN；先把原子聚合到残基位置再做双向序列↔原子跨注意力；与 pLDDT 质量感知 Cα-EGNN 结合为可回退的 3D 化学位点专家，并纳入 0.62/0.38 多维融合。 |
+| 5 | Integration of pre-trained protein language models with equivariant graph neural networks for peptide toxicity prediction (StrucToxNet) | Shihu Jiao, Xiucai Ye, Tetsuya Sakurai, Quan Zou, Wu Han, Chao Zhan | 2025 年（BMC Biology 23: 229，2025-07-28 在线发表） | BMC Biology | 10.1186/s12915-025-02329-1 | 组合 ProtT5 + ESMFold + EGNN 并系统讨论 pLDDT，使用与当前 Test1 对应的数据框架；说明 EGNN 可在不依赖任意坐标轴的情况下学习空间关系，是当前 3D 架构与质量意识最接近的参考工作。 | ProtT5 对照后序列支路保留 ESM2/组合A（LoRA-ProtT5）；实测「只用高 pLDDT 训练」在完整数据域性能下降，改用连续 pLDDT 降权与门控而非硬筛选；融合全原子化学位点（多尺度信息提取）与构象统计残差，而不限于 Cα EGNN。 |
+| 6 | HyPepTox-Fuse: An interpretable hybrid framework for accurate peptide toxicity prediction fusing protein language model-based embeddings with conventional descriptors | Duong Thanh Tran, Nhat Truong Pham, Nguyen Doan Hieu Nguyen, Leyi Wei, Balachandran Manavalan | 2025 年（Journal of Pharmaceutical Analysis 15(8): 101410，2025-08） | Journal of Pharmaceutical Analysis | 10.1016/j.jpha.2025.101410 | 三层互补信息：ProtT5/ESM-1/ESM-2 逐残基表示 + 多头交叉注意力 + Transformer 融合，40 类传统描述符排序与 LightGBM 筛选，BCE + NT-Xent 辅助损失；队友按其平衡独立集完成七模型集成，提供「多成员概率平均、验证阈值与 Platt 校准」的工程参考。 | 只迁移当前数据可验证的部分（AAC/DPC/CKSAAP/ASDC 折内筛选、已有 ESM2/ProtT5 缓存的双向交互），严格用训练内 group-aware OOF 验证；二者提升排序但降低留一折 BACC/MCC，作为负消融记录而非默认模块；不移植其平衡数据权重，避免在已查看测试集重复调权重。 |
 
