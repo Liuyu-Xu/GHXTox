@@ -1,0 +1,44 @@
+digraph GHXTox1D {
+  rankdir=TB;
+  graph [fontname="Microsoft YaHei", splines=ortho, nodesep=0.45, ranksep=0.55, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fontname="Microsoft YaHei", fontsize=11, margin="0.18,0.10"];
+  edge  [color="#4a6fa5", penwidth=1.4, arrowsize=0.8];
+
+  subgraph cluster_in {
+    label="输入"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#d9c9a3"; fillcolor="#fffaf0";
+    in_seq [label="肽序列（11–50 aa）", fillcolor="#fff3d6", color="#b38600"];
+    in_tok [label="残基级 token 化\n（逐残基 token，含 EOS/padding 掩码）", fillcolor="#fff3d6", color="#b38600"];
+  }
+
+  subgraph cluster_plm {
+    label="蛋白质大模型：ProtT5 + LoRA 任务自适应微调"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#9db8d2"; fillcolor="#f2f7fc";
+    p1 [label="ProtT5-XL-UniRef50 编码器\n1.21B 参数 · 基座与嵌入全冻结", fillcolor="#e3eefb", color="#2f5597"];
+    p2 [label="LoRA 低秩自适应\nr=8 / α=16 / dropout 0.1\n包裹全部线性层（q/k/v/o + FFN）", fillcolor="#e3eefb", color="#2f5597"];
+    p3 [label="残基隐状态\n1024 维（可训练参数约 1310 万）", fillcolor="#cfe0f5", color="#1f5c8b"];
+  }
+
+  subgraph cluster_mamba {
+    label="分类网络：双向 Mamba（S6 状态空间）序列分类器"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#a8c9b0"; fillcolor="#f2faf4";
+    m1 [label="双向 Mamba 层 × 2\nd_model=192 · d_state=16 · d_conv=4 · expand=2\n前向选择扫描 + 反向选择扫描\n残差 + LayerNorm（纯 PyTorch）", fillcolor="#dff0e4", color="#1e7a46"];
+    m2 [label="掩码均值池化\n（仅有效残基，排除 padding/EOS）", fillcolor="#dff0e4", color="#1e7a46"];
+    m3 [label="分类头 Linear(192→1)\npos_weight ≈ 2.51 处理不平衡", fillcolor="#dff0e4", color="#1e7a46"];
+  }
+
+  subgraph cluster_ens {
+    label="集成与校准"; fontsize=13; fontname="Microsoft YaHei"; style="rounded,filled"; color="#e3c9b0"; fillcolor="#fdf6ef";
+    e1 [label="3-seed 集成\n（seed 42/123/2025，概率平均）", fillcolor="#fbe7d3", color="#a0522d"];
+    e2 [label="OOF Platt 概率校准\n（训练 OOF 拟合 sigmoid，保排序）", fillcolor="#fbe7d3", color="#a0522d"];
+    e3 [label="序列概率 p_1D\n（供 0.62/0.38 融合）", fillcolor="#f5d0a9", color="#8b4513", penwidth=1.8];
+  }
+
+  in_seq -> in_tok;
+  in_tok -> p1;
+  p1 -> p2;
+  p2 -> p3;
+  p3 -> m1;
+  m1 -> m2;
+  m2 -> m3;
+  m3 -> e1;
+  e1 -> e2;
+  e2 -> e3;
+}

@@ -1,0 +1,524 @@
+% ============================================================================
+%  v1.tex -- Paper draft skeleton (structure only)
+% ============================================================================
+
+\documentclass[11pt]{article}
+
+% ---- encoding & fonts ------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% ---- page geometry (A4, ~2.5 cm margins; adjust to your needs) ----
+\usepackage[a4paper, margin=2.5cm]{geometry}
+
+% ---- math ------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+% ---- figures & tables ------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}   % subfigures, e.g., Figure 3A/B/C
+\usepackage{float}
+\graphicspath{{figures/}} % put your figures under figures/
+
+% ---- misc ------------------------------------------------------------------
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}  % load last
+\usepackage{indentfirst}    % indent the first paragraph after a heading
+\setlength{\parindent}{2em}    % two-character paragraph indent
+
+
+% ---- commonly used macros (keep or remove as needed) -----------------------
+\newcommand{\eg}{e.g.,}
+\newcommand{\ie}{i.e.,}
+\newcommand{\etal}{et al.}
+% Uncomment the line below if you want visible red TODO markers in the PDF:
+% \newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO] #1}}}
+
+% ---- make the Abstract title the same size as section headings --------------
+% (\Large\bfseries, same as \section; abstract body text stays \small)
+\makeatletter
+\renewenvironment{abstract}{%
+  \small
+  \begin{center}%
+    {\Large\bfseries\abstractname\vspace{-.5em}\vspace{\z@}}%
+  \end{center}%
+  \quotation
+}{%
+  \endquotation
+}
+\makeatother
+
+% ============================================================================
+%  Title / authors (TODO: fill in yourself)
+% ============================================================================
+\title{GHXTox: Peptide toxicity prediction by fusing a task-adaptive protein language model with pLDDT-aware multi-scale conformer ensembles}
+\author{LaLaLa, LaLaLa, LaLaLa, LaLaLa}
+\date{}% 不显示日期；如需显示可改为 \date{\today}
+
+\begin{document}
+
+\maketitle
+
+% ----------------------------------------------------------------------------
+%  Abstract & keywords 
+% ----------------------------------------------------------------------------
+\begin{abstract}
+As biomedical research advances from the cellular to the molecular level,
+peptides have become increasingly important as a versatile class of bioactive
+molecules and are now widely used in the targeted treatment of diseases such as
+Parkinson's disease and cancer. However, toxicity assessment remains a
+critical bottleneck in peptide-based drug development. Existing methods have
+begun to explore multi-dimensional (multimodal) feature fusion and toxicity
+prediction based on the three-dimensional (3D) conformations of peptides,
+yet most of them still underutilize 3D structural information, and
+systematic multi-dimensional fusion remains rare. Here, we propose GHXTox, a
+multi-dimensional fusion framework that combines a one-dimensional (1D)
+sequence branch with a 3D structure branch. The 1D branch analyzes sequences
+with a task-adaptive protein language model (ProtT5 fine-tuned with low-rank
+adaptation, LoRA) and a bidirectional Mamba state-space model. The 3D branch
+extracts multi-scale structural information from predicted conformations, from
+local residue functional groups to the whole peptide, and exploits the
+predicted local distance difference test (pLDDT) confidence through
+quality-aware gating. GHXTox achieves competitive performance on independent
+test sets and provides more detailed biological interpretations for peptide
+toxicity prediction.
+\end{abstract}
+
+\noindent\textbf{Keywords:} peptide toxicity prediction; multimodal deep learning; protein language model;
+bidirectional Mamba; pLDDT-aware conformer ensemble; interpretability
+% ============================================================================
+%  1 INTRODUCTION
+% ============================================================================
+\section{INTRODUCTION}
+
+As biomedical research advances from the cellular to the molecular level,
+peptides have become increasingly important as a versatile class of bioactive
+molecules and are now widely used in the targeted treatment of diseases such as
+Parkinson's disease and cancer [1]. Peptide toxicity is a critical safety
+consideration throughout the drug development pipeline, and the accurate and
+efficient identification of toxic peptides remains a major bottleneck in
+peptide-based drug discovery [2]. Because conventional experimental toxicity
+assays are costly, time-consuming, and difficult to scale, reliable
+computational predictors are highly desirable.
+
+Computational peptide toxicity prediction has evolved from traditional machine
+learning methods based on handcrafted physicochemical features toward deep
+learning approaches with stronger representation-learning capability. Current
+mainstream methods can be roughly grouped into two categories. The first
+category operates on sequence-level (one-dimensional, 1D) and/or atomic-level
+(two-dimensional, 2D) representations. For example, ToxMSRC combines
+continuous bag-of-words (CBOW) embeddings, multi-scale convolutional neural
+networks, and a bidirectional long short-term memory network with residual
+connections, achieving strong performance on the benchmark dataset [2].
+ToxPLTC integrates pooled ProtT5 embeddings, borderline-SMOTE augmentation,
+and a text convolutional neural network [3]. ToxiPep fuses context-aware
+sequence representations with atomic-level graphs through a cross-attention
+mechanism [4]. HyPepTox-Fuse further combines embeddings from multiple protein
+language models with conventional descriptors [5]. Although these models
+achieve strong performance within their respective modalities, they largely
+neglect the three-dimensional (3D) conformations of peptides, which are
+closely related to toxicity; cross-dimensional information interaction and
+mutual validation remain limited, and their interpretability is mostly
+confined to the sequence level.
+
+The second category attempts to exploit 3D structural information. PeptiTox
+uses ESM2 sequence embeddings together with ESMFold-predicted 3D structures
+and geometric graph neural networks [6]. StrucToxNet feeds ProtT5 sequence
+embeddings and ESMFold-predicted structures into an equivariant graph neural
+network (EGNN) and systematically analyzes structural quality [7]. These
+studies demonstrate the value of 3D conformations for toxicity prediction.
+However, such methods are constrained by the limited accuracy of current
+structure prediction models on short peptides and typically rely on a single
+predicted conformation; structural confidence, i.e., the predicted local
+distance difference test (pLDDT) score, is either discarded through hard
+filtering or ignored, and multi-conformer ensembles are not considered.
+Moreover, the fusion between the sequence and structure branches remains
+relatively shallow, and no systematic multi-dimensional fusion that combines a
+task-adaptive sequence model with confidence-aware multi-scale structure
+modeling has been established.
+
+To address these limitations, we propose GHXTox, an interpretable
+multi-dimensional fusion framework for peptide toxicity prediction that
+combines a 1D sequence branch with a 3D structure branch. In the 1D branch, a
+task-adaptive protein language model (ProtT5 fine-tuned with low-rank
+adaptation, LoRA) is combined with a bidirectional Mamba state-space model for
+sequence analysis [8--10]. In the 3D branch, because current structure
+prediction models generally output a single predicted conformation with
+limited accuracy on short peptides, we adopt a pragmatic structure
+augmentation scheme in which different structure prediction and conformational
+sampling models are applied across different sequence-length ranges [11--14].
+On this basis, we design a multi-scale structural information extraction
+strategy that progressively captures structural cues from local residue
+functional groups (chemical sites) to the whole peptide, and the pLDDT
+confidence output by structure prediction models is exploited through
+continuous down-weighting and dynamic gating of structural features. The two
+branches are then fused with weights determined on training out-of-fold
+predictions, followed by probability calibration. Ablation experiments
+demonstrate that the two dimensions complement each other effectively and that
+the fusion substantially improves overall performance, while interpretability
+analyses provide more detailed biological explanations for the predictions.
+
+In summary, the main contributions of this work are threefold: (1) we propose
+GHXTox, an interpretable multi-dimensional fusion framework that integrates a
+task-adaptive 1D protein language model with pLDDT-aware multi-scale 3D
+structure modeling; (2) the 3D branch designs a multi-scale structural
+information extraction strategy spanning from local residue functional groups
+to the whole peptide, and incorporates pLDDT confidence into structural
+feature processing through continuous down-weighting and dynamic gating; and
+(3) extensive experiments on benchmark and independent test sets show that
+GHXTox achieves competitive performance, and ablation, robustness, and
+interpretability analyses confirm the effectiveness and complementarity of the
+two dimensions.
+
+% ============================================================================
+%  2 MATERIALS AND METHODS
+% ============================================================================
+\section{MATERIALS AND METHODS}
+% TODO: (optional) general remarks on the materials and methods.
+
+\subsection{Datasets}
+We evaluate GHXTox on the benchmark datasets constructed by CAPTP [17] and
+subsequently adopted by ToxMSRC [2]. Following the data construction protocol
+of ToxMSRC [2], toxic peptide sequences were merged from three databases,
+namely CSM-Toxin [18], ToxinPred2 [19], and ATSE [20], and sequences longer
+than 50 residues were removed. Non-toxic sequences were retrieved from UniProt
+[21] using the query ``NOT KW-0800 AND NOT KW-0020 AND reviewed:true'', and
+sequences containing non-standard amino acids or exceeding 50 residues were
+excluded. After combining the two groups and removing samples with conflicting
+labels, CD-HIT [22] was applied with a sequence-identity threshold of 0.9 to
+eliminate redundant sequences, yielding 2{,}138 toxic and 5{,}375 non-toxic
+peptides. Following the same partition as ToxMSRC [2], we used 85\% of the data
+as the training set and the remaining 15\% as the independent Test1 set,
+resulting in 1{,}818 toxic and
+4{,}569 non-toxic training peptides and 320 toxic and 806 non-toxic Test1
+peptides. An additional independent Test2 set, containing 46 toxic and 536
+non-toxic peptides, was used to further evaluate generalization ability.
+Table~\ref{tab:datasets} summarizes the statistics of the datasets used in
+this study.
+
+% ---- Table 1: dataset statistics ------------------------------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Statistics of the datasets used in this study.}
+    \label{tab:datasets}
+    \begin{tabular}{lcccc}
+        \toprule
+        Dataset & Toxic & Non-toxic & Total & Use \\
+        \midrule
+        Training (benchmark) & 1,818 & 4,569 & 6,387 & Model training \\
+        Test1 (benchmark)    &   320 &   806 & 1,126 & Independent test \\
+        Test2                &    46 &   536 &   582 & Independent test \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Overview of the Model}
+% TODO: Overview -- input modalities, overall pipeline, how modules connect
+%       (see Figure~\ref{fig:overview}).
+
+% ---- Figure 1: overall framework (placeholder) -----------------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig1_overview.pdf}
+    \caption{Placeholder: overall framework of the proposed model
+             (mirrors Figure 1 of the reference paper; replace with your own
+             flowchart and caption).}
+    \label{fig:overview}
+\end{figure}
+
+\subsubsection{ProtT5 Semantic Embedding}
+% TODO: ProtT5 semantic embedding -- pre-trained model, feature dimension,
+%       projection/alignment to a shared latent space.
+
+\subsubsection{Secondary Structure Embedding}
+% TODO: Secondary-structure (or structural) feature embedding -- prediction
+%       tool, state definitions, embedding and dimension alignment.
+
+\subsubsection{Gated Cross-Attention Mechanism}
+% TODO: Gated cross-attention -- bidirectional cross-attention plus gated
+%       fusion, and how the two modalities interact.
+% TODO: equations (mirrors Eqs. (1)-(4) of the reference), e.g.:
+% \begin{equation}
+%     % TODO: cross-attention equation
+% \end{equation}
+
+\subsubsection{Multi-Scale Gated Convolution Network}
+% TODO: Multi-scale gated convolution network.
+% TODO: equations (mirrors Eqs. (5)-(6) of the reference).
+
+\subsubsection{Output Layer}
+% TODO: Output layer -- attention pooling and classification head.
+% TODO: equations (mirrors Eqs. (7)-(9) of the reference).
+
+\subsection{Fast Gradient Method (FGM) for Robustness Evaluation}
+% TODO: FGM adversarial perturbation method.
+% TODO: equations (mirrors Eqs. (10)-(11) of the reference).
+
+\subsection{Evaluation Criteria}
+% TODO: Evaluation metrics -- ACC / SP / SN / Pre / F1 / MCC / AUROC / AUPRC.
+% TODO: equations (mirrors Eq. (12) of the reference).
+
+% ============================================================================
+%  3 RESULTS AND DISCUSSION
+% ============================================================================
+\section{RESULTS AND DISCUSSION}
+
+\subsection{Performance Comparison with Existing Models}
+% TODO: Comparison with existing methods.
+% Related table: Table~\ref{tab:comparison}.
+
+% ---- Table 2: comparison with existing models (placeholder) ----------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: performance comparison with existing models
+             (mirrors Table 2 of the reference paper; replace with your own).}
+    \label{tab:comparison}
+    % TODO: fill in the table content.
+\end{table}
+
+\subsection{Exploration of the Model Architecture}
+% TODO: Architecture exploration / hyperparameter analysis.
+% Related figure: Figure~\ref{fig:plm_compare};
+% related table:   Table~\ref{tab:hyperparam}.
+
+% ---- Figure 2: pre-trained model comparison (placeholder) ------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig2_plm_compare.pdf}
+    \caption{Placeholder: performance comparison of different pre-trained
+             protein language models (mirrors Figure 2 of the reference;
+             replace with your own).}
+    \label{fig:plm_compare}
+\end{figure}
+
+% ---- Table 3: hyperparameter analysis (placeholder) ------------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: comparison of projection dimensions, kernel sizes
+             and attention heads (mirrors Table 3 of the reference paper;
+             replace with your own).}
+    \label{tab:hyperparam}
+    % TODO: fill in the table content.
+\end{table}
+
+\subsection{Ablation Experiments}
+% TODO: Ablation experiments -- general remarks.
+
+\subsubsection{Analysis of the Effectiveness of Multimodal Features}
+% TODO: Effectiveness of each feature modality (with/without each modality).
+% Related figure: Figure~\ref{fig:ablation};
+% related tables: Table~\ref{tab:complexity_compare},
+%                 Table~\ref{tab:complexity_added}.
+
+% ---- Figure 3: ablation results (placeholder) ------------------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig3_ablation.pdf}
+    \caption{Placeholder: results of the ablation study
+             (mirrors Figure 3 of the reference paper; replace with your own).}
+    \label{fig:ablation}
+\end{figure}
+
+% ---- Table 4: complexity vs performance (placeholder) ----------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: complexity and performance comparison
+             (mirrors Table 4 of the reference paper; replace with your own).}
+    \label{tab:complexity_compare}
+    % TODO: fill in the table content.
+\end{table}
+
+% ---- Table 5: added complexity (placeholder) -------------------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: additional complexity introduced by the added
+             modules (mirrors Table 5 of the reference paper; replace with
+             your own).}
+    \label{tab:complexity_added}
+    % TODO: fill in the table content.
+\end{table}
+
+\subsubsection{Contribution Analysis of the Cross-Modal Fusion Mechanism}
+% TODO: Contribution of the cross-modal fusion mechanism (cross-attention /
+%       gated fusion / gated convolution, with/without each module).
+
+\subsection{Evaluation of Model Robustness and Generalization}
+% TODO: Robustness and generalization -- general remarks.
+
+\subsubsection{Robustness Analysis Under Embedding and Sequence-Level Perturbations}
+% TODO: Robustness under embedding-level (e.g., FGM) and sequence-level
+%       (e.g., conservative substitutions) perturbations.
+% Related tables: Table~\ref{tab:cv}, Table~\ref{tab:fgm},
+%                 Table~\ref{tab:cs}, Table~\ref{tab:prob_stab}.
+
+% ---- Table 6: cross-validation (placeholder) -------------------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: K-fold cross-validation results
+             (mirrors Table 6 of the reference paper; replace with your own).}
+    \label{tab:cv}
+    % TODO: fill in the table content.
+\end{table}
+
+% ---- Table 7: FGM robustness (placeholder) ---------------------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: robustness under FGM adversarial perturbation
+             (mirrors Table 7 of the reference paper; replace with your own).}
+    \label{tab:fgm}
+    % TODO: fill in the table content.
+\end{table}
+
+% ---- Table 8: conservative substitution (placeholder) ----------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: robustness under conservative substitution
+             perturbations (mirrors Table 8 of the reference paper; replace
+             with your own).}
+    \label{tab:cs}
+    % TODO: fill in the table content.
+\end{table}
+
+% ---- Table 9: prediction probability stability (placeholder) ---------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: prediction-probability stability under perturbations
+             (mirrors Table 9 of the reference paper; replace with your own).}
+    \label{tab:prob_stab}
+    % TODO: fill in the table content.
+\end{table}
+
+\subsubsection{Analysis of the Model's Generalization Ability on the Imbalanced Test Sets}
+% TODO: Generalization on class-imbalanced test sets.
+% Related tables: Table~\ref{tab:imb_ind}, Table~\ref{tab:imb_ext}.
+
+% ---- Table 10: imbalanced independent test set (placeholder) ---------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: comparison on the imbalanced independent test set
+             (mirrors Table 10 of the reference paper; replace with your own).}
+    \label{tab:imb_ind}
+    % TODO: fill in the table content.
+\end{table}
+
+% ---- Table 11: external imbalanced test set (placeholder) ------------------
+\begin{table}[htbp]
+    \centering
+    \caption{Placeholder: comparison on the external imbalanced test set
+             (mirrors Table 11 of the reference paper; replace with your own).}
+    \label{tab:imb_ext}
+    % TODO: fill in the table content.
+\end{table}
+
+\subsection{Visualization of Feature Learning Using UMAP}
+% TODO: Feature visualization (e.g., UMAP) at different stages of the model.
+% Related figure: Figure~\ref{fig:umap}.
+
+% ---- Figure 4: feature visualization (placeholder) -------------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig4_umap.pdf}
+    \caption{Placeholder: feature visualization of different model stages
+             (mirrors Figure 4 of the reference paper; replace with your own).}
+    \label{fig:umap}
+\end{figure}
+
+\subsection{Interpretability Analysis}
+% TODO: Interpretability -- general remarks.
+
+\subsubsection{Feature Importance Analysis}
+% TODO: Feature importance analysis (e.g., SHAP).
+% Related figures: Figure~\ref{fig:shap1}, Figure~\ref{fig:shap2}.
+
+% ---- Figure 5: SHAP feature importance (placeholder) -----------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig5_shap1.pdf}
+    \caption{Placeholder: SHAP feature-importance analysis
+             (mirrors Figure 5 of the reference paper; replace with your own).}
+    \label{fig:shap1}
+\end{figure}
+
+% ---- Figure 6: SHAP contribution analysis (placeholder) --------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig6_shap2.pdf}
+    \caption{Placeholder: SHAP-based contribution analysis
+             (mirrors Figure 6 of the reference paper; replace with your own).}
+    \label{fig:shap2}
+\end{figure}
+
+\subsubsection{Attention-Based Interpretability Analysis}
+% TODO: Attention-based interpretability (e.g., attention weights vs.
+%       conserved motifs).
+% Related figure: Figure~\ref{fig:attention}.
+
+% ---- Figure 7: attention interpretability (placeholder) --------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig7_attention.pdf}
+    \caption{Placeholder: attention-based interpretability analysis
+             (mirrors Figure 7 of the reference paper; replace with your own).}
+    \label{fig:attention}
+\end{figure}
+
+\subsubsection{Mutation-Scan Analysis}
+% TODO: In silico mutagenesis / mutation-scan analysis.
+% Related figure: Figure~\ref{fig:mutation}.
+
+% ---- Figure 8: mutation-scan analysis (placeholder) ------------------------
+\begin{figure}[htbp]
+    \centering
+    % TODO: \includegraphics[width=\linewidth]{figures/fig8_mutation.pdf}
+    \caption{Placeholder: mutation-scan analysis
+             (mirrors Figure 8 of the reference paper; replace with your own).}
+    \label{fig:mutation}
+\end{figure}
+
+\subsection{Limitations and Future Directions}
+% TODO: Limitations and future work.
+
+% ============================================================================
+%  4 CONCLUSIONS
+% ============================================================================
+\section{CONCLUSIONS}
+% TODO: Conclusions.
+
+% ----------------------------------------------------------------------------
+%  Unnumbered sections after the conclusions (as in the reference paper)
+% ----------------------------------------------------------------------------
+\section*{Data and Software Availability}
+% TODO: Data and software availability (repository links, etc.).
+
+\section*{Author Contributions}
+% TODO: Author contributions.
+
+\section*{Acknowledgements}
+% TODO: Acknowledgements (funding/grant numbers, etc.).
+
+\section*{Conflict of Interest Disclosure}
+% TODO: Conflict-of-interest disclosure.
+
+% ============================================================================
+%  References (placeholder)
+% ============================================================================
+% Option 1: manual thebibliography (convenient for a small number of refs).
+\begin{thebibliography}{99}
+% TODO: add references in citation order, e.g.:
+% \bibitem{ref1} Author, A.; Author, B. Title. \textit{Journal} \textbf{Year},
+%                \textit{Vol}, pages.
+\end{thebibliography}
+
+% Option 2: BibTeX (recommended; create refs.bib and uncomment the two lines)
+% \bibliographystyle{plainnat}
+% \bibliography{refs}
+
+\end{document}
