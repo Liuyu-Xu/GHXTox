@@ -721,7 +721,7 @@ averaged probability score. The parameters are estimated as
     \end{aligned}
     \label{eq:platt_fit}
 \end{equation}
-The scaling parameter is reparameterized as $a = \exp(\eta) > 0$, which
+The scaling parameter is reparameterized as $a = \mathrm{clip}(\exp(\eta),\, 0.02, 50) > 0$, which
 guarantees a monotonic probability transformation and therefore preserves the
 sample ranking of the ensemble score; AUROC and AUPRC are consequently
 unchanged by calibration. For independent test or previously unseen peptides,
@@ -1507,11 +1507,9 @@ optimization.
 \subsubsection{Group-Aware Five-Fold OOF Generation}
 The training set contains $N = 6387$ peptides. To reduce performance
 inflation caused by highly similar sequences, a fixed five-fold manifest is
-constructed by clustering the training sequences into homology groups with
-CD-HIT at 80\% sequence identity. The fold-level homology groups were
-constructed through a separate CD-HIT pass at 80\% sequence identity,
-distinct from the 0.90 threshold used for dataset-level redundancy removal in
-Section 2.1. The first operation determines which samples remain in the
+constructed by clustering the training sequences into homology groups. The fold-level homology groups were
+constructed through a separate sequence-clustering procedure, distinct from
+the dataset-level redundancy removal described in Section 2.1. The first operation determines which samples remain in the
 benchmark dataset, whereas the second determines which retained samples must
 remain in the same cross-validation fold. Let
 \begin{equation}
@@ -1766,28 +1764,601 @@ full-data structural refit is therefore trained for eight fixed epochs.
 %       manifest; do not guess before the environment is frozen.
 
 \subsubsection{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}
-% TODO
+After the expert-level OOF predictions have been generated, model selection
+proceeds at the probability level. No ProtT5, Mamba, EGNN, chemical-site, or
+conformer-residual parameters are updated during this stage. Only the training
+OOF probabilities are used to determine the calibrator, fusion weight, and
+final decision threshold.
+
+The three seed-specific 1D OOF probabilities are first averaged and
+calibrated using the monotonic Platt mapping described in Section 2.3.4:
+\begin{equation}
+    p_{i,\mathrm{1D}}^{\mathrm{cal}} = \sigma\left[a\,
+    \mathrm{logit}\left(\bar{p}_{i,\mathrm{1D}}^{\mathrm{OOF}}\right) + b
+    \right], \qquad a = \exp(\eta) > 0,
+    \label{eq:platt_oof}
+\end{equation}
+where the scale is parameterized as a positive value, $a = \exp(\eta) > 0$, as
+described in Section 2.3.4. Platt calibration is applied only to the 1D
+ensemble. The structural-expert probability is not subjected to an additional
+top-level calibrator, and no new calibrator is fitted after the final fusion.
+
+The calibrated sequence probability and the structural-expert probability are
+combined in probability space:
+\begin{equation}
+    p_i(w) = w\, p_{i,\mathrm{1D}}^{\mathrm{cal}} + \left(1 - w\right)\,
+    p_{i,\mathrm{SE3D}}^{\mathrm{OOF}}, \qquad 0 \leq w \leq 1,
+    \label{eq:fusion_prob}
+\end{equation}
+where $w$ denotes the 1D expert weight and $1 - w$ denotes the
+sequence-enhanced structural-expert weight. No additional stacking classifier
+or sample-specific routing network is fitted at this stage, reducing the risk
+of second-level overfitting to the finite OOF table.
+
+For a candidate weight $w$ and threshold $\tau$, the predicted class is
+\begin{equation}
+    \hat{y}_i(w, \tau) = \mathbb{I}\left[p_i(w) \geq \tau\right],
+    \label{eq:decision_rule}
+\end{equation}
+and the frozen parameters are selected according to
+\begin{equation}
+    (w^*, \tau^*) = \arg\max_{w,\tau}\;
+    \mathrm{MCC}\left(\mathbf y, \hat{\mathbf y}(w, \tau)\right).
+    \label{eq:selection}
+\end{equation}
+MCC is used as the primary objective because of the pronounced class
+imbalance in the benchmark data, particularly in Test2. Balanced accuracy was
+used as the secondary selection criterion when candidate operating points
+produced identical MCC values under the evaluated search procedure.
+
+The frozen values are
+\begin{equation}
+    w_{\mathrm{1D}}^* = 0.62, \qquad w_{\mathrm{SE3D}}^* = 0.38, \qquad
+    \tau^* = 0.4976932219075496 \approx 0.4977,
+    \label{eq:frozen_values}
+\end{equation}
+where the full-precision threshold is rounded to $0.4977$ when reported in
+the final decision rule. The final probability and class prediction are
+therefore
+\begin{equation}
+    p_{\mathrm{GHXTox}} = 0.62\, p_{1D}^{\mathrm{cal}} + 0.38\,
+    p_{\mathrm{SE3D}}, \qquad
+    \hat{y} = \mathbb{I}\left[p_{\mathrm{GHXTox}} \geq 0.4977\right].
+    \label{eq:final_prediction}
+\end{equation}
+
+A second-level leave-one-fold-out analysis is additionally performed as a
+stability diagnostic. In each iteration, $w$ and $\tau$ are selected using
+four OOF folds and applied to the remaining fold. This analysis assesses
+whether the fusion parameters are disproportionately dependent on a
+particular fold. However, because every upstream prediction stream is not
+fully regenerated within a separately nested outer loop, this diagnostic is
+not described as strict nested external validation.
+
+The final values of 0.62/0.38 and 0.4977 are frozen from the complete
+training OOF table. The corresponding fused OOF metrics describe
+training-stage model selection rather than independent test performance.
+After freezing, the same calibration parameters, fusion weights, and
+threshold are applied unchanged to Test1 and Test2:
+\begin{equation}
+    \left(a^*, b^*, w^*, \tau^*\right)_{\mathrm{Test}} =
+    \left(a^*, b^*, 0.62, 0.4976932219075496\right)_{\mathrm{Training\;OOF}}.
+    \label{eq:test_protocol}
+\end{equation}
+Neither Test1 nor Test2 labels are used for recalibration or parameter
+adjustment. The frozen parameters, input prediction files, fusion space, and
+decision threshold are stored in machine-readable artifacts to permit
+auditing of the final evaluation protocol.
 
 \subsection{Evaluation Metrics}
-% TODO: threshold-dependent metrics (ACC / BACC / SN / SP / F1 / MCC) and ranking/calibration metrics (AUROC / AUPRC / Brier / ECE).
+To comprehensively evaluate GHXTox for peptide toxicity prediction, model
+performance is assessed from three complementary perspectives: classification
+performance at a fixed operating threshold, ranking ability based on
+continuous probability scores, and probabilistic calibration. Reliance on a
+single metric may conceal important differences in minority-class
+recognition, false-positive control, or probability reliability. We therefore
+jointly report confusion-matrix metrics, the area under the receiver
+operating characteristic curve (AUROC), the area under the precision–recall
+curve (AUPRC), the Brier score, and the expected calibration error (ECE).
+
+Let the evaluation set contain $N$ peptides. The ground-truth label of peptide
+$i$ is
+\begin{equation}
+    y_i \in \{0, 1\}, \qquad p_i = \mathbb{P}\left(y_i = 1 \mid
+    \mathcal{S}_i\right),
+    \label{eq:eval_setup}
+\end{equation}
+where $y_i = 1$ denotes a toxic peptide, $y_i = 0$ denotes a non-toxic
+peptide, and $\mathcal{S}_i$ denotes the peptide sequence. The binary
+prediction is obtained using a fixed decision threshold $\tau$:
+\begin{equation}
+    \hat{y}_i = \mathbb{I}\left(p_i \geq \tau\right).
+    \label{eq:decision_threshold}
+\end{equation}
+For the final GHXTox model, the threshold is frozen using the complete
+training OOF table, as described in Section 2.5.4. Its full-precision value
+is $\tau^* = 0.4976932219075496$, which is rounded to $\tau = 0.4977$ for
+presentation in the manuscript and result tables. The same frozen threshold
+is applied unchanged to Test1 and Test2, without dataset-specific retuning.
+Threshold-dependent metrics are calculated from $\hat{y}_i$, whereas AUROC,
+AUPRC, the Brier score, and ECE are calculated directly from the continuous
+probability $p_i$.
+
+Because Test2 contains only 46 toxic peptides and 536 non-toxic peptides, its
+class distribution is strongly imbalanced. Accuracy alone may therefore
+provide an incomplete description of toxic-peptide recognition. Balanced
+accuracy (BACC) and the Matthews correlation coefficient (MCC) are emphasized
+as balanced summary measures; sensitivity (SN) and specificity (SP) are
+reported to expose the trade-off between missed toxic peptides and false
+alarms; and AUPRC and calibration metrics are reported together with AUROC.
 
 \subsubsection{Threshold-Dependent Classification Metrics}
-% TODO
+At a fixed decision threshold, the predictions can be summarized by four
+confusion-matrix counts:
+\begin{equation}
+    \begin{aligned}
+        \mathrm{TP} &= \sum_{i=1}^{N}\mathbb{I}\left(y_i=1,\;
+        \hat{y}_i=1\right), &
+        \mathrm{TN} &= \sum_{i=1}^{N}\mathbb{I}\left(y_i=0,\;
+        \hat{y}_i=0\right),\\
+        \mathrm{FP} &= \sum_{i=1}^{N}\mathbb{I}\left(y_i=0,\;
+        \hat{y}_i=1\right), &
+        \mathrm{FN} &= \sum_{i=1}^{N}\mathbb{I}\left(y_i=1,\;
+        \hat{y}_i=0\right),
+    \end{aligned}
+    \label{eq:confusion}
+\end{equation}
+where TP denotes toxic peptides correctly identified as toxic, TN denotes
+non-toxic peptides correctly identified as non-toxic, FP denotes non-toxic
+peptides incorrectly predicted as toxic, and FN denotes toxic peptides
+incorrectly predicted as non-toxic.
+
+\textbf{Accuracy.}
+Accuracy measures the proportion of correctly classified samples:
+\begin{equation}
+    \mathrm{ACC} = \frac{\mathrm{TP} + \mathrm{TN}}
+    {\mathrm{TP} + \mathrm{TN} + \mathrm{FP} + \mathrm{FN}}.
+    \label{eq:acc}
+\end{equation}
+ACC provides an overall correctness measure but may be dominated by the
+majority class in strongly imbalanced datasets. A model biased toward
+non-toxic predictions may still achieve high ACC when non-toxic peptides
+greatly outnumber toxic peptides. ACC is therefore not used as the sole
+measure of predictive performance.
+
+\textbf{Sensitivity and specificity.}
+Sensitivity, also referred to as recall or the true-positive rate, measures
+the fraction of toxic peptides correctly identified:
+\begin{equation}
+    \mathrm{SN} = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}, \qquad
+    \mathrm{SP} = \frac{\mathrm{TN}}{\mathrm{TN} + \mathrm{FP}}.
+    \label{eq:sn_sp}
+\end{equation}
+A high SN indicates that relatively few toxic peptides are missed. In a
+toxicity-screening context, FN corresponds to potentially hazardous peptides
+that are not detected, making SN an important measure of toxic-class
+coverage. Specificity, or the true-negative rate, measures the fraction of
+non-toxic peptides correctly rejected. A high SP indicates that relatively
+few non-toxic candidates are falsely labeled as toxic. SN and SP should be
+interpreted jointly: lowering the decision threshold generally increases SN
+but may increase FP and reduce SP, whereas increasing the threshold may
+produce the opposite trade-off.
+
+\textbf{Precision and F1 score.}
+Precision measures the proportion of predicted toxic peptides that are truly
+toxic:
+\begin{equation}
+    \mathrm{Precision} = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FP}},
+    \qquad
+    F_1 = \frac{2 \cdot \mathrm{Precision} \cdot \mathrm{SN}}
+    {\mathrm{Precision} + \mathrm{SN}} =
+    \frac{2\,\mathrm{TP}}{2\,\mathrm{TP} + \mathrm{FP} + \mathrm{FN}}.
+    \label{eq:precision_f1}
+\end{equation}
+Precision reflects the reliability of positive toxicity predictions. Because
+Precision depends on the prevalence of toxic peptides, comparisons across
+datasets with different class ratios should be interpreted together with the
+corresponding sample composition. The F1 score balances positive-prediction
+purity and toxic-peptide recall; however, it does not explicitly include TN
+and therefore does not fully describe performance on the non-toxic class.
+
+\textbf{Balanced accuracy.}
+Balanced accuracy is the arithmetic mean of sensitivity and specificity:
+\begin{equation}
+    \mathrm{BACC} = \frac{\mathrm{SN} + \mathrm{SP}}{2}.
+    \label{eq:bacc}
+\end{equation}
+BACC assigns equal importance to the toxic and non-toxic classes, preventing
+the larger class from directly dominating the final score. A model performing
+well on one class but poorly on the other will therefore have a noticeably
+lower BACC than ordinary ACC.
+
+\textbf{Matthews correlation coefficient.}
+The Matthews correlation coefficient incorporates all four elements of the
+confusion matrix:
+\begin{equation}
+    \mathrm{MCC} = \frac{\mathrm{TP} \cdot \mathrm{TN} -
+    \mathrm{FP} \cdot \mathrm{FN}}
+    {\sqrt{(\mathrm{TP}+\mathrm{FP})(\mathrm{TP}+\mathrm{FN})
+    (\mathrm{TN}+\mathrm{FP})(\mathrm{TN}+\mathrm{FN})}},
+    \label{eq:mcc}
+\end{equation}
+with $-1 \leq \mathrm{MCC} \leq 1$. An MCC of 1 indicates perfect agreement,
+0 indicates no overall correlation between predictions and labels, and $-1$
+indicates complete disagreement. Because MCC jointly accounts for TP, TN, FP,
+and FN, it was used as the primary summary metric for fixed-threshold
+classification and as the primary objective for OOF fusion-parameter
+selection [CITE: Matthews correlation coefficient].
+
+Numerical safeguards were applied when metric denominators were zero. All
+threshold-dependent metrics were calculated using the same OOF-frozen GHXTox
+decision threshold, consistent with the freezing protocol described in
+Section 2.5.4; no metric-specific or test-set-specific threshold optimization
+was performed.
 
 \subsubsection{Ranking and Probability-Calibration Metrics}
-% TODO
+Fixed-threshold metrics describe classification at one operating point but do
+not fully characterize sample ranking across all possible thresholds or
+determine whether the predicted probabilities have reliable numerical
+meaning. We therefore additionally report AUROC, AUPRC, the Brier score, and
+ECE-10. AUROC and AUPRC evaluate probability ranking, whereas the Brier score
+and ECE evaluate probabilistic error and calibration.
+
+\textbf{ROC curve and AUROC.}
+For a varying probability threshold $t$, the true-positive rate and the
+false-positive rate are
+\begin{equation}
+    \mathrm{TPR}(t) = \frac{\mathrm{TP}(t)}{\mathrm{TP}(t) +
+    \mathrm{FN}(t)}, \qquad
+    \mathrm{FPR}(t) = \frac{\mathrm{FP}(t)}{\mathrm{FP}(t) +
+    \mathrm{TN}(t)}.
+    \label{eq:tpr_fpr}
+\end{equation}
+The ROC curve plots $\mathrm{TPR}(t)$ against $\mathrm{FPR}(t)$ over all
+thresholds, and its area is
+\begin{equation}
+    \mathrm{AUROC} = \int_{0}^{1} \mathrm{TPR}(u)\, du,
+    \label{eq:auroc}
+\end{equation}
+where $u$ denotes the false-positive rate. AUROC measures the ability of the
+model to rank a randomly selected toxic peptide above a randomly selected
+non-toxic peptide. Values approaching one indicate strong ranking
+performance, whereas values near 0.5 generally indicate approximately random
+ranking. AUROC is independent of the fixed decision threshold and therefore
+complements the threshold-dependent metrics. Although AUROC is insensitive to
+class prevalence, it may underemphasize positive-class retrieval quality and
+the practical false-positive burden under severe class imbalance. AUPRC is
+therefore reported as a complementary ranking metric. Recent studies in
+peptide toxicity prediction commonly report ROC and PR analyses together
+[CITE: representative peptide-toxicity studies].
+
+\textbf{Precision–Recall curve and AUPRC.}
+For threshold $t$, Precision and Recall are defined as
+\begin{equation}
+    \mathrm{Precision}(t) = \frac{\mathrm{TP}(t)}{\mathrm{TP}(t) +
+    \mathrm{FP}(t)}, \qquad
+    \mathrm{Recall}(t) = \frac{\mathrm{TP}(t)}{\mathrm{TP}(t) +
+    \mathrm{FN}(t)}.
+    \label{eq:precision_recall}
+\end{equation}
+The PR curve describes the trade-off between positive-prediction purity and
+toxic-peptide recall as the threshold varies. In the current implementation,
+AUPRC is calculated as average precision through
+\texttt{average\_precision\_score}. Let $P_n$ and $R_n$ denote Precision and
+Recall at the $n$-th score threshold after samples have been ranked in
+descending order; the reported value is
+\begin{equation}
+    \mathrm{AUPRC}_{\mathrm{reported}} \coloneqq \mathrm{AP} = \sum_{n}
+    \left(R_n - R_{n-1}\right) P_n.
+    \label{eq:average_precision}
+\end{equation}
+Throughout this study, the metric is reported as AUPRC, while its numerical
+value is computed using average precision. This definition weights Precision
+by the increase in Recall and is not necessarily identical to a trapezoidal
+numerical integral of the PR curve. AUPRC focuses on retrieval of the
+positive toxic class and is particularly informative when toxic peptides are
+relatively rare. Because the chance-level PR baseline is determined by the
+positive-class prevalence, AUPRC values for Test1 and Test2 should be
+interpreted within their respective class distributions rather than treated
+as directly comparable measures of dataset difficulty. AUROC and AUPRC are
+reported only when both classes are present in the evaluation subset;
+otherwise, the implementation returns an undefined value.
+
+\textbf{Brier score.}
+The Brier score is the mean squared difference between the predicted
+probability and the binary ground-truth label [CITE: Brier 1950]:
+\begin{equation}
+    \mathrm{Brier} = \frac{1}{N} \sum_{i=1}^{N}
+    \left(p_i - y_i\right)^2.
+    \label{eq:brier}
+\end{equation}
+Its range is $0 \leq \mathrm{Brier} \leq 1$, with lower values indicating
+better probabilistic predictions. The Brier score penalizes both incorrect
+predictions and excessive confidence: assigning a probability of 0.01 to a
+truly toxic peptide incurs a larger Brier error than assigning a probability
+of 0.40. The Brier score reflects both probability calibration and
+discriminative performance and should not be interpreted as a pure
+calibration measure; it is therefore considered jointly with AUROC, AUPRC,
+and ECE.
+
+\textbf{Ten-bin expected calibration error.}
+To further quantify the agreement between predicted confidence and observed
+toxicity frequency, we calculate the expected calibration error using ten
+equal-width probability bins, denoted ECE-10 [CITE: expected calibration
+error]. The interval $[0,1]$ is divided into $M = 10$ bins, and for each
+non-empty bin the mean predicted confidence and the observed toxic-peptide
+frequency are
+\begin{equation}
+    \begin{aligned}
+        \mathcal{B}_m &= \left\{i : p_i \in \left[\frac{m-1}{M},\;
+        \frac{m}{M}\right)\right\}, \quad m = 1, \ldots, M,\\
+        \mathrm{conf}\left(\mathcal{B}_m\right) &=
+        \frac{1}{|\mathcal{B}_m|} \sum_{i \in \mathcal{B}_m} p_i,\\
+        \mathrm{freq}\left(\mathcal{B}_m\right) &=
+        \frac{1}{|\mathcal{B}_m|} \sum_{i \in \mathcal{B}_m} y_i,
+    \end{aligned}
+    \label{eq:ece_bins}
+\end{equation}
+with the final bin including $p_i = 1$. ECE-10 is defined as
+\begin{equation}
+    \mathrm{ECE}_{10} = \sum_{m=1}^{10} \frac{|\mathcal{B}_m|}{N}\;
+    \left|\mathrm{conf}\left(\mathcal{B}_m\right) -
+    \mathrm{freq}\left(\mathcal{B}_m\right)\right|.
+    \label{eq:ece}
+\end{equation}
+Values closer to zero indicate better agreement between predicted confidence
+and observed toxicity frequency; for example, a well-calibrated group of
+predictions near 0.8 should contain approximately 80\% toxic peptides.
+Because ECE depends on the binning scheme, the number and boundaries of the
+bins remain fixed across models and datasets.
+
+\textbf{Joint interpretation of the metrics.}
+No individual metric is sufficient to characterize peptide-toxicity
+prediction; the reported measures are therefore interpreted jointly. ACC
+summarizes overall correctness; SN and SP quantify toxic-peptide misses and
+non-toxic false positives, respectively; BACC evaluates class-balanced
+recognition; MCC provides a comprehensive correlation-based measure using all
+four confusion-matrix terms; AUROC and AUPRC assess ranking performance; and
+the Brier score and ECE-10 characterize probabilistic reliability. Exact
+numerical tables are used as the primary form of model comparison, with ROC
+and PR curves presented together. Radar charts, when included, are treated
+only as secondary summaries and do not replace exact metric tables or
+uncertainty analysis.
 
 \subsection{Robustness, Uncertainty, and Statistical Analysis}
-% TODO
+A single performance point estimate cannot fully characterize the reliability
+of a deep learning predictor. Model performance may be affected by random
+initialization, finite evaluation samples, class imbalance, predicted-
+structure quality, and distribution shift. GHXTox is therefore evaluated from
+five complementary perspectives: multi-seed reproducibility, class-stratified
+bootstrap confidence intervals, paired significance testing between frozen
+models, subgroup and structure-quality analysis, and frozen external-transfer
+evaluation.
 
-\subsubsection{Multi-Seed Reproducibility Analysis}
-% TODO
+All analyses in this section are conducted after the model architecture,
+checkpoints, probability-calibration parameters, fusion weights, and decision
+threshold have been frozen. No ProtT5, Mamba, EGNN, chemical-site, or
+conformer-residual parameters are updated during statistical evaluation, and
+the threshold is not modified according to the resulting confidence intervals
+or significance tests. This design explicitly separates model development
+from frozen-model evaluation.
+
+Three sources of uncertainty are distinguished. Multi-seed analysis
+characterizes variation arising from stochastic optimization; bootstrap
+intervals quantify finite-sample uncertainty conditional on a frozen
+predictor; and subgroup analyses examine whether predictive performance is
+concentrated within particular sequence-length, physicochemical, or
+structure-confidence ranges. These analyses provide complementary evidence
+and should not be interpreted as interchangeable measures of uncertainty.
+
+\subsubsection{Multi-Seed Reproducibility and Prediction Dispersion}
+Neural-network training may vary because of parameter initialization,
+mini-batch ordering, dropout masks, and mixed-precision computation. To
+assess the sensitivity of the 1D expert to these factors, three LoRA-ProtT5
+and bidirectional Mamba models are trained using the random seeds
+$\mathcal{R} = \{42, 123, 2025\}$, while keeping the data partitions,
+architecture, training duration, and all hyperparameters unchanged. The
+current 1D expert uses an equal-weight probability average of the three
+full-data models rather than selecting the best-performing seed post hoc. The
+top-level model retains a single frozen 3D structural expert: the evaluated
+multi-checkpoint 3D ensemble did not satisfy the prespecified promotion
+criterion and was therefore not adopted in the current default GHXTox model.
+
+For an evaluation metric $M$, let $M^{(s)}$ denote the result obtained using
+seed $s$. The multi-seed mean and the sample standard deviation are
+\begin{equation}
+    \begin{aligned}
+        \bar{M} &= \frac{1}{S} \sum_{s=1}^{S} M^{(s)}, &
+        \mathrm{SD}(M) &= \sqrt{\frac{1}{S-1} \sum_{s=1}^{S}
+        \left(M^{(s)} - \bar{M}\right)^2}, \qquad S = 3,
+    \end{aligned}
+    \label{eq:seed_metrics}
+\end{equation}
+and seed-level reproducibility may therefore be reported as
+$\bar{M} \pm \mathrm{SD}(M)$. All seed-specific models must be evaluated
+using the same frozen threshold, or using thresholds selected without access
+to the corresponding test set; a test-specific optimal threshold must not be
+selected separately for each seed.
+
+Prediction dispersion can also be quantified at the sample level. For peptide
+$i$, let $p_{i,\mathrm{1D}}^{(s)}$ denote the uncalibrated probability from
+seed $s$. The seed-averaged probability and the seed dispersion are
+\begin{equation}
+    \begin{aligned}
+        \bar{p}_{i,\mathrm{1D}}^{\mathrm{raw}} &= \frac{1}{S}
+        \sum_{s=1}^{S} p_{i,\mathrm{1D}}^{(s)}, &
+        u_{i,\mathrm{seed}} &= \sqrt{\frac{1}{S-1} \sum_{s=1}^{S}
+        \left(p_{i,\mathrm{1D}}^{(s)} -
+        \bar{p}_{i,\mathrm{1D}}^{\mathrm{raw}}\right)^2},
+    \end{aligned}
+    \label{eq:seed_dispersion}
+\end{equation}
+where $\bar{p}_{i,\mathrm{1D}}^{\mathrm{raw}}$ denotes the uncalibrated
+three-seed average used at inference, which is distinguished from the
+training-time OOF average $\bar{p}_{i,\mathrm{1D}}^{\mathrm{OOF}}$ defined in
+Section 2.5.1. A large $u_{i,\mathrm{seed}}$ indicates that the prediction is
+sensitive to optimization randomness and may be used to flag boundary cases
+or expert-disagreement samples. It is, however, an empirical measure of
+training variability rather than a Bayesian posterior uncertainty estimate or
+a direct probability of prediction error.
+
+The final 1D pathway follows the order defined in Section 2.3.4:
+\begin{equation*}
+    \left\{p_{i,\mathrm{1D}}^{(s)}\right\}_{s=1}^{3}
+    \longrightarrow \bar{p}_{i,\mathrm{1D}}^{\mathrm{raw}}
+    \longrightarrow \text{OOF-fitted Platt calibration}
+    \longrightarrow p_{i,\mathrm{1D}}^{\mathrm{cal}}.
+\end{equation*}
+Seed-specific metrics characterize training stability, whereas the calibrated
+three-seed average is used for top-level 1D/3D fusion. The best individual
+seed is not substituted for the expected multi-seed result. The final
+calibrated ensemble prediction is a deterministic function of the three
+trained seed models; seed-level variability is summarized by
+$u_{i,\mathrm{seed}}$ rather than being treated as zero. Accordingly,
+variability is reported across the constituent seed models rather than by
+assigning a standard deviation of zero to their averaged prediction.
 
 \subsubsection{Class-Stratified Bootstrap Confidence Intervals}
-% TODO
+Performance metrics calculated on a finite test set are themselves estimates.
+This issue is particularly important for Test2, where a small number of
+changes in TP or FN can substantially alter SN, BACC, and MCC. We therefore
+use class-stratified percentile bootstrap resampling to calculate 95\%
+confidence intervals [CITE: Efron and Tibshirani, bootstrap].
+
+Let the positive- and negative-class index sets be
+\begin{equation}
+    \begin{aligned}
+        \mathcal{I}_{+} &= \{i : y_i = 1\}, &
+        \mathcal{I}_{-} &= \{i : y_i = 0\},\\
+        \mathbf i_{+}^{(b)} &\sim \mathrm{SampleWithReplacement}\left(
+        \mathcal{I}_{+},\; |\mathcal{I}_{+}|\right), &
+        \mathbf i_{-}^{(b)} &\sim \mathrm{SampleWithReplacement}\left(
+        \mathcal{I}_{-},\; |\mathcal{I}_{-}|\right),\\
+        \mathbf i^{(b)} &= \mathrm{Concat}\left(\mathbf i_{+}^{(b)},\;
+        \mathbf i_{-}^{(b)}\right),
+    \end{aligned}
+    \label{eq:bootstrap_resample}
+\end{equation}
+where the bootstrap index vectors preserve repeated indices. This procedure
+preserves the original number of positive and negative samples in every
+replicate, avoiding extreme class-ratio fluctuations or single-class
+replicates when the positive class is small. The validation implementation
+independently resamples the positive and negative index sets with
+replacement.
+
+For metric $M$, the bootstrap estimate is
+\begin{equation}
+    M^{(b)} = M\left(\mathbf y_{\mathbf i^{(b)}},\;
+    \mathbf p_{\mathbf i^{(b)}}\right), \qquad b = 1, \ldots, B.
+    \label{eq:bootstrap_metric}
+\end{equation}
+The primary test-set analysis used $B = 5000$ bootstrap replicates, whereas
+subgroup-difference analyses used 1000 replicates. The percentile confidence
+interval is
+\begin{equation}
+    \mathrm{CI}_{95\%}(M) = \left[Q_{0.025}\left(\left\{M^{(b)}\right\}_{b=1}^{B}
+    \right),\; Q_{0.975}\left(\left\{M^{(b)}\right\}_{b=1}^{B}\right)\right],
+    \label{eq:bootstrap_ci}
+\end{equation}
+where $Q_{\alpha}$ is the empirical $\alpha$-quantile.
+
+For ACC, BACC, SN, SP, F1, and MCC, each bootstrap replicate uses the
+original frozen model threshold; the threshold is not reoptimized within any
+resampled data set. AUROC, AUPRC, and the Brier score are calculated directly
+from the resampled continuous probabilities.
+
+These intervals quantify finite-sample uncertainty conditional on the frozen
+predictor and the observed evaluation distribution; they do not incorporate
+training-seed variability or distribution shift. Bootstrap uncertainty is
+therefore interpreted separately from the multi-seed analysis in
+Section 2.7.1 and the external-transfer analysis in Section 2.7.5.
 
 \subsubsection{Paired Bootstrap and Randomization Significance Testing}
-% TODO
+When the current GHXTox model is compared with the previous default or
+another frozen internal baseline, both models produce predictions for the
+same peptides; the sample-level predictions are therefore paired. Comparing
+two independent confidence intervals would ignore this dependence. We instead
+analyze the metric difference directly on aligned samples.
+
+Let $M_A$ and $M_B$ denote the metric values of frozen models $A$ and $B$,
+respectively, where $B$ is the current model and $A$ is the frozen baseline.
+The observed difference is
+\begin{equation}
+    \Delta_M^{\mathrm{obs}} = M_B - M_A.
+    \label{eq:obs_difference}
+\end{equation}
+For BACC, SN, SP, F1, MCC, AUROC, and AUPRC, a positive difference favors
+model $B$; for lower-is-better measures such as the Brier score and ECE, a
+negative difference indicates improvement.
+
+\textbf{Paired class-stratified bootstrap.}
+For every bootstrap replicate, the same class-stratified index vector
+$\mathbf i^{(b)}$ defined in Section 2.7.2 is applied to both models:
+\begin{equation}
+    \Delta_M^{(b)} = M\left(\mathbf y_{\mathbf i^{(b)}},\;
+    \mathbf p_{B,\mathbf i^{(b)}}\right) - M\left(\mathbf y_{\mathbf i^{(b)}},\;
+    \mathbf p_{A,\mathbf i^{(b)}}\right),
+    \label{eq:paired_bootstrap}
+\end{equation}
+where using identical indices preserves the paired sample structure. The 95\%
+percentile interval is
+\begin{equation}
+    \mathrm{CI}_{95}\left(\Delta_M\right) = \left[Q_{0.025}\left(\left\{
+    \Delta_M^{(b)}\right\}_{b=1}^{B}\right),\; Q_{0.975}\left(\left\{
+    \Delta_M^{(b)}\right\}_{b=1}^{B}\right)\right].
+    \label{eq:paired_ci}
+\end{equation}
+For a higher-is-better metric, an interval entirely above zero supports a
+consistent positive difference; for a lower-is-better metric such as the
+Brier score, improvement corresponds to an interval entirely below zero.
+Using a metric-direction coefficient $s_M$, where $s_M = +1$ for
+higher-is-better metrics and $s_M = -1$ for lower-is-better metrics, the
+bootstrap probability of improvement is
+\begin{equation}
+    P_{\mathrm{boot}}^{\mathrm{improve}} = \frac{1}{B}
+    \sum_{b=1}^{B} \mathbb{I}\left(s_M\, \Delta_M^{(b)} > 0\right).
+    \label{eq:bootstrap_improve}
+\end{equation}
+This quantity is the proportion of bootstrap replicates in which the current
+model outperforms the baseline; it is not a classical hypothesis-test
+$p$-value and should not be reported using an undifferentiated $P$ label.
+
+\textbf{Paired randomization test.}
+A within-sample exchange randomization test is additionally used to evaluate
+the null hypothesis that the two frozen model outputs are exchangeable for
+each peptide [CITE: paired randomization test]. For randomization replicate
+$r$, $z_i^{(r)} \sim \mathrm{Bernoulli}(0.5)$ is independently drawn for each
+sample; if $z_i^{(r)} = 1$, the probabilities and frozen-threshold decisions
+of models $A$ and $B$ are exchanged for sample $i$, and otherwise they remain
+unchanged. The resulting null difference is
+\begin{equation}
+    \Delta_{M,0}^{(r)} = M_B^{(r)} - M_A^{(r)}.
+    \label{eq:null_difference}
+\end{equation}
+A two-sided paired randomization test was performed by comparing the
+absolute randomized metric differences with the absolute observed difference:
+\begin{equation}
+    p_{\mathrm{rand}} = \frac{1 + \sum_{r=1}^{R}
+    \mathbb{I}\left(\left|\Delta_{M,0}^{(r)}\right| \geq
+    \left|\Delta_M^{\mathrm{obs}}\right|\right)}{R + 1}.
+    \label{eq:rand_pvalue}
+\end{equation}
+The primary paired analysis uses $B = 5000$ and $R = 5000$ replicates with a
+fixed seed of 2026. The implementation exchanges both continuous scores and
+the corresponding frozen-threshold decisions within each sample.
+
+MCC and BACC are treated as prespecified primary summary measures, whereas
+SN, SP, AUROC, AUPRC, and the Brier score provide complementary evidence.
+Because several correlated metrics are examined for the same model
+comparison, secondary $p$-values are interpreted descriptively rather than as
+multiple independent discoveries.
+
+Finally, Test1 and Test2 have been repeatedly observed during the historical
+development of the project. Paired confidence intervals and randomization
+$p$-values on these sets therefore provide retrospective evidence for
+differences between frozen models, rather than fully independent prospective
+confirmation; this limitation is explicitly recorded by the project
+validation implementation.
 
 \subsubsection{Subgroup and Structure-Quality Analysis}
 % TODO

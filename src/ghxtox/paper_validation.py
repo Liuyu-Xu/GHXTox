@@ -39,6 +39,8 @@ METRIC_NAMES = (
     "brier",
 )
 
+LOWER_IS_BETTER_METRICS = frozenset({"brier"})
+
 
 def _read_prediction_csv(path: str | Path) -> list[dict[str, Any]]:
     with Path(path).open("r", encoding="utf-8-sig", newline="") as handle:
@@ -210,7 +212,7 @@ def paired_model_comparison(
                 "lower": float(np.quantile(deltas, 0.025)),
                 "upper": float(np.quantile(deltas, 0.975)),
             },
-            "bootstrap_probability_v2_better": float(np.mean(deltas > 0.0)),
+            "bootstrap_probability_v2_better": float(np.mean((-1.0 if name in LOWER_IS_BETTER_METRICS else 1.0) * deltas > 0.0)),
             "paired_randomization_two_sided_p": float(
                 (np.sum(np.abs(null) >= abs(observed)) + 1)
                 / (permutation_iterations + 1)
