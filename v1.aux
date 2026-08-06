@@ -1,0 +1,216 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}INTRODUCTION}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}MATERIALS AND METHODS}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Datasets}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Statistics of the datasets used in this study.}}{3}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:datasets}{{1}{3}{Statistics of the datasets used in this study}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Overview of the Model}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall architecture of GHXTox. GHXTox adopts a hierarchical dual-level fusion design. The task-adaptive 1D sequence expert extracts toxicity-related sequence features with a LoRA-fine-tuned ProtT5 encoder and a bidirectional Mamba network, followed by three-seed ensembling and out-of-fold (OOF) Platt calibration to produce $p_{\mathrm  {1D}}$. The sequence-enhanced 3D structural expert extracts multi-scale structural information through an ESM2-enhanced sequence encoder, a pLDDT-aware equivariant graph neural network, full-atom chemical-site modeling, and an availability-masked conformer residual branch. Within this expert, sequence and spatial residue representations are integrated through pLDDT-aware cross-attention to produce $p_{\mathrm  {SE3D}}$. The two expert probabilities are fused with frozen weights of 0.62 and 0.38, and the final toxicity decision is obtained with a threshold of 0.4977.}}{4}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:overview}{{1}{4}{Overall architecture of GHXTox. GHXTox adopts a hierarchical dual-level fusion design. The task-adaptive 1D sequence expert extracts toxicity-related sequence features with a LoRA-fine-tuned ProtT5 encoder and a bidirectional Mamba network, followed by three-seed ensembling and out-of-fold (OOF) Platt calibration to produce $p_{\mathrm {1D}}$. The sequence-enhanced 3D structural expert extracts multi-scale structural information through an ESM2-enhanced sequence encoder, a pLDDT-aware equivariant graph neural network, full-atom chemical-site modeling, and an availability-masked conformer residual branch. Within this expert, sequence and spatial residue representations are integrated through pLDDT-aware cross-attention to produce $p_{\mathrm {SE3D}}$. The two expert probabilities are fused with frozen weights of 0.62 and 0.38, and the final toxicity decision is obtained with a threshold of 0.4977}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Task-Adaptive 1D Sequence Expert}{4}{subsubsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Sequence-Enhanced 3D Structural Expert}{4}{subsubsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Hierarchical Fusion and Toxicity Decision}{5}{subsubsection.2.2.3}\protected@file@percent }
+\newlabel{eq:fusion}{{1}{5}{Hierarchical Fusion and Toxicity Decision}{equation.1}{}}
+\newlabel{eq:decision}{{2}{5}{Hierarchical Fusion and Toxicity Decision}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Task-Adaptive 1D Sequence Modeling}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Residue Tokenization and LoRA-Adapted ProtT5}{6}{subsubsection.2.3.1}\protected@file@percent }
+\newlabel{eq:sequence_mask}{{3}{6}{Residue Tokenization and LoRA-Adapted ProtT5}{equation.3}{}}
+\newlabel{eq:prott5_representation}{{4}{6}{Residue Tokenization and LoRA-Adapted ProtT5}{equation.4}{}}
+\newlabel{eq:lora_update}{{5}{6}{Residue Tokenization and LoRA-Adapted ProtT5}{equation.5}{}}
+\newlabel{eq:lora_forward}{{6}{6}{Residue Tokenization and LoRA-Adapted ProtT5}{equation.6}{}}
+\newlabel{eq:prott5_projection}{{7}{7}{Residue Tokenization and LoRA-Adapted ProtT5}{equation.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Bidirectional Mamba Sequence Encoder}{7}{subsubsection.2.3.2}\protected@file@percent }
+\newlabel{eq:mamba_proj}{{8}{7}{Bidirectional Mamba Sequence Encoder}{equation.8}{}}
+\newlabel{eq:mamba_conv}{{9}{7}{Bidirectional Mamba Sequence Encoder}{equation.9}{}}
+\newlabel{eq:mamba_params}{{10}{7}{Bidirectional Mamba Sequence Encoder}{equation.10}{}}
+\newlabel{eq:mamba_discretize}{{11}{7}{Bidirectional Mamba Sequence Encoder}{equation.11}{}}
+\newlabel{eq:mamba_recurrence}{{12}{7}{Bidirectional Mamba Sequence Encoder}{equation.12}{}}
+\newlabel{eq:mamba_output}{{13}{7}{Bidirectional Mamba Sequence Encoder}{equation.13}{}}
+\newlabel{eq:mamba_bidir}{{14}{8}{Bidirectional Mamba Sequence Encoder}{equation.14}{}}
+\newlabel{eq:mamba_fuse}{{15}{8}{Bidirectional Mamba Sequence Encoder}{equation.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Masked Pooling and Class-Weighted Classification}{8}{subsubsection.2.3.3}\protected@file@percent }
+\newlabel{eq:repr}{{16}{8}{Masked Pooling and Class-Weighted Classification}{equation.16}{}}
+\newlabel{eq:masked_pool}{{17}{8}{Masked Pooling and Class-Weighted Classification}{equation.17}{}}
+\newlabel{eq:logit}{{18}{8}{Masked Pooling and Class-Weighted Classification}{equation.18}{}}
+\newlabel{eq:pos_weight}{{19}{8}{Masked Pooling and Class-Weighted Classification}{equation.19}{}}
+\newlabel{eq:wbce}{{20}{9}{Masked Pooling and Class-Weighted Classification}{equation.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4}Three-Seed Ensemble and OOF Platt Calibration}{9}{subsubsection.2.3.4}\protected@file@percent }
+\newlabel{eq:ensemble_score}{{21}{9}{Three-Seed Ensemble and OOF Platt Calibration}{equation.21}{}}
+\newlabel{eq:platt_form}{{22}{9}{Three-Seed Ensemble and OOF Platt Calibration}{equation.22}{}}
+\newlabel{eq:platt_fit}{{23}{9}{Three-Seed Ensemble and OOF Platt Calibration}{equation.23}{}}
+\newlabel{eq:platt_infer}{{24}{10}{Three-Seed Ensemble and OOF Platt Calibration}{equation.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}pLDDT-Aware Multi-Scale 3D Structural Modeling}{10}{subsection.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Detailed architecture of the sequence-enhanced structural expert. The structural expert integrates ESM2-enhanced residue semantics, a pLDDT-aware geometric residue graph, full-atom chemical-site message passing, and availability-masked conformer-ensemble statistics. Residue-level structural states are continuously modulated by node-level confidence before serving as keys and values in sequence--structure cross-attention. A peptide-level confidence gate further controls the fused structural context, while conformer statistics provide a zero-initialized logit residual only when valid ensemble information is available.}}{11}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:expert_detail}{{2}{11}{Detailed architecture of the sequence-enhanced structural expert. The structural expert integrates ESM2-enhanced residue semantics, a pLDDT-aware geometric residue graph, full-atom chemical-site message passing, and availability-masked conformer-ensemble statistics. Residue-level structural states are continuously modulated by node-level confidence before serving as keys and values in sequence--structure cross-attention. A peptide-level confidence gate further controls the fused structural context, while conformer statistics provide a zero-initialized logit residual only when valid ensemble information is available}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Peptide Structure Prediction and Conformer Preparation}{11}{subsubsection.2.4.1}\protected@file@percent }
+\newlabel{eq:esmfold}{{25}{11}{Peptide Structure Prediction and Conformer Preparation}{equation.25}{}}
+\newlabel{eq:conformer_set}{{26}{11}{Peptide Structure Prediction and Conformer Preparation}{equation.26}{}}
+\newlabel{eq:conf_available}{{27}{11}{Peptide Structure Prediction and Conformer Preparation}{equation.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Residue Feature Construction and Hybrid Geometric Graph}{12}{subsubsection.2.4.2}\protected@file@percent }
+\newlabel{eq:seq_feat}{{28}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.28}{}}
+\newlabel{eq:seq_transformer}{{29}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.29}{}}
+\newlabel{eq:node_init}{{30}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.30}{}}
+\newlabel{eq:hybrid_graph}{{31}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.31}{}}
+\newlabel{eq:rbf}{{32}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.32}{}}
+\newlabel{eq:edge_feat}{{33}{12}{Residue Feature Construction and Hybrid Geometric Graph}{equation.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}pLDDT-Aware Equivariant Graph Encoding}{13}{subsubsection.2.4.3}\protected@file@percent }
+\newlabel{eq:egnn_message}{{34}{13}{pLDDT-Aware Equivariant Graph Encoding}{equation.34}{}}
+\newlabel{eq:edge_weight}{{35}{13}{pLDDT-Aware Equivariant Graph Encoding}{equation.35}{}}
+\newlabel{eq:message_agg}{{36}{13}{pLDDT-Aware Equivariant Graph Encoding}{equation.36}{}}
+\newlabel{eq:node_update}{{37}{13}{pLDDT-Aware Equivariant Graph Encoding}{equation.37}{}}
+\newlabel{eq:coord_update}{{38}{13}{pLDDT-Aware Equivariant Graph Encoding}{equation.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Full-Atom Chemical-Site Message Passing}{14}{subsubsection.2.4.4}\protected@file@percent }
+\newlabel{eq:site_type}{{39}{14}{Full-Atom Chemical-Site Message Passing}{equation.39}{}}
+\newlabel{eq:site_init}{{40}{14}{Full-Atom Chemical-Site Message Passing}{equation.40}{}}
+\newlabel{eq:normalized_distance}{{41}{14}{Full-Atom Chemical-Site Message Passing}{equation.41}{}}
+\newlabel{eq:orientation}{{42}{15}{Full-Atom Chemical-Site Message Passing}{equation.42}{}}
+\newlabel{eq:chem_channels}{{43}{15}{Full-Atom Chemical-Site Message Passing}{equation.43}{}}
+\newlabel{eq:site_edge}{{44}{15}{Full-Atom Chemical-Site Message Passing}{equation.44}{}}
+\newlabel{eq:site_message}{{45}{15}{Full-Atom Chemical-Site Message Passing}{equation.45}{}}
+\newlabel{eq:chem_residual}{{46}{15}{Full-Atom Chemical-Site Message Passing}{equation.46}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.5}Availability-Masked Conformer-Ensemble Residual}{15}{subsubsection.2.4.5}\protected@file@percent }
+\newlabel{eq:rmsf}{{47}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.47}{}}
+\newlabel{eq:pair_stats}{{48}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.48}{}}
+\newlabel{eq:occupancy}{{49}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.49}{}}
+\newlabel{eq:conf_embeddings}{{50}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.50}{}}
+\newlabel{eq:raw_residual}{{51}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.51}{}}
+\newlabel{eq:effective_residual}{{52}{16}{Availability-Masked Conformer-Ensemble Residual}{equation.52}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.6}pLDDT-Aware Sequence--Structure Cross-Attention}{17}{subsubsection.2.4.6}\protected@file@percent }
+\newlabel{eq:spatial_enhanced}{{53}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.53}{}}
+\newlabel{eq:node_gate_base}{{54}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.54}{}}
+\newlabel{eq:node_gate_final}{{55}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.55}{}}
+\newlabel{eq:gated_spatial}{{56}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.56}{}}
+\newlabel{eq:cross_attn_sp}{{57}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.57}{}}
+\newlabel{eq:peptide_stats}{{58}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.58}{}}
+\newlabel{eq:peptide_gate}{{59}{17}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.59}{}}
+\newlabel{eq:fusion_repr}{{60}{18}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.60}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.7}Global Feature Integration and Structural Classification}{18}{subsubsection.2.4.7}\protected@file@percent }
+\newlabel{eq:fused_repr}{{61}{18}{Global Feature Integration and Structural Classification}{equation.61}{}}
+\newlabel{eq:masked_pool_3d}{{62}{18}{Global Feature Integration and Structural Classification}{equation.62}{}}
+\newlabel{eq:global_descriptors}{{63}{18}{Global Feature Integration and Structural Classification}{equation.63}{}}
+\newlabel{eq:classifier_input}{{64}{18}{Global Feature Integration and Structural Classification}{equation.64}{}}
+\newlabel{eq:mlp_logit}{{65}{18}{Global Feature Integration and Structural Classification}{equation.65}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Training and Model-Selection Protocol}{19}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Group-Aware Five-Fold OOF Generation}{19}{subsubsection.2.5.1}\protected@file@percent }
+\newlabel{eq:train_data}{{66}{20}{Group-Aware Five-Fold OOF Generation}{equation.66}{}}
+\newlabel{eq:folds}{{67}{20}{Group-Aware Five-Fold OOF Generation}{equation.67}{}}
+\newlabel{eq:oof_prob}{{68}{20}{Group-Aware Five-Fold OOF Generation}{equation.68}{}}
+\newlabel{eq:seed_ensemble}{{69}{20}{Group-Aware Five-Fold OOF Generation}{equation.69}{}}
+\newlabel{eq:oof_se3d}{{70}{20}{Group-Aware Five-Fold OOF Generation}{equation.70}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Loss Functions and Class-Imbalance Handling}{20}{subsubsection.2.5.2}\protected@file@percent }
+\newlabel{eq:loss_1d}{{71}{21}{Loss Functions and Class-Imbalance Handling}{equation.71}{}}
+\newlabel{eq:loss_chem}{{72}{21}{Loss Functions and Class-Imbalance Handling}{equation.72}{}}
+\newlabel{eq:perturb_scale}{{73}{21}{Loss Functions and Class-Imbalance Handling}{equation.73}{}}
+\newlabel{eq:perturb}{{74}{21}{Loss Functions and Class-Imbalance Handling}{equation.74}{}}
+\newlabel{eq:loss_conf}{{75}{21}{Loss Functions and Class-Imbalance Handling}{equation.75}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}Optimization, Checkpoint Selection, and Hyperparameter Settings}{22}{subsubsection.2.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Main optimization and model-selection settings of the two GHXTox experts.}}{22}{table.caption.4}\protected@file@percent }
+\newlabel{tab:training_settings}{{2}{22}{Main optimization and model-selection settings of the two GHXTox experts}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.4}OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{23}{subsubsection.2.5.4}\protected@file@percent }
+\newlabel{eq:platt_oof}{{76}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.76}{}}
+\newlabel{eq:fusion_prob}{{77}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.77}{}}
+\newlabel{eq:decision_rule}{{78}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.78}{}}
+\newlabel{eq:selection}{{79}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.79}{}}
+\newlabel{eq:frozen_values}{{80}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.80}{}}
+\newlabel{eq:final_prediction}{{81}{23}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.81}{}}
+\newlabel{eq:test_protocol}{{82}{24}{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}{equation.82}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Evaluation Metrics}{24}{subsection.2.6}\protected@file@percent }
+\newlabel{eq:eval_setup}{{83}{24}{Evaluation Metrics}{equation.83}{}}
+\newlabel{eq:decision_threshold}{{84}{24}{Evaluation Metrics}{equation.84}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Threshold-Dependent Classification Metrics}{24}{subsubsection.2.6.1}\protected@file@percent }
+\newlabel{eq:confusion}{{85}{24}{Threshold-Dependent Classification Metrics}{equation.85}{}}
+\newlabel{eq:acc}{{86}{25}{Threshold-Dependent Classification Metrics}{equation.86}{}}
+\newlabel{eq:sn_sp}{{87}{25}{Threshold-Dependent Classification Metrics}{equation.87}{}}
+\newlabel{eq:precision_f1}{{88}{25}{Threshold-Dependent Classification Metrics}{equation.88}{}}
+\newlabel{eq:bacc}{{89}{25}{Threshold-Dependent Classification Metrics}{equation.89}{}}
+\newlabel{eq:mcc}{{90}{25}{Threshold-Dependent Classification Metrics}{equation.90}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Ranking and Probability-Calibration Metrics}{26}{subsubsection.2.6.2}\protected@file@percent }
+\newlabel{eq:tpr_fpr}{{91}{26}{Ranking and Probability-Calibration Metrics}{equation.91}{}}
+\newlabel{eq:auroc}{{92}{26}{Ranking and Probability-Calibration Metrics}{equation.92}{}}
+\newlabel{eq:precision_recall}{{93}{26}{Ranking and Probability-Calibration Metrics}{equation.93}{}}
+\newlabel{eq:average_precision}{{94}{26}{Ranking and Probability-Calibration Metrics}{equation.94}{}}
+\newlabel{eq:brier}{{95}{26}{Ranking and Probability-Calibration Metrics}{equation.95}{}}
+\newlabel{eq:ece_bins}{{96}{27}{Ranking and Probability-Calibration Metrics}{equation.96}{}}
+\newlabel{eq:ece}{{97}{27}{Ranking and Probability-Calibration Metrics}{equation.97}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Robustness, Uncertainty, and Statistical Analysis}{27}{subsection.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Multi-Seed Reproducibility and Prediction Dispersion}{28}{subsubsection.2.7.1}\protected@file@percent }
+\newlabel{eq:seed_metrics}{{98}{28}{Multi-Seed Reproducibility and Prediction Dispersion}{equation.98}{}}
+\newlabel{eq:seed_dispersion}{{99}{28}{Multi-Seed Reproducibility and Prediction Dispersion}{equation.99}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Class-Stratified Bootstrap Confidence Intervals}{28}{subsubsection.2.7.2}\protected@file@percent }
+\newlabel{eq:bootstrap_resample}{{100}{29}{Class-Stratified Bootstrap Confidence Intervals}{equation.100}{}}
+\newlabel{eq:bootstrap_metric}{{101}{29}{Class-Stratified Bootstrap Confidence Intervals}{equation.101}{}}
+\newlabel{eq:bootstrap_ci}{{102}{29}{Class-Stratified Bootstrap Confidence Intervals}{equation.102}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.3}Paired Bootstrap and Randomization Significance Testing}{29}{subsubsection.2.7.3}\protected@file@percent }
+\newlabel{eq:obs_difference}{{103}{29}{Paired Bootstrap and Randomization Significance Testing}{equation.103}{}}
+\newlabel{eq:paired_bootstrap}{{104}{29}{Paired Bootstrap and Randomization Significance Testing}{equation.104}{}}
+\newlabel{eq:paired_ci}{{105}{29}{Paired Bootstrap and Randomization Significance Testing}{equation.105}{}}
+\newlabel{eq:bootstrap_improve}{{106}{30}{Paired Bootstrap and Randomization Significance Testing}{equation.106}{}}
+\newlabel{eq:null_difference}{{107}{30}{Paired Bootstrap and Randomization Significance Testing}{equation.107}{}}
+\newlabel{eq:rand_pvalue}{{108}{30}{Paired Bootstrap and Randomization Significance Testing}{equation.108}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.4}Subgroup and Structure-Quality Analysis}{30}{subsubsection.2.7.4}\protected@file@percent }
+\newlabel{eq:site_coverage}{{109}{30}{Subgroup and Structure-Quality Analysis}{equation.109}{}}
+\newlabel{eq:subgroup_delta}{{110}{31}{Subgroup and Structure-Quality Analysis}{equation.110}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interpretability Analysis Protocol}{31}{subsection.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.8.1}Residue Masking and Integrated-Gradient Attribution}{31}{subsubsection.2.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.8.2}Chemical-Site Deletion Analysis}{31}{subsubsection.2.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.8.3}Expert Agreement and Conflict Analysis}{31}{subsubsection.2.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}RESULTS AND DISCUSSION}{32}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overall Predictive Performance on the Benchmark Test Sets}{32}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Comparison with Existing Peptide-Toxicity Predictors}{32}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Performance comparison on the benchmark Test1 and Test2 sets.}}{32}{table.caption.5}\protected@file@percent }
+\newlabel{tab:overall_comparison}{{3}{32}{Performance comparison on the benchmark Test1 and Test2 sets}{table.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Discrimination, Calibration, and Decision Characteristics}{32}{subsubsection.3.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Overall discrimination and calibration performance of GHXTox. (A, B) Test1 ROC and PR curves; (C, D) Test2 ROC and PR curves; (E, F) Test1 and Test2 reliability diagrams.}}{32}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:discrimination_calibration}{{3}{32}{Overall discrimination and calibration performance of GHXTox. (A, B) Test1 ROC and PR curves; (C, D) Test2 ROC and PR curves; (E, F) Test1 and Test2 reliability diagrams}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Complementarity of the 1D and 3D Experts}{32}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Performance of the Individual Experts}{32}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Performance of the individual experts and the final probability-level fusion.}}{32}{table.caption.7}\protected@file@percent }
+\newlabel{tab:expert_comparison}{{4}{32}{Performance of the individual experts and the final probability-level fusion}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Gain from OOF-Frozen Probability Fusion}{32}{subsubsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Expert Agreement, Disagreement, and Error Correction}{32}{subsubsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Analysis of the Task-Adaptive 1D Sequence Expert}{32}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Complementarity and decision changes induced by expert fusion. (A) scatter of 1D vs SE3D probabilities; (B) error-overlap diagram; (C) probability shifts; (D) corrected/regressed/unchanged counts; (E, F) representative corrected cases.}}{33}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:expert_complementarity}{{4}{33}{Complementarity and decision changes induced by expert fusion. (A) scatter of 1D vs SE3D probabilities; (B) error-overlap diagram; (C) probability shifts; (D) corrected/regressed/unchanged counts; (E, F) representative corrected cases}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Task Adaptation of ProtT5 and the Retained 1D Representation}{33}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Bidirectional State-Space Modeling of Peptide Sequences}{33}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Multi-Seed Ensembling, Calibration, and Controlled Negative Results}{33}{subsubsection.3.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Ablation analysis of the task-adaptive 1D sequence expert.}}{34}{table.caption.9}\protected@file@percent }
+\newlabel{tab:1d_ablation}{{5}{34}{Ablation analysis of the task-adaptive 1D sequence expert}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Analysis of the pLDDT-Aware Multi-Scale 3D Structural Expert}{34}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Continuous Structural-Confidence Modeling Is Preferable to Hard Filtering}{35}{subsubsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Full-Atom Chemical Sites Provide Consistent but Complementary Structural Gains}{35}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Sequence--Structure Interaction and Hierarchical Confidence Gating}{36}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Conformer Statistics Provide Conditional Gains with Exact Fallback}{36}{subsubsection.3.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.5}Structural Expert Performance and the Nature of the 3D Contribution}{37}{subsubsection.3.4.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Ablation and computational analysis of the 3D structural expert.}}{37}{table.caption.10}\protected@file@percent }
+\newlabel{tab:3d_ablation_complexity}{{6}{37}{Ablation and computational analysis of the 3D structural expert}{table.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Module-level ablation results for the 1D and 3D experts (A--F).}}{37}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:module_ablation}{{5}{37}{Module-level ablation results for the 1D and 3D experts (A--F)}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Robustness, Statistical Uncertainty, and Applicability Analysis}{37}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Multi-Seed Reproducibility}{37}{subsubsection.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Bootstrap Confidence Intervals}{37}{subsubsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Paired Comparison with the Previous Model}{37}{subsubsection.3.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Bootstrap confidence intervals and paired statistics on Test1 and Test2.}}{37}{table.caption.12}\protected@file@percent }
+\newlabel{tab:bootstrap_paired}{{7}{37}{Bootstrap confidence intervals and paired statistics on Test1 and Test2}{table.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Stratified performance by sequence length, structure quality, and chemical-site coverage (A--E).}}{38}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:stratification}{{6}{38}{Stratified performance by sequence length, structure quality, and chemical-site coverage (A--E)}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}Length and Structure-Quality Stratification}{38}{subsubsection.3.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.5}External Evidence and Generalization Boundary}{38}{subsubsection.3.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Interpretability and Representative Case Studies}{38}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1}Residue-Level Interpretation of the 1D Expert}{38}{subsubsection.3.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2}Structural and Chemical-Site Interpretation}{38}{subsubsection.3.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.3}Expert Agreement and Conflict Interpretation}{38}{subsubsection.3.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.4}Representative Conformer Cases}{38}{subsubsection.3.6.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Representative interpretability cases for the 1D expert, the 3D expert, and the fused prediction.}}{38}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:interpretability_cases}{{7}{38}{Representative interpretability cases for the 1D expert, the 3D expert, and the fused prediction}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Limitations and Future Directions}{38}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.1}Dataset and Evaluation Limitations}{38}{subsubsection.3.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.2}Structural and Conformer Limitations}{38}{subsubsection.3.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.3}Modeling and Interpretability Limitations}{39}{subsubsection.3.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.4}Future Directions}{39}{subsubsection.3.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}CONCLUSIONS}{39}{section.4}\protected@file@percent }
+\gdef \@abspage@last{40}
