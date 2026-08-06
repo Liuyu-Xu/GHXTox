@@ -1,6 +1,6 @@
 import numpy as np
 
-from ghxtox.bacc_recall_residual import (
+from ghxtox._legacy.bacc_recall_residual import (
     _decision_metrics,
     apply_minimal_decision_residual,
 )

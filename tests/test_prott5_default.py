@@ -4,8 +4,8 @@ import json
 
 import torch
 
-from ghxtox.plm_textcnn import PooledPLMTextCNN
-from ghxtox.prott5_default import predict_default
+from ghxtox._legacy.plm_textcnn import PooledPLMTextCNN
+from ghxtox._legacy.prott5_default import predict_default
 
 
 def test_prott5_default_averages_fifteen_members(tmp_path) -> None:

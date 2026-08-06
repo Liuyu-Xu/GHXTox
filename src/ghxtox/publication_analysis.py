@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import precision_recall_curve, roc_curve
 
-from ghxtox.plm_textcnn import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.utils import save_json
 
 

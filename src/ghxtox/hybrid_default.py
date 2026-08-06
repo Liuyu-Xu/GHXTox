@@ -1,8 +1,11 @@
-"""Inference for the public GHXTox ProtT5-plus-3D default.
+"""LEGACY (previous-generation default) inference host: GHXTox-3D-Chemical-Adapter-Residual.
 
-The default requires a complete pLDDT-aware 3D chemical-site cache and the
-residue-aligned cross-modal adapter cache. The pure ProtT5 expert remains
-available through ``ghxtox-prott5-predict`` as an explicit ablation/reference.
+This module now lives as the previous-generation baseline. Only the pure 3D
+structure-expert forward pass (`_predict_structure`) is reused by the current
+default (GHXTox-Multidimensional-Fusion, `ghxtox.multidimensional_default`).
+The full old pipeline (ProtT5-TextCNN + cross-modal adapter + BACC residual,
+threshold 0.60) is retained here for baseline/ablation reproduction; the old
+CLI entry `ghxtox-hybrid-predict` has been removed.
 """
 
 from __future__ import annotations
@@ -17,14 +20,14 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from ghxtox.cross_modal_adapter import (
+from ghxtox._legacy.cross_modal_adapter import (
     CoupledFeatureDataset,
     ProtT5StructureAdapter,
     collate_coupled,
 )
 from ghxtox.data import PeptideTensorDataset, collate_peptides, validate_plm_feature_dim
 from ghxtox.models import GHXToxModel
-from ghxtox.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
+from ghxtox._legacy.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
 from ghxtox.utils import (
     DEFAULT_PUBLIC_CONFIG,
     DEFAULT_PUBLIC_MODEL_NAME,

@@ -1,4 +1,4 @@
-﻿"""General project helpers."""
+"""General project helpers."""
 
 from __future__ import annotations
 
@@ -19,6 +19,11 @@ DEFAULT_CHECKPOINT = "runs/3d_v2_conformer_ensemble_candidate/best_model.pt"
 DEFAULT_FALLBACK_CHECKPOINT = "runs/plm_fusion_esm2_geometry_confidence/best_model.pt"
 DEFAULT_PUBLIC_CONFIG = "configs/default_3d_hybrid.json"
 DEFAULT_PUBLIC_MODEL_NAME = "GHXTox-3D-Chemical-Adapter-Residual"
+# Current (latest) multi-dimensional fusion default.
+DEFAULT_MULTIDIMENSIONAL_CONFIG = "configs/default_multidimensional_fusion.json"
+DEFAULT_MULTIDIMENSIONAL_MODEL_NAME = "GHXTox-Multidimensional-Fusion"
+DEFAULT_MULTIDIMENSIONAL_THRESHOLD = 0.47022256531284556
+DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D = 0.72
 DEFAULT_STRUCTURE_CACHE_DIR = "data/structures"
 DEFAULT_THRESHOLD = 0.677819
 

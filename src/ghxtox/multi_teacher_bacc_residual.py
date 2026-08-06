@@ -21,7 +21,7 @@ from sklearn.exceptions import ConvergenceWarning
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 
-from ghxtox.bacc_recall_residual import (
+from ghxtox._legacy.bacc_recall_residual import (
     _decision_metrics,
     _logit,
     _probability,

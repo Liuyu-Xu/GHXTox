@@ -1,0 +1,31 @@
+{
+ "canonical_public_default": true,
+ "public_model_name": "GHXTox-Multidimensional-Fusion",
+ "status": "current public default (combination A 1D + 3D, probability-level fusion)",
+ "composition": {
+  "1d_expert": {
+   "name": "combination A (LoRA-adapted ProtT5 + bidirectional Mamba)",
+   "artifacts": "runs/lora_mamba_full/full_seed{42,123,2025}.pt",
+   "test_probabilities": "runs/lora_mamba_full/test{1,2}_lora_mamba_calibrated.csv",
+   "calibration": "OOF-fitted Platt (runs/lora_mamba_full/oof_calibrated.json)"
+  },
+  "3d_expert": {
+   "name": "pLDDT-aware multi-scale structure expert (Cα-EGNN + chemical sites + conformer residual)",
+   "checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
+   "test_probability_column": "structure_probability in runs/default_3d_hybrid/test{1,2}_predictions.csv"
+  }
+ },
+ "fusion": {
+  "formula": "p = w * p_1D + (1 - w) * p_3D",
+  "weight_1d": 0.72,
+  "weight_3d": 0.28,
+  "threshold": 0.47022256531284556,
+  "selection": "training-only group-aware OOF with current 3D-expert OOF; MCC objective (consistent protocol, adopted 2026-08-06)"
+ },
+ "outputs": {
+  "test_predictions": "runs/default_multidimensional_fusion/test{1,2}_predictions.csv",
+  "metrics": "runs/default_multidimensional_fusion/test{1,2}_metrics.json",
+  "summary": "runs/default_multidimensional_fusion/summary.json"
+ },
+ "protocol_audit_note": "Adopted the consistent/honest protocol: deployed operating point w=0.72, threshold=0.4702 selected on training OOF with the current 3D-expert OOF (MCC objective). Superseded the previous 0.62/0.4977 selected on the mixed (previous-generation fused) OOF. See runs/lora_mamba_full/protocol_audit.json."
+}
