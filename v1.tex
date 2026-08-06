@@ -59,7 +59,7 @@
 % ============================================================================
 %  Title / authors (TODO: fill in yourself)
 % ============================================================================
-\title{GHXTox: Peptide toxicity prediction by fusing a task-adaptive protein language model with pLDDT-aware multi-scale conformer ensembles}
+\title{GHXTox: Peptide toxicity prediction by fusing a task-adaptive protein language model with pLDDT-aware multi-scale structure}
 \author{LaLaLa, LaLaLa, LaLaLa, LaLaLa}
 \date{}% 不显示日期；如需显示可改为 \date{\today}
 
@@ -259,8 +259,8 @@ chemical environments, and conformational variability.
              Within this expert, sequence and spatial residue representations are
              integrated through pLDDT-aware cross-attention to produce
              $p_{\mathrm{SE3D}}$. The two expert probabilities are fused with frozen
-             weights of 0.62 and 0.38, and the final toxicity decision is obtained with a
-             threshold of 0.4977.}
+             weights of 0.72 and 0.28, and the final toxicity decision is obtained with a
+             threshold of 0.4702.}
     \label{fig:overview}
 \end{figure}
 
@@ -306,7 +306,7 @@ then fed into three pLDDT-aware equivariant graph neural network (EGNN)
 spatial representations.
 
 To characterize local chemical environments that cannot be fully captured by
-a Cα-based residue graph alone, we extract chemical sites corresponding to
+a C$_{\alpha}$-based residue graph alone, we extract chemical sites corresponding to
 charged, aromatic, and hydrophobic groups as well as hydrogen-bond donors and
 acceptors from the full-atom peptide structure. Message passing [CITE: MPNN,
 Gilmer et al. 2017] is then performed over these sites using pairwise
@@ -357,8 +357,8 @@ Finally, the fused probability is converted into a binary toxicity
 prediction using a fixed decision threshold:
 \begin{equation}
     \hat{y} = \begin{cases}
-        1, & p_{\mathrm{GHXTox}} \geq 0.4977,\\
-        0, & p_{\mathrm{GHXTox}} < 0.4977,
+        1, & p_{\mathrm{GHXTox}} \geq 0.4702,\\
+        0, & p_{\mathrm{GHXTox}} < 0.4702,
     \end{cases}
     \label{eq:decision}
 \end{equation}
@@ -735,16 +735,14 @@ after which the frozen calibration parameters are applied:
 The labels of Test1 and Test2 are not used for ensemble-member selection,
 calibration fitting, or 1D threshold optimization. The calibrated probability
 $p_{\mathrm{1D}}$ is the sequence-expert output used in the top-level
-probability fusion described in Section 2.2.3. The complete order of
+probability fusion described in Section 2.2.3. No additional Platt calibrator
+is fitted after the final GHXTox probability fusion. The complete order of
 operations is therefore
-\begin{equation*}
 \begin{equation*}
     \text{3-seed probabilities} \rightarrow \text{averaging} \rightarrow
     \text{OOF-fitted Platt calibration} \rightarrow p_{\mathrm{1D}} \rightarrow
     \text{1D/3D fusion}.
 \end{equation*}
-fusion; no additional Platt calibrator is fitted after the final GHXTox
-probability fusion.
 
 \subsection{pLDDT-Aware Multi-Scale 3D Structural Modeling}
 Peptide toxicity is influenced not only by amino acid composition and linear
@@ -754,14 +752,14 @@ moieties. However, peptides are generally short, conformationally flexible,
 and poorly covered by experimentally determined structures. Treating a single
 predicted conformation as an error-free structural observation may therefore
 amplify structure-prediction errors. Conversely, representing a peptide with
-only Cα coordinates or peptide-level summary descriptors fails to capture the
+only C$_{\alpha}$ coordinates or peptide-level summary descriptors fails to capture the
 local spatial-chemical environments that are relevant to toxicity.
 
 To address these limitations, GHXTox employs a pLDDT-aware multi-scale
 structural expert that captures complementary information at five levels:
 residue semantics, spatial residue neighborhoods, full-atom chemical sites,
 peptide-level global properties, and conformer-ensemble statistics. The model
-first extracts residue-level Cα coordinates, full-atom coordinates, and
+first extracts residue-level C$_{\alpha}$ coordinates, full-atom coordinates, and
 normalized pLDDT confidence scores from the predicted structure. An internal
 sequence-semantic subbranch combines amino acid residue types,
 functional-group categories, explicit physicochemical descriptors, and ESM2
@@ -770,7 +768,7 @@ spatial-geometric subbranch constructs a hybrid residue graph containing both
 sequential adjacency edges and spatial-neighborhood edges and propagates
 geometric information through pLDDT-aware equivariant graph layers.
 
-To overcome the limited chemical resolution of a Cα-only residue graph,
+To overcome the limited chemical resolution of a C$_{\alpha}$-only residue graph,
 GHXTox additionally extracts typed chemical sites from the full-atom
 structure and performs message passing using dual-scale distances, directional
 relationships, interaction-compatibility channels, and structural confidence.
@@ -812,7 +810,7 @@ Figure~\ref{fig:expert_detail}.
 For a peptide sequence of length $L$, $S = (a_1, a_2, \ldots, a_L)$,
 ESMFold is first used to predict its three-dimensional structure
 [CITE: ESMFold]. The predicted structure is stored as a full-atom PDB file,
-from which residue-level Cα coordinates, backbone coordinates,
+from which residue-level C$_{\alpha}$ coordinates, backbone coordinates,
 full-atom-derived chemical-site coordinates, and pLDDT scores are extracted.
 This operation is denoted as
 \begin{equation}
@@ -821,9 +819,9 @@ This operation is denoted as
     \quad \mathbf q = (q_1, \ldots, q_L) \in [0,1]^{L},
     \label{eq:esmfold}
 \end{equation}
-where $\mathbf X$ contains the Cα coordinates, $\mathcal{A}$ denotes the
+where $\mathbf X$ contains the C$_{\alpha}$ coordinates, $\mathcal{A}$ denotes the
 residue-organized full-atom coordinate set, and $\mathbf q$ contains the
-residue-level pLDDT confidence scores rescaled to $[0,1]$. The Cα coordinates
+residue-level pLDDT confidence scores rescaled to $[0,1]$. The C$_{\alpha}$ coordinates
 serve as the primary spatial variables of the residue-level equivariant
 graph, whereas the full-atom coordinates are used to construct local chemical
 sites. Before geometric encoding, the coordinates are centered at the peptide
@@ -841,7 +839,7 @@ is represented as
     \qquad 1 \leq M \leq 8, \quad \mathbf X^{(m)} \in \mathbb{R}^{L \times 3},
     \label{eq:conformer_set}
 \end{equation}
-where $\mathbf X^{(m)}$ denotes the Cα coordinates of conformer $m$. Rigid-body
+where $\mathbf X^{(m)}$ denotes the C$_{\alpha}$ coordinates of conformer $m$. Rigid-body
 alignment is performed before the ensemble statistics are calculated,
 ensuring that the resulting variation reflects internal geometric changes
 rather than arbitrary global rotations or translations.
@@ -916,11 +914,11 @@ constructed as
     \label{eq:node_init}
 \end{equation}
 where $\mathbf g_i^{\mathrm{geo}} \in \mathbb{R}^{16}$ is a lightweight
-geometric descriptor derived from the Cα coordinates and pLDDT scores. The
+geometric descriptor derived from the C$_{\alpha}$ coordinates and pLDDT scores. The
 16-dimensional descriptor includes (i) residue-level pLDDT and local
 confidence statistics; (ii) radial position, contact fractions, and soft
 spatial density; (iii) nearest-neighbor, nonlocal-neighbor, and local
-sequential distances; and (iv) sine/cosine encodings of the Cα-trace angles
+sequential distances; and (iv) sine/cosine encodings of the C$_{\alpha}$-trace angles
 and torsions. These explicit descriptors provide stable local geometric
 priors without introducing an overly complex handcrafted representation for
 short and uncertain predicted peptide structures.
@@ -941,7 +939,7 @@ a single fixed-distance cutoff.
  Equivalently, $A_{ij} \in \{0,1\}$ denotes whether residues $i$ and $j$ are
 connected by a sequential or k-nearest-neighbor edge in the hybrid graph.
 
-For residues $i$ and $j$, the Cα distance is
+For residues $i$ and $j$, the C$_{\alpha}$ distance is
 \begin{equation}
     d_{ij} = \lVert \mathbf x_i - \mathbf x_j \rVert_2,
     \qquad \phi_k(d_{ij}) = \exp\left[-\gamma\left(d_{ij} - \mu_k\right)^2\right],
@@ -1047,7 +1045,7 @@ assigned to uncertain coordinate evidence while preserving the residue's
 sequence-semantic and physicochemical features.
 
 \subsubsection{Full-Atom Chemical-Site Message Passing}
-A Cα-based residue graph describes the global fold and spatial neighborhoods
+A C$_{\alpha}$-based residue graph describes the global fold and spatial neighborhoods
 but cannot distinguish chemically distinct regions within the same side
 chain. For example, tyrosine contains both an aromatic ring and a hydroxyl
 group, whereas tryptophan contains an aromatic system and an indole nitrogen.
@@ -1096,7 +1094,7 @@ moieties in complex side chains. Each edge contains four complementary
 feature families. First, the raw distance in Å is encoded using 16 radial
 basis functions, $\boldsymbol\phi_{\mathrm{raw}}(d_{uv}) \in \mathbb{R}^{16}$.
 Second, a peptide-size-normalized distance is constructed. The radius of
-gyration of the Cα coordinates is
+gyration of the C$_{\alpha}$ coordinates is
 \begin{equation}
     R_g = \sqrt{\frac{1}{L} \sum_{i=1}^{L}
     \left\lVert \mathbf x_i - \bar{\mathbf x} \right\rVert_2^2},
@@ -1104,7 +1102,7 @@ gyration of the Cα coordinates is
     \qquad \bar{d}_{uv} = \frac{d_{uv}}{R_g},
     \label{eq:normalized_distance}
 \end{equation}
-where $\bar{\mathbf x}$ denotes the centroid of the valid Cα coordinates, and
+where $\bar{\mathbf x}$ denotes the centroid of the valid C$_{\alpha}$ coordinates, and
 the normalized distance is encoded by eight radial basis functions over the
 interval 0–4, $\boldsymbol\phi_{\mathrm{norm}}(\bar{d}_{uv}) \in
 \mathbb{R}^{8}$. The raw representation describes the physical separation in
@@ -1131,10 +1129,10 @@ Fourth, six explicit compatibility channels are defined:
     \label{eq:chem_channels}
 \end{equation}
 representing opposite-charge, donor–acceptor, aromatic–aromatic,
-positive–aromatic (cation–π), sulfur–sulfur, and hydrophobic–hydrophobic
+positive–aromatic (cation–$\pi$\$), sulfur–sulfur, and hydrophobic–hydrophobic
 compatibility. These channels encode candidate chemical compatibility
 patterns available to the model; they do not imply that a true salt bridge,
-hydrogen bond, cation–π interaction, disulfide bond, or hydrophobic core is
+hydrogen bond, cation–$\pi$\$ interaction, disulfide bond, or hydrophobic core is
 present in the predicted structure.
 
 The full chemical-site edge representation is
@@ -1766,7 +1764,30 @@ full-data structural refit is therefore trained for eight fixed epochs.
 %       manifest; do not guess before the environment is frozen.
 
 \subsubsection{OOF-Based Calibration, Fusion-Weight Selection, and Threshold Freezing}
-% TODO
+
+All calibration, fusion-weight, and threshold decisions are made exclusively on
+training out-of-fold (OOF) predictions generated under the fixed group-aware
+five-fold partition; Test1 and Test2 are never used for any parameter selection.
+
+\textbf{1D calibration.} The OOF probabilities of the three seeds are averaged
+per sample, and a two-parameter Platt calibrator is fitted on these OOF
+ensemble scores (Eq.~\eqref{eq:platt_fit}); the fitted parameters are frozen
+and applied at inference.
+
+\textbf{Fusion-weight and threshold.} For a grid of 1D weights
+$w \in [0,1]$ (step 0.02), the fused OOF score
+$p = w\,p_{\mathrm{1D}} + (1-w)\,p_{\mathrm{SE3D}}$ is thresholded and the
+Matthews correlation coefficient (MCC) on training OOF is computed; the
+weight--threshold pair maximizing OOF MCC is frozen as the deployed operating
+point ($w=0.72$, threshold $0.4702$).
+
+\textbf{Protocol note.} In the original selection the 3D side of the OOF
+fusion used the previous-generation fused OOF ($0.62\times$ old
+ProtT5-TextCNN + $0.38\times$ 3D expert). Re-selecting on the current
+3D-expert OOF yields $w=0.72$, threshold $0.4702$, with held-out Test2
+unchanged and Test1 BACC $0.9354\rightarrow 0.9323$ (see
+\texttt{runs/lora\_mamba\_full/protocol\_audit.json}). The deployed operating
+point is $w=0.72$, threshold $0.4702$.
 
 \subsection{Evaluation Metrics}
 % TODO: threshold-dependent metrics (ACC / BACC / SN / SP / F1 / MCC) and ranking/calibration metrics (AUROC / AUPRC / Brier / ECE).
