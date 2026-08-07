@@ -1,4 +1,6 @@
 {
+  "artifact_type": "ghxtox_lora_bimamba_pure3d_oof_refreeze",
+  "schema_version": 1,
   "metric": "mcc",
   "best_weight_1d": 0.72,
   "best_threshold": 0.47022256531284556,
@@ -19,5 +21,11 @@
     "mcc": 0.6029358767304371,
     "auroc": 0.976130935483568,
     "auprc": 0.9532682028993572
+  },
+  "provenance": {
+    "new_1d_oof": "runs\\lora_mamba_full\\oof_calibrated.json",
+    "fold_manifest": "data\\folds\\train_cdhit080_fallback_folds.csv",
+    "pure_3d_oof": "runs\\conformer_ensemble_residual_oof\\full_calibrated_predictions.csv",
+    "mixed_3d_oof_rejected": true
   }
 }

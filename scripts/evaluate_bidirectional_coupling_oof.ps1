@@ -28,7 +28,7 @@ $Arguments = @(
     '-u',
     '-B',
     '-m',
-    'ghxtox.cross_modal_adapter',
+    'ghxtox._legacy.cross_modal_adapter',
     'train-oof',
     '--feature-cache',
     $FeatureCache,

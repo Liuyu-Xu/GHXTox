@@ -40,6 +40,12 @@ Lib/
 !/scripts/evaluate_partial_unfreeze_3d_oof.ps1
 !/scripts/evaluate_partial_unfreeze_3d_oof.sh
 !/scripts/run_boundary_bioemu_autodl.sh
+!/scripts/run_lora_mamba_full.sh
+!/scripts/calibrate_lora_mamba.py
+!/scripts/refreeze_lora_mamba_fusion.py
+!/scripts/evaluate_lora_mamba_fusion.py
+!/scripts/ensemble_lora_mamba_predictions.py
+!/scripts/export_multidimensional_default.py
 
 # Keep the frozen Phase 30 protocol and compact reports, not fold weights/logs.
 /runs/ensemble_domain_ssl_3d/fold_*/

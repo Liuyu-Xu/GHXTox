@@ -1,65 +1,52 @@
 {
- "date": "2026-08-06",
- "title": "协议审计：新多维融合默认的 OOF 选参 3D 侧输入（已按诚实协议定稿）",
- "finding": "融合权重/阈值最初在训练 OOF 上选择时，--three-d-oof 使用了 runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv（= 0.62×旧ProtT5-TextCNN + 0.38×3D 专家，即上一代融合基线 OOF），而非当前 3D 专家 OOF，导致 0.62/0.4977 是在混合组成上选的。",
- "decision": "采用诚实/一致协议：OOF 与评估均使用当前 3D 专家 OOF（runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv），部署操作点定为 w=0.72、阈值 0.4702（OOF-MCC 最优）。",
- "deployed_operating_point": {
-  "weight_1d": 0.72,
-  "weight_3d": 0.28,
-  "threshold": 0.47022256531284556,
-  "basis": "consistent OOF selection (MCC objective)"
- },
- "held_out_metrics": {
-  "test1": {
-   "ACC": 0.9476,
-   "BACC": 0.9323,
-   "SN": 0.8969,
-   "SP": 0.9677,
-   "MCC": 0.8705,
-   "AUROC": 0.9811,
-   "AUPRC": 0.9674,
-   "Brier": 0.041
+  "date": "2026-08-07",
+  "title": "新版多维融合默认模型的 OOF 来源与部署协议审计",
+  "finding": "旧的 0.62/0.4977 操作点曾把 runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv 当作 3D OOF，但该文件已经包含 0.62×旧 ProtT5-TextCNN + 0.38×3D，因此不是独立 3D 专家概率。将其再次与新版 1D 融合会重复计入旧 1D 信息。",
+  "decision": "当前训练 OOF 选参只允许使用 runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv 的纯 3D 专家概率；部署操作点冻结为 1D/3D=0.72/0.28、阈值=0.47022256531284556。默认入口会拒绝旧操作点、错误 seed、旧架构 checkpoint、错位 OOF、部分样本交集和混合 3D OOF。",
+  "deployed_operating_point": {
+    "weight_1d": 0.72,
+    "weight_3d": 0.28,
+    "threshold": 0.47022256531284556,
+    "basis": "training-only group-aware OOF, MCC objective, pure current 3D expert"
   },
-  "test2": {
-   "ACC": 0.9467,
-   "BACC": 0.8618,
-   "SN": 0.7609,
-   "SP": 0.9627,
-   "MCC": 0.6673,
-   "AUROC": 0.9433,
-   "AUPRC": 0.8046,
-   "Brier": 0.0436
-  }
- },
- "oof_fusion_metrics": {
-  "BACC": 0.9324,
-  "MCC": 0.8733,
-  "AUROC": 0.978,
-  "AUPRC": 0.9577
- },
- "delta_vs_previous_default_held_out": {
-  "test1": {
-   "BACC": 0.0072,
-   "SN": 0.0157,
-   "MCC": 0.0093,
-   "AUROC": -0.0005,
-   "AUPRC": 0.0024,
-   "Brier": -0.0022
+  "held_out_metrics": {
+    "test1": {
+      "ACC": 0.9476,
+      "BACC": 0.9323,
+      "SN": 0.8969,
+      "SP": 0.9677,
+      "MCC": 0.8705,
+      "AUROC": 0.9811,
+      "AUPRC": 0.9674,
+      "Brier": 0.0410
+    },
+    "test2": {
+      "ACC": 0.9467,
+      "BACC": 0.8618,
+      "SN": 0.7609,
+      "SP": 0.9627,
+      "MCC": 0.6673,
+      "AUROC": 0.9433,
+      "AUPRC": 0.8046,
+      "Brier": 0.0436
+    }
   },
-  "test2": {
-   "BACC": 0.001,
-   "SN": 0,
-   "MCC": 0.0071,
-   "AUROC": -0.0145,
-   "AUPRC": 0.0197,
-   "Brier": -0.0036
-  }
- },
- "superseded": "0.62/0.4977（混合 OOF 选参）及其 OOF 数值 0.9336/0.8764/0.9799/0.9602 已废弃；旧部署点 held-out Test1 BACC 0.9354（0.62/0.4977）不再使用。",
- "canonical_artifacts": [
-  "runs/default_multidimensional_fusion/test{1,2}_predictions.csv",
-  "runs/lora_mamba_full/test_fusion_metrics.json",
-  "runs/lora_mamba_full/fusion_refreeze.json",
-  "runs/lora_mamba_full/paired_bootstrap.json"
- ]
+  "oof_fusion_metrics": {
+    "BACC": 0.9324,
+    "MCC": 0.8733,
+    "AUROC": 0.9780,
+    "AUPRC": 0.9577
+  },
+  "superseded": {
+    "weight_1d": 0.62,
+    "threshold": 0.4976932219075496,
+    "reason": "selected against a previous-generation fused OOF rather than an independent pure 3D OOF",
+    "forbidden_oof": "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv"
+  },
+  "canonical_artifacts": [
+    "configs/default_multidimensional_fusion.json",
+    "runs/default_multidimensional_fusion/test{1,2}_predictions.csv",
+    "runs/lora_mamba_full/fusion_refreeze.json",
+    "runs/lora_mamba_full/paired_bootstrap.json"
+  ]
 }

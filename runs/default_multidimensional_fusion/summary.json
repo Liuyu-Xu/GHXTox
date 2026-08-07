@@ -1,39 +1,46 @@
 {
- "model": "GHXTox-Multidimensional-Fusion",
- "weight_1d": 0.72,
- "threshold": 0.47022256531284556,
- "components": {
-  "1d": "calibrated LoRA-Mamba ensemble (runs/lora_mamba_full/*calibrated.csv)",
-  "3d": "structure_probability from legacy default (runs/default_3d_hybrid/*_predictions.csv)"
- },
- "test1": {
-  "n": 1126,
-  "metrics": {
-   "accuracy": 0.9476021314387212,
-   "balanced_accuracy": 0.9323084677419355,
-   "precision": 0.9169329073482428,
-   "sensitivity": 0.896875,
-   "specificity": 0.967741935483871,
-   "f1": 0.9067930489731437,
-   "mcc": 0.8704599749746912,
-   "auroc": 0.9810561414392059,
-   "auprc": 0.9674027821512894,
-   "brier": 0.04099079244013179
+  "artifact_type": "ghxtox_multidimensional_public_default",
+  "schema_version": 1,
+  "model": "GHXTox-Multidimensional-Fusion",
+  "weight_1d": 0.72,
+  "weight_3d": 0.28,
+  "threshold": 0.47022256531284556,
+  "components": {
+    "1d": "calibrated three-seed LoRA-ProtT5 + bidirectional Mamba",
+    "3d": "pure structure_probability from the pLDDT-aware 3D expert"
+  },
+  "test1": {
+    "n": 1126,
+    "metrics": {
+      "accuracy": 0.9476021314387212,
+      "balanced_accuracy": 0.9323084677419355,
+      "precision": 0.9169329073482428,
+      "sensitivity": 0.896875,
+      "specificity": 0.967741935483871,
+      "f1": 0.9067930489731437,
+      "mcc": 0.8704599749746912,
+      "auroc": 0.9810561414392059,
+      "auprc": 0.9674027821512894,
+      "brier": 0.04099079244013179
+    },
+    "one_d_source": "runs\\lora_mamba_full\\test1_lora_mamba_calibrated.csv",
+    "structure_source": "runs\\default_3d_hybrid\\test1_predictions.csv"
+  },
+  "test2": {
+    "n": 582,
+    "metrics": {
+      "accuracy": 0.9467353951890034,
+      "balanced_accuracy": 0.8617780661907852,
+      "precision": 0.6363636363636364,
+      "sensitivity": 0.7608695652173914,
+      "specificity": 0.9626865671641791,
+      "f1": 0.693069306930693,
+      "mcc": 0.6673395851029228,
+      "auroc": 0.9432592472420506,
+      "auprc": 0.804583043874505,
+      "brier": 0.043631899024562874
+    },
+    "one_d_source": "runs\\lora_mamba_full\\test2_lora_mamba_calibrated.csv",
+    "structure_source": "runs\\default_3d_hybrid\\test2_predictions.csv"
   }
- },
- "test2": {
-  "n": 582,
-  "metrics": {
-   "accuracy": 0.9467353951890034,
-   "balanced_accuracy": 0.8617780661907852,
-   "precision": 0.6363636363636364,
-   "sensitivity": 0.7608695652173914,
-   "specificity": 0.9626865671641791,
-   "f1": 0.693069306930693,
-   "mcc": 0.6673395851029228,
-   "auroc": 0.9432592472420506,
-   "auprc": 0.804583043874505,
-   "brier": 0.043631899024562874
-  }
- }
 }

@@ -1,200 +1,530 @@
 # -*- coding: utf-8 -*-
-"""Current public default: GHXTox-Multidimensional-Fusion (combination A 1D + 3D).
+"""Canonical GHXTox public inference: calibrated LoRA-BiMamba 1D + pure 3D.
 
-Two entry points:
-
-  * assemble -- build the fused probability from existing per-sample 1D/3D
-    probability CSVs (CPU-only; used to reproduce Test1/Test2 outputs).
-
-  * predict  -- end-to-end inference for (possibly new) sequences:
-        1D: LoRA-adapted ProtT5 + bidirectional Mamba, 3 full-train seeds
-            averaged, then OOF-fitted Platt calibration -> p_1D
-        3D: pLDDT-aware multi-scale structure expert on the ESMFold/chemical-site
-            cache -> p_3D (structure_probability)
-        fusion: p = w * p_1D + (1-w) * p_3D, decision = p >= threshold
-        (w = 0.72, threshold = 0.4702; consistent/OOF-selected on the current
-        3D-expert OOF -- see runs/lora_mamba_full/protocol_audit.json)
-
-Requires a GPU for the 1D (ProtT5) and 3D (EGNN/ESM2) forward passes; the
-assemble path is CPU-only.
+The module enforces the frozen public contract instead of silently accepting
+partial sample intersections, old checkpoints, mixed-generation OOF files, or
+non-canonical weights.  Use ``--allow-noncanonical-operating-point`` only for
+an explicitly labelled ablation.
 """
+
 from __future__ import annotations
-import argparse, csv, json, os
+
+import argparse
+import csv
+import json
+import os
+from pathlib import Path
+from typing import Any
+
 import numpy as np
 
+from ghxtox.lora_mamba_1d import (
+    PUBLIC_1D_EXPERIMENT,
+    PUBLIC_1D_SEEDS,
+    validate_public_checkpoint_payload,
+)
+from ghxtox.utils import (
+    DEFAULT_MULTIDIMENSIONAL_CONFIG,
+    DEFAULT_MULTIDIMENSIONAL_MODEL_NAME,
+    DEFAULT_MULTIDIMENSIONAL_THRESHOLD,
+    DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D,
+)
 
-def _logit(p):
-    x = np.clip(np.asarray(p, dtype=np.float64), 1e-6, 1.0 - 1e-6)
-    return np.log(x) - np.log1p(-x)
+
+DEFAULT_CHECKPOINTS = tuple(
+    f"runs/lora_mamba_full/full_seed{seed}.pt" for seed in PUBLIC_1D_SEEDS
+)
+DEFAULT_OOF_JSONS = tuple(
+    f"runs/lora_mamba_full/oof_seed{seed}.json" for seed in PUBLIC_1D_SEEDS
+)
+DEFAULT_MANIFEST = "data/folds/train_cdhit080_fallback_folds.csv"
+DEFAULT_STRUCTURE_CHECKPOINT = "runs/3d_v2_conformer_ensemble_candidate/best_model.pt"
 
 
-def fit_platt(logits, labels):
+def _logit(probabilities: Any) -> np.ndarray:
+    clipped = np.clip(np.asarray(probabilities, dtype=np.float64), 1e-6, 1.0 - 1e-6)
+    return np.log(clipped) - np.log1p(-clipped)
+
+
+def fit_platt(logits: Any, labels: Any) -> tuple[float, float]:
     from sklearn.linear_model import LogisticRegression
+
     model = LogisticRegression(C=1e6, max_iter=1000)
-    model.fit(np.asarray(logits, dtype=np.float64).reshape(-1, 1), np.asarray(labels).astype(int))
-    a = float(model.coef_[0][0]); b = float(model.intercept_[0])
-    if not (np.isfinite(a) and np.isfinite(b)):
-        return 1.0, 0.0
-    return a, b
+    model.fit(
+        np.asarray(logits, dtype=np.float64).reshape(-1, 1),
+        np.asarray(labels, dtype=np.int64),
+    )
+    slope = float(model.coef_[0][0])
+    intercept = float(model.intercept_[0])
+    if not (np.isfinite(slope) and np.isfinite(intercept)):
+        raise ValueError("Platt calibration produced non-finite parameters.")
+    if slope <= 0.0:
+        raise ValueError("Platt calibration must be monotone increasing.")
+    return slope, intercept
 
 
-def _load_csv_pairs(path, key):
-    out = {}
-    with open(path, encoding="utf-8-sig") as f:
-        for r in csv.DictReader(f):
-            out[str(r["sample_id"])] = (float(r[key]), int(r["label"]))
-    return out
+def validate_public_default_config(config: dict[str, Any]) -> None:
+    """Validate the one and only public-default configuration."""
+
+    if config.get("canonical_public_default") is not True:
+        raise ValueError("The multidimensional configuration must be the canonical public default.")
+    if config.get("public_model_name") != DEFAULT_MULTIDIMENSIONAL_MODEL_NAME:
+        raise ValueError("Unexpected public model name.")
+    if config.get("entrypoint") != "ghxtox-predict":
+        raise ValueError("The canonical entrypoint must be ghxtox-predict.")
+    fusion = config.get("fusion", {})
+    weight_1d = float(fusion.get("weight_1d", -1.0))
+    weight_3d = float(fusion.get("weight_3d", -1.0))
+    threshold = float(fusion.get("threshold", -1.0))
+    if abs(weight_1d - DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D) > 1e-12:
+        raise ValueError("Canonical 1D weight differs from the frozen OOF value.")
+    if abs(weight_1d + weight_3d - 1.0) > 1e-12:
+        raise ValueError("Canonical fusion weights must sum to one.")
+    if abs(threshold - DEFAULT_MULTIDIMENSIONAL_THRESHOLD) > 1e-12:
+        raise ValueError("Canonical decision threshold differs from the frozen OOF value.")
+    expert = config.get("composition", {}).get("1d_expert", {})
+    if tuple(expert.get("seeds", ())) != PUBLIC_1D_SEEDS:
+        raise ValueError(f"Canonical 1D seeds must be {PUBLIC_1D_SEEDS}.")
+    if expert.get("experiment_name") != PUBLIC_1D_EXPERIMENT:
+        raise ValueError("Canonical 1D experiment name is missing or stale.")
+    if config.get("provenance", {}).get("three_d_oof") != (
+        "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv"
+    ):
+        raise ValueError("Canonical 3D OOF must be the pure current 3D expert OOF.")
 
 
-def _metrics(labels, prob, thr):
-    from sklearn.metrics import (accuracy_score, balanced_accuracy_score,
-                                 matthews_corrcoef, roc_auc_score,
-                                 average_precision_score, brier_score_loss,
-                                 precision_score, recall_score, f1_score)
-    pred = (prob >= thr).astype(int)
-    tp = int(np.sum((pred == 1) & (labels == 1))); tn = int(np.sum((pred == 0) & (labels == 0)))
-    fp = int(np.sum((pred == 1) & (labels == 0))); fn = int(np.sum((pred == 0) & (labels == 1)))
-    sn = tp / (tp + fn) if tp + fn else 0.0
-    sp = tn / (tn + fp) if tn + fp else 0.0
-    return {"accuracy": float(accuracy_score(labels, pred)),
-            "balanced_accuracy": float(balanced_accuracy_score(labels, pred)),
-            "precision": float(precision_score(labels, pred, zero_division=0)),
-            "sensitivity": float(recall_score(labels, pred, zero_division=0)),
-            "specificity": float(sp),
-            "f1": float(f1_score(labels, pred, zero_division=0)),
-            "mcc": float(matthews_corrcoef(labels, pred)),
-            "auroc": float(roc_auc_score(labels, prob)),
-            "auprc": float(average_precision_score(labels, prob)),
-            "brier": float(brier_score_loss(labels, prob))}
+def _validate_operating_point(weight: float, threshold: float, allow_noncanonical: bool) -> None:
+    if not 0.0 <= float(weight) <= 1.0 or not 0.0 <= float(threshold) <= 1.0:
+        raise ValueError("Fusion weight and threshold must lie in [0, 1].")
+    if not allow_noncanonical and (
+        abs(float(weight) - DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D) > 1e-12
+        or abs(float(threshold) - DEFAULT_MULTIDIMENSIONAL_THRESHOLD) > 1e-12
+    ):
+        raise ValueError(
+            "Refusing a non-canonical operating point. Pass "
+            "--allow-noncanonical-operating-point only for a labelled ablation."
+        )
 
 
-def _write_predictions(output_csv, ids, labels, p1d, p3d, fused, thr, w):
-    pred = (fused >= thr).astype(int)
-    os.makedirs(os.path.dirname(output_csv) or ".", exist_ok=True)
-    with open(output_csv, "w", encoding="utf-8", newline="") as f:
-        wr = csv.writer(f)
-        wr.writerow(["source_index", "sample_id", "label", "p_1d", "p_3d",
-                     "toxicity_probability", "prediction", "decision_threshold", "weight_1d"])
-        for i, sid in enumerate(ids):
-            wr.writerow([i, sid, int(labels[i]), f"{p1d[i]:.10g}", f"{p3d[i]:.10g}",
-                         f"{fused[i]:.10g}", int(pred[i]), f"{thr:.10g}", f"{w:.6g}"])
+def _read_probability_csv(path: str | Path, probability_key: str) -> tuple[list[str], dict[str, dict[str, Any]]]:
+    order: list[str] = []
+    records: dict[str, dict[str, Any]] = {}
+    with Path(path).open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        required = {"sample_id", "label", probability_key}
+        missing_columns = required - set(reader.fieldnames or ())
+        if missing_columns:
+            raise ValueError(f"{path}: missing columns {sorted(missing_columns)}.")
+        for row_number, row in enumerate(reader, start=2):
+            sample_id = str(row["sample_id"])
+            if not sample_id or sample_id in records:
+                raise ValueError(f"{path}:{row_number}: empty or duplicate sample_id {sample_id!r}.")
+            probability = float(row[probability_key])
+            if not np.isfinite(probability) or not 0.0 <= probability <= 1.0:
+                raise ValueError(f"{path}:{row_number}: invalid probability {probability!r}.")
+            label = int(row["label"])
+            if label not in (0, 1):
+                raise ValueError(f"{path}:{row_number}: label must be 0 or 1.")
+            records[sample_id] = {
+                "probability": probability,
+                "label": label,
+                "sequence": str(row.get("sequence", "")),
+            }
+            order.append(sample_id)
+    if not order:
+        raise ValueError(f"{path}: no prediction rows.")
+    return order, records
 
 
-def assemble(weight, threshold, cal_1d, structure_csv, output_csv, output_metrics=None):
-    p1 = _load_csv_pairs(cal_1d, "toxicity_probability")
-    p3 = _load_csv_pairs(structure_csv, "structure_probability")
-    ids = [k for k in p1 if k in p3]
-    labels = np.array([p1[i][1] for i in ids])
-    a = np.array([p1[i][0] for i in ids]); b = np.array([p3[i][0] for i in ids])
-    fused = weight * a + (1.0 - weight) * b
-    _write_predictions(output_csv, ids, labels, a, b, fused, threshold, weight)
-    m = _metrics(labels, fused, threshold)
+def _aligned_components(calibrated_1d: str | Path, structure_csv: str | Path):
+    ids, one_d = _read_probability_csv(calibrated_1d, "toxicity_probability")
+    structure_ids, three_d = _read_probability_csv(structure_csv, "structure_probability")
+    if set(ids) != set(structure_ids):
+        missing_3d = sorted(set(ids) - set(structure_ids))[:5]
+        extra_3d = sorted(set(structure_ids) - set(ids))[:5]
+        raise ValueError(
+            "1D/3D sample coverage differs; "
+            f"missing_3d={missing_3d}, extra_3d={extra_3d}."
+        )
+    for sample_id in ids:
+        if one_d[sample_id]["label"] != three_d[sample_id]["label"]:
+            raise ValueError(f"1D/3D label mismatch for {sample_id}.")
+        left_sequence = one_d[sample_id]["sequence"]
+        right_sequence = three_d[sample_id]["sequence"]
+        if left_sequence and right_sequence and left_sequence != right_sequence:
+            raise ValueError(f"1D/3D sequence mismatch for {sample_id}.")
+    labels = np.asarray([one_d[sample_id]["label"] for sample_id in ids], dtype=np.int64)
+    p_1d = np.asarray([one_d[sample_id]["probability"] for sample_id in ids])
+    p_3d = np.asarray([three_d[sample_id]["probability"] for sample_id in ids])
+    return ids, labels, p_1d, p_3d
+
+
+def _metrics(labels: np.ndarray, probabilities: np.ndarray, threshold: float) -> dict[str, float]:
+    from sklearn.metrics import (
+        accuracy_score,
+        average_precision_score,
+        balanced_accuracy_score,
+        brier_score_loss,
+        f1_score,
+        matthews_corrcoef,
+        precision_score,
+        recall_score,
+        roc_auc_score,
+    )
+
+    prediction = (probabilities >= threshold).astype(int)
+    true_negative = int(np.sum((prediction == 0) & (labels == 0)))
+    false_positive = int(np.sum((prediction == 1) & (labels == 0)))
+    specificity = true_negative / max(true_negative + false_positive, 1)
+    return {
+        "accuracy": float(accuracy_score(labels, prediction)),
+        "balanced_accuracy": float(balanced_accuracy_score(labels, prediction)),
+        "precision": float(precision_score(labels, prediction, zero_division=0)),
+        "sensitivity": float(recall_score(labels, prediction, zero_division=0)),
+        "specificity": float(specificity),
+        "f1": float(f1_score(labels, prediction, zero_division=0)),
+        "mcc": float(matthews_corrcoef(labels, prediction)),
+        "auroc": float(roc_auc_score(labels, probabilities)),
+        "auprc": float(average_precision_score(labels, probabilities)),
+        "brier": float(brier_score_loss(labels, probabilities)),
+    }
+
+
+def _write_predictions(
+    output_csv: str | Path,
+    sample_ids: list[str],
+    labels: np.ndarray,
+    p_1d: np.ndarray,
+    p_3d: np.ndarray,
+    fused: np.ndarray,
+    threshold: float,
+    weight_1d: float,
+) -> None:
+    prediction = (fused >= threshold).astype(int)
+    destination = Path(output_csv)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow([
+            "source_index", "sample_id", "label", "p_1d", "p_3d",
+            "toxicity_probability", "prediction", "decision_threshold", "weight_1d",
+        ])
+        for index, sample_id in enumerate(sample_ids):
+            writer.writerow([
+                index, sample_id, int(labels[index]), f"{p_1d[index]:.10g}",
+                f"{p_3d[index]:.10g}", f"{fused[index]:.10g}", int(prediction[index]),
+                f"{threshold:.10g}", f"{weight_1d:.6g}",
+            ])
+
+
+def assemble(
+    weight: float,
+    threshold: float,
+    cal_1d: str | Path,
+    structure_csv: str | Path,
+    output_csv: str | Path,
+    output_metrics: str | Path | None = None,
+    *,
+    allow_noncanonical: bool = False,
+) -> dict[str, Any]:
+    _validate_operating_point(weight, threshold, allow_noncanonical)
+    ids, labels, p_1d, p_3d = _aligned_components(cal_1d, structure_csv)
+    fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
+    _write_predictions(output_csv, ids, labels, p_1d, p_3d, fused, threshold, weight)
+    result_metrics = _metrics(labels, fused, threshold)
     if output_metrics:
-        with open(output_metrics, "w", encoding="utf-8") as f:
-            json.dump(m, f, ensure_ascii=False, indent=1)
-    return {"n": len(ids), "metrics": m}
+        destination = Path(output_metrics)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(json.dumps(result_metrics, ensure_ascii=False, indent=2), encoding="utf-8")
+    return {"n": len(ids), "metrics": result_metrics}
 
 
-def _predict_1d_seed(records, checkpoint, config, device, tokenizer):
+def _read_manifest(path: str | Path) -> list[dict[str, Any]]:
+    with Path(path).open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {"source_index", "sample_id", "sequence", "label", "fold"}
+    if not rows or required - set(rows[0]):
+        raise ValueError(f"{path}: fold manifest lacks {sorted(required)}.")
+    indices = [int(row["source_index"]) for row in rows]
+    ids = [str(row["sample_id"]) for row in rows]
+    if indices != list(range(len(rows))):
+        raise ValueError(f"{path}: source_index must be contiguous and row-aligned.")
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"{path}: duplicate sample_id values.")
+    return rows
+
+
+def _load_oof_ensemble(
+    oof_jsons: list[str] | tuple[str, ...], manifest: str | Path
+) -> tuple[np.ndarray, np.ndarray, tuple[int, ...]]:
+    if len(oof_jsons) != len(PUBLIC_1D_SEEDS):
+        raise ValueError(f"Exactly {len(PUBLIC_1D_SEEDS)} seed OOF files are required.")
+    rows = _read_manifest(manifest)
+    expected_ids = [str(row["sample_id"]) for row in rows]
+    expected_labels = np.asarray([int(row["label"]) for row in rows], dtype=np.int64)
+    expected_folds = [int(row["fold"]) for row in rows]
+    probabilities: list[np.ndarray] = []
+    seeds: list[int] = []
+    for path in oof_jsons:
+        payload = json.loads(Path(path).read_text(encoding="utf-8"))
+        seed = int(payload.get("seed", -1))
+        if seed in seeds:
+            raise ValueError(f"{path}: duplicate OOF seed {seed}.")
+        if payload.get("config_name") != PUBLIC_1D_EXPERIMENT:
+            raise ValueError(f"{path}: stale or unknown 1D OOF generation.")
+        if [str(value) for value in payload.get("sample_ids", [])] != expected_ids:
+            raise ValueError(f"{path}: OOF sample IDs/order differ from the fold manifest.")
+        labels = np.asarray(payload.get("labels", []), dtype=np.int64)
+        if not np.array_equal(labels, expected_labels):
+            raise ValueError(f"{path}: OOF labels differ from the fold manifest.")
+        if [int(value) for value in payload.get("folds", [])] != expected_folds:
+            raise ValueError(f"{path}: OOF folds differ from the fold manifest.")
+        values = np.asarray(payload.get("oof", []), dtype=np.float64)
+        if values.shape != expected_labels.shape or not np.all(np.isfinite(values)):
+            raise ValueError(f"{path}: invalid OOF probability vector.")
+        if np.any((values < 0.0) | (values > 1.0)):
+            raise ValueError(f"{path}: OOF probabilities lie outside [0, 1].")
+        probabilities.append(values)
+        seeds.append(seed)
+    if tuple(sorted(seeds)) != PUBLIC_1D_SEEDS:
+        raise ValueError(f"OOF seeds must be exactly {PUBLIC_1D_SEEDS}; found {sorted(seeds)}.")
+    return np.mean(np.stack(probabilities), axis=0), expected_labels, tuple(seeds)
+
+
+def _fit_platt_from_oof(
+    oof_jsons: list[str] | tuple[str, ...], manifest: str | Path
+) -> tuple[float, float, tuple[int, ...]]:
+    mean_probability, labels, seeds = _load_oof_ensemble(oof_jsons, manifest)
+    slope, intercept = fit_platt(_logit(mean_probability), labels)
+    return slope, intercept, seeds
+
+
+def _predict_1d_seed(records, checkpoint, config, device, tokenizer, expected_seed):
     import torch
-    from ghxtox.lora_mamba_1d import (_load_plm, build_model, predict_probs,
-                                      LoraMambaDataset, LoraMambaCollator)
+    from ghxtox.lora_mamba_1d import (
+        LoraMambaCollator,
+        LoraMambaDataset,
+        _load_plm,
+        build_model,
+        predict_probs,
+    )
+
     payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
-    cfg = {**config, **payload.get("config", {})}
-    plm = _load_plm(cfg, device)
-    model = build_model(plm, cfg, device)
+    validate_public_checkpoint_payload(
+        payload, config, expected_seed=expected_seed, checkpoint_path=checkpoint
+    )
+    plm = _load_plm(config, device)
+    model = build_model(plm, config, device)
+    validate_public_checkpoint_payload(
+        payload, config, expected_seed=expected_seed, model=model, checkpoint_path=checkpoint
+    )
     missing, unexpected = model.load_state_dict(payload["model_state"], strict=False)
-    if unexpected:
-        raise ValueError("Unexpected checkpoint keys: " + str(unexpected[:5]))
-    collator = LoraMambaCollator(tokenizer, max_length=int(cfg.get("max_length", 128)))
-    return predict_probs(model, LoraMambaDataset(records), collator, device,
-                         int(cfg.get("batch_size", 16)), bool(cfg.get("fp16", True)))
+    expected_missing = set(model.state_dict()) - set(payload["model_state"])
+    if unexpected or set(missing) != expected_missing:
+        raise ValueError(
+            f"{checkpoint}: unsafe partial load; missing={missing[:5]}, unexpected={unexpected[:5]}."
+        )
+    collator = LoraMambaCollator(tokenizer, max_length=int(config.get("max_length", 128)))
+    probabilities = predict_probs(
+        model,
+        LoraMambaDataset(records),
+        collator,
+        device,
+        int(config.get("batch_size", 16)),
+        bool(config.get("fp16", True)),
+    )
+    return probabilities
 
 
-def _fit_platt_from_oof(oof_jsons, manifest):
-    import csv as _csv
-    man_ids = [str(r["sample_id"]) for r in _csv.DictReader(open(manifest, encoding="utf-8-sig"))]
-    probs = np.zeros((len(oof_jsons), len(man_ids)), dtype=np.float64)
-    labels = None
-    for j, path in enumerate(oof_jsons):
-        payload = json.load(open(path, encoding="utf-8"))
-        p = np.asarray(payload["oof"], dtype=np.float64)
-        assert len(p) == len(man_ids), "OOF length != manifest length"
-        probs[j] = p
-        if labels is None:
-            labels = np.asarray(payload["labels"])
-    mean = probs.mean(axis=0)
-    return fit_platt(_logit(mean), labels)
+def _validate_sequence_records(records) -> None:
+    ids = [str(record.sample_id) for record in records]
+    if not ids or len(ids) != len(set(ids)):
+        raise ValueError("Sequence record cache is empty or contains duplicate sample IDs.")
+    for record in records:
+        if not record.sequence or int(record.length) != len(record.sequence):
+            raise ValueError(f"Invalid sequence record for {record.sample_id}.")
+        if record.label is not None and int(record.label) not in (0, 1):
+            raise ValueError(f"Invalid label for {record.sample_id}.")
 
 
-def predict(processed_path, adapter_path, config_1d, checkpoints, oof_jsons, manifest,
-            structure_checkpoint, weight, threshold, device_name, batch_size,
-            output_csv, output_metrics=None):
+def predict(
+    processed_path,
+    sequence_records_path,
+    config_1d,
+    checkpoints,
+    oof_jsons,
+    manifest,
+    structure_checkpoint,
+    weight,
+    threshold,
+    device_name,
+    batch_size,
+    output_csv,
+    output_metrics=None,
+    *,
+    allow_noncanonical=False,
+):
     import torch
     from transformers import T5Tokenizer
-    from ghxtox.hybrid_default import _predict_structure
+
     from ghxtox.lora_mamba_1d import load_test_records
-    config = json.load(open(config_1d, encoding="utf-8-sig"))
-    device = torch.device(device_name if device_name != "auto" else ("cuda" if torch.cuda.is_available() else "cpu"))
-    tokenizer = T5Tokenizer.from_pretrained(str(config.get("plm", "Rostlab/prot_t5_xl_half_uniref50-enc")), do_lower_case=False)
-    records = load_test_records(adapter_path)
-    seed_probs = [_predict_1d_seed(records, ckpt, config, device, tokenizer) for ckpt in checkpoints]
-    p_ens = np.mean(seed_probs, axis=0)
-    a, b = _fit_platt_from_oof(oof_jsons, manifest)
-    p_1d = 1.0 / (1.0 + np.exp(-(a * _logit(p_ens) + b)))
-    structure = _predict_structure(processed_path, structure_checkpoint, device=device, batch_size=batch_size)
-    p3_map = dict(zip(structure["sample_ids"], structure["probabilities"]))
-    ids = [r.sample_id for r in records]
-    labels = np.array([r.label for r in records])
-    p3 = np.array([p3_map.get(sid, float("nan")) for sid in ids])
-    if np.isnan(p3).any():
-        raise ValueError("3D probabilities missing for some samples; ensure structure cache covers all inputs.")
-    fused = weight * p_1d + (1.0 - weight) * p3
-    _write_predictions(output_csv, ids, labels, p_1d, p3, fused, threshold, weight)
-    m = _metrics(labels, fused, threshold)
+    from ghxtox.structure_inference import predict_structure
+
+    _validate_operating_point(weight, threshold, allow_noncanonical)
+    config = json.loads(Path(config_1d).read_text(encoding="utf-8-sig"))
+    if config.get("experiment", {}).get("name") != PUBLIC_1D_EXPERIMENT:
+        raise ValueError("The 1D config is not the canonical LoRA-BiMamba experiment.")
+    if len(checkpoints) != len(PUBLIC_1D_SEEDS):
+        raise ValueError(f"Exactly {len(PUBLIC_1D_SEEDS)} full checkpoints are required.")
+    slope, intercept, oof_seeds = _fit_platt_from_oof(oof_jsons, manifest)
+    device = torch.device(
+        device_name if device_name != "auto" else ("cuda" if torch.cuda.is_available() else "cpu")
+    )
+    tokenizer = T5Tokenizer.from_pretrained(
+        str(config.get("plm", "Rostlab/prot_t5_xl_half_uniref50-enc")),
+        do_lower_case=False,
+    )
+    records = load_test_records(sequence_records_path)
+    _validate_sequence_records(records)
+    checkpoint_payloads = [
+        torch.load(path, map_location="cpu", weights_only=False) for path in checkpoints
+    ]
+    checkpoint_seeds = tuple(int(payload.get("seed", -1)) for payload in checkpoint_payloads)
+    if tuple(sorted(checkpoint_seeds)) != PUBLIC_1D_SEEDS or len(set(checkpoint_seeds)) != len(checkpoint_seeds):
+        raise ValueError(
+            f"Checkpoint seeds must be exactly {PUBLIC_1D_SEEDS}; found {checkpoint_seeds}."
+        )
+    if tuple(sorted(oof_seeds)) != tuple(sorted(checkpoint_seeds)):
+        raise ValueError("Checkpoint and OOF seed generations do not correspond.")
+    seed_probabilities = [
+        _predict_1d_seed(records, path, config, device, tokenizer, seed)
+        for path, seed in zip(checkpoints, checkpoint_seeds)
+    ]
+    ensemble_probability = np.mean(np.stack(seed_probabilities), axis=0)
+    p_1d = 1.0 / (1.0 + np.exp(-(slope * _logit(ensemble_probability) + intercept)))
+
+    structure = predict_structure(
+        processed_path, structure_checkpoint, device=device, batch_size=batch_size
+    )
+    structure_ids = [str(value) for value in structure["sample_ids"]]
+    if len(structure_ids) != len(set(structure_ids)):
+        raise ValueError("3D inference returned duplicate sample IDs.")
+    structure_map = {
+        sample_id: (
+            float(structure["probabilities"][index]),
+            str(structure["sequences"][index]),
+            structure["labels"][index],
+        )
+        for index, sample_id in enumerate(structure_ids)
+    }
+    ids = [str(record.sample_id) for record in records]
+    if set(ids) != set(structure_ids):
+        raise ValueError("1D sequence records and 3D cache do not have identical sample coverage.")
+    for record in records:
+        _, sequence, label = structure_map[str(record.sample_id)]
+        if sequence != record.sequence:
+            raise ValueError(f"1D/3D sequence mismatch for {record.sample_id}.")
+        if label is not None and record.label is not None and int(label) != int(record.label):
+            raise ValueError(f"1D/3D label mismatch for {record.sample_id}.")
+    labels = np.asarray([int(record.label) for record in records], dtype=np.int64)
+    p_3d = np.asarray([structure_map[sample_id][0] for sample_id in ids])
+    fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
+    _write_predictions(output_csv, ids, labels, p_1d, p_3d, fused, threshold, weight)
+    result_metrics = _metrics(labels, fused, threshold)
+    summary = {
+        "model": DEFAULT_MULTIDIMENSIONAL_MODEL_NAME,
+        "n": len(ids),
+        "weight_1d": float(weight),
+        "threshold": float(threshold),
+        "checkpoint_seeds": list(checkpoint_seeds),
+        "oof_seeds": list(oof_seeds),
+        "checkpoints": [str(path) for path in checkpoints],
+        "oof_jsons": [str(path) for path in oof_jsons],
+        "structure_checkpoint": str(structure_checkpoint),
+        "metrics": result_metrics,
+    }
     if output_metrics:
-        with open(output_metrics, "w", encoding="utf-8") as f:
-            json.dump(m, f, ensure_ascii=False, indent=1)
-    return {"n": len(ids), "weight_1d": weight, "threshold": threshold, "metrics": m}
+        destination = Path(output_metrics)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    return summary
 
 
-def main():
-    ap = argparse.ArgumentParser(description="GHXTox-Multidimensional-Fusion (current default)")
-    sub = ap.add_subparsers(dest="command", required=True)
-    pa = sub.add_parser("assemble", help="assemble fusion from existing 1D/3D probability CSVs (CPU)")
-    pa.add_argument("--cal-1d", required=True)
-    pa.add_argument("--structure-csv", required=True)
-    pa.add_argument("--weight", type=float, default=0.72)
-    pa.add_argument("--threshold", type=float, default=0.47022256531284556)
-    pa.add_argument("--output-csv", required=True)
-    pa.add_argument("--output-metrics", default=None)
-    pp = sub.add_parser("predict", help="end-to-end inference on (possibly new) sequences (GPU)")
-    pp.add_argument("--processed", required=True)
-    pp.add_argument("--adapter", required=True)
-    pp.add_argument("--config-1d", default="configs/lora_mamba_1d_autodl.json")
-    pp.add_argument("--checkpoints", nargs="+", required=True)
-    pp.add_argument("--oof-jsons", nargs="+", required=True)
-    pp.add_argument("--manifest", default="data/folds/train_cdhit080_fallback_folds.csv")
-    pp.add_argument("--structure-checkpoint", default="runs/3d_v2_conformer_ensemble_candidate/best_model.pt")
-    pp.add_argument("--weight", type=float, default=0.72)
-    pp.add_argument("--threshold", type=float, default=0.47022256531284556)
-    pp.add_argument("--device", default="auto")
-    pp.add_argument("--batch-size", type=int, default=16)
-    pp.add_argument("--output-csv", required=True)
-    pp.add_argument("--output-metrics", default=None)
-    args = ap.parse_args()
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="GHXTox-Multidimensional-Fusion (public default)")
+    parser.add_argument("--public-config", default=DEFAULT_MULTIDIMENSIONAL_CONFIG)
+    subcommands = parser.add_subparsers(dest="command", required=True)
+
+    assemble_parser = subcommands.add_parser(
+        "assemble", help="assemble the canonical fusion from aligned 1D/3D CSVs (CPU)"
+    )
+    assemble_parser.add_argument("--cal-1d", required=True)
+    assemble_parser.add_argument("--structure-csv", required=True)
+    assemble_parser.add_argument("--weight", type=float, default=DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D)
+    assemble_parser.add_argument("--threshold", type=float, default=DEFAULT_MULTIDIMENSIONAL_THRESHOLD)
+    assemble_parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
+    assemble_parser.add_argument("--output-csv", required=True)
+    assemble_parser.add_argument("--output-metrics")
+
+    predict_parser = subcommands.add_parser(
+        "predict", help="end-to-end canonical inference on processed sequence/3D inputs (GPU)"
+    )
+    predict_parser.add_argument("--processed", required=True)
+    predict_parser.add_argument(
+        "--sequence-records", "--adapter", dest="sequence_records", required=True,
+        help="Sequence/label record cache; --adapter is a deprecated compatibility alias.",
+    )
+    predict_parser.add_argument("--config-1d", default="configs/lora_mamba_1d_autodl.json")
+    predict_parser.add_argument("--checkpoints", nargs="+", default=list(DEFAULT_CHECKPOINTS))
+    predict_parser.add_argument("--oof-jsons", nargs="+", default=list(DEFAULT_OOF_JSONS))
+    predict_parser.add_argument("--manifest", default=DEFAULT_MANIFEST)
+    predict_parser.add_argument("--structure-checkpoint", default=DEFAULT_STRUCTURE_CHECKPOINT)
+    predict_parser.add_argument("--weight", type=float, default=DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D)
+    predict_parser.add_argument("--threshold", type=float, default=DEFAULT_MULTIDIMENSIONAL_THRESHOLD)
+    predict_parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
+    predict_parser.add_argument("--device", default="auto")
+    predict_parser.add_argument("--batch-size", type=int, default=16)
+    predict_parser.add_argument("--output-csv", required=True)
+    predict_parser.add_argument("--output-metrics")
+    return parser
+
+
+def main() -> None:
+    args = build_parser().parse_args()
+    public_config = json.loads(Path(args.public_config).read_text(encoding="utf-8-sig"))
+    validate_public_default_config(public_config)
     if args.command == "assemble":
-        res = assemble(args.weight, args.threshold, args.cal_1d, args.structure_csv, args.output_csv, args.output_metrics)
-        print("assemble n=%d BACC=%.4f MCC=%.4f AUROC=%.4f AUPRC=%.4f" % (
-            res["n"], res["metrics"]["balanced_accuracy"], res["metrics"]["mcc"],
-            res["metrics"]["auroc"], res["metrics"]["auprc"]))
+        result = assemble(
+            args.weight,
+            args.threshold,
+            args.cal_1d,
+            args.structure_csv,
+            args.output_csv,
+            args.output_metrics,
+            allow_noncanonical=args.allow_noncanonical_operating_point,
+        )
     else:
-        res = predict(args.processed, args.adapter, args.config_1d, args.checkpoints, args.oof_jsons,
-                      args.manifest, args.structure_checkpoint, args.weight, args.threshold,
-                      args.device, args.batch_size, args.output_csv, args.output_metrics)
-        print("predict n=%d BACC=%.4f MCC=%.4f AUROC=%.4f AUPRC=%.4f" % (
-            res["n"], res["metrics"]["balanced_accuracy"], res["metrics"]["mcc"],
-            res["metrics"]["auroc"], res["metrics"]["auprc"]))
+        result = predict(
+            args.processed,
+            args.sequence_records,
+            args.config_1d,
+            args.checkpoints,
+            args.oof_jsons,
+            args.manifest,
+            args.structure_checkpoint,
+            args.weight,
+            args.threshold,
+            args.device,
+            args.batch_size,
+            args.output_csv,
+            args.output_metrics,
+            allow_noncanonical=args.allow_noncanonical_operating_point,
+        )
+    metrics = result["metrics"]
+    print(
+        f"{args.command} n={result['n']} BACC={metrics['balanced_accuracy']:.4f} "
+        f"MCC={metrics['mcc']:.4f} AUROC={metrics['auroc']:.4f} AUPRC={metrics['auprc']:.4f}"
+    )
 
 
 if __name__ == "__main__":

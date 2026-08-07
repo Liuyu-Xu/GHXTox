@@ -25,6 +25,6 @@
     "status": "optional_high_recall_output",
     "reason_not_default": "higher recall/BACC but lower Test2 MCC and precision"
   },
-  "public_default": "configs/default_3d_hybrid.json",
+  "public_default": "configs/default_multidimensional_fusion.json",
   "role": "High-BACC/high-sensitivity sequence reference. It is not the public default model."
 }

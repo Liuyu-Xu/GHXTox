@@ -42,6 +42,23 @@ from torch import nn
 from torch.utils.data import DataLoader, Dataset
 
 
+PUBLIC_1D_EXPERIMENT = "lora_mamba_1d_combinationA_autodl"
+PUBLIC_1D_SEEDS = (42, 123, 2025)
+PUBLIC_1D_ARCHITECTURE_KEYS = (
+    "plm",
+    "token_dim",
+    "d_model",
+    "d_state",
+    "d_conv",
+    "expand",
+    "n_layers",
+    "lora_rank",
+    "lora_alpha",
+    "lora_dropout",
+    "dropout",
+    "max_length",
+)
+
 
 # ---------------------------------------------------------------------------
 # Local helpers (self-contained; no dependency on the rest of the ghxtox package)
@@ -577,6 +594,60 @@ def _trainable_state_dict(model: nn.Module) -> dict[str, torch.Tensor]:
     return {name: value for name, value in model.state_dict().items() if name in keys}
 
 
+def validate_public_checkpoint_payload(
+    payload: dict[str, Any],
+    reference_config: dict[str, Any],
+    *,
+    expected_seed: int | None = None,
+    model: nn.Module | None = None,
+    checkpoint_path: str | Path = "<checkpoint>",
+) -> None:
+    """Reject old, incomplete, or architecture-mismatched 1D checkpoints."""
+
+    if not isinstance(payload, dict) or "model_state" not in payload or "config" not in payload:
+        raise ValueError(f"{checkpoint_path}: not a LoRA-Mamba checkpoint payload.")
+    checkpoint_config = payload["config"]
+    experiment = checkpoint_config.get("experiment", {}).get("name")
+    if experiment != PUBLIC_1D_EXPERIMENT:
+        raise ValueError(
+            f"{checkpoint_path}: experiment {experiment!r} is not the public 1D expert "
+            f"{PUBLIC_1D_EXPERIMENT!r}."
+        )
+    for key in PUBLIC_1D_ARCHITECTURE_KEYS:
+        if checkpoint_config.get(key) != reference_config.get(key):
+            raise ValueError(
+                f"{checkpoint_path}: checkpoint/config mismatch for {key}: "
+                f"{checkpoint_config.get(key)!r} != {reference_config.get(key)!r}."
+            )
+    if checkpoint_config != reference_config:
+        raise ValueError(
+            f"{checkpoint_path}: checkpoint training configuration differs from the "
+            "declared public 1D configuration."
+        )
+    seed = payload.get("seed")
+    if expected_seed is not None and int(seed) != int(expected_seed):
+        raise ValueError(
+            f"{checkpoint_path}: checkpoint seed {seed!r} != expected seed {expected_seed}."
+        )
+    state = payload["model_state"]
+    if not isinstance(state, dict) or not state:
+        raise ValueError(f"{checkpoint_path}: model_state is empty or invalid.")
+    keys = set(state)
+    if not any(".lora_A" in key for key in keys) or not any(".lora_B" in key for key in keys):
+        raise ValueError(f"{checkpoint_path}: LoRA parameters are absent.")
+    if not any("forward_scan" in key for key in keys) or not any("backward_scan" in key for key in keys):
+        raise ValueError(f"{checkpoint_path}: bidirectional Mamba parameters are absent.")
+    if model is not None:
+        expected = {name for name, parameter in model.named_parameters() if parameter.requires_grad}
+        missing_trainable = sorted(expected - keys)
+        extra = sorted(keys - expected)
+        if missing_trainable or extra:
+            raise ValueError(
+                f"{checkpoint_path}: trainable-state contract mismatch; "
+                f"missing={missing_trainable[:5]}, extra={extra[:5]}."
+            )
+
+
 # ---------------------------------------------------------------------------
 # Commands
 # ---------------------------------------------------------------------------
@@ -632,7 +703,14 @@ def run_cv(
             fold_assignments[index] = fold
         if output_dir is not None:
             checkpoint_path = Path(output_dir) / f"fold{fold}_seed{seed}.pt"
-            torch.save({"model_state": _trainable_state_dict(model), "config": config, "fold": fold, "seed": seed}, checkpoint_path)
+            torch.save({
+                "artifact_type": "ghxtox_lora_bimamba_1d_checkpoint",
+                "schema_version": 1,
+                "model_state": _trainable_state_dict(model),
+                "config": config,
+                "fold": fold,
+                "seed": seed,
+            }, checkpoint_path)
         del plm, model
         if device.type == "cuda":
             torch.cuda.empty_cache()
@@ -694,7 +772,13 @@ def train_full(
     for _ in range(epochs):
         train_epoch(model, loader, optimizer, loss_fn, device, use_amp, scaler)
     Path(output).parent.mkdir(parents=True, exist_ok=True)
-    torch.save({"model_state": _trainable_state_dict(model), "config": config, "seed": seed}, output)
+    torch.save({
+        "artifact_type": "ghxtox_lora_bimamba_1d_checkpoint",
+        "schema_version": 1,
+        "model_state": _trainable_state_dict(model),
+        "config": config,
+        "seed": seed,
+    }, output)
     print("saved full checkpoint:", output)
 
 
@@ -707,12 +791,16 @@ def predict_csv(
     output_csv: str | Path,
 ) -> None:
     payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
-    config = {**config, **payload.get("config", {})}
+    validate_public_checkpoint_payload(payload, config, checkpoint_path=checkpoint)
     plm = _load_plm(config, device)
     model = build_model(plm, config, device)
+    validate_public_checkpoint_payload(payload, config, model=model, checkpoint_path=checkpoint)
     missing, unexpected = model.load_state_dict(payload["model_state"], strict=False)
-    if unexpected:
-        raise ValueError(f"Unexpected checkpoint keys: {unexpected[:5]}")
+    expected_missing = set(model.state_dict()) - set(payload["model_state"])
+    if unexpected or set(missing) != expected_missing:
+        raise ValueError(
+            f"{checkpoint}: unsafe partial load; missing={missing[:5]}, unexpected={unexpected[:5]}."
+        )
     collator = LoraMambaCollator(tokenizer, max_length=int(config.get("max_length", 128)))
     probabilities = predict_probs(model, LoraMambaDataset(records), collator, device, int(config.get("batch_size", 16)), bool(config.get("fp16", True)))
     Path(output_csv).parent.mkdir(parents=True, exist_ok=True)
