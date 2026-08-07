@@ -16,7 +16,7 @@ from typing import Any
 
 import torch
 
-from ghxtox.plm_textcnn import _read_labeled_fasta
+from ghxtox._legacy.plm_textcnn import _read_labeled_fasta
 from ghxtox.utils import resolve_device
 
 

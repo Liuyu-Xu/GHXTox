@@ -18,7 +18,7 @@ import sklearn
 from matplotlib.patches import Rectangle
 from sklearn.metrics import precision_recall_curve, roc_curve
 
-from ghxtox.plm_textcnn import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.publication_analysis import (
     ABLATIONS,
     COLORS,
@@ -39,12 +39,14 @@ from ghxtox.utils import load_json, save_json
 
 
 DEFAULT_PATHS = {
-    "Test1": "runs/default_3d_hybrid/test1_predictions.csv",
-    "Test2": "runs/default_3d_hybrid/test2_predictions.csv",
+    "Test1": "runs/default_multidimensional_fusion/test1_predictions.csv",
+    "Test2": "runs/default_multidimensional_fusion/test2_predictions.csv",
 }
-DEFAULT_THRESHOLD = 0.60
-DEFAULT_MODEL_KEY = "GHXTox-3D-Chemical-Adapter-Residual"
+DEFAULT_THRESHOLD = 0.47022256531284556
+DEFAULT_MODEL_KEY = "GHXTox-Multidimensional-Fusion"
+LEGACY_MODEL_KEY = "GHXTox-3D-Chemical-Adapter-Residual"
 COLORS[DEFAULT_MODEL_KEY] = COLORS["Archived 1D+3D"]
+COLORS[LEGACY_MODEL_KEY] = COLORS["Archived 1D+3D"]
 PAPER_METRICS = CORE_METRICS[:7]
 DEFAULT_COMPONENT_SUMMARIES = {
     "structure": "runs/3d_v2_multiseed/ensemble/summary.json",

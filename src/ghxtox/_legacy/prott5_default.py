@@ -15,7 +15,7 @@ from typing import Any
 import numpy as np
 import torch
 
-from ghxtox.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
+from ghxtox._legacy.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
 from ghxtox.utils import load_json, resolve_device, save_json
 
 

@@ -1,8 +1,10 @@
-"""Inference for the public GHXTox ProtT5-plus-3D default.
+"""LEGACY (previous-generation default) inference host: GHXTox-3D-Chemical-Adapter-Residual.
 
-The default requires a complete pLDDT-aware 3D chemical-site cache and the
-residue-aligned cross-modal adapter cache. The pure ProtT5 expert remains
-available through ``ghxtox-prott5-predict`` as an explicit ablation/reference.
+This module is the previous-generation baseline only. The current public
+default imports its pure 3D forward pass from ``ghxtox.structure_inference``
+and never imports this legacy sequence/adapter pipeline. The old
+ProtT5-TextCNN + cross-modal adapter + BACC residual route (threshold 0.60) is
+retained solely for explicit baseline/ablation reproduction.
 """
 
 from __future__ import annotations
@@ -17,37 +19,35 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from ghxtox.cross_modal_adapter import (
+from ghxtox._legacy.cross_modal_adapter import (
     CoupledFeatureDataset,
     ProtT5StructureAdapter,
     collate_coupled,
 )
-from ghxtox.data import PeptideTensorDataset, collate_peptides, validate_plm_feature_dim
-from ghxtox.models import GHXToxModel
-from ghxtox.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
+from ghxtox.structure_inference import predict_structure as _predict_structure
+from ghxtox._legacy.plm_textcnn import PooledPLMTextCNN, _predict, _probability_metrics
 from ghxtox.utils import (
-    DEFAULT_PUBLIC_CONFIG,
-    DEFAULT_PUBLIC_MODEL_NAME,
+    DEFAULT_LEGACY_HYBRID_CONFIG,
+    DEFAULT_LEGACY_HYBRID_MODEL_NAME,
     load_json,
     move_batch_to_device,
     resolve_device,
-    resolve_inference_checkpoint,
     save_json,
 )
 
 
-DEFAULT_CONFIG = DEFAULT_PUBLIC_CONFIG
+DEFAULT_CONFIG = DEFAULT_LEGACY_HYBRID_CONFIG
 
 
-def validate_public_default_config(config: dict[str, Any]) -> None:
-    """Reject configs that cannot represent the public 3D default contract."""
+def validate_legacy_hybrid_config(config: dict[str, Any]) -> None:
+    """Validate the explicitly requested previous-generation baseline."""
 
-    if config.get("canonical_public_default") is not True:
-        raise ValueError("Only the canonical 3D hybrid config may be the public default.")
-    if config.get("public_model_name") != DEFAULT_PUBLIC_MODEL_NAME:
+    if config.get("canonical_public_default") is not False:
+        raise ValueError("The previous-generation hybrid must not be a public default.")
+    if config.get("public_model_name") != DEFAULT_LEGACY_HYBRID_MODEL_NAME:
         raise ValueError(
-            "The public default must be "
-            f"{DEFAULT_PUBLIC_MODEL_NAME!r}; use a separate config for ablations."
+            "The legacy hybrid model must be "
+            f"{DEFAULT_LEGACY_HYBRID_MODEL_NAME!r}."
         )
     structure = config.get("structure_expert", {})
     inference = config.get("inference", {})
@@ -129,56 +129,6 @@ def validate_alignment(
         for index, (left, right) in enumerate(zip(structure_labels, labels)):
             if left is not None and int(left) != int(right):
                 raise ValueError(f"3D/ProtT5 label alignment mismatch at row {index}.")
-
-
-def _predict_structure(
-    processed_path: str | Path,
-    checkpoint_path: str | Path,
-    *,
-    device: torch.device,
-    batch_size: int,
-) -> dict[str, Any]:
-    dataset = PeptideTensorDataset(processed_path, require_labels=False)
-    checkpoint, selected, _, fallback_used = resolve_inference_checkpoint(
-        checkpoint_path, dataset.records, device, requested_threshold=None
-    )
-    config = checkpoint["config"]
-    model = GHXToxModel(config).to(device)
-    model.load_state_dict(checkpoint["model_state"])
-    model.eval()
-    required_dim = int(config.get("model", {}).get("plm_embedding_dim", 0))
-    validate_plm_feature_dim(dataset.records, required_dim, processed_path)
-    loader = DataLoader(
-        dataset, batch_size=int(batch_size), shuffle=False, collate_fn=collate_peptides
-    )
-    probabilities: list[torch.Tensor] = []
-    gates: list[torch.Tensor] = []
-    sample_ids: list[str] = []
-    sequences: list[str] = []
-    labels: list[int | None] = []
-    with torch.inference_mode():
-        for batch in loader:
-            sample_ids.extend(batch["sample_id"])
-            sequences.extend(batch["sequence"])
-            batch_labels = batch["labels"]
-            labels.extend(
-                [None] * len(batch["sample_id"])
-                if batch_labels is None
-                else [int(value) for value in batch_labels.tolist()]
-            )
-            batch = move_batch_to_device(batch, device)
-            output = model(batch)
-            probabilities.append(torch.sigmoid(output["logits"]).float().cpu())
-            gates.append(output["global_gate"].float().cpu())
-    return {
-        "sample_ids": sample_ids,
-        "sequences": sequences,
-        "labels": labels,
-        "probabilities": torch.cat(probabilities).numpy(),
-        "gates": torch.cat(gates).numpy(),
-        "checkpoint": selected,
-        "fallback_used": fallback_used,
-    }
 
 
 def _predict_prott5(
@@ -429,7 +379,7 @@ def predict_hybrid(
     disable_bacc_residual: bool = False,
 ) -> dict[str, Any]:
     config = load_json(config_path)
-    validate_public_default_config(config)
+    validate_legacy_hybrid_config(config)
     device = resolve_device(device_name)
     structure = _predict_structure(
         processed_path,

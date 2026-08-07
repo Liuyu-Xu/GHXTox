@@ -25,7 +25,7 @@ for path in "${required[@]}"; do
 done
 
 args=(
-    -u -B -m ghxtox.cross_modal_adapter train-oof
+    -u -B -m ghxtox._legacy.cross_modal_adapter train-oof
     --feature-cache "$FEATURE_CACHE"
     --output-dir "$OUTPUT_DIR"
     --device "$DEVICE"

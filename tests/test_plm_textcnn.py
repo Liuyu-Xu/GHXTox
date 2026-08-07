@@ -5,7 +5,7 @@ import csv
 import numpy as np
 import torch
 
-from ghxtox.plm_textcnn import (
+from ghxtox._legacy.plm_textcnn import (
     PooledPLMTextCNN,
     _read_labeled_fasta,
     _probability_metrics,

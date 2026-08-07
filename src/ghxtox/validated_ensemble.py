@@ -12,7 +12,7 @@ from typing import Any
 
 import numpy as np
 
-from ghxtox.plm_textcnn import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.utils import save_json
 
 

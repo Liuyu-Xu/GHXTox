@@ -1,8 +1,8 @@
 {
   "name": "GHXTox-3D-Chemical-Adapter-Residual",
   "public_model_name": "GHXTox-3D-Chemical-Adapter-Residual",
-  "canonical_public_default": true,
-  "status": "active_project_default",
+  "canonical_public_default": false,
+  "status": "legacy_baseline_only",
   "default_result": "runs/default_3d_hybrid",
   "primary_metric": "balanced_accuracy",
   "feature_model": "Rostlab/prot_t5_xl_half_uniref50-enc",

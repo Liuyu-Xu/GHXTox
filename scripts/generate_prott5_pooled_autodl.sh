@@ -13,7 +13,7 @@ MODEL_PATH="${MODEL_PATH:-Rostlab/prot_t5_xl_half_uniref50-enc}"
 OUTPUT="data/processed/train_prott5_official_mean.pt"
 ARCHIVE="data/prott5_train_official_mean.tar.gz"
 
-python -B -m ghxtox.plm_textcnn embed-prott5 \
+python -B -m ghxtox._legacy.plm_textcnn embed-prott5 \
   --fasta data/cdhit/input/train.fasta \
   --output "${OUTPUT}" \
   --model-path "${MODEL_PATH}" \

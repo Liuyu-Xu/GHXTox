@@ -1,0 +1,51 @@
+{
+ "canonical_public_default": true,
+ "public_model_name": "GHXTox-Multidimensional-Fusion",
+ "entrypoint": "ghxtox-predict",
+ "schema_version": 1,
+ "status": "active_project_default",
+ "composition": {
+  "1d_expert": {
+   "name": "combination A (LoRA-adapted ProtT5 + bidirectional Mamba)",
+   "experiment_name": "lora_mamba_1d_combinationA_autodl",
+   "seeds": [42, 123, 2025],
+   "checkpoints": [
+    "runs/lora_mamba_full/full_seed42.pt",
+    "runs/lora_mamba_full/full_seed123.pt",
+    "runs/lora_mamba_full/full_seed2025.pt"
+   ],
+   "oof_jsons": [
+    "runs/lora_mamba_full/oof_seed42.json",
+    "runs/lora_mamba_full/oof_seed123.json",
+    "runs/lora_mamba_full/oof_seed2025.json"
+   ],
+   "artifacts": "runs/lora_mamba_full/full_seed{42,123,2025}.pt",
+   "test_probabilities": "runs/lora_mamba_full/test{1,2}_lora_mamba_calibrated.csv",
+   "calibration": "OOF-fitted Platt (runs/lora_mamba_full/oof_calibrated.json)"
+  },
+  "3d_expert": {
+   "name": "pLDDT-aware multi-scale structure expert (Cα-EGNN + chemical sites + conformer residual)",
+   "checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
+   "test_probability_column": "structure_probability in runs/default_3d_hybrid/test{1,2}_predictions.csv"
+  }
+ },
+ "fusion": {
+  "formula": "p = w * p_1D + (1 - w) * p_3D",
+  "weight_1d": 0.72,
+  "weight_3d": 0.28,
+  "threshold": 0.47022256531284556,
+  "selection": "training-only group-aware OOF with current 3D-expert OOF; MCC objective (consistent protocol, adopted 2026-08-06)"
+ },
+ "outputs": {
+  "test_predictions": "runs/default_multidimensional_fusion/test{1,2}_predictions.csv",
+  "metrics": "runs/default_multidimensional_fusion/test{1,2}_metrics.json",
+  "summary": "runs/default_multidimensional_fusion/summary.json"
+ },
+ "provenance": {
+  "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+  "three_d_oof": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
+  "forbidden_mixed_oof": "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv",
+  "selection_artifact": "runs/lora_mamba_full/fusion_refreeze.json"
+ },
+ "protocol_audit_note": "Adopted the consistent/honest protocol: deployed operating point w=0.72, threshold=0.4702 selected on training OOF with the current 3D-expert OOF (MCC objective). Superseded the previous 0.62/0.4977 selected on the mixed (previous-generation fused) OOF. See runs/lora_mamba_full/protocol_audit.json."
+}

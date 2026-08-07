@@ -6,7 +6,7 @@ import json
 import torch
 from torch.utils.data import DataLoader
 
-from ghxtox.cross_modal_adapter import (
+from ghxtox._legacy.cross_modal_adapter import (
     CoupledFeatureDataset,
     ProtT5StructureAdapter,
     _build_balanced_conformer_sampler,

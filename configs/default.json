@@ -1,12 +1,12 @@
 {
   "seed": 42,
   "public_default": {
-    "config": "configs/default_3d_hybrid.json",
-    "model_name": "GHXTox-3D-Chemical-Adapter-Residual",
+    "config": "configs/default_multidimensional_fusion.json",
+    "model_name": "GHXTox-Multidimensional-Fusion",
     "entrypoint": "ghxtox-predict",
-    "role": "canonical public default; this file is the 3D-v2 expert training config used by that default"
+    "role": "canonical public default; this file is only the 3D expert training config consumed by it"
   },
-  "status": "active_3d_expert_for_public_default",
+  "status": "active_3d_expert_component_for_public_default",
   "data": {
     "max_length": 128,
     "structure_mode": "cached",
