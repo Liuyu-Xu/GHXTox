@@ -141,14 +141,17 @@ def _source_feature(source: str) -> torch.Tensor:
 def _manifest_summaries(
     manifest: str | Path,
     cache_root: str | Path,
-) -> dict[str, tuple[Path, str]]:
+) -> dict[str, tuple[Path, str, str]]:
     cache_root = Path(cache_root)
-    summaries: dict[str, tuple[Path, str]] = {}
+    summaries: dict[str, tuple[Path, str, str]] = {}
     with Path(manifest).open("r", encoding="utf-8", newline="") as handle:
         for row in csv.DictReader(handle):
             original_id = str(row.get("original_id") or row["sample_id"])
             indexed_id = str(row["sample_id"])
             source = str(row.get("source") or "unknown_conformer_generator").strip()
+            sequence = str(row.get("sequence") or "").strip().upper()
+            if not sequence:
+                raise ValueError(f"Conformer manifest has no sequence for {original_id}.")
             # Full-cohort archives may combine several cache roots.  Prefer a
             # portable manifest cache_path when it resolves locally; legacy
             # server-absolute paths transparently fall back to cache_root.
@@ -161,8 +164,8 @@ def _manifest_summaries(
                     path = manifest_summary
             if not path.exists():
                 raise FileNotFoundError(f"Missing ensemble summary for {original_id}: {path}")
-            previous = summaries.setdefault(original_id, (path, source))
-            if previous != (path, source):
+            previous = summaries.setdefault(original_id, (path, source, sequence))
+            if previous != (path, source, sequence):
                 raise ValueError(f"Multiple ensemble summaries were mapped to {original_id}.")
     return summaries
 
@@ -192,8 +195,17 @@ def attach_conformer_features(
     pilot_fold_manifest: str | Path | None = None,
     source_fold_manifest: str | Path | None = None,
     include_conformer_graphs: bool = False,
+    match_by_sequence: bool = False,
+    allow_unused_manifest_records: bool = False,
 ) -> dict[str, Any]:
-    """Attach descriptors by original sample ID and optionally create pilot-only files."""
+    """Attach descriptors and optionally create pilot-only files.
+
+    The default remains the strict original-ID join used during training.  A
+    sequence join is available for a declared dataset subset (for example,
+    Test2 is a sequence-exact subset of Test1).  Sequence joins reject
+    ambiguous source sequences and still verify the complete sequence before
+    attaching any descriptor.
+    """
 
     payload = torch.load(processed, map_location="cpu", weights_only=False)
     records = payload["records"]
@@ -206,7 +218,7 @@ def attach_conformer_features(
             "conformer_manifest and cache_root must have equal counts, or one cache_root "
             "must be supplied for all manifests."
         )
-    summaries: dict[str, tuple[Path, str]] = {}
+    summaries: dict[str, tuple[Path, str, str]] = {}
     sources: set[str] = set()
     for manifest, root in zip(manifests, cache_roots):
         current = _manifest_summaries(manifest, root)
@@ -217,10 +229,29 @@ def attach_conformer_features(
             )
         summaries.update(current)
         sources.update(_manifest_sources(manifest))
+    sequence_summaries: dict[str, tuple[str, tuple[Path, str, str]]] = {}
+    if match_by_sequence:
+        for original_id, entry in summaries.items():
+            sequence = entry[2]
+            previous = sequence_summaries.get(sequence)
+            if previous is not None and previous[0] != original_id:
+                raise ValueError(
+                    "Sequence matching is ambiguous: "
+                    f"{sequence} occurs for both {previous[0]} and {original_id}."
+                )
+            sequence_summaries[sequence] = (original_id, entry)
     covered_indices: list[int] = []
+    used_summary_ids: set[str] = set()
     for source_index, record in enumerate(records):
         sample_id = str(record["sample_id"])
-        summary_entry = summaries.get(sample_id)
+        record_sequence = str(record["sequence"]).strip().upper()
+        if match_by_sequence:
+            matched = sequence_summaries.get(record_sequence)
+            summary_id = matched[0] if matched is not None else None
+            summary_entry = matched[1] if matched is not None else None
+        else:
+            summary_id = sample_id if sample_id in summaries else None
+            summary_entry = summaries.get(sample_id)
         length = int(record["aa_ids"].shape[0])
         if summary_entry is None:
             record["conformer_residue_features"] = torch.zeros(
@@ -237,7 +268,12 @@ def attach_conformer_features(
             if include_conformer_graphs:
                 record["conformer_graph_expected"] = True
             continue
-        summary_path, source = summary_entry
+        summary_path, source, manifest_sequence = summary_entry
+        if manifest_sequence != record_sequence:
+            raise ValueError(
+                f"Sequence mismatch for {sample_id}: "
+                f"processed={record_sequence}, conformer_manifest={manifest_sequence}"
+            )
         residue_features, global_features = ensemble_feature_tensors(summary_path)
         if residue_features.shape[0] != length:
             raise ValueError(
@@ -264,10 +300,15 @@ def attach_conformer_features(
             record["conformer_graph_conformer_mask"] = graph["conformer_mask"]
             record["conformer_graph_expected"] = True
         covered_indices.append(source_index)
+        assert summary_id is not None
+        used_summary_ids.add(summary_id)
 
-    missing_ids = sorted(set(summaries) - {str(record["sample_id"]) for record in records})
-    if missing_ids:
-        raise ValueError(f"{len(missing_ids)} manifest IDs are absent from processed data, e.g. {missing_ids[:3]}")
+    unused_ids = sorted(set(summaries) - used_summary_ids)
+    if unused_ids and not allow_unused_manifest_records:
+        raise ValueError(
+            f"{len(unused_ids)} manifest IDs are absent from processed data, "
+            f"e.g. {unused_ids[:3]}"
+        )
     payload.setdefault("metadata", {})["conformer_ensemble"] = {
         "source": sorted(sources)[0] if len(sources) == 1 else sorted(sources),
         "manifest": [str(value) for value in manifests],
@@ -279,6 +320,9 @@ def attach_conformer_features(
         "source_feature_names": CONFORMER_SOURCE_NAMES,
         "missing_policy": "zero features with hard availability mask",
         "per_conformer_graphs": bool(include_conformer_graphs),
+        "matching_policy": "unique_sequence" if match_by_sequence else "original_sample_id",
+        "allow_unused_manifest_records": bool(allow_unused_manifest_records),
+        "unused_manifest_records": len(unused_ids),
         "max_conformers": CONFORMER_GRAPH_MAX_CONFORMERS,
         "max_site_slots": CONFORMER_GRAPH_MAX_SITE_SLOTS,
     }
@@ -333,6 +377,8 @@ def attach_conformer_features(
         "total_records": len(records),
         "covered_records": len(covered_indices),
         "coverage_fraction": len(covered_indices) / max(len(records), 1),
+        "matching_policy": "unique_sequence" if match_by_sequence else "original_sample_id",
+        "unused_manifest_records": len(unused_ids),
         "pilot_output": str(pilot_output) if pilot_output is not None else None,
         "pilot_fold_manifest": str(pilot_fold_manifest) if pilot_fold_manifest is not None else None,
     }
@@ -348,6 +394,16 @@ def main() -> None:
     parser.add_argument("--pilot-fold-manifest")
     parser.add_argument("--source-fold-manifest")
     parser.add_argument("--include-conformer-graphs", action="store_true")
+    parser.add_argument(
+        "--match-by-sequence",
+        action="store_true",
+        help="Join a declared subset to a unique source cache by exact sequence.",
+    )
+    parser.add_argument(
+        "--allow-unused-manifest-records",
+        action="store_true",
+        help="Allow the supplied source cache to be a strict superset of the processed records.",
+    )
     args = parser.parse_args()
     summary = attach_conformer_features(
         args.processed,
@@ -358,6 +414,8 @@ def main() -> None:
         pilot_fold_manifest=args.pilot_fold_manifest,
         source_fold_manifest=args.source_fold_manifest,
         include_conformer_graphs=args.include_conformer_graphs,
+        match_by_sequence=args.match_by_sequence,
+        allow_unused_manifest_records=args.allow_unused_manifest_records,
     )
     print(json.dumps(summary, indent=2))
 

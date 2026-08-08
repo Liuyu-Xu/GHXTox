@@ -21,7 +21,10 @@ def main() -> None:
     parser.add_argument("--threshold", type=float, default=DEFAULT_MULTIDIMENSIONAL_THRESHOLD)
     parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
     parser.add_argument("--one-d-dir", default="runs/lora_mamba_full")
-    parser.add_argument("--structure-dir", default="runs/default_3d_hybrid")
+    parser.add_argument(
+        "--structure-dir",
+        default="runs/default_multidimensional_fusion_multiconformer_extension",
+    )
     parser.add_argument("--output-dir", default="runs/default_multidimensional_fusion")
     args = parser.parse_args()
 
@@ -36,12 +39,15 @@ def main() -> None:
         "threshold": float(args.threshold),
         "components": {
             "1d": "calibrated three-seed LoRA-ProtT5 + bidirectional Mamba",
-            "3d": "pure structure_probability from the pLDDT-aware 3D expert",
+            "3d": (
+                "pure structure_probability from the pLDDT-aware 3D expert "
+                "with the retained audited multi-conformer residual"
+            ),
         },
     }
     for dataset in ("test1", "test2"):
         one_d_path = Path(args.one_d_dir) / f"{dataset}_lora_mamba_calibrated.csv"
-        structure_path = Path(args.structure_dir) / f"{dataset}_predictions.csv"
+        structure_path = Path(args.structure_dir) / f"{dataset}_structure_predictions.csv"
         prediction_path = output_dir / f"{dataset}_predictions.csv"
         metrics_path = output_dir / f"{dataset}_metrics.json"
         result = assemble(

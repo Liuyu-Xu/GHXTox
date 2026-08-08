@@ -26,7 +26,7 @@ import torch
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
-from ghxtox.hybrid_default import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.utils import save_json
 
 

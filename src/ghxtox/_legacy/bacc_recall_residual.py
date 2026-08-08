@@ -31,7 +31,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 
 from ghxtox.bioemu_boundary_moe import _logit, _read_csv
-from ghxtox.hybrid_default import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.utils import save_json
 
 

@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import numpy as np
+import pytest
 import torch
 
 from ghxtox.features import RESIDUE_FEATURE_DIM
@@ -107,6 +108,29 @@ def test_attach_maps_indexed_cache_to_original_id(tmp_path: Path) -> None:
     assert payload["records"][1]["conformer_available"] is False
 
 
+def test_attach_rejects_manifest_sequence_mismatch_even_when_id_and_length_match(
+    tmp_path: Path,
+) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("pep_1")]}, processed)
+    cache = tmp_path / "cache" / "scoped_pep_1"
+    cache.mkdir(parents=True)
+    _summary(cache / "ensemble_summary.npz")
+    manifest = tmp_path / "manifest.csv"
+    manifest.write_text(
+        "source_index,sample_id,original_id,sequence,label,conformer_index,cache_path\n"
+        "0,scoped_pep_1,pep_1,ACE,1,0,/server/conformer_0000.npz\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="Sequence mismatch for pep_1"):
+        attach_conformer_features(
+            processed,
+            manifest,
+            tmp_path / "cache",
+            tmp_path / "augmented.pt",
+        )
+
+
 def test_attach_uses_portable_manifest_paths_across_cache_roots(tmp_path: Path, monkeypatch) -> None:
     processed = tmp_path / "processed.pt"
     torch.save({"records": [_record("pep_1"), _record("pep_2")]}, processed)
@@ -154,6 +178,64 @@ def test_attach_combines_disjoint_manifests_and_tracks_generator(tmp_path: Path)
     assert summary["covered_records"] == 2
     assert payload["records"][0]["conformer_source_features"].tolist() == [1.0, 0.0, 0.0]
     assert payload["records"][1]["conformer_source_features"].tolist() == [0.0, 1.0, 0.0]
+
+
+def test_attach_sequence_subset_reuses_unique_source_without_copying_cache(
+    tmp_path: Path,
+) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("test2_id")]}, processed)
+    cache = tmp_path / "cache" / "test1_id"
+    cache.mkdir(parents=True)
+    _summary(cache / "ensemble_summary.npz")
+    unused = tmp_path / "cache" / "unused_test1_id"
+    unused.mkdir(parents=True)
+    _summary(unused / "ensemble_summary.npz")
+    manifest = tmp_path / "manifest.csv"
+    manifest.write_text(
+        "source_index,sample_id,original_id,sequence,label,conformer_index,source,cache_path\n"
+        "0,test1_id,test1_original,ACD,1,0,pepflow,/server/test1_id/conformer_0000.npz\n"
+        "1,unused_test1_id,unused_original,AAA,0,0,pepflow,/server/unused_test1_id/conformer_0000.npz\n",
+        encoding="utf-8",
+    )
+    output = tmp_path / "augmented.pt"
+    summary = attach_conformer_features(
+        processed,
+        manifest,
+        tmp_path / "cache",
+        output,
+        match_by_sequence=True,
+        allow_unused_manifest_records=True,
+    )
+    record = torch.load(output, map_location="cpu", weights_only=False)["records"][0]
+    assert record["conformer_available"] is True
+    assert summary["matching_policy"] == "unique_sequence"
+    assert summary["unused_manifest_records"] == 1
+
+
+def test_attach_sequence_subset_rejects_ambiguous_source_sequences(tmp_path: Path) -> None:
+    processed = tmp_path / "processed.pt"
+    torch.save({"records": [_record("test2_id")]}, processed)
+    for sample_id in ("first", "second"):
+        cache = tmp_path / "cache" / sample_id
+        cache.mkdir(parents=True)
+        _summary(cache / "ensemble_summary.npz")
+    manifest = tmp_path / "manifest.csv"
+    manifest.write_text(
+        "source_index,sample_id,original_id,sequence,label,conformer_index,source,cache_path\n"
+        "0,first,first_original,ACD,1,0,pepflow,/server/first/conformer_0000.npz\n"
+        "1,second,second_original,ACD,1,0,pepflow,/server/second/conformer_0000.npz\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="Sequence matching is ambiguous"):
+        attach_conformer_features(
+            processed,
+            manifest,
+            tmp_path / "cache",
+            tmp_path / "augmented.pt",
+            match_by_sequence=True,
+            allow_unused_manifest_records=True,
+        )
 
 
 def test_unavailable_conformer_branch_is_exact_fallback() -> None:

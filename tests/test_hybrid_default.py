@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 import torch
 
-from ghxtox.hybrid_default import combine_probabilities, validate_alignment
+from ghxtox._legacy.hybrid_default import combine_probabilities, validate_alignment
 
 
 def test_combine_probabilities_uses_frozen_convex_weight() -> None:

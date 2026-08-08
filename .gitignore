@@ -4,6 +4,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
 
 # =========================
 # 2. 虚拟环境（最容易导致体积超标）
@@ -42,10 +43,17 @@ Lib/
 !/scripts/run_boundary_bioemu_autodl.sh
 !/scripts/run_lora_mamba_full.sh
 !/scripts/calibrate_lora_mamba.py
+!/scripts/generate_paper_length_stratification.py
 !/scripts/refreeze_lora_mamba_fusion.py
 !/scripts/evaluate_lora_mamba_fusion.py
 !/scripts/ensemble_lora_mamba_predictions.py
 !/scripts/export_multidimensional_default.py
+!/scripts/prepare_test_conformer_tasks.py
+!/scripts/normalize_test_conformer_manifest.py
+!/scripts/audit_test_conformer_cache.py
+!/scripts/run_test_conformers_autodl.sh
+!/scripts/package_test_conformer_results.sh
+!/scripts/evaluate_default_multiconformer_extension.py
 
 # Keep the frozen Phase 30 protocol and compact reports, not fold weights/logs.
 /runs/ensemble_domain_ssl_3d/fold_*/
@@ -72,7 +80,9 @@ Lib/
 *.npy
 *.npz
 *.fasta
+!/paper_citations.csv
 !/reference_papers_innovations.csv
+!/reports/publication_analysis/figure6_length_multistructure_metrics.csv
 !/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
 !/runs/length_calibration_3d/oof_predictions.csv
 !/runs/length_calibration_3d/fusion_handoff.csv
@@ -122,6 +132,10 @@ Lib/
 !/data/bioemu_boundary_600/cache_600/conformer_manifest.csv
 !/data/bioemu_boundary_600/cache_600/import_summary.json
 !/data/bioemu_boundary_600/cache_600/import_checksums.sha256
+!/data/test_conformers/
+!/data/test_conformers/README_AUTODL.md
+!/data/test_conformers/tasks/
+!/data/test_conformers/tasks/**
 /dataset/
 /temp/
 

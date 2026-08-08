@@ -33,7 +33,7 @@ from ghxtox.bioemu_boundary_moe import (
     _read_csv,
     _sigmoid,
 )
-from ghxtox.hybrid_default import _probability_metrics
+from ghxtox._legacy.plm_textcnn import _probability_metrics
 from ghxtox.utils import save_json
 
 

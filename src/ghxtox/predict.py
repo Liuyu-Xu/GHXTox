@@ -2,7 +2,8 @@
 
 The public default is ghxtox.multidimensional_default (ghxtox-predict). This
 module exposes only the standalone 3D expert through ghxtox-structure-predict;
-the previous-generation hybrid baseline is kept in ghxtox.hybrid_default.
+the previous-generation hybrid baseline is isolated in
+ghxtox._legacy.hybrid_default.
 """
 
 from __future__ import annotations

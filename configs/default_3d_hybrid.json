@@ -19,7 +19,7 @@
     "processed_inputs": "data/processed/*_chemical_sites_final_esm2.pt",
     "required": true,
     "selection": "best retained 3D-v2 conformer-ensemble residual checkpoint",
-    "role": "3D expert inside the public joint model"
+    "role": "shared frozen 3D checkpoint used by this isolated legacy baseline; this configuration is not the public joint model"
   },
   "prott5_expert": {
     "checkpoint_dirs": [
@@ -95,7 +95,7 @@
   },
   "comparison_reference": {
     "pure_sequence_config": "configs/default_prott5.json",
-    "pure_sequence_entrypoint": "ghxtox-prott5-predict",
+    "pure_sequence_entrypoint": "python -m ghxtox._legacy.prott5_default",
     "pure_sequence_role": "BACC/SN ablation and fallback reference, not the public default"
   }
 }

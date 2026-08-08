@@ -1,8 +1,8 @@
 """Inference for the explicit ProtT5 sequence ablation.
 
-The public default is the 3D GHXTox-3D-Chemical-Adapter-Residual route in
-``ghxtox.hybrid_default``. This module intentionally exposes only the
-sequence-only reference, which is useful for ablation and explicit fallback.
+The public default is ``ghxtox.multidimensional_default``. The previous
+GHXTox-3D-Chemical-Adapter-Residual route and this sequence-only reference are
+isolated under ``ghxtox._legacy`` for explicit ablation reproduction only.
 """
 
 from __future__ import annotations

@@ -1,0 +1,206 @@
+{
+  "status": "completed",
+  "comparison_scope": "Latest 1D and operating point held fixed for the single-structure versus multi-structure-enabled comparison.",
+  "results": [
+    {
+      "dataset": "test1",
+      "n": 1126,
+      "weight_1d": 0.72,
+      "weight_3d": 0.28,
+      "threshold": 0.4702225653,
+      "sources": {
+        "previous_default": "runs\\default_3d_hybrid\\test1_predictions.csv",
+        "current_1d_and_multi_3d": "runs\\default_multidimensional_fusion\\test1_predictions.csv",
+        "single_structure_3d": "runs\\3d_v2_default\\test1_predictions.csv"
+      },
+      "three_d_probability_comparison": {
+        "max_absolute_multi_minus_single": 5.587800000012022e-06,
+        "count_above_1e_minus_5": 0,
+        "interpretation": "The held-out multi-structure-enabled 3D stream is numerically equivalent to the single-structure fallback at the metric level."
+      },
+      "strata": {
+        "11--15": {
+          "n": 130,
+          "n_positive": 30,
+          "n_negative": 100,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.8283333333333334,
+              "mcc": 0.7517660387905153,
+              "auprc": 0.9350460000784248
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.8566666666666667,
+              "mcc": 0.7746304995941404,
+              "auprc": 0.8878391109198251
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.8566666666666667,
+              "mcc": 0.7746304995941404,
+              "auprc": 0.8878391109198251
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        },
+        "16--30": {
+          "n": 356,
+          "n_positive": 121,
+          "n_negative": 235,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.8982064357306137,
+              "mcc": 0.8163962300266551,
+              "auprc": 0.9366923721697923
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.8939511165816776,
+              "mcc": 0.8037019521322778,
+              "auprc": 0.9444302796945615
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.8939511165816776,
+              "mcc": 0.8037019521322778,
+              "auprc": 0.9444302796945615
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        },
+        "31--50": {
+          "n": 640,
+          "n_positive": 169,
+          "n_negative": 471,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.9604077940677647,
+              "mcc": 0.9090989253343421,
+              "auprc": 0.9889155803021621
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.9714066759632658,
+              "mcc": 0.9291854518131539,
+              "auprc": 0.9901214037565927
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.9714066759632658,
+              "mcc": 0.9291854518131539,
+              "auprc": 0.9901214037565927
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "test2",
+      "n": 582,
+      "weight_1d": 0.72,
+      "weight_3d": 0.28,
+      "threshold": 0.4702225653,
+      "sources": {
+        "previous_default": "runs\\default_3d_hybrid\\test2_predictions.csv",
+        "current_1d_and_multi_3d": "runs\\default_multidimensional_fusion\\test2_predictions.csv",
+        "single_structure_3d": "runs\\3d_v2_default\\test2_predictions.csv"
+      },
+      "three_d_probability_comparison": {
+        "max_absolute_multi_minus_single": 3.275000000080297e-07,
+        "count_above_1e_minus_5": 0,
+        "interpretation": "The held-out multi-structure-enabled 3D stream is numerically equivalent to the single-structure fallback at the metric level."
+      },
+      "strata": {
+        "11--15": {
+          "n": 122,
+          "n_positive": 22,
+          "n_negative": 100,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.8586363636363636,
+              "mcc": 0.7962996929025719,
+              "auprc": 0.9089650326449177
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.8763636363636363,
+              "mcc": 0.7980931424941898,
+              "auprc": 0.8477111031795581
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.8763636363636363,
+              "mcc": 0.7980931424941898,
+              "auprc": 0.8477111031795581
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        },
+        "16--30": {
+          "n": 162,
+          "n_positive": 9,
+          "n_negative": 153,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.803921568627451,
+              "mcc": 0.4803460137413101,
+              "auprc": 0.4803160661131676
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.7483660130718954,
+              "mcc": 0.4049433357342429,
+              "auprc": 0.5881554947560419
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.7483660130718954,
+              "mcc": 0.4049433357342429,
+              "auprc": 0.5881554947560419
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        },
+        "31--50": {
+          "n": 298,
+          "n_positive": 15,
+          "n_negative": 283,
+          "models": {
+            "Previous multidimensional default": {
+              "balanced_accuracy": 0.9138987043580683,
+              "mcc": 0.6650924343297189,
+              "auprc": 0.8713074520303435
+            },
+            "Current + single-structure 3D": {
+              "balanced_accuracy": 0.917432273262662,
+              "mcc": 0.6980539428502259,
+              "auprc": 0.8888575409265065
+            },
+            "Current multi-structure-enabled default (fallback)": {
+              "balanced_accuracy": 0.917432273262662,
+              "mcc": 0.6980539428502259,
+              "auprc": 0.8888575409265065
+            }
+          },
+          "multi_minus_single": {
+            "balanced_accuracy": 0.0,
+            "mcc": 0.0,
+            "auprc": 0.0
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""LEGACY (previous-generation default) inference host: GHXTox-3D-Chemical-Adapter-Residual.
+"""Isolated legacy inference host: GHXTox-3D-Chemical-Adapter-Residual.
 
 This module is the previous-generation baseline only. The current public
 default imports its pure 3D forward pass from ``ghxtox.structure_inference``
@@ -55,19 +55,19 @@ def validate_legacy_hybrid_config(config: dict[str, Any]) -> None:
     fusion = config.get("fusion", {})
     bacc_residual = config.get("bacc_residual", {})
     if not structure.get("required", False):
-        raise ValueError("The public default requires the 3D structure expert.")
+        raise ValueError("The legacy hybrid baseline requires the 3D structure expert.")
     if not inference.get("full_3d_required", False):
-        raise ValueError("The public default must require complete 3D inputs.")
+        raise ValueError("The legacy hybrid baseline requires complete 3D inputs.")
     if not inference.get("adapter_required", False):
-        raise ValueError("The public default must require the cross-modal adapter.")
+        raise ValueError("The legacy hybrid baseline requires the cross-modal adapter.")
     if not adapter.get("required", False):
-        raise ValueError("The public default must require the interaction adapter.")
+        raise ValueError("The legacy hybrid baseline requires the interaction adapter.")
     prott5_weight = float(fusion.get("prott5_weight", -1.0))
     structure_weight = float(fusion.get("structure_weight", -1.0))
     if abs(prott5_weight + structure_weight - 1.0) > 1e-8:
-        raise ValueError("Public default fusion weights must sum to one.")
+        raise ValueError("Legacy hybrid fusion weights must sum to one.")
     if bacc_residual.get("enabled") is not True:
-        raise ValueError("The public default requires the frozen BACC decision residual.")
+        raise ValueError("The legacy hybrid baseline requires its frozen BACC residual.")
     if not bacc_residual.get("artifact"):
         raise ValueError("Enabled BACC residual must declare a deployable artifact.")
     if bacc_residual.get("decision_only") is not True:
@@ -599,7 +599,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--adapter-feature-cache",
         help=(
-            "Residue-aligned ProtT5/3D/chemical feature cache required by the public default. "
+            "Residue-aligned ProtT5/3D/chemical cache required by the legacy baseline. "
             "Omit only with --allow-pre-adapter for an explicit ablation."
         ),
     )

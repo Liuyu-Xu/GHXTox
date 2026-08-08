@@ -13,6 +13,7 @@ import argparse
 import csv
 import json
 import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -39,6 +40,15 @@ DEFAULT_OOF_JSONS = tuple(
 )
 DEFAULT_MANIFEST = "data/folds/train_cdhit080_fallback_folds.csv"
 DEFAULT_STRUCTURE_CHECKPOINT = "runs/3d_v2_conformer_ensemble_candidate/best_model.pt"
+DEFAULT_1D_CONFIG = "configs/lora_mamba_1d_autodl.json"
+LEGACY_STRUCTURE_COLUMNS = {
+    "prott5_probability",
+    "interaction_delta",
+    "interaction_adapter_applied",
+    "bacc_gate_probability",
+    "bacc_residual_active",
+    "bacc_residual_applied",
+}
 
 
 def _logit(probabilities: Any) -> np.ndarray:
@@ -91,6 +101,12 @@ def validate_public_default_config(config: dict[str, Any]) -> None:
         "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv"
     ):
         raise ValueError("Canonical 3D OOF must be the pure current 3D expert OOF.")
+    structure = config.get("composition", {}).get("3d_expert", {})
+    if structure.get("checkpoint") != DEFAULT_STRUCTURE_CHECKPOINT:
+        raise ValueError("Canonical 3D checkpoint is missing or stale.")
+    probability_source = str(structure.get("test_probability_column", "")).lower()
+    if "default_3d_hybrid" in probability_source or "legacy" in probability_source:
+        raise ValueError("Canonical structure probabilities must not come from a legacy container.")
 
 
 def _validate_operating_point(weight: float, threshold: float, allow_noncanonical: bool) -> None:
@@ -136,7 +152,28 @@ def _read_probability_csv(path: str | Path, probability_key: str) -> tuple[list[
     return order, records
 
 
+def _reject_legacy_structure_csv(path: str | Path) -> None:
+    """Prevent the public assembler from consuming previous hybrid outputs."""
+
+    source = Path(path)
+    normalized = str(source).replace("\\", "/").lower()
+    if any(token in normalized for token in ("default_3d_hybrid", "/_legacy/", "hybrid_default")):
+        raise ValueError(
+            "The public multidimensional assembler refuses a legacy hybrid prediction path. "
+            "Use a pure current 3D structure prediction CSV."
+        )
+    with source.open("r", encoding="utf-8-sig", newline="") as handle:
+        fields = set(next(csv.reader(handle), []))
+    leaked = sorted(fields & LEGACY_STRUCTURE_COLUMNS)
+    if leaked:
+        raise ValueError(
+            "The structure CSV contains previous-hybrid model columns and cannot enter the "
+            f"public default: {leaked}."
+        )
+
+
 def _aligned_components(calibrated_1d: str | Path, structure_csv: str | Path):
+    _reject_legacy_structure_csv(structure_csv)
     ids, one_d = _read_probability_csv(calibrated_1d, "toxicity_probability")
     structure_ids, three_d = _read_probability_csv(structure_csv, "structure_probability")
     if set(ids) != set(structure_ids):
@@ -199,22 +236,43 @@ def _write_predictions(
     fused: np.ndarray,
     threshold: float,
     weight_1d: float,
+    *,
+    sequences: list[str] | None = None,
+    p_3d_base: np.ndarray | None = None,
+    conformer_available: np.ndarray | None = None,
+    conformer_delta: np.ndarray | None = None,
 ) -> None:
     prediction = (fused >= threshold).astype(int)
     destination = Path(output_csv)
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle)
-        writer.writerow([
+        header = [
             "source_index", "sample_id", "label", "p_1d", "p_3d",
             "toxicity_probability", "prediction", "decision_threshold", "weight_1d",
-        ])
+        ]
+        if sequences is not None:
+            header.insert(2, "sequence")
+        if p_3d_base is not None:
+            header.extend(["p_3d_base", "conformer_available", "conformer_logit_delta"])
+        writer.writerow(header)
         for index, sample_id in enumerate(sample_ids):
-            writer.writerow([
+            row: list[Any] = [
                 index, sample_id, int(labels[index]), f"{p_1d[index]:.10g}",
                 f"{p_3d[index]:.10g}", f"{fused[index]:.10g}", int(prediction[index]),
                 f"{threshold:.10g}", f"{weight_1d:.6g}",
-            ])
+            ]
+            if sequences is not None:
+                row.insert(2, sequences[index])
+            if p_3d_base is not None:
+                row.extend(
+                    [
+                        f"{p_3d_base[index]:.10g}",
+                        int(bool(conformer_available[index])) if conformer_available is not None else 0,
+                        f"{conformer_delta[index]:.10g}" if conformer_delta is not None else "0",
+                    ]
+                )
+            writer.writerow(row)
 
 
 def assemble(
@@ -347,6 +405,40 @@ def _validate_sequence_records(records) -> None:
             raise ValueError(f"Invalid label for {record.sample_id}.")
 
 
+def _canonical_path(path: str | Path) -> Path:
+    return Path(path).resolve(strict=False)
+
+
+def _validate_canonical_predict_assets(
+    config_1d: str | Path,
+    checkpoints: list[str | Path] | tuple[str | Path, ...],
+    oof_jsons: list[str | Path] | tuple[str | Path, ...],
+    manifest: str | Path,
+    structure_checkpoint: str | Path,
+) -> None:
+    """Keep the public predictor pinned to the audited current-generation assets."""
+
+    expected_groups = (
+        ("1D config", [config_1d], [DEFAULT_1D_CONFIG]),
+        ("1D checkpoints", list(checkpoints), list(DEFAULT_CHECKPOINTS)),
+        ("1D OOF files", list(oof_jsons), list(DEFAULT_OOF_JSONS)),
+        ("fold manifest", [manifest], [DEFAULT_MANIFEST]),
+        ("3D checkpoint", [structure_checkpoint], [DEFAULT_STRUCTURE_CHECKPOINT]),
+    )
+    for label, supplied, expected in expected_groups:
+        if [_canonical_path(value) for value in supplied] != [
+            _canonical_path(value) for value in expected
+        ]:
+            raise ValueError(
+                f"The public predictor requires the canonical {label}; "
+                "use a dedicated research/legacy module for ablations."
+            )
+    for value in [config_1d, *checkpoints, *oof_jsons, manifest, structure_checkpoint]:
+        normalized = str(value).replace("\\", "/").lower()
+        if any(token in normalized for token in ("/_legacy/", "hybrid_default", "default_3d_hybrid")):
+            raise ValueError("Legacy model assets are forbidden in the public predictor.")
+
+
 def predict(
     processed_path,
     sequence_records_path,
@@ -363,6 +455,11 @@ def predict(
     output_metrics=None,
     *,
     allow_noncanonical=False,
+    conformer_manifests=None,
+    conformer_cache_roots=None,
+    conformer_match_by_sequence=False,
+    allow_unused_conformer_records=False,
+    conformer_processed_output=None,
 ):
     import torch
     from transformers import T5Tokenizer
@@ -371,6 +468,9 @@ def predict(
     from ghxtox.structure_inference import predict_structure
 
     _validate_operating_point(weight, threshold, allow_noncanonical)
+    _validate_canonical_predict_assets(
+        config_1d, checkpoints, oof_jsons, manifest, structure_checkpoint
+    )
     config = json.loads(Path(config_1d).read_text(encoding="utf-8-sig"))
     if config.get("experiment", {}).get("name") != PUBLIC_1D_EXPERIMENT:
         raise ValueError("The 1D config is not the canonical LoRA-BiMamba experiment.")
@@ -403,9 +503,47 @@ def predict(
     ensemble_probability = np.mean(np.stack(seed_probabilities), axis=0)
     p_1d = 1.0 / (1.0 + np.exp(-(slope * _logit(ensemble_probability) + intercept)))
 
-    structure = predict_structure(
-        processed_path, structure_checkpoint, device=device, batch_size=batch_size
-    )
+    manifests = list(conformer_manifests or [])
+    cache_roots = list(conformer_cache_roots or [])
+    if bool(manifests) != bool(cache_roots):
+        raise ValueError(
+            "--conformer-manifest and --conformer-cache-root must be supplied together."
+        )
+    temporary_processed: Path | None = None
+    structure_processed = Path(processed_path)
+    conformer_extension: dict[str, Any] = {"enabled": False}
+    if manifests:
+        from ghxtox.conformer_features import attach_conformer_features
+
+        if conformer_processed_output:
+            structure_processed = Path(conformer_processed_output)
+        else:
+            output_parent = Path(output_csv).parent
+            output_parent.mkdir(parents=True, exist_ok=True)
+            handle = tempfile.NamedTemporaryFile(
+                prefix="ghxtox_conformer_", suffix=".pt", dir=output_parent, delete=False
+            )
+            handle.close()
+            temporary_processed = Path(handle.name)
+            structure_processed = temporary_processed
+        conformer_extension = {
+            "enabled": True,
+            **attach_conformer_features(
+                processed_path,
+                manifests,
+                cache_roots,
+                structure_processed,
+                match_by_sequence=bool(conformer_match_by_sequence),
+                allow_unused_manifest_records=bool(allow_unused_conformer_records),
+            ),
+        }
+    try:
+        structure = predict_structure(
+            structure_processed, structure_checkpoint, device=device, batch_size=batch_size
+        )
+    finally:
+        if temporary_processed is not None:
+            temporary_processed.unlink(missing_ok=True)
     structure_ids = [str(value) for value in structure["sample_ids"]]
     if len(structure_ids) != len(set(structure_ids)):
         raise ValueError("3D inference returned duplicate sample IDs.")
@@ -429,7 +567,31 @@ def predict(
     labels = np.asarray([int(record.label) for record in records], dtype=np.int64)
     p_3d = np.asarray([structure_map[sample_id][0] for sample_id in ids])
     fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
-    _write_predictions(output_csv, ids, labels, p_1d, p_3d, fused, threshold, weight)
+    structure_index = {sample_id: index for index, sample_id in enumerate(structure_ids)}
+    p_3d_base = np.asarray(
+        [structure["base_probabilities"][structure_index[sample_id]] for sample_id in ids]
+    )
+    available = np.asarray(
+        [structure["conformer_available"][structure_index[sample_id]] for sample_id in ids],
+        dtype=bool,
+    )
+    conformer_delta = np.asarray(
+        [structure["conformer_deltas"][structure_index[sample_id]] for sample_id in ids]
+    )
+    _write_predictions(
+        output_csv,
+        ids,
+        labels,
+        p_1d,
+        p_3d,
+        fused,
+        threshold,
+        weight,
+        sequences=[str(record.sequence) for record in records],
+        p_3d_base=p_3d_base,
+        conformer_available=available,
+        conformer_delta=conformer_delta,
+    )
     result_metrics = _metrics(labels, fused, threshold)
     summary = {
         "model": DEFAULT_MULTIDIMENSIONAL_MODEL_NAME,
@@ -441,6 +603,13 @@ def predict(
         "checkpoints": [str(path) for path in checkpoints],
         "oof_jsons": [str(path) for path in oof_jsons],
         "structure_checkpoint": str(structure_checkpoint),
+        "conformer_extension": {
+            **conformer_extension,
+            "available_records": int(available.sum()),
+            "mean_absolute_logit_delta_available": float(
+                np.abs(conformer_delta[available]).mean() if available.any() else 0.0
+            ),
+        },
         "metrics": result_metrics,
     }
     if output_metrics:
@@ -474,7 +643,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--sequence-records", "--adapter", dest="sequence_records", required=True,
         help="Sequence/label record cache; --adapter is a deprecated compatibility alias.",
     )
-    predict_parser.add_argument("--config-1d", default="configs/lora_mamba_1d_autodl.json")
+    predict_parser.add_argument("--config-1d", default=DEFAULT_1D_CONFIG)
     predict_parser.add_argument("--checkpoints", nargs="+", default=list(DEFAULT_CHECKPOINTS))
     predict_parser.add_argument("--oof-jsons", nargs="+", default=list(DEFAULT_OOF_JSONS))
     predict_parser.add_argument("--manifest", default=DEFAULT_MANIFEST)
@@ -486,6 +655,30 @@ def build_parser() -> argparse.ArgumentParser:
     predict_parser.add_argument("--batch-size", type=int, default=16)
     predict_parser.add_argument("--output-csv", required=True)
     predict_parser.add_argument("--output-metrics")
+    predict_parser.add_argument(
+        "--conformer-manifest",
+        nargs="+",
+        help="One or more audited conformer manifests used to extend the 3D expert.",
+    )
+    predict_parser.add_argument(
+        "--conformer-cache-root",
+        nargs="+",
+        help="Cache root corresponding to each conformer manifest.",
+    )
+    predict_parser.add_argument(
+        "--conformer-match-by-sequence",
+        action="store_true",
+        help="Use an exact unique-sequence join for a declared dataset subset.",
+    )
+    predict_parser.add_argument(
+        "--allow-unused-conformer-records",
+        action="store_true",
+        help="Allow a source conformer cache to be a strict superset of the prediction set.",
+    )
+    predict_parser.add_argument(
+        "--conformer-processed-output",
+        help="Optionally retain the augmented processed cache instead of using a temporary file.",
+    )
     return parser
 
 
@@ -519,6 +712,11 @@ def main() -> None:
             args.output_csv,
             args.output_metrics,
             allow_noncanonical=args.allow_noncanonical_operating_point,
+            conformer_manifests=args.conformer_manifest,
+            conformer_cache_roots=args.conformer_cache_root,
+            conformer_match_by_sequence=args.conformer_match_by_sequence,
+            allow_unused_conformer_records=args.allow_unused_conformer_records,
+            conformer_processed_output=args.conformer_processed_output,
         )
     metrics = result["metrics"]
     print(

@@ -40,6 +40,9 @@ def predict_structure(
         dataset, batch_size=int(batch_size), shuffle=False, collate_fn=collate_peptides
     )
     probabilities: list[torch.Tensor] = []
+    base_probabilities: list[torch.Tensor] = []
+    conformer_deltas: list[torch.Tensor] = []
+    conformer_available: list[torch.Tensor] = []
     gates: list[torch.Tensor] = []
     sample_ids: list[str] = []
     sequences: list[str] = []
@@ -57,12 +60,30 @@ def predict_structure(
             batch = move_batch_to_device(batch, device)
             output = model(batch)
             probabilities.append(torch.sigmoid(output["logits"]).float().cpu())
+            base_logits = output.get("base_logits", output["logits"])
+            base_probabilities.append(torch.sigmoid(base_logits).float().cpu())
+            conformer_deltas.append(
+                output.get("conformer_delta", torch.zeros_like(output["logits"]))
+                .float()
+                .cpu()
+            )
+            conformer_available.append(
+                output.get(
+                    "conformer_available",
+                    torch.zeros_like(output["logits"], dtype=torch.bool),
+                )
+                .bool()
+                .cpu()
+            )
             gates.append(output["global_gate"].float().cpu())
     return {
         "sample_ids": sample_ids,
         "sequences": sequences,
         "labels": labels,
         "probabilities": torch.cat(probabilities).numpy(),
+        "base_probabilities": torch.cat(base_probabilities).numpy(),
+        "conformer_deltas": torch.cat(conformer_deltas).numpy(),
+        "conformer_available": torch.cat(conformer_available).numpy(),
         "gates": torch.cat(gates).numpy(),
         "checkpoint": selected,
         "fallback_used": fallback_used,
