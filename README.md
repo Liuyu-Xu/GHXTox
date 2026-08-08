@@ -3884,6 +3884,56 @@ Test2（n=582）：BACC +0.0009、MCC +0.0071、SP +0.0019、AUPRC +0.0197、Bri
   `--three-d-oof` 默认改为当前 3D 专家 OOF，并已按一致口径重跑（长度分层/阈值实验负结论不变）。
 - 审计证据：`runs/lora_mamba_full/protocol_audit.json`；canonical 产物：`runs/default_multidimensional_fusion/`、
   `runs/lora_mamba_full/fusion_refreeze.json`、`runs/lora_mamba_full/test_fusion_metrics.json`。
+
+## 论文解释性分析与英文审校状态（2026-08-08）
+
+### 已完成工作
+
+- 已基于保留的当前默认模型完成匹配解释性实验，没有重训练、重新校准或使用 Test1/Test2 调整融合权重与阈值。
+- 1D 分析采用三种冻结种子的固定表示残基遮蔽：在 ProtT5 上下文化之后将单个残基向量置零，并保持原推理批次、Bi-Mamba、池化、Platt 校准和阈值不变。该分析衡量模型敏感性，不等同于氨基酸突变、Integrated Gradients 或生物学因果验证。
+- 3D 分析包含逐化学位点、逐化学类别和逐残基位点删除；非目标序列、几何、pLDDT、其余位点、构象描述符、模型权重及阈值均保持不变。
+- pLDDT--门控分析覆盖全部 1,126 条 Test1 与 582 条 Test2 记录；专家一致性分析使用训练侧冻结的 1D/3D 阈值和最终融合阈值。
+- 正式解释性队列由预先规定的规则选出 16 条肽，不依据归因强度挑选。冻结输出包括 460 条残基遮蔽、52,935 条残基层门控记录、445 条单个位点删除、121 条类别删除和 424 条残基级位点删除。
+- 结果校验已覆盖 13 个输出文件校验和、17 个源文件哈希、队列平衡、残基位置、归一化、概率差恒等式、门控范围、删除目标唯一性、行数和专家分组计数，均已通过。
+- `v1.tex` 的 Methods、Results、Limitations 和 Conclusions 已按实际完成的实验重写。摘要与引言不再把模型敏感性写成“生物学解释”；相关性、遮蔽和删除结果均使用非因果措辞。
+- 新增英文经过两轮语域审校：减少模板化过渡、重复免责声明、工程日志式表述、过度对称的长句和宣传性措辞，使其与论文前后文的时态、术语和证据强度一致。
+- 当前只预留四个解释性图位并附英文图内说明与完整 caption：Test1 残基遮蔽、Test2 残基遮蔽、结构置信度与化学位点敏感性、专家分歧与代表案例。按当前决定，尚未生成正式图。
+- 所有模型实验均使用独立环境 `D:\dachuang2026\ziliao\ghxtox_runtime_py310\Scripts\python.exe`；没有升级或改动用户原 PyTorch 环境，也没有为了作图安装新包。
+
+正式论文数据位于：
+
+- `paper_figures/data/current_interpretability/frozen_results/`
+- `paper_figures/data/current_interpretability/frozen_results/checksums.sha256`
+- `paper_figures/data/current_interpretability/frozen_results/input_manifest.csv`
+
+实现与复核入口：
+
+- `paper_figures/scripts/prepare_current_interpretability_inputs.py`
+- `paper_figures/scripts/run_current_interpretability.py`
+- `paper_figures/scripts/verify_current_interpretability.py`
+
+只复核已经冻结的正式结果时，不会运行模型或修改 PyTorch：
+
+```powershell
+python .\paper_figures\scripts\verify_current_interpretability.py `
+  --repo-root . `
+  --result-dir .\paper_figures\data\current_interpretability\frozen_results
+```
+
+如以后需要完整重跑，必须继续使用上述独立环境，并写入新的输出目录；`--mode smoke` 只用于调试，不能作为论文证据。
+
+### 投稿前仍未完成或仍需完善
+
+1. **九幅正式图片尚未制作。** 包括总体框架、3D 专家细节、判别与校准、专家互补、模块消融，以及四幅解释性图。目前工程中没有 `figures/` 目录。多构象 Test1/Test2 已以两张表呈现，不在缺图清单中。
+2. **作者与投稿元数据未填写。** `v1.tex` 仍使用占位作者名，缺少单位、通讯作者、邮箱、ORCID、CRediT 角色、致谢、基金和最终利益冲突核对。
+3. **硬件与软件环境段落未完成。** 需要写明正式实验对应的 GPU、CUDA、Python、PyTorch、Transformers、PyG/相关图学习库及关键版本，并区分用户原环境与本次隔离运行环境。
+4. **Data and Software Availability 尚未定稿。** GitHub 地址已知，但仍缺干净的发布 commit/tag、release、许可证、长期归档地址或 DOI，以及可以公开分发的模型和数据清单。
+5. **Supporting Information 尚未制作。** 需要整理补充方法、折级结果、超参数、扩展消融、统计输出、解释性明细表和必要的补充图；当前正文只保留将随投稿提供的说明。
+6. **没有真正独立的新外部测试集。** Test1/Test2 是冻结的历史基准，且 Test2 与 Test1 存在精确序列包含关系；现有结果不能表述为新外部验证或独立重复。
+7. **当前多构象预测向量的配对 bootstrap 尚未重新生成。** 因此当前模型与上一版本的差异只能报告点估计，不能声称统计显著优于基线。
+8. **目标期刊尚未确定。** 标题页、摘要字数、章节结构、参考文献格式、图片尺寸、数据可用性措辞和补充材料组织仍需按最终期刊模板调整。
+9. **全文仍建议进行一次统一母语级终审。** 本轮已重点审校新增解释性内容及与之关联的摘要、引言、局限性和结论；早期长篇模型描述中仍存在较多重复过渡和长句，投稿前应进行全篇一致的语言压缩。
+
 ## 2026-08 变更日志（合并自 findings/progress/task_plan）
 
 - 2026-08-03：默认模型（GHXTox-3D-Chemical-Adapter-Residual）导师汇报基线冻结；BACC 残差决策头晋级。
@@ -3900,7 +3950,9 @@ Test2（n=582）：BACC +0.0009、MCC +0.0071、SP +0.0019、AUPRC +0.0197、Bri
 `reports/mentor_report/REPORT.md`（导师汇报）。原 `findings.md`、`progress.md`、`task_plan.md`、
 `reports/combinationA_analysis.md`、`reports/combinationA_final_results.md`、`reports/lora_mamba_pilot.md`、
 `reports/publication_analysis/REPORT.md`、`docs/default_model.md`、`docs/README_lora_mamba_autodl.md`、
-`docs/README_lora_mamba_mutate_autodl.md` 的关键内容已并入本文件与导师报告，原文件已删除。
+`docs/README_lora_mamba_mutate_autodl.md` 的关键内容已并入本文件与导师报告。根目录当前的
+`findings.md`、`progress.md` 和 `task_plan.md` 是本轮模型复现、解释性实验与论文审校的临时执行记录，
+不替代本 README 中的规范项目说明。
 
 ## 附录 D：参考论文及对应创新点总表（2026-08-05，论文信息已经联网核实）
 

@@ -15,6 +15,9 @@ env/
 .venv/
 .venv-bioemu-*/
 Scripts/
+!/paper_figures/scripts/
+!/paper_figures/scripts/*.py
+!/paper_figures/scripts/README.md
 Lib/
 
 # Keep the project-level AutoDL launcher while still ignoring environment Scripts/.
@@ -82,6 +85,9 @@ Lib/
 *.fasta
 !/paper_citations.csv
 !/reference_papers_innovations.csv
+!/paper_figures/FIGURE_STATUS.csv
+!/paper_figures/internal_to_publication_names.csv
+!/paper_figures/data/current_interpretability/frozen_results/*.csv
 !/reports/publication_analysis/figure6_length_multistructure_metrics.csv
 !/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
 !/runs/length_calibration_3d/oof_predictions.csv
@@ -91,6 +97,16 @@ Lib/
 !/runs/bioemu_boundary_specialist_3d/oof_predictions.csv
 !/runs/three_d_team_handoff_phase33/oof_3d_predictions.csv
 !/runs/three_d_team_handoff_phase33/oof_3d_quality.csv
+
+# Local manuscript QA and generated LaTeX intermediates.
+/tmp/
+/paper_figures/data/current_interpretability/smoke_results/
+/*.aux
+/*.bbl
+/*.blg
+/*.log
+/*.out
+/*.fls
 /data/*
 !/data/pepflow_pilot/
 /data/pepflow_pilot/*

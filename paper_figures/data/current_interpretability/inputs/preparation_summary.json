@@ -1,0 +1,40 @@
+{
+  "analysis": "current frozen GHXTox interpretability",
+  "derived_input_policy": "Audited conformer summaries are joined without changing source processed tensors; uncovered records receive exact zero descriptors with a hard availability mask.",
+  "conformer_manifests": [
+    "D:\\dachuang2026\\GHXTox\\data\\test_conformers\\pepflow\\test1\\cache\\conformer_manifest.csv",
+    "D:\\dachuang2026\\GHXTox\\data\\test_conformers\\af2\\test1\\cache_16_30\\conformer_manifest.csv"
+  ],
+  "conformer_cache_roots": [
+    "D:\\dachuang2026\\GHXTox\\data\\test_conformers\\pepflow\\test1\\cache",
+    "D:\\dachuang2026\\GHXTox\\data\\test_conformers\\af2\\test1\\cache_16_30"
+  ],
+  "jobs": [
+    {
+      "split": "Test1",
+      "status": "created",
+      "processed": "D:\\dachuang2026\\GHXTox\\data\\processed\\test1_chemical_sites_final_esm2.pt",
+      "output": "D:\\dachuang2026\\GHXTox\\paper_figures\\data\\current_interpretability\\inputs\\test1_current_multiconformer.pt",
+      "total_records": 1126,
+      "covered_records": 486,
+      "coverage_fraction": 0.43161634103019536,
+      "matching_policy": "original_sample_id",
+      "unused_manifest_records": 0,
+      "pilot_output": null,
+      "pilot_fold_manifest": null
+    },
+    {
+      "split": "Test2",
+      "status": "created",
+      "processed": "D:\\dachuang2026\\GHXTox\\data\\processed\\test2_chemical_sites_final_esm2.pt",
+      "output": "D:\\dachuang2026\\GHXTox\\paper_figures\\data\\current_interpretability\\inputs\\test2_current_multiconformer.pt",
+      "total_records": 582,
+      "covered_records": 284,
+      "coverage_fraction": 0.4879725085910653,
+      "matching_policy": "unique_sequence",
+      "unused_manifest_records": 202,
+      "pilot_output": null,
+      "pilot_fold_manifest": null
+    }
+  ]
+}
