@@ -52,8 +52,8 @@ Resolve the multi-conformer residual's source-domain and one-sided probability-s
 - [complete] 42. Cross-check every requested panel against frozen source files, manuscript placeholders, scientific-figure naming/data-firewall rules, and the no-drawing-yet boundary; then finalize the handoff.
 - [complete] 43. Audit the divergent local/remote history, staged and untracked files, ignore rules, large artifacts, and sensitive-content risk before upload.
 - [complete] 44. Remove generated QA/LaTeX intermediates from the upload set, include reproducible source/data manifests, stage the intended latest project state, and create a local commit.
-- [in_progress] 45. Rebase the local commit(s) onto the latest `origin/main`, resolving conflicts without discarding teammate or user changes, then run repository checks.
-- [pending] 46. Push the integrated `main` branch to GitHub and verify the remote commit and clean intended worktree state.
+- [complete] 45. Rebase the local commit(s) onto the latest `origin/main`, resolving conflicts without discarding teammate or user changes, then run repository checks.
+- [complete] 46. Push the integrated `main` branch to GitHub and verify the remote commit and clean intended worktree state.
 
 ## Constraints
 - Treat `configs/default_multidimensional_fusion.json` as canonical.
