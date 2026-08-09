@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Canonical GHXTox public inference: calibrated LoRA-BiMamba 1D + pure 3D.
+"""Canonical GHXTox public inference: calibrated LoRA-BiMamba 1D + single-structure 3D.
 
 The module enforces the frozen public contract instead of silently accepting
 partial sample intersections, old checkpoints, mixed-generation OOF files, or
@@ -12,8 +12,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import os
-import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -50,6 +48,11 @@ LEGACY_STRUCTURE_COLUMNS = {
     "bacc_gate_probability",
     "bacc_residual_active",
     "bacc_residual_applied",
+}
+RETIRED_TEST_CONFORMER_COLUMNS = {
+    "base_structure_probability",
+    "conformer_available",
+    "conformer_logit_delta",
 }
 
 
@@ -103,16 +106,19 @@ def validate_public_default_config(config: dict[str, Any]) -> None:
         "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv"
     ):
         raise ValueError("Canonical operating-point 3D OOF provenance is missing or stale.")
-    if config.get("provenance", {}).get("source_aware_replacement_decision") != (
-        "runs/full2795_deployment_decision_20260808_v1/decision.json"
-    ):
-        raise ValueError("Canonical source-aware replacement decision is missing or stale.")
+    test_policy = config.get("test_time_conformer_policy", {})
+    if test_policy.get("status") != "disabled":
+        raise ValueError("Canonical public inference must disable test-time conformer ensembles.")
+    if test_policy.get("probability_source") != "base_logits":
+        raise ValueError("Canonical public inference must use the single-structure base logits.")
     structure = config.get("composition", {}).get("3d_expert", {})
     if structure.get("checkpoint") != DEFAULT_STRUCTURE_CHECKPOINT:
         raise ValueError("Canonical 3D checkpoint is missing or stale.")
     probability_source = str(structure.get("test_probability_column", "")).lower()
     if "default_3d_hybrid" in probability_source or "legacy" in probability_source:
         raise ValueError("Canonical structure probabilities must not come from a legacy container.")
+    if "conformer" in probability_source or "source_aware" in probability_source:
+        raise ValueError("Canonical test probabilities must not come from a conformer-enabled export.")
 
 
 def _validate_operating_point(weight: float, threshold: float, allow_noncanonical: bool) -> None:
@@ -159,14 +165,24 @@ def _read_probability_csv(path: str | Path, probability_key: str) -> tuple[list[
 
 
 def _reject_legacy_structure_csv(path: str | Path) -> None:
-    """Prevent the public assembler from consuming previous hybrid outputs."""
+    """Prevent the public assembler from consuming retired/noncanonical outputs."""
 
     source = Path(path)
     normalized = str(source).replace("\\", "/").lower()
-    if any(token in normalized for token in ("default_3d_hybrid", "/_legacy/", "hybrid_default")):
+    if any(
+        token in normalized
+        for token in (
+            "default_3d_hybrid",
+            "/_legacy/",
+            "hybrid_default",
+            "test_multiconformer_archive",
+            "multiconformer_extension",
+            "source_aware_multiconformer",
+        )
+    ):
         raise ValueError(
-            "The public multidimensional assembler refuses a legacy hybrid prediction path. "
-            "Use a pure current 3D structure prediction CSV."
+            "The public multidimensional assembler refuses a legacy or retired test-time "
+            "multi-conformer prediction path. Use a current single-structure 3D CSV."
         )
     with source.open("r", encoding="utf-8-sig", newline="") as handle:
         fields = set(next(csv.reader(handle), []))
@@ -175,6 +191,12 @@ def _reject_legacy_structure_csv(path: str | Path) -> None:
         raise ValueError(
             "The structure CSV contains previous-hybrid model columns and cannot enter the "
             f"public default: {leaked}."
+        )
+    retired = sorted(fields & RETIRED_TEST_CONFORMER_COLUMNS)
+    if retired:
+        raise ValueError(
+            "The structure CSV contains retired test-time multi-conformer columns and cannot "
+            f"enter the public default: {retired}."
         )
 
 
@@ -461,11 +483,6 @@ def predict(
     output_metrics=None,
     *,
     allow_noncanonical=False,
-    conformer_manifests=None,
-    conformer_cache_roots=None,
-    conformer_match_by_sequence=False,
-    allow_unused_conformer_records=False,
-    conformer_processed_output=None,
 ):
     import torch
     from transformers import T5Tokenizer
@@ -509,47 +526,9 @@ def predict(
     ensemble_probability = np.mean(np.stack(seed_probabilities), axis=0)
     p_1d = 1.0 / (1.0 + np.exp(-(slope * _logit(ensemble_probability) + intercept)))
 
-    manifests = list(conformer_manifests or [])
-    cache_roots = list(conformer_cache_roots or [])
-    if bool(manifests) != bool(cache_roots):
-        raise ValueError(
-            "--conformer-manifest and --conformer-cache-root must be supplied together."
-        )
-    temporary_processed: Path | None = None
-    structure_processed = Path(processed_path)
-    conformer_extension: dict[str, Any] = {"enabled": False}
-    if manifests:
-        from ghxtox.conformer_features import attach_conformer_features
-
-        if conformer_processed_output:
-            structure_processed = Path(conformer_processed_output)
-        else:
-            output_parent = Path(output_csv).parent
-            output_parent.mkdir(parents=True, exist_ok=True)
-            handle = tempfile.NamedTemporaryFile(
-                prefix="ghxtox_conformer_", suffix=".pt", dir=output_parent, delete=False
-            )
-            handle.close()
-            temporary_processed = Path(handle.name)
-            structure_processed = temporary_processed
-        conformer_extension = {
-            "enabled": True,
-            **attach_conformer_features(
-                processed_path,
-                manifests,
-                cache_roots,
-                structure_processed,
-                match_by_sequence=bool(conformer_match_by_sequence),
-                allow_unused_manifest_records=bool(allow_unused_conformer_records),
-            ),
-        }
-    try:
-        structure = predict_structure(
-            structure_processed, structure_checkpoint, device=device, batch_size=batch_size
-        )
-    finally:
-        if temporary_processed is not None:
-            temporary_processed.unlink(missing_ok=True)
+    structure = predict_structure(
+        processed_path, structure_checkpoint, device=device, batch_size=batch_size
+    )
     structure_ids = [str(value) for value in structure["sample_ids"]]
     if len(structure_ids) != len(set(structure_ids)):
         raise ValueError("3D inference returned duplicate sample IDs.")
@@ -571,8 +550,6 @@ def predict(
         if label is not None and record.label is not None and int(label) != int(record.label):
             raise ValueError(f"1D/3D label mismatch for {record.sample_id}.")
     labels = np.asarray([int(record.label) for record in records], dtype=np.int64)
-    p_3d = np.asarray([structure_map[sample_id][0] for sample_id in ids])
-    fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
     structure_index = {sample_id: index for index, sample_id in enumerate(structure_ids)}
     p_3d_base = np.asarray(
         [structure["base_probabilities"][structure_index[sample_id]] for sample_id in ids]
@@ -584,6 +561,14 @@ def predict(
     conformer_delta = np.asarray(
         [structure["conformer_deltas"][structure_index[sample_id]] for sample_id in ids]
     )
+    if available.any() or np.any(np.abs(conformer_delta) > 1e-10):
+        raise ValueError(
+            "The canonical public predictor is single-structure at test time, but the processed "
+            "input activated conformer features. Use an isolated research script for the retired "
+            "multi-conformer ablation."
+        )
+    p_3d = p_3d_base
+    fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
     _write_predictions(
         output_csv,
         ids,
@@ -594,9 +579,6 @@ def predict(
         threshold,
         weight,
         sequences=[str(record.sequence) for record in records],
-        p_3d_base=p_3d_base,
-        conformer_available=available,
-        conformer_delta=conformer_delta,
     )
     result_metrics = _metrics(labels, fused, threshold)
     summary = {
@@ -609,12 +591,11 @@ def predict(
         "checkpoints": [str(path) for path in checkpoints],
         "oof_jsons": [str(path) for path in oof_jsons],
         "structure_checkpoint": str(structure_checkpoint),
-        "conformer_extension": {
-            **conformer_extension,
-            "available_records": int(available.sum()),
-            "mean_absolute_logit_delta_available": float(
-                np.abs(conformer_delta[available]).mean() if available.any() else 0.0
-            ),
+        "test_time_structure_protocol": {
+            "mode": "single_structure_only",
+            "probability_source": "base_logits",
+            "conformer_inputs_allowed": False,
+            "conformer_available_records": 0,
         },
         "metrics": result_metrics,
     }
@@ -661,30 +642,6 @@ def build_parser() -> argparse.ArgumentParser:
     predict_parser.add_argument("--batch-size", type=int, default=16)
     predict_parser.add_argument("--output-csv", required=True)
     predict_parser.add_argument("--output-metrics")
-    predict_parser.add_argument(
-        "--conformer-manifest",
-        nargs="+",
-        help="One or more audited conformer manifests used to extend the 3D expert.",
-    )
-    predict_parser.add_argument(
-        "--conformer-cache-root",
-        nargs="+",
-        help="Cache root corresponding to each conformer manifest.",
-    )
-    predict_parser.add_argument(
-        "--conformer-match-by-sequence",
-        action="store_true",
-        help="Use an exact unique-sequence join for a declared dataset subset.",
-    )
-    predict_parser.add_argument(
-        "--allow-unused-conformer-records",
-        action="store_true",
-        help="Allow a source conformer cache to be a strict superset of the prediction set.",
-    )
-    predict_parser.add_argument(
-        "--conformer-processed-output",
-        help="Optionally retain the augmented processed cache instead of using a temporary file.",
-    )
     return parser
 
 
@@ -718,11 +675,6 @@ def main() -> None:
             args.output_csv,
             args.output_metrics,
             allow_noncanonical=args.allow_noncanonical_operating_point,
-            conformer_manifests=args.conformer_manifest,
-            conformer_cache_roots=args.conformer_cache_root,
-            conformer_match_by_sequence=args.conformer_match_by_sequence,
-            allow_unused_conformer_records=args.allow_unused_conformer_records,
-            conformer_processed_output=args.conformer_processed_output,
         )
     metrics = result["metrics"]
     print(
