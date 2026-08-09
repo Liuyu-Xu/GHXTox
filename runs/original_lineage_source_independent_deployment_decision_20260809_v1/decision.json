@@ -1,0 +1,75 @@
+{
+  "artifact_type": "ghxtox_original_lineage_source_independent_residual_decision",
+  "schema_version": 1,
+  "date": "2026-08-09",
+  "decision": "reject_residual_candidate_retain_current_full2795",
+  "basis": "training-only strict matched five-fold OOF",
+  "test1_or_test2_read": false,
+  "prespecified_oof_rule_passed": false,
+  "authorize_all_data_refit": false,
+  "authorize_test_confirmation": false,
+  "authorize_default_replacement": false,
+  "fixed_fusion": {
+    "weight_1d": 0.72,
+    "weight_3d": 0.28,
+    "threshold": 0.47022256531284556,
+    "matched_base": {
+      "mcc": 0.8707741009542508,
+      "balanced_accuracy": 0.9321519972089133,
+      "auroc": 0.9780876095926512,
+      "auprc": 0.9567108592942384,
+      "brier": 0.04338423875203193
+    },
+    "residual_candidate": {
+      "mcc": 0.871025103190107,
+      "balanced_accuracy": 0.9315990528796806,
+      "auroc": 0.9780708755927027,
+      "auprc": 0.9566668072147027,
+      "brier": 0.04340949608966677
+    },
+    "delta_candidate_minus_base": {
+      "mcc": 0.0002510022358561681,
+      "balanced_accuracy": -0.0005529443292326963,
+      "auroc": -0.000016733999948503886,
+      "auprc": -0.000044052079535727984,
+      "brier": 0.0000252573376348446
+    },
+    "paired_mcc": {
+      "bootstrap_95_ci": [-0.002065952681198707, 0.0025432899082151374],
+      "bootstrap_probability_candidate_better": 0.5688,
+      "paired_randomization_two_sided_p": 1.0,
+      "bootstrap_iterations": 5000,
+      "permutation_iterations": 5000,
+      "seed": 20260808
+    }
+  },
+  "reason": "The candidate does not provide a consistent final-fusion improvement: its MCC change is negligible and statistically unresolved, while balanced accuracy, AUROC, AUPRC, and Brier all move in the unfavorable direction. The prespecified structure-expert gate also fails because MCC decreases.",
+  "prohibited_follow_up": [
+    "Do not refit this residual candidate on all training data.",
+    "Do not inspect Test1/Test2 to rescue or retune the candidate.",
+    "Do not replace the current full2795 checkpoint.",
+    "Do not update the manuscript from this negative model-selection phase."
+  ],
+  "inputs": {
+    "checkpoint_audit": {
+      "path": "runs/original_lineage_source_independent_residual_checkpoint_audit_v1/summary.json",
+      "sha256": "A2A57F3D3841E1D7923F779CFD979F7FFF1DE1961C56997E9E8457FD3F497C02"
+    },
+    "residual_oof_summary": {
+      "path": "runs/original_lineage_source_independent_residual_oof_v1/summary.json",
+      "sha256": "3A491B509AE5A64FA81A3D65D0094FDE5FD058ACB9717F0DF525B589FCCB77EF"
+    },
+    "residual_oof_predictions": {
+      "path": "runs/original_lineage_source_independent_residual_oof_v1/full_predictions.csv",
+      "sha256": "BCBDE9D9114EDDE90748C765645CE315EBE14B04B756031881EC86EA6ECB29C4"
+    },
+    "matched_fusion_summary": {
+      "path": "runs/original_lineage_source_independent_matched_oof_comparison_v1/summary.json",
+      "sha256": "2D7CB2A4DB2F156EEB078397E59992E4975975EF144E478809AED05CBD28CAAF"
+    },
+    "matched_fusion_predictions": {
+      "path": "runs/original_lineage_source_independent_matched_oof_comparison_v1/oof_predictions.csv",
+      "sha256": "7C07C1BB076CA8B686D205EA1838F358FF7E74F56DCF40F5FEAF4748FABACEC0"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "artifact_type": "ghxtox_raw_view_spatial_embedding_comparison_manifest",
+  "files": [
+    {
+      "path": "decision.json",
+      "bytes": 961,
+      "sha256": "8b26382740a9be9e4b100e649376718a3a758adae00ae46f0243d6656eb7804c"
+    },
+    {
+      "path": "decision_transitions.csv",
+      "bytes": 742,
+      "sha256": "8257e4b6d82c94ffcb099db794eaa8c3cbb75692104dff7c511936a93c6c5e3d"
+    },
+    {
+      "path": "full_predictions.csv",
+      "bytes": 1068744,
+      "sha256": "02fd21aa446be9aac944b39939e779abfab9f0aabcf13925e996a1d47c01a149"
+    },
+    {
+      "path": "paired_bootstrap.json",
+      "bytes": 760,
+      "sha256": "147fdc1c0b16484c99cef71bab5a325433ccd220f14a5b90ef967ba340948486"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 75286,
+      "sha256": "67fb525e234ee350f585b4638bb483963d12bbbdcd4a9d6f6cd0cfe6b14519bb"
+    }
+  ]
+}

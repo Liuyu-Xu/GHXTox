@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import csv
+import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -84,6 +87,96 @@ class PeptideTensorDataset(Dataset):
 
     def __getitem__(self, index: int) -> dict[str, Any]:
         return self.records[index]
+
+
+def attach_fusion_probability_oof(
+    dataset: PeptideTensorDataset,
+    sidecar_path: str | Path,
+    expected_artifact_type: str,
+    fold_manifest: str | Path,
+) -> dict[str, Any]:
+    """Attach a rigorously aligned 1D OOF probability without rewriting the tensor cache.
+
+    The sidecar is deliberately exposed only as a scalar loss offset.  Identity,
+    label, and fold checks prevent a silently reordered or mismatched probability
+    vector from entering second-stage training.
+    """
+
+    sidecar_path = Path(sidecar_path)
+    fold_manifest = Path(fold_manifest)
+    payload = json.loads(sidecar_path.read_text(encoding="utf-8"))
+    artifact_type = str(payload.get("artifact_type", ""))
+    if artifact_type != expected_artifact_type:
+        raise ValueError(
+            f"Fusion-probability artifact type is {artifact_type!r}, "
+            f"expected {expected_artifact_type!r}."
+        )
+
+    required_lists = ("oof", "sample_ids", "labels", "folds")
+    missing = [key for key in required_lists if not isinstance(payload.get(key), list)]
+    if missing:
+        raise ValueError(f"Fusion-probability sidecar is missing list fields: {missing}.")
+    expected_size = len(dataset)
+    lengths = {key: len(payload[key]) for key in required_lists}
+    if any(length != expected_size for length in lengths.values()):
+        raise ValueError(
+            f"Fusion-probability sidecar lengths {lengths} do not match "
+            f"the {expected_size}-record dataset."
+        )
+
+    manifest_rows: dict[int, dict[str, str]] = {}
+    with fold_manifest.open("r", encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            index = int(row["source_index"])
+            if index in manifest_rows:
+                raise ValueError(f"Duplicate source_index={index} in {fold_manifest}.")
+            manifest_rows[index] = row
+    if set(manifest_rows) != set(range(expected_size)):
+        raise ValueError(
+            f"Fold manifest contains {len(manifest_rows)} unique indices, "
+            f"expected exactly {expected_size}."
+        )
+
+    fold_counts: dict[int, int] = {}
+    for index, record in enumerate(dataset.records):
+        row = manifest_rows[index]
+        record_id = str(record["sample_id"])
+        record_sequence = str(record["sequence"])
+        record_label = int(record["label"])
+        probability = float(payload["oof"][index])
+        sidecar_fold = int(payload["folds"][index])
+        manifest_fold = int(row["fold"])
+        if str(payload["sample_ids"][index]) != record_id or row["sample_id"] != record_id:
+            raise ValueError(f"sample_id mismatch at source_index={index}.")
+        if row["sequence"] != record_sequence:
+            raise ValueError(f"sequence mismatch at source_index={index} ({record_id}).")
+        if int(payload["labels"][index]) != record_label or int(row["label"]) != record_label:
+            raise ValueError(f"label mismatch at source_index={index} ({record_id}).")
+        if sidecar_fold != manifest_fold:
+            raise ValueError(f"fold mismatch at source_index={index} ({record_id}).")
+        if not math.isfinite(probability) or not 0.0 <= probability <= 1.0:
+            raise ValueError(
+                f"Invalid fusion probability {probability!r} at source_index={index}."
+            )
+        record["fusion_one_d_probability"] = probability
+        fold_counts[manifest_fold] = fold_counts.get(manifest_fold, 0) + 1
+
+    return {
+        "artifact_type": "ghxtox_fusion_probability_attachment_audit",
+        "source": str(sidecar_path),
+        "source_artifact_type": artifact_type,
+        "fold_manifest": str(fold_manifest),
+        "num_records": expected_size,
+        "fold_counts": {str(key): fold_counts[key] for key in sorted(fold_counts)},
+        "checks": {
+            "sample_id_exact": True,
+            "sequence_exact": True,
+            "label_exact": True,
+            "fold_exact": True,
+            "probabilities_finite_and_bounded": True,
+        },
+        "role": "detached 1D probability used only by the fusion-aware loss",
+    }
 
 
 def _pad_1d(tensor: torch.Tensor, length: int, value: float | int = 0) -> torch.Tensor:
@@ -201,6 +294,14 @@ def collate_peptides(
         "mask": mask,
         "labels": label_tensor,
     }
+    probability_present = ["fusion_one_d_probability" in item for item in batch]
+    if any(probability_present) and not all(probability_present):
+        raise ValueError("Fusion 1D probabilities are present for only part of a batch.")
+    if all(probability_present):
+        result["fusion_one_d_probability"] = torch.tensor(
+            [float(item["fusion_one_d_probability"]) for item in batch],
+            dtype=torch.float32,
+        )
     conformer_residue_features = []
     conformer_global_features = []
     conformer_available = []

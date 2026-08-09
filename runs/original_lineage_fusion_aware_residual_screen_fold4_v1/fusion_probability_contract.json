@@ -1,0 +1,22 @@
+{
+  "artifact_type": "ghxtox_fusion_probability_attachment_audit",
+  "source": "runs\\lora_mamba_full\\oof_calibrated.json",
+  "source_artifact_type": "ghxtox_lora_bimamba_platt_oof",
+  "fold_manifest": "data\\folds\\train_cdhit080_fallback_folds.csv",
+  "num_records": 6387,
+  "fold_counts": {
+    "0": 1271,
+    "1": 1229,
+    "2": 1273,
+    "3": 1291,
+    "4": 1323
+  },
+  "checks": {
+    "sample_id_exact": true,
+    "sequence_exact": true,
+    "label_exact": true,
+    "fold_exact": true,
+    "probabilities_finite_and_bounded": true
+  },
+  "role": "detached 1D probability used only by the fusion-aware loss"
+}

@@ -1,0 +1,15 @@
+{
+  "checkpoint": "runs\\original_lineage_base_fold2_zero_chemical_fallback_v1\\best_model.pt",
+  "checkpoint_sha256": "86E36B82040EB585E609F2D9091F98948FCDF57C620A039454C97745D8429F93",
+  "control": "runs\\original_lineage_control_fold2_torch231_v1\\best_model.pt",
+  "control_sha256": "18D2039992D2C40BE2FFFB0150418DDDBBDF75E88B2AF108E5564C5C6444F4B2",
+  "control_tensor_count": 114,
+  "fallback_tensor_count": 142,
+  "filled_chemical_state_entries": 28,
+  "fold": 2,
+  "prediction_identity_verified": false,
+  "zero_projection_keys": [
+    "chemical_site_branch.residual_projection.weight",
+    "chemical_site_branch.residual_projection.bias"
+  ]
+}

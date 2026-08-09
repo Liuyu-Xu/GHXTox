@@ -68,7 +68,7 @@
     "trainable_prefixes": ["chemical_site_branch."]
   },
   "inference": {
-    "default_checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
+    "default_checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
     "default_threshold": 0.677819,
     "threshold_source": "five-fold group-aware OOF MCC optimization",
     "fallback_checkpoint": "runs/plm_fusion_esm2_geometry_confidence/best_model.pt",

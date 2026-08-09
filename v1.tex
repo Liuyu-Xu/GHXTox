@@ -91,12 +91,15 @@ with a task-adaptive protein language model (ProtT5 fine-tuned with low-rank
 adaptation, LoRA) and a bidirectional Mamba state-space model. The 3D expert
 integrates an ESMFold-derived structural anchor, pLDDT-aware residue
 geometry, full-atom-derived chemical
-sites, and an availability-masked conformer-statistics residual for peptides
+sites, and a source-aware, availability-masked conformer-statistics residual for peptides
 with valid ensemble information; samples without conformer statistics fall
 back exactly to the single-structure pathway. On the frozen historical
-benchmark test sets, GHXTox achieves MCC values of 0.8728 and 0.6673 and
-AUPRC values of 0.9674 and 0.8050 on Test1 and Test2, respectively. Frozen-model
-analyses further characterize residue-level sequence sensitivity,
+benchmark test sets, GHXTox achieves MCC values of 0.8726 and 0.6746 and
+AUPRC values of 0.9675 and 0.8043 on Test1 and Test2, respectively. Frozen-model
+analyses indicate that the conformer contribution is small and non-uniform and
+that, under a frozen structural expert, substantial geometric variation does
+not necessarily produce stable outcome-aligned probability variation. Further
+analyses characterize residue-level sequence sensitivity,
 confidence--gate associations, chemical-site perturbations, and expert
 disagreement; these findings are interpreted as model-level evidence rather
 than as causal biological mechanisms.
@@ -169,8 +172,12 @@ sequence analysis \cite{elnaggar2022prottrans,hu2022lora,gu2024mamba}. In the
 \cite{lin2023esmfold}. AlphaFold2/ColabFold, PepFlow, and BioEmu were examined
 as conformer-generation references during structural development
 \cite{jumper2021alphafold2,mirdita2022colabfold,abdin2024pepflow,lewis2025bioemu}.
-The conformer-residual module was trained on a prespecified PepFlow pilot
-subset, whereas frozen benchmark inference used only audited PepFlow and
+The retained conformer-residual module was trained on 2{,}795 peptides with
+validated ensemble statistics, comprising 761 PepFlow records of 11--15
+residues and 2{,}034 AlphaFold2/ColabFold records of 16--30 residues. A
+three-dimensional source indicator conditions the residual head, while a hard
+availability mask preserves the single-structure output for all uncovered
+records. Frozen benchmark inference used only audited PepFlow and
 AlphaFold2/ColabFold conformer caches under source- and sequence-matching
 rules fixed independently of the benchmark labels. BioEmu was not included in
 the retained benchmark inputs. Gated sequence--structure cross-attention in the
@@ -861,13 +868,15 @@ sites. Before geometric encoding, the coordinates are centered at the peptide
 centroid to remove the effect of absolute translation.
 
 A single predicted structure provides a common structural anchor but cannot
-represent potential conformational heterogeneity. The conformer-residual stage
-was therefore developed on the prespecified PepFlow pilot250 subset
-\cite{abdin2024pepflow}, which contains 111 toxic and 139 non-toxic peptides
-of 11--15 residues and provides up to eight validated, aligned conformers per
-peptide. This subset defines the training source for the conformer-residual
-parameters; it should not be interpreted as the complete inference-time
-coverage of the retained model.
+represent potential conformational heterogeneity. The retained
+conformer-residual stage was therefore trained on a source-aware full2795
+cohort containing 2{,}795 peptides with up to eight validated, aligned
+conformers per peptide. PepFlow supplies 761 training records of 11--15
+residues, whereas AlphaFold2/ColabFold supplies 2{,}034 records of 16--30
+residues \cite{abdin2024pepflow,jumper2021alphafold2,mirdita2022colabfold}.
+These sources are represented explicitly in the residual head; nevertheless,
+generator identity remains partially coupled to peptide length and is treated
+as a limitation rather than as an independently identified causal factor.
 
 For frozen benchmark inference, conformer statistics were admitted only from
 an audited cache whose source and sequence-matching policies were fixed without
@@ -1299,12 +1308,17 @@ processed by a separate encoder:
     \left(\mathbf g^{\mathrm{conf}}\right).
     \label{eq:conf_embeddings}
 \end{equation}
-The base structural embedding, the residue-level ensemble embedding, and the
-global ensemble embedding are concatenated to produce a raw logit residual:
+The generator is encoded by a three-dimensional one-hot vector
+$\mathbf s_{\mathrm{conf}}\in\mathbb{R}^{3}$ for PepFlow,
+AlphaFold2/ColabFold, or another admitted generator. A learned source
+embedding $\phi_s(\mathbf s_{\mathrm{conf}})$ is concatenated with the base
+structural embedding and the two ensemble embeddings to produce a raw logit
+residual:
 \begin{equation}
     \Delta z_{\mathrm{conf}}^{\mathrm{raw}} = \phi_{\mathrm{conf}}\left[
     \mathbf h_{\mathrm{base}} \parallel \mathbf h_{\mathrm{conf}}^{\mathrm{res}}
-    \parallel \mathbf h_{\mathrm{conf}}^{\mathrm{global}}\right].
+    \parallel \mathbf h_{\mathrm{conf}}^{\mathrm{global}}
+    \parallel \phi_s(\mathbf s_{\mathrm{conf}})\right].
     \label{eq:raw_residual}
 \end{equation}
 The final linear layer of the conformer residual head is initialized to zero.
@@ -1754,8 +1768,8 @@ model-selection settings of both experts.
         $5\times10^{-4}$ & Max. 50 & Minimum validation loss; patience 8 \\
         Single-structure chemical-site backbone & 32 & Stage-specific & Stage-specific &
         Fixed 8 & Median fold-selected epoch \\
-        PepFlow pilot250 conformer residual & 32 & Stage-specific & Stage-specific &
-        Fixed 12 & Median fold-selected epoch \\
+        Source-aware full2795 conformer residual & 32 & $1\times10^{-3}$ &
+        $5\times10^{-4}$ & Fixed 6 & OOF-defined refit protocol \\
         \bottomrule
     \end{tabular}}
 \end{table}
@@ -1810,10 +1824,10 @@ epochs is not selected using either benchmark test set. Instead, a fixed
 epoch count is obtained from the median of the fold-specific selected epochs.
 For the single-structure chemical-site backbone, the recorded fold-level
 epochs are 8, 8, 14, 2, and 4, whose median is 8, and the full-data refit is
-trained for eight fixed epochs. The conformer-statistics residual is a
-separate stage trained only on the PepFlow pilot250 subset; its recorded
-fold-level epochs are 23, 18, 9, 12, and 1, whose median is 12, and the full
-pilot250 refit is trained for twelve fixed epochs.
+trained for eight fixed epochs. The retained source-aware conformer residual
+uses the full2795 cohort and a six-epoch full-data refit fixed from the
+training-side protocol. Neither the refit duration nor the checkpoint was
+selected using Test1 or Test2.
 
 % TODO: report the frozen hardware/software environment (GPU model, CUDA,
 %       PyTorch, Transformers, training time) from the final reproducibility
@@ -2195,8 +2209,9 @@ initialization, finite evaluation samples, class imbalance, predicted-
 structure quality, and distribution shift. The GHXTox evaluation framework
 therefore prespecifies five complementary perspectives: multi-seed
 reproducibility, class-stratified bootstrap confidence intervals, paired
-significance testing between frozen models, subgroup and structure-quality
-analysis, and frozen external-transfer evaluation. For the retained
+significance testing between frozen models, training-OOF conformer
+information-ceiling diagnostics, and subgroup and structure-quality analysis.
+For the retained
 multi-conformer benchmark output, inferential statistics are reported only
 after they have been regenerated from the corresponding sample-level
 prediction vectors; intervals from preceding model variants are not reused.
@@ -2337,7 +2352,7 @@ These intervals quantify finite-sample uncertainty conditional on the frozen
 predictor and the observed evaluation distribution; they do not incorporate
 training-seed variability or distribution shift. Bootstrap uncertainty is
 therefore interpreted separately from the multi-seed analysis in
-Section 2.7.1 and the external-transfer analysis in Section 2.7.5.
+Section 2.7.1 and the subgroup analysis in Section 2.7.5.
 
 \subsubsection{Paired Bootstrap and Randomization Significance Testing}
 When the current GHXTox model is compared with the previous default or
@@ -2425,6 +2440,37 @@ vectors, paired confidence intervals and randomization $p$-values on these
 sets provide retrospective evidence for differences between frozen models,
 rather than fully independent prospective confirmation; this limitation is
 explicitly recorded by the project validation implementation.
+
+\subsubsection{Training-OOF Conformer Information-Ceiling Diagnostics}
+To distinguish limited conformer diversity from limited use of that diversity
+by the frozen predictor, we conducted two post hoc diagnostics using only the
+group-aware training OOF folds. Neither diagnostic accessed Test1 or Test2,
+altered the retained full2795 checkpoint, or participated in model selection.
+
+First, each of the eight conformers available for 2{,}795 covered training
+peptides was evaluated with the corresponding frozen fold-specific structural
+expert, yielding 22{,}360 held-view predictions. For each peptide, we summarized
+the maximum pairwise conformer RMSD, mean residue RMSF, and range of the eight
+structural-expert probabilities. Label-free fixed aggregators, including the
+mean, median, trimmed mean, confidence- and centrality-weighted means, and a
+structural-medoid rule, were compared with the frozen single-structure output
+under the unchanged top-level fusion and decision threshold. A label-aware
+choice among the single-structure and per-conformer outputs was computed only as a nondeployable
+upper-bound diagnostic and was not treated as a model result.
+
+Second, pooled spatial embeddings were extracted for every conformer using the
+same fold-specific frozen expert. A compact 50{,}113-parameter
+permutation-invariant residual head
+was fitted under fold-local train/held separation, while all upstream encoders,
+the 1D probability stream, the top-level fusion weights, and the decision
+threshold remained fixed. The five held-fold prediction vectors were
+concatenated once for paired OOF evaluation and class-stratified bootstrap
+analysis. Read-only diagnostics also quantified the Pearson correlation between
+the 1D and base 3D probabilities, the correlation between the learned residual
+and the correction required by the observed label, and the fraction of residual
+directions that moved the fused probability toward that label. These quantities
+were used to characterize a possible representation--label alignment bottleneck,
+not to tune the candidate head.
 
 \subsubsection{Subgroup and Structure-Quality Analysis}
 Aggregate test metrics may conceal performance heterogeneity across peptide
@@ -2574,11 +2620,11 @@ Test1 or Test2.
 \subsection{Overall Predictive Performance on the Benchmark Test Sets}
 Using the OOF-frozen weight and threshold without dataset-specific retuning,
 GHXTox correctly classified 1{,}068 of 1{,}126 Test1 peptides
-(TP/TN/FP/FN = 288/780/26/32). This corresponds to ACC 0.9485, BACC 0.9339,
-SN 0.9000, SP 0.9677, F1 0.9085, MCC 0.8728, AUROC 0.9811, and AUPRC
-0.9674. On the strongly imbalanced Test2 set, GHXTox correctly classified 551
-of 582 peptides (35/516/20/11), yielding ACC 0.9467, BACC 0.8618, SN 0.7609,
-SP 0.9627, F1 0.6931, MCC 0.6673, AUROC 0.9435, and AUPRC 0.8050. The lower
+(TP/TN/FP/FN = 287/781/25/33). This corresponds to ACC 0.9485, BACC 0.9329,
+SN 0.8969, SP 0.9690, F1 0.9082, MCC 0.8726, AUROC 0.9811, and AUPRC
+0.9675. On the strongly imbalanced Test2 set, GHXTox correctly classified 552
+of 582 peptides (35/517/19/11), yielding ACC 0.9485, BACC 0.8627, SN 0.7609,
+SP 0.9646, F1 0.7000, MCC 0.6746, AUROC 0.9433, and AUPRC 0.8043. The lower
 Test2 BACC and F1, despite high ACC, reflect the difficulty of recovering the
 46 toxic peptides and demonstrate why class-balanced and precision--recall
 metrics are essential for this benchmark.
@@ -2611,24 +2657,24 @@ external set.
         \multirow{3}{*}{Test1}
         & ToxMSRC & 0.9405 & 0.9217 & 0.8781 & 0.9653 & 0.8520 & 0.9650 & NR \\
         & ToxPLTC & 0.9378 & 0.9302 & \textbf{0.9125} & 0.9479 & 0.8496 & 0.9709 & 0.9426 \\
-        & GHXTox (current) & \textbf{0.9485} & \textbf{0.9339} & 0.9000 & \textbf{0.9677} & \textbf{0.8728} & \textbf{0.9811} & \textbf{0.9674} \\
+        & GHXTox (current) & \textbf{0.9485} & \textbf{0.9329} & 0.8969 & \textbf{0.9690} & \textbf{0.8726} & \textbf{0.9811} & \textbf{0.9675} \\
         \midrule
         \multirow{3}{*}{Test2}
         & ToxMSRC & 0.9416 & 0.8689 & 0.7826 & 0.9552 & 0.6550 & 0.9430 & NR \\
         & ToxPLTC & 0.9261 & \textbf{0.8804} & \textbf{0.8261} & 0.9347 & 0.6197 & 0.9295 & 0.7353 \\
-        & GHXTox (current) & \textbf{0.9467} & 0.8618 & 0.7609 & \textbf{0.9627} & \textbf{0.6673} & \textbf{0.9435} & \textbf{0.8050} \\
+        & GHXTox (current) & \textbf{0.9485} & 0.8627 & 0.7609 & \textbf{0.9646} & \textbf{0.6746} & \textbf{0.9433} & \textbf{0.8043} \\
         \bottomrule
     \end{tabular}}
 \end{table}
 
 \subsubsection{Discrimination, Calibration, and Decision Characteristics}
-The final fused probabilities have Brier scores of 0.0410 and 0.0438 on Test1
+The final fused probabilities have Brier scores of 0.0407 and 0.0430 on Test1
 and Test2, respectively. These values summarize mean squared probability
 error under the frozen inference protocol. ECE-10 is not reported here because
 a consistently regenerated value is not available for both current
 multi-conformer prediction files; retaining ECE values from the preceding
 zero-conformer artifact would mix non-identical model outputs. Test2 AUPRC
-(0.8050) is particularly informative: unlike AUROC, it
+(0.8043) is particularly informative: unlike AUROC, it
 directly reflects the precision--recall trade-off for the rare toxic class.
 The 11 false negatives on Test2 also delimit the current operating point; the
 model's high specificity should not be interpreted as complete minority-class
@@ -2654,9 +2700,9 @@ Table~\ref{tab:expert_comparison} reports threshold-free discrimination and
 probability error for probability streams that are aligned with the retained
 current configuration. Platt scaling preserves the 1D ranking but reduces its
 Brier score. Relative to calibrated 1D alone, final fusion improves Test1
-AUROC/AUPRC from 0.9799/0.9644 to 0.9811/0.9674 and reduces Brier from 0.0429
-to 0.0410. On Test2, the corresponding values change from
-0.9409/0.7831/0.0451 to 0.9435/0.8050/0.0438. The current fused predictor
+AUROC/AUPRC from 0.9799/0.9644 to 0.9811/0.9675 and reduces Brier from 0.0429
+to 0.0407. On Test2, the corresponding values change from
+0.9409/0.7831/0.0451 to 0.9433/0.8043/0.0430. The current fused predictor
 therefore adds complementary structural ranking information while retaining a
 lower probability error than the calibrated 1D stream. Historical
 single-structure SE3D and equal-weight rows are not relabeled as current
@@ -2675,12 +2721,12 @@ benchmark conformer cache.
         \multirow{3}{*}{Test1}
         & 1D, uncalibrated & 0.9799 & 0.9644 & 0.0445 \\
         & 1D, OOF Platt calibrated & 0.9799 & 0.9644 & 0.0429 \\
-        & Current fusion (0.72/0.28) & \textbf{0.9811} & \textbf{0.9674} & \textbf{0.0410} \\
+        & Current fusion (0.72/0.28) & \textbf{0.9811} & \textbf{0.9675} & \textbf{0.0407} \\
         \midrule
         \multirow{3}{*}{Test2}
         & 1D, uncalibrated & 0.9409 & 0.7831 & 0.0491 \\
         & 1D, OOF Platt calibrated & 0.9409 & 0.7831 & 0.0451 \\
-        & Current fusion (0.72/0.28) & \textbf{0.9435} & \textbf{0.8050} & \textbf{0.0438} \\
+        & Current fusion (0.72/0.28) & \textbf{0.9433} & \textbf{0.8043} & \textbf{0.0430} \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -2812,7 +2858,7 @@ monotonic Platt calibrator. This operation primarily adjusts the probability
 scale without altering the ranking of samples. The observed results were
 consistent with this role: the 1D Brier score decreased from 0.0445 to 0.0429
 on Test1 and from 0.0491 to 0.0451 on Test2. After subsequent fusion with the
-3D expert, the Brier scores were further reduced to 0.0410 and 0.0438,
+3D expert, the Brier scores were further reduced to 0.0407 and 0.0430,
 respectively. These results indicate that calibration is not merely a
 cosmetic post-processing step, but an important component for producing
 probability streams that can be meaningfully combined across experts.
@@ -3006,24 +3052,60 @@ contact occupancy at 6, 8, and 10~\AA, conformer RMSD, and radius of
 gyration, and these statistics are allowed to produce only a zero-initialized
 logit residual on top of the single-structure predictor.
 
-Within the prespecified training-side pilot250 subset, the
-conformer-statistics residual
-improved MCC by approximately 0.056 relative to the single-structure
-baseline, with a 95\% confidence interval of [0.011, 0.108]; a paired
-permutation test yielded $p = 0.036$. When evaluated over the complete
-6,387-sample training OOF set, however, the overall MCC gain decreased to
-approximately +0.0028, although the confidence interval remained positive at
-[0.0007, 0.0052], accompanied by a reduction in Brier score.
+The retained source-aware branch covers 2{,}795 of the 6{,}387 training
+peptides. At the unchanged 0.72/0.28 fusion and decision threshold, activating
+the full2795 residual increased training-OOF MCC from 0.87255 to 0.87445 and
+BACC from 0.93220 to 0.93292, while reducing Brier score from 0.04316 to
+0.04309. The MCC difference was $+0.00190$ under 5{,}000 class-stratified
+paired bootstrap resamples, with a 95\% interval of
+$[-0.00043,\,0.00454]$ and a paired-randomization $p$ value of 0.203.
+AUROC and AUPRC decreased by 0.00014 and 0.00015, respectively. These results
+support a small classification/calibration effect, but not a statistically
+established or metric-uniform improvement.
 
-The contrast between the relatively strong pilot effect and the smaller
-full-data gain is itself informative. Conformer information is not equally
-available across samples, and conformer coverage is uneven across
-peptide-length ranges and toxicity classes. Additional conformers therefore
-do not translate linearly into improved classification performance. In a
-separate training-side PepFlow coverage expansion, the additional 511
-supported peptides were all non-toxic and did not further improve MCC. These
-development-stage estimates characterize training-side behavior and are not
-used as substitutes for the frozen Test1/Test2 ablation reported below.
+The limited aggregate effect is informative. Conformer information is not
+equally available across samples, and the two generators occupy different
+length ranges. Moreover, source-specific scaling, confidence attenuation,
+residual centering, generator-only activation, and residual clipping were all
+evaluated with training-only nested OOF predictions and did not yield a
+deployable improvement over the original source-aware residual. Additional
+post hoc flexibility therefore did not convert broader conformer coverage
+into a stable gain across all metric families.
+
+The subsequent training-OOF information-ceiling analysis clarified this
+failure mode. The sampled conformers were not geometrically redundant: the
+median maximum pairwise RMSD was 4.786~\AA, and the median mean residue RMSF was
+1.943~\AA. Nevertheless, the median range of the eight frozen-expert
+probabilities was only $4.90\times10^{-6}$, with a 75th percentile of
+$3.87\times10^{-4}$. The Pearson correlations between the probability range
+and maximum pairwise RMSD and mean residue RMSF were 0.084 and 0.090,
+respectively. None of the fixed label-free aggregators satisfied the frozen
+promotion criteria. Even the nondeployable label-aware upper bound increased
+full-cohort OOF MCC by only 0.00115 and corrected three decisions.
+
+The internal spatial representations were more responsive than the final
+probabilities: in the fold-0 extraction, the median pooled view-range norm was
+1.350. However, within the later diagnostic's independently reproduced
+single-structure baseline, the five-fold frozen spatial-set residual changed
+full-cohort OOF MCC from 0.87077 to 0.87111
+($\Delta=+0.00034$), while BACC, AUROC, AUPRC, and Brier score all moved in the
+unfavorable direction. Its 95\% paired-bootstrap MCC interval was
+$[-0.00084,\,0.00181]$, and Brier score worsened in 90.26\% of 5{,}000
+bootstrap replicates. The candidate changed only three decisions, comprising
+two corrections and one new error, and was therefore rejected without
+benchmark evaluation or all-data refitting. These protocol-local values do not
+replace or re-estimate the retained full2795 OOF comparison reported above.
+
+Additional read-only analysis suggests that the principal bottleneck is not
+the absence of distinguishable conformer representations, but their weak
+alignment with the available toxicity labels. On the 2{,}795 covered records,
+the 1D and base 3D probabilities were strongly correlated
+($r=0.87084$). The learned residual had a correlation of $-0.0357$ with the
+required fused-probability correction and moved the prediction toward the
+observed label for only 45.87\% of covered records with a nonzero residual.
+Thus the head changed its
+output without learning a reproducible direction of correction, especially
+for threshold-dependent metrics.
 
 At frozen benchmark inference, the audited cache covers 486 Test1 peptides
 and 284 Test2 peptides. The Test1 records comprise PepFlow conformers for
@@ -3099,11 +3181,11 @@ direct rationale for the final dual-expert probability fusion.
 
 \subsection{Robustness, Statistical Uncertainty, and Applicability Analysis}
 Point estimates alone are insufficient for distinguishing a stable model
-improvement from variation caused by a finite benchmark sample. We therefore
-retain multi-seed averaging for the 1D expert and use paired, sample-level
-bootstrap resampling to compare the current default with the immediately
-preceding frozen model. All comparisons preserve the pairing between the two
-models' predictions for each peptide.
+improvement from variation caused by finite samples. We therefore retain
+multi-seed averaging for the 1D expert and use paired, sample-level bootstrap
+resampling to compare the source-aware residual with its same-checkpoint
+zero-conformer OOF baseline. All comparisons preserve the pairing between the
+two predictions for each training peptide.
 
 \subsubsection{Multi-Seed Reproducibility}
 Three full-training 1D models initialized with seeds 42, 123, and 2025 are
@@ -3114,37 +3196,41 @@ members had each seen only approximately 80\% of the training set and the
 aggregate did not improve the frozen validation criteria.
 
 \subsubsection{Paired Uncertainty and Point-Estimate Comparison}
-The prespecified paired-bootstrap procedure uses 5{,}000 resamples with seed
-2026. The archived intervals, however, were generated for the preceding
-zero-conformer benchmark output and therefore do not quantify uncertainty for
-the retained audited multi-conformer model. To avoid combining current point
-estimates with intervals from a non-identical prediction vector,
-Table~\ref{tab:bootstrap_paired} reports only deterministic paired point
-differences. Positive values are favorable for BACC, MCC, and AUPRC, whereas
-negative values are favorable for Brier. Inferential claims are deferred until
-the paired resampling is rerun from the retained current sample-level
-predictions.
+The current training-OOF comparison uses 5{,}000 class-stratified paired
+bootstrap resamples and 5{,}000 within-sample randomizations. Relative to the
+same-checkpoint zero-conformer OOF vector, the MCC difference is
+$+0.00190$ (95\% CI $[-0.00043,\,0.00454]$; randomization
+$p=0.203$), and the BACC difference is $+0.00071$ (95\% CI
+$[-0.00038,\,0.00181]$). Thus the point estimates favor the source-aware
+residual at the frozen threshold, but the intervals include zero.
+
+The archived per-sample OOF vector for the immediately preceding pilot
+checkpoint is not available. Table~\ref{tab:bootstrap_paired} therefore
+reports deterministic benchmark differences between the source-aware
+full2795 model and that preceding pilot default, without attaching a
+full2795-versus-pilot confidence interval. These retrospective differences
+are descriptive and were not used to tune the source-aware checkpoint.
 
 % ---- Table 7: paired point-estimate statistics ------------------------------
 \begin{table}[htbp]
     \centering
-    \caption{Point-estimate changes from the previous frozen default to the retained current model. Paired confidence intervals are intentionally not reported because the archived resampling object corresponds to the preceding zero-conformer prediction vector.}
+    \caption{Point-estimate changes from the preceding pilot default to the retained source-aware full2795 model. Direct paired confidence intervals are not reported because the pilot per-sample OOF vector is unavailable.}
     \label{tab:bootstrap_paired}
     \begin{tabular}{llcc}
         \toprule
         Dataset & Metric & Current--previous $\Delta$ & Favorable direction \\
         \midrule
         \multirow{4}{*}{Test1}
-        & BACC & +0.0088 & Increase \\
-        & MCC & +0.0116 & Increase \\
-        & AUPRC & +0.0024 & Increase \\
-        & Brier & $-0.0021$ & Decrease \\
+        & BACC & $-0.00094$ & Increase \\
+        & MCC & $-0.00018$ & Increase \\
+        & AUPRC & +0.00006 & Increase \\
+        & Brier & $-0.00030$ & Decrease \\
         \midrule
         \multirow{4}{*}{Test2}
-        & BACC & +0.0009 & Increase \\
-        & MCC & +0.0071 & Increase \\
-        & AUPRC & +0.0201 & Increase \\
-        & Brier & $-0.0034$ & Decrease \\
+        & BACC & +0.00093 & Increase \\
+        & MCC & +0.00725 & Increase \\
+        & AUPRC & $-0.00065$ & Increase \\
+        & Brier & $-0.00082$ & Decrease \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -3168,26 +3254,25 @@ rather than to retraining, recalibration, or operating-point selection.
         Metric & Zero conformer & Multi-conformer & $\Delta$ \\
         \midrule
         ACC       & 0.947602 & 0.948490 & +0.000888 \\
-        BACC      & 0.932308 & 0.933871 & +0.001563 \\
-        Precision & 0.916933 & 0.917197 & +0.000265 \\
-        SN        & 0.896875 & 0.900000 & +0.003125 \\
-        SP        & 0.967742 & 0.967742 & +0.000000 \\
-        F1        & 0.906793 & 0.908517 & +0.001724 \\
-        MCC       & 0.870460 & 0.872751 & +0.002291 \\
-        AUROC     & 0.981056 & 0.981076 & +0.000019 \\
-        AUPRC     & 0.967403 & 0.967420 & +0.000018 \\
-        Brier     & 0.040991 & 0.041043 & +0.000052 \\
+        BACC      & 0.932308 & 0.932929 & +0.000620 \\
+        Precision & 0.916933 & 0.919872 & +0.002939 \\
+        SN        & 0.896875 & 0.896875 & +0.000000 \\
+        SP        & 0.967742 & 0.968983 & +0.001241 \\
+        F1        & 0.906793 & 0.908228 & +0.001435 \\
+        MCC       & 0.870460 & 0.872568 & +0.002108 \\
+        AUROC     & 0.981056 & 0.981099 & +0.000043 \\
+        AUPRC     & 0.967403 & 0.967482 & +0.000080 \\
+        Brier     & 0.040991 & 0.040745 & $-0.000246$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-On Test1, activation of the audited conformer residual changes one
-thresholded prediction, converting one false negative into a true positive.
-Consequently, SN, BACC, F1, and MCC increase, whereas SP is unchanged. The
-AUROC and AUPRC changes are positive but numerically small. Brier score
-increases by approximately $5.2\times10^{-5}$, indicating that the decision
-correction and marginal ranking gains do not constitute a simultaneous
-improvement in squared probability error.
+On Test1, activation of the audited source-aware residual changes one
+thresholded prediction, converting one false positive into a true negative.
+Consequently, SP, precision, BACC, F1, and MCC increase, whereas SN is
+unchanged. AUROC and AUPRC also increase slightly, and Brier score decreases
+by approximately $2.46\times10^{-4}$. The gains are directionally consistent
+but small in absolute magnitude.
 
 % ---- Reserved Test2 multi-conformer ablation table position -----------------
 \begin{table}[p]
@@ -3198,28 +3283,27 @@ improvement in squared probability error.
         \toprule
         Metric & Zero conformer & Multi-conformer & $\Delta$ \\
         \midrule
-        ACC       & 0.946735 & 0.946735 & +0.000000 \\
-        BACC      & 0.861778 & 0.861778 & +0.000000 \\
-        Precision & 0.636364 & 0.636364 & +0.000000 \\
+        ACC       & 0.946735 & 0.948454 & +0.001718 \\
+        BACC      & 0.861778 & 0.862711 & +0.000933 \\
+        Precision & 0.636364 & 0.648148 & +0.011785 \\
         SN        & 0.760870 & 0.760870 & +0.000000 \\
-        SP        & 0.962687 & 0.962687 & +0.000000 \\
-        F1        & 0.693069 & 0.693069 & +0.000000 \\
-        MCC       & 0.667340 & 0.667340 & +0.000000 \\
-        AUROC     & 0.943259 & 0.943503 & +0.000243 \\
-        AUPRC     & 0.804583 & 0.805033 & +0.000450 \\
-        Brier     & 0.043632 & 0.043808 & +0.000176 \\
+        SP        & 0.962687 & 0.964552 & +0.001866 \\
+        F1        & 0.693069 & 0.700000 & +0.006931 \\
+        MCC       & 0.667340 & 0.674587 & +0.007248 \\
+        AUROC     & 0.943300 & 0.943300 & +0.000000 \\
+        AUPRC     & 0.804590 & 0.804328 & $-0.000262$ \\
+        Brier     & 0.043631 & 0.042987 & $-0.000644$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-On Test2, the conformer residual does not move any sample across the frozen
-decision threshold; all threshold-dependent metrics are therefore unchanged.
-AUROC and AUPRC increase by approximately $2.43\times10^{-4}$ and
-$4.50\times10^{-4}$, respectively, which is consistent with a small ranking
-effect rather than a classification-level gain. Brier score increases by
-approximately $1.76\times10^{-4}$. Across the two benchmarks, the available
-conformer statistics make a conditional and quantitatively modest contribution
-rather than producing uniform gains across metric families.
+On Test2, the source-aware residual also converts one false positive into a
+true negative. MCC increases by 0.00725, F1 by 0.00693, and Brier score
+decreases by approximately $6.44\times10^{-4}$, while SN is unchanged.
+AUROC is unchanged and AUPRC decreases by $2.62\times10^{-4}$. Across the two
+benchmarks, conformer statistics therefore make a conditional and
+quantitatively modest contribution, with a classification/calibration benefit
+but no uniform improvement across metric families.
 
 \subsection{Interpretability and Representative Case Studies}
 All interpretation experiments used the retained frozen model and the
@@ -3485,6 +3569,28 @@ multi-generator conformer sets to separate generator effects from
 peptide-length effects and should evaluate their calibration consequences on a
 new prefrozen external dataset.
 
+The present residual also remains deliberately simple. Training-only nested
+OOF experiments with source-specific scaling, confidence attenuation,
+source-wise centering, generator-only activation, and logit clipping did not
+improve the deployed full2795 predictions. More direct aggregation did not
+resolve the problem: although the available conformers were geometrically
+diverse and their internal spatial embeddings varied, the frozen structural
+expert produced nearly invariant view-level probabilities, and a compact
+spatial-set residual did not provide a stable multimetric OOF benefit. The
+retained full2795 pathway should therefore be regarded as a qualified
+cache-enabled extension with exact single-structure fallback, whereas the later
+frozen spatial-set candidate is nondeployable.
+
+These findings identify a representation--label alignment limitation rather
+than demonstrating that peptide conformational heterogeneity is biologically
+irrelevant. Each peptide has a single sample-level toxicity label, without an
+experimentally identified active conformer, conformer population, assay
+condition, or mechanism-specific endpoint. Consequently, the current objective
+does not tell the model which structural transition or microstate should carry
+the label. Direct paired uncertainty against the preceding pilot default also
+cannot be computed because its per-sample OOF vector and fold checkpoints are
+unavailable.
+
 \subsubsection{Modeling and Interpretability Limitations}
 GHXTox currently trains the two experts separately and combines their
 probabilities by linear fusion rather than full end-to-end joint
@@ -3513,6 +3619,26 @@ will also require explicit control of peptide length and structure generator.
 Future structural representations may incorporate solvent environment,
 membrane context, protonation state, and peptide topology.
 
+For multi-conformer modeling, the next step should target representation
+learning rather than add further fixed aggregators to frozen probabilities. A
+bounded, fold-pure experiment could partially unfreeze only the terminal
+spatial and chemical layers while preserving the single-structure anchor, and
+could add auxiliary objectives for residue RMSF, contact-occupancy changes, or
+inter-conformer geometric consistency. Residue-wise microstate fusion may also
+retain local transitions that disappear under peptide-level pooling. Such a
+candidate should proceed to benchmark evaluation only after demonstrating a
+consistent OOF benefit across MCC, BACC, AUPRC, and Brier score, without
+degrading the exact fallback pathway.
+
+If sufficiently reliable metadata become available, mechanism-aware endpoints
+and assay context should be modeled explicitly. Labels that distinguish, for
+example, membrane disruption, hemolysis, and general cytotoxicity may provide a
+more informative supervisory signal for identifying relevant conformational
+states than a single pooled toxicity label. Experimentally supported conformer
+populations or environment-specific ensemble weights would further reduce the
+current ambiguity between sampled structural diversity and biologically active
+microstates.
+
 The fixed-representation occlusion analysis should be compared with orthogonal
 token-level perturbations and gradient-based attribution on a larger
 prespecified cohort. Hypotheses supported by both the 1D and 3D analyses could
@@ -3523,26 +3649,33 @@ membrane-disruption, or toxicity experiments.
 GHXTox combines a task-adaptive LoRA-ProtT5--Bi-Mamba sequence expert with a
 pLDDT-aware multi-scale structural expert through an auditable probability
 fusion protocol. The structural expert integrates residue geometry,
-full-atom-derived chemical sites, and an availability-masked conformer
-residual, while the final predictor uses the standalone structural-expert
-probability rather
-than recycling a previous fused output. The 1D/3D weights (0.72/0.28) and the
+full-atom-derived chemical sites, and a source-aware, availability-masked
+conformer residual, while the final predictor uses the structural expert's
+standalone probability rather than recycling a previous fused output. The
+1D/3D weights (0.72/0.28) and the
 decision threshold (0.47022256531284556) were fixed from training OOF
 predictions before benchmark evaluation.
 
 On the frozen historical Test1 and Test2 benchmarks, the current model reaches
-MCC values of 0.8728 and 0.6673 and AUPRC values of 0.9674 and 0.8050,
+MCC values of 0.8726 and 0.6746 and AUPRC values of 0.9675 and 0.8043,
 respectively. Relative to the calibrated 1D probability stream, the final
 prespecified fusion yielded higher AUROC and AUPRC values and lower Brier scores
 on both sets, consistent with complementary structural information. The
-controlled conformer
-ablation is more limited: it corrects one Test1 decision and produces small
-ranking gains on both benchmarks, but it leaves Test2 classification unchanged
-and slightly increases Brier score on both sets. Because current paired
-bootstrap intervals have not yet been regenerated from the retained
-multi-conformer prediction vectors, these point estimates alone do not support
-claims of statistically established or universal superiority. The matched
-interpretation experiments identified a strong peptide-level association
+controlled conformer ablation remains modest: it corrects one false positive
+on each benchmark and reduces Brier score on both, but Test2 AUPRC decreases
+slightly. In training OOF, the MCC difference from the same-checkpoint
+zero-conformer predictor is $+0.00190$, with a 95\% paired-bootstrap interval
+of $[-0.00043,\,0.00454]$. The point estimates therefore do not support claims
+of statistically established or universal superiority. A direct paired
+full2795-versus-pilot OOF interval also remains unavailable because the
+preceding pilot prediction vector was not retained. The training-OOF conformer
+diagnostics further show that marked geometric and embedding variation can
+coexist with nearly invariant frozen-expert probabilities. The rejected
+spatial-set residual did not produce a stable multimetric gain, indicating a
+representation--label alignment bottleneck under the current sample-level
+supervision rather than establishing that conformational heterogeneity lacks
+biological relevance. The matched interpretation experiments identified a
+strong peptide-level association
 between predicted structural confidence and the global gate, mostly small but
 occasionally large chemical-site deletion effects, and modest cross-seed
 stability in the fine-grained 1D residue ranking. These results describe model
@@ -3556,12 +3689,14 @@ experimental evaluation of the resulting hypotheses.
 % ----------------------------------------------------------------------------
 \section*{Data and Software Availability}
 The source code, configuration files, fold manifests, and inference scripts
-used in this study are available at [repository]. The manuscript results
-correspond to commit [HASH] and release [VERSION]. Frozen model parameters,
-calibration coefficients, fusion weights, the full-precision decision
-threshold, and sample-level prediction files are provided in [archive/release].
-% TODO: fill repository URL, commit hash, release/tag, license, and
-%       environment files.
+used in this study are available at
+\url{https://github.com/Suiyumanbu/GHXTox}. A versioned archival release
+containing the exact commit identifier, environment manifest, frozen model
+parameters, calibration coefficients, fusion weights, full-precision decision
+threshold, and sample-level prediction files will accompany the final
+publication.
+% TODO: freeze the final commit, release/tag, archive DOI, license, and
+%       environment files before submission.
 Raw peptide records were obtained from the public databases described in
 Section 2.1. Where redistribution is restricted by the original database
 terms, accession lists and preprocessing scripts are provided instead of

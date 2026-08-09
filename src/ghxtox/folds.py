@@ -7,9 +7,9 @@ import csv
 import json
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 
 import torch
-from Bio import Align
 from sklearn.model_selection import StratifiedGroupKFold
 
 
@@ -39,7 +39,14 @@ def _kmers(sequence: str, size: int = 2) -> set[str]:
     return {sequence[index : index + size] for index in range(len(sequence) - size + 1)}
 
 
-def _aligner() -> Align.PairwiseAligner:
+def _aligner() -> Any:
+    try:
+        from Bio import Align
+    except ImportError as exc:
+        raise ImportError(
+            "Creating new sequence-identity groups requires Biopython; loading an "
+            "existing fold manifest does not."
+        ) from exc
     aligner = Align.PairwiseAligner()
     aligner.mode = "global"
     aligner.match_score = 2.0
@@ -49,7 +56,7 @@ def _aligner() -> Align.PairwiseAligner:
     return aligner
 
 
-def _identity(first: str, second: str, aligner: Align.PairwiseAligner) -> float:
+def _identity(first: str, second: str, aligner: Any) -> float:
     if first == second:
         return 1.0
     alignment = aligner.align(first, second)[0]

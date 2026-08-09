@@ -1,0 +1,30 @@
+{
+  "control_config": "runs\\chemical_site_final_control_fold0\\config.json",
+  "control_config_sha256": "DC2B626C9D4BB18D6AFA9B120E11D7FA4B4227D025FE09FD3156FAA8D09CC4D9",
+  "control_history": "runs\\chemical_site_final_control_fold0\\history.json",
+  "control_history_sha256": "C0B66C3DFE19EBE7455253399243A6BB56D736AD8B076592A26FDEA991368A56",
+  "output_checkpoint": "runs\\original_fold0_control_reconstructed_from_candidate_v1\\best_model.pt",
+  "output_checkpoint_sha256": "24B865066A00FF5F205462D452775B09259AAB57962AD3FDD5229FB38029B726",
+  "selected_epoch": 20,
+  "selected_val_metrics": {
+    "accuracy": 0.9441384736428009,
+    "auprc": 0.9529280615950917,
+    "auroc": 0.9734963258641024,
+    "balanced_accuracy": 0.9182814720735433,
+    "f1": 0.8981348637015782,
+    "loss": 0.9900574267004345,
+    "mcc": 0.8616032263033445,
+    "mean_global_gate": 0.36688232421875,
+    "precision": 0.9427710843373494,
+    "recall": 0.8575342465753425
+  },
+  "source_candidate": "C:\\Users\\GAOKEHAN\\Downloads\\best_model.pt",
+  "source_candidate_sha256": "D6637F0AD931BE30B1EB90DA5CEB04CBE62B6FC0F57D272A5E88D010BD7D54C0",
+  "state_contract": {
+    "candidate_tensor_count": 142,
+    "exact_key_and_shape_match": true,
+    "expected_control_tensor_count": 114,
+    "reconstructed_control_tensor_count": 114,
+    "removed_branch_tensor_count": 28
+  }
+}

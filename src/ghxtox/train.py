@@ -9,9 +9,15 @@ from typing import Any
 
 import torch
 from torch import nn
-from torch.utils.data import DataLoader, Subset, random_split
+from torch.nn import functional as F
+from torch.utils.data import DataLoader, Subset, WeightedRandomSampler, random_split
 
-from ghxtox.data import PeptideTensorDataset, collate_peptides, validate_plm_feature_dim
+from ghxtox.data import (
+    PeptideTensorDataset,
+    attach_fusion_probability_oof,
+    collate_peptides,
+    validate_plm_feature_dim,
+)
 from ghxtox.folds import load_fold_indices
 from ghxtox.nested_folds import load_nested_indices
 from ghxtox.metrics import binary_metrics
@@ -38,8 +44,28 @@ def _make_loaders(
     nested_manifest: str | Path | None = None,
     outer_fold: int = 0,
     modality: str = "fusion",
+    balance_conformer_sources: bool = False,
+    fusion_probability_oof: str | Path | None = None,
+    fusion_probability_artifact_type: str | None = None,
 ) -> tuple[DataLoader, DataLoader]:
     train_dataset = PeptideTensorDataset(train_path, require_labels=True)
+    probability_contract = None
+    if fusion_probability_oof:
+        if not fold_manifest:
+            raise ValueError(
+                "Fusion-aware training requires --fold-manifest for probability alignment."
+            )
+        if not fusion_probability_artifact_type:
+            raise ValueError(
+                "train.fusion_probability_artifact_type is required with "
+                "train.fusion_probability_oof."
+            )
+        probability_contract = attach_fusion_probability_oof(
+            train_dataset,
+            fusion_probability_oof,
+            fusion_probability_artifact_type,
+            fold_manifest,
+        )
     if fold_manifest and nested_manifest:
         raise ValueError("--fold-manifest and --nested-manifest are mutually exclusive.")
     if nested_manifest:
@@ -76,10 +102,16 @@ def _make_loaders(
         include_structure=include_structure,
         include_atom=include_atom,
     )
+    sampler = (
+        _source_balanced_sampler(train_dataset, seed)
+        if balance_conformer_sources
+        else None
+    )
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        shuffle=True,
+        shuffle=sampler is None,
+        sampler=sampler,
         collate_fn=collate_fn,
     )
     val_loader = DataLoader(
@@ -88,6 +120,8 @@ def _make_loaders(
         shuffle=False,
         collate_fn=collate_fn,
     )
+    train_loader.fusion_probability_contract = probability_contract
+    val_loader.fusion_probability_contract = probability_contract
     return train_loader, val_loader
 
 
@@ -103,6 +137,36 @@ def _records_from_dataset(dataset: PeptideTensorDataset | Subset) -> list[dict[s
     if isinstance(dataset, Subset):
         return [dataset.dataset.records[index] for index in dataset.indices]
     return dataset.records
+
+
+def _source_balanced_sampler(
+    dataset: PeptideTensorDataset | Subset,
+    seed: int,
+) -> WeightedRandomSampler:
+    records = _records_from_dataset(dataset)
+    source_indices = []
+    for record in records:
+        features = record.get("conformer_source_features")
+        if features is None:
+            raise ValueError(
+                "Source-balanced sampling requires conformer_source_features on every record."
+            )
+        source_indices.append(int(torch.as_tensor(features).argmax().item()))
+    counts = torch.bincount(torch.tensor(source_indices, dtype=torch.long))
+    present = torch.nonzero(counts > 0, as_tuple=False).flatten()
+    if present.numel() < 2:
+        raise ValueError("Source-balanced sampling requires at least two observed sources.")
+    sample_weights = torch.tensor(
+        [1.0 / float(counts[index]) for index in source_indices],
+        dtype=torch.double,
+    )
+    generator = torch.Generator().manual_seed(int(seed))
+    return WeightedRandomSampler(
+        sample_weights,
+        num_samples=len(sample_weights),
+        replacement=True,
+        generator=generator,
+    )
 
 
 def _validate_loader_plm_features(loader: DataLoader, required_dim: int, source: str) -> None:
@@ -269,6 +333,41 @@ def _decision_margin_penalty(
     )
 
 
+def _fusion_loss_kwargs(train_cfg: dict[str, Any]) -> dict[str, Any]:
+    """Validate and return the explicitly enabled fixed-fusion objective."""
+
+    if not train_cfg.get("fusion_probability_oof"):
+        return {}
+    weight_1d = float(train_cfg.get("fusion_weight_1d", -1.0))
+    threshold = float(train_cfg.get("fusion_decision_threshold", -1.0))
+    margin = float(train_cfg.get("fusion_boundary_margin", 0.0))
+    loss_weights = {
+        "fusion_bce_weight": float(train_cfg.get("fusion_bce_weight", 0.0)),
+        "fusion_brier_weight": float(train_cfg.get("fusion_brier_weight", 0.0)),
+        "fusion_3d_bce_weight": float(train_cfg.get("fusion_3d_bce_weight", 0.0)),
+        "fusion_boundary_weight": float(train_cfg.get("fusion_boundary_weight", 0.0)),
+    }
+    if not 0.0 <= weight_1d <= 1.0:
+        raise ValueError("train.fusion_weight_1d must lie in [0, 1].")
+    if not 0.0 < threshold < 1.0:
+        raise ValueError("train.fusion_decision_threshold must lie strictly in (0, 1).")
+    if margin < 0.0 or threshold - margin < 0.0 or threshold + margin > 1.0:
+        raise ValueError("The fusion boundary margin must remain inside [0, 1].")
+    if any(value < 0.0 for value in loss_weights.values()):
+        raise ValueError("Fusion loss weights cannot be negative.")
+    if not any(value > 0.0 for value in loss_weights.values()):
+        raise ValueError("At least one fusion loss weight must be positive.")
+    return {
+        "fusion_weight_1d": weight_1d,
+        "fusion_decision_threshold": threshold,
+        "fusion_boundary_margin": margin,
+        "fusion_loss_available_only": bool(
+            train_cfg.get("fusion_loss_available_only", True)
+        ),
+        **loss_weights,
+    }
+
+
 def _run_epoch(
     model: GHXToxModel,
     loader: DataLoader,
@@ -283,10 +382,21 @@ def _run_epoch(
     residual_base_aux_weight: float = 0.0,
     residual_delta_l1: float = 0.0,
     conformer_delta_l1: float = 0.0,
+    conformer_benefit_weight: float = 0.0,
+    conformer_source_center_weight: float = 0.0,
+    conformer_source_calibration_weight: float = 0.0,
     decision_margin_weight: float = 0.0,
     decision_threshold: float = 0.5,
     decision_margin: float = 0.15,
     positive_margin_multiplier: float = 1.5,
+    fusion_weight_1d: float | None = None,
+    fusion_decision_threshold: float = 0.5,
+    fusion_boundary_margin: float = 0.0,
+    fusion_bce_weight: float = 0.0,
+    fusion_brier_weight: float = 0.0,
+    fusion_3d_bce_weight: float = 0.0,
+    fusion_boundary_weight: float = 0.0,
+    fusion_loss_available_only: bool = True,
 ) -> dict[str, Any]:
     training = optimizer is not None
     model.train(training)
@@ -296,6 +406,15 @@ def _run_epoch(
     labels_all = []
     gates = []
     total_margin_loss = 0.0
+    fusion_active = fusion_weight_1d is not None
+    fusion_component_totals = {
+        "fusion_bce": 0.0,
+        "fusion_brier": 0.0,
+        "fusion_3d_bce": 0.0,
+        "fusion_boundary": 0.0,
+        "fusion_probability": 0.0,
+    }
+    total_fusion_items = 0
 
     for batch in loader:
         batch = move_batch_to_device(batch, device)
@@ -307,7 +426,66 @@ def _run_epoch(
             optimizer.zero_grad(set_to_none=True)
         output = model(batch)
         logits = output["logits"]
-        loss = criterion(logits, labels)
+        fusion_components = {
+            key: logits.new_zeros(()) for key in fusion_component_totals
+        }
+        selected_count = 0
+        if fusion_active:
+            if "fusion_one_d_probability" not in batch:
+                raise ValueError(
+                    "Fusion-aware loss is enabled, but the batch has no aligned 1D probability."
+                )
+            selected = torch.ones_like(labels, dtype=torch.bool)
+            if fusion_loss_available_only:
+                available = output.get("conformer_available")
+                if available is None:
+                    raise ValueError(
+                        "fusion_loss_available_only requires conformer_available from the model."
+                    )
+                selected = available.reshape(-1).bool()
+            selected_count = int(selected.sum().item())
+            if selected_count > 0:
+                selected_labels = labels[selected]
+                selected_logits = logits[selected]
+                selected_1d = batch["fusion_one_d_probability"][selected].detach()
+                selected_3d = torch.sigmoid(selected_logits)
+                final_probability = (
+                    float(fusion_weight_1d) * selected_1d
+                    + (1.0 - float(fusion_weight_1d)) * selected_3d
+                ).clamp(1e-7, 1.0 - 1e-7)
+                fusion_components["fusion_bce"] = F.binary_cross_entropy(
+                    final_probability, selected_labels
+                )
+                fusion_components["fusion_brier"] = (
+                    final_probability - selected_labels
+                ).square().mean()
+                fusion_components["fusion_3d_bce"] = F.binary_cross_entropy_with_logits(
+                    selected_logits, selected_labels
+                )
+                positive_boundary = torch.relu(
+                    fusion_decision_threshold + fusion_boundary_margin - final_probability
+                )
+                negative_boundary = torch.relu(
+                    final_probability
+                    - (fusion_decision_threshold - fusion_boundary_margin)
+                )
+                fusion_components["fusion_boundary"] = torch.where(
+                    selected_labels > 0.5,
+                    positive_boundary,
+                    negative_boundary,
+                ).mean()
+                fusion_components["fusion_probability"] = final_probability.mean()
+                loss = (
+                    fusion_bce_weight * fusion_components["fusion_bce"]
+                    + fusion_brier_weight * fusion_components["fusion_brier"]
+                    + fusion_3d_bce_weight * fusion_components["fusion_3d_bce"]
+                    + fusion_boundary_weight * fusion_components["fusion_boundary"]
+                )
+            else:
+                # Preserve a valid autograd graph for an uncovered-only batch.
+                loss = logits.sum() * 0.0
+        else:
+            loss = criterion(logits, labels)
         if residual_base_aux_weight > 0.0 and "base_logits" in output:
             loss = loss + residual_base_aux_weight * criterion(output["base_logits"], labels)
         if residual_delta_l1 > 0.0 and "atom_delta" in output and "spatial_delta" in output:
@@ -318,6 +496,55 @@ def _run_epoch(
             if available is not None and available.sum() > 0:
                 residual_size = (output["conformer_delta"].abs() * available).sum() / available.sum()
                 loss = loss + conformer_delta_l1 * residual_size
+        if (
+            "conformer_delta" in output
+            and "base_logits" in output
+            and (
+                conformer_benefit_weight > 0.0
+                or conformer_source_center_weight > 0.0
+                or conformer_source_calibration_weight > 0.0
+            )
+        ):
+            available = output["conformer_available"].to(dtype=logits.dtype)
+            source = batch["conformer_source_features"].to(dtype=logits.dtype)
+            available_count = available.sum().clamp_min(1.0)
+            if conformer_benefit_weight > 0.0:
+                candidate_bce = F.binary_cross_entropy_with_logits(
+                    logits, labels, reduction="none"
+                )
+                base_bce = F.binary_cross_entropy_with_logits(
+                    output["base_logits"].detach(), labels, reduction="none"
+                )
+                harm = (
+                    torch.relu(candidate_bce - base_bce) * available
+                ).sum() / available_count
+                loss = loss + conformer_benefit_weight * harm
+            if conformer_source_center_weight > 0.0:
+                source_means = []
+                for source_index in range(source.shape[-1]):
+                    selected = available * source[:, source_index]
+                    if selected.sum() > 0:
+                        source_means.append(
+                            (output["conformer_delta"] * selected).sum()
+                            / selected.sum()
+                        )
+                if source_means:
+                    center_penalty = torch.stack(source_means).square().mean()
+                    loss = loss + conformer_source_center_weight * center_penalty
+            if conformer_source_calibration_weight > 0.0:
+                calibration_biases = []
+                probability_error = torch.sigmoid(logits) - labels
+                for source_index in range(source.shape[-1]):
+                    selected = available * source[:, source_index]
+                    if selected.sum() > 0:
+                        calibration_biases.append(
+                            (probability_error * selected).sum() / selected.sum()
+                        )
+                if calibration_biases:
+                    calibration_penalty = torch.stack(calibration_biases).square().mean()
+                    loss = loss + (
+                        conformer_source_calibration_weight * calibration_penalty
+                    )
         if training and atom_residual_l1 > 0.0 and "atom_residual_weight" in output:
             loss = loss + atom_residual_l1 * output["atom_residual_weight"].abs()
         if training and contrastive_weight > 0.0:
@@ -346,6 +573,12 @@ def _run_epoch(
         total_loss += float(loss.detach().cpu()) * batch_size
         total_margin_loss += float(margin_loss.detach().cpu()) * batch_size
         total_items += batch_size
+        if fusion_active and selected_count > 0:
+            for key in fusion_component_totals:
+                fusion_component_totals[key] += (
+                    float(fusion_components[key].detach().cpu()) * selected_count
+                )
+            total_fusion_items += selected_count
         logits_all.append(logits.detach().cpu())
         labels_all.append(labels.detach().cpu())
         gates.append(output["global_gate"].detach().cpu())
@@ -358,6 +591,12 @@ def _run_epoch(
     result["loss"] = total_loss / total_items
     result["decision_margin_loss"] = total_margin_loss / total_items
     result["mean_global_gate"] = float(torch.cat(gates).mean()) if gates else float("nan")
+    if fusion_active:
+        if total_fusion_items == 0:
+            raise RuntimeError("Fusion-aware epoch contained no conformer-covered samples.")
+        for key, total in fusion_component_totals.items():
+            result[key] = total / total_fusion_items
+        result["fusion_covered_fraction"] = total_fusion_items / total_items
     return result
 
 
@@ -376,6 +615,13 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         nested_manifest=args.nested_manifest,
         outer_fold=args.outer_fold,
         modality=str(config.get("model", {}).get("modality", "fusion")),
+        balance_conformer_sources=bool(
+            train_cfg.get("balance_conformer_sources", False)
+        ),
+        fusion_probability_oof=train_cfg.get("fusion_probability_oof"),
+        fusion_probability_artifact_type=train_cfg.get(
+            "fusion_probability_artifact_type"
+        ),
     )
     required_plm_dim = int(config.get("model", {}).get("plm_embedding_dim", 0))
     _validate_loader_plm_features(train_loader, required_plm_dim, args.train)
@@ -433,6 +679,7 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         raise ValueError("Decision threshold must be strictly between zero and one.")
     if positive_margin_multiplier <= 0.0:
         raise ValueError("Positive margin multiplier must be positive.")
+    fusion_loss_kwargs = _fusion_loss_kwargs(train_cfg)
     optimizer = torch.optim.AdamW(
         trainable_parameters,
         lr=float(args.learning_rate or train_cfg["learning_rate"]),
@@ -442,6 +689,9 @@ def train(config: dict, args: argparse.Namespace) -> Path:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     save_json(config, output_dir / "config.json")
+    probability_contract = getattr(train_loader, "fusion_probability_contract", None)
+    if probability_contract is not None:
+        save_json(probability_contract, output_dir / "fusion_probability_contract.json")
 
     if args.full_data_epochs is not None:
         if args.val or args.fold_manifest or args.nested_manifest:
@@ -452,10 +702,16 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             "atom_only", "sequence_atom", "fusion_atom_residual", "residual_experts"
         }
         full_dataset = PeptideTensorDataset(args.train, require_labels=True)
+        full_sampler = (
+            _source_balanced_sampler(full_dataset, int(config.get("seed", 42)))
+            if bool(train_cfg.get("balance_conformer_sources", False))
+            else None
+        )
         full_loader = DataLoader(
             full_dataset,
             batch_size=int(args.batch_size or train_cfg["batch_size"]),
-            shuffle=True,
+            shuffle=full_sampler is None,
+            sampler=full_sampler,
             collate_fn=partial(
                 collate_peptides,
                 include_structure=not sequence_only,
@@ -481,6 +737,16 @@ def train(config: dict, args: argparse.Namespace) -> Path:
         contrastive_weight = float(train_cfg.get("contrastive_weight", 0.0))
         contrastive_temperature = float(train_cfg.get("contrastive_temperature", 0.2))
         atom_residual_l1 = float(train_cfg.get("atom_residual_l1", 0.0))
+        conformer_delta_l1 = float(train_cfg.get("conformer_delta_l1", 0.0))
+        conformer_benefit_weight = float(
+            train_cfg.get("conformer_benefit_weight", 0.0)
+        )
+        conformer_source_center_weight = float(
+            train_cfg.get("conformer_source_center_weight", 0.0)
+        )
+        conformer_source_calibration_weight = float(
+            train_cfg.get("conformer_source_calibration_weight", 0.0)
+        )
         for epoch in range(1, fixed_epochs + 1):
             train_metrics = _run_epoch(
                 model,
@@ -493,10 +759,15 @@ def train(config: dict, args: argparse.Namespace) -> Path:
                 contrastive_weight=contrastive_weight,
                 contrastive_temperature=contrastive_temperature,
                 atom_residual_l1=atom_residual_l1,
+                conformer_delta_l1=conformer_delta_l1,
+                conformer_benefit_weight=conformer_benefit_weight,
+                conformer_source_center_weight=conformer_source_center_weight,
+                conformer_source_calibration_weight=conformer_source_calibration_weight,
                 decision_margin_weight=decision_margin_weight,
                 decision_threshold=decision_threshold,
                 decision_margin=decision_margin,
                 positive_margin_multiplier=positive_margin_multiplier,
+                **fusion_loss_kwargs,
             )
             history.append({"epoch": epoch, "train": train_metrics})
             print(
@@ -550,6 +821,13 @@ def train(config: dict, args: argparse.Namespace) -> Path:
     residual_base_aux_weight = float(train_cfg.get("residual_base_aux_weight", 0.0))
     residual_delta_l1 = float(train_cfg.get("residual_delta_l1", 0.0))
     conformer_delta_l1 = float(train_cfg.get("conformer_delta_l1", 0.0))
+    conformer_benefit_weight = float(train_cfg.get("conformer_benefit_weight", 0.0))
+    conformer_source_center_weight = float(
+        train_cfg.get("conformer_source_center_weight", 0.0)
+    )
+    conformer_source_calibration_weight = float(
+        train_cfg.get("conformer_source_calibration_weight", 0.0)
+    )
     selection_mode = str(train_cfg.get("selection_mode", "monitor")).lower()
     if selection_mode not in {"monitor", "pareto", "fixed_epoch"}:
         raise ValueError(
@@ -590,13 +868,28 @@ def train(config: dict, args: argparse.Namespace) -> Path:
             residual_base_aux_weight=residual_base_aux_weight,
             residual_delta_l1=residual_delta_l1,
             conformer_delta_l1=conformer_delta_l1,
+            conformer_benefit_weight=conformer_benefit_weight,
+            conformer_source_center_weight=conformer_source_center_weight,
+            conformer_source_calibration_weight=conformer_source_calibration_weight,
             decision_margin_weight=decision_margin_weight,
             decision_threshold=decision_threshold,
             decision_margin=decision_margin,
             positive_margin_multiplier=positive_margin_multiplier,
+            **fusion_loss_kwargs,
         )
         with torch.no_grad():
-            val_metrics = _run_epoch(model, val_loader, criterion, device, optimizer=None)
+            val_metrics = _run_epoch(
+                model,
+                val_loader,
+                criterion,
+                device,
+                optimizer=None,
+                conformer_delta_l1=conformer_delta_l1,
+                conformer_benefit_weight=conformer_benefit_weight,
+                conformer_source_center_weight=conformer_source_center_weight,
+                conformer_source_calibration_weight=conformer_source_calibration_weight,
+                **fusion_loss_kwargs,
+            )
 
         row = {"epoch": epoch, "train": train_metrics, "val": val_metrics}
         history.append(row)

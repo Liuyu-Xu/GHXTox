@@ -1,0 +1,117 @@
+{
+  "status": "features_loaded_before_fold_training",
+  "protocol_audit": {
+    "protocol_path": "D:\\dachuang2026\\GHXTox\\configs\\raw_view_spatial_embedding_screen_protocol_v2.json",
+    "protocol_sha256": "150d4c77be4938976a833412987322d953a903945babf5d85236e374698959fa",
+    "verified_inputs": {
+      "processed": {
+        "path": "D:\\dachuang2026\\ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+        "bytes": 1176973278,
+        "sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b"
+      },
+      "fold_manifest": {
+        "path": "D:\\dachuang2026\\GHXTox\\data\\folds\\train_cdhit080_fallback_folds.csv",
+        "bytes": 353109,
+        "sha256": "5b9fb06c6c69b0c4eedc314835a434414931af45a12327aba645cc8342ec4091"
+      },
+      "one_d_oof": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_calibrated.json",
+        "bytes": 274431,
+        "sha256": "016158c5577aa21abd612720089780d2006a3788f7e68cc8543741a589b507af"
+      },
+      "base_three_d_oof": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_lineage_selected_base_oof_v1\\full_predictions.csv",
+        "bytes": 1061177,
+        "sha256": "22c9aef3a1124d3202583f354a1304c343748dcee5a2cc0a657ce5959e5475fb"
+      },
+      "pepflow_archive": {
+        "path": "D:\\dachuang2026\\ziliao\\pepflow_full761_results_20260724.tar.gz",
+        "bytes": 33300373,
+        "sha256": "799e2ecbf24bf1794059e0fbebb8fb149031f3b6249fa961c3ba360f048cf2e3"
+      },
+      "af2_archive": {
+        "path": "D:\\dachuang2026\\ziliao\\af2_ensemble_16_30_full_20260728.tar.gz",
+        "bytes": 115260725,
+        "sha256": "936fb20570ca07f827e80ac1acea506ed91f01bd528a5491bcb1e8b327a0c74d"
+      },
+      "fold0_checkpoint": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_fold0_candidate_reproduction_torch231_v1\\best_model.pt",
+        "bytes": 6126668,
+        "sha256": "576d16e9d2c1574d0df65a1fd1d85792eb8fe77b8df69c52ae7e644d14ddb55d"
+      },
+      "fold1_checkpoint": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_lineage_candidate_fold1_torch231_v1\\best_model.pt",
+        "bytes": 6126732,
+        "sha256": "7fe4f73ca0748148c0e12cfef59702c5c9ba22c1a9e91d3c5db0dc5f013f059c"
+      },
+      "fold2_checkpoint": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_lineage_base_fold2_zero_chemical_fallback_v1\\best_model.pt",
+        "bytes": 6116684,
+        "sha256": "86e36b82040eb585e609f2d9091f98948fcdf57c620a039454c97745d8429f93"
+      },
+      "fold3_checkpoint": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_lineage_candidate_fold3_torch231_v1\\best_model.pt",
+        "bytes": 6126732,
+        "sha256": "09fbbc10f699f5bdfc31d541cf6e2534acb1ae327d80ecebd934c00e0c9b27be"
+      },
+      "fold4_checkpoint": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\original_lineage_candidate_fold4_torch231_v1\\best_model.pt",
+        "bytes": 6126732,
+        "sha256": "e0ee18760458588e359852e8398e2ce7d362f0aed9e1fbd3d9902a2fcdbeb525"
+      }
+    },
+    "parent_summary_sha256": "1c32bdd37c3bbac7768fa9c51f20d3f9db3db55936ec9e6337132fadf9b0d333"
+  },
+  "archive_audit": [
+    {
+      "group_audit": {
+        "archive": "D:\\dachuang2026\\ziliao\\pepflow_full761_results_20260724.tar.gz",
+        "manifest_member": "data/pepflow_pilot/full761_conformer_manifest.csv",
+        "manifest_rows": 6088,
+        "sample_groups": 761,
+        "conformers_per_sample": 8,
+        "fold_counts": {
+          "0": 171,
+          "1": 150,
+          "2": 140,
+          "3": 157,
+          "4": 143
+        }
+      },
+      "load_audit": {
+        "archive": "D:\\dachuang2026\\ziliao\\pepflow_full761_results_20260724.tar.gz",
+        "samples": 761,
+        "views": 6088,
+        "summaries": 761,
+        "elapsed_seconds": 1.0150322914123535
+      }
+    },
+    {
+      "group_audit": {
+        "archive": "D:\\dachuang2026\\ziliao\\af2_ensemble_16_30_full_20260728.tar.gz",
+        "manifest_member": "data/af2_ensemble_16_30/cache_full/conformer_manifest.csv",
+        "manifest_rows": 16272,
+        "sample_groups": 2034,
+        "conformers_per_sample": 8,
+        "fold_counts": {
+          "0": 366,
+          "1": 401,
+          "2": 403,
+          "3": 436,
+          "4": 428
+        }
+      },
+      "load_audit": {
+        "archive": "D:\\dachuang2026\\ziliao\\af2_ensemble_16_30_full_20260728.tar.gz",
+        "samples": 2034,
+        "views": 16272,
+        "summaries": 2034,
+        "elapsed_seconds": 2.7554500102996826
+      }
+    }
+  ],
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "device": "cuda"
+  }
+}

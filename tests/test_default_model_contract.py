@@ -47,7 +47,7 @@ def test_multidimensional_model_is_the_only_public_default() -> None:
             marked.append(path.name)
     assert marked == ["default_multidimensional_fusion.json"]
     structure_source = current["composition"]["3d_expert"]["test_probability_column"]
-    assert "default_multidimensional_fusion_multiconformer_extension" in structure_source
+    assert "source_aware_multiconformer_frozen_test_20260808_r4_corrected" in structure_source
     assert "default_3d_hybrid" not in structure_source
 
 
@@ -124,7 +124,8 @@ def test_public_exporter_uses_retained_multiconformer_structure_outputs() -> Non
     script = (ROOT / "scripts/export_multidimensional_default.py").read_text(
         encoding="utf-8"
     )
-    assert "default_multidimensional_fusion_multiconformer_extension" in script
+    assert "source_aware_multiconformer_frozen_test_20260808_r4_corrected" in script
+    assert "default_multidimensional_fusion_full2795" in script
     assert 'f"{dataset}_structure_predictions.csv"' in script
     assert "runs/default_3d_hybrid" not in script
 

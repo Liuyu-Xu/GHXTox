@@ -24,14 +24,14 @@
    "calibration": "OOF-fitted Platt (runs/lora_mamba_full/oof_calibrated.json)"
   },
   "3d_expert": {
-   "name": "pLDDT-aware multi-scale structure expert (Cα-EGNN + chemical sites + conformer residual)",
-   "checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
-   "test_probability_column": "structure_probability in runs/default_multidimensional_fusion_multiconformer_extension/test{1,2}_structure_predictions.csv"
+    "name": "pLDDT-aware multi-scale structure expert (Cα-EGNN + chemical sites + source-aware full2795 conformer residual)",
+    "checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
+    "test_probability_column": "structure_probability in runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/test{1,2}_structure_predictions.csv"
   }
  },
  "multiconformer_extension": {
-  "status": "retained_preferred_when_audited_cache_is_available",
-  "deployment_decision": "Use the multi-conformer residual by default for records covered by an audited cache; use the exact zero-residual base-3D fallback for uncovered records.",
+   "status": "source_aware_full2795_preferred_when_audited_cache_is_available",
+   "deployment_decision": "Use the source-aware full2795 multi-conformer residual by default for records covered by an audited cache; use the exact zero-residual base-3D fallback for uncovered records.",
   "activation": "enabled only when audited conformer manifests and their cache roots are explicitly supplied",
   "sources": [
    {
@@ -49,28 +49,30 @@
   ],
   "subset_reuse": "Test2 is an exact unique-sequence subset of Test1 and may reuse the audited Test1 conformer cache through an explicit sequence join",
   "missing_policy": "hard zero conformer residual; the frozen base 3D prediction is preserved",
-  "frozen_evaluation": "runs/default_multidimensional_fusion_multiconformer_extension/summary.json",
-  "selection_note": "No checkpoint, fusion weight, calibration parameter, or threshold was fitted on Test1/Test2. Retained as the preferred cache-enabled inference path because Test1 classification and both test-set ranking metrics improved; the slight Brier regression remains explicitly reported."
+   "frozen_evaluation": "runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/summary.json",
+   "selection_note": "The source-aware checkpoint replacement was selected only from training OOF at the already frozen 0.72/0.28 and 0.4702225653 operating point. It prioritizes MCC/BACC/Brier rather than claiming universal improvement: OOF and Test2 classification improve, Test1 MCC is effectively unchanged, and AUROC/AUPRC trade-offs are reported explicitly."
  },
  "fusion": {
   "formula": "p = w * p_1D + (1 - w) * p_3D",
   "weight_1d": 0.72,
   "weight_3d": 0.28,
   "threshold": 0.47022256531284556,
-  "selection": "training-only group-aware OOF with current 3D-expert OOF; MCC objective (consistent protocol, adopted 2026-08-06)"
+   "selection": "0.72/0.28 and threshold were frozen from training-only group-aware OOF on 2026-08-06; the later source-aware full2795 checkpoint replacement used the same frozen operating point and the existing MCC non-decrease rule"
  },
  "outputs": {
-  "test_predictions": "runs/default_multidimensional_fusion/test{1,2}_predictions.csv",
-  "metrics": "runs/default_multidimensional_fusion/test{1,2}_metrics.json",
-  "summary": "runs/default_multidimensional_fusion/summary.json"
+  "test_predictions": "runs/default_multidimensional_fusion_full2795/test{1,2}_predictions.csv",
+  "metrics": "runs/default_multidimensional_fusion_full2795/test{1,2}_metrics.json",
+  "summary": "runs/default_multidimensional_fusion_full2795/summary.json"
  },
  "provenance": {
   "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
   "three_d_oof": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
   "forbidden_mixed_oof": "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv",
   "selection_artifact": "runs/lora_mamba_full/fusion_refreeze.json",
-  "preferred_structure_predictions": "runs/default_multidimensional_fusion_multiconformer_extension/test{1,2}_structure_predictions.csv",
+  "preferred_structure_predictions": "runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/test{1,2}_structure_predictions.csv",
+  "source_aware_replacement_oof": "runs/full2795_current_fusion_oof_comparison_v1/oof_predictions.csv",
+  "source_aware_replacement_decision": "runs/full2795_deployment_decision_20260808_v1/decision.json",
   "legacy_mixed_predictions_forbidden": "runs/default_3d_hybrid/test{1,2}_predictions.csv"
  },
- "protocol_audit_note": "Adopted the consistent/honest protocol: deployed operating point w=0.72, threshold=0.4702 selected on training OOF with the current 3D-expert OOF (MCC objective). Superseded the previous 0.62/0.4977 selected on the mixed (previous-generation fused) OOF. See runs/lora_mamba_full/protocol_audit.json."
+ "protocol_audit_note": "Adopted the consistent/honest protocol: w=0.72 and threshold=0.4702 were selected on training OOF with the then-current pure 3D expert. The later source-aware full2795 checkpoint was evaluated at this unchanged operating point and promoted by the pre-existing OOF MCC rule; Test1/Test2 were used only for frozen confirmation. See runs/lora_mamba_full/protocol_audit.json and runs/full2795_deployment_decision_20260808_v1/decision.json."
 }

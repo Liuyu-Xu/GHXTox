@@ -1,0 +1,536 @@
+{
+  "protocol": {
+    "status": "frozen_multiconformer_extension_evaluation",
+    "test_labels_used_for_training_or_selection": false,
+    "weight_1d": 0.72,
+    "weight_3d": 0.28,
+    "threshold": 0.47022256531284556,
+    "checkpoint": "runs\\source_independent_conformer_residual_full_refit\\best_model.pt"
+  },
+  "test1": {
+    "n": 1126,
+    "covered_records": 486,
+    "coverage_fraction": 0.43161634103019536,
+    "metrics": {
+      "accuracy": 0.9476021314387212,
+      "balanced_accuracy": 0.9323084677419355,
+      "precision": 0.9169329073482428,
+      "sensitivity": 0.896875,
+      "specificity": 0.967741935483871,
+      "f1": 0.9067930489731437,
+      "mcc": 0.8704599749746912,
+      "auroc": 0.9808855459057072,
+      "auprc": 0.9672408474182745,
+      "brier": 0.040943541518041415
+    },
+    "same_checkpoint_zero_conformer_baseline_metrics": {
+      "accuracy": 0.9476021314387212,
+      "balanced_accuracy": 0.9323084677419355,
+      "precision": 0.9169329073482428,
+      "sensitivity": 0.896875,
+      "specificity": 0.967741935483871,
+      "f1": 0.9067930489731437,
+      "mcc": 0.8704599749746912,
+      "auroc": 0.9810561414392059,
+      "auprc": 0.9674027821512894,
+      "brier": 0.04099066170011371
+    },
+    "metric_delta_from_zero_conformer_baseline": {
+      "accuracy": 0.0,
+      "balanced_accuracy": 0.0,
+      "precision": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "auroc": -0.0001705955334987408,
+      "auprc": -0.00016193473301484573,
+      "brier": -4.712018207229246e-05
+    },
+    "prediction_flips_from_zero_conformer_baseline": 0,
+    "source_ablation": {
+      "none": {
+        "accuracy": 0.9476021314387212,
+        "balanced_accuracy": 0.9323084677419355,
+        "precision": 0.9169329073482428,
+        "sensitivity": 0.896875,
+        "specificity": 0.967741935483871,
+        "f1": 0.9067930489731437,
+        "mcc": 0.8704599749746912,
+        "auroc": 0.9810561414392059,
+        "auprc": 0.9674027821512894,
+        "brier": 0.04099066170011371
+      },
+      "pepflow": {
+        "accuracy": 0.9476021314387212,
+        "balanced_accuracy": 0.9323084677419355,
+        "precision": 0.9169329073482428,
+        "sensitivity": 0.896875,
+        "specificity": 0.967741935483871,
+        "f1": 0.9067930489731437,
+        "mcc": 0.8704599749746912,
+        "auroc": 0.9808622828784119,
+        "auprc": 0.9672035870652097,
+        "brier": 0.04099926843756354
+      },
+      "af2": {
+        "accuracy": 0.9476021314387212,
+        "balanced_accuracy": 0.9323084677419355,
+        "precision": 0.9169329073482428,
+        "sensitivity": 0.896875,
+        "specificity": 0.967741935483871,
+        "f1": 0.9067930489731437,
+        "mcc": 0.8704599749746912,
+        "auroc": 0.9810638957816377,
+        "auprc": 0.967415962977659,
+        "brier": 0.0409349366247805
+      },
+      "both": {
+        "accuracy": 0.9476021314387212,
+        "balanced_accuracy": 0.9323084677419355,
+        "precision": 0.9169329073482428,
+        "sensitivity": 0.896875,
+        "specificity": 0.967741935483871,
+        "f1": 0.9067930489731437,
+        "mcc": 0.8704599749746912,
+        "auroc": 0.9808855459057072,
+        "auprc": 0.9672408474182745,
+        "brier": 0.04094354244257425
+      }
+    },
+    "residual_diagnostics": {
+      "interpretation": "Frozen post-hoc diagnostic only; labels were not used to train, select, calibrate, rescale, or threshold the residual.",
+      "covered": {
+        "n": 486,
+        "negative_logit_delta": 222,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 264,
+        "label_directed_count": 103,
+        "label_directed_fraction": 0.21193415637860083,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.139726672321558,
+          "median": 0.036333322525024414,
+          "q75": 0.06134031433612108,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.156212717294693,
+          "q25": -6.0154416132718325e-05,
+          "median": 7.512976907264601e-10,
+          "q75": 1.745265763020143e-07,
+          "max": 0.006064683198928833
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.0437395599251027,
+          "q25": -1.6851236379527082e-05,
+          "median": 2.1168586154807212e-10,
+          "q75": 4.8872637523761364e-08,
+          "max": 0.0016981116653360072
+        },
+        "mean_fusion_probability_shift": -0.0011558556209433695
+      },
+      "covered_positive": {
+        "n": 151,
+        "negative_logit_delta": 135,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 16,
+        "label_directed_count": 16,
+        "label_directed_fraction": 0.10596026490066225,
+        "logit_delta_quantiles": {
+          "min": -0.8349857926368713,
+          "q25": -0.18518082797527313,
+          "median": -0.13216300308704376,
+          "q75": -0.10644606873393059,
+          "max": 0.2706001400947571
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.09927792847156525,
+          "q25": -0.00025838613510131836,
+          "median": -5.245208740234375e-06,
+          "q75": -5.960464477539062e-07,
+          "max": 7.072652806527913e-05
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.0277978208961982,
+          "q25": -7.235709682890112e-05,
+          "median": -1.4614805408097453e-06,
+          "q75": -1.5377384215975454e-07,
+          "max": 1.980347312835473e-05
+        },
+        "mean_fusion_probability_shift": -0.0012665759673340493
+      },
+      "covered_negative": {
+        "n": 335,
+        "negative_logit_delta": 87,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 248,
+        "label_directed_count": 87,
+        "label_directed_fraction": 0.25970149253731345,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.012620763387531042,
+          "median": 0.05892328917980194,
+          "q75": 0.06274525821208954,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.156212717294693,
+          "q25": -2.43524118559435e-06,
+          "median": 1.1262073940088158e-08,
+          "q75": 4.2133365241170395e-07,
+          "max": 0.006064683198928833
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.0437395599251027,
+          "q25": -6.818471046266678e-07,
+          "median": 3.152671247327876e-09,
+          "q75": 1.179727490713961e-07,
+          "max": 0.0016981116653360072
+        },
+        "mean_fusion_probability_shift": -0.0011059488379433916
+      },
+      "pepflow": {
+        "n": 130,
+        "negative_logit_delta": 61,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 69,
+        "label_directed_count": 35,
+        "label_directed_fraction": 0.2692307692307692,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.3155389428138733,
+          "median": 0.04761584661900997,
+          "q75": 0.2359967902302742,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.156212717294693,
+          "q25": -0.000536228166311048,
+          "median": 6.259247342654817e-09,
+          "q75": 6.585209462173225e-07,
+          "max": 0.006064683198928833
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.0437395599251027,
+          "q25": -0.00015014388758286543,
+          "median": 1.7546631552248226e-09,
+          "q75": 1.8438343436029576e-07,
+          "max": 0.0016981116653360072
+        },
+        "mean_fusion_probability_shift": -0.002677275663230123
+      },
+      "af2": {
+        "n": 356,
+        "negative_logit_delta": 161,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 195,
+        "label_directed_count": 68,
+        "label_directed_fraction": 0.19101123595505617,
+        "logit_delta_quantiles": {
+          "min": -0.24774421751499176,
+          "q25": -0.12591874971985817,
+          "median": 0.03564126789569855,
+          "q75": 0.06014085281640291,
+          "max": 0.06706344336271286
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.06157046556472778,
+          "q25": -2.944469451904297e-05,
+          "median": 6.53199272449001e-10,
+          "q75": 6.259068641156773e-08,
+          "max": 0.00013629626482725143
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.0172397273399362,
+          "q25": -8.244226680137468e-06,
+          "median": 1.8070605125111716e-10,
+          "q75": 1.7521574221038283e-08,
+          "max": 3.816292997414761e-05
+        },
+        "mean_fusion_probability_shift": -0.0006002808864004542
+      }
+    },
+    "covered_metrics": {
+      "accuracy": 0.9156378600823045,
+      "balanced_accuracy": 0.8878817831372937,
+      "precision": 0.9044117647058824,
+      "sensitivity": 0.8145695364238411,
+      "specificity": 0.9611940298507463,
+      "f1": 0.8571428571428571,
+      "mcc": 0.7997178319050796,
+      "auroc": 0.9485815953345853,
+      "auprc": 0.9333064585606905,
+      "brier": 0.06496495579092756
+    },
+    "mean_absolute_logit_delta_available": 0.14452596008777618,
+    "structure_predictions": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test1_structure_predictions.csv",
+    "fusion_predictions": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test1_predictions.csv",
+    "one_d_probability_source": "D:\\dachuang2026\\ziliao\\test1_lora_mamba_calibrated.csv",
+    "one_d_probability_key": "toxicity_probability",
+    "normalized_one_d_probabilities": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test1_declared_1d_probabilities.csv"
+  },
+  "test2": {
+    "n": 582,
+    "covered_records": 284,
+    "coverage_fraction": 0.4879725085910653,
+    "metrics": {
+      "accuracy": 0.9467353951890034,
+      "balanced_accuracy": 0.8617780661907852,
+      "precision": 0.6363636363636364,
+      "sensitivity": 0.7608695652173914,
+      "specificity": 0.9626865671641791,
+      "f1": 0.693069306930693,
+      "mcc": 0.6673395851029228,
+      "auroc": 0.942204737183647,
+      "auprc": 0.8030990819991018,
+      "brier": 0.04338954903700355
+    },
+    "same_checkpoint_zero_conformer_baseline_metrics": {
+      "accuracy": 0.9467353951890034,
+      "balanced_accuracy": 0.8617780661907852,
+      "precision": 0.6363636363636364,
+      "sensitivity": 0.7608695652173914,
+      "specificity": 0.9626865671641791,
+      "f1": 0.693069306930693,
+      "mcc": 0.6673395851029228,
+      "auroc": 0.9432998053212199,
+      "auprc": 0.8045896016815742,
+      "brier": 0.04363077037102665
+    },
+    "metric_delta_from_zero_conformer_baseline": {
+      "accuracy": 0.0,
+      "balanced_accuracy": 0.0,
+      "precision": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 0.0,
+      "f1": 0.0,
+      "mcc": 0.0,
+      "auroc": -0.0010950681375729854,
+      "auprc": -0.0014905196824723799,
+      "brier": -0.00024122133402310064
+    },
+    "prediction_flips_from_zero_conformer_baseline": 0,
+    "source_ablation": {
+      "none": {
+        "accuracy": 0.9467353951890034,
+        "balanced_accuracy": 0.8617780661907852,
+        "precision": 0.6363636363636364,
+        "sensitivity": 0.7608695652173914,
+        "specificity": 0.9626865671641791,
+        "f1": 0.693069306930693,
+        "mcc": 0.6673395851029228,
+        "auroc": 0.9432998053212199,
+        "auprc": 0.8045896016815742,
+        "brier": 0.04363077037102665
+      },
+      "pepflow": {
+        "accuracy": 0.9467353951890034,
+        "balanced_accuracy": 0.8617780661907852,
+        "precision": 0.6363636363636364,
+        "sensitivity": 0.7608695652173914,
+        "specificity": 0.9626865671641791,
+        "f1": 0.693069306930693,
+        "mcc": 0.6673395851029228,
+        "auroc": 0.9421236210253082,
+        "auprc": 0.8039622547017313,
+        "brier": 0.04351386830263815
+      },
+      "af2": {
+        "accuracy": 0.9467353951890034,
+        "balanced_accuracy": 0.8617780661907852,
+        "precision": 0.6363636363636364,
+        "sensitivity": 0.7608695652173914,
+        "specificity": 0.9626865671641791,
+        "f1": 0.693069306930693,
+        "mcc": 0.6673395851029228,
+        "auroc": 0.9432998053212199,
+        "auprc": 0.8036997878877259,
+        "brier": 0.043506456092710206
+      },
+      "both": {
+        "accuracy": 0.9467353951890034,
+        "balanced_accuracy": 0.8617780661907852,
+        "precision": 0.6363636363636364,
+        "sensitivity": 0.7608695652173914,
+        "specificity": 0.9626865671641791,
+        "f1": 0.693069306930693,
+        "mcc": 0.6673395851029228,
+        "auroc": 0.942204737183647,
+        "auprc": 0.8030990819991018,
+        "brier": 0.04338955162800366
+      }
+    },
+    "residual_diagnostics": {
+      "interpretation": "Frozen post-hoc diagnostic only; labels were not used to train, select, calibrate, rescale, or threshold the residual.",
+      "covered": {
+        "n": 284,
+        "negative_logit_delta": 93,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 191,
+        "label_directed_count": 72,
+        "label_directed_fraction": 0.2535211267605634,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.10148729383945465,
+          "median": 0.058474404737353325,
+          "q75": 0.06335502304136753,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.15621276199817657,
+          "q25": -4.039958002977073e-05,
+          "median": 7.2302608344898545e-09,
+          "q75": 3.6806400771638437e-07,
+          "max": 0.006064694374799728
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.043739576294005655,
+          "q25": -1.1311886926039516e-05,
+          "median": 2.0247774542084263e-09,
+          "q75": 1.0305802572137604e-07,
+          "max": 0.0016981140136656699
+        },
+        "mean_fusion_probability_shift": -0.0013249815119453711
+      },
+      "covered_positive": {
+        "n": 31,
+        "negative_logit_delta": 26,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 5,
+        "label_directed_count": 5,
+        "label_directed_fraction": 0.16129032258064516,
+        "logit_delta_quantiles": {
+          "min": -0.7547997236251831,
+          "q25": -0.4235701560974121,
+          "median": -0.18334414064884186,
+          "q75": -0.08856748789548874,
+          "max": 0.2706001400947571
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.07348354160785675,
+          "q25": -0.0027202367782592773,
+          "median": -1.1086463928222656e-05,
+          "q75": -9.5367431640625e-07,
+          "max": 7.072683365549892e-05
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.020575393246816343,
+          "q25": -0.0007616681293883265,
+          "median": -3.1125891795102945e-06,
+          "q75": -2.6466487490495183e-07,
+          "max": 1.9803508262195013e-05
+        },
+        "mean_fusion_probability_shift": -0.0014826456426235356
+      },
+      "covered_negative": {
+        "n": 253,
+        "negative_logit_delta": 67,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 186,
+        "label_directed_count": 67,
+        "label_directed_fraction": 0.2648221343873518,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.015318138524889946,
+          "median": 0.05949128419160843,
+          "q75": 0.06497517228126526,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.15621276199817657,
+          "q25": -5.90846138948109e-06,
+          "median": 1.1262073940088158e-08,
+          "q75": 4.3316049413988367e-07,
+          "max": 0.006064694374799728
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.043739576294005655,
+          "q25": -1.6543721750115342e-06,
+          "median": 3.1518712466371834e-09,
+          "q75": 1.2128482899942394e-07,
+          "max": 0.0016981140136656699
+        },
+        "mean_fusion_probability_shift": -0.00130566298209943
+      },
+      "pepflow": {
+        "n": 122,
+        "negative_logit_delta": 53,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 69,
+        "label_directed_count": 35,
+        "label_directed_fraction": 0.28688524590163933,
+        "logit_delta_quantiles": {
+          "min": -0.8387587666511536,
+          "q25": -0.26612091809511185,
+          "median": 0.1192510612308979,
+          "q75": 0.23779720813035965,
+          "max": 0.2825816571712494
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.15621276199817657,
+          "q25": -0.0003207620611647144,
+          "median": 1.1060450333388872e-08,
+          "q75": 7.887957167440618e-07,
+          "max": 0.006064694374799728
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.043739576294005655,
+          "q25": -8.981335296828026e-05,
+          "median": 3.0977733590092926e-09,
+          "q75": 2.208637100153954e-07,
+          "max": 0.0016981140136656699
+        },
+        "mean_fusion_probability_shift": -0.0021171936667758687
+      },
+      "af2": {
+        "n": 162,
+        "negative_logit_delta": 40,
+        "zero_logit_delta": 0,
+        "positive_logit_delta": 122,
+        "label_directed_count": 37,
+        "label_directed_fraction": 0.22839506172839505,
+        "logit_delta_quantiles": {
+          "min": -0.24774423241615295,
+          "q25": 0.0046476845745928586,
+          "median": 0.05814864672720432,
+          "q75": 0.06092130020260811,
+          "max": 0.06706343591213226
+        },
+        "structure_probability_shift_quantiles": {
+          "min": -0.06157049536705017,
+          "q25": 2.7247770706395613e-10,
+          "median": 5.097799515851875e-09,
+          "q75": 2.4367932383029256e-07,
+          "max": 0.00013629603199660778
+        },
+        "fusion_probability_shift_quantiles": {
+          "min": -0.017239739341613824,
+          "q25": 7.606281056393716e-11,
+          "median": 1.4264230048868787e-09,
+          "q75": 6.822280781970669e-08,
+          "max": 3.8162906728186896e-05
+        },
+        "mean_fusion_probability_shift": -0.000728377296579194
+      }
+    },
+    "covered_metrics": {
+      "accuracy": 0.9295774647887324,
+      "balanced_accuracy": 0.8330995792426368,
+      "precision": 0.6666666666666666,
+      "sensitivity": 0.7096774193548387,
+      "specificity": 0.9565217391304348,
+      "f1": 0.6875,
+      "mcc": 0.6482631819677561,
+      "auroc": 0.8957031748055592,
+      "auprc": 0.7664556704753286,
+      "brier": 0.058077183247197905
+    },
+    "mean_absolute_logit_delta_available": 0.16185817122459412,
+    "structure_predictions": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test2_structure_predictions.csv",
+    "fusion_predictions": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test2_predictions.csv",
+    "one_d_probability_source": "runs\\local_default_test2_20260808\\test2_predictions.csv",
+    "one_d_probability_key": "p_1d",
+    "normalized_one_d_probabilities": "runs\\source_independent_conformer_frozen_test_20260808_v3_authoritative\\test2_declared_1d_probabilities.csv"
+  }
+}

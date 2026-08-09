@@ -39,7 +39,9 @@ DEFAULT_OOF_JSONS = tuple(
     f"runs/lora_mamba_full/oof_seed{seed}.json" for seed in PUBLIC_1D_SEEDS
 )
 DEFAULT_MANIFEST = "data/folds/train_cdhit080_fallback_folds.csv"
-DEFAULT_STRUCTURE_CHECKPOINT = "runs/3d_v2_conformer_ensemble_candidate/best_model.pt"
+DEFAULT_STRUCTURE_CHECKPOINT = (
+    "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
+)
 DEFAULT_1D_CONFIG = "configs/lora_mamba_1d_autodl.json"
 LEGACY_STRUCTURE_COLUMNS = {
     "prott5_probability",
@@ -100,7 +102,11 @@ def validate_public_default_config(config: dict[str, Any]) -> None:
     if config.get("provenance", {}).get("three_d_oof") != (
         "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv"
     ):
-        raise ValueError("Canonical 3D OOF must be the pure current 3D expert OOF.")
+        raise ValueError("Canonical operating-point 3D OOF provenance is missing or stale.")
+    if config.get("provenance", {}).get("source_aware_replacement_decision") != (
+        "runs/full2795_deployment_decision_20260808_v1/decision.json"
+    ):
+        raise ValueError("Canonical source-aware replacement decision is missing or stale.")
     structure = config.get("composition", {}).get("3d_expert", {})
     if structure.get("checkpoint") != DEFAULT_STRUCTURE_CHECKPOINT:
         raise ValueError("Canonical 3D checkpoint is missing or stale.")

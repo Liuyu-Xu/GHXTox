@@ -209,6 +209,8 @@ class GHXToxModel(nn.Module):
         )
         self.conformer_ensemble_branch = None
         self.conformer_source_encoder = None
+        self.conformer_ensemble_source_heads = None
+        self.conformer_ensemble_source_logits = None
         self.conformer_graph_set_encoder = None
         self.conformer_graph_source_heads = None
         if bool(model_cfg.get("conformer_ensemble_branch", False)):
@@ -227,31 +229,61 @@ class GHXToxModel(nn.Module):
                 nn.Dropout(conformer_dropout),
             )
             source_aware = bool(model_cfg.get("conformer_ensemble_source_aware", False))
+            independent_source_heads = bool(
+                model_cfg.get("conformer_ensemble_independent_source_heads", False)
+            )
+            if source_aware and independent_source_heads:
+                raise ValueError(
+                    "Shared source conditioning and independent source heads are mutually exclusive."
+                )
             if source_aware:
                 self.conformer_source_encoder = nn.Sequential(
                     nn.Linear(CONFORMER_SOURCE_FEATURE_DIM, conformer_hidden),
                     nn.LayerNorm(conformer_hidden),
                     nn.GELU(),
                 )
-            conformer_branch_input_dim = hidden_dim * 2 + conformer_hidden * (
-                4 if source_aware else 3
-            )
-            self.conformer_ensemble_branch = nn.Sequential(
-                nn.Linear(conformer_branch_input_dim, conformer_hidden),
-                nn.LayerNorm(conformer_hidden),
-                nn.GELU(),
-                nn.Dropout(conformer_dropout),
-                nn.Linear(conformer_hidden, 1),
-            )
-            nn.init.zeros_(self.conformer_ensemble_branch[-1].weight)
-            nn.init.zeros_(self.conformer_ensemble_branch[-1].bias)
+            conformer_branch_input_dim = hidden_dim * 2 + conformer_hidden * 3
+            if source_aware:
+                conformer_branch_input_dim += conformer_hidden
             initial_weight = min(
                 max(float(model_cfg.get("conformer_ensemble_initial_weight", 0.10)), 1e-4),
                 1.0 - 1e-4,
             )
-            self.conformer_ensemble_logit = nn.Parameter(
-                torch.logit(torch.tensor(initial_weight, dtype=torch.float32))
-            )
+            if independent_source_heads:
+                self.conformer_ensemble_source_heads = nn.ModuleList(
+                    [
+                        nn.Sequential(
+                            nn.Linear(conformer_branch_input_dim, conformer_hidden),
+                            nn.LayerNorm(conformer_hidden),
+                            nn.GELU(),
+                            nn.Dropout(conformer_dropout),
+                            nn.Linear(conformer_hidden, 1),
+                        )
+                        for _ in range(CONFORMER_SOURCE_FEATURE_DIM)
+                    ]
+                )
+                for head in self.conformer_ensemble_source_heads:
+                    nn.init.zeros_(head[-1].weight)
+                    nn.init.zeros_(head[-1].bias)
+                self.conformer_ensemble_source_logits = nn.Parameter(
+                    torch.full(
+                        (CONFORMER_SOURCE_FEATURE_DIM,),
+                        float(torch.logit(torch.tensor(initial_weight))),
+                    )
+                )
+            else:
+                self.conformer_ensemble_branch = nn.Sequential(
+                    nn.Linear(conformer_branch_input_dim, conformer_hidden),
+                    nn.LayerNorm(conformer_hidden),
+                    nn.GELU(),
+                    nn.Dropout(conformer_dropout),
+                    nn.Linear(conformer_hidden, 1),
+                )
+                nn.init.zeros_(self.conformer_ensemble_branch[-1].weight)
+                nn.init.zeros_(self.conformer_ensemble_branch[-1].bias)
+                self.conformer_ensemble_logit = nn.Parameter(
+                    torch.logit(torch.tensor(initial_weight, dtype=torch.float32))
+                )
         if bool(model_cfg.get("conformer_graph_set_branch", False)):
             graph_hidden = int(model_cfg.get("conformer_graph_hidden_dim", 32))
             graph_dropout = float(model_cfg.get("conformer_graph_dropout", 0.15))
@@ -310,7 +342,10 @@ class GHXToxModel(nn.Module):
         mask: torch.Tensor,
         batch: dict[str, torch.Tensor],
     ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
-        if self.conformer_ensemble_branch is None:
+        if (
+            self.conformer_ensemble_branch is None
+            and self.conformer_ensemble_source_heads is None
+        ):
             return logits, {}
         residue = batch["conformer_residue_features"].to(dtype=pooled.dtype)
         global_value = batch["conformer_global_features"].to(dtype=pooled.dtype)
@@ -324,17 +359,34 @@ class GHXToxModel(nn.Module):
         if self.conformer_source_encoder is not None:
             source = batch["conformer_source_features"].to(dtype=pooled.dtype)
             branch_parts.append(self.conformer_source_encoder(source))
-        raw_delta = self.conformer_ensemble_branch(
-            torch.cat(branch_parts, dim=-1)
-        ).squeeze(-1)
-        weight = torch.sigmoid(self.conformer_ensemble_logit)
+        branch_input = torch.cat(branch_parts, dim=-1)
+        source = batch["conformer_source_features"].to(dtype=pooled.dtype)
+        if self.conformer_ensemble_source_heads is not None:
+            if source.shape[-1] != len(self.conformer_ensemble_source_heads):
+                raise ValueError(
+                    "Conformer source feature width does not match the independent heads."
+                )
+            raw_by_source = torch.stack(
+                [head(branch_input).squeeze(-1) for head in self.conformer_ensemble_source_heads],
+                dim=-1,
+            )
+            raw_delta = (raw_by_source * source).sum(dim=-1)
+            source_weights = torch.sigmoid(self.conformer_ensemble_source_logits)
+            weight = (source * source_weights.unsqueeze(0)).sum(dim=-1)
+        else:
+            raw_delta = self.conformer_ensemble_branch(branch_input).squeeze(-1)
+            weight = torch.sigmoid(self.conformer_ensemble_logit)
         delta = available * weight * raw_delta
-        return logits + delta, {
+        diagnostics = {
             "base_logits": logits,
             "conformer_delta": delta,
             "conformer_ensemble_weight": weight,
             "conformer_available": available,
         }
+        if self.conformer_ensemble_source_heads is not None:
+            diagnostics["conformer_source_weights"] = source_weights
+            diagnostics["conformer_raw_delta_by_source"] = raw_by_source
+        return logits + delta, diagnostics
 
     def _apply_conformer_graph_residual(
         self,

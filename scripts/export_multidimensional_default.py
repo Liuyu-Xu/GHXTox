@@ -20,12 +20,18 @@ def main() -> None:
     parser.add_argument("--weight", type=float, default=DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D)
     parser.add_argument("--threshold", type=float, default=DEFAULT_MULTIDIMENSIONAL_THRESHOLD)
     parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
-    parser.add_argument("--one-d-dir", default="runs/lora_mamba_full")
+    parser.add_argument(
+        "--one-d-dir",
+        default="runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected",
+    )
     parser.add_argument(
         "--structure-dir",
-        default="runs/default_multidimensional_fusion_multiconformer_extension",
+        default="runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected",
     )
-    parser.add_argument("--output-dir", default="runs/default_multidimensional_fusion")
+    parser.add_argument(
+        "--output-dir",
+        default="runs/default_multidimensional_fusion_full2795",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -46,7 +52,7 @@ def main() -> None:
         },
     }
     for dataset in ("test1", "test2"):
-        one_d_path = Path(args.one_d_dir) / f"{dataset}_lora_mamba_calibrated.csv"
+        one_d_path = Path(args.one_d_dir) / f"{dataset}_declared_1d_probabilities.csv"
         structure_path = Path(args.structure_dir) / f"{dataset}_structure_predictions.csv"
         prediction_path = output_dir / f"{dataset}_predictions.csv"
         metrics_path = output_dir / f"{dataset}_metrics.json"

@@ -1,0 +1,35 @@
+{
+  "artifact_type": "ghxtox_raw_view_spatial_embedding_screen_manifest",
+  "files": [
+    {
+      "path": "base_protocol_snapshot.json",
+      "bytes": 6263,
+      "sha256": "4ed4cc995974dae8ec49effd0be342fcb4390974fe5df223becb38be964b0663"
+    },
+    {
+      "path": "input_audit.json",
+      "bytes": 4741,
+      "sha256": "cc4a9ea3981eacd89dbb3106eb483e9d75e688f0c202bf7c6c9dc7feee154a62"
+    },
+    {
+      "path": "protocol_snapshot.json",
+      "bytes": 1154,
+      "sha256": "150d4c77be4938976a833412987322d953a903945babf5d85236e374698959fa"
+    },
+    {
+      "path": "requested_fold_predictions.csv",
+      "bytes": 198961,
+      "sha256": "e884ae9ddda49455cb6294d92ab7988e4b332926f4fbf48f0d41060170e29853"
+    },
+    {
+      "path": "resolved_protocol.json",
+      "bytes": 7479,
+      "sha256": "94c80be43ba09f1ce719aef930c1bcebd14f370b5edd50e369798af35034cf19"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 14004,
+      "sha256": "4d6df9608c5d275ca2157b4bab84b72fab275de76489818d3190a624d289370f"
+    }
+  ]
+}

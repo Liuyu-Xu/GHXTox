@@ -1,0 +1,35 @@
+{
+  "artifact_type": "ghxtox_per_conformer_information_ceiling_manifest",
+  "files": [
+    {
+      "path": "archive_audit.json",
+      "bytes": 1293,
+      "sha256": "e99305827199e29e9434a0046293d8863105b6fa21820a625c4b38373f2dba83"
+    },
+    {
+      "path": "decision.json",
+      "bytes": 1093,
+      "sha256": "c7f45d1fab52bae028fb9d99b56605daafd7a10f4480194409c82ac93199dcae"
+    },
+    {
+      "path": "full_cohort_method_predictions.csv",
+      "bytes": 3283835,
+      "sha256": "264c7a888511f61d6b288cd94fb3ba88f0bf7f8ff9a569aca264107bd94ea7c7"
+    },
+    {
+      "path": "per_conformer_predictions.csv",
+      "bytes": 2729334,
+      "sha256": "14c4052d73edba6004967f62a7a370ec8fcc5745b5759c968ae226d3512f4b5e"
+    },
+    {
+      "path": "protocol_snapshot.json",
+      "bytes": 5784,
+      "sha256": "ade3c415f0f0118b549b479f9585fb7f3d141fe0fe2066762b81736100ecaa12"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 219595,
+      "sha256": "1c32bdd37c3bbac7768fa9c51f20d3f9db3db55936ec9e6337132fadf9b0d333"
+    }
+  ]
+}

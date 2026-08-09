@@ -1,0 +1,49 @@
+{
+  "artifact_type": "ghxtox_fusion_aware_residual_protocol",
+  "schema_version": 1,
+  "frozen_before_training": true,
+  "date": "2026-08-09",
+  "objective_order": [
+    "fixed_fusion_probability_residual_screen",
+    "fold_pure_1d_formal_confirmation_if_screen_passes",
+    "same_peptide_multi_to_single_distillation_if_formal_confirmation_passes"
+  ],
+  "stage_1_screen": {
+    "one_d_probability": "runs/lora_mamba_full/oof_calibrated.json",
+    "one_d_role": "detached loss offset only; never a residual-head input",
+    "known_limit": "The 1D vector is sample-wise OOF but not nested relative to the second-stage outer folds. Stage 1 is screening evidence only.",
+    "weight_1d": 0.72,
+    "weight_3d": 0.28,
+    "threshold": 0.47022256531284556,
+    "fixed_epochs": 6,
+    "single_configuration_only": true,
+    "screen_pass_rule": {
+      "final_fusion_mcc_nondecrease": true,
+      "final_fusion_balanced_accuracy_nondecrease": true,
+      "final_fusion_brier_nonincrease": true,
+      "at_least_one_strict_improvement": ["auroc", "auprc"],
+      "tolerance": 1e-12
+    },
+    "authorization_if_passed": "Regenerate fold-pure 1D probabilities and repeat the fixed configuration formally.",
+    "authorization_if_failed": "Stop; do not regenerate 1D folds, distill, refit all data, or inspect Test1/Test2."
+  },
+  "stage_2_formal": {
+    "conditional": "stage_1_screen_passed",
+    "required_1d_contract": "For outer fold k, every 1D model used in residual fitting and evaluation must exclude fold k labels.",
+    "expected_fold_checkpoints": 15,
+    "selection_data": "training-only strict five-fold outer OOF",
+    "paired_iterations": 5000
+  },
+  "stage_3_distillation": {
+    "conditional": "stage_2_formal_passed",
+    "allowed_association": "same training peptide, paired single-conformer and multi-conformer views",
+    "forbidden_association": "direct test-to-training nearest-neighbor label or residual transfer",
+    "selection_data": "training-only strict five-fold outer OOF"
+  },
+  "forbidden": [
+    "Test1/Test2 labels or probabilities during training or selection",
+    "post-hoc loss-weight search after seeing OOF results",
+    "manuscript or canonical checkpoint modification before the final decision",
+    "PyTorch or dependency changes"
+  ]
+}

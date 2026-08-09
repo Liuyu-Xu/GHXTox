@@ -1,0 +1,25 @@
+{
+  "artifact_type": "ghxtox_raw_view_spatial_embedding_fold_manifest",
+  "files": [
+    {
+      "path": "feature_cache.pt",
+      "bytes": 8984576,
+      "sha256": "8afbaeee4f4f5883cc58ec72a1b76de8c2d5e12745693eb993577ff412448b11"
+    },
+    {
+      "path": "head.pt",
+      "bytes": 209130,
+      "sha256": "c331a87a985675e8b2bfb4fa5570b96ee15a05f5a71eec3484c354908cdf37ac"
+    },
+    {
+      "path": "held_predictions.csv",
+      "bytes": 194275,
+      "sha256": "5114028f956ca0a711753c4d7233861dac99c90787cca0769a49080dcb17f23b"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 7867,
+      "sha256": "b43940a53d571fd0544c61012df28760e1de4a722a786370eef5c69216809be2"
+    }
+  ]
+}

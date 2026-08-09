@@ -83,6 +83,112 @@ def _read_fusion(path: Path) -> tuple[list[str], np.ndarray, np.ndarray, np.ndar
     )
 
 
+def _normalize_1d_probability(
+    source: Path,
+    probability_key: str,
+    destination: Path,
+) -> Path:
+    """Write the declared 1D probability column into the assembler contract."""
+
+    with source.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    if not rows:
+        raise ValueError(f"{source}: no 1D probability rows")
+    required = {"sample_id", "label", probability_key}
+    missing = required - set(rows[0])
+    if missing:
+        raise ValueError(f"{source}: missing declared 1D columns {sorted(missing)}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["sample_id", "sequence", "label", "toxicity_probability"])
+        for row in rows:
+            probability = float(row[probability_key])
+            if not np.isfinite(probability) or not 0.0 <= probability <= 1.0:
+                raise ValueError(
+                    f"{source}: invalid {probability_key} for {row['sample_id']}"
+                )
+            writer.writerow(
+                [
+                    row["sample_id"],
+                    row.get("sequence", ""),
+                    int(row["label"]),
+                    f"{probability:.10g}",
+                ]
+            )
+    return destination
+
+
+def _quantiles(values: np.ndarray) -> dict[str, float] | None:
+    if values.size == 0:
+        return None
+    points = np.quantile(values, [0.0, 0.25, 0.5, 0.75, 1.0])
+    return {
+        "min": float(points[0]),
+        "q25": float(points[1]),
+        "median": float(points[2]),
+        "q75": float(points[3]),
+        "max": float(points[4]),
+    }
+
+
+def _residual_diagnostics(
+    labels: np.ndarray,
+    sources: np.ndarray,
+    available: np.ndarray,
+    logit_delta: np.ndarray,
+    structure_shift: np.ndarray,
+    fusion_shift: np.ndarray,
+) -> dict:
+    """Summarize residual direction without using labels for model selection.
+
+    These statistics are diagnostic only. They make a one-sided offset or a
+    label-opposed correction visible instead of allowing a near-null aggregate
+    metric change to hide the behavior of the residual head.
+    """
+
+    def summarize(mask: np.ndarray) -> dict:
+        selected_delta = logit_delta[mask]
+        selected_structure = structure_shift[mask]
+        selected_fusion = fusion_shift[mask]
+        selected_labels = labels[mask]
+        negative = selected_delta < -1e-12
+        positive = selected_delta > 1e-12
+        zero = ~(negative | positive)
+        label_directed = ((selected_labels == 1) & positive) | (
+            (selected_labels == 0) & negative
+        )
+        return {
+            "n": int(mask.sum()),
+            "negative_logit_delta": int(negative.sum()),
+            "zero_logit_delta": int(zero.sum()),
+            "positive_logit_delta": int(positive.sum()),
+            "label_directed_count": int(label_directed.sum()),
+            "label_directed_fraction": (
+                float(label_directed.mean()) if label_directed.size else None
+            ),
+            "logit_delta_quantiles": _quantiles(selected_delta),
+            "structure_probability_shift_quantiles": _quantiles(selected_structure),
+            "fusion_probability_shift_quantiles": _quantiles(selected_fusion),
+            "mean_fusion_probability_shift": (
+                float(selected_fusion.mean()) if selected_fusion.size else None
+            ),
+        }
+
+    covered = available.astype(bool)
+    return {
+        "interpretation": (
+            "Frozen post-hoc diagnostic only; labels were not used to train, "
+            "select, calibrate, rescale, or threshold the residual."
+        ),
+        "covered": summarize(covered),
+        "covered_positive": summarize(covered & (labels == 1)),
+        "covered_negative": summarize(covered & (labels == 0)),
+        "pepflow": summarize(covered & (sources == "pepflow")),
+        "af2": summarize(covered & (sources == "af2")),
+    }
+
+
 def evaluate_dataset(
     name: str,
     processed: Path,
@@ -92,6 +198,7 @@ def evaluate_dataset(
     device: torch.device,
     batch_size: int,
     sequence_sources: dict[str, str],
+    one_d_probability_key: str,
 ) -> dict:
     structure = predict_structure(
         processed, checkpoint, device=device, batch_size=batch_size
@@ -100,10 +207,15 @@ def evaluate_dataset(
     fusion_csv = output_root / f"{name}_predictions.csv"
     metrics_json = output_root / f"{name}_metrics.json"
     _write_structure(structure_csv, structure)
+    normalized_1d = _normalize_1d_probability(
+        calibrated_1d,
+        one_d_probability_key,
+        output_root / f"{name}_declared_1d_probabilities.csv",
+    )
     result = assemble(
         DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D,
         DEFAULT_MULTIDIMENSIONAL_THRESHOLD,
-        calibrated_1d,
+        normalized_1d,
         structure_csv,
         fusion_csv,
         metrics_json,
@@ -129,6 +241,16 @@ def evaluate_dataset(
     aligned_delta = np.asarray(
         [structure["conformer_deltas"][structure_index[sample_id]] for sample_id in sample_ids]
     )
+    aligned_available = np.asarray(
+        [structure["conformer_available"][structure_index[sample_id]] for sample_id in sample_ids],
+        dtype=bool,
+    )
+    aligned_sources = np.asarray(
+        [sequence_sources.get(sequence, "none") for sequence in aligned_sequences]
+    )
+    aligned_structure = np.asarray(
+        [structure["probabilities"][structure_index[sample_id]] for sample_id in sample_ids]
+    )
     source_ablation = {"none": base_metrics}
     for source in ("pepflow", "af2", "both"):
         if source == "both":
@@ -145,11 +267,19 @@ def evaluate_dataset(
         source_ablation[source] = _metrics(
             labels, source_fusion, DEFAULT_MULTIDIMENSIONAL_THRESHOLD
         )
-    available = np.asarray(structure["conformer_available"], dtype=bool)
+    available = aligned_available
     covered_metrics = (
         _metrics(labels[available], probabilities[available], DEFAULT_MULTIDIMENSIONAL_THRESHOLD)
         if available.any() and np.unique(labels[available]).size == 2
         else None
+    )
+    residual_diagnostics = _residual_diagnostics(
+        labels=labels,
+        sources=aligned_sources,
+        available=available,
+        logit_delta=aligned_delta,
+        structure_shift=aligned_structure - base_3d,
+        fusion_shift=probabilities - base_fusion,
     )
     return {
         "n": int(labels.size),
@@ -165,6 +295,7 @@ def evaluate_dataset(
             )
         ),
         "source_ablation": source_ablation,
+        "residual_diagnostics": residual_diagnostics,
         "covered_metrics": covered_metrics,
         "mean_absolute_logit_delta_available": float(
             np.abs(np.asarray(structure["conformer_deltas"])[available]).mean()
@@ -173,6 +304,9 @@ def evaluate_dataset(
         ),
         "structure_predictions": str(structure_csv),
         "fusion_predictions": str(fusion_csv),
+        "one_d_probability_source": str(calibrated_1d),
+        "one_d_probability_key": one_d_probability_key,
+        "normalized_one_d_probabilities": str(normalized_1d),
     }
 
 
@@ -198,9 +332,11 @@ def main() -> None:
         default="runs/lora_mamba_full/test2_lora_mamba_calibrated.csv",
         type=Path,
     )
+    parser.add_argument("--test1-1d-key", default="toxicity_probability")
+    parser.add_argument("--test2-1d-key", default="toxicity_probability")
     parser.add_argument(
         "--checkpoint",
-        default="runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
+        default="runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
         type=Path,
     )
     parser.add_argument(
@@ -246,6 +382,7 @@ def main() -> None:
             device,
             args.batch_size,
             sequence_sources,
+            args.test1_1d_key,
         ),
         "test2": evaluate_dataset(
             "test2",
@@ -256,6 +393,7 @@ def main() -> None:
             device,
             args.batch_size,
             sequence_sources,
+            args.test2_1d_key,
         ),
     }
     (args.output_dir / "summary.json").write_text(
