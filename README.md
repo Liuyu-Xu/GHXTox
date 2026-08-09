@@ -1,10 +1,10 @@
 # GHXTox：融合序列与三维化学位点的肽毒性预测
 
-更新时间：2026-08-09
+更新时间：2026-08-10
 
-状态：对外预测默认是**训练期多构象、测试期单结构的多维融合模型**。1D 序列专家为组合A（LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + 训练 OOF Platt 校准）；3D 专家为 pLDDT 感知 Cα-EGNN + 全原子化学位点分支。二者按训练 OOF 冻结的`0.72/0.28`权重融合，决策阈值为`0.4702`。1D使用pos_weight加权BCE处理类别不平衡，不启用BSMOTE。
+状态：对外预测默认是**组合A 1D与单结构3D的多维融合模型**。1D 序列专家为组合A（LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + 训练 OOF Platt 校准）；3D 专家为 pLDDT 感知 Cα-EGNN + 全原子化学位点分支。二者按训练 OOF 冻结的`0.72/0.28`权重融合，决策阈值为`0.4702`。1D使用pos_weight加权BCE处理类别不平衡，不启用BSMOTE。多构象数据只用于训练集上的扩展研究和受控消融，不是默认模型的输入，也不能表述为当前单结构输出已经吸收了多构象知识。
 
-3D checkpoint继续使用在2,795条PepFlow/AF2训练构象上完成训练的full2795版本，但Test1、Test2和新样本公开预测一律读取其**单结构`base_logits`**。测试集构象缓存、来源感知残差和逐构象集合头不再属于默认模型。公开入口不再接受构象manifest/cache参数；若processed输入意外激活构象字段，程序会直接终止，避免静默改变规范指标。
+3D checkpoint继续沿用full2795文件谱系：该文件包含曾在2,795条PepFlow/AF2训练构象上拟合的构象残差模块，但当时单结构空间主干、化学位点支路和基础分类器均被冻结。Test1、Test2和新样本公开预测一律关闭构象残差并读取**单结构`base_logits`**，因此不能把默认预测增益归因于多构象训练。测试集构象缓存、来源感知残差和逐构象集合头不再属于默认模型。公开入口不再接受构象manifest/cache参数；若processed输入意外激活构象字段，程序会直接终止，避免静默改变规范指标。
 
 当前唯一规范产物、入口和配置分别为`runs/default_multidimensional_fusion_single_structure/`、`ghxtox-predict`和`configs/default_multidimensional_fusion.json`。`ghxtox-multidimensional-predict`仅为兼容别名。上一代GHXTox-3D-Chemical-Adapter-Residual和测试集多构象尝试均与公开入口隔离。
 
@@ -29,6 +29,8 @@ ghxtox-predict predict `
 | Test2 | 0.9467 | 0.8618 | 0.7609 | 0.9627 | 0.6931 | 0.6673 | 0.9433 | 0.8046 | 0.0436 |
 
 测试集多构象曾在Test1/Test2各改变一个阈值决策，但增益很小、OOF区间跨零，后续来源独立头、融合感知残差和冻结空间集合头也未通过预设门槛。团队因此统一回退到单结构测试协议。机器可读决定见[`decision.json`](experiments/test_multiconformer_archive/decision.json)；关键负消融说明与研究脚本保存在[`experiments/test_multiconformer_archive/`](experiments/test_multiconformer_archive/)，不参与默认导入或运行。
+
+为直接检验“训练期多构象、部署期单结构”的知识迁移，项目又完成了预先冻结的fold0多构象教师→单结构学生pilot。学生只读取单结构`base_logits`，但最终融合BACC/MCC均不变，1,271条留出记录没有任何分类决策变化，AUPRC降低`0.000108`且Brier恶化`0.000021`；实验未读取Test1/Test2，因此按门槛停止，不进入五折，也不修改默认模型。紧凑结果见[`single_structure_distillation_result.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/single_structure_distillation_result.json)。
 
 上述命令默认且严格使用 seed `42/123/2025` 的 LoRA-ProtT5 + 双向 Mamba checkpoint、三份同种子 OOF、纯 3D checkpoint、`0.72/0.28` 权重和 `0.4702225653` 阈值。任一 checkpoint 架构、seed、OOF 样本/标签/fold 或 1D/3D 样本覆盖不一致都会立即终止；只有显式消融才允许加入 `--allow-noncanonical-operating-point`。
 
@@ -2494,6 +2496,16 @@ sha256sum -c data/prott5_tokens_fp16.tar.gz.sha256
 
 #### 已执行：冻结分类器的风险感知与选择性预测
 
+针对队友提出的`种子不确定性 + |p1D-p3D| + pLDDT + 构象方差 + |p-τ|`拒识方案，已在**当前默认模型**上重新完成无泄漏本地复核。实验冻结ProtT5-BiMamba三随机种子与full2795 3D的`0.72/0.28`融合、阈值`0.4702225653`以及全部毒性概率，仅用其余四折拟合错误风险，再预测留出折；Test1/Test2标签均未参与。
+
+- 单独使用`|p-τ|`排序的AURC为`0.015373`（越低越好）；加入种子方差、1D/3D分歧和单结构pLDDT后的交叉拟合复合分数为`0.016607`，反而恶化`8.03%`，只在`1/5`个留出折胜出。
+- 再加入训练集构象RMSF、构象RMSD和接触不确定性后，AURC回升至`0.015732`，相对不含构象项的复合分数改善`5.27%`，但仍比简单阈值距离差`2.33%`。而且当前测试协议只使用单构象，这组三维构象方差在部署端缺失，不能据此建立主接口。
+- 简单阈值距离已经具备清晰的风险分层：覆盖率从`100%`降至`95%/90%/80%`时，保留样本的MCC由`0.8733`升至`0.9082/0.9257/0.9481`，错误率由`5.12%`降至`3.66%/2.92%/2.05%`。这些数字是选择性预测结果，不能与全覆盖分类器MCC直接混写成模型性能提升。
+
+因此不把复合不确定性学习器接入默认模型，也不改变二分类输出；预测概率、融合权重和阈值保持不变。若应用端允许拒识，可直接把`|p-τ|`较小的样本标为`low-confidence / requires review`，同时必须报告coverage。机器可读结果见[`runs/selective_abstention_current_default/summary.json`](runs/selective_abstention_current_default/summary.json)。
+
+以下为更早期三通路模型上的历史实验，参考模型不同，不能与上述数值混用。
+
 执行结果：学习风险分数的 AURC 为 `0.018917`，弱于现有三通路置信度的 `0.018631`，相对变化 `-1.54%`。虽然 5 折中有 3 折获胜，且 80% 覆盖率下准确率较高，但没有达到“相对最强基线 AURC 至少提高 5%”的预设标准。该实现和运行目录已删除，不继续调参。
 
 该历史实验当时不修改其冻结分类器，只学习：
@@ -3921,16 +3933,15 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 - 2026-08-06：采用诚实/一致协议，部署操作点定为 w=0.72、阈值 0.4702（OOF 与评估均用当前 3D 专家 OOF）；
   新增规范产物`runs/default_multidimensional_fusion/`与唯一入口`ghxtox-predict`（`ghxtox-multidimensional-predict`仅为兼容别名）；全量脚本已强制使用纯 3D OOF，导出默认值固定为`0.72/0.28`与`0.4702225653`，旧部署点`0.62/0.4977`会被默认入口拒绝（见协议审计）。
 - 2026-08-08：完成测试集来源感知full2795审计；该结果现只作为历史消融保留。2026-08-09团队决定公开测试统一回退单结构`base_logits`，并从`ghxtox-predict`删除构象缓存参数。上一代混合代码仍位于`ghxtox._legacy`，公开`assemble`继续拒绝旧混合CSV。
+- 2026-08-10：完成资产收口。删除服务器传输压缩包、临时解压/论文预览文件、失败候选专用大张量和非默认checkpoint；多构象负结果统一归档至`experiments/test_multiconformer_archive/`，规范数据与可重建历史数据的边界记录在`data/ASSET_MANIFEST.json`。默认权重、输入、配置和规范指标保持不变。
 
 ## 文档合并说明（2026-08-05）
 
-为收尾整理，本项目 md 文档合并为两份：本 README（项目总文档，含默认模型、1D 创新线、全部结果与实验记录）与
-`reports/mentor_report/REPORT.md`（导师汇报）。原 `findings.md`、`progress.md`、`task_plan.md`、
+为收尾整理，本项目说明性 md 文档统一为本 README（项目总文档，含默认模型、1D 创新线、全部结果与实验记录）与
+`reports/mentor_report/REPORT.md`（导师汇报）。原临时执行记录`findings.md`、`progress.md`、`task_plan.md`及
 `reports/combinationA_analysis.md`、`reports/combinationA_final_results.md`、`reports/lora_mamba_pilot.md`、
 `reports/publication_analysis/REPORT.md`、`docs/default_model.md`、`docs/README_lora_mamba_autodl.md`、
-`docs/README_lora_mamba_mutate_autodl.md` 的关键内容已并入本文件与导师报告。根目录当前的
-`findings.md`、`progress.md` 和 `task_plan.md` 是本轮模型复现、解释性实验与论文审校的临时执行记录，
-不替代本 README 中的规范项目说明。
+`docs/README_lora_mamba_mutate_autodl.md` 的关键内容均已并入本文件与导师报告，原文件已删除。数据资产分类、保留边界和可重建历史候选见[`data/ASSET_MANIFEST.json`](data/ASSET_MANIFEST.json)。
 
 ## 附录 D：参考论文及对应创新点总表（2026-08-05，论文信息已经联网核实）
 
@@ -3978,11 +3989,27 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 - `experiments/test_multiconformer_archive/results/raw_view_spatial_embedding_five_fold_comparison_20260809_v1/`
 - `D:\dachuang2026\ziliao\raw_view_spatial_embedding_screen_package_20260809_v1`
 
+### 多构象教师→单结构学生迁移pilot
+
+冻结集合头失败后，项目进一步完成了一个预先指定的outer-fold-0知识蒸馏pilot，直接检验“训练时使用同一肽的多个构象、部署时只输入一个结构”是否能够成立。教师只在fold 1–4中具有构象覆盖的2,258条记录上训练6轮；学生在全部5,116条outer-train记录上训练8轮，推理和优化均只读取单结构`base_logits`。1D概率只用于留出折最终融合评估，不进入学生输入或损失。固定协议、代码与服务器产物SHA256一致，实验没有读取Test1或Test2。
+
+| fold0留出指标 | 基线融合 | 蒸馏候选融合 | 候选－基线 |
+|---|---:|---:|---:|
+| BACC | 0.937745 | 0.937745 | 0.000000 |
+| MCC | 0.893184 | 0.893184 | 0.000000 |
+| AUROC | 0.984750 | 0.984693 | -0.000057 |
+| AUPRC | 0.971435 | 0.971326 | -0.000108 |
+| Brier（越低越好） | 0.036247 | 0.036268 | +0.000021 |
+
+学生3D分支的BACC/MCC分别提高`0.001370/0.001989`，但只多识别正确1个阳性，进入固定`0.72/0.28`融合后1,271条记录没有任何分类决策变化。更重要的是，537条有多构象覆盖的held样本分类完全不变；唯一新增真阳性来自734条无多构象覆盖样本。教师相对单结构基线的平均绝对概率改变量在全部held样本上只有`8.88×10^-5`，在构象覆盖子组也只有`2.10×10^-4`。学生在覆盖子组上能够部分复现教师残差（相关系数`0.662`），但教师信号本身太弱，且AUPRC和Brier未通过预设门槛。因此正式决定为`stop_after_fold0_and_retain_current_default`：不进入五折、不接触测试集、不替换默认模型。
+
+这次pilot补上了训练—部署信息断点的直接检验，但没有包含完全相同学生训练配置下的`distillation_weight=0`标签微调对照。因此那1个无覆盖样本的修正不能归因于蒸馏，更可能来自普通标签微调；该对照若执行，只能用于机制归因，不能推翻当前候选未通过部署门槛的决定。协议与紧凑结果已统一归档为[`single_structure_distillation_protocol.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/single_structure_distillation_protocol.json)和[`single_structure_distillation_result.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/single_structure_distillation_result.json)。
+
 ### 当前结论与后续边界
 
 现有多构象的主要问题不是文件缺失或简单平均算法错误。构象具有明显几何差异，当前模型的内部空间表征也能感知这些差异，但这种变化尚未与毒性标签形成稳定的折外对应关系。继续搜索均值权重、logit clipping、来源门控或更大的冻结集合头，预计只会重复现有近零结果。
 
-若后续仍要利用服务器生成的构象，唯一保留的技术路线是单独冻结协议后，对 matched GHXTox 的 spatial/chemical 分支进行小范围、fold-pure 的表征学习，并同时约束单结构基座漂移；应先做一个 fold 的严格烟雾测试，再决定是否完成五折。鉴于旧 partial-unfreeze 和本轮冻结表征头均未获得稳定收益，该路线优先级低于完善论文现有证据，且在训练 OOF 门槛通过前不得接触 Test1/Test2。
+原计划中“对spatial/chemical末层做fold-pure小范围解冻，并把多构象教师蒸馏到单结构学生”的单折检验已经完成；它没有通过MCC、AUPRC和Brier联合门槛，因此不再是待执行路线，也不授权五折。使用现有标签和同一批构象继续搜索蒸馏温度、权重、轮数、阈值或解冻层会形成同一fold上的事后选择。只有加入新的、预先定义的监督信号（例如接触变化、位点几何、膜结合或机制标签）、同长度独立构象来源或新外部数据后，才应重新开启该方向。
 
 ### 完整诊断链条：做了什么
 
@@ -3996,30 +4023,70 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 6. **训练折纯的空间表征集合头。** 五折各自冻结 matched 基座，只训练 50,113 参数的对称集合残差头，并直接检查最终 `0.72/0.28` 融合。该候选虽然产生非零残差，但未获得稳定的分类、排序和校准收益，按预先规定门槛拒绝。
 7. **补做标签对齐与动态分层诊断。** 对上述冻结 CSV 作只读分析，检查几何变化、1D/3D 冗余、残差方向、阈值邻域和来源分层，定位到表示—标签对齐而不是构象文件或平均公式。
 8. **复核已有负结果和近期研究。** 将旧几何 SSL、旧 partial-unfreeze、来源门控、概率 clipping、融合感知残差和本轮 raw-view 结果放在同一证据链中；近期构象集合研究同样支持在编码阶段学习状态分布，而不是在最终 logit 上做平均。
+9. **检验多构象到单结构迁移。** 在固定fold0上训练折纯多构象教师，并只解冻学生的最后空间层和化学位点残差投影；学生部署严格读取单结构`base_logits`。候选融合没有改变任何留出决策，且排序和Brier门槛失败，说明现有教师没有提供足够强、可迁移的增量信号。
 
 ### 为什么几何差异没有形成稳定的毒性判别信号
 
 这里的“不能转化”是当前数据、监督和冻结模型下的经验结论，不是“肽构象与毒性无关”的生物学结论。主要原因如下。
 
-1. **监督粒度不足。** 每条肽只有一个分子级二分类标签，8 个构象共用该标签；工程中没有活性构象、构象占有率、膜结合状态、pH、离子强度或毒性机制标签。模型知道“一袋构象对应有毒或无毒”，但不知道袋内哪种局部变化与毒性相关。
-2. **构象权重缺少物理含义。** PepFlow 置信度为插补值，AF2/ColabFold 的 pLDDT 或模型排序也不等于平衡态布居概率。因此均匀平均、pLDDT 加权和来源排名不能被解释为 Boltzmann 加权。
-3. **1D 与 3D 证据高度冗余。** 在 2,795 条构象覆盖 OOF 记录上，组合A 1D 概率与基础 3D 概率的 Pearson 相关系数为 0.87084。3D 分支大量重复了序列身份、组成和整体化学性质，没有稳定提供 1D 专家缺失的互补证据。
-4. **残差方向没有与标签对齐。** 新空间集合残差与 `label - base_final_fusion_probability` 的相关系数为 -0.0357；在全部非零残差记录中，只有 45.87% 的残差方向朝向正确标签。模型输出确实发生变化，但变化方向比随机方向判断还略低，不能形成稳定的折外修正。
-5. **冻结编码器限制了可学习性。** `spatial_nodes` 会随构象改变，但下游集合头无法重新定义哪些残基接触、化学位点关系或局部柔性模式应当成为毒性证据；全局池化和原分类方向还可能抵消与任务无关的几何变化。
-6. **覆盖和融合产生双重稀释。** 多构象只覆盖 43.76% 的训练记录，3D 在最终模型中又只有 0.28 权重。即使某些覆盖样本的 3D 概率发生变化，传播到全部 6,387 条记录及固定决策阈值后的净分类变化仍很小。
-7. **“更动态”不是可靠门控条件。** 最大 RMSD、平均 RMSF、概率范围、概率标准差和回转半径变化与集合头 log-loss 收益的 Spearman 相关绝对值均低于约 0.05；高动态四分位虽然包含少数纠错样本，但平均 log loss 和 Brier 反而变差。
-8. **来源与长度混杂。** PepFlow 和 AF2 覆盖不同长度区间，且 PepFlow 的置信度为插补值。来源感知头可以利用生成器痕迹，但这种痕迹不等于可跨折、跨来源泛化的毒性机制。
+1. **“同一物体多角度图像”的类比只部分成立。** 普通多视角图像通常来自同一个稳定物体，视角变化主要改变观测方式；肽的多个计算构象可能对应不同能量状态，也可能混入生成器偏差、低概率状态或错误折叠。它们不是经过标定的等价视角，因此不能无条件作为同标签图像增强。
+2. **监督粒度不足。** 每条肽只有一个分子级二分类标签，8 个构象共用该标签；工程中没有活性构象、构象占有率、膜结合状态、pH、离子强度或毒性机制标签。模型知道“一袋构象对应有毒或无毒”，但不知道袋内哪种局部变化与毒性相关。
+3. **构象权重缺少物理含义。** PepFlow 置信度为插补值，AF2/ColabFold 的 pLDDT 或模型排序也不等于平衡态布居概率。因此均匀平均、pLDDT 加权和来源排名不能被解释为 Boltzmann 加权。
+4. **1D 与 3D 证据高度冗余。** 在 2,795 条构象覆盖 OOF 记录上，组合A 1D 概率与基础 3D 概率的 Pearson 相关系数为 0.87084。3D 分支大量重复了序列身份、组成和整体化学性质，没有稳定提供 1D 专家缺失的互补证据。
+5. **残差方向没有与标签对齐。** 新空间集合残差与 `label - base_final_fusion_probability` 的相关系数为 -0.0357；在全部非零残差记录中，只有 45.87% 的残差方向朝向正确标签。模型输出确实发生变化，但变化方向比随机方向判断还略低，不能形成稳定的折外修正。
+6. **冻结编码器限制了可学习性。** `spatial_nodes` 会随构象改变，但下游集合头无法重新定义哪些残基接触、化学位点关系或局部柔性模式应当成为毒性证据；全局池化和原分类方向还可能抵消与任务无关的几何变化。
+7. **覆盖和融合产生双重稀释。** 多构象只覆盖 43.76% 的训练记录，3D 在最终模型中又只有 0.28 权重。即使某些覆盖样本的 3D 概率发生变化，传播到全部 6,387 条记录及固定决策阈值后的净分类变化仍很小。最新蒸馏教师在构象覆盖留出组的平均绝对概率修正只有`2.10×10^-4`，进入融合后不足以推动样本跨越阈值。
+8. **“更动态”不是可靠门控条件。** 最大 RMSD、平均 RMSF、概率范围、概率标准差和回转半径变化与集合头 log-loss 收益的 Spearman 相关绝对值均低于约 0.05；高动态四分位虽然包含少数纠错样本，但平均 log loss 和 Brier 反而变差。
+9. **来源与长度混杂。** PepFlow 和 AF2 覆盖不同长度区间，且 PepFlow 的置信度为插补值。来源感知头可以利用生成器痕迹，但这种痕迹不等于可跨折、跨来源泛化的毒性机制。
 
 综合而言，当前瓶颈可表述为 **weakly supervised representation--label alignment bottleneck**：几何多样性存在，内部表示也响应几何变化，但现有监督没有把这种变化组织成稳定、互补且可校准的毒性证据。它不是文件覆盖错误，也不是简单平均算法写错；同时也不能据此推断构象动态在生物学上无用。
 
-### 两类模型决定必须分开
+### 论文撰写用解释性分析
+
+#### 从几何多样性到部署收益的证据链
+
+当前结果可以组织成一条逐层排除的证据链，而不是简单写成“多构象无效”。第一，PepFlow/AF2构象之间具有明显RMSD和RMSF差异，排除了输入文件重复。第二，冻结3D编码器的中间`spatial_nodes`会随构象改变，排除了网络完全看不见几何变化。第三，几何/状态解耦辅助目标能把identity consistency loss从`0.000165`降低到`0.0000158`，并把state reconstruction loss从`0.3749`降低到`0.00389`，证明多尺度EGNN/GVP确实学会了区分共享肽身份与构象状态。第四，这些表示变化没有形成稳定的毒性残差：对应fold0融合MCC和BACC均不变，Brier反而恶化。第五，直接蒸馏到单结构学生后仍没有融合决策变化。因而失败位置可以定位在“构象表示→毒性标签→融合决策”之间，而不是结构生成或坐标归一化之前。
+
+这也说明，旋转/平移对齐、以回转半径归一化锚点距离、距离RBF、多尺度空间壳层、来源内特征标准化和无序set-attention均已实际尝试。它们解决的是坐标系、肽长度、数值尺度和集合排列问题，却不能解决“哪个构象状态与毒性相关”这一监督缺失。论文中不应把失败归因于“尚未做尺度归一化”，而应表述为：完成几何不变性和尺度处理后，跨生成器、跨长度的标签对齐仍然不足。
+
+#### 各条失败路线分别说明什么
+
+| 尝试 | 已解决的问题 | 主要结果 | 最合理解释 |
+|---|---|---|---|
+| 构象统计残差 | 将8个构象压缩为RMSF、距离变化、接触占有率、RMSD和回转半径，并为缺失样本精确回退 | OOF MCC小幅提高但置信区间跨0，AUROC/AUPRC略降 | 汇总统计稳定但损失局部位点与构象状态的联合关系；信号不足以形成多指标稳定增益 |
+| 逐构象官能团图与set-attention | 保留每个构象的局部化学位点空间组织，避免固定均值 | 短肽PepFlow局部有收益，AF2域和全局联合不稳定 | 小样本、生成器与长度混杂使集合头容易学习来源特征，未形成跨域毒性规律 |
+| 多尺度EGNN/GVP与identity/state解耦 | 以4.5/8/16 Å空间壳层、标量—向量消息和状态重建显式学习多视角几何 | 表示解耦和状态重建显著成功，但融合BACC/MCC无变化，Brier恶化 | “学会构象差异”不等于“学会毒性相关构象差异”；辅助任务和最终标签之间仍缺少桥梁 |
+| 显式1D/3D残差MIL | 使用来源标准化、置信注意力、构象dropout和1D/3D不确定性寻找互补修正 | fold0纠正6条但回退7条，BACC/MCC/AUPRC下降、Brier恶化 | 当前构象描述与强1D专家高度冗余； learned fusion不能凭空产生不存在或方向不稳定的互补证据 |
+| 测试集多构象激活 | 直接检查训练构象残差能否在benchmark构象上发挥作用 | Test1/Test2各只改变1个决策，排序指标未一致改善，OOF MCC区间跨0 | 效果过小且依赖覆盖/来源，无法抵偿第二套昂贵推理协议和跨域风险 |
+| 多构象教师→单结构学生 | 让训练时可见构象的教师把知识迁移到只见单结构的部署学生 | 融合0次决策变化，MCC不变，AUPRC与Brier门槛失败 | 学生能够部分模仿教师，但教师相对单结构基线的增量过小；蒸馏没有足够信息可传递 |
+
+其中，多尺度EGNN/GVP实验的紧凑负结果见[`geometric_disentanglement.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/geometric_disentanglement.json)，显式1D/3D残差MIL见[`residual_conformer_mil.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/residual_conformer_mil.json)。所有fold0拒绝项的索引见[`index.json`](experiments/test_multiconformer_archive/results/fold0_rejected_extensions/index.json)。这两项与最新蒸馏共同表明：问题不只是融合器过于简单，也不只是缺少更强图网络；在当前标签下，即使表示学习和交互机制更复杂，残差方向仍不稳定。
+
+#### 对测试集多构象失败的单独解释
+
+测试时提供多构象在概念上能够减少训练—推理输入差异，但它同时引入三个新问题。其一，benchmark只有部分样本具备匹配构象，开启残差会形成覆盖条件不同的两套预测机制。其二，训练构象和测试构象来自PepFlow或AF2/ColabFold，生成器、长度和置信度定义并不完全可交换。其三，构象生成成本远高于单结构推理，而实际只改变一个阈值决策，无法形成合理的性能—成本收益。因此回退并不是否认多构象的生物学意义，而是冻结证据不足以支持把它变成公开部署依赖。
+
+#### 生物学层面的合理解释
+
+肽毒性通常不是一个只由真空平衡构象决定的静态性质。膜接近、受体结合、溶剂、pH、离子强度、氧化还原状态和二硫键拓扑都可能改变可访问构象及局部官能团暴露。当前PepFlow/AF2集合描述的是计算生成的候选状态，不是毒性实验条件下的真实布居；分子级二分类标签也没有指出哪种状态介导膜破坏、细胞摄取或特定靶标作用。因此几何差异与毒性残差缺少稳定对应是合理的，但不能据此得出“构象动态与毒性无关”。更准确的结论是：**现有计算构象、样本级标签和冻结融合协议不足以识别毒性相关微状态。**
+
+#### 可直接用于论文“结果与讨论”的中文表述
+
+> 多构象集合呈现出显著的几何差异，且模型中间空间表征能够响应这种差异；多尺度EGNN/GVP的身份—状态解耦目标也显著降低了状态重建误差。然而，几何可分性并未转化为稳定的折外毒性判别增益。冻结集合头、显式1D/3D残差MIL以及多构象教师到单结构学生的蒸馏均未同时改善分类、排序和概率可靠性。尤其在蒸馏pilot中，教师在构象覆盖留出样本上的平均绝对概率修正仅为`2.10×10^-4`，学生虽能部分复现该残差，但固定1D/3D融合后没有产生任何决策变化。这些结果将当前瓶颈定位为弱监督条件下的构象表示—毒性标签对齐不足，而非构象文件重复、坐标尺度未归一化或单一聚合公式失效。
+
+> 多视角图像识别为同一肽多构象建模提供了有用启发，但两者并不完全等价。图像视角通常是同一稳定物体的观测变化，而计算肽构象可能对应不同能量状态、低概率微状态或生成器偏差；当前标签又没有给出活性构象及其布居。因此，本研究不把每个构象视为独立的同标签样本，而采用集合建模、来源掩码和确定性缺失回退。实验结果表明，这些机制能够稳定处理输入，却尚不能从现有监督中学习到可跨来源迁移的毒性相关构象权重。
+
+论文局限性部分应同时说明：本轮蒸馏只有一个预先指定的outer fold，足以按冻结门槛拒绝该候选，但不足以证明所有多构象→单结构方法必然失败；此外尚未完成完全匹配的无蒸馏标签微调对照，因此不能把唯一的无覆盖样本修正归因于构象知识。只有新增状态相关辅助目标、实验条件/机制标签、同长度独立构象来源或新的预冻结外部验证后，才适合重新检验该假设。
+
+### 三类模型决定必须分开
 
 | 对象 | 冻结决定 | 当前地位 | 是否改变 canonical |
 |---|---|---|---|
 | 来源感知 full2795 构象统计残差 | `retire_test_time_multiconformer_keep_training_only`（取代早期`promote_full2795_source_aware_checkpoint`） | 保留训练checkpoint与负消融证据；相对零构象 OOF MCC `+0.001900`，但 95% CI `[-0.000430, 0.004537]` 跨 0，且 AUROC/AUPRC 略降 | 否；测试和公开推理固定使用单结构`base_logits` |
 | 新的 raw-view 冻结空间表征集合残差 | `reject_frozen_spatial_embedding_residual` | 非部署筛选结果；不得 refit、不得访问 Test1/Test2、不得替换模型 | 否 |
+| fold0多构象教师→单结构学生 | `stop_after_fold0_and_retain_current_default` | 直接迁移筛选；融合决策0变化，MCC不变，AUPRC/Brier门槛失败，不授权五折 | 否 |
 
-因此，“新的优化没有通过”不等于“之前的 full2795 训练checkpoint应当删除”，也不等于“工程必须恢复到旧 Git 版本”。最终协议只撤销测试时构象激活：full2795保留其训练价值，对外预测则强制读取单结构`base_logits`。
+因此，“新的优化没有通过”不等于“之前的 full2795 checkpoint应当删除”，也不等于“工程必须恢复到旧 Git 版本”。该checkpoint保留的是文件谱系、研究复现和负消融价值，而不是已经得到证明的多构象部署增益；对外预测强制读取单结构`base_logits`。
 
 ### 论文中可以怎样表述
 
@@ -4028,12 +4095,13 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 - 构象集合具有明显几何多样性，排除了简单重复构象；
 - 冻结 3D 专家的构象间概率几乎不变；
 - 内部空间表示能够感知构象变化，但独立集合头没有把这种变化转化为稳定的 OOF 判别收益；
+- fold-pure蒸馏学生能够部分复现教师残差，但教师修正过弱，最终融合没有产生决策收益；
 - 结果更支持表示学习和标签对齐瓶颈，而不是继续搜索均值、权重或阈值；
 - full2795 的小幅分类/校准收益应与轻微排序回退和跨零置信区间同时报告。
 
 推荐的英文结论段落如下，后续只有在正式修改论文时才能加入 `v1.tex`：
 
-> The conformer ensembles exhibited substantial geometric diversity, whereas the frozen structure expert produced nearly invariant probabilities across views. Although its intermediate spatial embeddings remained responsive to conformational changes, a fold-pure set residual trained on these embeddings did not yield a stable improvement in discrimination or calibration. These findings point to a weakly supervised representation--label alignment bottleneck rather than inadequate geometric diversity or a failure of a particular averaging rule. They do not imply that conformational dynamics are biologically irrelevant; instead, they show that the current frozen representation does not convert such variation into reproducible toxicity evidence.
+> The conformer ensembles exhibited substantial geometric diversity, whereas the frozen structure expert produced nearly invariant probabilities across views. Although its intermediate spatial embeddings remained responsive to conformational changes, neither a fold-pure set residual nor a prespecified multi-conformer-teacher-to-single-structure-student pilot yielded a stable improvement in discrimination or calibration. These findings point to a weakly supervised representation--label alignment bottleneck rather than inadequate geometric diversity or a failure of a particular averaging rule. They do not imply that conformational dynamics are biologically irrelevant; instead, they show that the current representation and labels do not convert such variation into reproducible toxicity evidence under single-structure deployment.
 
 不得写成以下结论：
 
@@ -4042,30 +4110,32 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 - “RMSD 越大，毒性预测收益越大”；
 - “pLDDT 或 AF2 排名代表真实构象布居”；
 - “新的空间集合头已经替换当前模型”；
+- “默认单结构输出已经通过full2795训练吸收了多构象知识”；
+- “fold0蒸馏证明多构象知识可以迁移到单结构测试”；
 - “full2795 在全部指标上优于单构象基线”。
 
 ### 是否回退到单构象工程版本
 
-**最终结论：不回退训练checkpoint，但完整撤销测试集多构象入口。** 工程只保留一条公开预测路径：full2795训练checkpoint的单结构`base_logits`与组合A 1D融合。测试集多构象代码、协议和关键结果转入研究归档，不得由默认模块导入。
+**最终结论：不更换当前checkpoint文件谱系，但完整撤销测试集多构象入口。** 工程只保留一条公开预测路径：当前checkpoint的单结构`base_logits`与组合A 1D融合。测试集多构象代码、蒸馏候选、协议和关键结果转入研究归档，不得由默认模块导入。
 
 | 层级 | 建议 |
 |---|---|
 | Git/工程版本 | 保留full2795训练checkpoint及紧凑消融证据；删除测试构象缓存、任务分块、服务器包和重复中间结果。 |
 | canonical配置 | 已改为`configs/default_multidimensional_fusion.json`中的`test_time_conformer_policy.status=disabled`；测试概率固定来自`base_logits`。 |
-| 新优化候选 | 不部署。`reject_frozen_spatial_embedding_residual` 及其他未过门槛的头只能作为负消融保存。 |
-| 论文主模型叙述 | 以组合A 1D + full2795训练checkpoint的单结构3D及固定`0.72/0.28`融合作为唯一主模型；多构象只出现在训练说明和消融讨论。 |
+| 新优化候选 | 不部署。冻结集合头、fold0蒸馏学生及其他未过门槛的头只能作为负消融保存。 |
+| 论文主模型叙述 | 以组合A 1D + 当前checkpoint的单结构3D及固定`0.72/0.28`融合作为唯一主模型；多构象只出现在训练数据研究和消融讨论，不声称已被默认输出吸收。 |
 | 单构象运行 | `ghxtox-predict`已经移除构象manifest/cache参数；误传旧参数会报错，输入若激活构象字段也会报错。 |
 | 研究归档 | 决策、最终汇总和必要研究脚本保留；研究归档不安装控制台入口，也不被默认模型导入。 |
 
-这一策略同时保留训练侧关键证据，并避免因为投入成本高而把未通过稳定性门槛的测试集多构象结果包装成论文主提升。
+这一策略保留训练侧研究证据，并避免因为投入成本高而把未通过稳定性门槛的多构象结果包装成论文主提升。
 
 ### 若继续优化，优先级与停止条件
 
-1. 首先只做一个 fold 的当前 lineage 小范围解冻：冻结 1D 和 3D 早期层，只解冻最后 spatial block、chemical-site residual 和残基级构象融合；增加 RMSF、接触变化和位点几何辅助目标，并约束原单结构基座漂移。
-2. 只有 fold0 出现正向标签对齐、Brier/AUPRC 不恶化且模型效果优于噪声/打乱对照时，才完成严格五折。正式晋级目标为 OOF MCC 至少 `+0.003`、至少 4/5 折提高、BACC/AUPRC 不下降、Brier 至少改善 `1e-4`，且配对区间不再支持近零解释。
-3. 若小范围解冻证明可学习，再考虑残基级结构微状态分布和跨构象注意力；不再训练更大的冻结全局集合头。
+1. 当前小范围解冻与多构象→单结构蒸馏pilot已经失败，停止在fold0；不在同一数据上继续搜索蒸馏权重、温度、轮数、阈值或解冻层。
+2. 若只为机制归因，可补做一次严格匹配的`distillation_weight=0`标签微调对照；它不能用于模型晋级，也不授权查看Test1/Test2。
+3. 真正重新开启该方向前，应先增加与构象状态相关的辅助监督或同长度独立构象来源，再冻结新协议。新的fold0必须同时满足正向标签对齐、MCC至少`+0.002`、BACC/AUPRC不下降、Brier至少改善`1e-4`，才允许五折确认。
 4. 若训练来源包含可靠的溶血、细胞毒、膜破坏或实验条件元数据，机制感知多任务监督优先于重新生成更多构象。
-5. BioEmu/MD 或外部动态预训练表示属于高成本后续工作；在当前表示学习门槛通过前，不继续扩大构象生成规模。
+5. BioEmu/MD或外部动态预训练表示属于高成本后续工作；在新监督或新数据到位前，不继续扩大构象生成规模。
 
 近期研究依据包括 [MARCEL conformer benchmark（ICLR 2024）](https://proceedings.iclr.cc/paper_files/paper/2024/hash/7eb6233e02f7d9efbb84acd839a996fb-Abstract-Conference.html)、[SCAGE conformation-aware pretraining（Nature Communications 2025）](https://www.nature.com/articles/s41467-025-59634-0)、[BioEmu equilibrium ensemble generation（Science 2025）](https://pubmed.ncbi.nlm.nih.gov/40638710/) 和 [DynamicsPLM（Bioinformatics 2026）](https://academic.oup.com/bioinformatics/article/42/5/btag254/8669790)。它们支持在编码阶段学习结构状态和辅助几何目标，但这些论文在其他任务上的数值增益不得直接迁移为 GHXTox 的预期结果。
 

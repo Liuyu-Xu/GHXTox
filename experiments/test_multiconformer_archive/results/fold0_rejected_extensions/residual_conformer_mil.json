@@ -1,0 +1,95 @@
+{
+  "artifact_type": "ghxtox_rejected_experiment_evidence",
+  "date": "2026-08-09",
+  "status": "stopped_after_prespecified_outer_fold0_gate",
+  "default_model_changed": false,
+  "external_test_access": false,
+  "objective": "make multi-conformer 3D an explicitly complementary residual expert over the frozen current 1D/3D OOF default",
+  "baseline_contract": {
+    "formula": "0.72 * calibrated LoRA-ProtT5-BiMamba OOF + 0.28 * pure-3D OOF",
+    "threshold": 0.47022256531284556,
+    "full_oof_reproduction": {
+      "balanced_accuracy": 0.9324212460641994,
+      "mcc": 0.8732971560275273,
+      "auroc": 0.9780005085209769,
+      "auprc": 0.9577424717702984,
+      "brier": 0.04312172845783044
+    }
+  },
+  "candidate": {
+    "architecture": "eight-instance conformer MIL over twenty frozen mechanistic descriptors with source-fitted normalization, confidence attention, OOF uncertainty conditioning, bounded gated logit residual and conformer dropout",
+    "trainable_parameters": 5348,
+    "training_records": 2578,
+    "held_fold0_records": 1271,
+    "held_fold0_conformer_covered": 617,
+    "epochs": 60,
+    "checkpoint_selection": "fixed final epoch"
+  },
+  "held_fold0": {
+    "reference": {
+      "balanced_accuracy": 0.93774532,
+      "mcc": 0.89318440,
+      "auroc": 0.98475460,
+      "auprc": 0.97147714,
+      "brier": 0.03625024,
+      "ece_10": 0.02087314
+    },
+    "candidate": {
+      "balanced_accuracy": 0.93637546,
+      "mcc": 0.89121437,
+      "auroc": 0.98500257,
+      "auprc": 0.97124870,
+      "brier": 0.03673719,
+      "ece_10": 0.01774644
+    },
+    "delta": {
+      "balanced_accuracy": -0.00136986,
+      "mcc": -0.00197003,
+      "auroc": 0.00024797,
+      "auprc": -0.00022844,
+      "brier": 0.00048695,
+      "ece_10": -0.00312670
+    },
+    "decision_transitions": {
+      "corrected": 6,
+      "regressed": 7,
+      "net_corrections": -1
+    }
+  },
+  "covered_fold0": {
+    "samples": 617,
+    "mcc_delta": -0.00395938,
+    "auprc_delta": -0.00058791,
+    "brier_delta": 0.00100309
+  },
+  "source_diagnostics": {
+    "pepflow": {
+      "samples": 171,
+      "mcc_delta": -0.02143839,
+      "net_corrections": -1
+    },
+    "af2_16_30": {
+      "samples": 366,
+      "mcc_delta": -0.01287109,
+      "net_corrections": -2
+    },
+    "af2_31_50": {
+      "samples": 80,
+      "mcc_delta": 0.05078367,
+      "auprc_delta": 0.01251198,
+      "brier_delta": -0.00871532,
+      "net_corrections": 2,
+      "interpretation": "post-result subgroup signal only; it cannot authorize source/length specialist selection and requires a new prefrozen replication set"
+    }
+  },
+  "failed_gate_reasons": [
+    "overall BACC decreased",
+    "overall MCC decreased instead of improving by at least 0.002",
+    "overall AUPRC decreased",
+    "Brier score worsened instead of improving",
+    "net corrections were negative",
+    "covered-cohort MCC decreased"
+  ],
+  "scientific_interpretation": "explicit 1D/3D residual coupling does not solve complementarity with the present conformer descriptors; the limiting factor is cross-source/length transfer of structure signal rather than the absence of a learned fusion interaction",
+  "decision": "remove temporary code, feature cache, checkpoint and predictions; retain only this compact negative evidence; do not modify README or the default model"
+}

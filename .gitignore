@@ -75,6 +75,16 @@ Lib/
 *.ckpt
 *.safetensors
 
+# Server transfer archives are disposable transport artifacts. Keep extracted
+# manifests/results, never the duplicated upload/download containers.
+*.tar.gz
+*.tar.gz.sha256
+*.tgz
+*.zip
+*.zip.sha256
+*.7z
+*.rar
+
 # =========================
 # 4. 数据集和临时大文件
 # =========================
@@ -113,6 +123,7 @@ Lib/
 /*.fls
 /*.fdb_latexmk
 /data/*
+!/data/ASSET_MANIFEST.json
 !/data/pepflow_pilot/
 /data/pepflow_pilot/*
 !/data/pepflow_pilot/train_pilot_250.fasta

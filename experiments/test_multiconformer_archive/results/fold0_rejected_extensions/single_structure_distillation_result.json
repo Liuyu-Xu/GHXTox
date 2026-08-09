@@ -1,0 +1,70 @@
+{
+  "artifact_type": "ghxtox_conformer_single_distillation_fold0_compact_result",
+  "date": "2026-08-09",
+  "source_archive": "ghxtox_conformer_single_distillation_fold0_result_20260809_230436.tar.gz",
+  "source_archive_sha256": "6a01c3126adb93241e4ce20034de8ec9d63f5c65d6b6fefff0c034ab2bf97024",
+  "protocol_sha256": "9a6590666bedbd4e64ed0a87fadca46faf4e2687f339ba6779022ae5f8c1b46c",
+  "status": "complete",
+  "scope": "single prespecified outer-fold-0 screening pilot",
+  "external_test_access": false,
+  "cohort": {
+    "records": 6387,
+    "outer_train_records": 5116,
+    "held_fold_records": 1271,
+    "conformer_covered_records": 2795,
+    "outer_train_conformer_covered": 2258,
+    "held_fold_conformer_covered": 537
+  },
+  "overall_fusion": {
+    "baseline": {
+      "balanced_accuracy": 0.9377453203906982,
+      "mcc": 0.89318439900137,
+      "auroc": 0.9847500680395538,
+      "auprc": 0.971434731627591,
+      "brier": 0.03624687343835831
+    },
+    "candidate": {
+      "balanced_accuracy": 0.9377453203906982,
+      "mcc": 0.89318439900137,
+      "auroc": 0.9846926124164626,
+      "auprc": 0.9713262877927266,
+      "brier": 0.03626782447099686
+    },
+    "decision_changes": 0
+  },
+  "overall_3d": {
+    "baseline": {
+      "balanced_accuracy": 0.9212873083552572,
+      "mcc": 0.8636355560202977,
+      "auprc": 0.9522351942874419,
+      "brier": 0.04995398595929146
+    },
+    "candidate": {
+      "balanced_accuracy": 0.9226571713689558,
+      "mcc": 0.8656246136656817,
+      "auprc": 0.952177255448199,
+      "brier": 0.05011123791337013
+    }
+  },
+  "signal_diagnostics": {
+    "mean_absolute_teacher_minus_base_probability_overall": 0.00008881,
+    "mean_absolute_teacher_minus_base_probability_covered": 0.00021020,
+    "maximum_absolute_teacher_minus_base_probability": 0.01023704,
+    "covered_teacher_student_residual_correlation": 0.662029,
+    "covered_classification_changes": 0,
+    "uncovered_new_true_positives": 1,
+    "interpretation": "The student partially reproduced the teacher residual, but the teacher residual itself was too weak. The only corrected class decision occurred outside the conformer-covered held subgroup, so it cannot be attributed to transferred conformer knowledge without a matched label-only control."
+  },
+  "gate": {
+    "fusion_bacc_nondecrease": true,
+    "fusion_mcc_minimum_gain": false,
+    "fusion_auprc_nondecrease": false,
+    "fusion_brier_minimum_improvement": false,
+    "covered_bacc_regression_within_limit": true,
+    "uncovered_bacc_regression_within_limit": true,
+    "all_conditions_passed": false
+  },
+  "decision": "stop_after_fold0_and_retain_current_default",
+  "default_replacement_authorized": false,
+  "five_fold_confirmation_authorized": false
+}
