@@ -47,8 +47,11 @@ def test_multidimensional_model_is_the_only_public_default() -> None:
             marked.append(path.name)
     assert marked == ["default_multidimensional_fusion.json"]
     structure_source = current["composition"]["3d_expert"]["test_probability_column"]
-    assert "source_aware_multiconformer_frozen_test_20260808_r4_corrected" in structure_source
+    assert "single_structure_test_components" in structure_source
+    assert "conformer" not in structure_source
     assert "default_3d_hybrid" not in structure_source
+    assert current["test_time_conformer_policy"]["status"] == "disabled"
+    assert current["test_time_conformer_policy"]["probability_source"] == "base_logits"
 
 
 def test_3d_training_config_points_to_current_default() -> None:
@@ -120,13 +123,14 @@ def test_full_runner_uses_only_pure_3d_oof() -> None:
     assert "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv" not in script
 
 
-def test_public_exporter_uses_retained_multiconformer_structure_outputs() -> None:
+def test_public_exporter_uses_single_structure_outputs() -> None:
     script = (ROOT / "scripts/export_multidimensional_default.py").read_text(
         encoding="utf-8"
     )
-    assert "source_aware_multiconformer_frozen_test_20260808_r4_corrected" in script
-    assert "default_multidimensional_fusion_full2795" in script
+    assert "runs/single_structure_test_components" in script
+    assert "default_multidimensional_fusion_single_structure" in script
     assert 'f"{dataset}_structure_predictions.csv"' in script
+    assert "source_aware_multiconformer_frozen_test" not in script
     assert "runs/default_3d_hybrid" not in script
 
 
@@ -155,25 +159,32 @@ def test_generated_install_metadata_is_ignored_and_not_authoritative() -> None:
     assert "*.egg-info/" in ignore
     project = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     assert 'ghxtox-predict = "ghxtox.multidimensional_default:main"' in project
+    assert "ghxtox-multiconformer-graph-3d" not in project
 
 
-def test_public_predict_parser_exposes_multiconformer_extension() -> None:
+def test_public_predict_parser_excludes_test_multiconformer_extension() -> None:
     args = build_parser().parse_args([
         "predict",
         "--processed", "base.pt",
         "--sequence-records", "sequence.pt",
-        "--conformer-manifest", "pepflow.csv", "af2.csv",
-        "--conformer-cache-root", "pepflow_cache", "af2_cache",
-        "--conformer-match-by-sequence",
-        "--allow-unused-conformer-records",
-        "--conformer-processed-output", "augmented.pt",
         "--output-csv", "predictions.csv",
     ])
-    assert args.conformer_manifest == ["pepflow.csv", "af2.csv"]
-    assert args.conformer_cache_root == ["pepflow_cache", "af2_cache"]
-    assert args.conformer_match_by_sequence is True
-    assert args.allow_unused_conformer_records is True
-    assert args.conformer_processed_output == "augmented.pt"
+    assert args.command == "predict"
+    assert not any("conformer" in action.dest for action in build_parser()._actions)
+    with pytest.raises(SystemExit):
+        build_parser().parse_args([
+            "predict", "--processed", "base.pt", "--sequence-records", "sequence.pt",
+            "--conformer-manifest", "retired.csv", "--output-csv", "predictions.csv",
+        ])
+
+
+def test_public_runtime_hard_codes_single_structure_probability() -> None:
+    source = (ROOT / "src/ghxtox/multidimensional_default.py").read_text(encoding="utf-8")
+    assert "from ghxtox.conformer_features" not in source
+    assert '"--conformer-manifest"' not in source
+    assert '"--conformer-cache-root"' not in source
+    assert "p_3d = p_3d_base" in source
+    assert "input activated conformer features" in source
 
 
 def test_public_predict_assets_are_pinned_to_current_generation() -> None:
@@ -244,6 +255,30 @@ def test_public_assembler_rejects_previous_hybrid_container(tmp_path: Path) -> N
         },
     ])
     with pytest.raises(ValueError, match="previous-hybrid model columns"):
+        assemble(0.72, 0.47022256531284556, one_d, three_d, output)
+
+
+def test_public_assembler_rejects_retired_test_multiconformer_columns(tmp_path: Path) -> None:
+    one_d = tmp_path / "one_d.csv"
+    three_d = tmp_path / "three_d.csv"
+    output = tmp_path / "output.csv"
+    _write_csv(one_d, [
+        {"sample_id": "a", "sequence": "AAA", "label": 0, "toxicity_probability": 0.1},
+        {"sample_id": "b", "sequence": "BBB", "label": 1, "toxicity_probability": 0.9},
+    ])
+    _write_csv(three_d, [
+        {
+            "sample_id": "a", "sequence": "AAA", "label": 0,
+            "structure_probability": 0.2, "base_structure_probability": 0.21,
+            "conformer_available": 1, "conformer_logit_delta": -0.01,
+        },
+        {
+            "sample_id": "b", "sequence": "BBB", "label": 1,
+            "structure_probability": 0.8, "base_structure_probability": 0.79,
+            "conformer_available": 1, "conformer_logit_delta": 0.01,
+        },
+    ])
+    with pytest.raises(ValueError, match="retired test-time multi-conformer columns"):
         assemble(0.72, 0.47022256531284556, one_d, three_d, output)
 
 

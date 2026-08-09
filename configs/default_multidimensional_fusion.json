@@ -24,55 +24,42 @@
    "calibration": "OOF-fitted Platt (runs/lora_mamba_full/oof_calibrated.json)"
   },
   "3d_expert": {
-    "name": "pLDDT-aware multi-scale structure expert (Cα-EGNN + chemical sites + source-aware full2795 conformer residual)",
+    "name": "pLDDT-aware multi-scale single-structure expert (Cα-EGNN + chemical sites; full2795 training checkpoint)",
     "checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
-    "test_probability_column": "structure_probability in runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/test{1,2}_structure_predictions.csv"
+    "test_probability_column": "structure_probability in runs/single_structure_test_components/test{1,2}_structure_predictions.csv",
+    "inference_probability_source": "base_logits"
   }
  },
- "multiconformer_extension": {
-   "status": "source_aware_full2795_preferred_when_audited_cache_is_available",
-   "deployment_decision": "Use the source-aware full2795 multi-conformer residual by default for records covered by an audited cache; use the exact zero-residual base-3D fallback for uncovered records.",
-  "activation": "enabled only when audited conformer manifests and their cache roots are explicitly supplied",
-  "sources": [
-   {
-    "generator": "PepFlow",
-    "length_domain": "3-15 aa",
-    "manifest": "data/test_conformers/pepflow/test1/cache/conformer_manifest.csv",
-    "cache_root": "data/test_conformers/pepflow/test1/cache"
-   },
-   {
-    "generator": "AF2/ColabFold",
-    "length_domain": "16-30 aa",
-    "manifest": "data/test_conformers/af2/test1/cache_16_30/conformer_manifest.csv",
-    "cache_root": "data/test_conformers/af2/test1/cache_16_30"
-   }
-  ],
-  "subset_reuse": "Test2 is an exact unique-sequence subset of Test1 and may reuse the audited Test1 conformer cache through an explicit sequence join",
-  "missing_policy": "hard zero conformer residual; the frozen base 3D prediction is preserved",
-   "frozen_evaluation": "runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/summary.json",
-   "selection_note": "The source-aware checkpoint replacement was selected only from training OOF at the already frozen 0.72/0.28 and 0.4702225653 operating point. It prioritizes MCC/BACC/Brier rather than claiming universal improvement: OOF and Test2 classification improve, Test1 MCC is effectively unchanged, and AUROC/AUPRC trade-offs are reported explicitly."
+ "test_time_conformer_policy": {
+  "status": "disabled",
+  "probability_source": "base_logits",
+  "public_cli_accepts_conformer_cache": false,
+  "processed_inputs_with_active_conformer_features": "rejected",
+  "training_note": "The retained full2795 checkpoint was trained with the audited PepFlow/AF2 multi-conformer cohort, but its conformer residual is never activated on Test1, Test2, or new public predictions.",
+  "retirement_decision": "experiments/test_multiconformer_archive/decision.json",
+  "research_archive": "experiments/test_multiconformer_archive/"
  },
  "fusion": {
   "formula": "p = w * p_1D + (1 - w) * p_3D",
   "weight_1d": 0.72,
   "weight_3d": 0.28,
   "threshold": 0.47022256531284556,
-   "selection": "0.72/0.28 and threshold were frozen from training-only group-aware OOF on 2026-08-06; the later source-aware full2795 checkpoint replacement used the same frozen operating point and the existing MCC non-decrease rule"
+   "selection": "0.72/0.28 and threshold were frozen from training-only group-aware OOF on 2026-08-06; the public test protocol now always uses the full2795 checkpoint's single-structure base logits"
  },
  "outputs": {
-  "test_predictions": "runs/default_multidimensional_fusion_full2795/test{1,2}_predictions.csv",
-  "metrics": "runs/default_multidimensional_fusion_full2795/test{1,2}_metrics.json",
-  "summary": "runs/default_multidimensional_fusion_full2795/summary.json"
+  "test_predictions": "runs/default_multidimensional_fusion_single_structure/test{1,2}_predictions.csv",
+  "metrics": "runs/default_multidimensional_fusion_single_structure/test{1,2}_metrics.json",
+  "summary": "runs/default_multidimensional_fusion_single_structure/summary.json"
  },
  "provenance": {
   "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
   "three_d_oof": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
   "forbidden_mixed_oof": "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv",
   "selection_artifact": "runs/lora_mamba_full/fusion_refreeze.json",
-  "preferred_structure_predictions": "runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected/test{1,2}_structure_predictions.csv",
-  "source_aware_replacement_oof": "runs/full2795_current_fusion_oof_comparison_v1/oof_predictions.csv",
-  "source_aware_replacement_decision": "runs/full2795_deployment_decision_20260808_v1/decision.json",
+  "single_structure_components": "runs/single_structure_test_components/test{1,2}_structure_predictions.csv",
+  "test_multiconformer_retirement_decision": "experiments/test_multiconformer_archive/decision.json",
+  "retired_test_multiconformer_evidence": "experiments/test_multiconformer_archive/",
   "legacy_mixed_predictions_forbidden": "runs/default_3d_hybrid/test{1,2}_predictions.csv"
  },
- "protocol_audit_note": "Adopted the consistent/honest protocol: w=0.72 and threshold=0.4702 were selected on training OOF with the then-current pure 3D expert. The later source-aware full2795 checkpoint was evaluated at this unchanged operating point and promoted by the pre-existing OOF MCC rule; Test1/Test2 were used only for frozen confirmation. See runs/lora_mamba_full/protocol_audit.json and runs/full2795_deployment_decision_20260808_v1/decision.json."
+ "protocol_audit_note": "Team decision on 2026-08-09: retain multi-conformer information only in training and ablation evidence; Test1, Test2, and public inference always use single-structure base logits. The 1D expert, 0.72/0.28 fusion, and threshold 0.4702 remain unchanged."
 }

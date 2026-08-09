@@ -69,6 +69,8 @@
   },
   "inference": {
     "default_checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
+    "public_probability_source": "base_logits",
+    "test_time_conformer_policy": "disabled",
     "default_threshold": 0.677819,
     "threshold_source": "five-fold group-aware OOF MCC optimization",
     "fallback_checkpoint": "runs/plm_fusion_esm2_geometry_confidence/best_model.pt",
@@ -76,7 +78,7 @@
     "fallback_condition": "chemical-site tensors are unavailable"
   },
   "experiment": {
-    "name": "3d_v2_conformer_residual_default",
+    "name": "3d_v2_full2795_training_single_structure_test",
     "fixed_epochs": 8,
     "epoch_source": "median of five Pareto-selected best epochs: 8, 8, 14, 2, 4",
     "selection_data": "training-only CD-HIT 0.80 group folds",

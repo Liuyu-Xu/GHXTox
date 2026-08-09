@@ -22,15 +22,15 @@ def main() -> None:
     parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
     parser.add_argument(
         "--one-d-dir",
-        default="runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected",
+        default="runs/lora_mamba_full",
     )
     parser.add_argument(
         "--structure-dir",
-        default="runs/source_aware_multiconformer_frozen_test_20260808_r4_corrected",
+        default="runs/single_structure_test_components",
     )
     parser.add_argument(
         "--output-dir",
-        default="runs/default_multidimensional_fusion_full2795",
+        default="runs/default_multidimensional_fusion_single_structure",
     )
     args = parser.parse_args()
 
@@ -46,13 +46,15 @@ def main() -> None:
         "components": {
             "1d": "calibrated three-seed LoRA-ProtT5 + bidirectional Mamba",
             "3d": (
-                "pure structure_probability from the pLDDT-aware 3D expert "
-                "with the retained audited multi-conformer residual"
+                "single-structure base probability from the pLDDT-aware 3D expert; "
+                "the full2795 training checkpoint is retained but its conformer residual "
+                "is disabled for test and public inference"
             ),
+            "test_time_conformer_policy": "disabled",
         },
     }
     for dataset in ("test1", "test2"):
-        one_d_path = Path(args.one_d_dir) / f"{dataset}_declared_1d_probabilities.csv"
+        one_d_path = Path(args.one_d_dir) / f"{dataset}_lora_mamba_calibrated.csv"
         structure_path = Path(args.structure_dir) / f"{dataset}_structure_predictions.csv"
         prediction_path = output_dir / f"{dataset}_predictions.csv"
         metrics_path = output_dir / f"{dataset}_metrics.json"

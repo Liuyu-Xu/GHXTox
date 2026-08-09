@@ -1,0 +1,28 @@
+{
+  "archive": "test_set_multiconformer_retirement",
+  "decision_date": "2026-08-09",
+  "canonical_status": "isolated_not_deployed",
+  "public_inference_policy": {
+    "training_checkpoint_may_contain_multiconformer_training": true,
+    "test_time_multiconformer_enabled": false,
+    "structure_probability_source": "base_logits"
+  },
+  "retained": {
+    "decision": "decision.json",
+    "research_scripts": "scripts/",
+    "research_configs": "configs/",
+    "compact_cache_audits": "evidence/",
+    "final_negative_experiment_evidence": "results/"
+  },
+  "removed_as_noncanonical": [
+    "data/test_conformers caches and task chunks",
+    "server transfer archives for test conformers",
+    "intermediate per-fold and smoke-test run directories",
+    "public ghxtox-predict conformer arguments",
+    "installed ghxtox-multiconformer-graph-3d console entry point"
+  ],
+  "canonical_outputs": {
+    "single_structure_components": "runs/single_structure_test_components/",
+    "multidimensional_predictions": "runs/default_multidimensional_fusion_single_structure/"
+  }
+}
