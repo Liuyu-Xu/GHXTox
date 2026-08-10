@@ -19,7 +19,7 @@
 
 相对上一代默认（之前多维融合基线），Test1 的 BACC 0.9251→0.9323、SN 0.8813→0.8969、MCC 0.8611→0.8705、Brier 0.0432→0.0410（配对 bootstrap 单侧 p：BACC 0.091、SN 0.078，提升但未达 5% 显著）；Test2 全部指标统计持平（BACC 0.8608→0.8618、MCC 0.6603→0.6673、AUROC 0.9578→0.9433 非显著、Brier 0.0473→0.0436）。Test1/Test2 属于冻结历史对照，不能称为新的盲外部验证；排序与校准的详细配对统计见 3.1/3.2。ECE-10 按新融合默认未单独重算，故标为「—」。
 
-![当前多维融合模型架构](figure6_current_architecture.png)
+![当前多维融合模型架构](../figures_archive/reports/mentor_report/figure6_current_architecture.png)
 
 图 1. 当前多维融合模型架构：组合A 1D 序列专家（LoRA 微调 ProtT5 + 双向 Mamba，3-seed 集成 + 训练 OOF Platt 校准）与 pLDDT 感知全原子 3D 专家（五级尺度）按训练 OOF 冻结的 `0.72/0.28` 权重融合，决策阈值 `0.4702`。默认模型的上一代架构（冻结 ProtT5-TextCNN 15 成员 + 交互适配器 + BACC 决策残差）作为「之前多维融合模型」基线，见第 3.2 节对比。
 
@@ -42,7 +42,7 @@ base_probability -> interaction adapter -> toxicity_probability
 
 ## 3. 与同数据论文对比
 
-![论文对比](figure1_default_paper_benchmark.png)
+![论文对比](../figures_archive/reports/mentor_report/figure1_default_paper_benchmark.png)
 
 | 数据集 | 模型 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -55,7 +55,7 @@ base_probability -> interaction adapter -> toxicity_probability
 
 上表为上一代默认（之前多维融合基线）与参考论文的对比；当前公开默认（组合A 多维融合）与参考论文的三方对比见 3.1/3.2。上表可见：Test1 上上一代默认超过 ToxMSRC 的 ACC/BACC/SN/SP/MCC/AUROC，超过 ToxPLTC 的 ACC/SP/MCC/AUROC/AUPRC，但 ToxPLTC 的 BACC/SN 更高；Test2 上超过 ToxMSRC 的 ACC/SP/MCC/AUROC，超过 ToxPLTC 的 ACC/SP/MCC/AUROC/AUPRC，但 ToxPLTC 的 BACC/SN 更高。不能写成“所有指标全面超过所有论文”。
 
-![论文差值](figure2_default_paper_deltas.png)
+![论文差值](../figures_archive/reports/mentor_report/figure2_default_paper_deltas.png)
 
 
 ### 3.1 新 1D 融合模型（组合A）与同数据集参考论文对比
@@ -128,15 +128,15 @@ OOF 中参考模型为 `BACC 0.927181 / MCC 0.871184`，加入残差后为 `BACC
 | Test1 | 0.9251 [0.9061, 0.9429] | 0.8813 [0.8438, 0.9156] | 0.8611 [0.8279, 0.8923] | 0.9650 [0.9521, 0.9763] |
 | Test2 | 0.8608 [0.7956, 0.9199] | 0.7609 [0.6304, 0.8696] | 0.6603 [0.5523, 0.7640] | 0.7849 [0.6816, 0.8779] |
 
-![ROC 和 PR](figure3_default_roc_pr.png)
+![ROC 和 PR](../figures_archive/reports/mentor_report/figure3_default_roc_pr.png)
 
-![概率校准](figure4_default_calibration.png)
+![概率校准](../figures_archive/reports/mentor_report/figure4_default_calibration.png)
 
 ## 5. 消融与创新点
 
 导师汇报中的消融只保留训练内 OOF 结果和当前默认组成证据：
 
-![OOF 消融](figure5_default_oof_ablation.png)
+![OOF 消融](../figures_archive/reports/mentor_report/figure5_default_oof_ablation.png)
 
 | OOF 设置 | ACC | BACC | SN | SP | MCC | AUROC | AUPRC | Brier | ECE-10 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

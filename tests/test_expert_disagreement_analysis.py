@@ -9,6 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +26,20 @@ def _json(path: Path) -> dict:
 def _csv(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def _matches_frozen_bytes(path: Path, *, size_bytes: int, sha256: str) -> bool:
+    """Validate a frozen input while tolerating Git's LF/CRLF checkout policy."""
+    raw = path.read_bytes()
+    candidates = [raw]
+    if path.suffix.lower() in {".json", ".csv", ".md", ".txt"}:
+        lf = raw.replace(b"\r\n", b"\n")
+        candidates.extend((lf, lf.replace(b"\n", b"\r\n")))
+    return any(
+        len(candidate) == size_bytes
+        and hashlib.sha256(candidate).hexdigest() == sha256
+        for candidate in candidates
+    )
 
 
 def _cliffs_delta(first: np.ndarray, second: np.ndarray) -> float:
@@ -58,10 +73,30 @@ def test_protocol_is_frozen_and_all_inputs_match() -> None:
     )
     assert protocol["resampling"]["bootstrap_replicates"] == 5000
     assert protocol["resampling"]["permutation_replicates"] == 10000
+    missing_local_assets: list[str] = []
     for item in protocol["inputs"]:
         path = ROOT / item["path"]
-        assert path.stat().st_size == item["size_bytes"]
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"]
+        if not path.is_file():
+            # The two multiconformer tensors are intentionally excluded from
+            # Git because they are large, local reconstruction assets.  Keep
+            # strict size/hash validation whenever they are present, while a
+            # clean clone continues to validate all committed inputs and the
+            # compact derived result tables in the remaining tests.
+            assert path.suffix == ".pt"
+            assert item["size_bytes"] >= 100_000_000
+            assert len(item["sha256"]) == 64
+            missing_local_assets.append(item["path"])
+            continue
+        assert _matches_frozen_bytes(
+            path,
+            size_bytes=item["size_bytes"],
+            sha256=item["sha256"],
+        )
+    if missing_local_assets:
+        pytest.skip(
+            "Optional large local interpretability assets are absent: "
+            + ", ".join(missing_local_assets)
+        )
 
 
 def test_all_sample_assignments_reconstruct_without_conformer_use() -> None:

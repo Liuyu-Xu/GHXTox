@@ -1041,7 +1041,7 @@ ToxinPred3 strict上的历史3D-v1 precision为0.9162、recall为0.5428、MCC为
 
 汇总图：
 
-![3D-v2论文补充验证汇总](runs/paper_validation/paper_validation_summary.png)
+![3D-v2论文补充验证汇总](figures_archive/runs/paper_validation/paper_validation_summary.png)
 
 ### 5.10 前沿多肽3D方法的价值排序与当前尝试
 
@@ -2448,7 +2448,7 @@ Confusion matrices at threshold 0.85:
 | Test1 | 777 | 29 | 41 | 279 |
 | Test2 | 513 | 23 | 12 | 34 |
 
-![Default model ROC, PR, and confusion matrices](reports/figures/default_model_evaluation.png)
+![Default model ROC, PR, and confusion matrices](figures_archive/reports/figures/default_model_evaluation.png)
 
 The vector version is `reports/figures/default_model_evaluation.pdf`; raw ROC and PR points are stored beside it.
 
