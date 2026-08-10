@@ -1,0 +1,21 @@
+split_name,comparison,metric,positive_improvement_definition,point_estimate,ci95_lower,ci95_upper,bootstrap_probability_gt_0,replicates
+Test1,Full binary predictor versus Frozen-threshold accepted set,Accepted error,Full binary predictor minus frozen accepted,0.025316624830085285,0.01620298251324897,0.03513877502397953,1.0,5000
+Test1,Full binary predictor versus Frozen-threshold accepted set,MCC,frozen accepted minus Full binary predictor,0.06242287102666533,0.040244098511162146,0.08623973919402751,1.0,5000
+Test1,Full binary predictor versus Frozen-threshold accepted set,Balanced accuracy,frozen accepted minus Full binary predictor,0.030556681293426258,0.01896274919680861,0.04355014833894381,1.0,5000
+Test1,Full binary predictor versus Frozen-threshold accepted set,Sensitivity,frozen accepted minus Full binary predictor,0.04284131205673758,0.021525531759906805,0.06668195025415649,1.0,5000
+Test1,Full binary predictor versus Frozen-threshold accepted set,Specificity,frozen accepted minus Full binary predictor,0.018272050530115047,0.009508141106442032,0.02828514465184848,1.0,5000
+Test1,Equal-count random rejection versus Frozen-threshold accepted set,Accepted error,Equal-count random rejection minus frozen accepted,0.025319157472417263,0.014880952380952384,0.036072144288577156,1.0,5000
+Test1,Equal-count random rejection versus Frozen-threshold accepted set,MCC,frozen accepted minus Equal-count random rejection,0.06241859219883106,0.036646357008485994,0.08898629262128192,1.0,5000
+Test1,Equal-count random rejection versus Frozen-threshold accepted set,Balanced accuracy,frozen accepted minus Equal-count random rejection,0.03054922476678079,0.017090574017488806,0.04512164133023856,1.0,5000
+Test1,Equal-count random rejection versus Frozen-threshold accepted set,Sensitivity,frozen accepted minus Equal-count random rejection,0.04281836016237495,0.018105634858191878,0.07025558109773439,1.0,5000
+Test1,Equal-count random rejection versus Frozen-threshold accepted set,Specificity,frozen accepted minus Equal-count random rejection,0.018280089371186525,0.008358178544468865,0.029181564305188794,1.0,5000
+Test2,Full binary predictor versus Frozen-threshold accepted set,Accepted error,Full binary predictor minus frozen accepted,0.02164405145131277,0.009881227376130291,0.03518211612909734,1.0,5000
+Test2,Full binary predictor versus Frozen-threshold accepted set,MCC,frozen accepted minus Full binary predictor,0.11071409032711133,0.044788706997690615,0.18246260490046337,1.0,5000
+Test2,Full binary predictor versus Frozen-threshold accepted set,Balanced accuracy,frozen accepted minus Full binary predictor,0.03650128603593539,0.0030662179672619654,0.07767376331645352,0.9868,5000
+Test2,Full binary predictor versus Frozen-threshold accepted set,Sensitivity,frozen accepted minus Full binary predictor,0.054919908466819156,-0.010869565217391353,0.1368303725720605,0.9434,5000
+Test2,Full binary predictor versus Frozen-threshold accepted set,Specificity,frozen accepted minus Full binary predictor,0.01808266360505162,0.007263892550495256,0.031101390237218193,1.0,5000
+Test2,Equal-count random rejection versus Frozen-threshold accepted set,Accepted error,Equal-count random rejection minus frozen accepted,0.021653359683794483,0.007766990291262134,0.03740157480314961,0.9992,5000
+Test2,Equal-count random rejection versus Frozen-threshold accepted set,MCC,frozen accepted minus Equal-count random rejection,0.11102211685616625,0.030471274478079697,0.1945463213864637,0.9976,5000
+Test2,Equal-count random rejection versus Frozen-threshold accepted set,Balanced accuracy,frozen accepted minus Equal-count random rejection,0.03657914603607704,-0.0053475917394789465,0.08355403682863315,0.9538,5000
+Test2,Equal-count random rejection versus Frozen-threshold accepted set,Sensitivity,frozen accepted minus Equal-count random rejection,0.055071654099530076,-0.02927028101802748,0.14799155145929332,0.8866,5000
+Test2,Equal-count random rejection versus Frozen-threshold accepted set,Specificity,frozen accepted minus Equal-count random rejection,0.018086637972623998,0.006192894821262403,0.03287688253833236,0.9988,5000

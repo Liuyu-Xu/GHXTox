@@ -1,0 +1,4 @@
+figure,panel,data_file,script,model,conclusion
+Supplementary selective-prediction transfer,A,source_data/split_summary.csv,plot_selective_prediction_test_transfer.py,Frozen GHXTox predictor with OOF-derived abstention cutoff,The unchanged OOF cutoff yields split-specific benchmark coverage rather than forced 90% coverage.
+Supplementary selective-prediction transfer,B,source_data/benchmark_transfer_metrics.csv,plot_selective_prediction_test_transfer.py,Frozen GHXTox predictor with OOF-derived abstention cutoff,The frozen cutoff lowers accepted error relative to both full prediction and equal-count random rejection on both benchmarks.
+Supplementary selective-prediction transfer,C,source_data/benchmark_transfer_metrics.csv,plot_selective_prediction_test_transfer.py,Frozen GHXTox predictor with OOF-derived abstention cutoff,The accepted sets have higher MCC on both benchmarks under the unchanged cutoff.

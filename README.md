@@ -21,6 +21,105 @@ ghxtox-predict predict `
   --device cuda
 ```
 
+### 可选的三状态选择性预测（Selective prediction / Abstention）
+
+当前公开模型已增加一个**默认关闭、显式启用**的后处理层。它不修改模型权重、`0.72/0.28`融合概率、`0.4702225653`二分类阈值或原`prediction`字段；启用后仅追加`uncertainty_score`、`abstained`和`selective_prediction`，其中三状态输出为`Toxic / Non-toxic / Uncertain`。
+
+本功能具体完成了以下工作：
+
+1. 基于队友当前规范版本冻结[`selective_prediction_current_default_oof_v2.json`](configs/selective_prediction_current_default_oof_v2.json)，固定训练OOF数据源、五折划分、候选不确定性特征、coverage网格、5,000次类别分层bootstrap及晋级规则。Test1/Test2标签在策略构建和选择中均被禁止。
+2. 从当前规范融合OOF提取决策边界接近度`1-|p-τ|/max(τ,1-τ)`，并对照加入`|p_1D-p_3D|`、三个1D种子的概率标准差、`1-mean_pLDDT`以及构象RMSF/RMSD和接触不确定性。缺失的可选结构特征使用各外层训练分区的中位数处理，不把“缺少构象”错误编码成零波动。
+3. 最终`margin_only`直接使用归一化决策边界接近度，不拟合误差分类器，因而其分数定义本身不依赖标签。`deployable_core`与`conformer_extended`仅作为预设对照，在每个外层fold的其余四折上拟合类别平衡逻辑回归，再为held-out fold产生误差排序分数。
+4. 离散AURC明确按从1条到6,387条的全部接收集大小上的风险均值计算。`margin_only`的AURC为`0.015373`；`deployable_core`与`conformer_extended`分别为`0.017252`和`0.015883`，均未优于简单边界接近度，因此按预设规则保留`margin_only`。
+5. 将冻结策略实现为[`selective_prediction.py`](src/ghxtox/selective_prediction.py)中的独立后处理模块，并接入`ghxtox-predict predict`和CPU `assemble`。策略加载时校验artifact类型、特征、阈值和参数；启用拒识也不会覆盖原`toxicity_probability`和二分类`prediction`。
+6. 增加了策略加载、三状态输出、缺失特征处理、CSV兼容性和CLI显式启用测试；保存逐样本交叉拟合分数、risk--coverage表、bootstrap区间、冻结策略和输入SHA256。另生成了可复现的风险--覆盖图代码、SVG/PDF/600-dpi PNG、源数据和英文caption。
+7. 在查看随机对照结果前冻结[`selective_prediction_formal_current_default_v2.json`](configs/selective_prediction_formal_current_default_v2.json)，将正式报告点固定为100%、95%、90%、85%和80% coverage；每个点均按`round(coverage × 6387)`确定接收数，并报告accepted error、MCC、BACC、SN和SP。正式实验不重新拟合策略，也不重新选择特征。
+8. 增加同接收数的随机拒判对照：使用5,000个均匀随机、跨coverage嵌套的样本排序（种子`20260820`）。区间和方法差值由5,000次类别分层配对bootstrap估计（种子`20260821`）；同一次bootstrap内，两种方法在同一重采样队列上比较，随机方法使用一个嵌套随机排序。未报告p值或显著性星号。
+9. 在查看Test1/Test2选择性结果前冻结[`selective_prediction_frozen_threshold_transfer_current_default_v2.json`](configs/selective_prediction_frozen_threshold_transfer_current_default_v2.json)，锁定训练OOF产生的直接`margin_only`分数、`0.4702225653`二分类阈值和`0.47361765874159856`拒判截断。Test1/Test2不重新计算不确定性分位数，也不强制实现90% coverage。
+10. 先生成并哈希不含标签的逐样本接收/拒判表，再读取标签计算结果。测试标签只进入事后指标、等接收数随机对照和固定mask bootstrap；dataset identity、标签、样本数、类别比例、测试概率分布及目标coverage均不能进入选择规则。
+
+冻结策略只使用6,387条训练OOF记录，没有读取Test1/Test2标签。预设90% coverage下，OOF accepted error由全覆盖的`5.1198%`降至`2.9228%`（相对降低`42.91%`），accepted MCC由`0.8733`升至`0.9257`；毒性/非毒性真实类别覆盖率分别为`85.97%/91.60%`。该结果说明拒绝靠近决策边界的样本可提高已接收预测的可靠性，但它是训练OOF证据，不是新的外部验证结果。
+
+正式对照实验固定使用最终入选的`margin_only`策略。其唯一输入为融合概率到固定阈值的归一化接近度：`decision_closeness = 1-|p_GHXTox-τ|/max(τ,1-τ)`，其中`τ=0.47022256531284556`。该数值直接用于排序，不经过标签驱动的变换，也不应解释为校准后的逐样本错误概率。表中随机拒判结果为5,000个等coverage随机排序的均值；100% coverage时两种方法完全相同。
+
+| 方法 | 目标coverage | 实际coverage | 接收数 | accepted error | MCC | BACC | SN | SP |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 冻结不确定性排序 | 100% | 100.00% | 6,387 | 5.1198% | 0.8733 | 0.9324 | 0.8944 | 0.9705 |
+| 随机拒判 | 100% | 100.00% | 6,387 | 5.1198% | 0.8733 | 0.9324 | 0.8944 | 0.9705 |
+| 冻结不确定性排序 | 95% | 95.01% | 6,068 | 3.6585% | 0.9082 | 0.9505 | 0.9216 | 0.9795 |
+| 随机拒判 | 95% | 95.01% | 6,068 | 5.1194% | 0.8733 | 0.9324 | 0.8944 | 0.9705 |
+| 冻结不确定性排序 | 90% | 90.00% | 5,748 | 2.9228% | 0.9257 | 0.9585 | 0.9316 | 0.9854 |
+| 随机拒判 | 90% | 90.00% | 5,748 | 5.1203% | 0.8733 | 0.9324 | 0.8943 | 0.9705 |
+| 冻结不确定性排序 | 85% | 85.00% | 5,429 | 2.4130% | 0.9387 | 0.9650 | 0.9411 | 0.9889 |
+| 随机拒判 | 85% | 85.00% | 5,429 | 5.1200% | 0.8733 | 0.9324 | 0.8944 | 0.9705 |
+| 冻结不确定性排序 | 80% | 80.01% | 5,110 | 2.0548% | 0.9481 | 0.9705 | 0.9508 | 0.9903 |
+| 随机拒判 | 80% | 80.01% | 5,110 | 5.1196% | 0.8733 | 0.9324 | 0.8944 | 0.9705 |
+
+在预先指定的90% coverage处，随机拒判减去冻结不确定性排序的accepted error差值为`2.1914`个百分点，95%配对bootstrap区间为`1.8089–2.5748`个百分点；在全部四个部分coverage点，冻结排序的accepted error均低于随机拒判均值。因而，性能改善不能仅归因于“少预测了一部分样本”，而是表明冻结分数在训练OOF队列中富集了较难样本。该结论仍不构成Test1/Test2或独立外部数据上的泛化证据。
+
+#### OOF冻结阈值在Test1/Test2上的直接迁移
+
+Test1和Test2严格使用同一个训练OOF策略与拒判截断：`uncertainty_score = decision_closeness <= 0.47361765874159856`时接收，否则输出`Uncertain`。两个测试集均未按自身分布重算分位数，因此实际coverage是冻结规则的观测结果，而不是预先指定的测试集配额。
+
+| 数据集 | 方法 | 实际coverage | 接收数 | accepted error | MCC | BACC | SN | SP |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Test1 | 完整二分类预测 | 100.00% | 1,126 | 5.2398% | 0.8705 | 0.9323 | 0.8969 | 0.9677 |
+| Test1 | OOF冻结阈值接收集 | 88.54% | 997 | 2.7081% | 0.9329 | 0.9629 | 0.9397 | 0.9860 |
+| Test1 | 等接收数随机拒判 | 88.54% | 997 | 5.2400% | 0.8705 | 0.9323 | 0.8969 | 0.9677 |
+| Test2 | 完整二分类预测 | 100.00% | 582 | 5.3265% | 0.6673 | 0.8618 | 0.7609 | 0.9627 |
+| Test2 | OOF冻结阈值接收集 | 86.94% | 506 | 3.1621% | 0.7781 | 0.8983 | 0.8158 | 0.9808 |
+| Test2 | 等接收数随机拒判 | 86.94% | 506 | 5.3274% | 0.6670 | 0.8617 | 0.7607 | 0.9627 |
+
+Test1中，完整集合减去冻结接收集的error差值为`2.5317`个百分点，95%固定mask配对bootstrap区间为`1.6203–3.5139`个百分点；相对等接收数随机拒判的差值为`2.5319`个百分点，区间为`1.4881–3.6072`个百分点。Test2对应差值分别为`2.1644`个百分点（`0.9881–3.5182`）和`2.1653`个百分点（`0.7767–3.7402`）。因此两个benchmark均通过结果计算前规定的strong-support判据。
+
+这一结果表明，冻结的不确定性阈值在两个既有benchmark上仍能富集困难样本，且提升不能用“随机少预测相同数量样本”解释。不过，不应把所有子指标都写成确定改善：Test2 sensitivity的点差为`+0.0549`，但95%区间为`-0.0109–0.1368`，仍跨过零。此外，Test1/Test2虽未参与策略选择，却是项目既有benchmark，而不是新收集的独立外部数据；因此本实验支持**固定策略的benchmark迁移**，不等同于全新外部队列验证。
+
+label-blind决策表在读取标签评价前写出，其SHA256为`e6820ffe76688e8fdee6f8e704b1eef0bb5d2f83694aa5f858ead65687ce85a0`。完整结果见[`runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/`](runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/)，评估脚本为[`scripts/evaluate_selective_prediction_test_transfer.py`](scripts/evaluate_selective_prediction_test_transfer.py)，正式图表及源数据见[`paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/`](paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/)。
+
+四特征组合（决策边界距离、1D/3D分歧、1D种子离散度和结构置信度）在90% coverage点的error略低（`2.9054%`），但全coverage离散AURC为`0.017252`，劣于更简单的边界距离策略`0.015373`；因此按预先冻结的晋级规则，公开可选策略采用直接边界接近度。包含RMSF、构象RMSD和接触不确定性的扩展策略AURC为`0.015883`，同样未通过主终点，只作为研究对照保留，不进入规范推理或正式图。
+
+启用方式：
+
+```powershell
+ghxtox-predict predict `
+  --processed data\processed\test2_chemical_sites_final_esm2.pt `
+  --sequence-records data\processed\test2_lora_mamba_light.pt `
+  --selective-policy runs\selective_prediction_current_default_oof_20260810_v2\selected_policy.json `
+  --output-csv runs\selective_predictions\test2_predictions.csv `
+  --output-metrics runs\selective_predictions\test2_metrics.json `
+  --device cuda
+```
+
+若不传`--selective-policy`，CSV列和原二分类行为保持不变。`uncertainty_score`是直接的归一化决策边界接近度，用于样本排序和执行冻结拒绝阈值，而不是校准后的逐样本错误概率。CPU `assemble`子命令也支持同一参数。当前规范输入重建见[`runs/selective_prediction_current_default_input_20260810_v1/`](runs/selective_prediction_current_default_input_20260810_v1/)；策略选择记录见[`runs/selective_prediction_current_default_oof_20260810_v2/`](runs/selective_prediction_current_default_oof_20260810_v2/)；正式五coverage训练OOF对照见[`runs/selective_prediction_formal_current_default_20260810_v2/`](runs/selective_prediction_formal_current_default_20260810_v2/)；冻结阈值的Test1/Test2迁移结果见[`runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/`](runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/)。实现位于[`src/ghxtox/selective_prediction.py`](src/ghxtox/selective_prediction.py)，规范输入构建脚本为[`scripts/prepare_current_default_selective_oof.py`](scripts/prepare_current_default_selective_oof.py)。相应正式图表包位于[`paper_figures/output/selective_prediction_formal_current_default_v2/`](paper_figures/output/selective_prediction_formal_current_default_v2/)和[`paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/`](paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/)。旧v1包基于已被替换的重建融合向量，仅保留历史溯源，不再作为当前公开模型的证据。
+
+### 已完成：无需重训的1D--3D专家分歧分析
+
+为明确结构专家究竟补充了哪些序列专家无法正确判别的样本，工程使用当前Test1与Test2逐样本预测开展了只读分析。分析未加载checkpoint、未执行模型前向或重训，也未改变任何概率与阈值。样本正确性由训练侧已冻结的专家阈值定义：1D LoRA--Mamba专家为`0.392`，3D结构专家为`0.677819`，且统一采用`p >= threshold`判为有毒。由此将每个样本唯一划分为`both correct`、`1D expert only correct`、`3D expert only correct`和`both wrong`四组；Test1与Test2分别报告，不合并进行统计推断。
+
+四组样本的组成及预先指定属性如下。连续变量均报告中位数[IQR]；chemical-site coverage定义为有效残基中至少具有一种化学位点标记的比例，而非位点总数除以序列长度；conformer availability仅表示现有元数据中的可用性。
+
+| Test1 group | n（有毒） | Length | Cys count | Mean pLDDT | Chemical-site coverage | Conformer available |
+|---|---:|---:|---:|---:|---:|---:|
+| Both experts correct | 1032（277） | 33 [23, 41] | 0 [0, 4] | 0.737 [0.634, 0.825] | 0.929 [0.884, 0.960] | 424/1032（41.1%） |
+| 1D expert only correct | 29（15） | 25 [18, 40] | 1 [0, 4] | 0.701 [0.573, 0.803] | 0.933 [0.900, 0.975] | 18/29（62.1%） |
+| 3D expert only correct | 24（5） | 20 [15, 28.75] | 1 [0, 2] | 0.656 [0.587, 0.763] | 0.935 [0.905, 0.976] | 18/24（75.0%） |
+| Both experts wrong | 41（23） | 26 [20, 34] | 1 [0, 4] | 0.647 [0.570, 0.765] | 0.920 [0.846, 0.957] | 26/41（63.4%） |
+
+| Test2 group | n（有毒） | Length | Cys count | Mean pLDDT | Chemical-site coverage | Conformer available |
+|---|---:|---:|---:|---:|---:|---:|
+| Both experts correct | 529（33） | 31 [17, 41] | 0 [0, 1] | 0.726 [0.645, 0.810] | 0.931 [0.886, 0.968] | 250/529（47.3%） |
+| 1D expert only correct | 13（2） | 28 [25, 41] | 2 [0, 4] | 0.694 [0.548, 0.797] | 0.950 [0.900, 0.975] | 7/13（53.8%） |
+| 3D expert only correct | 15（1） | 18 [15, 26.5] | 0 [0, 2] | 0.703 [0.593, 0.772] | 0.938 [0.920, 1.000] | 12/15（80.0%） |
+| Both experts wrong | 25（10） | 26 [16, 36] | 2 [0, 4] | 0.610 [0.563, 0.693] | 0.913 [0.815, 0.951] | 15/25（60.0%） |
+
+3D专家在全部1D错误样本中分别纠正Test1的`24/65=36.92%`和Test2的`15/40=37.50%`；反向地，1D专家在全部3D错误样本中分别纠正`29/70=41.43%`和`13/38=34.21%`。因此，两位专家存在可重复的双向互补，但没有证据表明其中一位在所有错误样本上占优。更明确的差异出现在类别方向：3D-only-correct样本中，Test1有`19/24`、Test2有`14/15`为无毒样本。按真实类别计算，3D对1D错误的纠正率在无毒样本中为Test1 `51.35%`、Test2 `48.28%`，在有毒样本中仅为`17.86%`和`9.09%`。就当前两个benchmark而言，3D专家的主要贡献因而更接近对假阳性的特异性补偿，而不是稳定提高有毒肽召回。
+
+预先指定的主对比为`3D expert only correct - 1D expert only correct`。连续变量采用Cliff's delta和组内按真实标签分层的5,000次bootstrap区间，显著性由10,000次标签分层置换检验给出；两数据集共10项检验统一进行Benjamini--Hochberg校正。3D-only-correct样本在两个数据集中均较短：Test1中位数`20 vs 25`，delta=`-0.286`，95% CI `[-0.549, 0.000]`，`p=0.0978`，`q=0.4890`；Test2为`18 vs 28`，delta=`-0.523`，95% CI `[-0.831, -0.164]`，`p=0.0156`，`q=0.1560`。该方向具有描述性一致性，但没有一项主对比在BH校正后达到`q<0.05`，因此不得表述为已确认的显著分层。Cys数量、平均pLDDT和chemical-site coverage均未表现出跨数据集稳定的校正后差异；尤其pLDDT方向在两个数据集中相反，不能据此声称3D只在高置信结构上提供增益。
+
+原始结果中3D-only-correct组的conformer availability较高，但这一现象不能解释为多构象带来的因果收益。对全部1,708个样本的预设敏感性审计显示，`conformer_available == (length <= 30)`完全成立且零例外：长度不超过15 aa的样本来自PepFlow，16--30 aa来自AF2，超过30 aa则无构象集合。更重要的是，本分析所用当前规范预测来自单结构`base_logits`，从未使用这些构象字段。故该变量与长度和数据生成流程完全混杂，只能作为覆盖范围描述，不能作为3D纠错机制的独立证据。
+
+冻结协议见[`configs/expert_disagreement_analysis_v1.json`](configs/expert_disagreement_analysis_v1.json)，只读分析代码见[`scripts/analyze_expert_disagreement.py`](scripts/analyze_expert_disagreement.py)，逐样本分组、完整统计量和校验和见[`runs/expert_disagreement_analysis_20260810_v1/`](runs/expert_disagreement_analysis_20260810_v1/)。绘图代码见[`paper_figures/scripts/plot_expert_disagreement_analysis.py`](paper_figures/scripts/plot_expert_disagreement_analysis.py)，可编辑矢量图、600-dpi PNG、caption、精确结果表、panel/input manifest和作图源数据见[`paper_figures/output/expert_disagreement_analysis/`](paper_figures/output/expert_disagreement_analysis/)。这部分当前作为工程证据与论文图表素材保留；本轮没有改动`v1.tex`。
+
 当前规范指标如下；它们来自同一full2795训练checkpoint的单结构`base_logits`，不包含测试集构象信息：
 
 | 数据集 | ACC | BACC | SN | SP | F1 | MCC | AUROC | AUPRC | Brier |
@@ -138,7 +237,7 @@ ESM2互补召回已按受约束多教师门控完成一次冻结筛查。候选�
 - 为检验“两专家共享序列语义是否限制互补性”，已完成彻底移除ESM2/ProtT5嵌入的独立结构专家：结构模式不再执行序列Transformer，只保留残基理化属性、pLDDT-aware Cα-EGNN、全原子化学位点图和整肽物化描述符。五折OOF BACC/MCC/AUROC/AUPRC为`0.8992/0.7998/0.9479/0.8997`；与ProtT5的概率相关性由原组合的`0.906`降至`0.881`，但能独自纠正ProtT5错误的样本由152条降为137条，共同错误由218条增为233条。结构权重上限35%的概率/logit留一折融合MCC仅为`0.8557/0.8548`，均低于纯ProtT5的`0.8586`和当前多维默认的`0.8693`。因此隔离方向作为重要负消融保留，不替换默认模型；后续若重启，只允许先做无标签几何/构象预训练以增强独立结构表征，不再直接重复调融合权重。
 - 上述后续路线现已实现：无标签、无PLM的几何自监督编码器只读取残基理化属性、结构描述符、Cα坐标和pLDDT，并重建遮蔽残基特征、距离及6/8/10 Å接触；其折外表征可通过门控接入“残基交互→空间基序→整肽上下文”三级融合。三级模型的训练OOF MCC由化学交互默认的`0.87118`提高到`0.87241`，4/5折相对交互前基线不劣，但历史Test1 MCC降至`0.85426`且Test2排序未改善；ESMFold↔PepFlow/AF2跨视图一致性也没有解决迁移回退。因此代码和消融证据保留，工程默认不变，下一次只在新的预冻结外部集或同长度跨生成器重叠数据上复验。
 - 在构象残差默认之上又依次复验了样本级质量门控、四成员非负stacking和有符号结构残差。三者的严格nested MCC分别为`0.8614/0.8633/0.8627`，均低于冻结默认`0.8693`；后两类残差虽把SN提高到`0.8889/0.8966`，却因假阳性增加而降低MCC和排序指标，故临时代码与结果已清理。当前停止在同一OOF上继续搜索融合公式。
-- 拓扑审计显示train/Test1/Test2中至少含两个Cys的样本比例为`40.52%/39.43%/25.26%`，高Cys拓扑风险比例为`22.84%/21.94%/9.45%`。这支持后续拓扑感知建模，但FASTA不能确定成环方式或二硫键连接，不能把Cys富集样本直接视为环肽。
+- 早期序列审计显示train/Test1/Test2中至少含两个Cys的样本比例为`40.52%/39.43%/25.26%`，高Cys拓扑风险比例为`22.84%/21.94%/9.45%`；这些数字只说明潜在适用范围。2026-08-09进一步完成了严格限于训练OOF的结构可行性审计，结论是“有条件开展高Cys定向方法研究”，而不是据Cys数量直接启动全量拓扑模型训练。
 - 历史3D-v1 Cα模型保留为无化学位点输入时的自动回退，阈值仍为`0.85`。
 - 严格ToxinPred3历史冻结比较中，1D ESM2-BiLSTM的MCC/F1/AUROC/AUPRC均高于2D和3D-v1；3D-v2尚无新的独立外部结论。
 - 2D原子图保留为独立对照和化学解释线路；由于它没有在分组验证和已有评估中稳定超过默认3D模型，因此未并入当前分类器。
@@ -147,6 +246,31 @@ ESM2互补召回已按受约束多教师门控完成一次冻结筛查。候选�
 - 已完成16条不重复TP/TN/FP/FN案例的序列遮蔽、ESM2积分梯度和化学位点删除归因；这些结果支持个案级模型解释，仍不能代表通用氨基酸毒性规律。
 - 项目的完整瓶颈、证据、可解决边界和下一轮主线已经冻结在[附录C](#附录-c完整瓶颈清单与固定标签数据路线2026-07-31)：当前优先处理结构来源/长度混杂，先做诊断和200条BioEmu统一构象pilot；禁止直接启动全量高成本任务。
 - 本文件是项目唯一 Markdown 说明，模型、结果、进度、命令和论文表述边界均在此维护。
+
+## 训练 OOF 拓扑可行性审计（2026-08-09）
+
+本轮工作只读取6,387条训练样本的固定折OOF预测、单结构坐标和matched chemical-site OOF，不运行模型、不训练参数，也不读取Test1/Test2用于方向选择。分析定义在查看分组结果前冻结于[`topology_feasibility_audit_v1.json`](configs/topology_feasibility_audit_v1.json)，实现见[`audit_topology_feasibility.py`](scripts/audit_topology_feasibility.py)，正式结果见[`topology_feasibility_audit_20260809_v5`](runs/topology_feasibility_audit_20260809_v5/)。同代码v6重生成的12个文件与v5逐文件SHA256一致。
+
+本轮拓扑工作具体完成了以下内容：
+
+1. 对训练tensor、固定fold清单、当前3D专家OOF和matched chemical-site OOF按`source_index/sample_id/sequence/label/fold`逐条对齐，并记录所有输入路径、大小和SHA256；没有加载checkpoint或重新推理。
+2. 从序列重新计算每条肽的Cys数量、比例以及`>=2/3/4/6`分层，并沿用既有严格高风险规则。主分析在看结果前固定为`Cys>=4`，`>=2/3/6`只作预设敏感性分析，避免事后挑选阈值。
+3. 从单结构缓存提取全部Cys对的Cα--Cα距离、Cys SG--SG距离、序列间隔、两端最小pLDDT、CB--SG方向对齐和候选近接数量；同时输出逐样本表、29,444行Cys对表和分距离区间统计。所有短距离只称为候选近接，不推断真实二硫键。
+4. 使用当前3D专家的冻结阈值计算各Cys分层错误率、MCC、BACC、AUROC、AUPRC和Brier，并以全训练集标签比例计算标准化错误率，控制Cys富集与毒性标签之间的强混杂。
+5. 使用同折、同基座的control/chemical逐样本OOF比较chemical-site分支是否已经利用该信号；fold 2按原协议保留预测完全相同的零化学残差回退，同时另报实际启用chemical-site的fold 0/1/3/4。
+6. 对主要错误率差、候选SG近接差异和chemical-site增益执行5,000次按fold、label和比较组分层的bootstrap；另外构造SG距离图上的一对一最大匹配，检查全局配对约束本身是否已经产生可分辨标签信号。
+7. 输出样本表、配对几何表、分组指标、距离分布、chemical-site增量、bootstrap区间、拓扑匹配摘要、输入manifest、决定文件和checksums。正式v5与独立v6重生成逐文件一致，脚本和JSON均通过语法检查，且输入manifest不含Test1/Test2或checkpoint。
+
+- **样本量充足，但标签混杂很强。** 训练集中2,588条肽含至少2个Cys，1,842条含至少4个，1,303条含至少6个。`Cys>=4`组含1,397条正类和445条负类，正类比例为`75.84%`，而`Cys<4`仅为`9.26%`；优势比为`30.70`（近似95% CI `26.52--35.53`）。因此不得用未按标签校正的原始错误率判断拓扑价值。
+- **主分析没有发现一般性的Cys-rich性能缺口。** 当前3D专家在`Cys>=4`和`Cys<4`上的原始错误率分别为`6.460%`和`6.469%`；按全训练集标签比例标准化后，前者相对后者的错误率差为`-0.01227`，5,000次按fold、label和分组分层的bootstrap 95% CI为`[-0.04139, 0.01611]`。预先冻结的`Cys>=4`主终点未通过。
+- **真正值得追踪的是`Cys>=6`的少数负类。** 预设敏感性分析中，`Cys>=6`相对其余样本的标签标准化错误率高`0.07013`，95% CI为`[0.03251, 0.11107]`，五折差值方向均为正。该组1,303条样本中有240条负类；当前3D专家对这些负类的错误率为`23.75%`，对1,063条正类仅为`1.41%`。后续目标应明确写成降低高Cys负类假阳性，同时保持高Cys正类召回，而不是笼统声称改善所有多Cys肽。
+- **预测结构提供了候选几何，不提供真实连接标签。** 共得到29,444个Cys对，SG距离中位数为`6.413 Å`；9,433对（`32.04%`）不超过`4.5 Å`，但468对（`1.59%`）短于`1.5 Å`，提示侧链坐标存在不应被解释为真实S--S键的几何噪声。含至少2个Cys的肽中`89.84%`至少有一个`SG<=4.5 Å`候选近接，这一“任一近接”比例还受Cys对数量的组合效应影响。
+- **现有chemical-site已覆盖大部分局部输入类型。** 当前支路已经显式使用sulfur--sulfur兼容性、原始及尺度归一化距离、CB--SG方向、pLDDT置信度和跨残基消息传递。在`Cys>=4`组中，matched chemical-site候选只将错误率降低`0.00217`（95% CI `[-0.00163, 0.00597]`），MCC提高`0.00584`、AUPRC提高`0.00109`；最小SG距离与Brier改善的Spearman相关仅为`-0.0696`。因此再叠加一个读取相同局部变量的MLP不构成新的拓扑信息。
+- **简单全局配对也不够。** 对SG距离图施加一对一最大匹配后，匹配覆盖率在`Cys>=6`组区分正负标签的AUROC仅为`0.493/0.514/0.529`（距离阈值`2.5/3.5/4.5 Å`）。这说明“距离阈值+配对约束”本身尚不能解释困难负类；后续若没有更可靠的几何、连接监督或不确定性建模，预期分类收益有限。
+
+当前决定为`conditional_method_development`：**不立即重训完整3D主干，也不以现有距离伪标签直接上服务器；允许在补齐拓扑证据后做一个轻量、严格OOF的高Cys定向原型。** 真正新增的模块必须包含全局Cys配对竞争、每个Cys至多一个伙伴的软匹配约束，或若干候选拓扑及其置信权重聚合，不能只是第二个无约束局部边MLP。
+
+启动该原型前，优先向数据来源补齐以下字段：每条肽的Cys连接对、连接证据来源及置信等级、未确定连接的mask、是否存在头尾或侧链环化，以及结构是否经过含二硫键约束的几何优化。若只能获得部分标注，应使用unknown mask而不是把未标注Cys对当负例。第一阶段只比较冻结基座与新增小头的五折OOF，主观察量为`Cys>=6`负类FPR，同时要求全量MCC/BACC/AUPRC不恶化；若高Cys负类FPR未稳定下降、4/5折方向不一致，或收益只来自移动阈值，则停止，不访问Test1/Test2继续选择。
 
 ## 队友HyPepTox-Fuse方案的吸收与协议修正
 
@@ -2502,7 +2626,7 @@ sha256sum -c data/prott5_tokens_fp16.tar.gz.sha256
 - 再加入训练集构象RMSF、构象RMSD和接触不确定性后，AURC回升至`0.015732`，相对不含构象项的复合分数改善`5.27%`，但仍比简单阈值距离差`2.33%`。而且当前测试协议只使用单构象，这组三维构象方差在部署端缺失，不能据此建立主接口。
 - 简单阈值距离已经具备清晰的风险分层：覆盖率从`100%`降至`95%/90%/80%`时，保留样本的MCC由`0.8733`升至`0.9082/0.9257/0.9481`，错误率由`5.12%`降至`3.66%/2.92%/2.05%`。这些数字是选择性预测结果，不能与全覆盖分类器MCC直接混写成模型性能提升。
 
-因此不把复合不确定性学习器接入默认模型，也不改变二分类输出；预测概率、融合权重和阈值保持不变。若应用端允许拒识，可直接把`|p-τ|`较小的样本标为`low-confidence / requires review`，同时必须报告coverage。机器可读结果见[`runs/selective_abstention_current_default/summary.json`](runs/selective_abstention_current_default/summary.json)。
+因此不把复合不确定性学习器接入默认模型，也不改变二分类输出；预测概率、融合权重和阈值保持不变。若应用端允许拒识，可直接把`|p-τ|`较小的样本标为`low-confidence / requires review`，同时必须报告coverage。队友完成的初步机器可读复核见[`runs/selective_abstention_current_default/summary.json`](runs/selective_abstention_current_default/summary.json)；本次迁移在完全相同的current-default融合向量上进一步冻结了可部署policy、等接收数随机对照、Test1/Test2固定阈值迁移及作图包，正式证据链以本README开头所列v2目录为准。
 
 以下为更早期三通路模型上的历史实验，参考模型不同，不能与上述数值混用。
 
@@ -3920,7 +4044,7 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
 4. **Data and Software Availability 尚未定稿。** GitHub 地址已知，但仍缺干净的发布 commit/tag、release、许可证、长期归档地址或 DOI，以及可以公开分发的模型和数据清单。
 5. **Supporting Information 尚未制作。** 需要整理补充方法、折级结果、超参数、扩展消融、统计输出、解释性明细表和必要的补充图；当前正文只保留将随投稿提供的说明。
 6. **没有真正独立的新外部测试集。** Test1/Test2 是冻结的历史基准，且 Test2 与 Test1 存在精确序列包含关系；现有结果不能表述为新外部验证或独立重复。
-7. **仍缺先前 pilot 默认的逐样本 OOF 向量。** full2795 相对零构象的 5,000 次配对 bootstrap 已完成，MCC 增益区间跨 0；但 full2795 与先前 pilot 默认的直接配对区间仍需 `runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv`，或五个 `runs/conformer_ensemble_residual_calibrated_fold{0..4}/best_model.pt`。在补齐前，两者只能做同样本总表指标比较，不能声称 full2795 显著优于 pilot。
+7. **先前缺失的 canonical 3D OOF 向量已经补齐，但 full2795 与旧 pilot 的直接配对比较尚未重跑。** `runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv`已从队友清理前的归档中精确恢复，并用于本轮 current-default OOF 和选择性预测 v2 迁移；full2795 相对零构象的5,000次配对bootstrap仍显示MCC增益区间跨0。若论文需要直接比较full2795与先前pilot，仍应基于恢复后的逐样本向量重新执行预先定义的配对分析；在该步骤完成前，不能声称full2795显著优于pilot。
 8. **目标期刊尚未确定。** 标题页、摘要字数、章节结构、参考文献格式、图片尺寸、数据可用性措辞和补充材料组织仍需按最终期刊模板调整。
 9. **全文仍建议进行一次统一母语级终审。** 本轮已重点审校新增解释性内容及与之关联的摘要、引言、局限性和结论；早期长篇模型描述中仍存在较多重复过渡和长句，投稿前应进行全篇一致的语言压缩。
 
@@ -3934,6 +4058,128 @@ python .\paper_figures\scripts\verify_current_interpretability.py `
   新增规范产物`runs/default_multidimensional_fusion/`与唯一入口`ghxtox-predict`（`ghxtox-multidimensional-predict`仅为兼容别名）；全量脚本已强制使用纯 3D OOF，导出默认值固定为`0.72/0.28`与`0.4702225653`，旧部署点`0.62/0.4977`会被默认入口拒绝（见协议审计）。
 - 2026-08-08：完成测试集来源感知full2795审计；该结果现只作为历史消融保留。2026-08-09团队决定公开测试统一回退单结构`base_logits`，并从`ghxtox-predict`删除构象缓存参数。上一代混合代码仍位于`ghxtox._legacy`，公开`assemble`继续拒绝旧混合CSV。
 - 2026-08-10：完成资产收口。删除服务器传输压缩包、临时解压/论文预览文件、失败候选专用大张量和非默认checkpoint；多构象负结果统一归档至`experiments/test_multiconformer_archive/`，规范数据与可重建历史数据的边界记录在`data/ASSET_MANIFEST.json`。默认权重、输入、配置和规范指标保持不变。
+
+### 2026-08-10 队友远端版本融合与选择性预测 v2 迁移记录
+
+本次操作的目标是把队友已更新的 GitHub `main` 安全迁移到本地，同时将本地已有的选择性预测、固定阈值迁移、1D--3D 分歧分析、拓扑可行性审计和论文绘图产物适配到更新后的 canonical 单结构协议。该操作不包含模型重训练、论文正文修改、依赖升级、Git 提交或远端推送。
+
+#### 1. Git 同步、保护与恢复边界
+
+- 远端仓库：`https://github.com/Suiyumanbu/GHXTox.git`；工作分支：`main`。
+- 本地同步前提交为`17e4a39`，队友远端提交为`3f775435f925a500cfa6eb8289f2ba13b9f3c52b`。本地采用 fast-forward 更新；收尾时再次执行远端刷新，并确认`HEAD == origin/main == 3f775435f925a500cfa6eb8289f2ba13b9f3c52b`。
+- 迁移前建立具名安全备份`codex-pre-teammate-migration-20260810`，stash 对象为`f85745f5441568b13596bf10a44b824bef8294b8`，共保留113个可恢复路径。该 stash 未删除，必要时可用于逐文件核对迁移前本地状态。
+- stash 恢复过程中仅出现3个预期的规划日志 modify/delete 冲突。队友版本已经把旧的根目录临时规划日志并入 README 后删除，因此产品树按队友清理结果处理；本轮执行记录放在 Git 排除的`.planning/2026-08-10-teammate-migration/`中，不进入公开提交。
+- 收尾检查时暂存区为空，没有创建 commit，也没有执行 push。工作区保留52个待用户审查的条目，其中11个为已跟踪文件改动、41个为新增条目；这些数字是迁移完成时的 Git 状态快照。
+- `v1.tex`在整个迁移中保持不变；已有的本地`v1.pdf`改动原样保留。现有 PyTorch 环境未安装或升级任何包，版本仍为`2.3.1+cu118`。
+
+#### 2. canonical 模型合同的统一
+
+队友提交后的公开默认模型继续定义为 LoRA-ProtT5--BiMamba 1D 专家与单结构 3D 专家的概率后融合。冻结参数保持为：
+
+- 1D/3D 权重：`0.72/0.28`；
+- 二分类阈值：`0.47022256531284556`；
+- 测试阶段构象输入：禁用；
+- 多构象及其残差头：仅作为训练期诊断、负消融或历史归档，不替换 canonical 推理路径。
+
+队友资产清理删除旧压缩包前，先从原归档成员`conformer_ensemble_residual_oof/full_calibrated_predictions.csv`恢复了精确的 canonical 3D OOF。仓库内文件为`runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv`，外部安全副本为`D:\dachuang2026\ziliao\ghxtox_migration_20260810\canonical_current_oof_full_calibrated_predictions.csv`，二者 SHA-256 均为`13aa080dea07af24945c89115575b592cc74106204e34741d6cdbb0f8ea05dc0`。
+
+新增`prepare_current_default_selective_oof.py`后，以以下4项冻结来源重建了6,387条逐样本 canonical OOF：
+
+- `runs/lora_mamba_full/oof_calibrated.json`；
+- `runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv`；
+- `data/folds/train_cdhit080_fallback_folds.csv`；
+- `runs/lora_mamba_full/fusion_refreeze.json`。
+
+构建过程对`sample_id`、fold、label和sequence执行严格对齐校验。重建结果与`fusion_refreeze.json`中的 accuracy、BACC、SN、SP、MCC、AUROC和AUPRC七项指标逐项完全一致，绝对差均为0。canonical OOF 的主要指标为 accuracy `0.948802`、BACC `0.932421`、SN `0.894389`、SP `0.970453`、MCC `0.873297`、AUROC `0.978001`和AUPRC `0.957742`。
+
+#### 3. 训练 OOF 冻结的选择性预测策略
+
+v2 不再将单一 margin 特征送入折间 logistic 变换，而是直接使用冻结决策边界附近程度作为不确定性分数：
+
+`U = 1 - |p_GHXTox - tau| / max(tau, 1 - tau)`，其中`tau = 0.47022256531284556`。
+
+该分数越大，样本越接近决策边界；它只用于困难样本排序，不应解释为经过校准的逐样本错误概率。策略完全由训练 OOF 确定，90%目标覆盖率得到固定拒判截断值`U*=0.47361765874159856`：`U <= U*`时保留原 Toxic/Non-toxic 结果，`U > U*`时额外标记为`Uncertain`。该后处理不改变原融合概率、二分类阈值或原二分类预测。
+
+| OOF目标覆盖率 | 实际覆盖率 | accepted n | Accepted error | MCC | BACC | SN | SP |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 100% | 100.00% | 6387 | 5.1198% | 0.873297 | 0.932421 | 0.894389 | 0.970453 |
+| 95% | 95.01% | 6068 | 3.6585% | 0.908163 | 0.950522 | 0.921569 | 0.979475 |
+| 90% | 90.00% | 5748 | 2.9228% | 0.925691 | 0.958483 | 0.931542 | 0.985424 |
+| 85% | 85.00% | 5429 | 2.4130% | 0.938737 | 0.965000 | 0.941137 | 0.988864 |
+| 80% | 80.01% | 5110 | 2.0548% | 0.948141 | 0.970538 | 0.950785 | 0.990291 |
+
+离散 AURC 按 accepted-set size 从1到6,387的累计风险均值计算，结果为`0.015372820597771444`。在90%覆盖率处，以5,000个等接受数量的随机拒判排名作为对照，`random - selective`的 accepted error 差为`0.021914`，5,000次标签分层配对 bootstrap 的95%区间为`[0.018089, 0.025748]`。因此训练 OOF 证据支持该冻结分数识别困难样本，但不将其表述为新外部验证。
+
+#### 4. 固定 OOF 截断值向 Test1/Test2 的标签盲迁移
+
+Test1/Test2 应用时没有重新计算测试集分位数，没有强制获得90%覆盖率，也没有依据测试标签修改特征、分数、截断值或接受规则。程序先仅使用样本标识及预测字段生成接受/拒判掩码并写出`label_blind_decisions.csv`，随后才读取label进行性能评估。该标签盲决策表的 SHA-256 为`e6820ffe76688e8fdee6f8e704b1eef0bb5d2f83694aa5f858ead65687ce85a0`。
+
+| 数据集 | 总样本 | 接受/拒判 | 实际覆盖率 | Full error | Accepted error | 等数量随机拒判均值 | Full - accepted error及95% CI |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Test1 | 1126 | 997/129 | 88.54% | 5.2398% | 2.7081% | 5.2400% | 2.5317%，`[1.6203%, 3.5139%]` |
+| Test2 | 582 | 506/76 | 86.94% | 5.3265% | 3.1621% | 5.3274% | 2.1644%，`[0.9881%, 3.5182%]` |
+
+两套历史 benchmark 均得到`strong_support`，总体决定为`strong_support_on_both_benchmarks`。这一结果说明 OOF 冻结规则能够直接迁移到既有 Test1/Test2；但由于它们不是新收集且彼此并非完全独立的数据集，文档不将其升级为“新外部独立验证”。
+
+#### 5. 代码、结果包与绘图迁移
+
+- canonical OOF 构建：`scripts/prepare_current_default_selective_oof.py`和`runs/selective_prediction_current_default_input_20260810_v1/`；
+- OOF 策略：`configs/selective_prediction_current_default_oof_v2.json`和`runs/selective_prediction_current_default_oof_20260810_v2/`；
+- 正式随机拒判对照：`configs/selective_prediction_formal_current_default_v2.json`和`runs/selective_prediction_formal_current_default_20260810_v2/`；
+- 固定阈值测试迁移：`configs/selective_prediction_frozen_threshold_transfer_current_default_v2.json`和`runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/`；
+- 可选推理接口：`src/ghxtox/multidimensional_default.py`新增`--selective-policy`，默认关闭；启用后仅追加uncertainty/abstain字段，不改变 canonical 二分类输出；
+- 统一评分实现：`src/ghxtox/selective_prediction.py`兼容历史 logistic 策略和 v2 `direct_feature_score`策略；
+- v2正式图包：`paper_figures/output/selective_prediction_formal_current_default_v2/`与`paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/`，均包含可编辑SVG、PDF、600 dpi PNG、英文caption、源数据、manifest和checksum；
+- v1策略与图包继续保留，但明确标为历史 reconstructed-OOF 证据，不再作为当前结果。尚未确定的多构象图没有绘制。
+
+同时保留并迁移了1D--3D专家分歧分析、拓扑可行性审计及其绘图入口；它们均为分析/诊断模块，不改变公开默认预测合同。
+
+#### 6. 最终验证与提交边界
+
+- 迁移后的集中回归测试共48项通过；最后调整 v2 默认入口后，12项直接相关测试再次全部通过。
+- 更广的无RDKit smoke子集40项通过，5项RDKit专用测试因现有环境未安装RDKit而明确排除；没有为此安装依赖。
+- 所有修改/新增Python文件通过编译检查；100个checksum清单引用文件全部通过哈希核验；`git diff --check`通过。
+- 两张v2图均进行了600 dpi PNG视觉复核；曾发现并修正迁移图中遗留的历史截断值`0.7197`，最终图注和图内标记均使用当前冻结值`0.4736`。
+- 本次操作没有修改`v1.tex`，没有训练新模型，没有调整 canonical 融合权重或二分类阈值，没有使用 Test1/Test2 标签选择策略，没有升级 PyTorch，没有暂存、提交或推送代码。
+
+因此，当前本地树的含义是：**以队友提交`3f775435`为Git基线，在其 canonical 单结构合同上叠加经过重新对齐和验证的本地分析/选择性预测产物；所有待提交改动均留给项目成员最终审查后统一提交。**
+
+#### 7. 论文中的 disagreement 与 selective prediction 整合
+
+本轮以`v1.tex`为确认后的最新论文源，仅修改英文正文、主表和图注，不绘制新图，也不覆盖已有`v1.pdf`。具体调整如下：
+
+- 在Methods中新增`OOF-Frozen Selective Prediction`，正式定义直接决策接近度、OOF预设90% coverage、冻结截断值`0.47361765874159856`、Test1/Test2标签盲迁移、防止测试集分位数重算的选择防火墙，以及等数量随机拒判和5,000次配对bootstrap；
+- 扩写`Expert Agreement and Conflict Analysis`，固定1D/3D独立阈值，定义四个互斥结果组、按类别的条件纠错率、Cliff's delta、标签分层bootstrap/permutation和10项比较的Benjamini--Hochberg校正；
+- 将Results中的总体互补性集中到`Expert Agreement, Disagreement, and Error Correction`。根据冻结分析包，Test1四组计数为1,032/29/24/41，Test2为529/13/15/25；3D分别纠正24/65和15/40个1D错误，且纠错主要来自非毒性样本；
+- 新增`Selective Prediction and Risk--Coverage Analysis`和六行主表，报告训练OOF风险--覆盖率、随机拒判对照以及固定OOF截断值在Test1/Test2上的直接迁移。Test1/Test2实际coverage为88.54%/86.94%，accepted error为2.71%/3.16%；
+- 将原`3.6.3`改为`Representative Expert-Disagreement Cases`，仅保留具体的fusion rescue和fusion regression案例，避免重复3.2.3中的总体样本数；
+- Figure 4固定为专家互补性三联图图注，Figure 6固定为OOF风险--覆盖率与Test1/Test2冻结迁移四联图图注。绘图脚本继续位于`paper_figures/scripts/`，本轮未生成、替换或修改正式图片；
+- 附件中的历史选择性截断值`0.719723910930358`没有写入论文，统一使用current-default v2冻结值；正文中旧的Test1 23/42和Test2 14/26专家分组计数也已按冻结结果纠正；
+- LaTeX、BibTeX和交叉引用编译成功，生成47页临时验证稿；未发现重复label、缺失ref或致命编译错误。按项目成员要求，不继续执行PDF页面渲染和视觉检查。
+
+上述修改不重训模型、不改变canonical融合概率/权重/阈值、不将Test1/Test2描述为新独立外部数据集，并保持所有Git改动未暂存、未提交和未推送。
+
+### 2026-08-10 论文 2.8.2 Chemical-Site Deletion 的 canonical 化待办（对接用）
+
+**状态：未决，等待用户/队友确认后执行；不要自行扩写或顺手改其他小节。**
+
+背景与判定：
+
+- 当前 `paper_figures/data/current_interpretability/frozen_results/` 的 chemical-site deletion 基线使用**带构象残差的 p_3d**，并非 canonical 单结构 base logit。证据：`structure_site_deletion.csv` 共 445 行，其中 144 行 `conformer_available=1`；例如 Test1 `peptide_481` 删除基线 p_3d=0.46527466（构象版），单结构 base logit=0.41154116。
+- canonical 协议强制测试/公开推理时 conformer mask=0，结构概率读 `base_logits`；`runs/default_multidimensional_fusion_single_structure/{test1,test2}_predictions.csv` 即 canonical 单结构预测（p_3d=base 值）。
+- 因此 2.8.2 目前不是正式分析。若保留正文，必须基于 canonical 单结构预测器重跑；若移入 Supplementary，需连同 Results 3.6.2 的 chemical-site deletion 段落一起移（该段当前引用同一批非 canonical 数字），避免 Methods/Results 口径不一致。
+
+两个方案（待定）：
+
+- 方案 A（推荐）：给 `paper_figures/scripts/run_current_interpretability.py` 增加 canonical 模式——基线取 `base_probability`，扰动时同时强制 conformer availability=0（清零构象张量），并对照 `runs/default_multidimensional_fusion_single_structure/` 的 canonical p_3d 重跑 16 肽队列与 1,708 条基线校验；随后更新 `v1.tex` 的 Methods 2.8.2 措辞（去掉历史说明）、Results 3.6.2 数字和 Figure 8 数据（`paper_figures/data/current_interpretability/frozen_results/` 的 CSV/summary 与绘图脚本）。
+- 方案 B：2.8.2 与 Results 3.6.2 的 chemical-site deletion 内容整体移入 Supplementary，主文只保留 pLDDT--gate 关联。
+
+环境与资产：
+
+- 可用环境：`D:\anaconda\envs\pytorch_env`（Python 3.10、torch 2.3.1+cu118、RTX 4060 Laptop GPU、ghxtox 可导入）。
+- 注意：`frozen_results/summary.json` 记录原运行环境为 torch 2.6.0+cu124 的隔离运行时；本地 2.3.1 重跑需复核数值容差（Test1 1e-3 / Test2 5e-5 为原口径，canonical 模式可能要重新定义）。
+- 输入：`paper_figures/data/current_interpretability/inputs/test1_current_multiconformer.pt`、`test2_current_multiconformer.pt`；canonical 预测：`runs/default_multidimensional_fusion_single_structure/{test1,test2}_predictions.csv`。
+- 耗时未实测：2026-08-10 的 smoke 计时运行被用户中断，未得到任何耗时数据；正式全量运行前建议先跑一次 smoke 模式测时。
 
 ## 文档合并说明（2026-08-05）
 

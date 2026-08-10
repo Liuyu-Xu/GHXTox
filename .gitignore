@@ -54,6 +54,12 @@ Lib/
 !/scripts/prepare_test_conformer_tasks.py
 !/scripts/normalize_test_conformer_manifest.py
 !/scripts/audit_test_conformer_cache.py
+!/scripts/audit_topology_feasibility.py
+!/scripts/evaluate_selective_prediction_formal.py
+!/scripts/evaluate_selective_prediction_test_transfer.py
+!/scripts/evaluate_selective_prediction.py
+!/scripts/prepare_current_default_selective_oof.py
+!/scripts/analyze_expert_disagreement.py
 !/scripts/run_test_conformers_autodl.sh
 !/scripts/package_test_conformer_results.sh
 !/scripts/evaluate_default_multiconformer_extension.py
@@ -111,6 +117,25 @@ Lib/
 !/runs/single_structure_test_components/test2_structure_predictions.csv
 !/runs/default_multidimensional_fusion_single_structure/test1_predictions.csv
 !/runs/default_multidimensional_fusion_single_structure/test2_predictions.csv
+!/runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv
+
+# Complete, checksum-bearing selective-prediction and analysis packages.
+!/runs/selective_prediction_oof_20260809_v1/**
+!/runs/selective_prediction_formal_experiment_20260809_v1/**
+!/runs/selective_prediction_frozen_threshold_test_transfer_20260809_v1/**
+!/runs/selective_prediction_current_default_input_20260810_v1/**
+!/runs/selective_prediction_current_default_oof_20260810_v2/**
+!/runs/selective_prediction_formal_current_default_20260810_v2/**
+!/runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/**
+!/runs/expert_disagreement_analysis_20260810_v1/**
+!/runs/topology_feasibility_audit_20260809_v5/**
+!/runs/topology_feasibility_audit_20260809_v6/**
+!/paper_figures/output/selective_prediction_risk_coverage/**
+!/paper_figures/output/selective_prediction_formal_comparison/**
+!/paper_figures/output/selective_prediction_frozen_threshold_test_transfer/**
+!/paper_figures/output/selective_prediction_formal_current_default_v2/**
+!/paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/**
+!/paper_figures/output/expert_disagreement_analysis/**
 
 # Local manuscript QA and generated LaTeX intermediates.
 /tmp/
@@ -122,6 +147,7 @@ Lib/
 /*.out
 /*.fls
 /*.fdb_latexmk
+/*.synctex.gz
 /data/*
 !/data/ASSET_MANIFEST.json
 !/data/pepflow_pilot/
@@ -187,6 +213,14 @@ Lib/
 # =========================
 # 5. IDE 配置和系统缓存
 # =========================
+!/runs/expert_disagreement_analysis_20260810_v1/
+!/runs/expert_disagreement_analysis_20260810_v1/**
+/runs/expert_disagreement_analysis_20260810_v2_repro/
+/runs/topology_feasibility_audit_20260809_v1/
+/runs/topology_feasibility_audit_20260809_v2/
+/runs/topology_feasibility_audit_20260809_v3/
+/runs/topology_feasibility_audit_20260809_v4/
+
 .vscode/
 .idea/
 .DS_Store

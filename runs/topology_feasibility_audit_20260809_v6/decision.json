@@ -1,0 +1,31 @@
+{
+  "artifact_type": "ghxtox_topology_feasibility_decision",
+  "recommendation": "conditional_method_development",
+  "data_adequacy_pass": true,
+  "geometry_heterogeneity_pass": true,
+  "unmet_model_need_pass": false,
+  "criteria": {
+    "data_adequacy": {
+      "primary_group_min_samples": 500,
+      "primary_group_min_samples_per_label": 100,
+      "valid_sg_geometry_fraction_min": 0.9
+    },
+    "geometry_heterogeneity": {
+      "population": "peptides with at least two Cys and valid SG geometry",
+      "permissive_contact_prevalence_min": 0.05,
+      "permissive_contact_prevalence_max": 0.95
+    },
+    "unmet_model_need": {
+      "minimum_label_standardized_error_gap": 0.02,
+      "require_bootstrap_lower_bound_above_zero": true
+    },
+    "recommendation_levels": {
+      "go_server_prototype": "Data adequacy, geometry heterogeneity, and unmet-model-need criteria all pass.",
+      "conditional_method_development": "Data and geometry criteria pass, but excess current-3D error is not established; topology can be studied as a mechanistic extension but not justified as an expected benchmark correction.",
+      "no_go": "Data adequacy or usable structural-geometry criteria fail."
+    },
+    "architecture_boundary": "Because the current chemical-site branch already encodes sulfur compatibility, distance, orientation, and pLDDT, a follow-up prototype must add global Cys-pair competition, matching constraints, or weighted candidate-topology aggregation; a second unconstrained local edge MLP is not considered a distinct topology module."
+  },
+  "architecture_boundary": "Because the current chemical-site branch already encodes sulfur compatibility, distance, orientation, and pLDDT, a follow-up prototype must add global Cys-pair competition, matching constraints, or weighted candidate-topology aggregation; a second unconstrained local edge MLP is not considered a distinct topology module.",
+  "interpretation_boundary": "Coordinate proximity in a predicted structure is a candidate-contact statistic, not evidence of a native disulfide bond, cyclization state, or experimentally verified topology."
+}

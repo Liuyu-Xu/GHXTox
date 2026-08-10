@@ -33,10 +33,19 @@ All numerical marks must be derived from frozen GHXTox project artifacts.
 - [`internal_to_publication_names.csv`](internal_to_publication_names.csv)
   maps internal provenance labels to manuscript-facing names.
 
-As of 2026-08-08, only the two dataset-specific residue-occlusion figures and
-the restricted structural-confidence/chemical-site sensitivity figure are
-approved for final drawing. Figures or tables involving multi-conformer
-evaluation, final expert probabilities, paired uncertainty, or unresolved
-model selection remain paused. Stable single-structure architecture cores may
-be prepared only as editable drafts and must not be inserted into the
-manuscript as final artwork.
+As of 2026-08-10, the two dataset-specific residue-occlusion figures, the
+restricted structural-confidence/chemical-site sensitivity figure, and the
+formal current-default training-OOF selective-versus-random prediction figure are approved for
+final drawing. The current-default frozen-threshold Test1/Test2 transfer figure is also complete
+and approved as established-benchmark transfer evidence. The frozen 1D--3D
+expert-disagreement package is complete as a restricted complementarity figure:
+it reports four correctness groups, reciprocal rescue, and five prespecified
+attribute contrasts, but it does not support a causal conformer claim. The OOF package reports
+five fixed coverage points, equal-coverage random rejection, and paired uncertainty;
+the transfer package applies the unchanged OOF cutoff and reports natural Test1/Test2
+coverage. Both packages use the direct normalized decision-boundary proximity
+selected on the canonical OOF vector; neither is a newly collected independent-dataset validation.
+Figures or tables involving multi-conformer evaluation or unresolved paired
+uncertainty remain paused. Stable single-structure architecture cores may be
+prepared only as editable drafts until their layout and captions receive final
+manuscript sign-off.

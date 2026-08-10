@@ -1,0 +1,26 @@
+split,coverage_target,accepted_n,rejected_n,metric,positive_improvement_definition,point_estimate,ci95_lower,ci95_upper,paired_bootstrap_replicates
+Training out-of-fold predictions,1.0,6387,0,Accepted error,Random rejection minus Frozen uncertainty ranking,0.0,0.0,0.0,5000
+Training out-of-fold predictions,1.0,6387,0,MCC,Frozen uncertainty ranking minus Random rejection,0.0,0.0,0.0,5000
+Training out-of-fold predictions,1.0,6387,0,Balanced accuracy,Frozen uncertainty ranking minus Random rejection,0.0,0.0,0.0,5000
+Training out-of-fold predictions,1.0,6387,0,Sensitivity,Frozen uncertainty ranking minus Random rejection,0.0,0.0,0.0,5000
+Training out-of-fold predictions,1.0,6387,0,Specificity,Frozen uncertainty ranking minus Random rejection,0.0,0.0,0.0,5000
+Training out-of-fold predictions,0.95,6068,319,Accepted error,Random rejection minus Frozen uncertainty ranking,0.014707613711272246,0.011700725115359266,0.017798286090969014,5000
+Training out-of-fold predictions,0.95,6068,319,MCC,Frozen uncertainty ranking minus Random rejection,0.03506839278207302,0.02788070036928077,0.04242883370457055,5000
+Training out-of-fold predictions,0.95,6068,319,Balanced accuracy,Frozen uncertainty ranking minus Random rejection,0.018076310760887514,0.013948217851715938,0.022329627583138525,5000
+Training out-of-fold predictions,0.95,6068,319,Sensitivity,Frozen uncertainty ranking minus Random rejection,0.026898554785247684,0.01888555146843938,0.03529957545454674,5000
+Training out-of-fold predictions,0.95,6068,319,Specificity,Frozen uncertainty ranking minus Random rejection,0.009254066736527346,0.006488870867576996,0.012188310183966069,5000
+Training out-of-fold predictions,0.9,5748,639,Accepted error,Random rejection minus Frozen uncertainty ranking,0.021914439805149618,0.018088900487125973,0.02574808629088379,5000
+Training out-of-fold predictions,0.9,5748,639,MCC,Frozen uncertainty ranking minus Random rejection,0.052271495247867936,0.04273155146640021,0.06193435364863841,5000
+Training out-of-fold predictions,0.9,5748,639,Balanced accuracy,Frozen uncertainty ranking minus Random rejection,0.025937990575858477,0.020555544030920036,0.03122375153572164,5000
+Training out-of-fold predictions,0.9,5748,639,Sensitivity,Frozen uncertainty ranking minus Random rejection,0.03686109930851306,0.026693067669692542,0.04662791234084365,5000
+Training out-of-fold predictions,0.9,5748,639,Specificity,Frozen uncertainty ranking minus Random rejection,0.015014881843203903,0.011320409097435017,0.018992097444760155,5000
+Training out-of-fold predictions,0.85,5429,958,Accepted error,Random rejection minus Frozen uncertainty ranking,0.027109265058021737,0.022656106096887087,0.03186590532326395,5000
+Training out-of-fold predictions,0.85,5429,958,MCC,Frozen uncertainty ranking minus Random rejection,0.06551603377909057,0.054462207353767014,0.07701945685751208,5000
+Training out-of-fold predictions,0.85,5429,958,Balanced accuracy,Frozen uncertainty ranking minus Random rejection,0.032672300497865917,0.026533749153142,0.03888304331981325,5000
+Training out-of-fold predictions,0.85,5429,958,Sensitivity,Frozen uncertainty ranking minus Random rejection,0.04697357895617273,0.035152756526444194,0.058739468644660835,5000
+Training out-of-fold predictions,0.85,5429,958,Specificity,Frozen uncertainty ranking minus Random rejection,0.0183710220395591,0.014144130641265162,0.022962979788454137,5000
+Training out-of-fold predictions,0.8,5110,1277,Accepted error,Random rejection minus Frozen uncertainty ranking,0.03080379647749511,0.02602739726027397,0.03600782778864971,5000
+Training out-of-fold predictions,0.8,5110,1277,MCC,Frozen uncertainty ranking minus Random rejection,0.07520934262283072,0.06339470180726141,0.0878614494284727,5000
+Training out-of-fold predictions,0.8,5110,1277,Balanced accuracy,Frozen uncertainty ranking minus Random rejection,0.03832572662094956,0.03150420388638117,0.04530755800374952,5000
+Training out-of-fold predictions,0.8,5110,1277,Sensitivity,Frozen uncertainty ranking minus Random rejection,0.05673730177078448,0.043335950275424286,0.06965563439441139,5000
+Training out-of-fold predictions,0.8,5110,1277,Specificity,Frozen uncertainty ranking minus Random rejection,0.01991415147111464,0.015411468304628452,0.024843471710174692,5000

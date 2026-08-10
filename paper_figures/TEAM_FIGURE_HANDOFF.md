@@ -1,6 +1,6 @@
 # GHXTox paper-figure handoff
 
-Status date: 2026-08-08
+Status date: 2026-08-10
 Purpose: teammate coordination only. This document defines what may be drawn now, what may be drafted without final export, and what must remain paused until the underlying evidence is frozen.
 
 ## 1. Scope decision
@@ -12,8 +12,92 @@ Purpose: teammate coordination only. This document defines what may be drawn now
 | Figure 6 | Test1 residue-level sensitivity of the sequence expert | **DRAW NOW** | `test1_residue_occlusion.{svg,pdf,png}` |
 | Figure 7 | Test2 residue-level sensitivity of the sequence expert | **DRAW NOW** | `test2_residue_occlusion.{svg,pdf,png}` |
 | Figure 8 | Structural confidence and chemical-site sensitivity | **DRAW NOW, RESTRICTED PANELS** | `structural_sensitivity.{svg,pdf,png}` |
+| Figure 4 | Expert complementarity and failure strata | **DRAW NOW, FROZEN DISAGREEMENT** | `expert_disagreement_analysis.{svg,pdf,png}` |
+| Supplementary figure | Selective prediction versus random rejection | **DRAW NOW, TRAINING OOF ONLY** | `selective_prediction_random_rejection_comparison.{svg,pdf,png}` |
+| Supplementary figure | Frozen-threshold selective prediction on established benchmarks | **DRAW NOW, FIXED TRANSFER** | `selective_prediction_frozen_threshold_transfer.{svg,pdf,png}` |
 
-The frozen interpretability package has passed its baseline checks and contains checksums. These three figures must be generated from the existing files; the model does not need to be rerun.
+The frozen interpretability, selective-prediction, and expert-disagreement packages have passed their respective checks and contain checksums. These figures must be generated from the existing files; the model does not need to be rerun. The OOF selective-prediction figure must remain training-OOF evidence. The transfer figure may be described as direct fixed-policy evaluation on Test1/Test2, but not as a newly collected independent-dataset validation. Neither selective-prediction figure may include the non-promoted conformer-extended curve, and the disagreement figure may not imply a causal conformer benefit.
+
+### Formal selective-prediction package
+
+Scientific question: does the previously selected uncertainty ranking identify difficult predictions more effectively than rejecting the same number of samples at random?
+
+Frozen inputs:
+
+- `../runs/selective_prediction_formal_current_default_20260810_v2/five_coverage_comparison.csv`;
+- `../runs/selective_prediction_formal_current_default_20260810_v2/method_bootstrap_intervals.csv`;
+- `../runs/selective_prediction_formal_current_default_20260810_v2/paired_bootstrap_contrasts.csv`;
+- `../configs/selective_prediction_formal_current_default_v2.json`;
+- `../runs/selective_prediction_current_default_oof_20260810_v2/selected_policy.json`.
+
+The uncertainty policy is fixed to the one-feature `margin_only` profile on the canonical current-default OOF vector. Its score is the direct normalized proximity of the GHXTox fusion probability to the fixed decision threshold; no label-fitted transformation is applied. Do not add 1D--3D disagreement, seed dispersion, pLDDT, or conformer features to the formal curve. Test1/Test2 labels, policy refitting, feature reselection, model retraining, fusion changes, and threshold changes are prohibited.
+
+Required layout and files:
+
+- panel A: accepted error at 100%, 95%, 90%, 85%, and 80% target coverage;
+- panel B: MCC at the same operating points;
+- frozen uncertainty ranking: blue solid line with circular markers;
+- equal-coverage random rejection: neutral-gray dashed line with square markers;
+- 95% intervals: 5,000 class-stratified paired bootstrap replicates;
+- mark 90% as the prespecified operating point, without significance stars;
+- retain all five exact metrics (error, MCC, BACC, SN, and SP) in the companion table;
+- use `output/selective_prediction_formal_current_default_v2/` as the authoritative package. Earlier v1 and one-curve packages are provenance only.
+
+The package caption is authoritative. Its conclusion must remain limited to difficult-sample enrichment and accepted-set reliability on 6,387 training out-of-fold predictions.
+
+### Frozen-threshold benchmark-transfer package
+
+Scientific question: does the previously selected training-OOF abstention cutoff retain utility when applied unchanged to the canonical Test1 and Test2 benchmark predictions?
+
+Frozen inputs:
+
+- `../runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/method_point_estimates.csv`;
+- `../runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/method_bootstrap_intervals.csv`;
+- `../runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/paired_bootstrap_contrasts.csv`;
+- `../runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/split_summary.csv`;
+- `../configs/selective_prediction_frozen_threshold_transfer_current_default_v2.json`;
+- `../runs/selective_prediction_current_default_oof_20260810_v2/selected_policy.json`.
+
+The direct margin score, binary threshold, and uncertainty cutoff are immutable. The accepted mask is computed without labels by `uncertainty_score <= 0.47361765874159856`; Test-specific quantiles and target coverages are prohibited. Labels enter only the post-selection metrics and fixed-mask resampling. The label-blind decision table was written and hashed before label evaluation.
+
+Required layout and files:
+
+- panel A: natural realized coverage on Test1 and Test2, with the 90% OOF target shown only as a reference;
+- panel B: accepted error for the full binary predictor, frozen-threshold accepted set, and equal-count random rejection;
+- panel C: MCC for the same three methods;
+- exact companion table: coverage, error, MCC, BACC, sensitivity, and specificity;
+- uncertainty: 5,000 label-stratified fixed-mask paired bootstrap replicates;
+- no significance stars and no Test-specific threshold or coverage annotations;
+- use `output/selective_prediction_frozen_threshold_transfer_current_default_v2/` as the authoritative package.
+
+The caption must report that realized coverage is 88.54% on Test1 and 86.94% on Test2, and that accepted error falls from 5.24% to 2.71% and from 5.33% to 3.16%, respectively. It must also retain the limitation that Test2 sensitivity improves in point estimate but its paired interval crosses zero. The conclusion is fixed-policy transfer on established benchmarks, not a new independent cohort.
+
+### Frozen 1D--3D expert-disagreement package
+
+Scientific question: on which benchmark samples does the structural expert correct the sequence expert, and which measured peptide or structure attributes distinguish that direction from the reciprocal 1D correction?
+
+Frozen inputs:
+
+- `../configs/expert_disagreement_analysis_v1.json`;
+- `../runs/expert_disagreement_analysis_20260810_v1/group_counts.csv`;
+- `../runs/expert_disagreement_analysis_20260810_v1/rescue_rates.csv`;
+- `../runs/expert_disagreement_analysis_20260810_v1/primary_contrasts.csv`;
+- `../runs/expert_disagreement_analysis_20260810_v1/sample_assignments.csv`.
+
+The correctness thresholds are immutable: `0.392` for the task-adaptive sequence expert and `0.677819` for the structural expert, with `p >= threshold` classified as toxic. Test1 and Test2 remain separate. Do not substitute the fused threshold, recompute a test-specific threshold, pool the datasets for inference, or rerun a model.
+
+Required layout and files:
+
+- panel A: all four correctness groups, annotated by total count and toxic fraction for each split;
+- panel B: reciprocal rescue among expert errors, stratified by the true class, with Wilson 95% intervals;
+- panel C: `3D expert only correct - 1D expert only correct` effects for length, Cys count, mean pLDDT, chemical-site coverage, and conformer availability, with stratified-bootstrap 95% intervals;
+- exact companion table: group medians/IQRs, rescue numerators and denominators, Cliff's delta or proportion difference, permutation `p`, and ten-test BH-adjusted `q`;
+- no significance stars because no primary contrast remains significant after BH correction;
+- use `output/expert_disagreement_analysis/` as the authoritative package.
+
+The reporting conclusion is limited to sparse, bidirectional expert complementarity. The 3D-only-correct group is predominantly non-toxic (`19/24` on Test1 and `14/15` on Test2), so the structural expert mainly provides specificity-like correction in these benchmarks. Its shorter length distribution is a consistent descriptive tendency, not a corrected significant finding. Cys count, mean pLDDT, and chemical-site coverage do not show stable corrected separation.
+
+Conformer availability must not be interpreted as a mechanism or multi-conformer benefit. Across all 1,708 samples it is exactly equivalent to `length <= 30`, its source is determined by length, and the canonical probabilities used here are single-structure predictions that do not consume conformer fields. The availability result may appear only with this confounding statement.
 
 ### Stable core may be drafted, but must not be treated as final artwork
 
@@ -28,8 +112,7 @@ Do not draw, label, or reserve a data-bearing multi-conformer panel in these dra
 
 | Item | Status | Reason for pause | Unblocking requirement |
 |---|---|---|---|
-| Figure 3: ROC, PR and reliability | **PAUSED** | The final structural probability vector is unresolved; current ECE values are not consistently available for the retained multi-conformer outputs. | Freeze the final structural checkpoint and regenerate one canonical Test1/Test2 probability package, including reliability-bin data. |
-| Figure 4: expert complementarity and decision changes | **PAUSED** | Expert outcomes, probability shifts and corrected/regressed cases depend on the final structural vector. | Freeze final `p_3D`, fused probabilities and fixed-threshold paired outcomes. |
+| Figure 3: ROC, PR and reliability | **PAUSED** | The canonical single-structure Test1/Test2 probabilities are frozen, but reliability-bin data and one uncertainty protocol for the final panel set are not. | Generate and freeze reliability bins plus intervals from the canonical prediction files. |
 | Figure 5: module-level ablation | **PAUSED** | Existing rows mix training OOF, historical benchmark and current benchmark protocols; no common fold-level plotting table currently supports an A--F comparison. | Produce protocol-separated frozen plot tables with fold/sample uncertainty and define the panels before drawing. |
 | Figure 9: expert agreement and representative cases | **PAUSED** | Uses final 3D/fusion outcomes and cache-covered cases; part of the planned content is conformer-adjacent. | Resolve the final structural checkpoint and redesign the figure without unresolved conformer claims. |
 | Test1/Test2 multi-conformer ablation tables or plots | **PAUSED** | The current pilot-trained residual was applied outside its generator training domain and shows a one-sided positive probability shift. | Recover/evaluate the source-aware frozen checkpoint or demote the result to an exploratory near-null ablation. |
@@ -217,7 +300,10 @@ The exact-value tables already present in `v1.tex` remain LaTeX tables. Do not r
 
 1. Figure 6 and Figure 7 together, so their scales and typography are identical.
 2. Restricted Figure 8.
-3. Editable stable-core drafts for Figures 1 and 2.
-4. Stop and return the editable files for scientific review. Do not begin paused figures without an updated status file.
+3. Frozen Figure 4 expert complementarity and failure strata.
+4. Formal selective prediction versus equal-coverage random rejection.
+5. Frozen-threshold selective prediction on Test1/Test2.
+6. Editable stable-core drafts for Figures 1 and 2.
+7. Stop and return the editable files for scientific review. Do not begin paused figures without an updated status file.
 
 This status decision overrides broader generic figure plans elsewhere in the repository for the present handoff. An item moves out of `PAUSED` only after `FIGURE_STATUS.csv` and this document are revised together.

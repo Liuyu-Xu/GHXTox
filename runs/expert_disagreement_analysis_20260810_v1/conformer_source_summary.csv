@@ -1,0 +1,25 @@
+split_name,outcome_group,conformer_source,sample_count,fraction_within_group,interpretation
+Test1,both_correct,colabfold_af2_shallow_msa_multiseed,312,0.3023255813953488,observational availability metadata; canonical probability is single-structure
+Test1,both_correct,none,608,0.5891472868217055,observational availability metadata; canonical probability is single-structure
+Test1,both_correct,pepflow,112,0.10852713178294573,observational availability metadata; canonical probability is single-structure
+Test1,one_d_only_correct,colabfold_af2_shallow_msa_multiseed,14,0.4827586206896552,observational availability metadata; canonical probability is single-structure
+Test1,one_d_only_correct,none,11,0.3793103448275862,observational availability metadata; canonical probability is single-structure
+Test1,one_d_only_correct,pepflow,4,0.13793103448275862,observational availability metadata; canonical probability is single-structure
+Test1,three_d_only_correct,colabfold_af2_shallow_msa_multiseed,10,0.4166666666666667,observational availability metadata; canonical probability is single-structure
+Test1,three_d_only_correct,none,6,0.25,observational availability metadata; canonical probability is single-structure
+Test1,three_d_only_correct,pepflow,8,0.3333333333333333,observational availability metadata; canonical probability is single-structure
+Test1,both_wrong,colabfold_af2_shallow_msa_multiseed,20,0.4878048780487805,observational availability metadata; canonical probability is single-structure
+Test1,both_wrong,none,15,0.36585365853658536,observational availability metadata; canonical probability is single-structure
+Test1,both_wrong,pepflow,6,0.14634146341463414,observational availability metadata; canonical probability is single-structure
+Test2,both_correct,colabfold_af2_shallow_msa_multiseed,142,0.2684310018903592,observational availability metadata; canonical probability is single-structure
+Test2,both_correct,none,279,0.5274102079395085,observational availability metadata; canonical probability is single-structure
+Test2,both_correct,pepflow,108,0.20415879017013233,observational availability metadata; canonical probability is single-structure
+Test2,one_d_only_correct,colabfold_af2_shallow_msa_multiseed,6,0.46153846153846156,observational availability metadata; canonical probability is single-structure
+Test2,one_d_only_correct,none,6,0.46153846153846156,observational availability metadata; canonical probability is single-structure
+Test2,one_d_only_correct,pepflow,1,0.07692307692307693,observational availability metadata; canonical probability is single-structure
+Test2,three_d_only_correct,colabfold_af2_shallow_msa_multiseed,5,0.3333333333333333,observational availability metadata; canonical probability is single-structure
+Test2,three_d_only_correct,none,3,0.2,observational availability metadata; canonical probability is single-structure
+Test2,three_d_only_correct,pepflow,7,0.4666666666666667,observational availability metadata; canonical probability is single-structure
+Test2,both_wrong,colabfold_af2_shallow_msa_multiseed,9,0.36,observational availability metadata; canonical probability is single-structure
+Test2,both_wrong,none,10,0.4,observational availability metadata; canonical probability is single-structure
+Test2,both_wrong,pepflow,6,0.24,observational availability metadata; canonical probability is single-structure

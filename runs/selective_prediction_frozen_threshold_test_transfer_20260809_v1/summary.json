@@ -1,0 +1,134 @@
+{
+  "artifact_type": "ghxtox_selective_prediction_frozen_threshold_test_transfer",
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\selective_prediction_frozen_threshold_test_transfer_v1.json",
+  "frozen_policy": {
+    "required_profile": "margin_only",
+    "required_feature_names": [
+      "decision_closeness"
+    ],
+    "decision_closeness_definition": "1 - abs(p_GHXTox - tau) / max(tau, 1 - tau)",
+    "binary_decision_threshold": 0.47022256531284556,
+    "uncertainty_score_cutoff": 0.719723910930358,
+    "equivalent_raw_decision_closeness_cutoff": 0.47361764289277075,
+    "accept_when": "uncertainty_score <= uncertainty_score_cutoff",
+    "abstain_when": "uncertainty_score > uncertainty_score_cutoff",
+    "oof_target_coverage_for_cutoff_selection": 0.9,
+    "oof_realized_coverage": 0.8999530295913575,
+    "score_interpretation": "Class-balanced logistic error-ranking score, not a calibrated sample-level error probability."
+  },
+  "selection_firewall": {
+    "columns_permitted_for_score_and_mask": [
+      "source_index",
+      "sample_id",
+      "p_1d",
+      "p_3d",
+      "toxicity_probability",
+      "prediction",
+      "decision_threshold",
+      "weight_1d"
+    ],
+    "evaluation_only_columns": [
+      "label"
+    ],
+    "selection_procedure": "Compute each sample's decision_closeness and frozen policy score independently, then compare with the immutable OOF-derived cutoff.",
+    "prohibited_selection_inputs": [
+      "split_name or dataset identity",
+      "true label",
+      "Test1/Test2 sample count or class prevalence",
+      "Test1/Test2 probability or uncertainty quantiles",
+      "desired Test1/Test2 coverage",
+      "Test1/Test2 performance metrics"
+    ],
+    "coverage_rule": "Realized coverage is reported after fixed-cutoff application and is never forced to 90% on either test split."
+  },
+  "split_summary": [
+    {
+      "split_name": "Test1",
+      "sample_count": 1126,
+      "positive_count": 320,
+      "negative_count": 806,
+      "uncertainty_score_cutoff": 0.719723910930358,
+      "oof_target_coverage_reference": 0.9,
+      "realized_coverage": 0.8854351687388987,
+      "accepted_n": 997,
+      "rejected_n": 129,
+      "full_error_rate": 0.052397868561278864,
+      "frozen_accepted_error_rate": 0.02708124373119358,
+      "random_mean_error_rate": 0.05240040120361084,
+      "full_minus_frozen_error": 0.025316624830085285,
+      "full_minus_frozen_error_ci95_lower": 0.01620298251324897,
+      "full_minus_frozen_error_ci95_upper": 0.03513877502397953,
+      "random_minus_frozen_error": 0.025319157472417263,
+      "random_minus_frozen_error_ci95_lower": 0.014880952380952384,
+      "random_minus_frozen_error_ci95_upper": 0.036072144288577156,
+      "transfer_decision": "strong_support"
+    },
+    {
+      "split_name": "Test2",
+      "sample_count": 582,
+      "positive_count": 46,
+      "negative_count": 536,
+      "uncertainty_score_cutoff": 0.719723910930358,
+      "oof_target_coverage_reference": 0.9,
+      "realized_coverage": 0.8694158075601375,
+      "accepted_n": 506,
+      "rejected_n": 76,
+      "full_error_rate": 0.05326460481099656,
+      "frozen_accepted_error_rate": 0.03162055335968379,
+      "random_mean_error_rate": 0.053273913043478276,
+      "full_minus_frozen_error": 0.02164405145131277,
+      "full_minus_frozen_error_ci95_lower": 0.009881227376130291,
+      "full_minus_frozen_error_ci95_upper": 0.03518211612909734,
+      "random_minus_frozen_error": 0.021653359683794483,
+      "random_minus_frozen_error_ci95_lower": 0.007766990291262134,
+      "random_minus_frozen_error_ci95_upper": 0.03740157480314961,
+      "transfer_decision": "strong_support"
+    }
+  ],
+  "decision": {
+    "artifact_type": "ghxtox_selective_prediction_frozen_threshold_test_transfer_decision",
+    "decision": "strong_support_on_both_benchmarks",
+    "per_split_decision": {
+      "Test1": "strong_support",
+      "Test2": "strong_support"
+    },
+    "policy_reselected": false,
+    "test_specific_cutoff_used": false,
+    "test_specific_coverage_forced": false,
+    "test_labels_used_for_selection": false,
+    "test_labels_used_for_evaluation_only": true,
+    "canonical_binary_model_changed": false,
+    "fusion_or_binary_threshold_changed": false,
+    "external_benchmark_transfer_evaluated": true,
+    "new_independent_dataset_claimed": false,
+    "label_blind_decision_table_sha256": "86ce47e67065ef3aebe8899465f112dc75eeb5fb448e14564cebfc1cff88655d"
+  },
+  "random_rejection_control": {
+    "definition": "Uniformly choose exactly the realized frozen-threshold accepted count from each complete test split.",
+    "replicates": 5000,
+    "seed": 20260824,
+    "uses_labels_for_selection": false,
+    "same_accepted_count_as_frozen_threshold": true,
+    "summary": "mean, median, 2.5th percentile, and 97.5th percentile across random masks"
+  },
+  "paired_bootstrap": {
+    "replicates": 5000,
+    "seed": 20260825,
+    "sampling": "Within each test split, resample original sample indices within true label with replacement while retaining the original class counts.",
+    "fixed_mask_application": "The immutable original-sample acceptance mask is indexed onto each resampled position; it is never recalculated from bootstrap quantiles.",
+    "random_control_within_each_replicate": "Uniformly accept the same number of resampled positions as the frozen threshold accepts in that replicate.",
+    "confidence_level": 0.95,
+    "method_intervals": [
+      "full binary predictor",
+      "frozen-threshold accepted set",
+      "equal-count random rejection"
+    ],
+    "positive_improvement_definitions": {
+      "full_vs_frozen_accepted_error_rate": "full minus frozen accepted",
+      "random_vs_frozen_accepted_error_rate": "random minus frozen accepted",
+      "full_vs_frozen_other_metrics": "frozen accepted minus full",
+      "random_vs_frozen_other_metrics": "frozen accepted minus random"
+    },
+    "multiple_comparison_policy": "Report effect sizes and percentile intervals without p-values or significance stars."
+  }
+}

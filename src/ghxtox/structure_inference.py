@@ -44,6 +44,7 @@ def predict_structure(
     conformer_deltas: list[torch.Tensor] = []
     conformer_available: list[torch.Tensor] = []
     gates: list[torch.Tensor] = []
+    mean_plddt: list[torch.Tensor] = []
     sample_ids: list[str] = []
     sequences: list[str] = []
     labels: list[int | None] = []
@@ -56,6 +57,14 @@ def predict_structure(
                 [None] * len(batch["sample_id"])
                 if batch_labels is None
                 else [int(value) for value in batch_labels.tolist()]
+            )
+            residue_mask = batch["mask"].bool()
+            confidence = batch["plddt"].float()
+            mean_plddt.append(
+                (
+                    (confidence * residue_mask.float()).sum(dim=1)
+                    / residue_mask.sum(dim=1).clamp_min(1).float()
+                ).cpu()
             )
             batch = move_batch_to_device(batch, device)
             output = model(batch)
@@ -85,6 +94,7 @@ def predict_structure(
         "conformer_deltas": torch.cat(conformer_deltas).numpy(),
         "conformer_available": torch.cat(conformer_available).numpy(),
         "gates": torch.cat(gates).numpy(),
+        "mean_plddt": torch.cat(mean_plddt).numpy(),
         "checkpoint": selected,
         "fallback_used": fallback_used,
     }

@@ -1,0 +1,3 @@
+split_name,sample_count,positive_count,negative_count,oof_derived_uncertainty_cutoff,oof_target_coverage_reference,realized_test_coverage,accepted_n,rejected_n,transfer_decision
+Test1,1126,320,806,0.719723910930358,0.9,0.8854351687388987,997,129,Strong fixed-threshold support
+Test2,582,46,536,0.719723910930358,0.9,0.8694158075601375,506,76,Strong fixed-threshold support

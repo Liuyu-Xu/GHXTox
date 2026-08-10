@@ -1,0 +1,226 @@
+{
+  "artifact_type": "ghxtox_topology_feasibility_audit",
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\topology_feasibility_audit_v1.json",
+  "scope": {
+    "allow_model_training": false,
+    "allow_model_inference": false,
+    "allow_test1_or_test2_labels": false,
+    "allow_manuscript_edits": false,
+    "interpretation_boundary": "Coordinate proximity in a predicted structure is a candidate-contact statistic, not evidence of a native disulfide bond, cyclization state, or experimentally verified topology."
+  },
+  "samples": 6387,
+  "labels": {
+    "positive": 1818,
+    "negative": 4569
+  },
+  "fold_counts": {
+    "0": 1271,
+    "1": 1229,
+    "2": 1273,
+    "3": 1291,
+    "4": 1323
+  },
+  "cysteine_abundance": {
+    "count_distribution": {
+      "0": 3213,
+      "1": 586,
+      "2": 428,
+      "3": 318,
+      "4": 483,
+      "5": 56,
+      "6": 1000,
+      "7": 28,
+      "8": 212,
+      "9": 11,
+      "10": 42,
+      "11": 1,
+      "12": 4,
+      "13": 3,
+      "15": 1,
+      "17": 1
+    },
+    "cys_ge_2": 2588,
+    "cys_ge_3": 2160,
+    "cys_ge_4": 1842,
+    "cys_ge_6": 1303,
+    "strict_high_risk": 1459
+  },
+  "label_enrichment": {
+    "cys_ge_4_positive": 1397,
+    "cys_ge_4_negative": 445,
+    "cys_lt_4_positive": 421,
+    "cys_lt_4_negative": 4124,
+    "cys_ge_4_positive_fraction": 0.758414766558089,
+    "cys_lt_4_positive_fraction": 0.09262926292629263,
+    "odds_ratio": 30.69572088354216,
+    "ci95_lower": 26.516730733925613,
+    "ci95_upper": 35.53331253444592
+  },
+  "pair_geometry": {
+    "cys_pairs": 29444,
+    "valid_sg_pairs": 29444,
+    "ca_distance_angstrom": {
+      "n": 29444,
+      "min": 1.9065155982971191,
+      "q25": 5.583995342254639,
+      "median": 6.9485297203063965,
+      "q75": 9.782257795333862,
+      "max": 64.8060302734375,
+      "mean": 8.262796439557373
+    },
+    "sg_distance_angstrom": {
+      "n": 29444,
+      "min": 0.22197984158992767,
+      "q25": 3.824228823184967,
+      "median": 6.413355350494385,
+      "q75": 9.56642484664917,
+      "max": 65.36070251464844,
+      "mean": 7.298416133567179
+    },
+    "peptides_ge_2_cys_with_valid_sg_pairs": 2588,
+    "peptides_with_any_candidate_sg_contact_le_4_5": 2325,
+    "candidate_sg_contact_prevalence": 0.8983771251931993,
+    "cys_ge_4_all_sg_sites_valid_fraction": 1.0,
+    "global_matching_diagnostic": {
+      "interpretation": "Maximum-cardinality matching over SG-distance-thresholded graphs; a structural heuristic, not a disulfide annotation.",
+      "table": "topology_matching_summary.csv"
+    }
+  },
+  "current_3d": {
+    "threshold": 0.677819,
+    "all": {
+      "sample_count": 6387,
+      "positive_count": 1818,
+      "negative_count": 4569,
+      "positive_fraction": 0.28464067637388446,
+      "error_rate": 0.06466259589791765,
+      "balanced_accuracy": 0.9152270611171425,
+      "mcc": 0.8397580793491429,
+      "auroc": 0.9607035118044525,
+      "auprc": 0.9282036620987787,
+      "brier": 0.059378347043731176
+    },
+    "cys_ge_4": {
+      "sample_count": 1842,
+      "positive_count": 1397,
+      "negative_count": 445,
+      "positive_fraction": 0.758414766558089,
+      "error_rate": 0.06460369163952226,
+      "balanced_accuracy": 0.8938568199914745,
+      "mcc": 0.8192594161358779,
+      "auroc": 0.946173582234805,
+      "auprc": 0.9754977052667803,
+      "brier": 0.058645251039681094
+    },
+    "cys_lt_4": {
+      "sample_count": 4545,
+      "positive_count": 421,
+      "negative_count": 4124,
+      "positive_fraction": 0.09262926292629263,
+      "error_rate": 0.06468646864686468,
+      "balanced_accuracy": 0.7478743857288659,
+      "mcc": 0.5709588479096908,
+      "auroc": 0.8774809872572576,
+      "auprc": 0.5962497474798144,
+      "brier": 0.059675456579365994
+    },
+    "primary_label_standardized_error_contrast": {
+      "contrast": "current_3d_label_standardized_error_gap_cys_ge_4_minus_lt_4",
+      "point_estimate": -0.012273009091792297,
+      "ci95_lower": -0.04138581162991927,
+      "ci95_upper": 0.016105097342223013,
+      "bootstrap_probability_gt_0": 0.205,
+      "valid_resamples": 5000,
+      "seed": 20260809
+    },
+    "sensitivity_label_standardized_error_contrasts": [
+      {
+        "contrast": "current_3d_label_standardized_error_gap_cys_ge_4_minus_lt_4",
+        "point_estimate": -0.012273009091792297,
+        "ci95_lower": -0.04138581162991927,
+        "ci95_upper": 0.016105097342223013,
+        "bootstrap_probability_gt_0": 0.205,
+        "valid_resamples": 5000,
+        "seed": 20260809
+      },
+      {
+        "contrast": "current_3d_label_standardized_error_gap_cys_ge_2_minus_lt_2",
+        "point_estimate": -0.08122093817147859,
+        "ci95_lower": -0.10253260979165942,
+        "ci95_upper": -0.05849912508354149,
+        "bootstrap_probability_gt_0": 0.0,
+        "valid_resamples": 5000,
+        "seed": 20260831
+      },
+      {
+        "contrast": "current_3d_label_standardized_error_gap_cys_ge_3_minus_lt_3",
+        "point_estimate": -0.058617293221195604,
+        "ci95_lower": -0.08198401697127367,
+        "ci95_upper": -0.03382463854868854,
+        "bootstrap_probability_gt_0": 0.0,
+        "valid_resamples": 5000,
+        "seed": 20260832
+      },
+      {
+        "contrast": "current_3d_label_standardized_error_gap_cys_ge_6_minus_lt_6",
+        "point_estimate": 0.07013068593000786,
+        "ci95_lower": 0.032509384222290064,
+        "ci95_upper": 0.11106576164076061,
+        "bootstrap_probability_gt_0": 1.0,
+        "valid_resamples": 5000,
+        "seed": 20260835
+      }
+    ]
+  },
+  "chemical_site": {
+    "threshold": 0.5,
+    "fold2_prediction_identical": true,
+    "selection_status_counts": {
+      "prediction_identical_zero_chemical_fallback": 1273,
+      "formal_pareto_candidate": 5114
+    },
+    "geometry_association": {
+      "scope": "active chemical folds 0,1,3,4; peptides with >=2 Cys and valid SG geometry",
+      "min_sg_distance_vs_chemical_brier_improvement": {
+        "n": 2088,
+        "pearson": 0.002729300313848291,
+        "spearman": -0.06963470819464987
+      },
+      "min_sg_distance_vs_chemical_probability_difference": {
+        "n": 2088,
+        "pearson": 0.04143750213167394,
+        "spearman": 0.04043158616877113
+      }
+    }
+  },
+  "decision": {
+    "recommendation": "conditional_method_development",
+    "data_adequacy_pass": true,
+    "geometry_heterogeneity_pass": true,
+    "unmet_model_need_pass": false,
+    "criteria": {
+      "data_adequacy": {
+        "primary_group_min_samples": 500,
+        "primary_group_min_samples_per_label": 100,
+        "valid_sg_geometry_fraction_min": 0.9
+      },
+      "geometry_heterogeneity": {
+        "population": "peptides with at least two Cys and valid SG geometry",
+        "permissive_contact_prevalence_min": 0.05,
+        "permissive_contact_prevalence_max": 0.95
+      },
+      "unmet_model_need": {
+        "minimum_label_standardized_error_gap": 0.02,
+        "require_bootstrap_lower_bound_above_zero": true
+      },
+      "recommendation_levels": {
+        "go_server_prototype": "Data adequacy, geometry heterogeneity, and unmet-model-need criteria all pass.",
+        "conditional_method_development": "Data and geometry criteria pass, but excess current-3D error is not established; topology can be studied as a mechanistic extension but not justified as an expected benchmark correction.",
+        "no_go": "Data adequacy or usable structural-geometry criteria fail."
+      },
+      "architecture_boundary": "Because the current chemical-site branch already encodes sulfur compatibility, distance, orientation, and pLDDT, a follow-up prototype must add global Cys-pair competition, matching constraints, or weighted candidate-topology aggregation; a second unconstrained local edge MLP is not considered a distinct topology module."
+    },
+    "architecture_boundary": "Because the current chemical-site branch already encodes sulfur compatibility, distance, orientation, and pLDDT, a follow-up prototype must add global Cys-pair competition, matching constraints, or weighted candidate-topology aggregation; a second unconstrained local edge MLP is not considered a distinct topology module."
+  },
+  "interpretation_boundary": "Coordinate proximity in a predicted structure is a candidate-contact statistic, not evidence of a native disulfide bond, cyclization state, or experimentally verified topology."
+}

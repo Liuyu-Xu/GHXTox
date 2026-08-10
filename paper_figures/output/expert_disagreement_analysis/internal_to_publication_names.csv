@@ -1,0 +1,5 @@
+internal_name,publication_name,scope
+both_correct,Both experts correct,frozen 1D--3D expert disagreement
+one_d_only_correct,1D expert only correct,frozen 1D--3D expert disagreement
+three_d_only_correct,3D expert only correct,frozen 1D--3D expert disagreement
+both_wrong,Both experts wrong,frozen 1D--3D expert disagreement

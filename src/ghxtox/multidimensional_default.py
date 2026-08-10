@@ -22,6 +22,7 @@ from ghxtox.lora_mamba_1d import (
     PUBLIC_1D_SEEDS,
     validate_public_checkpoint_payload,
 )
+from ghxtox.selective_prediction import apply_selective_policy, load_selective_policy
 from ghxtox.utils import (
     DEFAULT_MULTIDIMENSIONAL_CONFIG,
     DEFAULT_MULTIDIMENSIONAL_MODEL_NAME,
@@ -164,6 +165,27 @@ def _read_probability_csv(path: str | Path, probability_key: str) -> tuple[list[
     return order, records
 
 
+def _read_optional_aligned_column(
+    path: str | Path, column: str, sample_ids: list[str]
+) -> np.ndarray | None:
+    """Read an optional diagnostic column without weakening sample-ID alignment."""
+
+    with Path(path).open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if column not in set(reader.fieldnames or ()):
+            return None
+        values: dict[str, float] = {}
+        for row_number, row in enumerate(reader, start=2):
+            sample_id = str(row.get("sample_id", ""))
+            if not sample_id or sample_id in values:
+                raise ValueError(f"{path}:{row_number}: empty or duplicate sample_id {sample_id!r}.")
+            text = str(row.get(column, "")).strip()
+            values[sample_id] = float(text) if text else float("nan")
+    if set(values) != set(sample_ids):
+        raise ValueError(f"{path}: optional column {column} does not match canonical sample coverage.")
+    return np.asarray([values[sample_id] for sample_id in sample_ids], dtype=np.float64)
+
+
 def _reject_legacy_structure_csv(path: str | Path) -> None:
     """Prevent the public assembler from consuming retired/noncanonical outputs."""
 
@@ -269,6 +291,7 @@ def _write_predictions(
     p_3d_base: np.ndarray | None = None,
     conformer_available: np.ndarray | None = None,
     conformer_delta: np.ndarray | None = None,
+    selective_result: dict[str, np.ndarray] | None = None,
 ) -> None:
     prediction = (fused >= threshold).astype(int)
     destination = Path(output_csv)
@@ -283,6 +306,17 @@ def _write_predictions(
             header.insert(2, "sequence")
         if p_3d_base is not None:
             header.extend(["p_3d_base", "conformer_available", "conformer_logit_delta"])
+        if selective_result is not None:
+            required = {"uncertainty_score", "abstained", "selective_prediction", "binary_prediction"}
+            if required - set(selective_result):
+                raise ValueError("Selective-prediction result is incomplete.")
+            if any(np.asarray(selective_result[key]).shape != prediction.shape for key in required):
+                raise ValueError("Selective-prediction outputs are not row-aligned.")
+            if not np.array_equal(
+                np.asarray(selective_result["binary_prediction"], dtype=np.int64), prediction
+            ):
+                raise ValueError("Selective policy changed the retained binary prediction.")
+            header.extend(["uncertainty_score", "abstained", "selective_prediction"])
         writer.writerow(header)
         for index, sample_id in enumerate(sample_ids):
             row: list[Any] = [
@@ -300,7 +334,43 @@ def _write_predictions(
                         f"{conformer_delta[index]:.10g}" if conformer_delta is not None else "0",
                     ]
                 )
+            if selective_result is not None:
+                row.extend(
+                    [
+                        f"{float(selective_result['uncertainty_score'][index]):.10g}",
+                        int(bool(selective_result["abstained"][index])),
+                        str(selective_result["selective_prediction"][index]),
+                    ]
+                )
             writer.writerow(row)
+
+
+def _apply_selective_prediction(
+    policy_path: str | Path,
+    fused: np.ndarray,
+    p_1d: np.ndarray,
+    p_3d: np.ndarray,
+    threshold: float,
+    **diagnostics: Any,
+) -> tuple[dict[str, np.ndarray], dict[str, Any]]:
+    policy = load_selective_policy(policy_path)
+    if abs(float(policy["decision_threshold"]) - float(threshold)) > 1e-12:
+        raise ValueError(
+            "Selective policy and binary classifier use different decision thresholds."
+        )
+    result = apply_selective_policy(fused, p_1d, p_3d, policy, **diagnostics)
+    accepted = ~np.asarray(result["abstained"], dtype=bool)
+    summary = {
+        "enabled": True,
+        "policy": str(policy_path),
+        "profile": str(policy.get("profile", "unknown")),
+        "target_coverage": float(policy.get("target_coverage", np.nan)),
+        "realized_coverage": float(np.mean(accepted)),
+        "accepted_n": int(np.sum(accepted)),
+        "abstained_n": int(np.sum(~accepted)),
+        "retained_binary_probability_and_prediction": True,
+    }
+    return result, summary
 
 
 def assemble(
@@ -312,17 +382,52 @@ def assemble(
     output_metrics: str | Path | None = None,
     *,
     allow_noncanonical: bool = False,
+    selective_policy: str | Path | None = None,
 ) -> dict[str, Any]:
     _validate_operating_point(weight, threshold, allow_noncanonical)
     ids, labels, p_1d, p_3d = _aligned_components(cal_1d, structure_csv)
     fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
-    _write_predictions(output_csv, ids, labels, p_1d, p_3d, fused, threshold, weight)
+    selective_result = None
+    selective_summary = {"enabled": False}
+    if selective_policy is not None:
+        selective_result, selective_summary = _apply_selective_prediction(
+            selective_policy,
+            fused,
+            p_1d,
+            p_3d,
+            threshold,
+            one_d_seed_std=_read_optional_aligned_column(cal_1d, "one_d_seed_std", ids),
+            mean_plddt=_read_optional_aligned_column(structure_csv, "mean_plddt", ids),
+            mean_residue_rmsf=_read_optional_aligned_column(
+                structure_csv, "mean_residue_rmsf", ids
+            ),
+            mean_conformer_rmsd=_read_optional_aligned_column(
+                structure_csv, "mean_conformer_rmsd", ids
+            ),
+            contact_uncertainty_8=_read_optional_aligned_column(
+                structure_csv, "contact_uncertainty_8", ids
+            ),
+            conformer_missing=_read_optional_aligned_column(
+                structure_csv, "conformer_missing", ids
+            ),
+        )
+    _write_predictions(
+        output_csv,
+        ids,
+        labels,
+        p_1d,
+        p_3d,
+        fused,
+        threshold,
+        weight,
+        selective_result=selective_result,
+    )
     result_metrics = _metrics(labels, fused, threshold)
     if output_metrics:
         destination = Path(output_metrics)
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(json.dumps(result_metrics, ensure_ascii=False, indent=2), encoding="utf-8")
-    return {"n": len(ids), "metrics": result_metrics}
+    return {"n": len(ids), "metrics": result_metrics, "selective_prediction": selective_summary}
 
 
 def _read_manifest(path: str | Path) -> list[dict[str, Any]]:
@@ -483,6 +588,7 @@ def predict(
     output_metrics=None,
     *,
     allow_noncanonical=False,
+    selective_policy=None,
 ):
     import torch
     from transformers import T5Tokenizer
@@ -523,7 +629,9 @@ def predict(
         _predict_1d_seed(records, path, config, device, tokenizer, seed)
         for path, seed in zip(checkpoints, checkpoint_seeds)
     ]
-    ensemble_probability = np.mean(np.stack(seed_probabilities), axis=0)
+    stacked_seed_probabilities = np.stack(seed_probabilities)
+    ensemble_probability = np.mean(stacked_seed_probabilities, axis=0)
+    one_d_seed_std = np.std(stacked_seed_probabilities, axis=0, ddof=1)
     p_1d = 1.0 / (1.0 + np.exp(-(slope * _logit(ensemble_probability) + intercept)))
 
     structure = predict_structure(
@@ -561,6 +669,9 @@ def predict(
     conformer_delta = np.asarray(
         [structure["conformer_deltas"][structure_index[sample_id]] for sample_id in ids]
     )
+    mean_plddt = np.asarray(
+        [structure["mean_plddt"][structure_index[sample_id]] for sample_id in ids]
+    )
     if available.any() or np.any(np.abs(conformer_delta) > 1e-10):
         raise ValueError(
             "The canonical public predictor is single-structure at test time, but the processed "
@@ -569,6 +680,18 @@ def predict(
         )
     p_3d = p_3d_base
     fused = float(weight) * p_1d + (1.0 - float(weight)) * p_3d
+    selective_result = None
+    selective_summary = {"enabled": False}
+    if selective_policy is not None:
+        selective_result, selective_summary = _apply_selective_prediction(
+            selective_policy,
+            fused,
+            p_1d,
+            p_3d,
+            threshold,
+            one_d_seed_std=one_d_seed_std,
+            mean_plddt=mean_plddt,
+        )
     _write_predictions(
         output_csv,
         ids,
@@ -579,6 +702,7 @@ def predict(
         threshold,
         weight,
         sequences=[str(record.sequence) for record in records],
+        selective_result=selective_result,
     )
     result_metrics = _metrics(labels, fused, threshold)
     summary = {
@@ -597,6 +721,7 @@ def predict(
             "conformer_inputs_allowed": False,
             "conformer_available_records": 0,
         },
+        "selective_prediction": selective_summary,
         "metrics": result_metrics,
     }
     if output_metrics:
@@ -621,6 +746,10 @@ def build_parser() -> argparse.ArgumentParser:
     assemble_parser.add_argument("--allow-noncanonical-operating-point", action="store_true")
     assemble_parser.add_argument("--output-csv", required=True)
     assemble_parser.add_argument("--output-metrics")
+    assemble_parser.add_argument(
+        "--selective-policy",
+        help="Optional frozen OOF policy; appends uncertainty/abstention fields without changing binary output.",
+    )
 
     predict_parser = subcommands.add_parser(
         "predict", help="end-to-end canonical inference on processed sequence/3D inputs (GPU)"
@@ -642,6 +771,10 @@ def build_parser() -> argparse.ArgumentParser:
     predict_parser.add_argument("--batch-size", type=int, default=16)
     predict_parser.add_argument("--output-csv", required=True)
     predict_parser.add_argument("--output-metrics")
+    predict_parser.add_argument(
+        "--selective-policy",
+        help="Optional frozen OOF policy; appends uncertainty/abstention fields without changing binary output.",
+    )
     return parser
 
 
@@ -658,6 +791,7 @@ def main() -> None:
             args.output_csv,
             args.output_metrics,
             allow_noncanonical=args.allow_noncanonical_operating_point,
+            selective_policy=args.selective_policy,
         )
     else:
         result = predict(
@@ -675,6 +809,7 @@ def main() -> None:
             args.output_csv,
             args.output_metrics,
             allow_noncanonical=args.allow_noncanonical_operating_point,
+            selective_policy=args.selective_policy,
         )
     metrics = result["metrics"]
     print(

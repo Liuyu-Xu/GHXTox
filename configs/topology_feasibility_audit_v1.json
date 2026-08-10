@@ -1,0 +1,98 @@
+{
+  "artifact_type": "ghxtox_topology_feasibility_audit_protocol",
+  "version": 1,
+  "frozen_at": "2026-08-09",
+  "purpose": "Training-OOF-only feasibility audit for a future globally constrained, soft topology-aware 3D module.",
+  "scope": {
+    "allow_model_training": false,
+    "allow_model_inference": false,
+    "allow_test1_or_test2_labels": false,
+    "allow_manuscript_edits": false,
+    "interpretation_boundary": "Coordinate proximity in a predicted structure is a candidate-contact statistic, not evidence of a native disulfide bond, cyclization state, or experimentally verified topology."
+  },
+  "inputs": {
+    "processed_train": "D:/dachuang2026/ziliao/train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "current_3d_oof": "runs/three_d_team_handoff_phase33/oof_3d_predictions.csv",
+    "matched_chemical_oof": "runs/original_lineage_base_cv_audit_v1/oof_predictions.csv",
+    "matched_chemical_selection": "configs/original_lineage_base_selection_v1.json"
+  },
+  "output_dir": "runs/topology_feasibility_audit_20260809_v1",
+  "identity_contract": [
+    "source_index",
+    "sample_id",
+    "sequence",
+    "label",
+    "fold"
+  ],
+  "cysteine_definitions": {
+    "primary_cys_rich_min_count": 4,
+    "sensitivity_min_counts": [2, 3, 4, 6],
+    "exclusive_bins": ["0", "1", "2-3", "4-5", ">=6"],
+    "strict_high_risk_rule": "cys_count >= 6 OR (cys_count >= 4 AND cys_fraction >= 0.15)"
+  },
+  "geometry": {
+    "residue_distance": "C-alpha--C-alpha Euclidean distance in Angstrom",
+    "chemical_distance": "Cys SG--SG Euclidean distance in Angstrom, isolated by sequence identity plus a valid sulfur pseudo-site",
+    "ca_distance_bins_angstrom": [0.0, 4.5, 5.5, 6.5, 8.0, 12.0, 16.0, "inf"],
+    "sg_distance_bins_angstrom": [0.0, 2.5, 3.5, 4.5, 6.5, 8.0, 12.0, 16.0, "inf"],
+    "permissive_candidate_sg_contact_angstrom": 4.5,
+    "legacy_candidate_ca_contact_angstrom": 6.5,
+    "pair_confidence": "minimum residue pLDDT across the two Cys positions",
+    "high_pair_confidence_min": 0.7,
+    "orientation_outputs": [
+      "absolute alignment of each Cys CB-to-SG direction with the inter-SG unit vector",
+      "absolute mutual orientation alignment"
+    ]
+  },
+  "evaluation": {
+    "current_3d_probability_column": "toxicity_probability",
+    "current_3d_prediction_column": "prediction",
+    "current_3d_threshold_column": "decision_threshold",
+    "matched_chemical_control_column": "control_probability",
+    "matched_chemical_candidate_column": "selected_base_probability",
+    "matched_chemical_threshold": 0.5,
+    "fold2_policy": "Report pooled five-fold results with fold 2 retained as the prespecified prediction-identical zero-chemical fallback, and report active-chemical folds 0,1,3,4 separately.",
+    "primary_error_contrast": "Cys count >=4 versus Cys count <4",
+    "label_standardization": "Within each comparison, weight label-specific error rates by the full training-set label proportions.",
+    "metrics": [
+      "sample_count",
+      "positive_fraction",
+      "error_rate",
+      "label_standardized_error_rate",
+      "balanced_accuracy",
+      "mcc",
+      "auroc",
+      "auprc",
+      "brier"
+    ]
+  },
+  "uncertainty": {
+    "bootstrap_seed": 20260809,
+    "bootstrap_resamples": 5000,
+    "bootstrap_strata": ["fold", "label", "comparison_group"],
+    "confidence_level": 0.95
+  },
+  "decision_rule": {
+    "data_adequacy": {
+      "primary_group_min_samples": 500,
+      "primary_group_min_samples_per_label": 100,
+      "valid_sg_geometry_fraction_min": 0.9
+    },
+    "geometry_heterogeneity": {
+      "population": "peptides with at least two Cys and valid SG geometry",
+      "permissive_contact_prevalence_min": 0.05,
+      "permissive_contact_prevalence_max": 0.95
+    },
+    "unmet_model_need": {
+      "minimum_label_standardized_error_gap": 0.02,
+      "require_bootstrap_lower_bound_above_zero": true
+    },
+    "recommendation_levels": {
+      "go_server_prototype": "Data adequacy, geometry heterogeneity, and unmet-model-need criteria all pass.",
+      "conditional_method_development": "Data and geometry criteria pass, but excess current-3D error is not established; topology can be studied as a mechanistic extension but not justified as an expected benchmark correction.",
+      "no_go": "Data adequacy or usable structural-geometry criteria fail."
+    },
+    "architecture_boundary": "Because the current chemical-site branch already encodes sulfur compatibility, distance, orientation, and pLDDT, a follow-up prototype must add global Cys-pair competition, matching constraints, or weighted candidate-topology aggregation; a second unconstrained local edge MLP is not considered a distinct topology module."
+  }
+}
