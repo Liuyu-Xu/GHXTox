@@ -328,10 +328,12 @@ Figure~\ref{fig:overview}.
 % ---- Figure 1: overall framework --------------------------------------------
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{fig1_ghxtox_architecture_blue_orange.png}
-    \caption{GHXTox inference architecture. The peptide sequence is processed
-    by task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their
-    probabilities are combined for peptide-toxicity prediction.}
+    \includegraphics[width=\linewidth]{fig1_ghxtox_framework.png}
+    \caption{GHXTox framework. The peptide sequence follows parallel sequence
+    and structure pathways. The sequence pathway uses ProtT5 tokenization for
+    the 1D model, whereas the structure pathway uses multi-conformer training
+    and single-structure inference with pLDDT-aware structural inputs for the
+    3D model.}
     \label{fig:overview}
 \end{figure}
 
