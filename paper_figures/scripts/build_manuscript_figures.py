@@ -176,7 +176,7 @@ def discrimination_calibration_figure() -> None:
     for row, split in enumerate(("test1", "test2")):
         data = pd.read_csv(PRED / f"{split}_predictions.csv")
         y = data["label"].to_numpy()
-        display_split = "Test1" if row == 0 else "Test2"
+        display_split = "test set 1" if row == 0 else "test set 2"
 
         ax = axes[row, 0]
         ax.plot([0, 1], [0, 1], "--", color=REFERENCE, lw=0.9)
@@ -240,7 +240,7 @@ def ablation_figure() -> None:
             frame[frame.variant == variant].set_index("metric").loc[metrics, "value"].tolist()
             for variant in variants
         ]
-        title = {"A": "Test1", "B": "Test2", "C": "Training OOF"}[panel]
+        title = {"A": "test set 1", "B": "test set 2", "C": "Training OOF"}[panel]
         panels.append((title, values[0], values[1], *variants))
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.85), sharey=True)
     x = np.arange(len(metrics))
@@ -306,13 +306,14 @@ def selective_prediction_figure() -> None:
     axes[0].legend(frameon=False, ncol=2, loc="upper left")
 
     splits = ["Test1", "Test2"]
+    split_labels = ["test set 1", "test set 2"]
     coverage = []
     for split in splits:
         row = transfer[(transfer.split_name == split) &
                        (transfer.method == "Frozen-threshold accepted set") &
                        (transfer.metric == "Coverage")].iloc[0]
         coverage.append(100 * float(row.estimate))
-    bars = axes[2].bar(splits, coverage, color=FUSION, width=0.58)
+    bars = axes[2].bar(split_labels, coverage, color=FUSION, width=0.58)
     axes[2].axhline(90, color=REFERENCE, ls=(0, (3, 2)), lw=1.0)
     axes[2].set(ylabel="Realized coverage (%)", ylim=(0, 105))
     for bar, value in zip(bars, coverage):
@@ -340,7 +341,7 @@ def selective_prediction_figure() -> None:
             ax.errorbar(np.arange(2) + offset, y, yerr=np.asarray([lo, hi]),
                         fmt=marker, color=color, markerfacecolor="white",
                         ms=4.5, lw=1.0, capsize=2.2, label=public)
-        ax.set(xticks=np.arange(2), xticklabels=splits, ylabel=ylabel, ylim=ylim)
+        ax.set(xticks=np.arange(2), xticklabels=split_labels, ylabel=ylabel, ylim=ylim)
         ax.grid(axis="y", color=GRID, alpha=0.7, lw=0.5)
     handles, labels = axes[3].get_legend_handles_labels()
     fig.legend(handles, labels, frameon=False, fontsize=7, loc="lower center",
@@ -384,7 +385,8 @@ def occlusion_figure(split: str) -> None:
                         family="monospace", color=color)
     ax.set_yticks(np.arange(len(labels)), labels, fontsize=6.5)
     ax.set_xlabel("Residue position (amino-acid letters shown in cells)")
-    ax.set_title(f"{split.capitalize()} 1D residue occlusion: frozen representative cohort")
+    split_label = "test set 1" if split.lower() == "test1" else "test set 2"
+    ax.set_title(f"{split_label} 1D residue occlusion: frozen representative cohort")
     cbar = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.02)
     cbar.set_label("Signed within-peptide L1-normalized attribution")
     fig.tight_layout()
@@ -401,7 +403,8 @@ def structural_sensitivity_figure() -> None:
     ax = axes[0, 0]
     for split, color in (("Test1", BLUE), ("Test2", ORANGE)):
         d = samples[samples.split_name == split]
-        ax.scatter(d.mean_plddt, d.global_gate, s=6, alpha=0.28, color=color, label=split)
+        split_label = "test set 1" if split == "Test1" else "test set 2"
+        ax.scatter(d.mean_plddt, d.global_gate, s=6, alpha=0.28, color=color, label=split_label)
     rho = samples[["mean_plddt", "global_gate"]].corr(method="spearman").iloc[0, 1]
     ax.set(xlabel="Mean predicted pLDDT", ylabel="Global structural gate", title=f"Confidence use ($\\rho$={rho:.2f})")
     ax.legend(frameon=False)
@@ -428,7 +431,8 @@ def structural_sensitivity_figure() -> None:
     ax = axes[1, 1]
     top = sites.assign(abs_delta=lambda x: x.delta_probability_3d_baseline_minus_deleted.abs()).nlargest(11, "abs_delta").copy()
     top["display"] = top.apply(
-        lambda r: f"{r.split_name} {r.residue}{int(r.residue_position_1based)} | "
+        lambda r: f"{'test set 1' if r.split_name == 'Test1' else 'test set 2'} "
+        f"{r.residue}{int(r.residue_position_1based)} | "
         + str(r.site_types).replace("hydrophobic", "hydroph.").replace("conformational", "conf."),
         axis=1,
     )

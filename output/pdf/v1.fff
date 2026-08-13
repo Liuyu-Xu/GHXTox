@@ -2,7 +2,7 @@
     \centering
     \includegraphics[width=\linewidth]{fig1_ghxtox_architecture_blue_orange.png}
     \caption{GHXTox inference architecture. The peptide sequence is processed
-    by a task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their
+    by task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their
     probabilities are combined for peptide-toxicity prediction.}
     \label{fig:overview}
 \end{figure}
@@ -11,8 +11,8 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{fig3_discrimination_calibration.pdf}
-    \caption{GHXTox discrimination and probability reliability. (A--C) Test1
-    ROC, precision--recall, and reliability curves; (D--F) corresponding Test2
+    \caption{GHXTox discrimination and probability reliability. (A--C) test set 1
+    ROC, precision--recall, and reliability curves; (D--F) corresponding test set 2
     curves. Orange, blue, and navy denote the task-adaptive 1D expert, the 3D
     structural expert, and probability fusion, respectively. Gray dashed lines
     denote chance, prevalence, or ideal-reference behavior.}
@@ -23,7 +23,7 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{expert_disagreement_analysis.pdf}
-    \caption{Complementarity of the 1D and 3D experts on Test1 and Test2.
+    \caption{Complementarity of the 1D and 3D experts on test set 1 and test set 2.
     (A) Expert-outcome groups and their toxic fractions. (B) Conditional rescue
     rates with 95\% Wilson intervals. (C) Prespecified 3D-only versus 1D-only
     attribute effects with 95\% bootstrap intervals; none remained significant
@@ -36,7 +36,7 @@
     \centering
     \includegraphics[width=\linewidth]{fig5_module_ablation.pdf}
     \caption{Protocol-separated structural ablations. (A, B) Previous and
-    pLDDT-aware 3D experts on Test1 and Test2. (C) Training-OOF comparison
+    pLDDT-aware 3D experts on test set 1 and test set 2. (C) Training-OOF comparison
     without and with chemical-site information.}
     \label{fig:module_ablation}
 \end{figure}
@@ -48,7 +48,7 @@
     \caption{OOF-frozen selective prediction and benchmark transfer. (A, B)
     Training-OOF accepted error and MCC across coverage levels. (C--E) Realized
     coverage, accepted error, and MCC after applying the unchanged cutoff to
-    Test1 and Test2. Shading and error bars denote the manuscript-defined 95\%
+    test set 1 and test set 2. Shading and error bars denote the manuscript-defined 95\%
     bootstrap intervals; no benchmark-specific cutoff was recomputed.}
     \label{fig:selective_prediction}
 \end{figure}

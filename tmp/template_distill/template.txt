@@ -1,0 +1,955 @@
+NeuroPpred-PSCG: A multimodal framework using ProtT5
+and structural features for neuropeptide prediction based on
+      gated cross-attention mechanism and multi-scale gated
+                                    convolution
+                            Shengli Zhang a ,  , Xinyi Zhang a
+a
+    School of Mathematics and Statistics, Xidian University, Xi’an 710071, P. R. China
+
+    Corresponding author. Email: shengli0201@163.com
+
+
+Abstract. As fundamental signaling molecules, neuropeptides are involved in diverse
+physiological regulatory activities. Abnormal expression patterns have been closely
+linked to neurological and metabolic disorders, which underscores the urgent need for
+precise and rapid identification methods. Here, we develop NeuroPpred-PSCG, a novel
+multimodal deep learning framework. At its core, the framework employs both a
+bidirectional cross-attention mechanism and a gated fusion module to integrate global
+semantic insights from the protein language model (ProtT5) with local conformational
+data derived from secondary structure. Furthermore, it utilizes a multi-scale gated
+convolutional network to enhance hierarchical contextual information. On the
+independent test set, NeuroPpred-PSCG surpasses current leading methods on most
+metrics, achieving ACC of 94.8%, SN of 95.1%, F1-score of 94.8%, and MCC of 0.896,
+reflecting robust overall discriminative capability. Compared to the previous best-
+performing model, NeuroPpred-MSN, our method shows improvements of 1.2% and
+0.024 in ACC and MCC, respectively, and most notably, a significant 2.8% gain in SN.
+Ablation studies, robustness analysis, and interpretability analysis further substantiate
+the effectiveness of each component, as well as the overall stability and interpretability
+of NeuroPpred-PSCG. The source code and datasets have been made publicly
+accessible at https://github.com/xinyizhang186/NeuroPpred-PSCG.
+Keywords: Neuropeptide; Protein language model; Gated cross-attention mechanism;
+Multi-scale gated convolution network; Interpretability analysis
+1 INTRODUCTION
+  Neuropeptides are small, bioactive molecules secreted by the nervous system,
+typically ranging from 3 to 100 amino acids in length [1, 2]. As critical signaling
+mediators, neuropeptides are involved in a wide array of physiological processes,
+including learning and memory, mood regulation, sleep-wake cycles, and energy
+metabolism [3, 4]. Neuropeptide dysregulation is implicated in a spectrum of
+neurological and metabolic disorders, such as Alzheimer’s disease, Parkinson’s disease,
+depression, and obesity [5-7]. However, traditional homology-based methods and deep
+learning models designed for other generic bioactive peptides may not generalize well
+to neuropeptide identification due to their high sequence heterogeneity, variable length,
+and complex post-translational modifications [8-10]. Therefore, developing reliable
+computational methods for efficient, large-scale discovery of neuropeptides is
+imperative.
+  A cornerstone of neuropeptide prediction has been the use of traditional machine
+learning. This approach centers on pairing classical classifiers with manually
+engineered features. For instance, an early predictor, NeuroPIpred, utilized a support
+vector machine based on four classes of physicochemical features [11]. Subsequent
+work has developed along two principal directions. One path aims to construct more
+sophisticated models through strategies such as stacking and ensemble learning, as
+illustrated by PredNeuroP’s dual-layer framework [12]. The other path focuses on
+optimizing the input data via feature selection, a technique utilized by NeuroPpred-Fuse
+and NeuroPred-FRL with their single-step and two-step strategies, respectively [13, 14].
+Despite their straightforward nature, these features can only produce shallow sequence
+representations, thereby failing to capture the deep contextual information required for
+accurate prediction.
+  The paradigm for neuropeptide prediction has recently shifted towards deep learning.
+Liu et al. spearheaded this transition with an early breakthrough, NeuroCNN_GNB.
+Their model, which integrated a convolutional neural network with Gaussian Naive
+Bayes, was significant for proving the viability of automatic feature extraction [15].
+With the rise of pre-trained protein language models (PLMs), including ESM, BERT,
+and ProtTrans, further progress has been achieved in this field. These approaches
+extract informative latent features from protein and peptide sequences and have been
+successfully applied to diverse proteomics and peptide-related prediction tasks [16, 17].
+Specifically, although NeuroPred-PLM [18] combined ESM embeddings with a multi-
+scale convolutional network, its simplistic feature aggregation scheme limited its ability
+to capture deep sequential dependencies. Likewise, NeuroPred-SVM [19] employed a
+shallow classifier that struggled to fully exploit hierarchical interactions from BERT
+embeddings. To enrich representations, fusion strategies like NeuroPred-AIMP [20]
+and NeuroPpred-SHE [21] integrated heterogeneous descriptors; however, they
+remained limited by simple feature concatenation, which often introduced redundancy
+and noise without adaptively selecting optimal signals. Furthermore, even the recent
+state-of-the-art   framework,    NeuroPpred-MSN        [22],   which    aligned   diverse
+representations via a Siamese network and contrastive learning, still lacked an explicit
+gated filtering mechanism. Collectively, these architectural bottlenecks underscore the
+necessity for a framework that synergizes deep multi-scale context extraction with
+adaptive feature purification.
+  To overcome the reliance of existing methods on unimodal feature representations
+and to mitigate the issue of information redundancy in multi-feature fusion, we propose
+NeuroPpred-PSCG, a novel multimodal deep learning framework. The core of this
+framework is the sophisticated integration of two complementary feature types: (1)
+Global semantic information, which encodes relationships between distant amino acids
+and evolutionary context using a pre-trained protein language model (ProtT5); (2) Local
+conformational features, which represent the local spatial arrangement of the sequence
+via predicted secondary structure information. To ensure the effective fusion of this
+heterogeneous information, we design a two-stage integration module. First, a
+bidirectional cross-attention mechanism facilitates deep interaction and alignment
+between the two feature modalities. Subsequently, a gated fusion mechanism adaptively
+assigns weights to the features, which allows for the dynamic prioritization of
+information most crucial for prediction. On this basis, a multi-scale gated convolutional
+network is applied to extract contextual patterns from the fused features, thereby
+boosting their expressive capacity. Finally, an attention pooling layer aggregates
+residue-level features into a sequence-level representation for classification.
+NeuroPpred-PSCG achieves competitive performance on the independent test set.
+Furthermore, extensive ablation studies, robustness analyses, and interpretability
+analyses confirm the model’s effective discriminative ability and its potential for
+practical applications.
+2 MATERIALS AND METHODS
+
+2.1 Datasets
+  The study employs the public benchmark dataset previously established by Wang et
+al. to ensure a fair and comparable assessment [18]. In their data construction pipeline,
+the positive samples consisted of 11,282 experimentally confirmed neuropeptides
+collected from the NeuroPep 2.0 database [23]. These sequences underwent a two-stage
+filtering process: first, sequences of length 5 to 100 amino acids were retained;
+subsequently, the CD-HIT tool (version 4.8.1) was utilized to eliminate redundancy at
+a 90% sequence identity cutoff [24], resulting in 4463 non-redundant neuropeptide
+sequences. For dataset balancing, negative samples were randomly extracted by Wang
+et al. from the UniProt database and then processed using the identical procedure to
+ensure matching length distributions and redundancy removal. In total, the dataset
+contains 8926 sequences and was divided into training and independent testing subsets
+at a 9:1 split, which we strictly adhere to in our evaluation to ensure an unbiased and
+standard comparison.
+  Additionally, to evaluate the model’s generalization under class-imbalanced
+conditions, we employ two imbalanced datasets from Wen et al. [21]. These datasets
+originate from the same source as the benchmark data but were constructed by the
+original authors using a more stringent 0.3 similarity cutoff for deduplication, yielding
+454 positive samples and 2,542 negative samples (a ratio of approximately 1:5.6). This
+collection was then partitioned at a 9:1 ratio to form a training dataset and an
+imbalanced testing dataset. The external independent test set was specifically compiled
+from neuropeptides published after 2023 in the NCBI and PDB databases. Processed
+via the same pipeline, it contains 115 positive and 644 negative samples. Models are
+trained on the imbalanced training set and evaluated on both independent test sets. All
+datasets are summarized in Table 1.
+
+2.2 Overview of the Model
+  As illustrated in Figure 1, NeuroPpred-PSCG employs a multimodal deep learning
+framework to achieve accurate neuropeptide identification. The model’s input layer
+processes two heterogeneous feature modalities in parallel. The first modality utilizes
+the pre-trained protein language model ProtT5 to capture global semantic
+representations and latent evolutionary patterns from the sequence [25]. The second
+integrates local conformational features derived from the secondary structure, as
+predicted by the PHAT web server [26]. Subsequently, these two modalities undergo
+deep interaction and alignment through a bidirectional cross-attention mechanism. This
+is followed by a linear gated fusion unit that performs adaptive weighting to emphasize
+the most discriminative information. Based on the fused features, a multi-scale gated
+convolutional network is introduced to model hierarchical contextual dependencies,
+thereby enhancing their expressive capacity. Finally, an attention pooling layer
+aggregates sequence-level features for the final prediction.
+2.2.1 ProtT5 Semantic Embedding
+  To capture context-aware features from neuropeptide sequences, we utilize the pre-
+trained protein language model ProtT5-XL-UniRef50 (ProtT5) [25]. The model
+contains 33 Transformer layers and is pre-trained on 650 million UniRef50 protein
+sequences via a masked language modeling objective. Through this pre-training, the
+model can implicitly learn evolutionary information and the relationships between
+sequence, structure, and function. In practice, for any given amino acid sequence S,
+ProtT5 generates a 1024-dimensional embedding for each residue. To align these raw
+embeddings for the cross-modal interaction module, we employ a linear layer to map
+them into a shared 320-dimensional latent space, based on the hyperparameter
+optimization described below. This procedure significantly reduces computational costs
+while accentuating the semantic information pertinent to our prediction task.
+2.2.2 Secondary Structure Embedding
+  For this work, we employ the PHAT web server to predict the secondary structure of
+neuropeptide sequences [26]. The PHAT model integrates a powerful pre-trained
+protein language model with a hypergraph-based multi-head attention architecture,
+which effectively transfers semantic information from large proteins to peptide
+sequences. It can generate predictions in both three-state (H: alpha-helix, E: extended
+beta-strand, C: coil/others) and eight-state (H: alpha-helix, G: 310-helix, I: π-helix, E:
+extended beta-strand, B: isolated beta-strand, T: turn, S: bend, C: coil/others) formats
+[27, 28]. For each generated secondary structure sequence, we first convert it into an
+initial structural vector using token and positional embedding techniques. Subsequently,
+a linear projection layer maps this structural vector to a dimensional space consistent
+with that of the reduced-dimension ProtT5 embeddings. This step performs feature-
+dimension alignment before cross-modal fusion and yields the final secondary structure
+representation used by the gated cross-attention module.
+2.2.3 Gated Cross-Attention Mechanism
+  NeuroPpred-PSCG introduces a gated cross-attention mechanism (Figure 1) to foster
+deep integration between ProtT5 semantic embeddings and secondary structure features
+[29]. Unlike simple feature addition or concatenation, this mechanism leverages both
+bidirectional cross-attention and a linear gate to enable reciprocal enhancement.
+Specifically, deep semantic information from ProtT5 embeddings strengthens the
+secondary structure characterization, while local conformational details from the
+secondary structure, in turn, provide the embeddings with rich structural information.
+The features are then passed through the linear gating unit, which dynamically adjusts
+and combines the information flow from the two modalities for efficient and adaptable
+fusion.
+(1) Cross-Attention Mechanism
+  Cross-attention extends the standard attention mechanism, specifically designed to
+model the interdependencies between two heterogeneous feature sequences [30]. It
+enables one feature sequence, acting as the Query, to dynamically aggregate relevant
+information from another sequence, which serves as the Key and Value, thereby
+facilitating cross-modal alignment. Specifically, the bidirectional interaction is driven
+by two explicit information flows. In the ProtT5-to-ss8 flow, ss8 features act as the
+Query, and ProtT5 embeddings serve as the Key and Value, enabling structural features
+to integrate global semantic context. Conversely, in the ss8-to-ProtT5 flow, ProtT5
+embeddings query ss8 features to incorporate local structural cues. These dual pathways
+facilitate effective alignment between semantic and structural representations. The
+cross-attention operation follows Equations (1) and (2).
+                          headi = CrossAttention ( Qi , K j ,V j )
+                                            Qi K Tj                                (1)
+                                 = Softmax          V
+                                            d  j
+                                                k 
+
+
+                     MHA = concat ( head1 , head1 ,K , headh ) WO                  (2)
+where the Q, K, and V matrices are generated from the ProtT5 embeddings and
+secondary structure features, respectively. The term WO is a learnable weight matrix.
+The term d K corresponds to the key dimension, whereas h denotes the number of
+attention heads.
+(2) Linear Gating Fusion Mechanism
+   A linear gating unit is employed to fuse the bidirectional cross-attention-enhanced
+features hProtT 5 , hss 8 . This unit consists of a linear transformation and a Softmax
+function, which dynamically compute a set of complementary gates. These gates then
+modulate the input features in a weighted sum to yield the final fused representation
+h fuse , as defined in Equations (3) and (4).
+                           [ w1 , w2 ] = Softmax ( hProtT 5W + hss 8W )                 (3)
+                                 h fuse = w1  hProtT 5 + w2  hss8                     (4)
+where w1 and w2 represent the gating weights for the ProtT5 features and the
+secondary structure features, respectively.
+2.2.4 Multi-Scale Gated Convolution Network
+  To further model hierarchical contextual relationships in the fused features, we
+devise a multi-scale gated convolutional module [31]. This module comprises a set of
+parallel gated convolutional units, with every unit utilizing a distinct kernel size to
+cover a distinct receptive field. Specifically, an input feature X is processed by each unit
+through two independent convolutional paths to generate the candidate features C and
+the gating signal G, respectively. Equation (5) gives the candidate feature and gating
+signal for each gated convolutional unit.
+                              C = Conv1Dc ( X ) = X Wc + bc
+                                                                                        (5)
+                              G = Conv1Dg ( X ) = X Wg + bg
+where Wc ,Wg and bc , bg denote the weight and bias matrices associated with the one-
+dimensional convolution, respectively.
+  Subsequently, the gating signal G is passed through a Sigmoid activation function,
+which scales its values to the range [0, 1], thereby generating gating weights that are
+applied element-wise to the candidate features C. This mechanism enables the model
+to regulate information flow by selecting context-relevant features while attenuating
+less informative ones. The result is then sequentially processed by a ReLU activation
+function followed by a dropout layer, to introduce nonlinearity and enhance the model’s
+generalization. The gated convolutional output is expressed in Equation (6).
+
+                                        (
+                        Z = Dropout ReLU ( C e Sigmoid ( G ) )            )             (6)
+
+2.2.5 Output layer
+  The feature matrix Z, produced by the gated convolutional module, captures both
+local and long-distance sequential relationships. We employ an attention pooling
+strategy to compress this high-dimensional feature matrix into a sequence-level vector
+z [32]. This approach not only lowers computational complexity but also enables the
+model to assign different importance to positions within the sequence. Consequently,
+features that are more relevant to classification receive greater emphasis. Equations (7)
+and (8) describe the calculation of attention weights and the sequence-level
+representation, respectively.
+                                  exp ( wT tanh ( zi ) )
+                         i =                                   i = 1,K , L           (7)
+                                 exp ( w tanh ( z ))
+                                  L          T
+                                  j =1                     j
+
+                                                  L
+                                           z =   i zi                                (8)
+                                                 i =1
+
+
+where Z =  z1 , z2 , K , z L   R Ld , L represents the sequence length.
+                           T
+
+
+
+  Finally, the vector z is passed through a two-layer fully connected classification head
+to obtain the prediction. The classification output is obtained using Equation (9).
+
+                          ŷ = Softmax (W2  ReLu (W1  z + b1 ) + b2 )                (9)
+
+2.3 Fast Gradient Method (FGM) for Robustness Evaluation
+  During neuropeptide sequencing, experimental noise and sequencing errors may
+perturb the input sequence, potentially degrading the model’s stability and
+generalizability. To investigate this issue, we adopt the fast gradient method (FGM) [33,
+34]. This approach generates adversarial samples by adding small perturbations along
+the gradient direction of the loss function, which serve to examine the model’s
+sensitivity to minor input alterations.
+  In practice, we apply FGM directly to the embedding space by perturbing the
+projection layer of ProtT5-derived features. Given an input x with label y, and the loss
+
+function J ( x, y ) , the perturbation is computed by Equations (10) and (11).
+
+                                  =   sign (  x J ( , x, y ) )                   (10)
+                                          xattack = x +                              (11)
+where  represents a hyperparameter governing the perturbation’s size, and sign ( )
+refers to the sign function, which is used to extract the gradient direction in order to
+generate adversarial examples with maximal perturbation effect.
+
+2.4 Evaluation Criteria
+  Following previous studies, we employ eight performance indicators: accuracy
+(ACC), specificity (SP), sensitivity (SN), precision (Pre), F1-score (F1), Matthews
+correlation coefficient (MCC), area under the ROC curve (AUROC), and area under
+the PR curve (AUPRC). Among these, SN and Pre quantify the completeness and
+correctness of positive predictions, respectively, while their harmonic mean, the F1-
+score, serves as a unified indicator for the positive class. In contrast, SP reflects
+performance on the negative samples. MCC is reported for its stability under class
+imbalance, and AUROC and AUPRC together provide threshold-free measures of the
+model’s overall classification capability. These metrics are defined in Equation (12).
+                             TP + TN
+                ACC =
+                       TP + TN + FP + FN
+                        TN
+                SP =
+                     TN + FP
+                        TP
+                SN =
+                      TP + FN
+                         TP                                                         (12)
+                Pre =
+                      TP + FP
+                       Pre  SN
+                F1 = 2
+                       Pre + SN
+                                     TP  TN − FP  FN
+                MCC =
+                          (TP + FP )(TP + FN )(TN + FN )(TN + FP )
+3 RESULTS AND DISCUSSION
+
+3.1 Performance Comparison with Existing Models
+  This study compares NeuroPpred-PSCG with eight representative neuropeptide
+prediction methods using the unified independent test set. For consistency and
+transparency, the baseline results are taken directly from the original publications,
+which used the same benchmark datasets and train/test partitions [18, 21]. This avoids
+potential bias from unofficial reimplementations or suboptimal hyperparameter tuning.
+As shown in Table 2, NeuroPpred-PSCG outperforms competing methods across
+multiple metrics. Specifically, it achieves the highest scores in ACC, SN, F1-score, and
+MCC, reaching 94.8%, 95.1%, 94.8%, and 0.896, respectively. Relative to the current
+state-of-the-art model NeuroPpred-MSN, NeuroPpred-PSCG improves ACC and MCC
+by 1.2% and 0.024, respectively, reflecting stronger discriminative capability. It is
+worth noting that NeuroPred-FRL reports the highest precision (96.0%), but its
+sensitivity remains limited (75.7%), implying a higher rate of missed positives. In
+contrast, NeuroPpred-PSCG achieves the highest sensitivity (95.1%) while maintaining
+a competitive precision (94.6%), resulting in a more balanced trade-off between
+detecting positive samples and controlling false positives. Furthermore, NeuroPpred-
+PSCG attains an AUROC of 0.980, which is comparable to the best value reported by
+NeuroPred-MSN (0.983). This suggests that the model maintains consistent
+performance across varying classification thresholds. To validate the performance
+differences, we apply the Friedman test and pairwise Wilcoxon signed-rank tests. The
+Friedman test reveals significant overall differences among the models (p < 0.001).
+Subsequent pairwise analysis demonstrates that NeuroPpred-PSCG significantly
+outperforms NeuroPred-FRL (p = 0.0313) and shows a marginally significant
+improvement over NeuroPpred-MSN at the 0.10 level (p = 0.0781). For the remaining
+six methods, our model demonstrates significant superiority (all p = 0.0156). Together,
+these results provide statistical support for the superior performance of our model.
+
+3.2 Exploration of the NeuroPpred-PSCG Architecture
+  To refine the architecture of NeuroPpred-PSCG, we perform a systematic
+hyperparameter analysis covering both the choice of pre-trained backbone and key
+architectural settings. The initial investigation focuses on four prominent protein
+language models: ESM-2, ProtT5, ProtBERT, and ProtALBERT [25, 35]错误!未找到
+引用源。. As illustrated in Figure 2, ProtT5 consistently achieves the best performance
+across all metrics, indicating its strong capability in capturing informative sequence
+representations. ESM-2 ranks second, with ACC of 93.9% and MCC of 0.878. In
+contrast, ProtBERT and ProtALBERT show inferior performance, with ProtBERT
+exhibiting the most noticeable decline (a reduction of 3.5% in ACC and 0.069 in MCC
+relative to ProtT5). These results underscore the importance of ProtT5 for downstream
+prediction tasks.
+   Using ProtT5 as the backbone, we further tune key architectural hyperparameters.
+Table 3 shows that the projection dimension of 320 achieves the strongest overall
+performance (ACC: 94.8%, F1-score: 94.8%, MCC: 0.896). Increasing the dimension
+to 384 slightly improves sensitivity (95.7%) but negatively affects overall performance,
+while a larger dimension (512) leads to an additional drop. This suggests that moderate
+dimensionality better balances representation capacity and redundancy. For the multi-
+scale gated CNN, the kernel configuration (3, 5) yields optimal results, while larger
+combinations, including (5, 7) and (7, 9), reduce overall performance. We also examine
+the number of attention heads h in the gated cross-attention module. Among h = 2, 4, 8,
+and 16, h = 8 achieves the best overall performance. Reducing h to 2 decreases ACC
+and MCC to 93.6% and 0.872, respectively, whereas increasing h to 16 reduces these
+values to 94.0% and 0.881. Overall, backbone choice and architectural tuning jointly
+dictate performance.
+3.3 Ablation Experiments
+  A series of ablation studies is performed to systematically assess the contributions of
+the key modules within NeuroPpred-PSCG. We benchmark the performance of multiple
+model variants against the complete model (our baseline) on the independent test set,
+which allows us to verify the efficacy of the multimodal features and the cross-modal
+fusion mechanism.
+3.3.1 Analysis of the Effectiveness of Multimodal Features
+  To investigate the contributions of each feature modality, we design three model
+variants: (i) one using only 3-state secondary structure information (designated as w/o
+ProtT5, w/ss3); (ii) one using only 8-state secondary structure information (w/o ProtT5,
+w/ss8); and (iii) one using only ProtT5 semantic features (w/o ss8, w/ProtT5). As
+illustrated in Figure 3A and Figure 3C, the model’s performance degrades substantially
+upon the removal of ProtT5 features when relying solely on either ss3 or ss8
+information. Specifically, the ACC drops to 72.3% and 72.6%, the MCC to 0.449 and
+0.453, and the AUROC to 0.756 and 0.791, respectively. This indicates that structural
+information alone is insufficient to adequately capture the high-level semantic context
+of neuropeptide sequences. Conversely, when retaining only the ProtT5 semantic
+features, the model’s performance recovers markedly, achieving an ACC of 94.3% and
+an MCC of 0.885. This finding highlights the importance of the pre-trained protein
+language model in capturing informative sequence patterns. Finally, the full model
+demonstrates superior performance for all indicators, providing strong evidence for the
+significant complementarity and synergy between semantic and structural information.
+  To further evaluate the cost-effectiveness of introducing ss8-derived structural
+information, we analyze model size and computational cost. Model size is characterized
+by trainable parameters and FP32 memory footprint, while computational cost is
+measured by MACs and FLOPs per sample. As shown in
+
+
+  Table 4, compared to the ProtT5-only variant (w/o ss8), the full NeuroPpred-PSCG
+model introduces a moderate increase in parameters (from 1.189 M to 1.827 M) and
+computational cost (from 0.249 G to 0.388 G FLOPs/sample). Importantly, this
+bounded overhead yields consistent performance gains, improving ACC from 94.3% to
+94.8% and MCC from 0.885 to 0.896. As detailed in Table 5, the total overhead of
+integrating the ss8 modality includes 0.639 M parameters, 2.555 MB of FP32 storage,
+and 0.140 G FLOPs/sample. This additional cost stems primarily from the cross-
+attention and gated fusion modules. In contrast, the ss8 embedding itself is remarkably
+lightweight, requiring only 0.022 M parameters and 0.004 G FLOPs/sample. Although
+ProtT5 remains the primary predictive source, the performance gains from structural
+cues justify this marginal complexity, confirming the efficiency of our multimodal
+architecture.
+3.3.2 Contribution Analysis of the Cross-Modal Fusion Mechanism
+  To investigate the necessity of the cross-modal fusion mechanism, we construct the
+following variants: (i) a model with both the cross-attention and the gated convolutional
+network removed (designated as w/o crossatt, w/o gatecnn); (ii) one retaining only the
+cross-attention module (w/o gatecnn, w/ crossatt); and (iii) one retaining only the gated
+convolutional network (w/o crossatt, w/ gatecnn). As shown in Figure 3B, completely
+removing the fusion module leads to a significant performance drop, with the ACC
+decreasing from 94.8% to 93.2% and the MCC from 0.896 to 0.865. Further comparison
+reveals that the model with only cross-attention (ACC: 94.4%, MCC: 0.888) slightly
+outperforms the one with only the gated convolutional (ACC: 94.3%, MCC: 0.885),
+although both are inferior to the full NeuroPpred-PSCG model. This highlights the
+necessity of the gated convolutional, whose adaptive filtering mechanism effectively
+suppresses noise and refines the fused features, complementing the cross-modal
+interactions established by the attention module. The coordinated interaction of these
+two modules is essential for improving feature fusion, which in turn supports the
+underlying design of the NeuroPpred-PSCG architecture.
+
+3.4 Evaluation of Model Robustness and Generalization
+3.4.1 Robustness Analysis Under Embedding and Sequence-Level Perturbations
+  We analyze the robustness of NeuroPpred-PSCG using three rigorous tests: 10-fold
+cross-validation, FGM-based adversarial testing, and BLOSUM62-guided conservative
+substitutions. The cross-validation results (Table 6) indicate stable performance across
+different data splits, with ACC ranging from 93.4% to 94.9%. The average scores are
+93.89% ± 0.44 for ACC, 93.90% ± 0.43 for F1-score, and 0.879 ± 0.009 for MCC. A
+high AUROC of 0.971 ± 0.015, together with small standard deviations, further
+indicates that the model is not sensitive to data partitioning. Under FGM perturbations
+(Table 7), the model performance remains largely unaffected. Only minor reductions
+are observed in ACC (94.8% to 94.5%), MCC (0.896 to 0.890), and AUROC (0.980 to
+0.973), confirming the model’s robustness against adversarial noise. This indicates that
+NeuroPpred-PSCG remains stable under data variability and input perturbations.
+  Subsequently, we evaluate sequence-level robustness on the independent test set
+using BLOSUM62-guided conservative amino acid substitutions. Specifically, 1%, 5%,
+and 10% of residues are randomly replaced with biochemically similar amino acids
+(BLOSUM62 scores ≥ 0), and each setting is repeated five times using fixed random
+seeds. For each mutated sequence set, ProtT5 and ss8 features are regenerated before
+prediction. Conservative substitutions are used because they are more likely to preserve
+the biochemical properties of short neuropeptides than insertions or deletions, which
+may alter peptide length, sequence motifs, and biological activity. As shown in
+
+
+  Table 8, NeuroPpred-PSCG maintains stable performance under 1%, 5%, and 10%
+conservative substitutions, with ACC values of 92.06%, 92.34%, and 91.22%,
+respectively, AUROC values above 0.967, and prediction consistency above 94.28%.
+Table 9 further shows that mutation sensitivity analysis yields small mean absolute
+probability shifts (0.041–0.053) and limited mean confidence drops (<0.046),
+suggesting that NeuroPpred-PSCG is reasonably stable under mild, biochemically
+constrained sequence-level variations.
+3.4.2 Analysis of the Model's Generalization Ability on the Imbalanced Test Sets
+  To assess the generalization capability of NeuroPpred-PSCG on imbalanced datasets,
+we train and test our model on the dataset constructed by Wen et al. [21]. As detailed in
+Table 10 and Table 11, baseline metrics are directly adopted from their original
+publications. On the imbalanced independent test set, NeuroPpred-PSCG achieves
+strong overall performance in terms of ACC (96.0%), F1-score (87.0%), and MCC
+(0.846). Although PredNeuroP achieved the highest ACC (99.0%), its much lower SN
+(64.4%) indicates a bias toward the majority class. However, NeuroPpred-PSCG strikes
+a superior balance between SN (88.9%) and SP (97.2%). Although NeuroPpred-MSN
+reported a slightly higher AUROC (0.974), its lower MCC and F1-score suggest that its
+overall discriminative power and stability are inferior to our model. The Friedman test
+further confirms a significant overall difference among models (p = 0.0015). At a
+significance level of 0.1, Wilcoxon tests indicate that NeuroPpred-PSCG significantly
+outperforms NeuroPpred-SHE, NeuroPpred-Fuse, NeuroPred-FRL, and PredNeuroP,
+with p-values of 0.0547, 0.0234, 0.0156, and 0.0391, respectively. The comparisons
+with NeuroPpred-MSN and NeuroPred-PLM are not statistically significant (both p =
+0.1484); however, the metric-level results indicate that NeuroPpred-PSCG achieves a
+better trade-off between positive-sample detection and negative-sample discrimination.
+  On the external imbalanced test set, NeuroPpred-PSCG also achieves the highest
+ACC (88.8%) and MCC (0.493), showcasing its robust, comprehensive discriminative
+ability. Although its F1-score is marginally lower than that of NeuroPpred-SHE (55.0%),
+NeuroPpred-PSCG maintains a lead in precision (73.4%) and specificity (97.4%),
+indicating a significant advantage in controlling false positives. Taken together, these
+results demonstrate that NeuroPpred-PSCG achieves a superior performance trade-off
+and greater robustness in highly imbalanced data scenarios. Similarly, the Friedman test
+reveals a significant overall performance difference among the models (p < 0.001). The
+post-hoc Wilcoxon tests show that NeuroPpred-PSCG significantly outperforms
+NeuroPred-PLM, NeuroPpred-Fuse, NeuroPred-FRL, and PredNeuroP, with all
+comparisons yielding p = 0.0078. The comparisons with NeuroPpred-MSN and
+NeuroPpred-SHE are not statistically significant, with p-values of 0.4688 and 0.3281,
+respectively. Nevertheless, NeuroPpred-PSCG achieves the best ACC, SP, Pre, and
+MCC, supporting its advantage in overall discrimination and false-positive control.
+
+3.5 Visualization of Feature Learning Using UMAP
+  We employ uniform manifold approximation and projection (UMAP) 错误!未找到
+引用源。 to visualize feature representations from different stages of NeuroPpred-
+PSCG on the independent test set, aiming to examine their discriminative
+characteristics. This visualization highlights both the distribution of samples and the
+degree of class separation, while maintaining the intrinsic topology of the data. The
+results reveal that the initial secondary structure features (Figure 4A) possess limited
+discriminative power, with positive and negative samples largely mixed in the
+embedding space. Introducing ProtT5 semantic features (Figure 4B) improves class
+separation to some extent, though considerable overlap still exists. Further integration
+of these two modalities via bidirectional cross-attention (Figure 4C) leads to a more
+organized feature distribution, with clearer separation boundaries. Subsequently, the
+multi-scale gated convolutional network (Figure 4D) further refines these features,
+sharpening the inter-class boundary and promoting the formation of more compact and
+distinct clusters. Finally, after passing through the global attention pooling layer (Figure
+4E), NeuroPpred-PSCG acquires a highly separable feature representation, where the
+two classes exhibit a clear decision boundary and excellent intra-class cohesion. These
+visualizations show that the model representations evolve from a weak, unimodal state
+to a structured, highly discriminative multimodal form, intuitively validating our
+framework's effectiveness and design.
+3.6 Interpretability Analysis
+3.6.1 Feature Importance Analysis
+  To interpret the model’s predictions, we evaluate the contributions of ProtT5 and ss8
+features using SHapley Additive exPlanations (SHAP) analysis 错误!未找到引用源。.
+As shown in Figure 5 and Figure 6, the top 10 most influential features all originate
+from ProtT5 embeddings. The dominance of ProtT5 is further evidenced by its mean
+absolute SHAP value (0.001412), which is significantly higher than that of the ss8
+features (0.000199), demonstrating its leading role in driving model predictions at the
+global level. At the feature level, the SHAP distributions also reveal distinct directional
+effects. For instance, lower values (blue) in ProtT5_144, ProtT5_288, and ProtT5_84
+drive positive predictions, whereas higher values (red) in ProtT5_277, ProtT5_54, and
+ProtT5_69 favor positive outcomes. Furthermore, the asymmetric and scattered
+distribution of these SHAP values implies that the model relies on non-linear, context-
+dependent interactions rather than simple monotonic trends. These results validate the
+strong discriminative capacity of ProtT5 embeddings for neuropeptide identification.
+3.6.2 Attention-Based Interpretability Analysis
+  To investigate the internal decision-making mechanism of the NeuroPpred-PSCG
+model and evaluate its interpretability, we visualize its cross-attention weights and
+compare them with conserved motifs identified by MEME [38]. As illustrated in Figure
+7, the attention weights are highly concentrated on the “FQGMR” region, and the high-
+attention region not only aligns precisely with the “WFGPR” motif identified by
+MEME but also significantly extends to cover the upstream “PGL” segment. This
+strong concordance between the key sequences autonomously learned by the model and
+known conserved motifs provides compelling evidence that NeuroPpred-PSCG not
+only exhibits excellent classification performance but can also accurately identify the
+critical sequence patterns that drive its decisions. The attention mechanism reveals the
+intrinsic rationale and biological basis of the model’s predictions by assigning greater
+weights to the amino acid residues with higher contributions.
+3.6.3 Mutation-Scan Analysis
+  To investigate residue-level interpretability, we perform in silico mutagenesis (ISM)
+on the independent test set. Each residue position is systematically substituted with the
+20 standard amino acids, and the resulting mutant sequences are re-predicted. As shown
+in Figure 8A and Figure 8B, the sequence logos are generated using the kpLogo web
+server [39]. Positive samples are enriched with residues such as S, L, R, and G, whereas
+negative samples show a clear enrichment of methionine (M) at the N-terminal position.
+The ISM heatmaps of three representative neuropeptides further demonstrate how these
+residue preferences influence model predictions (Figure 8C-E). Substituting the N-
+terminal residue with M markedly reduces the prediction score, consistent with its
+enrichment in non-neuropeptides. Similarly, substitutions to cysteine (C), particularly
+at internal positions, lead to low-score regions, agreeing with the low frequency of C in
+positive neuropeptide logos. To reduce sequence-specific bias, all positive samples are
+normalized into 10 position-ratio intervals, and a global ISM visualization is generated
+(Figure 8F). This analysis confirms that M exerts its strongest effect at the first position-
+ratio interval, while C shows strong effects across multiple internal-to-C-terminal
+intervals. Together, these results indicate that NeuroPpred-PSCG captures biologically
+meaningful positional residue preferences rather than relying on simple sequence
+memorization.
+
+3.7 Limitations and Future Directions
+  Despite NeuroPpred-PSCG’s competitive performance, neuropeptide identification
+remains more challenging than predicting other short bioactive peptides. Although
+prediction models developed for antiviral peptides (e.g., TargetAVP-DeepCaps [40]),
+antimicrobial peptides (e.g., deep-AMPpred [41]), and anticancer peptides (e.g., pACP-
+HybDeep [42]) often report higher evaluation metrics, these methods cannot be directly
+transferred to neuropeptide identification. Neuropeptides typically exhibit high
+sequence     heterogeneity,    weak     evolutionary     conservation,     limited   shared
+physicochemical motifs, distinct functional mechanisms, and complex post-
+translational processing. These factors complicate identification and suggest that cross-
+task performance comparisons should be interpreted cautiously. Given these challenges,
+NeuroPpred-PSCG’s balanced performance confirms the effectiveness of integrating
+ProtT5-derived semantics with structural information via adaptive cross-modal fusion.
+  Nevertheless, several limitations remain and should be addressed in future work. Our
+future efforts will focus on the following four aspects: (1) Integration of 3D structural
+information: The current model is built upon sequence information and secondary
+structure predictions, without explicitly modeling the 3D conformations that are closely
+linked to biological function. Introducing structural data predicted by AlphaFold2 [43]
+or ESMFold [44] may help capture spatial arrangements and functional domains more
+effectively, which could contribute to improved prediction accuracy. (2) Generalization
+under external imbalanced conditions: While NeuroPpred-PSCG maintains competitive
+overall performance on the external imbalanced test set, its sensitivity drops under
+external distribution shifts. This suggests that identifying positive neuropeptides
+remains challenging despite comparable class ratios, possibly due to variations in
+sequence composition and data sources. Future work will explore threshold calibration
+and cost-sensitive learning to enhance sensitivity and real-world robustness. (3)
+Parameter-efficient fine-tuning (PEFT): The present study relies on static ProtT5
+embeddings, without further adapting the pre-trained model to the target task. Applying
+PEFT methods, such as LoRA [45], could enable efficient fine-tuning with a limited
+number of additional parameters. This could enhance its ability to capture task-relevant
+patterns in neuropeptide sequences, while preserving efficiency in computation and
+memory usage. (4) Generalization to a wider range of bioactive peptides: NeuroPpred-
+PSCG has demonstrated considerable versatility. We plan to extend to other bioactive
+peptide tasks, such as antimicrobial and anti-inflammatory peptide prediction, to
+explore its potential as a general-purpose framework.
+
+4 CONCLUSIONS
+  This study introduces NeuroPpred-PSCG, a multimodal deep learning framework for
+neuropeptide identification. The model architecture integrates information across
+different scales. Through the application of a bidirectional cross-attention mechanism
+and a multi-scale gated convolutional network, it harmonizes the high-level semantic
+insights captured by the ProtT5 language model with the localized structural patterns
+defined by secondary structures, thus facilitating a hierarchical analysis of the sequence.
+Our method achieves consistent improvements over existing state-of-the-art methods
+in overall performance. Moreover, ablation results highlight the importance of the
+multimodal fusion strategy for model performance. Additional evaluations of
+robustness and generalization, together with visualization analyses, show that the model
+remains stable and captures biologically meaningful patterns. Overall, this study
+highlights the potential of multimodal deep fusion in characterizing complex biological
+sequences, offering a promising approach for the discovery of bioactive peptides.
+
+Data and Software Availability
+  The dataset and source code for this study are publicly available at
+https://github.com/xinyizhang186/NeuroPpred-PSCG.
+Author Contributions
+  Shengli Zhang conceived and supervised the study, and Xinyi Zhang conducted the
+computational analyses. Both authors drafted, revised, and approved the manuscript.
+
+Acknowledgements
+  This work was supported by the Natural Science Basic Research Program of Shaanxi
+(No. 2024JC-YBMS-004) and Xidian University Specially Funded Project for
+Interdisciplinary Exploration (No. TZJH2024028).
+
+Conflict of Interest Disclosure
+  The authors declare no conflicts of interest.
+
+REFERENCES
+[1] Nässel, D. R. Neuropeptides in the nervous system of Drosophila and other insects:
+multiple roles as neuromodulators and neurohormones. Prog. Neurobiol. 2002, 68 (1),
+1-84.
+[2] Wu, Y.; Berisha, A.; Borniger, J. C. Neuropeptides in cancer: friend and foe? Adv.
+Biol. 2022, 6 (9), No. e2200111.
+[3] Van Bael, S.; Watteyne, J.; Boonen, K.; et al. Mass spectrometric evidence for
+neuropeptide-amidating enzymes in Caenorhabditis elegans. J. Biol. Chem. 2018, 293
+(16), 6052-6063.
+[4] Fricker, L. D.; Lim, J.; Pan, H.; et al. Peptidomics: identification and quantification
+of endogenous peptides in neuroendocrine tissues. Mass Spectrom. Rev. 2006, 25 (2),
+327-344.
+[5] Holzer, P.; Farzi, A. Neuropeptides and the microbiota-gut-brain axis. Adv. Exp.
+Med. Biol. 2014, 817, 195-219.
+[6] Chen, X. Y.; Du, Y. F.; Chen, L. Neuropeptides exert neuroprotective effects in
+Alzheimer’s disease. Front. Mol. Neurosci. 2019, 11, 493.
+[7] Mendel, H. C.; Kaas, Q.; Muttenthaler, M. Neuropeptide signalling systems - an
+underexplored target for venom drug discovery. Biochem. Pharmacol. 2020, 181,
+114129.
+[8] De La Toba, E. A.; Bell, S. E.; Romanova, E. V.; et al. Mass spectrometry
+measurements of neuropeptides: from identification to quantitation. Annu. Rev. Anal.
+Chem. 2022, 15 (1), 83-106.
+[9] Barati, M.; Javanmardi, F.; Mousavi Jazayeri, S. M. H.; et al. Techniques,
+perspectives, and challenges of bioactive peptide generation: a comprehensive
+systematic review. Compr. Rev. Food Sci. Food Saf. 2020, 19 (4), 1488-1520.
+[10] Duffuler, P.; Bhullar, K. S.; de Campos Zani, S. C.; et al. Bioactive peptides: from
+basic research to clinical trials and commercialization. J. Agric. Food Chem. 2022, 70
+(12), 3585-3595.
+[11] Agrawal, P.; Kumar, S.; Singh, A.; et al. NeuroPIpred: a tool to predict, design and
+scan insect neuropeptides. Sci. Rep. 2019, 9 (1), 5129.
+[12] Bin, Y.; Zhang, W.; Tang, W.; et al. Prediction of neuropeptides from sequence
+information using ensemble classifier and hybrid features. J. Proteome Res. 2020, 19
+(9), 3732-3740.
+[13] Jiang, M.; Zhao, B.; Luo, S.; et al. NeuroPpred-Fuse: an interpretable stacking
+model for prediction of neuropeptides by fusing sequence information and feature
+selection methods. Brief. Bioinform. 2021, 22 (6), No. bbab310.
+[14] Hasan, M. M.; Alam, M. A.; Shoombuatong, W.; et al. NeuroPred-FRL: an
+interpretable prediction model for identifying neuropeptide using feature representation
+learning. Brief. Bioinform. 2021, 22 (6), No. bbab167.
+[15] Liu, D.; Lin, Z.; Jia, C. NeuroCNN_GNB: an ensemble model to predict
+neuropeptides based on a convolution neural network and Gaussian naive Bayes. Front.
+Genet. 2023, 14, 1226905.
+[16] Le, N. Q. K. Potential of deep representative learning features to interpret the
+sequence information in proteomics. Proteomics 2022, 22 (1-2), No. e2100232.
+[17] Tran, T. O.; Le, N. Q. K. Sa-TTCA: an SVM-based approach for tumor T-cell
+antigen classification using features extracted from biological sequencing and natural
+language processing. Comput. Biol. Med. 2024, 174, 108408.
+[18] Wang, L.; Huang, C.; Wang, M.; et al. NeuroPred-PLM: an interpretable and robust
+model for neuropeptide prediction by protein language model. Brief. Bioinform. 2023,
+24 (2), No. bbad077.
+[19] Liu, Y.; Wang, S.; Li, X.; et al. NeuroPpred-SVM: a new model for predicting
+neuropeptides based on embeddings of BERT. J. Proteome Res. 2023, 22 (3), 718-728.
+[20] Li, J.; Xiong, S.; Shi, H.; et al. NeuroPred-AIMP: multimodal deep learning for
+neuropeptide prediction via protein language modeling and temporal convolutional
+networks. J. Chem. Inf. Model. 2025, 65 (9), 4740-4750.
+[21] Wen, J.; Ding, Z.; Wei, Z.; et al. NeuroPpred-SHE: an interpretable neuropeptides
+prediction model based on selected features from hand-crafted features and embeddings
+of T5 model. Comput. Biol. Med. 2024, 181, 109048.
+[22] Wen, J.; Chen, M.; Shen, Y.; et al. NeuroPpred-MSN: a neuropeptide prediction
+model based on multi-feature fusion and Siamese networks. Interdiscip. Sci. 2026, 18
+(1), 326-340.
+[23] Wang, M.; Wang, L.; Xu, W.; et al. NeuroPep 2.0: an updated database dedicated
+to neuropeptide and its receptor annotations. J. Mol. Biol. 2024, 436 (4), 168416.
+[24] Fu, L.; Niu, B.; Zhu, Z.; et al. CD-HIT: accelerated for clustering the next-
+generation sequencing data. Bioinformatics 2012, 28 (23), 3150-3152.
+[25] Elnaggar, A.; Heinzinger, M.; Dallago, C.; et al. ProtTrans: toward understanding
+the language of life through self-supervised learning. IEEE Trans. Pattern Anal. Mach.
+Intell. 2022, 44 (10), 7112-7127.
+[26] Jiang, Y.; Wang, R.; Feng, J.; et al. Explainable deep hypergraph learning modeling
+the peptide secondary structure prediction. Adv. Sci. 2023, 10 (11), No. e2206151.
+[27] Fang, C.; Shang, Y.; Xu, D. MUFOLD-SS: new deep inception-inside-inception
+networks for protein secondary structure prediction. Proteins 2018, 86 (5), 592-598.
+[28] Torrisi, M.; Kaleel, M.; Pollastri, G. Deeper profiles and cascaded recurrent and
+convolutional neural networks for state-of-the-art protein secondary structure
+prediction. Sci. Rep. 2019, 9 (1), 12374.
+[29] Wang, H.; Wan, X.; Zheng, N.; et al. CAMEL: cross-attention enhanced mixture-
+of-experts and language bias for code-switching speech recognition. In ICASSP 2025 -
+2025 IEEE International Conference on Acoustics, Speech and Signal Processing
+(ICASSP). 2025, 1−5.
+[30] Vaswani, A.; Shazeer, N.; Parmar, N.; et al. Attention is all you need. In Advances
+in Neural Information Processing Systems. 2017, 30, 5998−6008.
+[31] Shah, P. M.; Zhu, H.; Lu, Z.; et al. DeepDTAGen: a multitask deep learning
+framework for drug-target affinity prediction and target-aware drugs generation. Nat.
+Commun. 2025, 16 (1), 5021.
+[32] Er, M. J.; Zhang, Y.; Wang, N.; Pratama, M. Attention pooling-based convolutional
+neural network for sentence modelling. Inf. Sci. 2016, 373, 388−403.
+[33] Jin, J.; Yu, Y.; Wang, R.; et al. iDNA-ABF: multi-scale deep biological language
+learning model for the interpretable prediction of DNA methylations. Genome Biol.
+2022, 23 (1), 219.
+[34] Yuan, J.; Wang, Z.; Pan, Z.; et al. DPNN-ac4C: a dual-path neural network with
+self-attention mechanism for identification of N4-acetylcytidine (ac4C) in mRNA.
+Bioinformatics 2024, 40 (11), No. btae625.
+[35] Heinzinger, M.; Elnaggar, A.; Wang, Y.; et al. Modeling aspects of the language of
+life through transfer-learning protein sequences. BMC Bioinformatics 2019, 20 (1), 723.
+[36] McInnes, L.; Healy, J.; Saul, N.; et al. UMAP: uniform manifold approximation
+and projection. J. Open Source Softw. 2018, 3 (29), 861.
+[37] Lundberg, S. M.; Lee, S. I. A unified approach to interpreting model predictions.
+In Advances in Neural Information Processing Systems. 2017, 30, 4765−4774.
+[38] Bailey, T. L.; Johnson, J.; Grant, C. E.; et al. The MEME suite. Nucleic Acids Res.
+2015, 43 (W1), W39-W49.
+[39] Wu, X.; Bartel, D. P. kpLogo: positional k-mer analysis reveals hidden specificity
+in biological sequences. Nucleic Acids Res. 2017, 45 (W1), W534-W538.
+[40] Akbar, S.; Raza, A.; Zou, Q.; et al. Accelerating prediction of antiviral peptides
+using genetic algorithm-based weighted multiperspective descriptors with self-
+normalized deep networks. J. Chem. Inf. Model. 2025, 65 (18), 9815-9830.
+[41] Zhao, J.; Liu, H.; Kang, L.; et al. deep-AMPpred: a deep learning method for
+identifying antimicrobial peptides and their functional activities. J. Chem. Inf. Model.
+2025, 65 (2), 997-1008.
+[42] Shahid; Hayat, M.; Alghamdi, W.; et al. pACP-HybDeep: predicting anticancer
+peptides using binary tree growth based transformer and structural feature encoding
+with deep-hybrid learning. Sci. Rep. 2025, 15 (1), 565.
+[43] Jumper, J.; Evans, R.; Pritzel, A.; et al. Highly accurate protein structure prediction
+with AlphaFold. Nature 2021, 596 (7873), 583-589.
+[44] Lin, Z.; Akin, H.; Rao, R.; et al. Evolutionary-scale prediction of atomic-level
+protein structure with a language model. Science 2023, 379 (6637), 1123-1130.
+[45] Hu, E. J.; Shen, Y.; Wallis, P.; et al. LoRA: low-rank adaptation of large language
+models. In International Conference on Learning Representations. 2022.
+
+
+
+
+Table Captions:
+Table 1. Details of the datasets.
+Table 2. Performance comparison with existing models on the independent test set.
+Table 3. Performance comparison of different projection dimensions, kernel sizes, and
+attention heads.
+Table 4. Complexity and performance comparison between the w/o ss8 variant and
+NeuroPpred-PSCG.
+Table 5. Additional complexity from the ss8 branch and cross-modal fusion module.
+Table 6. 10-fold cross-validation performance of NeuroPpred-PSCG.
+Table 7. Robustness evaluation of NeuroPpred-PSCG under FGM perturbation.
+Table 8. Robustness performance under conservative substitution perturbations.
+Table 9. Prediction probability stability under conservative substitution perturbations.
+Table 10. Comparison with existing models on the imbalanced independent test set.
+Table 11. Comparison with existing models on the external imbalanced test set.
+
+
+                               Table 1. Details of the datasets.
+             Dataset                      Train-Test           Positive        Negative
+                                            Train               4019            4019
+        Benchmark dataset
+                                             Test                444             444
+                                            Train                409            2290
+       Imbalanced dataset
+                                             Test                 45             252
+       External test dataset                 Test                115             644
+
+
+ Table 2. Performance comparison with existing models on the independent test set.
+         Model              ACC(%)         SN(%)       Pre(%) F1(%) MCC             AUROC
+   NeuroPpred-PSCG              94.8         95.1       94.6        94.8    0.896    0.980
+ NeuroPpred-MSN[22]             93.6         92.3       94.7        93.5    0.872    0.983
+ NeuroPred-AIMP[20]             92.3         92.6       92.2        92.4    0.847    0.974
+ NeuroPpred-SHE[21]             92.7         92.8       92.6        92.7    0.854    0.978
+  NeuroPred-PLM[18]             92.2         94.1       90.7        92.1    0.845    0.968
+ NeuroPpred-Fuse[13]            90.5         90.8       90.6        90.7    0.813    0.934
+  NeuroPred-FRL[14]             86.1         75.7       96.0        84.7    0.740    0.921
+    PredNeuroP[12]              86.4         78.2       93.5        85.2    0.738    0.931
+    NeuroPIpred[11]             73.2         75.5       72.2        73.8    0.464    0.810
+
+
+
+
+Table 3. Performance comparison of different projection dimensions, kernel sizes, and
+attention heads.
+ Parameter settings         ACC(%) SN(%) Pre(%) F1(%) MCC AUROC
+ Projection dim     256          94.1       93.9       94.3        94.1    0.883    0.981
+                       320        94.8           95.1       94.6          94.8     0.896     0.980
+                       384        94.4           95.7       93.2          94.4     0.888     0.961
+                       512        94.0           94.8       93.4          94.1     0.881     0.962
+ Kernel sizes          (3, 5)     94.8           95.1       94.6          94.8     0.896     0.980
+                       (5, 7)     94.1           93.7       94.6          94.1     0.883     0.964
+                       (7, 9)     94.3           95.7       93.0          94.3     0.886     0.968
+ Heads                   2        93.6           92.6       94.5          93.5     0.872     0.977
+                         4        94.1           94.8       93.6          94.2     0.883     0.979
+                         8        94.8           95.1       94.6          94.8     0.896     0.980
+                        16        94.0           94.8       93.4          94.1     0.881     0.971
+
+
+
+
+Table 4. Complexity and performance comparison between the w/o ss8 variant and
+NeuroPpred-PSCG.
+         Model               Params(M)          FLOPs/sample(G)           ACC(%)            MCC
+         w/o ss8                1.189                   0.249               94.3            0.885
+ NeuroPpred-PSCG                1.827                   0.388               94.8            0.896
+
+
+
+
+Table 5. Additional complexity from the ss8 branch and cross-modal fusion module.
+                                    Params         FP32 size          MACs/                FLOPs/
+       Added component
+                                        (M)             (MB)        sample(M)          sample(G)
+ ss8 embedding+projection               0.022           0.089             2.048             0.004
+ Additional cross-attention             0.411           1.644         47.360                0.095
+ Cross-modal gated fusion               0.205           0.820         20.480                0.041
+       Fusion LayerNorm                 0.001           0.003             0.000             0.000
+   Total added overhead                 0.639           2.555         69.888                0.140
+
+
+
+
+          Table 6. 10-fold cross-validation performance of NeuroPpred-PSCG.
+ Folds      ACC(%)              SN(%)           Pre(%)          F1(%)              MCC              AUROC
+   1            93.8             93.8             93.8             93.8             0.876            0.980
+   2            94.0             95.0             93.2             94.1             0.881            0.950
+   3          94.9           94.5              95.2            94.9        0.898            0.983
+   4          94.3           92.8              95.6            94.2        0.886            0.981
+   5          94.0           95.0              93.2            94.1        0.881            0.979
+   6          93.5           93.5              93.5            93.5        0.871            0.977
+   7          93.7           91.5              95.6            93.5        0.874            0.986
+   8          93.4           95.8              91.5            93.6        0.869            0.944
+   9          93.4           92.5              94.2            93.4        0.868            0.950
+  10          94.2           93.0              95.2            94.1        0.883            0.978
+Mean     93.89±0.44     93.82±1.27 93.98±1.26             93.90±0.43     0.879±0.009 0.971±0.015
+
+
+
+
+   Table 7. Robustness evaluation of NeuroPpred-PSCG under FGM perturbation.
+       Model            ACC(%)          SN(%)         Pre(%)     F1(%)    MCC       AUROC
+ NeuroPpred-PSCG             94.8         95.1         94.6       94.8    0.896         0.980
+   FGM Attacked              94.5         96.0         93.2       94.6    0.890         0.973
+
+
+
+
+  Table 8. Robustness performance under conservative substitution perturbations.
+Perturbation         ACC (%)             MCC                  AUROC       Consistency (%)
+   Original           94.8               0.896                 0.980                -
+    CS-1%        92.06 ±0.56         0.840 ±0.011        0.971 ±0.002         95.02 ±0.69
+    CS-5%        92.34 ±0.26         0.847 ±0.005        0.972 ±0.002         95.63 ±0.54
+   CS-10%        91.22 ±0.48         0.825 ±0.010        0.967 ±0.002         94.28 ±0.92
+ *CS denotes BLOSUM62-guided conservative amino acid substitution.
+
+
+
+
+Table 9. Prediction probability stability under conservative substitution perturbations.
+Perturbation     Mean |ΔP|          P95 |ΔP|           Mean confidence drop     |ΔP|>0.1(%)
+   CS-1%        0.043 ±0.004 0.336 ±0.039                  0.037 ±0.004           8.65 ±0.57
+   CS-5%        0.041 ±0.002 0.295 ±0.022                  0.034 ±0.003           8.58 ±0.35
+  CS-10%        0.053 ±0.005 0.436 ±0.100                  0.046 ±0.006         10.41±0.41
+   *CS denotes BLOSUM62-guided conservative amino acid substitution.
+
+
+
+
+  Table 10. Comparison with existing models on the imbalanced independent test set.
+Model                 ACC(%) SP(%) SN(%) Pre(%) F1(%) MCC AUROC
+NeuroPpred-PSCG           96.0     97.2      88.9       85.1      87.0   0.846   0.917
+NeuroPpred-MSN[22]        94.6     96.0      86.7       79.6      83.0   0.799   0.974
+NeuroPpred-SHE[21]        93.9     96.8      77.7       81.4      79.5   0.760   0.962
+NeuroPred-PLM[18]         93.6     96.8      75.5       89.0      78.1   0.744   0.950
+NeuroPpred-Fuse[13]       91.9     94.4      77.7       71.4      74.4   0.697   0.951
+NeuroPred-FRL[14]         92.9     96.4      73.3       78.5      75.8   0.717   0.919
+PredNeuroP[12]            99.0     95.6      64.4       72.5      68.2   0.631   0.893
+
+
+
+
+    Table 11. Comparison with existing models on the external imbalanced test set.
+        Model         ACC(%) SP(%) SN(%) Pre(%) F1(%) MCC AUROC
+  NeuroPpred-PSCG         88.8      97.4     40.9       73.4      52.5   0.493   0.740
+NeuroPpred-MSN[22]        88.5      97.0     49.0       71.2      51.9   0.483   0.872
+NeuroPpred-SHE[21]        88.1      96.7     40.0       68.6      55.0   0.464   0.857
+ NeuroPred-PLM[18]        78.7      93.0     13.9       25.0      16.5   0.050   0.569
+NeuroPpred-Fuse[13]       79.3      89.9     20.0       26.1      22.6   0.110   0.633
+ NeuroPred-FRL[14]        88.0      91.7     20.0       32.0      24.0   0.140   0.612
+   PredNeuroP[12]         82.0      93.1     20.0       34.3      25.2   0.166   0.652
+
+
+
+
+ Figure Captions:
+ Figure 1. Flowchart of the NeuroPpred-PSCG model. (A) Dataset construction and
+ preprocessing. (B) Feature representation based on ProtT5 embeddings and predicted
+ secondary-structure features. (C) Gated cross-attention mechanism enabling
+ bidirectional cross-modal interaction and adaptive fusion. (D) Multi-scale gated
+ convolution module for extracting hierarchical contextual features. (E) Classification
+ module for neuropeptide identification.
+ Figure 2. Performance comparison of different pre-trained protein language models.
+ Figure 3. Results of the ablation study. (A) Effectiveness of multimodal features. (B)
+Contribution of cross-modal fusion mechanisms. (C) ROC and PR curves.
+Figure 4. Feature visualizations on the independent test set. (A) SS8 features. (B)
+ProtT5 embeddings. (C) Gated cross-attention features. (D) Multi-scale gated
+convolution features. (E) Global attention pooling features.
+Figure 5. SHAP analysis for model interpretability of the top 10 features.
+Figure 6. SHAP-based contribution analysis of ProtT5 and ss8 features.
+Figure 7. Interpretability of the model’s attention mechanism. The attention heatmaps
+demonstrate strong alignment with the top two sequence motifs identified by the
+MEME analysis. (A) “FQGMR”. (B) “WFGPR”.
+Figure 8. Mutation-scan analysis. (A, B) Position-specific amino acid preferences for
+neuropeptides and non-neuropeptides visualized by kpLogo. (C-E) ISM heatmaps of
+three representative peptides, with colors indicating normalized prediction scores from
+low (red) to high (blue). (F) Global ISM visualization illustrating amino acid
+contribution patterns across position-ratio intervals.
+
+
+
+
+Figure 1. Flowchart of the NeuroPpred-PSCG model. (A) Dataset construction and
+preprocessing. (B) Feature representation based on ProtT5 embeddings and predicted
+secondary-structure features. (C) Gated cross-attention mechanism enabling
+bidirectional cross-modal interaction and adaptive fusion. (D) Multi-scale gated
+convolution module for extracting hierarchical contextual features. (E) Classification
+module for neuropeptide identification.
+
+
+
+
+Figure 2. Performance comparison of different pre-trained protein language models.
+Figure 3. Results of the ablation study. (A) Effectiveness of multimodal features. (B)
+Contribution of cross-modal fusion mechanisms. (C) ROC and PR curves.
+Figure 4. Feature visualizations on the independent test set. (A) SS8 features. (B)
+ProtT5 embeddings. (C) Gated cross-attention features. (D) Multi-scale gated
+convolution features. (E) Global attention pooling features.
+
+
+
+
+      Figure 5. SHAP analysis for model interpretability of the top 10 features.
+       Figure 6. SHAP-based contribution analysis of ProtT5 and ss8 features.
+
+
+
+
+Figure 7. Interpretability of the model’s attention mechanism. The attention heatmaps
+demonstrate strong alignment with the top two sequence motifs identified by the
+MEME analysis. (A) “FQGMR”. (B) “WFGPR”.
+Figure 8. Mutation-scan analysis. (A, B) Position-specific amino acid preferences for
+neuropeptides and non-neuropeptides visualized by kpLogo. (C-E) ISM heatmaps of
+three representative peptides, with colors indicating normalized prediction scores from
+low (red) to high (blue). (F) Global ISM visualization illustrating amino acid
+contribution patterns across position-ratio intervals.
+

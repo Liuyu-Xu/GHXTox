@@ -1,4 +1,4 @@
-    GHXTox: Peptide toxicity prediction by fusing a task-adaptive
+    GHXTox: Peptide toxicity prediction by fusing task-adaptive
      protein language model with pLDDT-aware multi-scale 3D
                        structural modeling
 
@@ -13,7 +13,7 @@
       pose GHXTox, a hierarchical dual-level fusion framework in which a 3D structural expert
       first integrates sequence semantics with spatial structural features through predicted local-
       distance difference test (pLDDT)-aware cross-attention, and is then fused at the probability
-      level with a task-adaptive one-dimensional (1D) sequence expert using weights frozen on
+      level with task-adaptive one-dimensional (1D) sequence expert using weights frozen on
       training out-of-fold (OOF) predictions. The 1D branch analyzes sequences with a protein
       language model (ProtT5 fine-tuned with low-rank adaptation, LoRA) and a bidirectional
       Mamba state-space model. The 3D expert integrates an ESMFold-derived structural anchor,
@@ -71,10 +71,10 @@ peptides, and both evaluate one predicted conformation per sequence rather than 
 conformer ensemble. Existing designs use predicted-structure confidence primarily for filtering
 or structural-quality analysis rather than as a continuous message-level reliability signal [6–8].
 Moreover, the fusion between the sequence and structure branches remains relatively shallow,
-and no systematic multi-dimensional fusion that combines a task-adaptive sequence model with
+and no systematic multi-dimensional fusion that combines task-adaptive sequence model with
 confidence-aware multi-scale structure modeling has been established.
      To address these limitations, we propose GHXTox, an interpretable hierarchical dual-level
-fusion framework for peptide toxicity prediction. A task-adaptive 1D sequence expert combines
+fusion framework for peptide toxicity prediction. Task-adaptive 1D sequence expert combines
 a ProtT5 protein language model, adapted by low-rank adaptation (LoRA), with a bidirectional
 Mamba state-space encoder and three-seed ensembling [9–11]. A sequence-enhanced 3D struc-
 tural expert integrates sequence semantics with spatial structure through pLDDT-aware cross-
@@ -1377,7 +1377,7 @@ evidence sources, are directions for future work.
 
 4    CONCLUSIONS
      GHXTox explores the complementary joint use of sequence and conformational evidence
-by combining a task-adaptive LoRA-ProtT5–Bi-Mamba sequence expert with a pLDDT-aware
+by combining task-adaptive LoRA-ProtT5–Bi-Mamba sequence expert with a pLDDT-aware
 multi-scale structural expert through probability-level fusion; the two experts are independent
 and their complementarity is characterized by the structural expert correcting a subset of se-
 quence errors in a class-asymmetric way (Section 3.2). The structural expert integrates residue

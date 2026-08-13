@@ -85,6 +85,30 @@
 \renewcommand{\listfigurename}{Figure Captions}
 \renewcommand{\refname}{REFERENCES}
 
+% Match the supplied review template: caption inventories are plain text
+% without dotted leaders or page references.
+\makeatletter
+\newcommand{\GHXlistoftables}{%
+  \section*{\listtablename}%
+  \begingroup
+    \renewcommand{\numberline}[1]{Table~##1.\space}%
+    \renewcommand{\l@table}[2]{\par\noindent ##1\par}%
+    \@starttoc{lot}%
+  \endgroup}
+\newcommand{\GHXlistoffigures}{%
+  \section*{\listfigurename}%
+  \begingroup
+    \renewcommand{\numberline}[1]{Figure~##1.\space}%
+    \renewcommand{\l@figure}[2]{\par\noindent ##1\par}%
+    \@starttoc{lof}%
+  \endgroup}
+\makeatother
+
+% Place each inventory immediately before its own delayed objects:
+% Table Captions -> tables -> Figure Captions -> figures.
+\AtBeginTables{\GHXlistoftables}
+\AtBeginFigures{\GHXlistoffigures}
+
 \renewenvironment{abstract}{%
   \par\vspace{1.2em}\noindent\textbf{Abstract.}\ \ignorespaces
 }{%
@@ -96,12 +120,16 @@
 \begin{center}
   \vspace*{0.15in}
   {\fontsize{16}{21}\selectfont\bfseries
-  GHXTox: Peptide toxicity prediction by fusing a task-adaptive protein
-  language model with pLDDT-aware multi-scale 3D structural modeling\par}
+  Peptide toxicity prediction by fusing task-adaptive protein language model
+  with pLDDT-aware multi-scale 3D structural modeling: GHXTox\par}
   \vspace{1.3em}
-  Liuyu Xu$^{a}$, Kehan Gao$^{a}$, Lechen Hao$^{a}$, Shengli Zhang$^{a,*}$\par
+  Liuyu Xu$^{a}$, Kehan Gao$^{b}$, Lechen Hao$^{b}$, Shengli Zhang$^{c,*}$\par
   \vspace{0.45em}
-  \raggedright $^{a}$School of Mathematics and Statistics, Xidian University,
+  \raggedright $^{a}$School of Computer Science and Technology, Xidian University,
+  Xi'an 710071, P. R. China\par
+  $^{b}$School of Electronic Engineering, Xidian University,
+  Xi'an 710071, P. R. China\par
+  $^{c}$School of Mathematics and Statistics, Xidian University,
   Xi'an 710071, P. R. China\par
   $^{*}$Corresponding author. Email: shengli0201@163.com\par
 \end{center}
@@ -111,37 +139,22 @@
 % ----------------------------------------------------------------------------
 \begin{abstract}
 Peptide toxicity is a major safety concern in peptide-based drug development,
-motivating accurate computational screening methods. Existing methods have
-begun to explore multi-dimensional (multimodal) feature fusion and toxicity
-prediction based on the three-dimensional (3D) conformations of peptides,
-yet most of them still underutilize 3D structural information, and
-systematic multi-dimensional fusion remains rare. Here, we propose GHXTox, a
-hierarchical dual-level fusion framework in which a 3D structural expert
-first integrates sequence semantics with spatial structural features through
-predicted local-distance difference test (pLDDT)-aware cross-attention, and
-is then fused at the probability level with a task-adaptive one-dimensional
-(1D) sequence expert using weights frozen on training out-of-fold (OOF)
-predictions. The 1D branch analyzes sequences with a protein language model
-(ProtT5 fine-tuned with low-rank adaptation, LoRA) and a bidirectional Mamba
-state-space model. The 3D expert integrates an ESMFold-derived structural
-anchor, pLDDT-aware residue geometry, and full-atom-derived chemical sites.
-A separate residual head was trained on multi-conformer descriptors while the
-single-structure backbone was frozen. This residual is disabled in the
-canonical predictor and is reported only in controlled ablations; benchmark
-and public inference use the single-structure base logits. On the frozen
-historical benchmark test sets,
-GHXTox achieves MCC values of 0.8705 and 0.6673 and AUPRC values of 0.9674 and
-0.8046 on Test1 and Test2, respectively. Further analyses characterize
-residue-level sequence sensitivity, confidence--gate associations,
-chemical-site perturbations, expert disagreement, and an OOF-frozen
-selective-prediction rule. At realized coverages of 88.54\% and 86.94\%, the
-selective rule reduced the accepted-sample error to 2.71\% and 3.16\% on
-Test1 and Test2 without benchmark-specific cutoff selection. These findings
-are interpreted as model-level evidence rather than causal biological mechanisms.
-Frozen-model analyses indicate that the conformer contribution is small and
-non-uniform: under the structural expert, substantial geometric
-variation does not necessarily translate into stable outcome-aligned
-probability variation.
+motivating accurate computational screening. Existing predictors often
+underuse three-dimensional (3D) structural information and provide limited
+cross-modal integration. We propose GHXTox, a hierarchical dual-level fusion
+framework that combines task-adaptive ProtT5--Bi-Mamba sequence modeling with
+pLDDT-aware multi-scale structural modeling. The structural expert integrates
+sequence semantics, residue geometry, and full-atom-derived chemical sites,
+and its probability is fused with that of the sequence expert using weights
+frozen from training out-of-fold predictions. On two frozen historical
+benchmarks, GHXTox achieved MCC values of 0.8705 and 0.6673 and AUPRC values of
+0.9674 and 0.8046 on test set 1 and test set 2, respectively. The two experts
+provided complementary evidence, while residue- and structure-level analyses
+supported model interpretability. An OOF-frozen selective-prediction rule
+reduced accepted-sample error from 5.24\% to 2.71\% and from 5.33\% to 3.16\%
+at realized coverages of 88.54\% and 86.94\%, respectively. These retrospective
+results support confidence-aware sequence--structure fusion for peptide
+toxicity prediction and require confirmation on newly prefrozen external data.
 \end{abstract}
 
 \noindent\textbf{Keywords:} peptide toxicity prediction; multimodal deep learning; protein language model;
@@ -149,6 +162,7 @@ bidirectional Mamba; pLDDT-aware multi-scale 3D modeling; interpretability
 % ============================================================================
 %  1 INTRODUCTION
 % ============================================================================
+\clearpage
 \section{INTRODUCTION}
 
 Peptides are increasingly used as therapeutic candidates because of their
@@ -193,12 +207,12 @@ predicted-structure confidence primarily for filtering or structural-quality
 analysis rather than as a continuous message-level reliability signal
 \cite{wang2025peptitox,jiao2025structoxnet,gulsevin2022benchmarking}.
 Moreover, the fusion between the sequence and structure branches remains
-relatively shallow, and no systematic multi-dimensional fusion that combines a
+relatively shallow, and no systematic multi-dimensional fusion that combines
 task-adaptive sequence model with confidence-aware multi-scale structure
 modeling has been established.
 
 To address these limitations, we propose GHXTox, an interpretable hierarchical
-dual-level fusion framework for peptide toxicity prediction. A task-adaptive
+dual-level fusion framework for peptide toxicity prediction. Task-adaptive
 1D sequence expert combines a ProtT5 protein language model, adapted by
 low-rank adaptation (LoRA), with a bidirectional Mamba state-space encoder
 and three-seed ensembling \cite{elnaggar2022prottrans,hu2022lora,gu2024mamba}.
@@ -218,8 +232,8 @@ during this selection. Gated sequence--structure
 cross-attention inside the structural expert further informs the interaction
 design \cite{zhang2026neuroppredpscg}. Ablation experiments show that the
 contribution of structural evidence is dataset- and metric-dependent: fusion
-improves several fixed-threshold and probability-quality measures on Test1
-while maintaining broadly comparable performance on Test2. Post hoc analyses
+improves several fixed-threshold and probability-quality measures on test set 1
+while maintaining broadly comparable performance on test set 2. Post hoc analyses
 characterize residue-level sensitivity, confidence gating, chemical-site
 perturbations, and expert disagreement without assigning causal biological
 meaning to these signals. The framework is evaluated on the frozen historical
@@ -228,7 +242,7 @@ benchmarks described in Section 2.1.
 In summary, the main contributions of this work are threefold: (1) we propose
 GHXTox, an interpretable hierarchical dual-level fusion framework that
 explores the complementary joint use of one-dimensional sequence and
-three-dimensional conformational information, integrating a task-adaptive 1D
+three-dimensional conformational information, integrating task-adaptive 1D
 protein language model with pLDDT-aware multi-scale 3D structure modeling and
 combining the two experts at the probability level (Sections 2.5 and 3.2); (2) the 3D branch designs a multi-scale structural
 information extraction strategy spanning from local residue functional groups
@@ -236,7 +250,7 @@ to the whole peptide, and incorporates pLDDT confidence into structural
 feature processing through continuous down-weighting and dynamic gating; and
 (3) extensive experiments on the frozen historical benchmark test sets show
 that GHXTox improves several fixed-threshold and probability-quality measures
-on Test1 while maintaining broadly comparable performance on Test2, while
+on test set 1 while maintaining broadly comparable performance on test set 2, while
 ablation, robustness, and interpretability analyses characterize the
 conditions under which sequence and structural evidence are complementary.
 
@@ -258,18 +272,18 @@ excluded. After combining the two groups and removing samples with conflicting
 labels, CD-HIT \cite{fu2012cdhit} was applied with a sequence-identity threshold of 0.9 to
 eliminate redundant sequences, yielding 2{,}138 toxic and 5{,}375 non-toxic
 peptides. Following the same partition as ToxMSRC \cite{zhang2025toxmsrc}, we used 85\% of the data
-as the training set and the remaining 15\% as the benchmark Test1 set,
+as the training set and the remaining 15\% as benchmark test set 1,
 resulting in 1{,}818 toxic and
-4{,}569 non-toxic training peptides and 320 toxic and 806 non-toxic Test1
-peptides. An additional benchmark Test2 set, containing 46 toxic and 536
-non-toxic peptides, is used for frozen historical evaluation. Both Test1 and
-Test2 had been observed during historical project development and are
+4{,}569 non-toxic training peptides and 320 toxic and 806 non-toxic test set 1
+peptides. An additional benchmark, test set 2, containing 46 toxic and 536
+non-toxic peptides, is used for frozen historical evaluation. Both test set 1 and
+test set 2 had been observed during historical project development and are
 therefore treated as frozen historical benchmarks rather than newly blinded
 external validation sets; their labels were not used in the formal OOF
 calibration, fusion-weight selection, or threshold-freezing procedure.
 ToxinPred~3.0 \cite{rathore2024toxinpred3} was consulted as an external method
 and data-source reference during project development, but its records were not
-added to the present training set or to the formal Test1/Test2 result tables.
+added to the present training set or to the formal test set 1 and test set 2 result tables.
 Table~\ref{tab:datasets} summarizes the statistics of the datasets used in
 this study.
 
@@ -283,15 +297,15 @@ this study.
         \ghxheader Dataset & Toxic & Non-toxic & Total & Use \\
         \midrule
         Training (benchmark) & 1,818 & 4,569 & 6,387 & Model training \\
-        Test1 (benchmark)    &   320 &   806 & 1,126 & Benchmark test \\
-        Test2                &    46 &   536 &   582 & Benchmark test \\
+        test set 1 (benchmark)    &   320 &   806 & 1,126 & Benchmark test \\
+        test set 2                &    46 &   536 &   582 & Benchmark test \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \subsection{Overview of the Model}
 GHXTox is a hierarchical dual-level fusion framework for peptide toxicity
-prediction: a task-adaptive one-dimensional (1D) sequence expert and a
+prediction: task-adaptive one-dimensional (1D) sequence expert and a
 sequence-enhanced three-dimensional (3D) structural expert generate
 independent probabilities, interact internally at the feature level, and are
 combined at the probability level.
@@ -316,7 +330,7 @@ Figure~\ref{fig:overview}.
     \centering
     \includegraphics[width=\linewidth]{fig1_ghxtox_architecture_blue_orange.png}
     \caption{GHXTox inference architecture. The peptide sequence is processed
-    by a task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their
+    by task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their
     probabilities are combined for peptide-toxicity prediction.}
     \label{fig:overview}
 \end{figure}
@@ -376,7 +390,7 @@ miscalibrated, so a monotonic two-parameter Platt calibrator \cite{platt1999}
 is fitted to the training OOF scores (generated with the fixed group-aware
 five-fold partition, Section 2.5) and applied to the three-seed average at
 inference. Because the calibration is monotonic, it preserves the sample
-ranking. Test1/Test2 labels are not used for member selection, calibration
+ranking. Labels from test set 1 and test set 2 are not used for member selection, calibration
 fitting, or threshold optimization. The calibrated probability $p_{\mathrm{1D}}$
 is the sequence-expert output used in the top-level fusion (Section 2.5); no
 additional calibrator is fitted after fusion.
@@ -493,7 +507,7 @@ length and is treated as a limitation rather than as an independently
 identified causal factor.
 
 For controlled ablation only, a test-side conformer cache was constructed
-with fixed source and sequence-matching policies without using Test1 or Test2
+with fixed source and sequence-matching policies without using test set 1 or test set 2
 labels; these caches are not used by the final benchmark predictor or the
 public inference interface.
 To remove arbitrary rigid-body differences and make the statistics comparable
@@ -678,16 +692,37 @@ distant spatial neighbors.
 
 These pLDDT-aware weighted edge messages are then aggregated at each node
 with a normalization floor. For node $i$, the aggregated message is
-$\mathbf m_i^{(\ell)} = \sum_j w_{ij}^{(\ell)}\mathbf m_{ij}^{(\ell)} /
-\max(\sum_j w_{ij}^{(\ell)}, 1)$, the node features are updated as
-$\mathbf h_i^{(\ell+1)} = \operatorname{LN}\{\mathbf h_i^{(\ell)} +
-\phi_h^{(\ell)}[\mathbf h_i^{(\ell)} \parallel \mathbf m_i^{(\ell)}]\}$, and
-the coordinates are updated equivariantly as $\mathbf x_i^{(\ell+1)} =
-\mathbf x_i^{(\ell)} + 0.05 \sum_j \alpha_{ij}^{(\ell)}(\mathbf
-x_i^{(\ell)} - \mathbf x_j^{(\ell)}) / \max(\sum_j w_{ij}^{(\ell)}, 1)$,
-where $\alpha_{ij}^{(\ell)} = \tanh[\phi_x^{(\ell)}(\mathbf
-m_{ij}^{(\ell)})]\, w_{ij}^{(\ell)}$ is a bounded coordinate-update
-coefficient generated from the edge message and pairwise distances. The
+\begin{equation}
+    \mathbf m_i^{(\ell)} =
+    \frac{\sum_j w_{ij}^{(\ell)}\mathbf m_{ij}^{(\ell)}}
+    {\max\!\left(\sum_j w_{ij}^{(\ell)}, 1\right)},
+    \label{eq:aggregated_message}
+\end{equation}
+and the node features are updated as
+\begin{equation}
+    \mathbf h_i^{(\ell+1)} = \operatorname{LN}\!\left\{
+    \mathbf h_i^{(\ell)} + \phi_h^{(\ell)}\!\left[
+    \mathbf h_i^{(\ell)} \parallel \mathbf m_i^{(\ell)}\right]\right\}.
+    \label{eq:node_feature_update}
+\end{equation}
+The coordinates are updated equivariantly as
+\begin{equation}
+    \mathbf x_i^{(\ell+1)} = \mathbf x_i^{(\ell)} +
+    0.05\,
+    \frac{\sum_j \alpha_{ij}^{(\ell)}
+    \left(\mathbf x_i^{(\ell)} - \mathbf x_j^{(\ell)}\right)}
+    {\max\!\left(\sum_j w_{ij}^{(\ell)}, 1\right)},
+    \label{eq:coordinate_update}
+\end{equation}
+where
+\begin{equation}
+    \alpha_{ij}^{(\ell)} =
+    \tanh\!\left[\phi_x^{(\ell)}\!\left(\mathbf m_{ij}^{(\ell)}\right)\right]
+    w_{ij}^{(\ell)}
+    \label{eq:coordinate_coefficient}
+\end{equation}
+is a bounded coordinate-update coefficient generated from the edge message
+and pairwise distances. The
 coordinates are recentered after every layer to reduce numerical drift.
 Because the update depends only on scalar messages, distances, and relative
 coordinate vectors, the operation remains equivariant to rigid rotations and
@@ -981,7 +1016,7 @@ The two experts were trained independently because they differ in input
 representation, parameter scale, and optimization behavior (the 1D and 3D
 loss, calibration, and training details are described in Sections 2.3 and
 2.4). Group-aware training OOF predictions were used for calibration,
-fusion-weight selection, and threshold determination, and Test1/Test2 labels
+fusion-weight selection, and threshold determination, and labels from test set 1 and test set 2
 were excluded from all of these procedures. The training sequences were
 clustered by CD-HIT at a sequence-identity threshold of 0.80, with all
 peptides in the same homology group confined to the same fold; each fold was
@@ -993,12 +1028,12 @@ weight and decision threshold were selected jointly on the complete
 group-aware training OOF table by maximizing MCC; in exact MCC ties, the
 larger threshold was retained. This procedure yielded $w_{\mathrm{1D}}=0.72$,
 $w_{\mathrm{SE3D}}=0.28$, and $\tau = 0.47022256531284556$; these values
-were then frozen and applied unchanged to Test1 and Test2. In the final
+were then frozen and applied unchanged to test set 1 and test set 2. In the final
 benchmark and public inference protocol, the conformer availability mask is
 fixed to zero and the structural probability is read from the
 single-structure base logits.
 \subsection{Evaluation Criteria}
-Given the class-imbalanced benchmarks (Test2 has 46 toxic and 536 non-toxic
+Given the class-imbalanced benchmarks (test set 2 has 46 toxic and 536 non-toxic
 peptides), MCC and BACC served as the primary threshold-dependent metrics,
 with ACC, sensitivity (SN), specificity (SP), precision, and F1 reported for
 completeness. AUROC and AUPRC quantified ranking performance; AUPRC complements
@@ -1006,13 +1041,26 @@ AUROC under class imbalance by emphasizing precision--recall behavior for the
 positive class \cite{saito2015pr}. Brier/ECE-10 assessed probability quality.
 Threshold-dependent metrics used the fixed
 OOF-derived threshold (Section 2.5); ranking and calibration metrics used
-the continuous probabilities. Binary predictions
-$\hat{y}_i = \mathbb{I}[p_i \geq \tau]$ were summarized by
-$\mathrm{ACC}=(\mathrm{TP}+\mathrm{TN})/N$,
-$\mathrm{SN}=\mathrm{TP}/(\mathrm{TP}+\mathrm{FN})$,
-$\mathrm{SP}=\mathrm{TN}/(\mathrm{TN}+\mathrm{FP})$,
-$F_1=2\mathrm{TP}/(2\mathrm{TP}+\mathrm{FP}+\mathrm{FN})$, and
-$\mathrm{BACC}=(\mathrm{SN}+\mathrm{SP})/2$. MCC \cite{matthews1975mcc},
+the continuous probabilities. Binary predictions were obtained as
+\begin{equation}
+    \hat{y}_i = \mathbb{I}\!\left[p_i \geq \tau\right].
+    \label{eq:binary_prediction}
+\end{equation}
+The threshold-dependent performance measures were summarized by
+\begin{align}
+    \mathrm{ACC} &= \frac{\mathrm{TP}+\mathrm{TN}}{N},
+    \label{eq:acc}\\
+    \mathrm{SN} &= \frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}},
+    \label{eq:sn}\\
+    \mathrm{SP} &= \frac{\mathrm{TN}}{\mathrm{TN}+\mathrm{FP}},
+    \label{eq:sp}\\
+    F_1 &= \frac{2\mathrm{TP}}
+    {2\mathrm{TP}+\mathrm{FP}+\mathrm{FN}},
+    \label{eq:f1}\\
+    \mathrm{BACC} &= \frac{\mathrm{SN}+\mathrm{SP}}{2}.
+    \label{eq:bacc}
+\end{align}
+MCC \cite{matthews1975mcc},
 Brier \cite{brier1950}, and ten-bin ECE-10 \cite{guo2017calibration}
 (final bin includes $p_i = 1$) are
 \begin{equation}
@@ -1048,10 +1096,10 @@ Benjamini--Hochberg procedure controls the false discovery rate
 \section{RESULTS AND DISCUSSION}
 \subsection{Overall Predictive Performance on the Benchmark Test Sets}
 Using the OOF-frozen weight and threshold without dataset-specific retuning,
-GHXTox correctly classified 1{,}067 of 1{,}126 Test1 peptides
-(TP/TN/FP/FN = 287/780/26/33) and 551 of 582 strongly imbalanced Test2
+GHXTox correctly classified 1{,}067 of 1{,}126 test set 1 peptides
+(TP/TN/FP/FN = 287/780/26/33) and 551 of 582 strongly imbalanced test set 2
 peptides (35/516/20/11); the complete metric set is listed in
-Table~\ref{tab:overall_comparison}. The low Test2 BACC (0.8618) and F1
+Table~\ref{tab:overall_comparison}. The low test set 2 BACC (0.8618) and F1
 (0.6931), despite high accuracy, reflect the difficulty of recovering the 46
 toxic peptides and demonstrate why class-balanced and precision--recall
 metrics are essential for this benchmark.
@@ -1059,32 +1107,32 @@ metrics are essential for this benchmark.
 Table~\ref{tab:overall_comparison} also reports previously published models on
 the same benchmark partitions (ToxMSRC and ToxPLTC; values transcribed from
 the original publications, and NR denotes an unreported metric)
-\cite{zhang2025toxmsrc,liang2026toxpltc}. GHXTox obtains the highest Test1
+\cite{zhang2025toxmsrc,liang2026toxpltc}. GHXTox obtains the highest test set 1
 ACC, BACC, SP, MCC, AUROC, and AUPRC among the compared rows, whereas ToxPLTC
-has higher Test1 SN; on Test2, GHXTox obtains the highest ACC, SP, MCC, and
+has higher test set 1 SN; on test set 2, GHXTox obtains the highest ACC, SP, MCC, and
 reported AUPRC, but its BACC and SN remain below both reference models. This
 reflects a stronger overall balance of specificity, correlation, and
 positive-class ranking rather than comprehensive superiority on every metric.
-Because Test1 and Test2 were observed historically, these differences remain
+Because test set 1 and test set 2 were observed historically, these differences remain
 retrospective benchmark evidence and require confirmation on a new prefrozen
 external set.
 
 % ---- Table 3: overall comparison --------------------------------------------
 \begin{table}[htbp]
     \centering
-    \caption{Performance comparison on the benchmark Test1 and Test2 sets.}
+    \caption{Performance comparison on benchmark test set 1 and test set 2.}
     \label{tab:overall_comparison}
     \resizebox{\linewidth}{!}{%
     \begin{tabular}{llccccccc}
         \toprule
         \ghxheader Dataset & Model & ACC & BACC & SN & SP & MCC & AUROC & AUPRC \\
         \midrule
-        \multirow{3}{*}{Test1}
+        \multirow{3}{*}{test set 1}
         & ToxMSRC & 0.9405 & 0.9217 & 0.8781 & 0.9653 & 0.8520 & 0.9650 & NR \\
         & ToxPLTC & 0.9378 & 0.9302 & \textbf{0.9125} & 0.9479 & 0.8496 & 0.9709 & 0.9426 \\
         \ghxhighlight & GHXTox (current) & \textbf{0.9476} & \textbf{0.9323} & 0.8969 & \textbf{0.9677} & \textbf{0.8705} & \textbf{0.9811} & \textbf{0.9674} \\
         \midrule
-        \multirow{3}{*}{Test2}
+        \multirow{3}{*}{test set 2}
         & ToxMSRC & 0.9416 & 0.8689 & 0.7826 & 0.9552 & 0.6550 & 0.9430 & NR \\
         & ToxPLTC & 0.9261 & \textbf{0.8804} & \textbf{0.8261} & 0.9347 & 0.6197 & 0.9295 & 0.7353 \\
         \ghxhighlight & GHXTox (current) & \textbf{0.9467} & 0.8618 & 0.7609 & \textbf{0.9627} & \textbf{0.6673} & \textbf{0.9433} & \textbf{0.8046} \\
@@ -1093,11 +1141,11 @@ external set.
 \end{table}
 
 The final fused probabilities have Brier scores of 0.0410 and 0.0436 and
-ECE-10 values of 0.0196 and 0.0495 on Test1 and Test2, respectively. The
-Test2 AUPRC (0.8046) directly reflects the precision--recall trade-off for
+ECE-10 values of 0.0196 and 0.0495 on test set 1 and test set 2, respectively. The
+test set 2 AUPRC (0.8046) directly reflects the precision--recall trade-off for
 the rare toxic class, which is not conveyed by AUROC alone
 \cite{saito2015pr}, and the 11 false
-negatives on Test2 delineate the limits of the operating point: high
+negatives on test set 2 delineate the limits of the operating point: high
 specificity should not be interpreted as complete minority-class coverage.
 Discrimination and calibration curves are shown in
 Figure~\ref{fig:discrimination_calibration}.
@@ -1106,8 +1154,8 @@ Figure~\ref{fig:discrimination_calibration}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{fig3_discrimination_calibration.pdf}
-    \caption{GHXTox discrimination and probability reliability. (A--C) Test1
-    ROC, precision--recall, and reliability curves; (D--F) corresponding Test2
+    \caption{GHXTox discrimination and probability reliability. (A--C) test set 1
+    ROC, precision--recall, and reliability curves; (D--F) corresponding test set 2
     curves. Orange, blue, and navy denote the task-adaptive 1D expert, the 3D
     structural expert, and probability fusion, respectively. Gray dashed lines
     denote chance, prevalence, or ideal-reference behavior.}
@@ -1131,12 +1179,12 @@ evidence rather than duplicated use of an earlier fused prediction
         \toprule
         \ghxheader Dataset & Probability stream & AUROC & AUPRC & Brier \\
         \midrule
-        \multirow{3}{*}{Test1}
+        \multirow{3}{*}{test set 1}
         & 1D, uncalibrated & 0.9799 & 0.9644 & 0.0445 \\
         & 1D, OOF Platt calibrated & 0.9799 & 0.9644 & 0.0429 \\
         \ghxhighlight & Current fusion (0.72/0.28) & \textbf{0.9811} & \textbf{0.9674} & \textbf{0.0410} \\
         \midrule
-        \multirow{3}{*}{Test2}
+        \multirow{3}{*}{test set 2}
         & 1D, uncalibrated & 0.9409 & 0.7831 & 0.0491 \\
         & 1D, OOF Platt calibrated & 0.9409 & 0.7831 & 0.0451 \\
         \ghxhighlight & Current fusion (0.72/0.28) & \textbf{0.9433} & \textbf{0.8046} & \textbf{0.0436} \\
@@ -1151,7 +1199,7 @@ class-asymmetric correction patterns (Figure~\ref{fig:expert_complementarity}).
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{expert_disagreement_analysis.pdf}
-    \caption{Complementarity of the 1D and 3D experts on Test1 and Test2.
+    \caption{Complementarity of the 1D and 3D experts on test set 1 and test set 2.
     (A) Expert-outcome groups and their toxic fractions. (B) Conditional rescue
     rates with 95\% Wilson intervals. (C) Prespecified 3D-only versus 1D-only
     attribute effects with 95\% bootstrap intervals; none remained significant
@@ -1173,7 +1221,7 @@ more important. For the current canonical evaluation, both expert weights and
 the full-precision decision threshold of 0.47022256531284556 were frozen from
 training OOF predictions and applied without benchmark-specific reweighting,
 threshold adjustment, or post hoc selection between equal and unequal fusion.
-Because Test1 and Test2 had been observed during earlier project development,
+Because test set 1 and test set 2 had been observed during earlier project development,
 this statement describes the formal current protocol rather than a claim that
 the benchmarks were historically blinded.
 
@@ -1196,8 +1244,8 @@ only briefly. Relative to the earlier pooled-ProtT5--TextCNN pipeline, the
 LoRA-adapted ProtT5 with bidirectional Mamba kept BACC and MCC broadly
 comparable on training OOF (0.9300 vs 0.9317 and 0.8562 vs 0.8586) while
 improving the ranking metrics (AUROC/AUPRC 0.9761/0.9533 vs 0.9724/0.9436),
-and OOF-fitted Platt calibration further reduced the Brier score on Test1 and
-Test2 (Table~\ref{tab:1d_ablation}); the stronger ranking stream benefits the
+and OOF-fitted Platt calibration further reduced the Brier score on test set 1 and
+test set 2 (Table~\ref{tab:1d_ablation}); the stronger ranking stream benefits the
 subsequent fusion with structural evidence (architecture in Section 2.3).
 
 % ---- Table 7: 1D ablation ---------------------------------------------------
@@ -1214,10 +1262,10 @@ subsequent fusion with structural evidence (architecture in Section 2.3).
         Training OOF & Pooled ProtT5--TextCNN & 0.9317 & 0.8586 & 0.9724 & 0.9436 & NR \\
         Training OOF & LoRA-ProtT5--Bi-Mamba & 0.9300 & 0.8562 & \textbf{0.9761} & \textbf{0.9533} & NR \\
         \midrule
-        Test1 & Three-seed 1D, uncalibrated & -- & -- & 0.9799 & 0.9644 & 0.0445 \\
-        Test1 & Three-seed 1D, OOF Platt & -- & -- & 0.9799 & 0.9644 & \textbf{0.0429} \\
-        Test2 & Three-seed 1D, uncalibrated & -- & -- & 0.9409 & 0.7831 & 0.0491 \\
-        Test2 & Three-seed 1D, OOF Platt & -- & -- & 0.9409 & 0.7831 & \textbf{0.0451} \\
+        test set 1 & Three-seed 1D, uncalibrated & -- & -- & 0.9799 & 0.9644 & 0.0445 \\
+        test set 1 & Three-seed 1D, OOF Platt & -- & -- & 0.9799 & 0.9644 & \textbf{0.0429} \\
+        test set 2 & Three-seed 1D, uncalibrated & -- & -- & 0.9409 & 0.7831 & 0.0491 \\
+        test set 2 & Three-seed 1D, OOF Platt & -- & -- & 0.9409 & 0.7831 & \textbf{0.0451} \\
         \bottomrule
     \end{tabular}}
 \end{table}
@@ -1250,7 +1298,7 @@ multi-source residual increased MCC from 0.87255 to 0.87445 (paired-bootstrap
 $\Delta = +0.00190$, 95\% CI $[-0.00043, 0.00454]$, $p = 0.203$). Under the
 frozen test protocol, activating the residual on the covered records changed
 the metrics negligibly (Tables~\ref{tab:conformer_ablation_test1} and
-\ref{tab:conformer_ablation_test2}: Test1 MCC 0.8705 to 0.8726 and Test2 MCC
+\ref{tab:conformer_ablation_test2}: test set 1 MCC 0.8705 to 0.8726 and test set 2 MCC
 0.6673 to 0.6746, with about one prediction flip on each benchmark), which is
 consistent with the decision not to enable conformer statistics during
 benchmark inference. This pattern is consistent with, but does not establish,
@@ -1258,10 +1306,10 @@ a limitation in mapping conformational variation to toxicity labels; the
 present ablation cannot isolate that possibility from conformer quality,
 coverage, or residual-model capacity.
 
-% ---- Table 9: conformer ablation, Test1 -------------------------------------
+% ---- Table 9: conformer ablation, test set 1 -------------------------------------
 \begin{table}[htbp]
     \centering
-    \caption{Test1 conformer-residual ablation on the full benchmark; the residual
+    \caption{test set 1 conformer-residual ablation on the full benchmark; the residual
     is activated only for the 486 covered peptides.}
     \label{tab:conformer_ablation_test1}
     \begin{tabular}{lcccccc}
@@ -1274,10 +1322,10 @@ coverage, or residual-model capacity.
     \end{tabular}
 \end{table}
 
-% ---- Table 10: conformer ablation, Test2 ------------------------------------
+% ---- Table 10: conformer ablation, test set 2 ------------------------------------
 \begin{table}[htbp]
     \centering
-    \caption{Test2 conformer-residual ablation on the full benchmark; the residual
+    \caption{test set 2 conformer-residual ablation on the full benchmark; the residual
     is activated only for the 284 covered peptides.}
     \label{tab:conformer_ablation_test2}
     \begin{tabular}{lcccccc}
@@ -1292,8 +1340,8 @@ coverage, or residual-model capacity.
 
 After combining all components, the 3D-v2 structural expert reached
 BACC, MCC, AUROC, and AUPRC values of 0.9208, 0.8464, 0.9711, and 0.9474 on
-Test1, compared with 0.9179, 0.8458, 0.9699, and 0.9426 for the historical
-C$\alpha$-only 3D-v1, a consistent but modest improvement; on Test2, AUPRC
+test set 1, compared with 0.9179, 0.8458, 0.9699, and 0.9426 for the historical
+C$\alpha$-only 3D-v1, a consistent but modest improvement; on test set 2, AUPRC
 increased from 0.6969 to 0.7241 whereas MCC decreased from 0.6320 to 0.6128
 (Table~\ref{tab:3d_ablation_complexity} and
 Figure~\ref{fig:module_ablation}). Finer-grained structural modeling
@@ -1311,10 +1359,10 @@ simultaneous gains in all metrics at a fixed operating point.
         \toprule
         \ghxheader Evaluation & Variant & BACC & MCC & AUROC & AUPRC \\
         \midrule
-        Test1 & Historical C$\alpha$ 3D-v1 & 0.9179 & 0.8458 & 0.9699 & 0.9426 \\
-        Test1 & pLDDT-aware multi-scale 3D-v2 & \textbf{0.9208} & \textbf{0.8464} & \textbf{0.9711} & \textbf{0.9474} \\
-        Test2 & Historical C$\alpha$ 3D-v1 & \textbf{0.8481} & \textbf{0.6320} & \textbf{0.9316} & 0.6969 \\
-        Test2 & pLDDT-aware multi-scale 3D-v2 & 0.8453 & 0.6128 & 0.9295 & \textbf{0.7241} \\
+        test set 1 & Historical C$\alpha$ 3D-v1 & 0.9179 & 0.8458 & 0.9699 & 0.9426 \\
+        test set 1 & pLDDT-aware multi-scale 3D-v2 & \textbf{0.9208} & \textbf{0.8464} & \textbf{0.9711} & \textbf{0.9474} \\
+        test set 2 & Historical C$\alpha$ 3D-v1 & \textbf{0.8481} & \textbf{0.6320} & \textbf{0.9316} & 0.6969 \\
+        test set 2 & pLDDT-aware multi-scale 3D-v2 & 0.8453 & 0.6128 & 0.9295 & \textbf{0.7241} \\
         \midrule
         Training OOF & Frozen backbone, no chemical-site residual & 0.9153 & 0.8312 & 0.9687 & 0.9388 \\
         Training OOF & Frozen backbone + chemical-site residual & \textbf{0.9171} & \textbf{0.8342} & \textbf{0.9692} & \textbf{0.9401} \\
@@ -1327,18 +1375,18 @@ simultaneous gains in all metrics at a fixed operating point.
     \centering
     \includegraphics[width=\linewidth]{fig5_module_ablation.pdf}
     \caption{Protocol-separated structural ablations. (A, B) Previous and
-    pLDDT-aware 3D experts on Test1 and Test2. (C) Training-OOF comparison
+    pLDDT-aware 3D experts on test set 1 and test set 2. (C) Training-OOF comparison
     without and with chemical-site information.}
     \label{fig:module_ablation}
 \end{figure}
 
 These ablation and comparison analyses are based on the frozen historical
-Test1 and Test2 benchmarks and are therefore retrospective evidence. Test2
+test set 1 and test set 2 benchmarks and are therefore retrospective evidence. Test set 2
 contains only 46 toxic peptides, so SN, BACC, and MCC are sensitive to a few
 threshold-adjacent samples, which partly explains the dataset-dependent
 direction of the 3D-v2 gains; the multi-conformer test ablation used the
-archived test-side conformer cache (486 and 284 covered records on Test1 and
-Test2, with fixed source and sequence-matching policies) and activated the
+archived test-side conformer cache (486 and 284 covered records on test set 1 and
+test set 2, with fixed source and sequence-matching policies) and activated the
 residual only on the covered subset, so its negligible effect should not be
 extrapolated as evidence that conformer information is useless.
 \subsection{Robustness, Statistical Uncertainty, and Applicability Analysis}
@@ -1348,8 +1396,8 @@ multi-seed averaging for the 1D expert and paired, sample-level bootstrap
 resampling for model comparisons, all performed on the frozen predictor
 without retraining, recalibration, or threshold adjustment. Three full-data
 1D models (seeds 42, 123, and 2025) are averaged before calibration; this
-ensemble is the final predictor, with no seed selected according to Test1 or
-Test2 performance, and a 15-member fold-checkpoint ensemble was examined but
+ensemble is the final predictor, with no seed selected according to test set 1 or
+test set 2 performance, and a 15-member fold-checkpoint ensemble was examined but
 not adopted because it did not improve the frozen validation criteria.
 
 For review-oriented screening, a reject-option policy \cite{chow1970reject}
@@ -1361,7 +1409,7 @@ error decreases and MCC increases monotonically, whereas equal-count random
 rejection shows no comparable improvement; at the prespecified 90\% operating
 point the cutoff was frozen at $d_{\mathrm{OOF}}^{*} = 0.47361765874159856$
 (Figure~\ref{fig:selective_prediction}). Transferring this cutoff unchanged
-to Test1 and Test2 reduced the accepted-sample error by about 2.2--2.5
+to test set 1 and test set 2 reduced the accepted-sample error by about 2.2--2.5
 percentage points and improved MCC and BACC, while equal-count random
 rejection remained close to the full-coverage error
 (Table~\ref{tab:selective_transfer}).
@@ -1376,7 +1424,7 @@ available for every abstained peptide.
 
 \begin{table}[htbp]
     \centering
-    \caption{OOF-frozen selective prediction on Test1 and Test2. Random-rejection
+    \caption{OOF-frozen selective prediction on test set 1 and test set 2. Random-rejection
     values average 5{,}000 equal-count masks.}
     \label{tab:selective_transfer}
     \resizebox{\linewidth}{!}{%
@@ -1384,11 +1432,11 @@ available for every abstained peptide.
         \toprule
         \ghxheader Dataset & Method & Coverage (\%) & Error (\%) & MCC & BACC & SN & SP \\
         \midrule
-        Test1 & Full binary prediction & 100.00 & 5.24 & 0.8705 & 0.9323 & 0.8969 & 0.9677 \\
+        test set 1 & Full binary prediction & 100.00 & 5.24 & 0.8705 & 0.9323 & 0.8969 & 0.9677 \\
         \ghxhighlight & Frozen selective prediction & 88.54 & 2.71 & 0.9329 & 0.9629 & 0.9397 & 0.9860 \\
         & Equal-count random rejection & 88.54 & 5.24 & 0.8705 & 0.9323 & 0.8969 & 0.9677 \\
         \midrule
-        Test2 & Full binary prediction & 100.00 & 5.33 & 0.6673 & 0.8618 & 0.7609 & 0.9627 \\
+        test set 2 & Full binary prediction & 100.00 & 5.33 & 0.6673 & 0.8618 & 0.7609 & 0.9627 \\
         \ghxhighlight & Frozen selective prediction & 86.94 & 3.16 & 0.7781 & 0.8983 & 0.8158 & 0.9808 \\
         & Equal-count random rejection & 86.94 & 5.33 & 0.6670 & 0.8617 & 0.7607 & 0.9627 \\
         \bottomrule
@@ -1403,7 +1451,7 @@ available for every abstained peptide.
     \caption{OOF-frozen selective prediction and benchmark transfer. (A, B)
     Training-OOF accepted error and MCC across coverage levels. (C--E) Realized
     coverage, accepted error, and MCC after applying the unchanged cutoff to
-    Test1 and Test2. Shading and error bars denote the manuscript-defined 95\%
+    test set 1 and test set 2. Shading and error bars denote the manuscript-defined 95\%
     bootstrap intervals; no benchmark-specific cutoff was recomputed.}
     \label{fig:selective_prediction}
 \end{figure}
@@ -1415,13 +1463,13 @@ index), forming a 16-peptide cohort. Before perturbation, baseline
 probabilities were recomputed and compared with the stored prediction vectors;
 the maximum absolute discrepancy for the 1D expert within the case cohort was
 $3.45\times10^{-4}$, and the corresponding 3D discrepancies were
-$5.49\times10^{-4}$ on Test1 and $1.14\times10^{-5}$ on Test2, none of which
+$5.49\times10^{-4}$ on test set 1 and $1.14\times10^{-5}$ on test set 2, none of which
 changed any decision. The interpretation analyses therefore describe model
 sensitivity on the frozen predictor rather than confirmed biological
 mechanisms.
 
 Mean pLDDT was strongly associated with the learned global structural gate
-(Spearman 0.960 on Test1, 0.950 on Test2, pooled 0.957), indicating that the
+(Spearman 0.960 on test set 1, 0.950 on test set 2, pooled 0.957), indicating that the
 model assigns less structural weight when predicted-structure confidence is
 lower. This is a model-use diagnostic and is not direct evidence of peptide
 flexibility, disorder, or conformational heterogeneity. Across 445 individual
@@ -1530,7 +1578,7 @@ evidence reliability, together with more consistent conformational evidence
 sources, are directions for future work.
 \section{CONCLUSIONS}
 GHXTox explores the complementary joint use of sequence and conformational
-evidence by combining a task-adaptive LoRA-ProtT5--Bi-Mamba sequence expert
+evidence by combining task-adaptive LoRA-ProtT5--Bi-Mamba sequence expert
 with a pLDDT-aware multi-scale structural expert through probability-level
 fusion; the two experts are independent and their complementarity is
 characterized by the structural expert correcting a subset of sequence errors
@@ -1541,14 +1589,14 @@ and is retained only for controlled ablations. The final predictor disables
 that residual and uses the structural expert's single-structure base
 probability. The 1D/3D weights (0.72/0.28) and the decision threshold
 (0.47022256531284556) were frozen from training OOF predictions and applied in
-the current evaluation without benchmark-specific retuning; Test1 and Test2
+the current evaluation without benchmark-specific retuning; test set 1 and test set 2
 are historical benchmarks, not newly blinded external sets.
 
-On the frozen historical Test1 and Test2 benchmarks, the model reaches MCC
+On the frozen historical test set 1 and test set 2 benchmarks, the model reaches MCC
 values of 0.8705 and 0.6673 and AUPRC values of 0.9674 and 0.8046, and the
 final fusion improves AUROC, AUPRC, and the Brier score relative to the
 calibrated 1D stream. The 3D expert correctly classified 36.92\% and 37.50\%
-of the respective Test1 and Test2 errors made by the 1D expert, with most of
+of the respective test set 1 and test set 2 errors made by the 1D expert, with most of
 these structural rescues occurring among non-toxic peptides. An OOF-frozen
 selective policy further reduced accepted-sample error to 2.71\% and 3.16\%
 at realized coverages of 88.54\% and 86.94\%, respectively, without
@@ -1589,7 +1637,7 @@ redistributing the source records.
 % TODO: processed data and fold manifests (train/test manifest, source_index,
 %       sequence, label, homology group, fold); three 1D checkpoints and one
 %       final 3D checkpoint; Platt scale/bias; fusion weights; full-precision
-%       threshold; Test1/Test2 prediction CSVs; metric JSON; bootstrap and
+%       threshold; test set 1 and test set 2 prediction CSVs; metric JSON; bootstrap and
 %       statistical outputs. Note reproduction limits or third-party licenses.
 
 \section*{Author Contributions}
@@ -1606,14 +1654,15 @@ The authors declare no conflicts of interest.
 % ============================================================================
 %  References: numbered by first appearance in the text.
 % ============================================================================
-\bibliographystyle{abbrv}
+\bibliographystyle{unsrt}
 \bibliography{references}
 
 % Caption inventories and delayed floats follow the references, matching the
-% organization of the supplied manuscript sample.
+% organization of the supplied manuscript sample. The sample suppresses
+% footer page numbers from Table Captions through the final figure pages.
 \clearpage
-\listoftables
-\listoffigures
+\pagestyle{empty}
+\thispagestyle{empty}
 \GHXprocessdelayedfloats
 
 \end{document}

@@ -1,0 +1,1724 @@
+  Peptide toxicity prediction by fusing task-adaptive protein
+language model with pLDDT-aware multi-scale 3D structural
+                      modeling: GHXTox
+              Liuyu Xu𝑎 , Kehan Gao𝑏 , Lechen Hao𝑏 , Shengli Zhang𝑐,∗
+𝑎 School of Computer Science and Technology, Xidian University, Xi’an 710071, P. R.
+
+China
+𝑏 School of Electronic Engineering, Xidian University, Xi’an 710071, P. R. China
+𝑐 School of Mathematics and Statistics, Xidian University, Xi’an 710071, P. R. China
+∗ Corresponding author. Email: shengli0201@163.com
+
+
+
+
+Abstract. Peptide toxicity is a major safety concern in peptide-based drug develop-
+ment, motivating accurate computational screening. Existing predictors often underuse
+three-dimensional (3D) structural information and provide limited cross-modal integra-
+tion. We propose GHXTox, a hierarchical dual-level fusion framework that combines
+task-adaptive ProtT5–Bi-Mamba sequence modeling with pLDDT-aware multi-scale
+structural modeling. The structural expert integrates sequence semantics, residue ge-
+ometry, and full-atom-derived chemical sites, and its probability is fused with that of
+the sequence expert using weights frozen from training out-of-fold predictions. On two
+frozen historical benchmarks, GHXTox achieved MCC values of 0.8705 and 0.6673
+and AUPRC values of 0.9674 and 0.8046 on test set 1 and test set 2, respectively.
+The two experts provided complementary evidence, while residue- and structure-level
+analyses supported model interpretability. An OOF-frozen selective-prediction rule re-
+duced accepted-sample error from 5.24% to 2.71% and from 5.33% to 3.16% at realized
+coverages of 88.54% and 86.94%, respectively. These retrospective results support
+confidence-aware sequence–structure fusion for peptide toxicity prediction and require
+confirmation on newly prefrozen external data.
+Keywords: peptide toxicity prediction; multimodal deep learning; protein language
+model; bidirectional Mamba; pLDDT-aware multi-scale 3D modeling; interpretability
+
+
+
+
+                                          1
+1 INTRODUCTION
+    Peptides are increasingly used as therapeutic candidates because of their high target
+specificity and functional diversity [1]. However, peptide toxicity remains a major
+safety concern during drug development, and the accurate and efficient identification
+of toxic peptides is a major bottleneck in peptide-based drug discovery [2]. Because
+conventional experimental toxicity assays are costly, time-consuming, and difficult to
+scale, reliable computational predictors are highly desirable [2].
+    Computational peptide toxicity prediction has evolved from traditional machine
+learning methods based on handcrafted physicochemical features toward deep learn-
+ing approaches with stronger representation-learning capability. Current mainstream
+methods can be roughly grouped into two categories. The first category operates on
+sequence-level (one-dimensional, 1D) and/or atomic-level (two-dimensional, 2D) rep-
+resentations. For example, ToxMSRC combines continuous bag-of-words (CBOW) em-
+beddings, multi-scale convolutional neural networks, and a bidirectional long short-term
+memory network with residual connections, achieving strong performance on the bench-
+mark dataset [2]. ToxPLTC integrates pooled ProtT5 embeddings, borderline-SMOTE
+augmentation, and a text convolutional neural network [3]. ToxiPep fuses context-aware
+sequence representations with atomic-level graphs through a cross-attention mecha-
+nism [4]. HyPepTox-Fuse further combines embeddings from multiple protein language
+models with conventional descriptors [5]. Although these models achieve strong per-
+formance within their respective modalities, they largely neglect the three-dimensional
+(3D) conformations of peptides, which are closely related to toxicity; cross-dimensional
+information interaction and mutual validation remain limited, and their interpretability
+is mostly confined to the sequence level.
+    The second category attempts to exploit 3D structural information. PeptiTox uses
+ESM2 sequence embeddings together with ESMFold-predicted 3D structures and ge-
+ometric graph neural networks [6]. StrucToxNet feeds ProtT5 sequence embeddings
+and ESMFold-predicted structures into an equivariant graph neural network (EGNN)
+and systematically analyzes structural quality [7]. These studies demonstrate the value
+of 3D conformations for toxicity prediction. However, these predictors still depend on
+predicted structures whose reliability can vary for short peptides, and both evaluate one
+predicted conformation per sequence rather than an explicit conformer ensemble. Exist-
+ing designs use predicted-structure confidence primarily for filtering or structural-quality
+analysis rather than as a continuous message-level reliability signal [6–8]. Moreover, the
+fusion between the sequence and structure branches remains relatively shallow, and no
+systematic multi-dimensional fusion that combines task-adaptive sequence model with
+confidence-aware multi-scale structure modeling has been established.
+    To address these limitations, we propose GHXTox, an interpretable hierarchical dual-
+level fusion framework for peptide toxicity prediction. Task-adaptive 1D sequence expert
+combines a ProtT5 protein language model, adapted by low-rank adaptation (LoRA),
+with a bidirectional Mamba state-space encoder and three-seed ensembling [9–11].
+A sequence-enhanced 3D structural expert integrates sequence semantics with spatial
+structure through pLDDT-aware cross-attention, ESMFold-derived geometry, full-atom
+chemical sites, and confidence gating across multiple structural scales; PepFlow and
+
+
+
+
+                                             2
+AlphaFold2/ColabFold conformer ensembles were used to train and evaluate a separate
+residual head while the single-structure backbone remained frozen; this head is retained
+only for controlled ablations, and the final predictor uses the single-structure ESM-
+Fold anchor [12–15]. The two expert probabilities are fused at the probability level with
+weights fixed on training out-of-fold (OOF) predictions; the 1D probabilities are first cal-
+ibrated on the same OOF table, and no benchmark labels are used during this selection.
+Gated sequence–structure cross-attention inside the structural expert further informs the
+interaction design [16]. Ablation experiments show that the contribution of structural
+evidence is dataset- and metric-dependent: fusion improves several fixed-threshold and
+probability-quality measures on test set 1 while maintaining broadly comparable perfor-
+mance on test set 2. Post hoc analyses characterize residue-level sensitivity, confidence
+gating, chemical-site perturbations, and expert disagreement without assigning causal
+biological meaning to these signals. The framework is evaluated on the frozen historical
+benchmarks described in Section 2.1.
+    In summary, the main contributions of this work are threefold: (1) we propose GHX-
+Tox, an interpretable hierarchical dual-level fusion framework that explores the comple-
+mentary joint use of one-dimensional sequence and three-dimensional conformational
+information, integrating task-adaptive 1D protein language model with pLDDT-aware
+multi-scale 3D structure modeling and combining the two experts at the probability level
+(Sections 2.5 and 3.2); (2) the 3D branch designs a multi-scale structural information
+extraction strategy spanning from local residue functional groups to the whole peptide,
+and incorporates pLDDT confidence into structural feature processing through contin-
+uous down-weighting and dynamic gating; and (3) extensive experiments on the frozen
+historical benchmark test sets show that GHXTox improves several fixed-threshold and
+probability-quality measures on test set 1 while maintaining broadly comparable perfor-
+mance on test set 2, while ablation, robustness, and interpretability analyses characterize
+the conditions under which sequence and structural evidence are complementary.
+
+2 MATERIALS AND METHODS
+2.1 Datasets
+    We evaluate GHXTox on the benchmark datasets constructed by CAPTP [17] and
+subsequently adopted by ToxMSRC [2]. Following the data construction protocol of
+ToxMSRC [2], toxic peptide sequences were merged from three databases, namely CSM-
+Toxin [18], ToxinPred2 [19], and ATSE [20], and sequences longer than 50 residues were
+removed. Non-toxic sequences were retrieved from UniProt [21] using the query “NOT
+KW-0800 AND NOT KW-0020 AND reviewed:true”, and sequences containing non-
+standard amino acids or exceeding 50 residues were excluded. After combining the two
+groups and removing samples with conflicting labels, CD-HIT [22] was applied with
+a sequence-identity threshold of 0.9 to eliminate redundant sequences, yielding 2,138
+toxic and 5,375 non-toxic peptides. Following the same partition as ToxMSRC [2], we
+used 85% of the data as the training set and the remaining 15% as benchmark test set
+1, resulting in 1,818 toxic and 4,569 non-toxic training peptides and 320 toxic and 806
+non-toxic test set 1 peptides. An additional benchmark, test set 2, containing 46 toxic
+and 536 non-toxic peptides, is used for frozen historical evaluation. Both test set 1 and
+
+
+
+
+                                             3
+test set 2 had been observed during historical project development and are therefore
+treated as frozen historical benchmarks rather than newly blinded external validation
+sets; their labels were not used in the formal OOF calibration, fusion-weight selection, or
+threshold-freezing procedure. ToxinPred 3.0 [23] was consulted as an external method
+and data-source reference during project development, but its records were not added
+to the present training set or to the formal test set 1 and test set 2 result tables. Table 1
+summarizes the statistics of the datasets used in this study.
+
+2.2 Overview of the Model
+    GHXTox is a hierarchical dual-level fusion framework for peptide toxicity prediction:
+task-adaptive one-dimensional (1D) sequence expert and a sequence-enhanced three-
+dimensional (3D) structural expert generate independent probabilities, interact internally
+at the feature level, and are combined at the probability level.
+    The 1D expert processes the peptide sequence with a LoRA-adapted ProtT5 encoder
+[9, 10] followed by a bidirectional Mamba state-space model [11], averages three seed
+models, and applies OOF-fitted Platt calibration to produce 𝑝 1D (Section 2.3). The
+3D expert integrates sequence semantics, residue geometry, full-atom chemical sites,
+and pLDDT confidence across residue, local-spatial, chemical-site, and peptide scales,
+combines sequence and spatial states through pLDDT-aware cross-attention, and emits
+𝑝 SE3D (Section 2.4).
+    The two probabilities are combined at the probability level; the fusion rule, the
+decision threshold, and the final output are described in Section 2.5. The complete
+inference path is summarized in Figure 1.
+
+2.3 Task-Adaptive 1D Sequence Modeling
+    The 1D sequence expert learns toxicity-related contextual semantics directly from
+peptide sequences. Instead of reducing a frozen protein-language-model output to
+a fixed mean vector, GHXTox preserves the residue-level representations of ProtT5,
+adapts the pretrained encoder to the toxicity task through low-rank adaptation (LoRA),
+models residue dependencies with a bidirectional Mamba encoder, and aggregates the
+residue states by masked mean pooling before classification. Three full-data models with
+different random seeds are combined by equal-weight probability averaging followed by
+Platt calibration fitted exclusively on training out-of-fold (OOF) predictions.
+    Each residue is first written in the space-separated format expected by the ProtT5
+tokenizer. A binary residue-validity mask is constructed from the raw residue count,
+applied to invalid positions before each selective state-space scan, and reused in the
+final pooling; canonical inference follows the fixed batch-construction procedure used
+to generate the reported predictions. The tokenized sequence is processed by the ProtT5-
+XL-UniRef50 encoder [9] with LoRA, yielding residue-level representations that retain
+position-specific contextual semantics. To adapt this general-purpose encoder to the
+toxicity task, LoRA [10] is applied to all of its linear layers with rank 𝑟 = 8, scaling
+𝛼 = 16, and dropout 0.1: the pretrained weights stay frozen, and only the zero-initialized
+low-rank update (W = W0 + 𝛼𝑟 BA) and the downstream modules are trainable. The
+1024-dimensional representations are then projected into the 192-dimensional Mamba
+hidden space through a layer-norm–GELU–dropout block.
+
+
+
+                                             4
+    Two bidirectional Mamba layers [11] are then stacked after the projection block to
+capture the sequential dependencies relevant to peptide toxicity. Each directional block
+follows the standard selective state-space formulation with input-dependent discretiza-
+tion and a 16-dimensional recurrent state; forward and backward scans are applied to the
+masked sequence, and their outputs are concatenated, fused by a linear layer, and added
+through a residual connection, so every residue is contextualized by both its N-terminal
+and C-terminal contexts. Invalid positions are masked before the selective scan and
+excluded from masked pooling; because the depthwise convolution precedes this scan
+mask in the implementation, the reported inference protocol retains the canonical batch
+construction. The resulting residue states are aggregated by masked mean pooling over
+the valid positions, and a layer-normalized single-output linear head yields the uncal-
+ibrated toxicity probability. Because non-toxic peptides far outnumber toxic peptides
+in the training data, a positive-class-weighted binary cross-entropy loss is used instead
+of SMOTE or Borderline-SMOTE, with the positive-class weight 𝑤 + = 𝑁− /𝑁+ recom-
+puted from each fold’s training partition; this emphasizes the minority class without
+generating synthetic samples or leaking held-out information.
+    To reduce the variance of a single training run, three 1D models are trained under
+identical settings with random seeds 42, 123, and 2025, and the ensemble score is the
+equal-weight arithmetic average of the three full-data models; no seed is selected on test
+performance and no seed-specific weight is introduced. Although averaging reduces
+variance, neural-network probabilities may remain miscalibrated, so a monotonic two-
+parameter Platt calibrator [24] is fitted to the training OOF scores (generated with the
+fixed group-aware five-fold partition, Section 2.5) and applied to the three-seed average
+at inference. Because the calibration is monotonic, it preserves the sample ranking.
+Labels from test set 1 and test set 2 are not used for member selection, calibration fitting,
+or threshold optimization. The calibrated probability 𝑝 1D is the sequence-expert output
+used in the top-level fusion (Section 2.5); no additional calibrator is fitted after fusion.
+    The complete 1D pipeline, from the peptide sequence to the calibrated probability,
+is summarized as follows:
+
+          HPLM = ProtT5LoRA (S) ∈ R 𝐿×1024 , X (0) = Proj HPLM ∈ R 𝐿×192 ,
+                                                                     
+                                                                                          (1)
+                                               
+                   Í𝐿                       (0)
+                      𝑖=1 𝑚 𝑖 BiMamba X
+            h1𝐷 =             Í𝐿
+                                                  𝑖
+                                                    ∈ R192 ,                              (2)
+                                𝑖=1 𝑚 𝑖
+            𝑧1𝐷 = w⊤
+                   𝑐 LN (h1𝐷 ) + 𝑏 𝑐 ,       𝑝 raw
+                                               1𝐷 = 𝜎 (𝑧 1𝐷 ) ,                          (3)
+                                         3
+                                                          !!       !
+                                     1 ∑︁ (𝑘)
+           𝑝 1𝐷 = 𝜎 𝑎 logit clip           𝑝 , 𝜀, 1 − 𝜀       +𝑏                         (4)
+                                     3 𝑘=1
+
+where Proj is the layer-norm–GELU–dropout projection, m is the residue-validity mask,
+𝑝 (𝑘) is the probability of the 𝑘-th seed model, and 𝑎, 𝑏 are the OOF-fitted monotonic
+Platt parameters (with logit clip 𝜀 = 10−6 ).
+
+2.4 pLDDT-Aware Multi-Scale 3D Structural Modeling
+   Peptide toxicity is influenced not only by amino acid composition and linear residue
+order but also by the three-dimensional (3D) arrangement of charged groups, hydropho-
+
+
+
+                                             5
+bic regions, aromatic systems, and sulfur-containing moieties. Because peptides are
+generally short, conformationally flexible, and poorly covered by experimentally deter-
+mined structures, treating a single predicted conformation as an error-free structural
+observation may amplify structure-prediction errors, whereas C𝛼-only or peptide-level
+summary representations fail to capture the local spatial-chemical environments that are
+relevant to toxicity [6–8].
+    To address these limitations, GHXTox employs a pLDDT-aware multi-scale struc-
+tural expert that captures complementary single-structure information at four levels:
+residue semantics, spatial residue neighborhoods, full-atom chemical sites, and peptide-
+level global properties. Operationally, ESMFold provides a full-atom structural anchor
+and residue-level pLDDT values, while frozen ESM2 embeddings and explicit residue
+descriptors provide the internal sequence-semantic states. C𝛼 geometry is encoded on
+a hybrid sequence/spatial-neighbor graph by a pLDDT-weighted equivariant network,
+and full-atom chemical pseudo-sites provide a zero-initialized residue-level correction.
+Contextual sequence states then query the confidence-gated spatial states through cross-
+attention; masked residue pooling and peptide-level physicochemical descriptors pro-
+duce the structural logit. A separately trained, availability-masked conformer-ensemble
+residual can modify this logit only in controlled ablations and is disabled in the canonical
+benchmark and public-inference pathway.
+    Sections 2.4.1–2.4.6 specify this pipeline in order: single-structure prediction and
+conformer preparation, residue feature construction and the hybrid geometric graph,
+pLDDT-aware equivariant encoding, full-atom chemical-site message passing and the
+optional conformer residual, sequence–structure cross-attention, and global feature in-
+tegration with classification. Throughout, pLDDT is treated as a continuous reliability
+signal rather than a hard filter. It enters the residue and edge features, weights geometric
+and chemical-site messages, and controls residue- and peptide-level structural gates.
+Low-confidence structural evidence is thereby down-weighted rather than removed,
+preserving structural coverage while limiting the influence of uncertain coordinates.
+pLDDT is interpreted here as a local confidence estimate produced by the structure-
+prediction model, not as an experimentally determined measure of structural accuracy,
+conformational flexibility, or biological activity.
+2.4.1 Peptide Structure Prediction and Conformer Preparation
+    For a peptide sequence of length 𝐿, 𝑆 = (𝑎 1 , 𝑎 2 , . . . , 𝑎 𝐿 ), ESMFold is first used
+to predict its three-dimensional structure [12]. The predicted structure is stored as a
+full-atom PDB file, from which residue-level C𝛼 coordinates, backbone coordinates,
+full-atom-derived chemical-site coordinates, and pLDDT scores are extracted. The C𝛼
+coordinates are collected as X = [x1 , . . . , x 𝐿 ] ⊤ ∈ R 𝐿×3 , A denotes the full-atom-PDB-
+derived backbone and chemical-site geometry, and q = (𝑞 1 , . . . , 𝑞 𝐿 ) ∈ [0, 1] 𝐿 contains
+the residue-level pLDDT confidence scores rescaled to [0, 1], where 𝑞𝑖 denotes the
+residue-level pLDDT score of residue 𝑖. The C𝛼 coordinates serve as the primary spatial
+variables of the residue-level equivariant graph, whereas the full-atom coordinates are
+used to construct local chemical sites. Before geometric encoding, the coordinates are
+centered at the peptide centroid to remove the effect of absolute translation.
+    A single predicted structure provides a common structural anchor but cannot repre-
+
+
+
+                                             6
+sent potential conformational heterogeneity. The conformer-residual stage was therefore
+trained, with the single-structure spatial backbone, chemical-site branch, and base clas-
+sifier frozen, on a multi-source conformer variant using a 2,795-peptide cohort with up
+to eight validated, aligned conformers per peptide. PepFlow is a generalized Boltzmann
+generator that performs direct all-atom conformational-ensemble sampling from the
+peptide energy landscape rather than predicting a single structure; it has been shown
+to efficiently recapitulate experimental ensembles of short linear motifs (SLiMs, typ-
+ically 3–15 residues) and to generate all-atom conformations for peptides of different
+lengths [15]. Short-peptide conformations are therefore provided by PepFlow. In our
+pipeline, up to eight conformations are retained per input peptide, and PepFlow is applied
+to peptides of at most 15 residues (the actual training cohort spans 11–15 residues and
+comprises 761 records with eight conformers each). Longer peptides are provided by
+AlphaFold2/ColabFold: AlphaFold2 is a high-accuracy single-structure predictor [13],
+and its peptide-structure performance has been systematically evaluated for peptides
+of 16–60 residues [8], an interval that covers the 16–30-residue cohort; ColabFold,
+an MSA-accelerated AlphaFold2 implementation [14], is run in our pipeline with five
+models and multiple seeds to generate candidate conformations. These candidates are
+filtered by an average-pLDDT quality floor and then reduced to eight diverse conform-
+ers per peptide by farthest-point sampling on Kabsch-aligned C𝛼-RMSD [25], yielding
+2,034 training records. These sources are represented explicitly in the residual head;
+nevertheless, generator identity remains partially coupled to peptide length and is treated
+as a limitation rather than as an independently identified causal factor.
+     For controlled ablation only, a test-side conformer cache was constructed with fixed
+source and sequence-matching policies without using test set 1 or test set 2 labels; these
+caches are not used by the final benchmark predictor or the public inference interface.
+To remove arbitrary rigid-body differences and make the statistics comparable across
+peptides, every admitted ensemble is normalized before being consumed by the residual
+branch. An ensemble is represented as C = {X (1) , . . . , X (𝑀) }, 1 ≤ 𝑀 ≤ 8, where
+X (𝑚) ∈ R 𝐿×3 denotes the C𝛼 coordinates of conformer 𝑚. First, each conformer
+must reproduce the input FASTA sequence residue by residue (both the C𝛼 sequence
+and the chemical-site parse are verified); non-matching conformers are rejected, so all
+conformers share the same residue-index order without reordering or truncation. Second,
+taking the first conformer as the reference, every conformer is centered and aligned to
+the reference frame by Kabsch alignment, which obtains an optimal rotation by singular
+value decomposition with reflection correction, yielding the aligned coordinates and the
+per-residue fluctuation:
+                                                 
+                      X̃ (𝑚) = X (𝑚) − 1 𝐿 x̄ (𝑚)⊤ R𝑚 ,       R 𝑚 = U 𝑚 V⊤
+                                                                         𝑚,
+                                                      # 1/2
+                                                                                        (5)
+                               "    𝑀
+                                 1 ∑︁ (𝑚)           2
+                   RMSF𝑖 =               x̃𝑖 − x̄𝑖          ,
+                                 𝑀 𝑚=1              2
+
+
+where X̃ (𝑚) denotes the aligned C𝛼 coordinates of conformer 𝑚, 1 𝐿 is the all-ones
+vector, x̄ (𝑚) is the centroid of conformer 𝑚, R𝑚 is the optimal rotation obtained from
+the singular value decomposition of the centered cross-covariance between conformer
+
+
+
+                                            7
+𝑚 and the reference conformer (with reflection correction), x̄𝑖 is the ensemble-mean
+coordinate of residue 𝑖, and RMSF𝑖 is the corresponding per-residue root-mean-square
+fluctuation.
+     After alignment, the ensemble-mean coordinates, per-residue root-mean-square fluc-
+tuation (RMSF), and per-conformer RMSD are computed. Rotation- and translation-
+invariant quantities, including per-conformer radius of gyration, per-residue-pair dis-
+tance mean and standard deviation, and 6/8/10 Å contact occupancies (the fraction of
+conformers in which a residue pair is closer than the cutoff) – are computed directly from
+the raw coordinates. The resulting statistics are rescaled by fixed factors (e.g., RMSF/10
+and distances/20) into bounded residue-level (8-dimensional) and peptide-level (12-
+dimensional) features, and the conformer count is normalized as 𝑀/8. Regarding
+confidence, AlphaFold2/ColabFold conformers carry the real pLDDT read from the
+PDB B-factor column, whereas PepFlow does not output pLDDT and is assigned a
+fixed substitute value of 0.7; this substitute is explicitly not treated as pLDDT in the
+single-structure quality gating, which remains governed by the ESMFold backbone, and
+PepFlow contributes only cross-conformer fluctuation and occupancy information. The
+normalized ensemble statistics are consumed by a small logit residual branch controlled
+by a binary availability indicator 𝑐 conf (mechanism detailed in Section 2.4.4); when
+𝑐 conf = 0, the correction vanishes exactly and the model reduces to the single-structure
+pathway. Missing conformer statistics are treated as unavailable data rather than as
+evidence of structural rigidity; the model draws no flexibility inference from the absence
+of conformers and simply falls back to the single-structure prediction.
+     The generated conformers are computational samples rather than experimentally
+determined trajectories or rigorous thermodynamic ensembles. Consequently, RMSF,
+contact occupancy, and distance variance are interpreted as sampling-derived descriptors
+of conformational variation rather than direct measurements of peptide dynamics in
+solution.
+2.4.2 Residue Feature Construction and Hybrid Geometric Graph
+    Given the predicted single structure and its confidence scores (Section 2.4.1),
+the structural expert constructs two complementary residue-level representations:
+an internal sequence-semantic representation and a spatial-geometric representation.
+The sequence-semantic subbranch uses frozen ESM2 residue embeddings [12] and
+a lightweight Transformer; unlike the independent top-level 1D prediction expert of
+Section 2.3, it serves the residue-level sequence–structure alignment inside the structural
+expert.
+    For residue 𝑖, the input to the internal sequence-semantic subbranch is
+                               h                                 i
+                         seq     AA     group    res         ESM2
+                       u𝑖 = e𝑖 ∥ e𝑖           ∥ f𝑖 ∥ 𝑃ESM e𝑖         ,                  (6)
+                                                             group
+where e𝑖AA ∈ R32 is the amino acid category embedding, e𝑖        ∈ R12 is the functional-
+group category embedding, f𝑖res ∈ R42 denotes the explicit residue-level physicochemical
+descriptors, and e𝑖ESM2 ∈ R1280 is the ESM2-650M residue representation; the projection
+𝑃ESM maps the ESM2 representation to 128 dimensions. Stacking the residue-level
+feature vectors yields the sequence-feature matrix 𝑈seq ∈ R 𝐿×214 (214 = 32 + 12 +
+42 + 128). After a linear projection and positional encoding, a two-layer Transformer
+
+
+
+                                            8
+encoder (hidden size 128, four attention heads, feed-forward dimension 512) produces
+the contextualized sequence states Hseq ∈ R 𝐿×128 , which encode the contextual sequence
+semantics of each residue and serve as the query representation in the sequence–structure
+cross-attention module [26].
+    In the spatial subbranch, the initial representation of residue 𝑖 is
+                                 h                               i
+                      h𝑖(0) = 𝑃sp f𝑖res ∥ g𝑖 ∥ 𝑞𝑖 ∥ 𝑃ESM e𝑖ESM2 ,
+                                           geo
+                                                                                      (7)
+
+        geo
+where g𝑖 ∈ R16 is a lightweight geometric descriptor derived from the C𝛼 coordinates
+and pLDDT scores, including (i) residue-level pLDDT and local confidence statistics;
+(ii) radial position, contact fractions, and soft spatial density; (iii) nearest-neighbor,
+nonlocal-neighbor, and local sequential distances; and (iv) sine/cosine encodings of the
+C𝛼-trace angles and torsions. The residue-level confidence 𝑞𝑖 additionally enters the
+initial representation as an explicit scalar. These deterministic descriptors provide stable
+local geometric priors without imposing an overly complex handcrafted representation
+for short and uncertain predicted peptide structures.
+     GHXTox then constructs a hybrid residue graph G = (V, Eseq ∪ Eknn ) in which each
+residue corresponds to one node: sequential edges Eseq connect adjacent residues and
+preserve peptide-chain continuity, whereas Eknn connects each residue to its 10 nearest
+spatial neighbors and is symmetrized. The hybrid graph therefore captures both covalent
+sequence order and nonlocal spatial contacts while avoiding large variations in graph
+density that may arise from a single fixed-distance cutoff; equivalently, 𝐴𝑖 𝑗 ∈ {0, 1}
+indicates whether residues 𝑖 and 𝑗 are connected by a sequential or k-nearest-neighbor
+edge.
+     For residues 𝑖 and 𝑗, the C𝛼 distance 𝑑𝑖 𝑗 = ∥x𝑖 − x 𝑗 ∥ 2 is encoded by 16 radial basis
+functions with centers 𝜇 𝑘 uniformly spaced over 0–24 Å, 𝜙 𝑘 (𝑑𝑖 𝑗 ) = exp[−𝛾(𝑑𝑖 𝑗 − 𝜇 𝑘 ) 2 ]
+with 𝛾 = 1/(𝜇 𝑘+1 − 𝜇 𝑘 ) 2 . The base edge representation additionally includes the
+pairwise structural confidence and the normalized sequence separation:
+
+                               √                     log(1 + |𝑖 − 𝑗 |)
+                         𝑐𝑖 𝑗 = 𝑞𝑖 𝑞 𝑗 ,    𝑠𝑖 𝑗 =                     ,                  (8)
+                                                       log(𝐿 + 1)
+
+                                                           approaches one
+so that 𝑠𝑖 𝑗 is small for sequentially adjacent residues and                    for distant
+residues. The resulting edge feature is therefore e𝑖 𝑗 = 𝝓(𝑑𝑖 𝑗 ) ∥ 𝑐𝑖 𝑗 ∥ 𝑠𝑖 𝑗 , which lets
+the model distinguish sequentially adjacent contacts, long-range spatial contacts, and
+contacts supported by different levels of structural confidence.
+2.4.3 pLDDT-Aware Equivariant Graph Encoding
+    To learn three-dimensional representations without relying on a particular global
+coordinate frame, the spatial branch employs three E(3)-equivariant graph neural net-
+work layers [27]. The network updates residue features using rotation- and translation-
+invariant quantities while updating coordinates equivariantly. Consequently, a global
+rigid transformation of the peptide structure does not change the predicted toxicity,
+whereas intermediate coordinate representations transform consistently with the input.
+    At layer ℓ, the message from residue 𝑗 to residue 𝑖 is computed as m𝑖(ℓ)    (ℓ) (ℓ)
+                                                                          𝑗 = 𝜙 𝑒 [h𝑖 ∥
+h (ℓ)
+  𝑗   ∥ e𝑖(ℓ)           (ℓ)
+           𝑗 ], where 𝜙 𝑒 is a message multilayer perceptron. To prevent uncertain
+
+
+
+
+                                              9
+or distant contacts from contributing as strongly as local high-confidence contacts, a
+continuous edge weight is defined as
+                          (ℓ) h
+                      © 𝑑𝑖 𝑗 ª
+                                                        i
+        (ℓ)                                          𝜌
+      𝑤 𝑖 𝑗 = 𝐴𝑖 𝑗 exp­−     ® 𝑞 min + (1 − 𝑞 min ) 𝑐𝑖 𝑗 ,                     𝑞 min = 0.1,   𝜌 = 1.5,    (9)
+                         12
+                      «        ¬
+
+The term exp(−𝑑𝑖(ℓ)𝑗 /12) imposes a smooth distance decay with a characteristic decay
+length of 12 Å, and both the distance and the edge weight are recomputed at each layer
+from the current coordinates. Here, 𝐴𝑖 𝑗 ∈ {0, 1} is the adjacency indicator of the hybrid
+                                            √
+graph defined in Section 2.4.2, and 𝑐𝑖 𝑗 = 𝑞𝑖 𝑞 𝑗 is the pairwise structural confidence
+derived from the residue-level pLDDT scores 𝑞𝑖 and 𝑞 𝑗 defined in Section 2.4.1. The
+minimum weight 𝑞 min prevents low-confidence regions from being completely discon-
+nected, whereas the exponent 𝜌 increases the relative contribution of high-confidence
+contacts. The distance-decay term further reduces the influence of more distant spatial
+neighbors.
+    These pLDDT-aware weighted edge messages are then aggregated at each node with
+a normalization floor. For node 𝑖, the aggregated message is
+                                                  Í       (ℓ) (ℓ)
+                                                      𝑗 𝑤 𝑖 𝑗 m𝑖 𝑗
+                                     m𝑖(ℓ) =          Í                 ,                              (10)
+                                                              (ℓ)
+                                               max         𝑗 𝑤𝑖 𝑗 , 1
+
+and the node features are updated as
+                                    n              h             io
+                        h𝑖(ℓ+1) = LN h𝑖(ℓ) + 𝜙 ℎ(ℓ) h𝑖(ℓ) ∥ m𝑖(ℓ) .                                      (11)
+
+The coordinates are updated equivariantly as
+                                                                                      
+                                                             (ℓ)
+                                                                       x𝑖(ℓ) − x (ℓ)
+                                                      Í
+                                                          𝑗 𝛼𝑖 𝑗                 𝑗
+                          x𝑖(ℓ+1) = x𝑖(ℓ) + 0.05               Í                    ,                  (12)
+                                                                          (ℓ)
+                                                         max           𝑗 𝑤𝑖 𝑗 , 1
+
+where                                           h              i
+                                   𝛼𝑖(ℓ)
+                                      𝑗  = tanh   𝜙 (ℓ)
+                                                    𝑥     m (ℓ)
+                                                           𝑖𝑗      𝑤 𝑖(ℓ)
+                                                                       𝑗                                 (13)
+is a bounded coordinate-update coefficient generated from the edge message and pairwise
+distances. The coordinates are recentered after every layer to reduce numerical drift.
+Because the update depends only on scalar messages, distances, and relative coordinate
+vectors, the operation remains equivariant to rigid rotations and translations.
+     Each layer update performs one round of message passing, i.e., one hop of spatial-
+context propagation over the hybrid graph, so a single layer can aggregate only the
+direct neighborhood of each node. Because toxicity-related spatial patterns often span
+multiple residues (for example, spatial clusters formed by several charged, aromatic, or
+hydrophobic residues), the model must aggregate multi-hop neighborhood information
+along the graph; stacking layers therefore enlarges the receptive field hop by hop: the
+first layer primarily encodes direct geometric neighbors, whereas subsequent layers in-
+tegrate higher-order spatial environments through repeated message passing. GHXTox
+
+
+
+                                                    10
+uses three layers, a depth that balances context integration against model complexity and
+overfitting risk on short and uncertain predicted peptide structures. Unlike approaches
+that simply append pLDDT as an ordinary node feature, GHXTox uses pLDDT to di-
+rectly modulate the strength of geometric messages, allowing structural uncertainty to
+influence representation learning at the propagation stage. Low pLDDT does not imply
+that a residue is biologically unimportant; it may reflect prediction error or genuine
+conformational flexibility, so the model reduces the reliability of uncertain coordinate
+evidence while preserving the residue’s sequence-semantic and physicochemical fea-
+tures.
+2.4.4 Full-Atom Chemical-Site Message Passing
+      A C𝛼-based residue graph captures the global fold and spatial neighborhoods but
+cannot resolve chemically distinct moieties within the same side chain. For example,
+tyrosine contains both an aromatic ring and a hydroxyl group, whereas tryptophan
+contains an aromatic system and an indole nitrogen. Compressing each side chain into
+a single centroid would mix these chemically different moieties. GHXTox therefore
+extracts chemistry-aware pseudo-sites from the predicted full-atom PDB structure and
+processes them with a dedicated local message-passing branch [28].
+      To retain this chemical detail, up to two chemical sites are kept for each residue. Site
+identity is represented by an eight-dimensional multi-hot vector t𝑖𝑟 ∈ {0, 1}8 allowing
+overlapping types: positive, negative, donor, acceptor, aromatic, hydrophobic, sulfur,
+and conformational, where 𝑟 indexes the chemical site within residue 𝑖. Multiple types
+may be assigned to the same site: for example, the cysteine sulfur site is labeled as donor,
+hydrophobic, and sulfur-containing, whereas the proline ring is labeled as hydrophobic
+and conformationally constrained; the aromatic ring and hydroxyl group of tyrosine are
+represented as separate sites, as are the aromatic system and the indole NE1 nitrogen
+(donor) of tryptophan.
+      Each site is further localized and oriented in the predicted structure: its coordinate
+is the mean position of the heavy atoms defining the corresponding chemical moiety,
+and its orientation is represented by either a bond direction or an unsigned plane nor-
+mal. Because the sign of a plane normal is arbitrary, downstream directional features
+use absolute cosines, preserving rotation invariance and eliminating orientation-sign
+ambiguity. Combining these attributes, the initial representation of site 𝑟 in residue 𝑖
+is z𝑖𝑟(0) = 𝜙site [t𝑖𝑟 ∥ 𝑞𝑖 ∥ 𝑜𝑖𝑟valid ], where 𝑞𝑖 is the pLDDT score of the parent residue and
+𝑜𝑖𝑟valid indicates whether a reliable orientation could be constructed; the input is projected
+into a 64-dimensional hidden space.
+      Because chemical interactions depend on spatial proximity, edges are established
+between valid sites separated by no more than 16 Å; same-residue site edges are kept,
+preserving spatial relationships between chemically different moieties in complex side
+chains. Each edge carries four complementary feature families. First, the raw distance
+in Å is encoded using 16 radial basis functions, 𝝓raw (𝑑𝑢𝑣 ) ∈ R16 . Second, a peptide-
+size-normalized distance is constructed. The radius of gyration of the C𝛼 coordinates
+
+
+
+
+                                              11
+is                    v
+                      u
+                      t       𝐿                             𝐿
+                          1 ∑︁                           1 ∑︁                𝑑𝑢𝑣
+               𝑅𝑔 =             ∥x𝑖 − x̄∥ 22 ,    x̄ =         x𝑖 ,   𝑑¯𝑢𝑣 =     ,         (14)
+                          𝐿 𝑖=1                          𝐿 𝑖=1               𝑅𝑔
+where x̄ denotes the centroid of the valid C𝛼 coordinates, and the normalized distance
+is encoded by eight radial basis functions over the interval 0–4, 𝝓norm ( 𝑑¯𝑢𝑣 ) ∈ R8 .
+The raw representation describes the physical separation in Å, whereas the normalized
+representation describes the separation relative to the overall peptide size, allowing the
+model to distinguish, for example, an 8 Å contact in a compact short peptide from an
+8 Å contact in a larger peptide. Third, four rotation-invariant orientation features are
+                                                    valid ], which describe the alignment of the
+used, o𝑢𝑣 = [|o𝑢 · r𝑢𝑣 |, |o𝑣 · r𝑣𝑢 |, |o𝑢 · o𝑣 |, 𝑜𝑢𝑣
+source orientation with the intersite direction, the alignment of the target orientation
+with the reverse direction, the mutual orientation of the two sites, and orientation
+availability. Fourth, six explicit compatibility channels are used: opposite-charge,
+donor–acceptor, aromatic–aromatic, positive–aromatic (cation–𝜋), sulfur–sulfur, and
+hydrophobic–hydrophobic compatibility. These channels encode candidate chemical
+compatibility patterns available to the model; they do not imply that a true salt bridge,
+hydrogen bond, cation–𝜋 interaction, disulfide bond, or hydrophobic core is present in
+the predicted structure.
+    Combining these families yields the full chemical-site edge representation
+                chem                                              chem √
+                     = 𝝓raw (𝑑𝑢𝑣 ) ∥ 𝝓norm ( 𝑑¯𝑢𝑣 ) ∥ o𝑢𝑣 ∥ c𝑢𝑣
+                                                                               
+               e𝑢𝑣                                                     ∥ 𝑞𝑢 𝑞𝑣 ,            (15)
+
+in which pLDDT enters the chemical-site features as a confidence channel. At layer
+𝑙, each site message is computed from the two site states and the edge representation,
+weighted by the pairwise confidence, and aggregated over the neighborhood. After two
+message-passing layers, valid sites belonging to the same residue are mean-pooled, and
+the residue-level chemical residual and the chemical-enhanced spatial state are
+                                            h                       i
+                               (𝑙)    (𝑙)
+                            m𝑢𝑣    = 𝜙chem    z𝑢(𝑙) ∥ z𝑣(𝑙) ∥ e𝑢𝑣
+                                                               chem
+                                                                      ,
+                                       Í            √          (𝑙)
+                               (𝑙)        𝑢∈N (𝑣) 𝑞 𝑢 𝑞 𝑣 m𝑢𝑣
+                            m̄𝑣 =         Í            √          ,
+                                     max 𝑢∈N (𝑣) 𝑞 𝑢 𝑞 𝑣 , 1                      (16)
+                                                       
+                          Δh𝑖chem = Wchem Mean z𝑖𝑟(2) ,
+                                              𝑟∈S𝑖
+                                   sp   EGNN
+                                  h𝑖 = h𝑖    + Δh𝑖chem ,
+                                                                                   √
+where the aggregation weights the incoming messages by the pairwise confidence 𝑞 𝑢 𝑞 𝑣 ,
+continuing the pLDDT-aware weighting of information extraction. The projection Wchem
+and its bias bchem are zero-initialized, so that Δh𝑖chem = 0 at the beginning of training.
+This conservative residual design allows the new chemical-site branch to progressively
+learn useful corrections from an intact geometric backbone rather than perturbing the
+existing spatial representation with a randomly initialized contribution.
+    Beyond these residue-level corrections, the structural expert additionally allows
+multi-conformer statistics to refine the prediction through a logit-level residual [29].
+To avoid the high cost of running the complete geometric network independently on
+
+
+
+                                                 12
+every conformer, GHXTox compresses the ensemble descriptors normalized in Section
+2.4.1 into a lightweight statistical residual: residue-level ensemble features are encoded
+and pooled with both masked-mean and masked-max operations, the peptide-level de-
+scriptor is processed by a separate encoder, and the generator identity (PepFlow, Al-
+phaFold2/ColabFold, or another admitted generator) is encoded by a three-dimensional
+one-hot vector whose learned source embedding is concatenated with the base structural
+embedding and the two ensemble embeddings to produce a raw logit residual through a
+small network with a zero-initialized final layer. The effective residual is the product of
+the availability indicator and a learned weight (initialized to 0.25 and regularized by an
+L1 penalty); when the availability indicator is zero, the residual is exactly zero and the
+model falls back to the single-structure prediction. The inference protocol is described
+in Section 2.5, and the ablation analysis in Section 3.3.
+2.4.5 pLDDT-Aware Sequence–Structure Cross-Attention
+     After the EGNN and the chemical-site residual are applied, the model obtains
+                                                                    sp      sp
+the chemical-enhanced spatial representation Hsp = [h1 , . . . , h 𝐿 ] ⊤ ∈ R 𝐿×128 , where
+  sp
+h𝑖 is defined in Eq. (16). Spatial information alone does not determine whether
+a structural pattern is relevant to the current sequence context: similar hydrophobic
+contacts may have different implications depending on residue identities and sequence
+positions. GHXTox therefore uses pLDDT-aware cross-attention within the structural
+expert, allowing contextualized sequence states to selectively retrieve spatial evidence.
+     A node-level gate is first constructed for each residue from the 42-dimensional
+residue descriptors and the pLDDT score:
+
+                     𝑔𝑖base = 𝜙node f𝑖res ∥ 𝑞𝑖 ,
+                                                  
+                              "                                            #
+                                𝑞   −  𝜇      (𝑞   − 𝜇   ) 2
+                                  𝑖       𝑞      𝑖     𝑞
+                     c𝑖node =               ,                , I(𝑞𝑖 < 0.55) ,
+                                    𝑇𝑞             𝑇𝑞2
+                                                                                    (17)
+                       node                   ⊤ node
+                     𝑟𝑖     = 0.5 + 𝜎 w𝑛 c𝑖            + 𝑏𝑛 ,
+                                                              
+                     𝑔𝑖node = clamp 𝑔𝑖base 𝑟𝑖node , 0, 1 ,
+
+where 𝜇 𝑞 = 0.70, 𝑇𝑞 = 0.12, and the residual confidence vector c𝑖node allows the gate to
+adapt to the local confidence distribution. The spatial representation is then continuously
+down-weighted as H   b sp = Hsp ⊙ gnode , with the node-level gate vector gnode ∈ [0, 1] 𝐿
+broadcast across the feature dimension.
+    In the cross-attention operation, the contextualized sequence representation serves
+as the query, and the gated spatial representation serves as the key and value [26]:
+                                                                    
+                      Hcross = MHA 𝑄 = Hseq , 𝐾 = H              b sp .
+                                                      b sp , 𝑉 = H                     (18)
+
+This direction has a direct interpretation: each residue position retrieves spatial evidence
+according to its contextual sequence representation. The operation is not a direct feature
+interaction between the LoRA-ProtT5–Mamba expert and the structural expert; it occurs
+internally between the ESM2-enhanced sequence states and the geometric states of the
+structural expert.
+
+
+
+                                            13
+     In addition to residue-level gating, a peptide-level gate is generated from the
+overall structure-confidence profile. The model first summarizes the profile by
+the mean pLDDT 𝑞,      ¯ the minimum pLDDT 𝑞 min , and the low-confidence fraction
+          1 Í𝐿
+𝑟 low = 𝐿 𝑖=1 I(𝑞𝑖 < 0.55), and constructs           the peptide-level confidence vector
+c pep  = ( 𝑞¯ − 𝜇 𝑞 )/𝑇𝑞 , (𝑞 min − 𝜇 𝑞 )/𝑇𝑞 , 𝑟 low . The base peptide-level gate and its
+residual-adjusted form are
+                              base
+                            𝑔pep               ¯ 𝑞 min , 𝑟 low ] ,
+                                   = 𝜙global [ 𝑞,
+                                                                  
+                             𝑟 pep = 0.5 + 𝜎 w⊤   pep cpep
+                                                            + 𝑏 pep ,                      (19)
+                                                                
+                                                base
+                             𝑔pep = clamp 𝑔pep 𝑟 pep , 0, 1 ,
+
+where the peptide-level residual scale is analogous to, but separately parameterized
+from, the node-level residual scale, and 𝑔pep ∈ [0, 1] denotes the scalar peptide-level
+structural gate.
+    The final residue-level fusion representation
+                                       seq       combines  the sequence state with the
+gated structural context, Hfused = LN H ∥ 𝑔pep H     cross  . The two gating levels answer
+complementary questions: how reliable the structural evidence is at an individual residue
+position, and how strongly the structural branch should be trusted for the peptide as a
+whole. The sequence representation is always kept, whereas the structural context
+is dynamically scaled according to prediction confidence. Consequently, when the
+predicted structure has low overall confidence, the structural expert can still rely on its
+internal sequence-semantic pathway without allowing uncertain coordinates to dominate
+the classification.
+2.4.6 Global Feature Integration and Structural Classification
+    After pLDDT-aware cross-attention, each valid residue is represented by a 256-
+dimensional fused vector obtained by concatenating the 128-dimensional internal se-
+quence state with the 128-dimensional structural context. Masked mean pooling is
+applied over the valid residue positions, and the pooled vector is concatenated with five
+global physicochemical descriptors before a three-layer MLP produces the base struc-
+tural logit; the availability-masked conformer correction described in Section 2.4.4 is
+then added, and a sigmoid yields the final structural-expert probability
+                              " Í𝐿               !         #                    !
+                                           fused
+                                  𝑖=1 𝑚 𝑖 H𝑖          phys
+             𝑝 SE3D = 𝜎 𝜙cls        Í𝐿             ∥ fpep + 𝑐 conf 𝜆 conf Δ𝑧raw
+                                                                            conf ,  (20)
+                                          𝑚
+                                      𝑖=1 𝑖
+
+                                                                                    phys
+where the mask excludes padding positions from the pooled representation; fpep ∈ R5
+contains the normalized peptide length, the length-normalized net charge, the aromatic-
+residue fraction, the cysteine fraction, and the scaled mean hydropathy; 𝜙cls is a three-
+layer MLP with dimensions 261 → 128 → 64 → 1, each hidden layer applying GELU
+activation and dropout; and the conformer-correction term is nonzero only when valid
+ensemble information is available (Section 2.4.4), so under the benchmark and public
+inference protocol 𝑐 conf = 0 and 𝑝 SE3D reduces to 𝜎(𝑧base ), i.e., the single-structure base
+logits. Unlike maximum pooling, masked mean pooling integrates structural evidence
+distributed across residue positions, which is appropriate when toxicity-related spatial
+
+
+
+                                               14
+patterns are not confined to a single local region. The resulting probability is passed
+directly to the dual-expert fusion in Section 2.5; the standalone structural threshold is
+used only for branch-specific analyses.
+
+2.5 Fusion and Final Output
+    The 1D expert emits the OOF-calibrated probability 𝑝 1D (Section 2.3), and the
+structural expert emits 𝑝 SE3D (Section 2.4). The two probabilities are fused linearly in
+probability space with weights frozen on training out-of-fold (OOF) predictions:
+
+                           𝑝 GHXTox = 0.72 𝑝 1D + 0.28 𝑝 SE3D ,                       (21)
+
+The fused probability 𝑝 GHXTox is the model’s continuous toxicity-probability output; it
+is binarized directly at the OOF-frozen threshold, predicting toxic ( 𝑦ˆ = 1) if 𝑝 GHXTox ≥
+0.47022256531284556 and non-toxic ( 𝑦ˆ = 0) otherwise. The default output is therefore
+( 𝑝 GHXTox , 𝑦ˆ ). Experiments showed that directly emitting the fused probability yields
+the best overall performance, so no additional network or calibration is applied after
+fusion.
+     The two experts were trained independently because they differ in input representa-
+tion, parameter scale, and optimization behavior (the 1D and 3D loss, calibration, and
+training details are described in Sections 2.3 and 2.4). Group-aware training OOF pre-
+dictions were used for calibration, fusion-weight selection, and threshold determination,
+and labels from test set 1 and test set 2 were excluded from all of these procedures. The
+training sequences were clustered by CD-HIT at a sequence-identity threshold of 0.80,
+with all peptides in the same homology group confined to the same fold; each fold was
+predicted by a model trained only on its complement, giving every training peptide a
+single OOF probability independent of its own optimization [22]. Both experts were
+optimized with AdamW [30]. The fusion weight and decision threshold were selected
+jointly on the complete group-aware training OOF table by maximizing MCC; in ex-
+act MCC ties, the larger threshold was retained. This procedure yielded 𝑤 1D = 0.72,
+𝑤 SE3D = 0.28, and 𝜏 = 0.47022256531284556; these values were then frozen and ap-
+plied unchanged to test set 1 and test set 2. In the final benchmark and public inference
+protocol, the conformer availability mask is fixed to zero and the structural probability
+is read from the single-structure base logits.
+
+2.6 Evaluation Criteria
+    Given the class-imbalanced benchmarks (test set 2 has 46 toxic and 536 non-toxic
+peptides), MCC and BACC served as the primary threshold-dependent metrics, with
+ACC, sensitivity (SN), specificity (SP), precision, and F1 reported for completeness.
+AUROC and AUPRC quantified ranking performance; AUPRC complements AUROC
+under class imbalance by emphasizing precision–recall behavior for the positive class
+[31]. Brier/ECE-10 assessed probability quality. Threshold-dependent metrics used
+the fixed OOF-derived threshold (Section 2.5); ranking and calibration metrics used the
+continuous probabilities. Binary predictions 𝑦ˆ 𝑖 = I[ 𝑝𝑖 ≥ 𝜏] were summarized by ACC =
+(TP + TN)/𝑁, SN = TP/(TP + FN), SP = TN/(TN + FP), 𝐹1 = 2TP/(2TP + FP + FN),
+and BACC = (SN + SP)/2. MCC [32], Brier [33], and ten-bin ECE-10 [34] (final bin
+
+
+
+
+                                            15
+includes 𝑝𝑖 = 1) are
+                                          TP TN − FP FN
+                 MCC = √︁                                                 ,
+                          (TP + FP)(TP + FN)(TN + FP)(TN + FN)
+                            𝑁
+                         1 ∑︁
+                 Brier =       ( 𝑝𝑖 − 𝑦𝑖 ) 2 ,                                        (22)
+                         𝑁 𝑖=1
+                          10
+                          ∑︁ |B𝑚 |
+                ECE10 =              |conf(B𝑚 ) − freq(B𝑚 )| ,
+                          𝑚=1
+                                𝑁
+
+where TP/TN/FP/FN are the true/false positive/negative counts, 𝑦𝑖 the labels, and B𝑚
+the 𝑚-th equal-width bin over [0, 1] (mean confidence conf(B𝑚 ) vs. observed toxic
+frequency freq(B𝑚 )); ECE bins stayed fixed across models and datasets.
+    Uncertainty intervals and paired model comparisons use bootstrap resampling [35],
+retaining the same peptides across paired methods; the applicable stratification and
+replicate count are stated with each analysis. In the expert-complementarity analysis,
+reciprocal rescue rates use 95% Wilson score intervals [36]. Continuous attribute effects
+are summarized by Cliff’s delta [37]; their intervals use 5,000 label-stratified bootstrap
+replicates, while 𝑝-values use 10,000 true-label-stratified permutations [38]. The ten
+prespecified split-by-attribute tests form one family, for which the Benjamini–Hochberg
+procedure controls the false discovery rate [39].
+
+3 RESULTS AND DISCUSSION
+3.1 Overall Predictive Performance on the Benchmark Test Sets
+    Using the OOF-frozen weight and threshold without dataset-specific retuning,
+GHXTox correctly classified 1,067 of 1,126 test set 1 peptides (TP/TN/FP/FN =
+287/780/26/33) and 551 of 582 strongly imbalanced test set 2 peptides (35/516/20/11);
+the complete metric set is listed in Table 2. The low test set 2 BACC (0.8618) and F1
+(0.6931), despite high accuracy, reflect the difficulty of recovering the 46 toxic peptides
+and demonstrate why class-balanced and precision–recall metrics are essential for this
+benchmark.
+    Table 2 also reports previously published models on the same benchmark partitions
+(ToxMSRC and ToxPLTC; values transcribed from the original publications, and NR
+denotes an unreported metric) [2, 3]. GHXTox obtains the highest test set 1 ACC,
+BACC, SP, MCC, AUROC, and AUPRC among the compared rows, whereas ToxPLTC
+has higher test set 1 SN; on test set 2, GHXTox obtains the highest ACC, SP, MCC,
+and reported AUPRC, but its BACC and SN remain below both reference models. This
+reflects a stronger overall balance of specificity, correlation, and positive-class ranking
+rather than comprehensive superiority on every metric. Because test set 1 and test set 2
+were observed historically, these differences remain retrospective benchmark evidence
+and require confirmation on a new prefrozen external set.
+    The final fused probabilities have Brier scores of 0.0410 and 0.0436 and ECE-10
+values of 0.0196 and 0.0495 on test set 1 and test set 2, respectively. The test set 2
+AUPRC (0.8046) directly reflects the precision–recall trade-off for the rare toxic class,
+which is not conveyed by AUROC alone [31], and the 11 false negatives on test set 2
+
+
+
+                                            16
+delineate the limits of the operating point: high specificity should not be interpreted as
+complete minority-class coverage. Discrimination and calibration curves are shown in
+Figure 2.
+
+3.2 Complementarity of the 1D and 3D Experts
+    The two experts are fused only after independent probability generation. The 1D
+branch provides the stronger standalone ranking signal, whereas the 3D branch con-
+tributes confidence-weighted geometry and local chemical context. This separation
+makes the gain attributable to complementary probability evidence rather than dupli-
+cated use of an earlier fused prediction (Table 3).
+    The experts agreed on most benchmark peptides, while discordant cases revealed
+class-asymmetric correction patterns (Figure 3).
+    Relative to the calibrated 1D probability stream, the final fusion modestly improves
+AUROC/AUPRC and lowers the Brier score on both benchmarks (Table 3), adding
+complementary structural ranking information while maintaining a lower probability
+error. The structural probability in these rows is the single-structure base output of the
+multi-source-trained structural checkpoint; no benchmark conformer cache is activated.
+    The 0.72 sequence weight is an empirical result of the training-OOF search, not a
+manually imposed assertion that sequence information is intrinsically more important.
+For the current canonical evaluation, both expert weights and the full-precision deci-
+sion threshold of 0.47022256531284556 were frozen from training OOF predictions
+and applied without benchmark-specific reweighting, threshold adjustment, or post hoc
+selection between equal and unequal fusion. Because test set 1 and test set 2 had been
+observed during earlier project development, this statement describes the formal current
+protocol rather than a claim that the benchmarks were historically blinded.
+    The experts agreed on most benchmark peptides, but the discordant samples revealed
+a reproducible pattern of complementary error correction: the structural expert provided
+correct counter-evidence for more than one third of the sequence expert’s errors (Fig-
+ure 3B). This rescue was strongly class-asymmetric, with the structural expert mainly
+correcting false-positive predictions of the sequence expert, whereas improvements in
+toxic-peptide recall were limited. Peptides classified correctly only by the 3D expert
+also tended to be shorter, but none of the prespecified attribute comparisons remained
+significant after Benjamini–Hochberg correction, so this length pattern is descriptive
+rather than evidence that the structural expert is generally superior for short peptides.
+These results support a complementary rather than substitutive role for the structural
+expert (Figure 3).
+
+3.3 Analysis of the Sequence and Structural Experts
+    The 1D expert is not the principal innovation of this work and is analyzed only
+briefly. Relative to the earlier pooled-ProtT5–TextCNN pipeline, the LoRA-adapted
+ProtT5 with bidirectional Mamba kept BACC and MCC broadly comparable on training
+OOF (0.9300 vs 0.9317 and 0.8562 vs 0.8586) while improving the ranking metrics
+(AUROC/AUPRC 0.9761/0.9533 vs 0.9724/0.9436), and OOF-fitted Platt calibration
+further reduced the Brier score on test set 1 and test set 2 (Table 4); the stronger ranking
+stream benefits the subsequent fusion with structural evidence (architecture in Section
+
+
+
+                                            17
+2.3).
+    Descriptive structure-quality analysis found an association between mean pLDDT
+and subgroup performance in the historical benchmark data. A separate training-OOF
+comparison found that hard exclusion of low-confidence samples reduced full-domain
+performance, supporting the retained continuous-gating design without establishing
+pLDDT as a biological mechanism. In parallel, a C𝛼-level residue graph compresses
+chemically complex side chains into single nodes, whereas a paired five-fold OOF ex-
+periment showed that adding the full-atom chemical-site residual to the frozen backbone
+increased the BACC point estimate from 0.9153 to 0.9171 and the MCC point estimate
+from 0.8312 to 0.8342 (Table 7, bottom rows). These modest internal point-estimate
+changes are consistent with complementary chemical information but do not by them-
+selves establish a general performance gain. Local geometric evidence is meaningful
+only in the appropriate sequence context: the same distance or hydrophobic contact can
+have different implications depending on residue identity and position, and the model
+therefore uses pLDDT-aware cross-attention to let sequence states selectively retrieve
+spatial evidence, with node- and peptide-level confidence gating controlling how much
+structural context is injected (mechanisms in Section 2.4).
+    A single predicted structure provides only one deterministic anchor, whereas short
+peptides may exhibit conformational heterogeneity [15]. GHXTox compresses con-
+former ensembles into statistics and allows them to produce only a zero-initialized logit
+residual. On training OOF, activating the multi-source residual increased MCC from
+0.87255 to 0.87445 (paired-bootstrap Δ = +0.00190, 95% CI [−0.00043, 0.00454],
+𝑝 = 0.203). Under the frozen test protocol, activating the residual on the covered
+records changed the metrics negligibly (Tables 5 and 6: test set 1 MCC 0.8705 to 0.8726
+and test set 2 MCC 0.6673 to 0.6746, with about one prediction flip on each benchmark),
+which is consistent with the decision not to enable conformer statistics during bench-
+mark inference. This pattern is consistent with, but does not establish, a limitation in
+mapping conformational variation to toxicity labels; the present ablation cannot isolate
+that possibility from conformer quality, coverage, or residual-model capacity.
+    After combining all components, the 3D-v2 structural expert reached BACC, MCC,
+AUROC, and AUPRC values of 0.9208, 0.8464, 0.9711, and 0.9474 on test set 1,
+compared with 0.9179, 0.8458, 0.9699, and 0.9426 for the historical C𝛼-only 3D-v1,
+a consistent but modest improvement; on test set 2, AUPRC increased from 0.6969 to
+0.7241 whereas MCC decreased from 0.6320 to 0.6128 (Table 7 and Figure 4). Finer-
+grained structural modeling therefore improves positive-class probability ranking but
+does not guarantee simultaneous gains in all metrics at a fixed operating point.
+    These ablation and comparison analyses are based on the frozen historical test set 1
+and test set 2 benchmarks and are therefore retrospective evidence. Test set 2 contains
+only 46 toxic peptides, so SN, BACC, and MCC are sensitive to a few threshold-adjacent
+samples, which partly explains the dataset-dependent direction of the 3D-v2 gains; the
+multi-conformer test ablation used the archived test-side conformer cache (486 and 284
+covered records on test set 1 and test set 2, with fixed source and sequence-matching
+policies) and activated the residual only on the covered subset, so its negligible effect
+should not be extrapolated as evidence that conformer information is useless.
+
+
+
+
+                                           18
+3.4 Robustness, Statistical Uncertainty, and Applicability Analysis
+    Point estimates alone are insufficient for distinguishing a stable model improvement
+from variation caused by finite samples. We therefore use multi-seed averaging for
+the 1D expert and paired, sample-level bootstrap resampling for model comparisons,
+all performed on the frozen predictor without retraining, recalibration, or threshold
+adjustment. Three full-data 1D models (seeds 42, 123, and 2025) are averaged before
+calibration; this ensemble is the final predictor, with no seed selected according to test set
+1 or test set 2 performance, and a 15-member fold-checkpoint ensemble was examined
+but not adopted because it did not improve the frozen validation criteria.
+    For review-oriented screening, a reject-option policy [40] was defined using the
+uncertainty-ranking score given by the decision-boundary proximity 𝑑𝑖 = 1 − | 𝑝𝑖 −
+𝜏|/max(𝜏, 1 − 𝜏) with 𝜏 = 0.47022256531284556. On training OOF this proximity
+provides an informative ranking: as coverage decreases from 100% to 80%, accepted-
+sample error decreases and MCC increases monotonically, whereas equal-count random
+rejection shows no comparable improvement; at the prespecified 90% operating point the
+                       ∗
+cutoff was frozen at 𝑑OOF  = 0.47361765874159856 (Figure 5). Transferring this cutoff
+unchanged to test set 1 and test set 2 reduced the accepted-sample error by about 2.2–2.5
+percentage points and improved MCC and BACC, while equal-count random rejection
+remained close to the full-coverage error (Table 8). The transfer uses no benchmark-
+specific quantile, coverage, class prevalence, or label, so the naturally different realized
+coverages reflect a single OOF-derived cutoff rather than retuned abstention rates. This
+supports a review-oriented screening workflow in which boundary-proximal predictions
+are flagged for review, although it does not constitute independent validation, and the
+proximity score is a ranking statistic rather than a calibrated probability of prediction
+error. The original binary prediction remains available for every abstained peptide.
+
+3.5 Interpretability and Representative Case Studies
+    The interpretation experiments used a prespecified case-selection rule: within each
+test set and each expert-outcome group, one toxic and one non-toxic peptide nearest
+the fusion threshold were chosen (ties resolved by source index), forming a 16-peptide
+cohort. Before perturbation, baseline probabilities were recomputed and compared with
+the stored prediction vectors; the maximum absolute discrepancy for the 1D expert
+within the case cohort was 3.45 × 10−4 , and the corresponding 3D discrepancies were
+5.49 × 10−4 on test set 1 and 1.14 × 10−5 on test set 2, none of which changed any
+decision. The interpretation analyses therefore describe model sensitivity on the frozen
+predictor rather than confirmed biological mechanisms.
+    Mean pLDDT was strongly associated with the learned global structural gate (Spear-
+man 0.960 on test set 1, 0.950 on test set 2, pooled 0.957), indicating that the model
+assigns less structural weight when predicted-structure confidence is lower. This is a
+model-use diagnostic and is not direct evidence of peptide flexibility, disorder, or confor-
+mational heterogeneity. Across 445 individual site deletions, most changes were small
+(median 0.00048, mean 0.00997, 95th percentile 0.057, maximum 0.2994 in 𝑝 3𝐷 ). In
+the separate category-level analysis, all sites carrying a named category were deleted to-
+gether in each peptide (121 peptide–category perturbations). The mean absolute changes
+in 𝑝 3𝐷 were 0.126 for hydrophobic-category deletion, 0.0687 for aromatic-category dele-
+
+
+
+                                             19
+tion, and 0.00179 for sulfur-category deletion. These category-level sensitivities do not
+describe individual-site effects and should not be interpreted as causal toxicophores. The
+opposing directions of the largest deletion effects (Phe8 increased 𝑝 3𝐷 , Pro19 decreased
+it) show that deletion scores depend on the surrounding peptide context and cannot be
+read as an intrinsic toxicity label for a functional group (Figure 6).
+     Fixed late fusion agreed on most benchmark peptides, and the discordant cases
+illustrate its operational consequences (the aggregate pattern is reported in Section 3.2).
+The toxic peptide sequence_23_23 (ACLDIGNSCRED, two cysteines) had a weak 1D
+probability of 0.2806 but a high-confidence 3D probability of 0.9954; fusion raised the
+probability to 0.4808 and restored the correct toxic classification. At the model level, this
+example shows that a cysteine-associated structural pattern supplied counter-evidence
+to a weak 1D score; it does not establish a cysteine-mediated biological mechanism.
+The toxic peptide sequence_34_34 had a correct 1D probability of 0.5447 but a 3D
+probability of 3 × 10−5 , and fusion reduced the probability to 0.3922, producing a false
+negative; strong sequence evidence can therefore be overridden when the structural
+expert supplies sufficiently strong opposing evidence, and such single-sample evidence
+conflicts warrant further inspection (Figure 7). These cases illustrate the operational
+premise and failure modes of the model: its 1D and 3D scores can agree or conflict, and
+fixed late fusion can either correct or introduce an error. They do not confirm a causal
+biological role for any particular structural feature.
+
+3.6 Limitations and Future Directions
+    The most fundamental limitation stems from the single-output nature of three-
+dimensional conformation prediction. Short peptides in solution typically populate
+multiple interconverting conformations, and toxicity is usually mediated by one partic-
+ular conformation or class of conformations; a single predicted structure cannot cover
+this multimodal distribution. This is precisely why the project introduced multiple con-
+formation generators (PepFlow and AlphaFold2/ColabFold, assigned by length range).
+However, different generators exhibit inherent noise, and normalizing conformers across
+models and sources further amplifies this inconsistency: activating the multi-conformer
+residual on the test sets produced negligible and inconsistent effects that did not justify
+a public inference protocol, and source-independent and fusion-aware candidates also
+failed their prespecified retention gates (Section 3.3, Tables 5 and 6), so the conformer
+residual was eventually disabled for benchmark and public inference and the structural
+information-extraction capacity of the model was not fully released. On training OOF the
+residual improved MCC by only +0.00190 (𝑝 = 0.203, not significant), and expanding
+the conformer cohort from 250 to 761 peptides did not pass the retention gates because
+the added records were all negative. In addition, full-atom conformational sampling
+(e.g., PepFlow) is computationally far more expensive than single-structure prediction,
+which limited large-scale generation and deployment. We therefore hope that next-
+generation protein structure prediction models can provide, at acceptable computational
+cost, multiple possible conformations and their probabilities (for example, lightweight
+multi-conformer sampling based on flow matching or diffusion), more closely matching
+the multimodal nature of peptide conformation and potentially further releasing the
+value of conformational information in toxicity prediction.
+
+
+
+                                             20
+    The second limitation is that the 1D sequence and 3D conformation dimensions are
+combined with a fixed 0.72/0.28 weight rather than dynamically adjusted per sample.
+This may partly stem from the first limitation: the inherent noise among different
+conformation predictors masks the information that would indicate which dimension
+should be trusted for a given sample, and when structural evidence is itself inconsistent
+across generators, the model cannot reliably distinguish, per sample, the reliability
+of sequence evidence from that of conformational evidence and therefore falls back
+to fixed weights. Consistent with this, sample-level confidence gates and dynamic
+routing attempts did not pass the retention gates: the former produced MCC values
+below the fixed default, and the latter improved ranking and calibration but did not
+exceed the frozen default’s decision metrics (Section 3.4). This reflects that the two
+dimensions have not yet achieved sufficiently effective information complementarity;
+adaptive and interpretable fusion based on evidence reliability, together with more
+consistent conformational evidence sources, are directions for future work.
+
+4 CONCLUSIONS
+    GHXTox explores the complementary joint use of sequence and conformational
+evidence by combining task-adaptive LoRA-ProtT5–Bi-Mamba sequence expert with
+a pLDDT-aware multi-scale structural expert through probability-level fusion; the two
+experts are independent and their complementarity is characterized by the structural
+expert correcting a subset of sequence errors in a class-asymmetric way (Section 3.2).
+The structural expert integrates residue geometry, full-atom-derived chemical sites,
+and sequence-conditioned structural evidence. A separate multi-conformer residual
+was trained with the single-structure backbone frozen and is retained only for controlled
+ablations. The final predictor disables that residual and uses the structural expert’s single-
+structure base probability. The 1D/3D weights (0.72/0.28) and the decision threshold
+(0.47022256531284556) were frozen from training OOF predictions and applied in the
+current evaluation without benchmark-specific retuning; test set 1 and test set 2 are
+historical benchmarks, not newly blinded external sets.
+    On the frozen historical test set 1 and test set 2 benchmarks, the model reaches
+MCC values of 0.8705 and 0.6673 and AUPRC values of 0.9674 and 0.8046, and the
+final fusion improves AUROC, AUPRC, and the Brier score relative to the calibrated
+1D stream. The 3D expert correctly classified 36.92% and 37.50% of the respective test
+set 1 and test set 2 errors made by the 1D expert, with most of these structural rescues
+occurring among non-toxic peptides. An OOF-frozen selective policy further reduced
+accepted-sample error to 2.71% and 3.16% at realized coverages of 88.54% and 86.94%,
+respectively, without benchmark-specific cutoff selection. Conformer-derived informa-
+tion produced only modest and non-uniform improvements, indicating that mapping
+conformational variation to toxicity-relevant evidence remains an important limitation.
+The interpretability analyses describe model sensitivity rather than causal mechanisms.
+    Several limitations remain, most notably the single-output nature of conformation
+prediction and the fixed probability-level fusion between the two dimensions, as dis-
+cussed in Section 3.6; both benchmarks were also observed during earlier model devel-
+opment, and the structures are predicted rather than experimental. Looking ahead, we
+hope that more powerful three-dimensional conformation models, capable of produc-
+
+
+
+                                             21
+ing multiple conformations with their probabilities at acceptable computational cost,
+together with dynamic, evidence-reliability-aware fusion between the sequence and
+structural dimensions, will enable a deeper complementary joint use of the two types of
+information, with experimental validation where feasible.
+
+Data and Software Availability
+    The source code, configuration files, fold manifests, and inference scripts used
+in this study are available at https://github.com/Suiyumanbu/GHXTox. A ver-
+sioned archival release containing the exact commit identifier, environment manifest,
+frozen model parameters, calibration coefficients, fusion weights, full-precision deci-
+sion threshold, and sample-level prediction files will accompany the final publication.
+Raw peptide records were obtained from the public databases described in Section 2.1.
+Where redistribution is restricted by the original database terms, accession lists and
+preprocessing scripts are provided instead of redistributing the source records.
+
+Author Contributions
+   All authors contributed equally.
+
+Acknowledgements
+    This work was supported by the Natural Science Basic Research Program of Shaanxi
+(No. 2024JC-YBMS-004) and Xidian University Specially Funded Project for Interdis-
+ciplinary Exploration (No. TZJH2024028).
+
+Conflict of Interest Disclosure
+   The authors declare no conflicts of interest.
+
+REFERENCES
+ [1] Markus Muttenthaler, Glenn F. King, David J. Adams, and Paul F. Alewood. Trends
+     in peptide drug discovery. Nature Reviews Drug Discovery, 20(4):309–325, 2021.
+
+ [2] Shengli Zhang, Jingyi Ren, and Yunyun Liang. An innovative peptide toxicity
+     prediction model based on multi-scale convolutional neural network and residual
+     connection. Bioinformatics, 41(10):btaf462, 2025.
+
+ [3] Yunyun Liang and Chenxia Wang. ToxPLTC: Peptide toxicity prediction by in-
+     tegrating a pre-trained T5 protein language model and text convolutional neural
+     network. Journal of Chemical Information and Modeling, 66(7):4058–4074, 2026.
+
+ [4] Jiahui Guan, Peilin Xie, Dian Meng, Lantian Yao, Dan Yu, Ying-Chih Chiang,
+     Tzong-Yi Lee, and Junwen Wang. ToxiPep: Peptide toxicity prediction via fu-
+     sion of context-aware representation and atomic-level graph. Computational and
+     Structural Biotechnology Journal, 27:2347–2358, 2025.
+
+ [5] Duong Thanh Tran, Nhat Truong Pham, Nguyen Doan Hieu Nguyen, Leyi Wei,
+     and Balachandran Manavalan. HyPepTox-Fuse: An interpretable hybrid frame-
+     work for accurate peptide toxicity prediction fusing protein language model-based
+
+
+
+
+                                           22
+     embeddings with conventional descriptors. Journal of Pharmaceutical Analysis,
+     15(8):101410, 2025.
+
+ [6] Yanling Wang, Na Li, Xiao Wang, Feng Cao, Shuwen Xiong, and Leyi Wei. Inte-
+     grating protein language models and geometric deep learning for peptide toxicity
+     prediction. Journal of Chemical Information and Modeling, 65(14):7800–7810,
+     2025.
+
+ [7] Shihu Jiao, Xiucai Ye, Tetsuya Sakurai, Quan Zou, Wu Han, and Chao Zhan.
+     Integration of pre-trained protein language models with equivariant graph neural
+     networks for peptide toxicity prediction. BMC Biology, 23:229, 2025.
+
+ [8] Alican Gulsevin and Jens Meiler. Benchmarking peptide structure prediction with
+     AlphaFold2. bioRxiv, 2022.
+
+ [9] Ahmed Elnaggar, Michael Heinzinger, Christian Dallago, et al. ProtTrans: To-
+     ward understanding the language of life through self-supervised learning. IEEE
+     Transactions on Pattern Analysis and Machine Intelligence, 44(10):7112–7127,
+     2022.
+
+[10] Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+     Wang, Lu Wang, and Weizhu Chen. LoRA: Low-rank adaptation of large language
+     models. In International Conference on Learning Representations, 2022.
+
+[11] Albert Gu and Tri Dao. Mamba: Linear-time sequence modeling with selective
+     state spaces. In First Conference on Language Modeling, 2024.
+
+[12] Zeming Lin, Halil Akin, Roshan Rao, Brian Hie, Zhongkai Zhu, Wenting Lu, et al.
+     Evolutionary-scale prediction of atomic-level protein structure with a language
+     model. Science, 379(6637):1123–1130, 2023.
+
+[13] John Jumper, Richard Evans, Alexander Pritzel, et al. Highly accurate protein
+     structure prediction with AlphaFold. Nature, 596:583–589, 2021.
+
+[14] Milot Mirdita, Konstantin Schütze, Yoshitaka Moriwaki, et al. ColabFold: Making
+     protein folding accessible to all. Nature Methods, 19(6):679–682, 2022.
+
+[15] Osama Abdin and Philip M. Kim. Direct conformational sampling from peptide
+     energy landscapes through hypernetwork-conditioned diffusion. Nature Machine
+     Intelligence, 6(7):775–786, 2024.
+
+[16] Shengli Zhang and Xinyi Zhang. NeuroPpred-PSCG: A multimodal framework
+     using ProtT5 and structural features for neuropeptide prediction based on gated
+     cross-attention mechanism and multiscale gated convolution. Journal of Chemical
+     Information and Modeling, July 2026. Advance online publication.
+
+[17] Shihu Jiao, Xiucai Ye, Tetsuya Sakurai, Quan Zou, and Ruijun Liu. Integrated
+     convolution and self-attention for improving peptide toxicity prediction. Bioinfor-
+     matics, 40(5):btae297, 2024.
+
+
+
+                                          23
+[18] Vitali Morozov, Carlos H. M. Rodrigues, and David B. Ascher. CSM-Toxin: A
+     web-server for predicting protein toxicity. Pharmaceutics, 15(2):431, 2023.
+
+[19] Nishu Sharma, Leimarembi Devi Naorem, Shilpi Jain, and Gajendra P. S. Raghava.
+     ToxinPred2: An improved method for predicting toxicity of proteins. Briefings in
+     Bioinformatics, 23(5):bbac174, 2022.
+
+[20] Lesong Wei, Xiucai Ye, Yuyang Xue, Tetsuya Sakurai, and Leyi Wei. ATSE:
+     A peptide toxicity predictor by exploiting structural and evolutionary information
+     based on graph neural network and attention mechanism. Briefings in Bioinfor-
+     matics, 22(5):bbab041, 2021.
+
+[21] The UniProt Consortium. UniProt: A worldwide hub of protein knowledge. Nucleic
+     Acids Research, 47(D1):D506–D515, 2019.
+
+[22] Limin Fu, Beifang Niu, Zhengwei Zhu, Sitao Wu, and Weizhong Li. CD-HIT:
+     Accelerated for clustering the next-generation sequencing data. Bioinformatics,
+     28(23):3150–3152, 2012.
+
+[23] Akanksha S. Rathore, S. Choudhury, A. Arora, P. Tijare, and Gajendra P. S.
+     Raghava. ToxinPred 3.0: An improved method for predicting the toxicity of
+     peptides. Computers in Biology and Medicine, 179:108926, 2024.
+
+[24] John C. Platt. Probabilistic outputs for support vector machines and comparisons to
+     regularized likelihood methods. In Alexander J. Smola, Peter L. Bartlett, Bernhard
+     Schölkopf, and Dale Schuurmans, editors, Advances in Large Margin Classifiers,
+     pages 61–74. MIT Press, Cambridge, MA, 1999.
+
+[25] Wolfgang Kabsch. A solution for the best rotation to relate two sets of vectors.
+     Acta Crystallographica Section A, 32(5):922–923, 1976.
+
+[26] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+     Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is all you need. In
+     Advances in Neural Information Processing Systems, volume 30, pages 5998–6008,
+     2017.
+
+[27] Víctor Garcia Satorras, Emiel Hoogeboom, and Max Welling. 𝐸 (𝑛) equivariant
+     graph neural networks. In Proceedings of the 38th International Conference on
+     Machine Learning, volume 139 of Proceedings of Machine Learning Research,
+     pages 9323–9332, 2021.
+
+[28] Justin Gilmer, Samuel S. Schoenholz, Patrick F. Riley, Oriol Vinyals, and George E.
+     Dahl. Neural message passing for quantum chemistry. In Proceedings of the 34th
+     International Conference on Machine Learning, volume 70 of Proceedings of
+     Machine Learning Research, pages 1263–1272, 2017.
+
+[29] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning
+     for image recognition. In Proceedings of the IEEE Conference on Computer Vision
+     and Pattern Recognition (CVPR), pages 770–778, 2016.
+
+
+
+                                          24
+[30] Ilya Loshchilov and Frank Hutter. Decoupled weight decay regularization. In
+     International Conference on Learning Representations, 2019.
+
+[31] Takaya Saito and Marc Rehmsmeier. The precision–recall plot is more informative
+     than the ROC plot when evaluating binary classifiers on imbalanced datasets. PLOS
+     ONE, 10(3):e0118432, 2015.
+
+[32] Brian W. Matthews. Comparison of the predicted and observed secondary structure
+     of T4 phage lysozyme. Biochimica et Biophysica Acta (BBA) – Protein Structure,
+     405(2):442–451, 1975.
+
+[33] Glenn W. Brier. Verification of forecasts expressed in terms of probability. Monthly
+     Weather Review, 78(1):1–3, 1950.
+
+[34] Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger. On calibration of
+     modern neural networks. In Proceedings of the 34th International Conference
+     on Machine Learning, volume 70 of Proceedings of Machine Learning Research,
+     pages 1321–1330, 2017.
+
+[35] Bradley Efron and Robert J. Tibshirani. An Introduction to the Bootstrap. Chapman
+     & Hall, London, 1993.
+
+[36] Edwin B. Wilson. Probable inference, the law of succession, and statistical infer-
+     ence. Journal of the American Statistical Association, 22(158):209–212, 1927.
+
+[37] Norman Cliff. Dominance statistics: Ordinal analyses to answer ordinal questions.
+     Psychological Bulletin, 114(3):494–509, 1993.
+
+[38] Markus Ojala and Gemma C. Garriga. Permutation tests for studying classifier
+     performance. Journal of Machine Learning Research, 11:1833–1863, 2010.
+
+[39] Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: A
+     practical and powerful approach to multiple testing. Journal of the Royal Statistical
+     Society: Series B (Methodological), 57(1):289–300, 1995.
+
+[40] C. K. Chow. On optimum recognition error and reject tradeoff. IEEE Transactions
+     on Information Theory, 16(1):41–46, 1970.
+
+
+
+
+                                           25
+Table Captions
+Table 1. Statistics of the datasets used in this study.
+Table 2. Performance comparison on benchmark test set 1 and test set 2.
+Table 3. Ranking and probability quality of the 1D streams and probability fusion.
+Structural probabilities use the canonical single-structure output.
+Table 4. Controlled comparisons for the task-adaptive 1D expert. Training-OOF archi-
+tecture and benchmark-calibration rows use separate protocols.
+Table 5. test set 1 conformer-residual ablation on the full benchmark; the residual is
+activated only for the 486 covered peptides.
+Table 6. test set 2 conformer-residual ablation on the full benchmark; the residual is
+activated only for the 284 covered peptides.
+Table 7. Structural-expert ablations. Benchmark comparisons and paired training-OOF
+chemical-site rows use separate protocols.
+Table 8. OOF-frozen selective prediction on test set 1 and test set 2. Random-rejection
+values average 5,000 equal-count masks.
+                      Table 1. Statistics of the datasets used in this study.
+
+           Dataset                   Toxic     Non-toxic      Total             Use
+           Training (benchmark)      1,818        4,569       6,387 Model training
+           test set 1 (benchmark)     320          806        1,126 Benchmark test
+           test set 2                  46          536         582 Benchmark test
+
+
+            Table 2. Performance comparison on benchmark test set 1 and test set 2.
+
+ Dataset    Model                ACC      BACC       SN        SP      MCC      AUROC AUPRC
+            ToxMSRC             0.9405   0.9217 0.8781      0.9653 0.8520        0.9650      NR
+ test set 1 ToxPLTC             0.9378   0.9302 0.9125      0.9479 0.8496        0.9709    0.9426
+            GHXTox (current)    0.9476   0.9323 0.8969      0.9677 0.8705        0.9811    0.9674
+            ToxMSRC             0.9416   0.8689 0.7826      0.9552 0.6550        0.9430      NR
+ test set 2 ToxPLTC             0.9261   0.8804 0.8261      0.9347 0.6197        0.9295    0.7353
+            GHXTox (current)    0.9467   0.8618 0.7609      0.9627 0.6673        0.9433    0.8046
+
+
+
+Table 3. Ranking and probability quality of the 1D streams and probability fusion. Structural
+                  probabilities use the canonical single-structure output.
+
+           Dataset    Probability stream                AUROC         AUPRC       Brier
+                      1D, uncalibrated                    0.9799      0.9644      0.0445
+           test set 1 1D, OOF Platt calibrated            0.9799      0.9644      0.0429
+                      Current fusion (0.72/0.28)          0.9811      0.9674      0.0410
+                      1D, uncalibrated                    0.9409      0.7831      0.0491
+           test set 2 1D, OOF Platt calibrated            0.9409      0.7831      0.0451
+                      Current fusion (0.72/0.28)          0.9433      0.8046      0.0436
+Table 4. Controlled comparisons for the task-adaptive 1D expert. Training-OOF architecture
+                  and benchmark-calibration rows use separate protocols.
+
+Evaluation        Variant                          BACC     MCC       AUROC AUPRC            Brier
+Training OOF      Pooled ProtT5–TextCNN            0.9317 0.8586      0.9724     0.9436       NR
+Training OOF      LoRA-ProtT5–Bi-Mamba             0.9300 0.8562      0.9761     0.9533       NR
+test set 1        Three-seed 1D, uncalibrated        –        –       0.9799     0.9644      0.0445
+test set 1        Three-seed 1D, OOF Platt           –        –       0.9799     0.9644      0.0429
+test set 2        Three-seed 1D, uncalibrated        –        –       0.9409     0.7831      0.0491
+test set 2        Three-seed 1D, OOF Platt           –        –       0.9409     0.7831      0.0451
+
+
+Table 5. test set 1 conformer-residual ablation on the full benchmark; the residual is activated
+                               only for the 486 covered peptides.
+
+  Variant                       ACC        BACC       MCC         AUROC     AUPRC         Brier
+  Base (zero conformer) 0.9476 0.9323 0.8705                       0.9811      0.9674     0.0410
+  + Conformer residual 0.9485 0.9329 0.8726                        0.9811      0.9675     0.0407
+
+
+Table 6. test set 2 conformer-residual ablation on the full benchmark; the residual is activated
+                               only for the 284 covered peptides.
+
+  Variant                       ACC        BACC       MCC         AUROC     AUPRC         Brier
+  Base (zero conformer) 0.9467 0.8618 0.6673                       0.9433      0.8046     0.0436
+  + Conformer residual 0.9485 0.8627 0.6746                        0.9433      0.8043     0.0430
+
+
+   Table 7. Structural-expert ablations. Benchmark comparisons and paired training-OOF
+                          chemical-site rows use separate protocols.
+
+Evaluation        Variant                                    BACC       MCC      AUROC AUPRC
+test set 1        Historical C𝛼 3D-v1                        0.9179 0.8458       0.9699      0.9426
+test set 1        pLDDT-aware multi-scale 3D-v2              0.9208 0.8464       0.9711      0.9474
+test set 2        Historical C𝛼 3D-v1                        0.8481 0.6320       0.9316      0.6969
+test set 2        pLDDT-aware multi-scale 3D-v2              0.8453 0.6128       0.9295      0.7241
+Training OOF Frozen backbone, no chemical-site residual      0.9153    0.8312    0.9687      0.9388
+Training OOF Frozen backbone + chemical-site residual        0.9171    0.8342    0.9692      0.9401
+
+
+Table 8. OOF-frozen selective prediction on test set 1 and test set 2. Random-rejection values
+                             average 5,000 equal-count masks.
+
+Dataset      Method                       Coverage (%) Error (%)     MCC    BACC        SN        SP
+test set 1 Full binary prediction         100.00            5.24 0.8705 0.9323 0.8969 0.9677
+           Frozen selective prediction    88.54             2.71 0.9329 0.9629 0.9397 0.9860
+           Equal-count random rejection   88.54             5.24 0.8705 0.9323 0.8969 0.9677
+test set 2 Full binary prediction         100.00            5.33 0.6673 0.8618 0.7609 0.9627
+           Frozen selective prediction    86.94             3.16 0.7781 0.8983 0.8158 0.9808
+           Equal-count random rejection   86.94             5.33 0.6670 0.8617 0.7607 0.9627
+Figure Captions
+Figure 1. GHXTox inference architecture. The peptide sequence is processed by task-
+adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their probabilities are
+combined for peptide-toxicity prediction.
+Figure 2. GHXTox discrimination and probability reliability. (A–C) test set 1 ROC,
+precision–recall, and reliability curves; (D–F) corresponding test set 2 curves. Orange,
+blue, and navy denote the task-adaptive 1D expert, the 3D structural expert, and probabil-
+ity fusion, respectively. Gray dashed lines denote chance, prevalence, or ideal-reference
+behavior.
+Figure 3. Complementarity of the 1D and 3D experts on test set 1 and test set 2. (A)
+Expert-outcome groups and their toxic fractions. (B) Conditional rescue rates with 95%
+Wilson intervals. (C) Prespecified 3D-only versus 1D-only attribute effects with 95%
+bootstrap intervals; none remained significant after Benjamini–Hochberg correction.
+Figure 4. Protocol-separated structural ablations. (A, B) Previous and pLDDT-aware
+3D experts on test set 1 and test set 2. (C) Training-OOF comparison without and with
+chemical-site information.
+Figure 5. OOF-frozen selective prediction and benchmark transfer. (A, B) Training-
+OOF accepted error and MCC across coverage levels. (C–E) Realized coverage, accepted
+error, and MCC after applying the unchanged cutoff to test set 1 and test set 2. Shading
+and error bars denote the manuscript-defined 95% bootstrap intervals; no benchmark-
+specific cutoff was recomputed.
+Figure 6. Structure-confidence and chemical-site sensitivity. (A) Mean pLDDT versus
+the peptide-level structural gate. (B) Within-peptide pLDDT–node-gate associations.
+(C) Category-level and (D) largest individual-site deletion effects. Deletion effects
+denote model sensitivity, not experimentally verified toxicophores.
+Figure 7. Representative expert disagreements. (A) Structural evidence rescues a toxic
+decision missed by the 1D expert. (B) Opposing structural evidence reverses a correct
+1D decision. Bars show expert and fused probabilities relative to the frozen threshold;
+the cases are illustrative, not causal biological evidence.
+
+
+
+
+Figure 1. GHXTox inference architecture. The peptide sequence is processed by task-adaptive
+1D expert and a pLDDT-aware multi-scale 3D expert; their probabilities are combined for
+peptide-toxicity prediction.
+                                                        Task-adaptive 1D expert                                                  3D structural expert                              Probability fusion
+
+
+                     A              test set 1 ROC                                                           B     test set 1 precision-recall                                     C           test set 1 reliability
+                     1.0                                                                                     1.0                                                                   1.0
+
+                     0.8                                                                                     0.8                                                                   0.8
+
+
+
+
+                                                                                                                                                               Observed fraction
+True-positive rate
+
+
+
+
+                                                                                                 Precision
+                     0.6                                                                                     0.6                                                                   0.6
+
+                     0.4                                                                                     0.4                                                                   0.4
+
+                     0.2                                                                                     0.2                                                                   0.2
+
+                     0.0                                                                                     0.0                                                                   0.0
+                        0.00       0.25      0.50       0.75     1.00                                           0.00      0.25      0.50      0.75      1.00                          0.00      0.25      0.50         0.75    1.00
+                                  False-positive rate                                                                             Recall                                                 Mean predicted probability
+
+                     D              test set 2 ROC                                                           E     test set 2 precision-recall                                     F           test set 2 reliability
+                     1.0                                                                                     1.0                                                                   1.0
+
+                     0.8                                                                                     0.8                                                                   0.8
+
+
+
+
+                                                                                                                                                               Observed fraction
+True-positive rate
+
+
+
+
+                                                                                                 Precision
+
+
+
+
+                     0.6                                                                                     0.6                                                                   0.6
+
+                     0.4                                                                                     0.4                                                                   0.4
+
+                     0.2                                                                                     0.2                                                                   0.2
+
+                     0.0                                                                                     0.0                                                                   0.0
+                        0.00       0.25      0.50       0.75     1.00                                           0.00      0.25      0.50      0.75      1.00                          0.00      0.25      0.50         0.75    1.00
+                                  False-positive rate                                                                             Recall                                                 Mean predicted probability
+
+
+Figure 2. GHXTox discrimination and probability reliability. (A–C) test set 1 ROC, precision–
+recall, and reliability curves; (D–F) corresponding test set 2 curves. Orange, blue, and navy
+denote the task-adaptive 1D expert, the 3D structural expert, and probability fusion, respectively.
+Gray dashed lines denote chance, prevalence, or ideal-reference behavior.
+
+
+
+                                                                                                                       3D rescues 1D errors
+                                                                                                                                                                                                    test set 1            test set 2
+                     A                                                                 B80                             1D rescues 3D errors
+                                                                                                                                                                                    C
+                                                                                                             test set 1            test set 2                  Peptide length
+                                                                  Conditional rescue rate (%)
+
+
+
+
+           n=1032 n=29                           n=24   n=41
+ test set 1 Tox    Tox                           Tox     Tox                                    60
+            27%   52%                            21%    56%                                                                                                                        Cys count
+
+
+                                                                                                40                                                                 Mean pLDDT
+
+
+                               n=529 n=13        n=15   n=25
+                                                                                                                                                     Chemical-site coverage
+ test set 2                     Tox   Tox        Tox     Tox                                    20
+                                6%   15%          7%    40%
+
+                                                                                                                                                        Conformer availability
+                                                                                                 0
+                             Both 1D-only 3D-only Both
+                            correct correct correct wrong                                            All toxic Toxic           All toxic Toxic                                               −1.0    −0.5        0.0    0.5    1.0
+                                                                                                        n-                        n-
+                                                                                                     No                        No                                                            Effect: 3D-only minus 1D-only
+
+
+
+
+                           0                50             100
+                           Toxic fraction within group (%)
+
+
+Figure 3. Complementarity of the 1D and 3D experts on test set 1 and test set 2. (A) Expert-
+outcome groups and their toxic fractions. (B) Conditional rescue rates with 95% Wilson intervals.
+(C) Prespecified 3D-only versus 1D-only attribute effects with 95% bootstrap intervals; none
+remained significant after Benjamini–Hochberg correction.
+                              A                           test set 1                        B                                   test set 2                        C                       Training OOF
+                           1.0
+
+
+                           0.9
+Metric value
+
+
+
+                           0.8
+
+
+                           0.7
+
+
+                           0.6
+
+
+                                                CC       MC
+                                                            C
+                                                                      RO
+                                                                         C
+                                                                                   PR
+                                                                                      C                              CC         MC
+                                                                                                                                  C
+                                                                                                                                              RO
+                                                                                                                                                C
+                                                                                                                                                         PR
+                                                                                                                                                              C                 CC         MC
+                                                                                                                                                                                             C
+                                                                                                                                                                                                   RO
+                                                                                                                                                                                                     C
+                                                                                                                                                                                                              PR
+                                                                                                                                                                                                                 C
+                                           BA                    AU           AU                                   BA                     AU          AU                      BA                 AU        AU
+
+                                                                                                                   Comparator                  Current
+
+
+Figure 4. Protocol-separated structural ablations. (A, B) Previous and pLDDT-aware 3D experts
+on test set 1 and test set 2. (C) Training-OOF comparison without and with chemical-site
+information.
+
+
+               A                                                                                                                      B
+                                                                                                                                       0.96
+                                                     Frozen policy                Random rejection
+                  Accepted error (%)
+
+
+
+
+                                       5                                                                                               0.94
+
+                                       4                                                                                               0.92
+                                                                                                                                 MCC
+
+
+
+
+                                                                                                                                       0.90
+                                       3
+                                                                                                                                       0.88
+                                       2
+                                                                                                                                       0.86
+                                           80              85                90                        95                 100                    80               85                 90          95             100
+                                                                     Coverage (%)                                                                                             Coverage (%)
+
+                                  C                                                                       D                                                             E
+                                                                                                               8                                                        1.0
+                          100
+Realized coverage (%)
+
+
+
+
+                                                                                          Accepted error (%)
+
+
+
+
+                                  80            88.5%                  86.9%                                                                                            0.9
+                                                                                                               6
+
+                                  60                                                                                                                                    0.8
+                                                                                                                                                                  MCC
+
+
+
+
+                                                                                                               4
+                                  40                                                                                                                                    0.7
+                                                                                                               2
+                                  20                                                                                                                                    0.6
+
+                                       0                                                                       0                                                        0.5
+                                            test set 1                test set 2                                   test set 1                    test set 2                     test set 1               test set 2
+
+
+
+                                                                                    Full predictor                        Frozen policy               Random rejection
+
+
+
+Figure 5. OOF-frozen selective prediction and benchmark transfer. (A, B) Training-OOF
+accepted error and MCC across coverage levels. (C–E) Realized coverage, accepted error, and
+MCC after applying the unchanged cutoff to test set 1 and test set 2. Shading and error bars denote
+the manuscript-defined 95% bootstrap intervals; no benchmark-specific cutoff was recomputed.
+                                                      A              Confidence use (ρ=0.96)                                                 B                   Residue-level association
+                                                      0.42                                                                                        140
+                                                                     test set 1                                                                                   median=0.07
+                                                                     test set 2
+                             Global structural gate   0.40                                                                                        120
+
+                                                                                                                                                  100
+
+
+
+
+                                                                                                                                  Peptide count
+                                                      0.38
+                                                                                                                                                   80
+
+                                                      0.36                                                                                         60
+
+                                                      0.34                                                                                         40
+
+                                                                                                                                                   20
+                                                      0.32
+                                                                                                                                                    0
+                                                             0.4            0.6          0.8                                                                      −0.5            0.0      0.5
+                                                                      Mean predicted pLDDT                                                                       Within-peptide Spearman ρ
+
+                                                      C             Chemical-category deletion                                               D                    Largest site sensitivities
+                         hydrophobic                                                                          test set 1 P19 | hydroph.|conf.
+
+                                                                                                                     test set 2 A2 | hydroph.
+                             aromatic
+                                                                                                                     test set 1 A2 | hydroph.
+                       conformational                                                                                 test set 2 W29 | donor
+
+                                                                                                                      test set 1 W29 | donor
+                             negative
+                                                                                                                      test set 2 I6 | hydroph.
+                             acceptor                                                                                 test set 1 I6 | hydroph.
+
+                                                                                                             test set 1 N18 | donor|acceptor
+                                                donor
+                                                                                                             test set 2 N18 | donor|acceptor
+                                                  sulfur                                                    test set 1 F8 | aromatic|hydroph.
+
+                                                                                                            test set 2 F8 | aromatic|hydroph.
+                                  positive
+
+                                                             −0.4         −0.2         0.0         0.2                                                    −0.3   −0.2     −0.1      0.0   0.1      0.2
+                                                                     Δp3D (baseline - deleted)                                                                    Δp3D (baseline - deleted)
+
+
+Figure 6. Structure-confidence and chemical-site sensitivity. (A) Mean pLDDT versus the
+peptide-level structural gate. (B) Within-peptide pLDDT–node-gate associations. (C) Category-
+level and (D) largest individual-site deletion effects. Deletion effects denote model sensitivity,
+not experimentally verified toxicophores.
+
+
+
+
+              A                                                 3D evidence rescues 1D                             B                                       3D evidence overrides 1D
+                                                                              0.995
+                       1.0
+
+
+                       0.8
+Toxicity probability
+
+
+
+
+                       0.6                                                                                                                        0.545
+                                                                                                 0.481
+                                                                                                                                                                                                 0.392
+                       0.4
+                                                       0.281
+
+                       0.2
+
+                                                                                                                                                                          0.000
+                       0.0
+                                                 1D expert                 3D expert             Fusion                               1D expert                         3D expert               Fusion
+
+                                                                                                          Decision threshold
+
+
+Figure 7. Representative expert disagreements. (A) Structural evidence rescues a toxic decision
+missed by the 1D expert. (B) Opposing structural evidence reverses a correct 1D decision. Bars
+show expert and fused probabilities relative to the frozen threshold; the cases are illustrative, not
+causal biological evidence.
+

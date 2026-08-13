@@ -18,7 +18,11 @@
 - End matter: Author Contributions, Acknowledgements, Conflict of Interest Disclosure, References, caption inventories, tables, then figures.
 - Tables: captions above; restrained black-and-white three-line style.
 - Figures: captions below; color is retained where it communicates scientific series or model branches.
-- Page numbers: centered footer.
+- End-float order: `Table Captions` is followed immediately by the tables, with
+  each caption attached above its table; `Figure Captions` then precedes the
+  figures, with each caption attached below its figure.
+- Page numbers: centered footer through the reference section; suppressed from
+  `Table Captions` through the final table and figure pages.
 
 ## Content-slot mapping
 

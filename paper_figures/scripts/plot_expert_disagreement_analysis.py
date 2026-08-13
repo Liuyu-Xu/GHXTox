@@ -335,7 +335,7 @@ def _draw(
     )
     image = axes[0].imshow(toxic_fraction, cmap=class_map, vmin=0.0, vmax=100.0, aspect="auto")
     axes[0].set_xticks(np.arange(4), [GROUP_AXIS[group] for group in GROUPS], rotation=0)
-    axes[0].set_yticks(np.arange(2), SPLITS)
+    axes[0].set_yticks(np.arange(2), ("test set 1", "test set 2"))
     axes[0].tick_params(axis="x", labelsize=6.8, pad=3, length=0)
     axes[0].tick_params(axis="y", length=0)
     for row_index in range(2):
@@ -400,8 +400,8 @@ def _draw(
     axes[1].set_ylim(0, 80)
     axes[1].set_yticks([0, 20, 40, 60, 80])
     axes[1].grid(axis="y", color=light_grid, linewidth=0.45, zorder=0)
-    axes[1].text(1.0, 77.0, "Test1", ha="center", va="top", fontsize=8.0, fontweight="bold")
-    axes[1].text(4.5, 77.0, "Test2", ha="center", va="top", fontsize=8.0, fontweight="bold")
+    axes[1].text(1.0, 77.0, "test set 1", ha="center", va="top", fontsize=8.0, fontweight="bold")
+    axes[1].text(4.5, 77.0, "test set 2", ha="center", va="top", fontsize=8.0, fontweight="bold")
     axes[1].legend(loc="upper center", bbox_to_anchor=(0.5, 1.19), frameon=False, ncol=1)
 
     # C: primary attribute effects, one scale because binary Cliff's delta equals risk difference.
@@ -434,7 +434,7 @@ def _draw(
             elinewidth=0.9,
             capsize=2.3,
             capthick=0.9,
-            label=split,
+            label="test set 1" if split == "Test1" else "test set 2",
             zorder=3,
         )
     axes[2].axvline(0.0, color=gray, linewidth=0.9, linestyle=(0, (3, 2)), zorder=1)
