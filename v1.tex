@@ -293,8 +293,9 @@ this study.
 GHXTox is a hierarchical dual-level fusion framework for peptide toxicity
 prediction: a task-adaptive one-dimensional (1D) sequence expert and a
 sequence-enhanced three-dimensional (3D) structural expert generate
-independent probabilities, interact internally at the feature level, and are
-combined at the probability level.
+independent probabilities that are combined only at the probability level.
+Feature-level sequence--structure interaction occurs solely within the 3D
+expert, rather than between the two top-level experts.
 
 The 1D expert processes the peptide sequence with a LoRA-adapted ProtT5
 encoder \cite{elnaggar2022prottrans,hu2022lora} followed by a bidirectional
@@ -481,13 +482,17 @@ AlphaFold2 is a high-accuracy single-structure predictor
 systematically evaluated for peptides of 16--60 residues
 \cite{gulsevin2022benchmarking}, an interval that covers the 16--30-residue
 cohort; ColabFold, an MSA-accelerated AlphaFold2 implementation
-\cite{mirdita2022colabfold}, is run in our pipeline with five models and
-multiple seeds to generate candidate conformations. These candidates are
-filtered by an average-pLDDT quality
-floor and then reduced to eight diverse conformers per peptide by
-farthest-point sampling on Kabsch-aligned C$\alpha$-RMSD
-\cite{kabsch1976}, yielding 2{,}034
-training records. These sources are represented explicitly in the residual
+\cite{mirdita2022colabfold}, is run in our pipeline with five models and four
+inference seeds to generate up to 20 candidate conformations per peptide. A
+mean-pLDDT quality floor of 50 is applied strictly when at least eight
+candidates pass it; otherwise, the qualified pool is completed with the
+highest-confidence candidates below the floor so that uncertain or disordered
+peptides are not silently discarded. Diversity selection is initialized from
+the highest-confidence candidate and farthest-point seeds on Kabsch-aligned
+C$\alpha$-RMSD, followed by deterministic partitioning-around-medoids
+(PAM/$k$-medoids) refinement \cite{kabsch1976}. Up to eight conformers are
+retained per peptide, yielding 2{,}034 training records. These sources are
+represented explicitly in the residual
 head; nevertheless, generator identity remains partially coupled to peptide
 length and is treated as a limitation rather than as an independently
 identified causal factor.
@@ -1051,10 +1056,11 @@ Using the OOF-frozen weight and threshold without dataset-specific retuning,
 GHXTox correctly classified 1{,}067 of 1{,}126 Test1 peptides
 (TP/TN/FP/FN = 287/780/26/33) and 551 of 582 strongly imbalanced Test2
 peptides (35/516/20/11); the complete metric set is listed in
-Table~\ref{tab:overall_comparison}. The low Test2 BACC (0.8618) and F1
-(0.6931), despite high accuracy, reflect the difficulty of recovering the 46
-toxic peptides and demonstrate why class-balanced and precision--recall
-metrics are essential for this benchmark.
+Table~\ref{tab:overall_comparison}. The Test2 BACC (0.8618), which is lower
+than that of both published reference models, and the F1 score (0.6931),
+despite high accuracy, reflect the difficulty of recovering the 46 toxic
+peptides and demonstrate why class-balanced and precision--recall metrics are
+essential for this benchmark.
 
 Table~\ref{tab:overall_comparison} also reports previously published models on
 the same benchmark partitions (ToxMSRC and ToxPLTC; values transcribed from
