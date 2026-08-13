@@ -320,10 +320,10 @@ def _draw(
             "svg.hashsalt": "ghxtox-selective-test-transfer-v1",
         }
     )
-    blue = "#0072B2"
-    dark = "#3F4650"
-    gray = "#8E98A7"
-    amber = "#E69F00"
+    blue = "#174A7E"
+    dark = "#174A7E"
+    gray = "#A8B0BA"
+    amber = "#E87522"
     fig, axes = plt.subplots(
         1,
         3,

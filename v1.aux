@@ -1,0 +1,175 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{muttenthaler2021}
+\citation{zhang2025toxmsrc}
+\citation{zhang2025toxmsrc}
+\@writefile{toc}{\contentsline {section}{\numberline {1}INTRODUCTION}{1}{section.1}\protected@file@percent }
+\citation{zhang2025toxmsrc}
+\citation{liang2026toxpltc}
+\citation{guan2025toxipep}
+\citation{tran2025hypeptoxfuse}
+\citation{wang2025peptitox}
+\citation{jiao2025structoxnet}
+\citation{wang2025peptitox,jiao2025structoxnet,gulsevin2022benchmarking}
+\citation{elnaggar2022prottrans,hu2022lora,gu2024mamba}
+\citation{lin2023esmfold,jumper2021alphafold2,mirdita2022colabfold,abdin2024pepflow}
+\citation{zhang2026neuroppredpscg}
+\citation{jiao2024captp}
+\citation{zhang2025toxmsrc}
+\citation{zhang2025toxmsrc}
+\citation{morozov2023csmboxin}
+\citation{sharma2022toxinpred2}
+\citation{wei2021atse}
+\citation{uniprot2019}
+\citation{fu2012cdhit}
+\citation{zhang2025toxmsrc}
+\citation{rathore2024toxinpred3}
+\@writefile{toc}{\contentsline {section}{\numberline {2}MATERIALS AND METHODS}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Datasets}{3}{subsection.2.1}\protected@file@percent }
+\citation{elnaggar2022prottrans,hu2022lora}
+\citation{gu2024mamba}
+\citation{elnaggar2022prottrans}
+\citation{hu2022lora}
+\citation{gu2024mamba}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Overview of the Model}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Task-Adaptive 1D Sequence Modeling}{4}{subsection.2.3}\protected@file@percent }
+\citation{platt1999}
+\citation{wang2025peptitox,jiao2025structoxnet,gulsevin2022benchmarking}
+\newlabel{eq:1d_encode}{{1}{5}{Task-Adaptive 1D Sequence Modeling}{equation.1}{}}
+\newlabel{eq:1d_pool}{{2}{5}{Task-Adaptive 1D Sequence Modeling}{equation.2}{}}
+\newlabel{eq:1d_head}{{3}{5}{Task-Adaptive 1D Sequence Modeling}{equation.3}{}}
+\newlabel{eq:1d_calib}{{4}{5}{Task-Adaptive 1D Sequence Modeling}{equation.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}pLDDT-Aware Multi-Scale 3D Structural Modeling}{5}{subsection.2.4}\protected@file@percent }
+\citation{lin2023esmfold}
+\citation{abdin2024pepflow}
+\citation{jumper2021alphafold2}
+\citation{gulsevin2022benchmarking}
+\citation{mirdita2022colabfold}
+\citation{kabsch1976}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Peptide Structure Prediction and Conformer Preparation}{6}{subsubsection.2.4.1}\protected@file@percent }
+\newlabel{eq:conformer_align}{{5}{7}{Peptide Structure Prediction and Conformer Preparation}{equation.5}{}}
+\citation{lin2023esmfold}
+\citation{vaswani2017transformer}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Residue Feature Construction and Hybrid Geometric Graph}{8}{subsubsection.2.4.2}\protected@file@percent }
+\newlabel{eq:seq_feat}{{6}{8}{Residue Feature Construction and Hybrid Geometric Graph}{equation.6}{}}
+\citation{satorras2021egnn}
+\newlabel{eq:residue_init}{{7}{9}{Residue Feature Construction and Hybrid Geometric Graph}{equation.7}{}}
+\newlabel{eq:edge_feat}{{8}{9}{Residue Feature Construction and Hybrid Geometric Graph}{equation.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}pLDDT-Aware Equivariant Graph Encoding}{9}{subsubsection.2.4.3}\protected@file@percent }
+\newlabel{eq:edge_weight}{{9}{9}{pLDDT-Aware Equivariant Graph Encoding}{equation.9}{}}
+\citation{gilmer2017mpnn}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Full-Atom Chemical-Site Message Passing}{10}{subsubsection.2.4.4}\protected@file@percent }
+\newlabel{eq:normalized_distance}{{10}{11}{Full-Atom Chemical-Site Message Passing}{equation.10}{}}
+\newlabel{eq:site_edge}{{11}{11}{Full-Atom Chemical-Site Message Passing}{equation.11}{}}
+\citation{he2016deepresidual}
+\newlabel{eq:chem_residual}{{12}{12}{Full-Atom Chemical-Site Message Passing}{equation.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.5}pLDDT-Aware Sequence--Structure Cross-Attention}{12}{subsubsection.2.4.5}\protected@file@percent }
+\citation{vaswani2017transformer}
+\newlabel{eq:node_gate}{{13}{13}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.13}{}}
+\newlabel{eq:cross_attn_sp}{{14}{13}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.14}{}}
+\newlabel{eq:peptide_gate}{{15}{13}{pLDDT-Aware Sequence--Structure Cross-Attention}{equation.15}{}}
+\citation{fu2012cdhit}
+\citation{loshchilov2019adamw}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.6}Global Feature Integration and Structural Classification}{14}{subsubsection.2.4.6}\protected@file@percent }
+\newlabel{eq:se3d_prob}{{16}{14}{Global Feature Integration and Structural Classification}{equation.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Fusion and Final Output}{14}{subsection.2.5}\protected@file@percent }
+\newlabel{eq:fusion}{{17}{14}{Fusion and Final Output}{equation.17}{}}
+\citation{saito2015pr}
+\citation{matthews1975mcc}
+\citation{brier1950}
+\citation{guo2017calibration}
+\citation{efron1993bootstrap}
+\citation{wilson1927}
+\citation{cliff1993}
+\citation{ojala2010permutation}
+\citation{benjamini1995fdr}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Evaluation Criteria}{15}{subsection.2.6}\protected@file@percent }
+\newlabel{eq:metrics}{{18}{15}{Evaluation Criteria}{equation.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}RESULTS AND DISCUSSION}{15}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overall Predictive Performance on the Benchmark Test Sets}{15}{subsection.3.1}\protected@file@percent }
+\citation{zhang2025toxmsrc,liang2026toxpltc}
+\citation{saito2015pr}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Complementarity of the 1D and 3D Experts}{16}{subsection.3.2}\protected@file@percent }
+\citation{abdin2024pepflow}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Analysis of the Sequence and Structural Experts}{17}{subsection.3.3}\protected@file@percent }
+\citation{chow1970reject}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Robustness, Statistical Uncertainty, and Applicability Analysis}{18}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Interpretability and Representative Case Studies}{18}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Limitations and Future Directions}{19}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}CONCLUSIONS}{20}{section.4}\protected@file@percent }
+\bibstyle{abbrv}
+\bibdata{references}
+\bibcite{abdin2024pepflow}{1}
+\bibcite{benjamini1995fdr}{2}
+\bibcite{brier1950}{3}
+\bibcite{chow1970reject}{4}
+\bibcite{cliff1993}{5}
+\bibcite{efron1993bootstrap}{6}
+\bibcite{elnaggar2022prottrans}{7}
+\bibcite{fu2012cdhit}{8}
+\bibcite{gilmer2017mpnn}{9}
+\bibcite{gu2024mamba}{10}
+\bibcite{guan2025toxipep}{11}
+\bibcite{gulsevin2022benchmarking}{12}
+\bibcite{guo2017calibration}{13}
+\bibcite{he2016deepresidual}{14}
+\bibcite{hu2022lora}{15}
+\bibcite{jiao2025structoxnet}{16}
+\bibcite{jiao2024captp}{17}
+\bibcite{jumper2021alphafold2}{18}
+\bibcite{kabsch1976}{19}
+\bibcite{liang2026toxpltc}{20}
+\bibcite{lin2023esmfold}{21}
+\bibcite{loshchilov2019adamw}{22}
+\bibcite{matthews1975mcc}{23}
+\bibcite{mirdita2022colabfold}{24}
+\bibcite{morozov2023csmboxin}{25}
+\bibcite{muttenthaler2021}{26}
+\bibcite{ojala2010permutation}{27}
+\bibcite{platt1999}{28}
+\bibcite{rathore2024toxinpred3}{29}
+\bibcite{saito2015pr}{30}
+\bibcite{satorras2021egnn}{31}
+\bibcite{sharma2022toxinpred2}{32}
+\bibcite{uniprot2019}{33}
+\bibcite{tran2025hypeptoxfuse}{34}
+\bibcite{vaswani2017transformer}{35}
+\bibcite{wang2025peptitox}{36}
+\bibcite{wei2021atse}{37}
+\bibcite{wilson1927}{38}
+\bibcite{zhang2025toxmsrc}{39}
+\bibcite{zhang2026neuroppredpscg}{40}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Statistics of the datasets used in this study.}}{27}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:datasets}{{1}{27}{Statistics of the datasets used in this study}{table.caption.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Performance comparison on the benchmark Test1 and Test2 sets.}}{27}{table.caption.2}\protected@file@percent }
+\newlabel{tab:overall_comparison}{{2}{27}{Performance comparison on the benchmark Test1 and Test2 sets}{table.caption.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Ranking and probability quality of the 1D streams and probability fusion. Structural probabilities use the canonical single-structure output.}}{27}{table.caption.3}\protected@file@percent }
+\newlabel{tab:expert_comparison}{{3}{27}{Ranking and probability quality of the 1D streams and probability fusion. Structural probabilities use the canonical single-structure output}{table.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Controlled comparisons for the task-adaptive 1D expert. Training-OOF architecture and benchmark-calibration rows use separate protocols.}}{28}{table.caption.4}\protected@file@percent }
+\newlabel{tab:1d_ablation}{{4}{28}{Controlled comparisons for the task-adaptive 1D expert. Training-OOF architecture and benchmark-calibration rows use separate protocols}{table.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Test1 conformer-residual ablation on the full benchmark; the residual is activated only for the 486 covered peptides.}}{28}{table.caption.5}\protected@file@percent }
+\newlabel{tab:conformer_ablation_test1}{{5}{28}{Test1 conformer-residual ablation on the full benchmark; the residual is activated only for the 486 covered peptides}{table.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Test2 conformer-residual ablation on the full benchmark; the residual is activated only for the 284 covered peptides.}}{28}{table.caption.6}\protected@file@percent }
+\newlabel{tab:conformer_ablation_test2}{{6}{28}{Test2 conformer-residual ablation on the full benchmark; the residual is activated only for the 284 covered peptides}{table.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Structural-expert ablations. Benchmark comparisons and paired training-OOF chemical-site rows use separate protocols.}}{28}{table.caption.7}\protected@file@percent }
+\newlabel{tab:3d_ablation_complexity}{{7}{28}{Structural-expert ablations. Benchmark comparisons and paired training-OOF chemical-site rows use separate protocols}{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces OOF-frozen selective prediction on Test1 and Test2. Random-rejection values average 5{,}000 equal-count masks.}}{28}{table.caption.8}\protected@file@percent }
+\newlabel{tab:selective_transfer}{{8}{28}{OOF-frozen selective prediction on Test1 and Test2. Random-rejection values average 5{,}000 equal-count masks}{table.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces GHXTox inference architecture. The peptide sequence is processed by a task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their probabilities are combined for peptide-toxicity prediction.}}{29}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:overview}{{1}{29}{GHXTox inference architecture. The peptide sequence is processed by a task-adaptive 1D expert and a pLDDT-aware multi-scale 3D expert; their probabilities are combined for peptide-toxicity prediction}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces GHXTox discrimination and probability reliability. (A--C) Test1 ROC, precision--recall, and reliability curves; (D--F) corresponding Test2 curves. Orange, blue, and navy denote the task-adaptive 1D expert, the 3D structural expert, and probability fusion, respectively. Gray dashed lines denote chance, prevalence, or ideal-reference behavior.}}{29}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:discrimination_calibration}{{2}{29}{GHXTox discrimination and probability reliability. (A--C) Test1 ROC, precision--recall, and reliability curves; (D--F) corresponding Test2 curves. Orange, blue, and navy denote the task-adaptive 1D expert, the 3D structural expert, and probability fusion, respectively. Gray dashed lines denote chance, prevalence, or ideal-reference behavior}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Complementarity of the 1D and 3D experts on Test1 and Test2. (A) Expert-outcome groups and their toxic fractions. (B) Conditional rescue rates with 95\% Wilson intervals. (C) Prespecified 3D-only versus 1D-only attribute effects with 95\% bootstrap intervals; none remained significant after Benjamini--Hochberg correction.}}{30}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:expert_complementarity}{{3}{30}{Complementarity of the 1D and 3D experts on Test1 and Test2. (A) Expert-outcome groups and their toxic fractions. (B) Conditional rescue rates with 95\% Wilson intervals. (C) Prespecified 3D-only versus 1D-only attribute effects with 95\% bootstrap intervals; none remained significant after Benjamini--Hochberg correction}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Protocol-separated structural ablations. (A, B) Previous and pLDDT-aware 3D experts on Test1 and Test2. (C) Training-OOF comparison without and with chemical-site information.}}{30}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:module_ablation}{{4}{30}{Protocol-separated structural ablations. (A, B) Previous and pLDDT-aware 3D experts on Test1 and Test2. (C) Training-OOF comparison without and with chemical-site information}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces OOF-frozen selective prediction and benchmark transfer. (A, B) Training-OOF accepted error and MCC across coverage levels. (C--E) Realized coverage, accepted error, and MCC after applying the unchanged cutoff to Test1 and Test2. Shading and error bars denote the manuscript-defined 95\% bootstrap intervals; no benchmark-specific cutoff was recomputed.}}{31}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:selective_prediction}{{5}{31}{OOF-frozen selective prediction and benchmark transfer. (A, B) Training-OOF accepted error and MCC across coverage levels. (C--E) Realized coverage, accepted error, and MCC after applying the unchanged cutoff to Test1 and Test2. Shading and error bars denote the manuscript-defined 95\% bootstrap intervals; no benchmark-specific cutoff was recomputed}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Structure-confidence and chemical-site sensitivity. (A) Mean pLDDT versus the peptide-level structural gate. (B) Within-peptide pLDDT--node-gate associations. (C) Category-level and (D) largest individual-site deletion effects. Deletion effects denote model sensitivity, not experimentally verified toxicophores.}}{32}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:structural_sensitivity}{{6}{32}{Structure-confidence and chemical-site sensitivity. (A) Mean pLDDT versus the peptide-level structural gate. (B) Within-peptide pLDDT--node-gate associations. (C) Category-level and (D) largest individual-site deletion effects. Deletion effects denote model sensitivity, not experimentally verified toxicophores}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Representative expert disagreements. (A) Structural evidence rescues a toxic decision missed by the 1D expert. (B) Opposing structural evidence reverses a correct 1D decision. Bars show expert and fused probabilities relative to the frozen threshold; the cases are illustrative, not causal biological evidence.}}{32}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:expert_disagreement_cases}{{7}{32}{Representative expert disagreements. (A) Structural evidence rescues a toxic decision missed by the 1D expert. (B) Opposing structural evidence reverses a correct 1D decision. Bars show expert and fused probabilities relative to the frozen threshold; the cases are illustrative, not causal biological evidence}{figure.caption.15}{}}
+\gdef \@abspage@last{32}

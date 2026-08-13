@@ -1,0 +1,67 @@
+                                 A sequence_23_23: 3D_only_correct                        B sequence_34_34: 1D_only_correct
+                                                        0.995
+                              true label=1; fused prediction=1                         true label=1; fused prediction=0
+                       1.0
+Toxicity probability
+
+
+
+
+                       0.8
+
+                       0.6                                                                 0.545
+                                                                          0.481
+                                                                                                                                   0.392
+                       0.4
+                                  0.281
+
+                       0.2
+
+                                                                                                                0.000
+                       0.0
+                                   p1D                  p3D               fused             p1D                  p3D               fused
+
+                                                 fusion threshold=0.470                                   fusion threshold=0.470
+
+
+Figure 8: Representative disagreements show that fixed late fusion can either rescue an expert-
+specific error or override an otherwise correct prediction. (A) A peptide for which the 3D expert
+restores a toxic decision missed by the 1D expert. (B) A peptide for which opposing structural
+evidence reverses a correct 1D prediction. Bars show the 1D, 3D, and fused probabilities against
+the frozen fused decision threshold. These examples demonstrate operational complementarity
+and failure modes rather than a causal biological mechanism.
+
+
+3.6                          Limitations and Future Directions
+      The most fundamental limitation stems from the single-output nature of three-dimensional
+conformation prediction. Short peptides in solution typically populate multiple interconvert-
+ing conformations, and toxicity is usually mediated by one particular conformation or class of
+conformations; a single predicted structure cannot cover this multimodal distribution. This
+is precisely why the project introduced multiple conformation generators (PepFlow and Al-
+phaFold2/ColabFold, assigned by length range). However, different generators exhibit inherent
+noise, and normalizing conformers across models and sources further amplifies this inconsistency:
+activating the multi-conformer residual on the test sets produced negligible and inconsistent ef-
+fects that did not justify a public inference protocol, and source-independent and fusion-aware
+candidates also failed their prespecified retention gates (Section 3.3, Tables 5 and 6), so the con-
+former residual was eventually disabled for benchmark and public inference and the structural
+information-extraction capacity of the model was not fully released. On training OOF the resid-
+ual improved MCC by only +0.00190 (p = 0.203, not significant), and expanding the conformer
+cohort from 250 to 761 peptides did not pass the retention gates because the added records were
+all negative. In addition, full-atom conformational sampling (e.g., PepFlow) is computationally
+far more expensive than single-structure prediction, which limited large-scale generation and
+deployment. We therefore hope that next-generation protein structure prediction models can
+provide, at acceptable computational cost, multiple possible conformations and their probabil-
+ities (for example, lightweight multi-conformer sampling based on flow matching or diffusion),
+more closely matching the multimodal nature of peptide conformation and potentially further
+releasing the value of conformational information in toxicity prediction.
+      The second limitation is that the 1D sequence and 3D conformation dimensions are com-
+bined with a fixed 0.72/0.28 weight rather than dynamically adjusted per sample. This may
+partly stem from the first limitation: the inherent noise among different conformation predic-
+tors masks the information that would indicate which dimension should be trusted for a given
+sample, and when structural evidence is itself inconsistent across generators, the model cannot
+reliably distinguish, per sample, the reliability of sequence evidence from that of conformational
+evidence and therefore falls back to fixed weights. Consistent with this, sample-level confidence
+gates and dynamic routing attempts did not pass the retention gates: the former produced
+
+                                                                                  24
+

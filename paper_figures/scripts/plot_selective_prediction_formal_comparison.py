@@ -345,9 +345,9 @@ def _draw_figure(
             "svg.hashsalt": "ghxtox-selective-formal-v1",
         }
     )
-    blue = "#0072B2"
-    gray = "#697586"
-    amber = "#E69F00"
+    blue = "#174A7E"
+    gray = "#A8B0BA"
+    amber = "#E87522"
     fig, axes = plt.subplots(1, 2, figsize=(7.0, 3.25), constrained_layout=True)
 
     panels = (
@@ -588,7 +588,7 @@ def main() -> None:
         "90% coverage. No p-values or significance marks are reported.\n\n"
         "Artwork is 178 mm wide and is provided as editable SVG, vector PDF, and 600-dpi PNG. "
         "Frozen uncertainty ranking is shown as a blue solid line with circular markers; random "
-        "rejection is a neutral-gray dashed line with square markers; amber marks the prespecified "
+        "rejection is a neutral-gray dashed line with square markers; orange marks the prespecified "
         "90% operating point. Exact values are in `five_coverage_table.md` and "
         "`source_data/five_coverage_metrics.csv`. Regenerate with "
         "`python paper_figures/scripts/plot_selective_prediction_formal_comparison.py`.\n",

@@ -152,9 +152,9 @@ def main() -> None:
         }
     )
     fig, ax = plt.subplots(figsize=(7.0, 4.0), constrained_layout=True)
-    blue = "#0072B2"
-    amber = "#E69F00"
-    gray = "#666666"
+    blue = "#174A7E"
+    amber = "#E87522"
+    gray = "#667085"
     ax.axhline(
         full_risk,
         color=gray,
@@ -243,7 +243,7 @@ def main() -> None:
         "Selective risk as a function of prediction coverage on the 6,387 training out-of-fold "
         "predictions. Samples are accepted in ascending order of uncertainty from the frozen "
         "cross-fitted selective policy; the underlying toxicity probabilities and binary decision "
-        "threshold remain unchanged. The amber point marks the prespecified 90% coverage operating "
+        "threshold remain unchanged. The orange point marks the prespecified 90% coverage operating "
         f"point (accepted error, {risk_90:.2f}%; 95% class-stratified bootstrap CI, "
         f"{lower_90:.2f}-{upper_90:.2f}%; 5,000 replicates). The dashed line denotes the "
         f"full-coverage error ({full_risk:.2f}%). This analysis quantifies selective reliability on "

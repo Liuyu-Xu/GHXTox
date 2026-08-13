@@ -1,0 +1,67 @@
+separation relative to the overall peptide size, allowing the model to distinguish, for example,
+an 8 Å contact in a compact short peptide from an 8 Å contact in a larger peptide. Third,
+four rotation-invariant orientation features are used, ouv = [|ou · ruv |, |ov · rvu |, |ou · ov |, ovalid
+                                                                                                     uv ],
+which describe the alignment of the source orientation with the intersite direction, the align-
+ment of the target orientation with the reverse direction, the mutual orientation of the two
+sites, and orientation availability. Fourth, six explicit compatibility channels are used: opposite-
+charge, donor–acceptor, aromatic–aromatic, positive–aromatic (cation–π), sulfur–sulfur, and
+hydrophobic–hydrophobic compatibility. These channels encode candidate chemical compatibil-
+ity patterns available to the model; they do not imply that a true salt bridge, hydrogen bond,
+cation–π interaction, disulfide bond, or hydrophobic core is present in the predicted structure.
+     Combining these families yields the full chemical-site edge representation
+                               h                                        √            i
+                     echem
+                      uv   = ϕraw (duv ) ∥ ϕnorm (d¯uv ) ∥ ouv ∥ cchem
+                                                                  uv   ∥ qu qv ,                     (11)
+
+in which pLDDT enters the chemical-site features as a confidence channel. At layer l, each
+site message is computed from the two site states and the edge representation, weighted by the
+pairwise confidence, and aggregated over the neighborhood. After two message-passing layers,
+valid sites belonging to the same residue are mean-pooled, and the residue-level chemical residual
+and the chemical-enhanced spatial state are
+                                                    h                            i
+                                       (l)    (l)
+                                     muv   = ϕchem z(l)    (l)
+                                                     u ∥ zv ∥ euv
+                                                                 chem
+                                                                        ,
+                                                P        √        (l)
+                                       (l)        u∈N (v) qu qv muv
+                                     m̄v =       P          √         ,
+                                             max     u∈N (v) qu qv , 1                               (12)
+                                                                        
+                                                                   (2)
+                                   ∆hichem = Wchem Mean zir                  ,
+                                                        r∈Si
+
+                                      hisp = hiEGNN + ∆hichem ,
+                                                                                    √
+where the aggregation weights the incoming messages by the pairwise confidence qu qv , contin-
+uing the pLDDT-aware weighting of information extraction. The projection Wchem and its bias
+bchem are zero-initialized, so that ∆hichem = 0 at the beginning of training. This conservative
+residual design allows the new chemical-site branch to progressively learn useful corrections from
+an intact geometric backbone rather than perturbing the existing spatial representation with a
+randomly initialized contribution.
+     Beyond these residue-level corrections, the structural expert additionally allows multi-
+conformer statistics to refine the prediction through a logit-level residual [29]. To avoid the
+high cost of running the complete geometric network independently on every conformer, GHX-
+Tox compresses the ensemble descriptors normalized in Section 2.4.1 into a lightweight statistical
+residual: residue-level ensemble features are encoded and pooled with both masked-mean and
+masked-max operations, the peptide-level descriptor is processed by a separate encoder, and the
+generator identity (PepFlow, AlphaFold2/ColabFold, or another admitted generator) is encoded
+by a three-dimensional one-hot vector whose learned source embedding is concatenated with the
+base structural embedding and the two ensemble embeddings to produce a raw logit residual
+through a small network with a zero-initialized final layer. The effective residual is the product
+of the availability indicator and a learned weight (initialized to 0.25 and regularized by an L1
+penalty); when the availability indicator is zero, the residual is exactly zero and the model falls
+back to the single-structure prediction. The inference protocol is described in Section 2.5, and
+the ablation analysis in Section 3.3.
+
+2.4.5   pLDDT-Aware Sequence–Structure Cross-Attention
+    After the EGNN and the chemical-site residual are applied, the model obtains the chemical-
+                                                       sp ⊤
+enhanced spatial representation Hsp = [h1sp , . . . , hL ] ∈ RL×128 , where hisp is defined in Eq. (12).
+
+                                                    11
+

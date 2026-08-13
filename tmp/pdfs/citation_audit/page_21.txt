@@ -1,0 +1,95 @@
+                                                                                                          Frozen uncertainty ranking                                        Random rejection
+     A                                                                                                                            B
+                                                6                                                                                                            0.96
+                                                                                                                                                                             90%: 0.926 vs 0.873
+
+
+                                                                                                                                                             0.94
+
+
+
+
+                                                                                                                               MCC on accepted predictions
+                                                5
+                           Accepted error (%)
+
+
+
+
+                                                                                                                                                             0.92
+                                                4
+
+
+                                                                                                                                                             0.90
+
+                                                3
+
+                                                                                                                                                             0.88
+
+                                                              90%: 2.92% vs 5.12%
+                                                2
+                                                                                                                                                             0.86
+
+
+                                                    80            85            90                        95            100                                            80                                     85           90             95           100
+                                                            Coverage of accepted predictions (%)                                                                                  Coverage of accepted predictions (%)
+
+                                                                                                            Full binary predictor                               Frozen-threshold accepted set                                   Equal-count random rejection
+                                                         OOF target reference
+                                   A                                             B                    8                                                                                  C 1.0
+                                 100
+                                                                                                      7
+                                                    88.5%              86.9%                                                                                                                                0.9
+                                                                                                                                                                             MCC on evaluated predictions
+
+
+
+
+                                                                                                      6
+                                         75
+   Realized coverage (%)
+
+
+
+
+                                                                                 Accepted error (%)
+
+
+
+
+                                                                                                      5
+                                                                                                                                                                                                            0.8
+
+                                                                                                      4
+                                         50
+                                                                                                                                                                                                            0.7
+                                                                                                      3
+
+
+                                         25                                                           2
+                                                                                                                                                                                                            0.6
+                                                                                                      1
+                                                     Frozen U * = 0.4736
+                                                0                                                     0                                                                                                     0.5
+                                                    Test1              Test2                              Test1                                                     Test2                                          Test1                          Test2
+
+
+
+
+Figure 6: OOF-frozen decision-boundary proximity identifies lower-risk accepted subsets and
+transfers without benchmark-specific tuning. In the upper row, (A) accepted-sample error and
+(B) MCC are shown across 100%, 95%, 90%, 85%, and 80% coverage on group-aware training
+OOF predictions. The frozen uncertainty ranking is compared with equal-count random re-
+jection, and the vertical dashed line marks the prespecified 90% OOF operating point used to
+obtain the fixed cutoff. Shaded regions denote 95% intervals from 5,000 label-stratified paired-
+bootstrap replicates. In the lower row, panels (A–C) show realized coverage, accepted-sample
+error, and MCC for the full-coverage, equal-count random-rejection, and frozen-policy evalu-
+ations on Test1 and Test2. No benchmark-specific quantile was recomputed, and benchmark
+labels were accessed only after the accept/abstain decisions had been generated, solely for eval-
+uation.
+
+
+
+
+                                                                                                                              21
+

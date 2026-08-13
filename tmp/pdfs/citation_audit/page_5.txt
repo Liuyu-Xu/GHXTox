@@ -1,0 +1,61 @@
+masked before the selective scan and excluded from masked pooling; because the depthwise con-
+volution precedes this scan mask in the implementation, the reported inference protocol retains
+the canonical batch construction. The resulting residue states are aggregated by masked mean
+pooling over the valid positions, and a layer-normalized single-output linear head yields the un-
+calibrated toxicity probability. Because non-toxic peptides far outnumber toxic peptides in the
+training data, a positive-class-weighted binary cross-entropy loss is used instead of SMOTE or
+Borderline-SMOTE, with the positive-class weight w+ = N− /N+ recomputed from each fold’s
+training partition; this emphasizes the minority class without generating synthetic samples or
+leaking held-out information.
+      To reduce the variance of a single training run, three 1D models are trained under identi-
+cal settings with random seeds 42, 123, and 2025, and the ensemble score is the equal-weight
+arithmetic average of the three full-data models; no seed is selected on test performance and no
+seed-specific weight is introduced. Although averaging reduces variance, neural-network proba-
+bilities may remain miscalibrated, so a monotonic two-parameter Platt calibrator [24] is fitted
+to the training OOF scores (generated with the fixed group-aware five-fold partition, Section
+2.5) and applied to the three-seed average at inference. Because the calibration is monotonic, it
+preserves the sample ranking. Test1/Test2 labels are not used for member selection, calibration
+fitting, or threshold optimization. The calibrated probability p1D is the sequence-expert output
+used in the top-level fusion (Section 2.5); no additional calibrator is fitted after fusion.
+      The complete 1D pipeline, from the peptide sequence to the calibrated probability, is sum-
+marized as follows:
+                                                                               h        i
+             HPLM = ProtT5LoRA (S) ∈ RL×1024 ,                  X(0) = Proj HPLM ∈ RL×192 ,   (1)
+                       PL                             
+                         i=1 mi BiMamba         X(0)
+               h1D =            PL
+                                                           i
+                                                               ∈ R192 ,                       (2)
+                                  i=1 mi
+               z1D = wc⊤ LN (h1D ) + bc ,         praw
+                                                   1D = σ (z1D ) ,                            (3)
+                                             3
+                                                                          !!        !
+                                           1 X
+               p1D = σ a logit clip              p(k) , ε, 1 − ε               +b             (4)
+                                           3 k=1
+
+where Proj is the layer-norm–GELU–dropout projection, m is the residue-validity mask, p(k) is
+the probability of the k-th seed model, and a, b are the OOF-fitted monotonic Platt parameters
+(with logit clip ε = 10−6 ).
+
+2.4   pLDDT-Aware Multi-Scale 3D Structural Modeling
+     Peptide toxicity is influenced not only by amino acid composition and linear residue order
+but also by the three-dimensional (3D) arrangement of charged groups, hydrophobic regions,
+aromatic systems, and sulfur-containing moieties. Because peptides are generally short, con-
+formationally flexible, and poorly covered by experimentally determined structures, treating
+a single predicted conformation as an error-free structural observation may amplify structure-
+prediction errors, whereas Cα-only or peptide-level summary representations fail to capture the
+local spatial-chemical environments that are relevant to toxicity [6–8].
+     To address these limitations, GHXTox employs a pLDDT-aware multi-scale structural ex-
+pert that captures complementary single-structure information at four levels: residue semantics,
+spatial residue neighborhoods, full-atom chemical sites, and peptide-level global properties (Fig-
+ure 2). A separate availability-masked conformer-ensemble residual is retained as an optional
+ablation branch but is not part of the canonical predictor. Sections 2.4.1–2.4.6 describe, in
+turn, single-structure prediction and conformer preparation, residue feature construction and
+the hybrid geometric graph, pLDDT-aware equivariant graph encoding, full-atom chemical-
+site message passing with the availability-masked conformer-ensemble logit residual, sequence–
+structure cross-attention, and global feature integration with classification. Throughout, pLDDT
+
+                                                   5
+

@@ -1,0 +1,58 @@
+specificity (SP), precision, and F1 reported for completeness. AUROC and AUPRC quantified
+ranking performance; AUPRC complements AUROC under class imbalance by emphasizing
+precision–recall behavior for the positive class [31]. Brier/ECE-10 assessed probability quality.
+Threshold-dependent metrics used the fixed OOF-derived threshold (Section 2.5); ranking and
+calibration metrics used the continuous probabilities. Binary predictions ŷi = I[pi ≥ τ ] were
+summarized by ACC = (TP + TN)/N , SN = TP/(TP + FN), SP = TN/(TN + FP), F1 =
+2TP/(2TP + FP + FN), and BACC = (SN + SP)/2. MCC [32], Brier [33], and ten-bin ECE-
+10 [34] (final bin includes pi = 1) are
+                                       TP TN − FP FN
+                     MCC = p                                     ,
+                            (TP + FP)(TP + FN)(TN + FP)(TN + FN)
+                                   N
+                                1 X
+                      Brier =         (pi − yi )2 ,                                              (18)
+                                N i=1
+                                10
+                                X  |Bm |
+                    ECE10 =                |conf(Bm ) − freq(Bm )| ,
+                                m=1
+                                      N
+where TP/TN/FP/FN are the true/false positive/negative counts, yi the labels, and Bm the m-
+th equal-width bin over [0, 1] (mean confidence conf(Bm ) vs. observed toxic frequency freq(Bm ));
+ECE bins stayed fixed across models and datasets.
+     Uncertainty intervals and paired model comparisons use bootstrap resampling [35], retaining
+the same peptides across paired methods; the applicable stratification and replicate count are
+stated with each analysis. In the expert-complementarity analysis, reciprocal rescue rates use
+95% Wilson score intervals [36]. Continuous attribute effects are summarized by Cliff’s delta [37];
+their intervals use 5,000 label-stratified bootstrap replicates, while p-values use 10,000 true-label-
+stratified permutations [38]. The ten prespecified split-by-attribute tests form one family, for
+which the Benjamini–Hochberg procedure controls the false discovery rate [39].
+
+
+3     RESULTS AND DISCUSSION
+3.1   Overall Predictive Performance on the Benchmark Test Sets
+      Using the OOF-frozen weight and threshold without dataset-specific retuning, GHXTox
+correctly classified 1,067 of 1,126 Test1 peptides (TP/TN/FP/FN = 287/780/26/33) and 551
+of 582 strongly imbalanced Test2 peptides (35/516/20/11); the complete metric set is listed
+in Table 2. The low Test2 BACC (0.8618) and F1 (0.6931), despite high accuracy, reflect the
+difficulty of recovering the 46 toxic peptides and demonstrate why class-balanced and precision–
+recall metrics are essential for this benchmark.
+      Table 2 also reports previously published models on the same benchmark partitions (ToxM-
+SRC and ToxPLTC; values transcribed from the original publications, and NR denotes an unre-
+ported metric) [2, 3]. GHXTox obtains the highest Test1 ACC, BACC, SP, MCC, AUROC, and
+AUPRC among the compared rows, whereas ToxPLTC has higher Test1 SN; on Test2, GHXTox
+obtains the highest ACC, SP, MCC, and reported AUPRC, but its BACC and SN remain below
+both reference models. This reflects a stronger overall balance of specificity, correlation, and
+positive-class ranking rather than comprehensive superiority on every metric. Because Test1
+and Test2 were observed historically, these differences remain retrospective benchmark evidence
+and require confirmation on a new prefrozen external set.
+      The final fused probabilities have Brier scores of 0.0410 and 0.0436 and ECE-10 values
+of 0.0196 and 0.0495 on Test1 and Test2, respectively. The Test2 AUPRC (0.8046) directly
+reflects the precision–recall trade-off for the rare toxic class, which is not conveyed by AUROC
+alone [31], and the 11 false negatives on Test2 delineate the limits of the operating point: high
+specificity should not be interpreted as complete minority-class coverage. Discrimination and
+calibration curves are shown in Figure 3.
+
+                                                      14
+

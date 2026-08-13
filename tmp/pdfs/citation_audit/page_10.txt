@@ -1,0 +1,59 @@
+of each node. Because toxicity-related spatial patterns often span multiple residues (for exam-
+ple, spatial clusters formed by several charged, aromatic, or hydrophobic residues), the model
+must aggregate multi-hop neighborhood information along the graph; stacking layers therefore
+enlarges the receptive field hop by hop: the first layer primarily encodes direct geometric neigh-
+bors, whereas subsequent layers integrate higher-order spatial environments through repeated
+message passing. GHXTox uses three layers, a depth that balances context integration against
+model complexity and overfitting risk on short and uncertain predicted peptide structures. Un-
+like approaches that simply append pLDDT as an ordinary node feature, GHXTox uses pLDDT
+to directly modulate the strength of geometric messages, allowing structural uncertainty to in-
+fluence representation learning at the propagation stage. Low pLDDT does not imply that a
+residue is biologically unimportant; it may reflect prediction error or genuine conformational
+flexibility, so the model reduces the reliability of uncertain coordinate evidence while preserving
+the residue’s sequence-semantic and physicochemical features.
+
+2.4.4   Full-Atom Chemical-Site Message Passing
+     A Cα-based residue graph captures the global fold and spatial neighborhoods but cannot
+resolve chemically distinct moieties within the same side chain. For example, tyrosine contains
+both an aromatic ring and a hydroxyl group, whereas tryptophan contains an aromatic system
+and an indole nitrogen. Compressing each side chain into a single centroid would mix these
+chemically different moieties. GHXTox therefore extracts chemistry-aware pseudo-sites from the
+predicted full-atom PDB structure and processes them with a dedicated local message-passing
+branch [28].
+     To retain this chemical detail, up to two chemical sites are kept for each residue. Site identity
+is represented by an eight-dimensional multi-hot vector tir ∈ {0, 1}8 allowing overlapping types:
+positive, negative, donor, acceptor, aromatic, hydrophobic, sulfur, and conformational, where r
+indexes the chemical site within residue i. Multiple types may be assigned to the same site: for
+example, the cysteine sulfur site is labeled as donor, hydrophobic, and sulfur-containing, whereas
+the proline ring is labeled as hydrophobic and conformationally constrained; the aromatic ring
+and hydroxyl group of tyrosine are represented as separate sites, as are the aromatic system and
+the indole NE1 nitrogen (donor) of tryptophan.
+     Each site is further localized and oriented in the predicted structure: its coordinate is the
+mean position of the heavy atoms defining the corresponding chemical moiety, and its orientation
+is represented by either a bond direction or an unsigned plane normal. Because the sign of a plane
+normal is arbitrary, downstream directional features use absolute cosines, preserving rotation
+invariance and eliminating orientation-sign ambiguity. Combining these attributes, the initial
+                                          (0)
+representation of site r in residue i is zir = ϕsite [tir ∥ qi ∥ ovalid
+                                                                  ir ], where qi is the pLDDT score
+                              valid
+of the parent residue and oir indicates whether a reliable orientation could be constructed;
+the input is projected into a 64-dimensional hidden space.
+     Because chemical interactions depend on spatial proximity, edges are established between
+valid sites separated by no more than 16 Å; same-residue site edges are kept, preserving spatial
+relationships between chemically different moieties in complex side chains. Each edge carries
+four complementary feature families. First, the raw distance in Å is encoded using 16 radial
+basis functions, ϕraw (duv ) ∈ R16 . Second, a peptide-size-normalized distance is constructed.
+The radius of gyration of the Cα coordinates is
+                         v
+                         u  L                                L
+                         u1 X                             1X                  duv
+                    Rg = t    ∥xi − x̄∥22 ,        x̄ =         xi ,   d¯uv =     ,              (10)
+                            L i=1                         L i=1               Rg
+
+where x̄ denotes the centroid of the valid Cα coordinates, and the normalized distance is encoded
+by eight radial basis functions over the interval 0–4, ϕnorm (d¯uv ) ∈ R8 . The raw representation
+describes the physical separation in Å, whereas the normalized representation describes the
+
+                                                 10
+

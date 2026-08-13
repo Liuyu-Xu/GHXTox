@@ -6,7 +6,7 @@ The figure uses the canonical single-structure Test1/Test2 probabilities. Standa
 
 Panel A shows exact group counts and within-group toxic fractions. Panel B shows reciprocal conditional rescue rates with 95% Wilson intervals. Panel C shows the 3D-only-correct minus 1D-only-correct effect for five prespecified attributes; intervals use 5,000 label-stratified bootstrap replicates, p-values use 10,000 true-label-stratified permutations, and BH correction covers all ten primary tests.
 
-Artwork is 178 mm wide and supplied as editable SVG, vector PDF, and 600-dpi PNG. Arial is requested with Liberation Sans/DejaVu Sans fallbacks. The palette follows the project convention: sequence blue, structure green, toxic vermillion, and neutral dark gray.
+Artwork is 178 mm wide and supplied as editable SVG, vector PDF, and 600-dpi PNG. Arial is requested with Liberation Sans/DejaVu Sans fallbacks. The manuscript palette uses orange for 1D evidence, blue for 3D evidence, dark blue for fusion, and neutral gray for reference elements.
 
 Regenerate with `python paper_figures/scripts/plot_expert_disagreement_analysis.py`. Exact values are in `exact_results_table.md`; publication-facing plot data are in `source_data/`. The identity-bearing sample table is included for audit.
 

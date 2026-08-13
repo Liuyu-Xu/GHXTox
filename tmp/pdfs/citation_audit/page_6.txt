@@ -1,0 +1,63 @@
+is treated as a continuous reliability signal rather than a hard filter: low-confidence structural
+evidence is down-weighted in geometric edge weighting, chemical-site messages, and residue- and
+peptide-level structural gating instead of being removed, preserving structural coverage while
+limiting the influence of uncertain coordinates. pLDDT is interpreted here as a local confidence
+estimate produced by the structure-prediction model, not as an experimentally determined mea-
+sure of structural accuracy, conformational flexibility, or biological activity.
+
+               pLDDT-aware multi-scale structural expert
+
+                             Multi-scale geometry
+          Input
+   ESMFold coordinates          pLDDT-gated nodes
+     residue pLDDT           three spatial edge scales
+                                 equivariant EGNN
+                                                            Interaction fusion
+                                                                                       3D logit
+
+                                                               cross-attention
+                                                                                      base logits
+                                                              confidence gates
+                                                                                        to p3D
+                                                            global + local pooling
+        Semantics
+    ESM2 embeddings            Sequence context
+    sequence-aligned
+                                 ESM2 projection
+                                 residue context                     ablation only
+
+
+
+
+          Sites
+      type + position                                             Optional ablation residual
+                                   Site graph
+    orientation + mask                                       PepFlow / AF2 conformer descriptors
+                              functional-group nodes       trained on frozen backbone; disabled in
+                                site-residue edges             canonical single-structure output
+
+
+
+
+Figure 2: Detailed architecture of the sequence-enhanced structural expert. The structural
+expert integrates ESM2-enhanced residue semantics, a pLDDT-aware geometric residue graph,
+and full-atom chemical-site message passing in the canonical single-structure pathway. Residue-
+level structural states are continuously modulated by node-level confidence before serving as
+keys and values in sequence–structure cross-attention. A peptide-level confidence gate further
+controls the fused structural context. The separately trained conformer-statistics residual is an
+optional ablation branch and is disabled in benchmark and public inference.
+
+
+2.4.1    Peptide Structure Prediction and Conformer Preparation
+     For a peptide sequence of length L, S = (a1 , a2 , . . . , aL ), ESMFold is first used to pre-
+dict its three-dimensional structure [12]. The predicted structure is stored as a full-atom
+PDB file, from which residue-level Cα coordinates, backbone coordinates, full-atom-derived
+chemical-site coordinates, and pLDDT scores are extracted. The Cα coordinates are collected
+as X = [x1 , . . . , xL ]⊤ ∈ RL×3 , A denotes the full-atom-PDB-derived backbone and chemical-site
+geometry, and q = (q1 , . . . , qL ) ∈ [0, 1]L contains the residue-level pLDDT confidence scores
+rescaled to [0, 1], where qi denotes the residue-level pLDDT score of residue i. The Cα coordi-
+nates serve as the primary spatial variables of the residue-level equivariant graph, whereas the
+full-atom coordinates are used to construct local chemical sites. Before geometric encoding, the
+
+                                                   6
+

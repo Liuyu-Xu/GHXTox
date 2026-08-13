@@ -1,0 +1,67 @@
+symmetrized. The hybrid graph therefore captures both covalent sequence order and nonlocal
+spatial contacts while avoiding large variations in graph density that may arise from a single
+fixed-distance cutoff; equivalently, Aij ∈ {0, 1} indicates whether residues i and j are connected
+by a sequential or k-nearest-neighbor edge.
+     For residues i and j, the Cα distance dij = ∥xi − xj ∥2 is encoded by 16 radial basis
+functions with centers µk uniformly spaced over 0–24 Å, ϕk (dij ) = exp[−γ(dij − µk )2 ] with
+γ = 1/(µk+1 − µk )2 . The base edge representation additionally includes the pairwise structural
+confidence and the normalized sequence separation:
+
+                                         √                     log(1 + |i − j|)
+                                 cij =       qi qj ,   sij =                    ,                     (8)
+                                                                 log(L + 1)
+
+so that sij is small for sequentially adjacent residues and approaches one for distant residues.
+The resulting edge feature is therefore eij = [ϕ(dij ) ∥ cij ∥ sij ], which lets the model distinguish
+sequentially adjacent contacts, long-range spatial contacts, and contacts supported by different
+levels of structural confidence.
+
+2.4.3   pLDDT-Aware Equivariant Graph Encoding
+     To learn three-dimensional representations without relying on a particular global coordi-
+nate frame, the spatial branch employs three E(3)-equivariant graph neural network layers [27].
+The network updates residue features using rotation- and translation-invariant quantities while
+updating coordinates equivariantly. Consequently, a global rigid transformation of the peptide
+structure does not change the predicted toxicity, whereas intermediate coordinate representa-
+tions transform consistently with the input.
+                                                                         (ℓ)    (ℓ) (ℓ)    (ℓ)
+     At layer ℓ, the message from residue j to residue i is computed as mij = ϕe [hi ∥ hj ∥
+ (ℓ)          (ℓ)
+eij ], where ϕe is a message multilayer perceptron. To prevent uncertain or distant contacts
+from contributing as strongly as local high-confidence contacts, a continuous edge weight is
+defined as
+                                      
+                            (ℓ)
+            (ℓ)            dij h                         i
+           wij = Aij exp −
+                                qmin + (1 − qmin ) cρ ,                    qmin = 0.1,   ρ = 1.5,   (9)
+                                                      ij
+                                  12
+
+                    (ℓ)
+The term exp(−dij /12) imposes a smooth distance decay with a characteristic decay length
+of 12 Å, and both the distance and the edge weight are recomputed at each layer from the
+current coordinates. Here, Aij ∈ {0, 1} is the adjacency indicator of the hybrid graph defined
+                           √
+in Section 2.4.2, and cij = qi qj is the pairwise structural confidence derived from the residue-
+level pLDDT scores qi and qj defined in Section 2.4.1. The minimum weight qmin prevents
+low-confidence regions from being completely disconnected, whereas the exponent ρ increases
+the relative contribution of high-confidence contacts. The distance-decay term further reduces
+the influence of more distant spatial neighbors.
+     These pLDDT-aware weighted edge messages are then aggregated at each node with a
+                                                              (ℓ)   P (ℓ) (ℓ)         P (ℓ)
+normalization floor. For node i, the aggregated message is mi = j wij mij / max( j wij , 1),
+                                             (ℓ+1)             (ℓ)    (ℓ)   (ℓ)     (ℓ)
+the node features are updated as hi     = LN{hi + ϕh [hi ∥ mi ]}, and the coordinates
+                              (ℓ+1)    (ℓ)     P (ℓ) (ℓ)     (ℓ)      P (ℓ)
+are updated equivariantly as xi     = xi + 0.05 j αij (xi − xj )/ max( j wij , 1), where
+ (ℓ)          (ℓ)    (ℓ)   (ℓ)
+αij = tanh[ϕx (mij )] wij is a bounded coordinate-update coefficient generated from the edge
+message and pairwise distances. The coordinates are recentered after every layer to reduce
+numerical drift. Because the update depends only on scalar messages, distances, and relative
+coordinate vectors, the operation remains equivariant to rigid rotations and translations.
+    Each layer update performs one round of message passing, i.e., one hop of spatial-context
+propagation over the hybrid graph, so a single layer can aggregate only the direct neighborhood
+
+
+                                                        9
+

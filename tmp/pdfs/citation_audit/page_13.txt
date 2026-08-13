@@ -1,0 +1,57 @@
+128-dimensional structural context. Masked mean pooling is applied over the valid residue
+positions, and the pooled vector is concatenated with five global physicochemical descriptors
+before a three-layer MLP produces the base structural logit; the availability-masked conformer
+correction described in Section 2.4.4 is then added, and a sigmoid yields the final structural-
+expert probability
+                                " P                   !             #                          !
+                                   L          fused
+                                     i=1 mi Hi               phys                       raw
+               pSE3D = σ ϕcls         PL                  ∥ fpep        + cconf λconf ∆zconf       ,   (16)
+                                         i=1 mi
+
+where the mask excludes padding positions from the pooled representation; fpep    phys ∈ R5 contains
+
+the normalized peptide length, the length-normalized net charge, the aromatic-residue fraction,
+the cysteine fraction, and the scaled mean hydropathy; ϕcls is a three-layer MLP with dimen-
+sions 261 → 128 → 64 → 1, each hidden layer applying GELU activation and dropout; and the
+conformer-correction term is nonzero only when valid ensemble information is available (Section
+2.4.4), so under the benchmark and public inference protocol cconf = 0 and pSE3D reduces to
+σ(zbase ), i.e., the single-structure base logits. Unlike maximum pooling, masked mean pooling
+integrates structural evidence distributed across residue positions, which is appropriate when
+toxicity-related spatial patterns are not confined to a single local region. The resulting probabil-
+ity is passed directly to the dual-expert fusion in Section 2.5; the standalone structural threshold
+is used only for branch-specific analyses.
+
+2.5   Fusion and Final Output
+    The 1D expert emits the OOF-calibrated probability p1D (Section 2.3), and the structural
+expert emits pSE3D (Section 2.4). The two probabilities are fused linearly in probability space
+with weights frozen on training out-of-fold (OOF) predictions:
+
+                                pGHXTox = 0.72 p1D + 0.28 pSE3D ,                                      (17)
+
+The fused probability pGHXTox is the model’s continuous toxicity-probability output; it is
+binarized directly at the OOF-frozen threshold, predicting toxic (ŷ = 1) if pGHXTox ≥
+0.47022256531284556 and non-toxic (ŷ = 0) otherwise. The default output is therefore
+(pGHXTox , ŷ). Experiments showed that directly emitting the fused probability yields the best
+overall performance, so no additional network or calibration is applied after fusion.
+      The two experts were trained independently because they differ in input representation,
+parameter scale, and optimization behavior (the 1D and 3D loss, calibration, and training details
+are described in Sections 2.3 and 2.4). Group-aware training OOF predictions were used for
+calibration, fusion-weight selection, and threshold determination, and Test1/Test2 labels were
+excluded from all of these procedures. The training sequences were clustered by CD-HIT at
+a sequence-identity threshold of 0.80, with all peptides in the same homology group confined
+to the same fold; each fold was predicted by a model trained only on its complement, giving
+every training peptide a single OOF probability independent of its own optimization [22]. Both
+experts were optimized with AdamW [30]. The fusion weight and decision threshold were selected
+jointly on the complete group-aware training OOF table by maximizing MCC; in exact MCC
+ties, the larger threshold was retained. This procedure yielded w1D = 0.72, wSE3D = 0.28, and
+τ = 0.47022256531284556; these values were then frozen and applied unchanged to Test1 and
+Test2. In the final benchmark and public inference protocol, the conformer availability mask is
+fixed to zero and the structural probability is read from the single-structure base logits.
+
+2.6   Evaluation Criteria
+  Given the class-imbalanced benchmarks (Test2 has 46 toxic and 536 non-toxic peptides),
+MCC and BACC served as the primary threshold-dependent metrics, with ACC, sensitivity (SN),
+
+                                                13
+

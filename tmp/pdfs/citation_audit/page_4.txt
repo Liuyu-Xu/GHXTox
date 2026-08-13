@@ -1,0 +1,65 @@
+                  GHXTox current multidimensional inference path
+
+                                   1D sequence expert
+
+                                  ProtT5 residue embeddings
+                                     LoRA task adaptation
+                                       2-layer BiMamba
+                                      3-seed + OOF Platt         p1D
+
+
+              Peptide                                                  Frozen fusion
+                                                                                                 Prediction
+                                                                         0.72 x p1D
+             amino-acid                                                 + 0.28 x p3D                 toxic
+              sequence                                                    threshold              or non-toxic
+                                   3D structural expert                   0.470223
+                                                                 p3D
+
+                                 single ESMFold test structure
+                                   ESM2 semantics + pLDDT
+                                       multi-scale EGNN
+                                chemical-site message passing
+
+
+
+
+Separate ablation: a conformer residual was trained with the single-structure backbone frozen;
+  the canonical predictor disables this residual and consumes one structure with base_logits.
+
+
+
+Figure 1: Overall architecture of GHXTox. The framework combines a task-adaptive 1D se-
+quence expert with a pLDDT-aware structural expert through probability-level fusion.
+
+
+2.3    Task-Adaptive 1D Sequence Modeling
+     The 1D sequence expert learns toxicity-related contextual semantics directly from peptide
+sequences. Instead of reducing a frozen protein-language-model output to a fixed mean vector,
+GHXTox preserves the residue-level representations of ProtT5, adapts the pretrained encoder
+to the toxicity task through low-rank adaptation (LoRA), models residue dependencies with
+a bidirectional Mamba encoder, and aggregates the residue states by masked mean pooling
+before classification. Three full-data models with different random seeds are combined by equal-
+weight probability averaging followed by Platt calibration fitted exclusively on training out-of-
+fold (OOF) predictions.
+     Each residue is first written in the space-separated format expected by the ProtT5 tokenizer.
+A binary residue-validity mask is constructed from the raw residue count, applied to invalid po-
+sitions before each selective state-space scan, and reused in the final pooling; canonical inference
+follows the fixed batch-construction procedure used to generate the reported predictions. The
+tokenized sequence is processed by the ProtT5-XL-UniRef50 encoder [9] with LoRA, yielding
+residue-level representations that retain position-specific contextual semantics. To adapt this
+general-purpose encoder to the toxicity task, LoRA [10] is applied to all of its linear layers with
+rank r = 8, scaling α = 16, and dropout 0.1: the pretrained weights stay frozen, and only the
+zero-initialized low-rank update (W = W0 + αr BA) and the downstream modules are train-
+able. The 1024-dimensional representations are then projected into the 192-dimensional Mamba
+hidden space through a layer-norm–GELU–dropout block.
+     Two bidirectional Mamba layers [11] are then stacked after the projection block to capture
+the sequential dependencies relevant to peptide toxicity. Each directional block follows the stan-
+dard selective state-space formulation with input-dependent discretization and a 16-dimensional
+recurrent state; forward and backward scans are applied to the masked sequence, and their out-
+puts are concatenated, fused by a linear layer, and added through a residual connection, so every
+residue is contextualized by both its N-terminal and C-terminal contexts. Invalid positions are
+
+
+                                                         4
+

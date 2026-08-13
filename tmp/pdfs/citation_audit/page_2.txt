@@ -1,0 +1,55 @@
+1D) and/or atomic-level (two-dimensional, 2D) representations. For example, ToxMSRC com-
+bines continuous bag-of-words (CBOW) embeddings, multi-scale convolutional neural networks,
+and a bidirectional long short-term memory network with residual connections, achieving strong
+performance on the benchmark dataset [2]. ToxPLTC integrates pooled ProtT5 embeddings,
+borderline-SMOTE augmentation, and a text convolutional neural network [3]. ToxiPep fuses
+context-aware sequence representations with atomic-level graphs through a cross-attention mech-
+anism [4]. HyPepTox-Fuse further combines embeddings from multiple protein language models
+with conventional descriptors [5]. Although these models achieve strong performance within
+their respective modalities, they largely neglect the three-dimensional (3D) conformations of
+peptides, which are closely related to toxicity; cross-dimensional information interaction and
+mutual validation remain limited, and their interpretability is mostly confined to the sequence
+level.
+     The second category attempts to exploit 3D structural information. PeptiTox uses ESM2 se-
+quence embeddings together with ESMFold-predicted 3D structures and geometric graph neural
+networks [6]. StrucToxNet feeds ProtT5 sequence embeddings and ESMFold-predicted struc-
+tures into an equivariant graph neural network (EGNN) and systematically analyzes structural
+quality [7]. These studies demonstrate the value of 3D conformations for toxicity prediction.
+However, these predictors still depend on predicted structures whose reliability can vary for short
+peptides, and both evaluate one predicted conformation per sequence rather than an explicit
+conformer ensemble. Existing designs use predicted-structure confidence primarily for filtering
+or structural-quality analysis rather than as a continuous message-level reliability signal [6–8].
+Moreover, the fusion between the sequence and structure branches remains relatively shallow,
+and no systematic multi-dimensional fusion that combines a task-adaptive sequence model with
+confidence-aware multi-scale structure modeling has been established.
+     To address these limitations, we propose GHXTox, an interpretable hierarchical dual-level
+fusion framework for peptide toxicity prediction. A task-adaptive 1D sequence expert combines
+a ProtT5 protein language model, adapted by low-rank adaptation (LoRA), with a bidirectional
+Mamba state-space encoder and three-seed ensembling [9–11]. A sequence-enhanced 3D struc-
+tural expert integrates sequence semantics with spatial structure through pLDDT-aware cross-
+attention, ESMFold-derived geometry, full-atom chemical sites, and confidence gating across
+multiple structural scales; PepFlow and AlphaFold2/ColabFold conformer ensembles were used
+to train and evaluate a separate residual head while the single-structure backbone remained
+frozen; this head is retained only for controlled ablations, and the final predictor uses the single-
+structure ESMFold anchor [12–15]. The two expert probabilities are fused at the probability
+level with weights fixed on training out-of-fold (OOF) predictions; the 1D probabilities are first
+calibrated on the same OOF table, and no benchmark labels are used during this selection.
+Gated sequence–structure cross-attention inside the structural expert further informs the inter-
+action design [16]. Ablation experiments show that the contribution of structural evidence is
+dataset- and metric-dependent: fusion improves several fixed-threshold and probability-quality
+measures on Test1 while maintaining broadly comparable performance on Test2. Post hoc anal-
+yses characterize residue-level sensitivity, confidence gating, chemical-site perturbations, and
+expert disagreement without assigning causal biological meaning to these signals. The frame-
+work is evaluated on the frozen historical benchmarks described in Section 2.1.
+     In summary, the main contributions of this work are threefold: (1) we propose GHXTox,
+an interpretable hierarchical dual-level fusion framework that explores the complementary joint
+use of one-dimensional sequence and three-dimensional conformational information, integrating a
+task-adaptive 1D protein language model with pLDDT-aware multi-scale 3D structure modeling
+and combining the two experts at the probability level (Sections 2.5 and 3.2); (2) the 3D branch
+designs a multi-scale structural information extraction strategy spanning from local residue
+functional groups to the whole peptide, and incorporates pLDDT confidence into structural
+feature processing through continuous down-weighting and dynamic gating; and (3) extensive
+
+
+                                                 2
+

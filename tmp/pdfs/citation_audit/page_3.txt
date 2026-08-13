@@ -1,0 +1,54 @@
+experiments on the frozen historical benchmark test sets show that GHXTox improves several
+fixed-threshold and probability-quality measures on Test1 while maintaining broadly comparable
+performance on Test2, while ablation, robustness, and interpretability analyses characterize the
+conditions under which sequence and structural evidence are complementary.
+
+
+2     MATERIALS AND METHODS
+2.1   Datasets
+      We evaluate GHXTox on the benchmark datasets constructed by CAPTP [17] and subse-
+quently adopted by ToxMSRC [2]. Following the data construction protocol of ToxMSRC [2],
+toxic peptide sequences were merged from three databases, namely CSM-Toxin [18], Toxin-
+Pred2 [19], and ATSE [20], and sequences longer than 50 residues were removed. Non-toxic
+sequences were retrieved from UniProt [21] using the query “NOT KW-0800 AND NOT KW-
+0020 AND reviewed:true”, and sequences containing non-standard amino acids or exceeding
+50 residues were excluded. After combining the two groups and removing samples with con-
+flicting labels, CD-HIT [22] was applied with a sequence-identity threshold of 0.9 to eliminate
+redundant sequences, yielding 2,138 toxic and 5,375 non-toxic peptides. Following the same
+partition as ToxMSRC [2], we used 85% of the data as the training set and the remaining
+15% as the benchmark Test1 set, resulting in 1,818 toxic and 4,569 non-toxic training peptides
+and 320 toxic and 806 non-toxic Test1 peptides. An additional benchmark Test2 set, contain-
+ing 46 toxic and 536 non-toxic peptides, is used for frozen historical evaluation. Both Test1
+and Test2 had been observed during historical project development and are therefore treated
+as frozen historical benchmarks rather than newly blinded external validation sets; their la-
+bels were not used in the formal OOF calibration, fusion-weight selection, or threshold-freezing
+procedure. ToxinPred 3.0 [23] was consulted as an external method and data-source reference
+during project development, but its records were not added to the present training set or to the
+formal Test1/Test2 result tables. Table 1 summarizes the statistics of the datasets used in this
+study.
+
+                      Table 1: Statistics of the datasets used in this study.
+
+              Dataset                  Toxic   Non-toxic    Total         Use
+              Training (benchmark)     1,818        4,569   6,387   Model training
+              Test1 (benchmark)         320          806    1,126   Benchmark test
+              Test2                     46           536     582    Benchmark test
+
+
+
+2.2   Overview of the Model
+     GHXTox is a hierarchical dual-level fusion framework for peptide toxicity prediction: a task-
+adaptive one-dimensional (1D) sequence expert and a sequence-enhanced three-dimensional (3D)
+structural expert generate independent probabilities, interact internally at the feature level, and
+are combined at the probability level.
+     The 1D expert processes the peptide sequence with a LoRA-adapted ProtT5 encoder [9,10]
+followed by a bidirectional Mamba state-space model [11], averages three seed models, and
+applies OOF-fitted Platt calibration to produce p1D (Section 2.3). The 3D expert integrates
+sequence semantics, residue geometry, full-atom chemical sites, and pLDDT confidence across
+residue, local-spatial, chemical-site, and peptide scales, combines sequence and spatial states
+through pLDDT-aware cross-attention, and emits pSE3D (Section 2.4).
+     The two probabilities are combined at the probability level; the fusion rule, the decision
+threshold, and the final output are described in Section 2.5.
+
+                                                3
+

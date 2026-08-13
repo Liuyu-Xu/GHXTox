@@ -1,0 +1,38 @@
+baseline probabilities were recomputed and compared with the stored prediction vectors; the
+maximum absolute discrepancy for the 1D expert within the case cohort was 3.45 × 10−4 , and
+the corresponding 3D discrepancies were 5.49 × 10−4 on Test1 and 1.14 × 10−5 on Test2, none
+of which changed any decision. The interpretation analyses therefore describe model sensitivity
+on the frozen predictor rather than confirmed biological mechanisms.
+     Mean pLDDT was strongly associated with the learned global structural gate (Spearman
+0.960 on Test1, 0.950 on Test2, pooled 0.957), indicating that the model assigns less struc-
+tural weight when predicted-structure confidence is lower. This is a model-use diagnostic and
+is not direct evidence of peptide flexibility, disorder, or conformational heterogeneity. Across
+445 individual site deletions, most changes were small (median 0.00048, mean 0.00997, 95th
+percentile 0.057, maximum 0.2994 in p3D ). In the separate category-level analysis, all sites
+carrying a named category were deleted together in each peptide (121 peptide–category per-
+turbations). The mean absolute changes in p3D were 0.126 for hydrophobic-category deletion,
+0.0687 for aromatic-category deletion, and 0.00179 for sulfur-category deletion. These category-
+level sensitivities do not describe individual-site effects and should not be interpreted as causal
+toxicophores. The opposing directions of the largest deletion effects (Phe8 increased p3D , Pro19
+decreased it) show that deletion scores depend on the surrounding peptide context and cannot
+be read as an intrinsic toxicity label for a functional group (Figure 7).
+     Fixed late fusion agreed on most benchmark peptides, and the discordant cases illustrate its
+operational consequences (the aggregate pattern is reported in Section 3.2). The toxic peptide
+sequence_23_23 (ACLDIGNSCRED, two cysteines) had a weak 1D probability of 0.2806 but
+a high-confidence 3D probability of 0.9954; fusion raised the probability to 0.4808 and restored
+the correct toxic classification. At the model level, this example shows that a cysteine-associated
+structural pattern supplied counter-evidence to a weak 1D score; it does not establish a cysteine-
+mediated biological mechanism. The toxic peptide sequence_34_34 had a correct 1D probability
+of 0.5447 but a 3D probability of 3×10−5 , and fusion reduced the probability to 0.3922, producing
+a false negative; strong sequence evidence can therefore be overridden when the structural expert
+supplies sufficiently strong opposing evidence, and such single-sample evidence conflicts warrant
+further inspection (Figure 8). These cases illustrate the operational premise and failure modes
+of the model: its 1D and 3D scores can agree or conflict, and fixed late fusion can either correct
+or introduce an error. They do not confirm a causal biological role for any particular structural
+feature.
+
+
+
+
+                                                22
+

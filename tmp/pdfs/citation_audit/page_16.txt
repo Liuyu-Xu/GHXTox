@@ -1,0 +1,53 @@
+3.2   Complementarity of the 1D and 3D Experts
+    The two experts are fused only after independent probability generation. The 1D branch
+provides the stronger standalone ranking signal, whereas the 3D branch contributes confidence-
+weighted geometry and local chemical context. This separation makes the gain attributable to
+complementary probability evidence rather than duplicated use of an earlier fused prediction.
+
+Table 3: Performance of the 1D probability streams and the current probability-level fusion. The
+final row for each benchmark uses the single-structure base output of the multi-source-trained
+structural checkpoint.
+
+             Dataset    Probability stream           AUROC      AUPRC       Brier
+                        1D, uncalibrated              0.9799     0.9644    0.0445
+             Test1      1D, OOF Platt calibrated      0.9799     0.9644    0.0429
+                        Current fusion (0.72/0.28)    0.9811     0.9674    0.0410
+                        1D, uncalibrated              0.9409     0.7831    0.0491
+             Test2      1D, OOF Platt calibrated      0.9409     0.7831    0.0451
+                        Current fusion (0.72/0.28)    0.9433     0.8046    0.0436
+
+     Relative to the calibrated 1D probability stream, the final fusion modestly improves AU-
+ROC/AUPRC and lowers the Brier score on both benchmarks (Table 3), adding complementary
+structural ranking information while maintaining a lower probability error. The structural prob-
+ability in these rows is the single-structure base output of the multi-source-trained structural
+checkpoint; no benchmark conformer cache is activated.
+     The 0.72 sequence weight is an empirical result of the training-OOF search, not a man-
+ually imposed assertion that sequence information is intrinsically more important. For the
+current canonical evaluation, both expert weights and the full-precision decision threshold
+of 0.47022256531284556 were frozen from training OOF predictions and applied without
+benchmark-specific reweighting, threshold adjustment, or post hoc selection between equal and
+unequal fusion. Because Test1 and Test2 had been observed during earlier project development,
+this statement describes the formal current protocol rather than a claim that the benchmarks
+were historically blinded.
+     The experts agreed on most benchmark peptides, but the discordant samples revealed a
+reproducible pattern of complementary error correction: the structural expert provided correct
+counter-evidence for more than one third of the sequence expert’s errors (Figure 4B). This
+rescue was strongly class-asymmetric, with the structural expert mainly correcting false-positive
+predictions of the sequence expert, whereas improvements in toxic-peptide recall were limited.
+Peptides classified correctly only by the 3D expert also tended to be shorter, but none of the
+prespecified attribute comparisons remained significant after Benjamini–Hochberg correction, so
+this length pattern is descriptive rather than evidence that the structural expert is generally
+superior for short peptides. These results support a complementary rather than substitutive
+role for the structural expert (Figure 4).
+
+3.3   Analysis of the Sequence and Structural Experts
+     The 1D expert is not the principal innovation of this work and is analyzed only briefly.
+Relative to the earlier pooled-ProtT5–TextCNN pipeline, the LoRA-adapted ProtT5 with bidi-
+rectional Mamba kept BACC and MCC broadly comparable on training OOF (0.9300 vs 0.9317
+and 0.8562 vs 0.8586) while improving the ranking metrics (AUROC/AUPRC 0.9761/0.9533
+vs 0.9724/0.9436), and OOF-fitted Platt calibration further reduced the Brier score on Test1
+and Test2 (Table 4); the stronger ranking stream benefits the subsequent fusion with structural
+evidence (architecture in Section 2.3).
+
+                                               16
+

@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 import matplotlib as mpl
+mpl.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import numpy as np
@@ -303,9 +304,10 @@ def _draw(
             "svg.hashsalt": "ghxtox-expert-disagreement-v1",
         }
     )
-    blue = "#0072B2"
-    green = "#009E73"
-    vermillion = "#D55E00"
+    orange = "#E87522"
+    blue = "#2878B5"
+    accent = "#E5A11A"
+    navy = "#174A7E"
     dark = "#3F4650"
     gray = "#697586"
     light_grid = "#D9DDE3"
@@ -329,7 +331,7 @@ def _draw(
             toxic_count[split_index, group_index] = int(row["toxic_count"])
             toxic_fraction[split_index, group_index] = 100.0 * float(row["toxic_fraction"])
     class_map = LinearSegmentedColormap.from_list(
-        "non_toxic_to_toxic", [(0.0, blue), (0.5, "#F7F7F7"), (1.0, vermillion)]
+        "non_toxic_to_toxic", [(0.0, blue), (0.5, "#F7F7F7"), (1.0, orange)]
     )
     image = axes[0].imshow(toxic_fraction, cmap=class_map, vmin=0.0, vmax=100.0, aspect="auto")
     axes[0].set_xticks(np.arange(4), [GROUP_AXIS[group] for group in GROUPS], rotation=0)
@@ -362,8 +364,8 @@ def _draw(
     label_axis = ("All", "Non-toxic", "Toxic")
     x_positions = np.asarray([0.0, 1.0, 2.0, 3.5, 4.5, 5.5])
     directions = (
-        ("three_d_rescue_among_one_d_errors", "3D rescues 1D errors", green, "o", -0.10),
-        ("one_d_rescue_among_three_d_errors", "1D rescues 3D errors", blue, "s", 0.10),
+        ("three_d_rescue_among_one_d_errors", "3D rescues 1D errors", blue, "o", -0.10),
+        ("one_d_rescue_among_three_d_errors", "1D rescues 3D errors", orange, "s", 0.10),
     )
     for endpoint, public, color, marker, offset in directions:
         estimates: list[float] = []
@@ -405,8 +407,8 @@ def _draw(
     # C: primary attribute effects, one scale because binary Cliff's delta equals risk difference.
     y = np.arange(len(ATTRIBUTES), dtype=np.float64)
     split_style = {
-        "Test1": (blue, "o", -0.12),
-        "Test2": (green, "D", 0.12),
+        "Test1": (navy, "o", -0.12),
+        "Test2": (orange, "D", 0.12),
     }
     for split in SPLITS:
         color, marker, offset = split_style[split]
@@ -453,7 +455,7 @@ def _draw(
             1.07,
             chr(ord("A") + index),
             transform=ax.transAxes,
-            fontsize=10.5,
+            fontsize=12,
             fontweight="bold",
             va="top",
         )
@@ -592,7 +594,7 @@ def main() -> None:
         "Scientific question: which peptide strata are rescued by the structural expert versus the sequence expert, and where do both experts fail?\n\n"
         "The figure uses the canonical single-structure Test1/Test2 probabilities. Standalone thresholds are fixed at 0.392 (1D) and 0.677819 (3D). No model, probability, calibration, fusion weight, or threshold is changed.\n\n"
         "Panel A shows exact group counts and within-group toxic fractions. Panel B shows reciprocal conditional rescue rates with 95% Wilson intervals. Panel C shows the 3D-only-correct minus 1D-only-correct effect for five prespecified attributes; intervals use 5,000 label-stratified bootstrap replicates, p-values use 10,000 true-label-stratified permutations, and BH correction covers all ten primary tests.\n\n"
-        "Artwork is 178 mm wide and supplied as editable SVG, vector PDF, and 600-dpi PNG. Arial is requested with Liberation Sans/DejaVu Sans fallbacks. The palette follows the project convention: sequence blue, structure green, toxic vermillion, and neutral dark gray.\n\n"
+        "Artwork is 178 mm wide and supplied as editable SVG, vector PDF, and 600-dpi PNG. Arial is requested with Liberation Sans/DejaVu Sans fallbacks. The manuscript palette uses orange for 1D evidence, blue for 3D evidence, dark blue for fusion, and neutral gray for reference elements.\n\n"
         "Regenerate with `python paper_figures/scripts/plot_expert_disagreement_analysis.py`. Exact values are in `exact_results_table.md`; publication-facing plot data are in `source_data/`. The identity-bearing sample table is included for audit.\n\n"
         "Interpretation is associative, not causal. Conformer availability is an exact length-defined metadata field and is not consumed by the canonical prediction.\n",
         encoding="utf-8",

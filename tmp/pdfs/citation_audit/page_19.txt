@@ -1,0 +1,48 @@
+Table 7: Ablation analysis of the 3D structural expert. The first four rows use historical bench-
+mark predictions; the final two rows are a paired five-fold OOF chemical-site experiment.
+
+     Evaluation                 Variant                                                  BACC        MCC       AUROC           AUPRC
+     Test1                      Historical Cα 3D-v1                                      0.9179      0.8458     0.9699          0.9426
+     Test1                      pLDDT-aware multi-scale 3D-v2                            0.9208      0.8464     0.9711          0.9474
+     Test2                      Historical Cα 3D-v1                                      0.8481      0.6320     0.9316          0.6969
+     Test2                      pLDDT-aware multi-scale 3D-v2                            0.8453      0.6128     0.9295          0.7241
+     Training OOF               Frozen backbone, no chemical-site residual               0.9153      0.8312     0.9687          0.9388
+     Training OOF               Frozen backbone + chemical-site residual                 0.9171      0.8342     0.9692          0.9401
+
+
+
+
+               A     Test1 historical benchmark B            Test2 historical benchmark C                Paired training OOF
+               1.0
+
+               0.9
+Metric value
+
+
+
+
+               0.8
+
+               0.7
+
+               0.6
+
+                        CC         C         C           C      CC        C          C           C       CC        C           C            C
+                      BA      MC          RO           PR     BA      MC          RO           PR      BA       MC          RO            PR
+                                       AU        AU                            AU        AU                              AU        AU
+                             Historical Ca 3D-v1                     Historical Ca 3D-v1                      without chemical residual
+                             pLDDT multi-scale 3D-v2                 pLDDT multi-scale 3D-v2                  with chemical residual
+
+
+
+Figure 5: Protocol-separated structural ablations. (A, B) Historical single-benchmark compar-
+ison of the Cα 3D-v1 and pLDDT-aware multi-scale 3D-v2 variants on Test1 and Test2. (C)
+Paired training-OOF comparison of the same frozen backbone without and with the chemical-
+site residual. Historical benchmark rows and paired OOF rows are not treated as one common
+statistical experiment.
+
+
+
+
+                                                                       19
+

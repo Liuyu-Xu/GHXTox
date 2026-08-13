@@ -1,0 +1,55 @@
+     These ablation and comparison analyses are based on the frozen historical Test1 and Test2
+benchmarks and are therefore retrospective evidence. Test2 contains only 46 toxic peptides, so
+SN, BACC, and MCC are sensitive to a few threshold-adjacent samples, which partly explains
+the dataset-dependent direction of the 3D-v2 gains; the multi-conformer test ablation used the
+archived test-side conformer cache (486 and 284 covered records on Test1 and Test2, with fixed
+source and sequence-matching policies) and activated the residual only on the covered subset, so
+its negligible effect should not be extrapolated as evidence that conformer information is useless.
+
+3.4      Robustness, Statistical Uncertainty, and Applicability Analysis
+     Point estimates alone are insufficient for distinguishing a stable model improvement from
+variation caused by finite samples. We therefore use multi-seed averaging for the 1D expert and
+paired, sample-level bootstrap resampling for model comparisons, all performed on the frozen
+predictor without retraining, recalibration, or threshold adjustment. Three full-data 1D models
+(seeds 42, 123, and 2025) are averaged before calibration; this ensemble is the final predictor,
+with no seed selected according to Test1 or Test2 performance, and a 15-member fold-checkpoint
+ensemble was examined but not adopted because it did not improve the frozen validation criteria.
+     For review-oriented screening, a reject-option policy [40] was defined using the uncertainty-
+ranking score given by the decision-boundary proximity di = 1 − |pi − τ |/ max(τ, 1 − τ ) with
+τ = 0.47022256531284556. On training OOF this proximity provides an informative ranking:
+as coverage decreases from 100% to 80%, accepted-sample error decreases and MCC increases
+monotonically, whereas equal-count random rejection shows no comparable improvement; at the
+prespecified 90% operating point the cutoff was frozen at d∗OOF = 0.47361765874159856 (Fig-
+ure 6). Transferring this cutoff unchanged to Test1 and Test2 reduced the accepted-sample error
+by about 2.2–2.5 percentage points and improved MCC and BACC, while equal-count random
+rejection remained close to the full-coverage error (Table 8). The transfer uses no benchmark-
+specific quantile, coverage, class prevalence, or label, so the naturally different realized cover-
+ages reflect a single OOF-derived cutoff rather than retuned abstention rates. This supports
+a review-oriented screening workflow in which boundary-proximal predictions are flagged for
+review, although it does not constitute independent validation, and the proximity score is a
+ranking statistic rather than a calibrated probability of prediction error. The original binary
+prediction remains available for every abstained peptide.
+
+Table 8: The OOF-frozen selective policy identifies lower-risk accepted subsets on both estab-
+lished benchmarks. Random-rejection values are means over 5,000 masks with the same accepted
+count as the frozen policy. The binary probabilities, fusion rule, and decision threshold are un-
+changed.
+
+ Dataset    Method                         Coverage (%)   Error (%)   MCC      BACC        SN       SP
+ Test1      Full binary prediction         100.00              5.24   0.8705   0.9323   0.8969   0.9677
+            Frozen selective prediction    88.54               2.71   0.9329   0.9629   0.9397   0.9860
+            Equal-count random rejection   88.54               5.24   0.8705   0.9323   0.8969   0.9677
+ Test2      Full binary prediction         100.00              5.33   0.6673   0.8618   0.7609   0.9627
+            Frozen selective prediction    86.94               3.16   0.7781   0.8983   0.8158   0.9808
+            Equal-count random rejection   86.94               5.33   0.6670   0.8617   0.7607   0.9627
+
+
+
+3.5      Interpretability and Representative Case Studies
+    The interpretation experiments used a prespecified case-selection rule: within each test set
+and each expert-outcome group, one toxic and one non-toxic peptide nearest the fusion threshold
+were chosen (ties resolved by source index), forming a 16-peptide cohort. Before perturbation,
+
+
+                                                    20
+
