@@ -102,12 +102,20 @@ Sequence-submodel training options are available through:
 python -m ghxtox.lora_mamba_1d --help
 ```
 
+## Exploratory multi-conformer analysis
+
+The multi-conformer residual reported in the article is an exploratory
+analysis and is not part of default inference. Its fixed protocol, cohort
+manifests, configuration, evaluation script, and reported values are provided
+in [`research/multiconformer/`](research/multiconformer/README.md).
+
 ## Repository structure
 
 - `src/ghxtox/`: model, preprocessing, training, and inference code
 - `configs/`: default model configurations
 - `dataset/`: labeled peptide sequences used in the study
 - `tests/`: tests for the public inference interface
+- `research/multiconformer/`: reproducibility materials for the exploratory residual
 
 ## Citation
 

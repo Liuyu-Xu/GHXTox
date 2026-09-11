@@ -94,6 +94,8 @@ src/ghxtox/*.py
 !src/ghxtox/atom_graph.py
 !src/ghxtox/chemical_sites.py
 !src/ghxtox/conformer_features.py
+!src/ghxtox/conformer_cache.py
+!src/ghxtox/colabfold_ensemble_cache.py
 !src/ghxtox/constants.py
 !src/ghxtox/data.py
 !src/ghxtox/esmfold_cache.py
@@ -106,6 +108,8 @@ src/ghxtox/*.py
 !src/ghxtox/metrics.py
 !src/ghxtox/multidimensional_default.py
 !src/ghxtox/nested_folds.py
+!src/ghxtox/oof.py
+!src/ghxtox/pepflow_batch.py
 !src/ghxtox/predict.py
 !src/ghxtox/preprocess.py
 !src/ghxtox/prott5_tokens.py
@@ -117,7 +121,10 @@ src/ghxtox/*.py
 src/ghxtox/_legacy/
 tests/*.py
 !tests/test_conformer_features.py
+!tests/test_conformer_cache.py
+!tests/test_colabfold_ensemble_cache.py
 !tests/test_default_model_contract.py
 !tests/test_nested_folds.py
 !tests/test_prott5_tokens.py
+!tests/test_pepflow_batch.py
 !tests/test_selective_prediction.py
