@@ -1,9 +1,7 @@
-"""Predict with the low-level GHXTox 3D structure expert.
+"""Run the GHXTox structural submodel independently.
 
-The public default is ghxtox.multidimensional_default (ghxtox-predict). This
-module exposes only the standalone 3D expert through ghxtox-structure-predict;
-the previous-generation hybrid baseline is isolated in
-ghxtox._legacy.hybrid_default.
+The complete GHXTox model is exposed through ``ghxtox-predict``. This module
+provides the standalone structural-submodel interface used during evaluation.
 """
 
 from __future__ import annotations
@@ -116,7 +114,7 @@ def predict(args: argparse.Namespace) -> Path:
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Predict with GHXTox.")
+    parser = argparse.ArgumentParser(description="Run the GHXTox structural submodel.")
     parser.add_argument("--checkpoint", default=DEFAULT_CHECKPOINT)
     parser.add_argument("--processed", default=None, help="Preprocessed .pt file.")
     parser.add_argument("--input-fasta", default=DEFAULT_TEST_FASTA, help="Raw FASTA file to preprocess before prediction.")

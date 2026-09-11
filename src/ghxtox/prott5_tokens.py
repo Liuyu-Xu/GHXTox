@@ -16,11 +16,27 @@ from typing import Any
 
 import torch
 
-from ghxtox._legacy.plm_textcnn import _read_labeled_fasta
+from ghxtox.fasta import read_fasta
 from ghxtox.utils import resolve_device
 
 
 FORMAT_VERSION = 1
+
+
+def _read_labeled_fasta(path: str | Path) -> tuple[list[str], list[str], list[int]]:
+    records = read_fasta(path)
+    if not records:
+        raise ValueError(f"No FASTA records were found in {path}.")
+    labels: list[int] = []
+    for record in records:
+        if record.label not in (0, 1):
+            raise ValueError(f"FASTA record {record.sample_id!r} has no binary label.")
+        labels.append(int(record.label))
+    return (
+        [record.header for record in records],
+        [record.sequence for record in records],
+        labels,
+    )
 
 
 def _atomic_torch_save(payload: dict[str, Any], path: Path) -> None:

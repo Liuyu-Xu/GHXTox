@@ -11,14 +11,14 @@ import torch
 
 
 DEFAULT_DEVICE = "cuda"
-DEFAULT_TRAIN_FASTA = "dataset/train_data or benchmark_data.fasta"
-DEFAULT_TEST_FASTA = "dataset/test1.fasta"
+DEFAULT_TRAIN_FASTA = "dataset/training_set.fasta"
+DEFAULT_TEST_FASTA = "dataset/test_set_1.fasta"
 DEFAULT_TRAIN_PROCESSED = "data/processed/train_chemical_sites_final_esm2.pt"
 DEFAULT_TEST_PROCESSED = "data/processed/test1_chemical_sites_final_esm2.pt"
 DEFAULT_CHECKPOINT = "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
 DEFAULT_FALLBACK_CHECKPOINT = "runs/plm_fusion_esm2_geometry_confidence/best_model.pt"
 DEFAULT_PUBLIC_CONFIG = "configs/default_multidimensional_fusion.json"
-DEFAULT_PUBLIC_MODEL_NAME = "GHXTox-Multidimensional-Fusion"
+DEFAULT_PUBLIC_MODEL_NAME = "GHXTox"
 DEFAULT_MULTIDIMENSIONAL_CONFIG = DEFAULT_PUBLIC_CONFIG
 DEFAULT_MULTIDIMENSIONAL_MODEL_NAME = DEFAULT_PUBLIC_MODEL_NAME
 DEFAULT_MULTIDIMENSIONAL_THRESHOLD = 0.47022256531284556

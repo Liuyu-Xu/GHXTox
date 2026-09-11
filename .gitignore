@@ -1,145 +1,64 @@
-# =========================
-# 1. Python 缓存和运行文件
-# =========================
+# Python caches and build products
 __pycache__/
 *.py[cod]
-*$py.class
 *.egg-info/
+build/
+dist/
+.pytest_cache/
 
-# =========================
-# 2. 虚拟环境（最容易导致体积超标）
-# =========================
-venv/
-env/
+# Virtual environments
 .env/
 .venv/
-.venv-bioemu-*/
-Scripts/
-!/paper_figures/scripts/
-!/paper_figures/scripts/*.py
-!/paper_figures/scripts/README.md
-Lib/
+env/
+venv/
 
-# Keep the project-level AutoDL launcher while still ignoring environment Scripts/.
-!/scripts/
-/scripts/*
-!/scripts/generate_prott5_pooled_autodl.sh
-!/scripts/generate_prott5_tokens_autodl.sh
-!/scripts/install_colabfold_autodl.sh
-!/scripts/run_colabfold_16_30_autodl.sh
-!/scripts/evaluate_colabfold_16_30_oof.ps1
-!/scripts/evaluate_colabfold_31_50_oof.ps1
-!/scripts/evaluate_bidirectional_coupling_oof.ps1
-!/scripts/evaluate_bidirectional_coupling_oof.sh
-!/scripts/install_bioemu_autodl.sh
-!/scripts/run_bioemu_pilot_autodl.sh
-!/scripts/evaluate_3d_v2_multiseed_oof.ps1
-!/scripts/evaluate_3d_v2_multiseed_oof.sh
-!/scripts/evaluate_short_margin_3d_oof.ps1
-!/scripts/evaluate_short_margin_3d_oof.sh
-!/scripts/evaluate_ensemble_domain_ssl_3d_oof.ps1
-!/scripts/evaluate_ensemble_domain_ssl_3d_oof.sh
-!/scripts/evaluate_length_calibration_3d_oof.ps1
-!/scripts/evaluate_length_calibration_3d_oof.sh
-!/scripts/evaluate_partial_unfreeze_3d_oof.ps1
-!/scripts/evaluate_partial_unfreeze_3d_oof.sh
-!/scripts/run_boundary_bioemu_autodl.sh
-!/scripts/run_lora_mamba_full.sh
-!/scripts/calibrate_lora_mamba.py
-!/scripts/generate_paper_length_stratification.py
-!/scripts/refreeze_lora_mamba_fusion.py
-!/scripts/evaluate_lora_mamba_fusion.py
-!/scripts/ensemble_lora_mamba_predictions.py
-!/scripts/export_multidimensional_default.py
-!/scripts/prepare_test_conformer_tasks.py
-!/scripts/normalize_test_conformer_manifest.py
-!/scripts/audit_test_conformer_cache.py
-!/scripts/audit_topology_feasibility.py
-!/scripts/evaluate_selective_prediction_formal.py
-!/scripts/evaluate_selective_prediction_test_transfer.py
-!/scripts/evaluate_selective_prediction.py
-!/scripts/prepare_current_default_selective_oof.py
-!/scripts/analyze_expert_disagreement.py
-!/scripts/run_test_conformers_autodl.sh
-!/scripts/package_test_conformer_results.sh
-!/scripts/evaluate_default_multiconformer_extension.py
+# Editors and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
 
-# Keep the frozen Phase 30 protocol and compact reports, not fold weights/logs.
-/runs/ensemble_domain_ssl_3d/fold_*/
-/runs/partial_unfreeze_3d/fold_*/
-/runs/partial_unfreeze_3d/*.log
+# Local review and temporary directories
+.codex*
+.public_release_check*/
+_docx_review_render/
+tmp/
+temp/
+artifacts/
 
-# Keep the frozen Phase 29 protocol and compact reports, not fold weights/logs.
-/runs/short_margin_3d/fold*/
+# Generated datasets, structures, checkpoints, and results
+data/
+runs/
+output/
+results/
+figures_archive/
+paper_figures/
+GHXTox_Figure/
+reports/
+experiments/
 
-# =========================
-# 3. 深度学习模型权重
-# =========================
+# Model and array files
 *.pt
 *.pth
-*.h5
 *.ckpt
 *.safetensors
+*.h5
+*.npy
+*.npz
 
-# Server transfer archives are disposable transport artifacts. Keep extracted
-# manifests/results, never the duplicated upload/download containers.
-*.tar.gz
-*.tar.gz.sha256
-*.tgz
+# Archives
 *.zip
-*.zip.sha256
+*.tar.gz
+*.tgz
 *.7z
 *.rar
 
-# =========================
-# 4. 数据集和临时大文件
-# =========================
-*.csv
-*.tsv
-*.npy
-*.npz
-*.fasta
-!/paper_citations.csv
-!/reference_papers_innovations.csv
-!/paper_figures/FIGURE_STATUS.csv
-!/paper_figures/internal_to_publication_names.csv
-!/paper_figures/data/current_interpretability/frozen_results/*.csv
-!/reports/publication_analysis/figure6_length_multistructure_metrics.csv
-!/runs/prott5_structure_bidirectional_agreement_oof/oof_predictions.csv
-!/runs/length_calibration_3d/oof_predictions.csv
-!/runs/length_calibration_3d/fusion_handoff.csv
-!/runs/length_calibration_3d/fold_coefficients.csv
-!/runs/partial_unfreeze_3d/oof_predictions.csv
-!/runs/bioemu_boundary_specialist_3d/oof_predictions.csv
-!/runs/three_d_team_handoff_phase33/oof_3d_predictions.csv
-!/runs/three_d_team_handoff_phase33/oof_3d_quality.csv
-!/runs/single_structure_test_components/test1_structure_predictions.csv
-!/runs/single_structure_test_components/test2_structure_predictions.csv
-!/runs/default_multidimensional_fusion_single_structure/test1_predictions.csv
-!/runs/default_multidimensional_fusion_single_structure/test2_predictions.csv
-!/runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv
-
-# Complete, checksum-bearing selective-prediction and analysis packages.
-!/runs/selective_prediction_oof_20260809_v1/**
-!/runs/selective_prediction_formal_experiment_20260809_v1/**
-!/runs/selective_prediction_frozen_threshold_test_transfer_20260809_v1/**
-!/runs/selective_prediction_current_default_input_20260810_v1/**
-!/runs/selective_prediction_current_default_oof_20260810_v2/**
-!/runs/selective_prediction_formal_current_default_20260810_v2/**
-!/runs/selective_prediction_frozen_threshold_transfer_current_default_20260810_v2/**
-!/runs/expert_disagreement_analysis_20260810_v1/**
-!/runs/topology_feasibility_audit_20260809_v5/**
-!/runs/topology_feasibility_audit_20260809_v6/**
-!/paper_figures/output/selective_prediction_risk_coverage/**
-!/paper_figures/output/selective_prediction_formal_comparison/**
-!/paper_figures/output/selective_prediction_frozen_threshold_test_transfer/**
-!/paper_figures/output/selective_prediction_formal_current_default_v2/**
-!/paper_figures/output/selective_prediction_frozen_threshold_transfer_current_default_v2/**
-!/paper_figures/output/expert_disagreement_analysis/**
-
-# Local manuscript QA and generated LaTeX intermediates.
-/tmp/
-/paper_figures/data/current_interpretability/smoke_results/
+# Manuscripts and local publication files
+/*.docx
+/*.pptx
+/*.pdf
+/*.png
+/*.tex
 /*.aux
 /*.bbl
 /*.blg
@@ -148,80 +67,57 @@ Lib/
 /*.fls
 /*.fdb_latexmk
 /*.synctex.gz
-/data/*
-!/data/ASSET_MANIFEST.json
-!/data/pepflow_pilot/
-/data/pepflow_pilot/*
-!/data/pepflow_pilot/train_pilot_250.fasta
-!/data/pepflow_pilot/train_pilot_250.csv
-!/data/af2_ensemble_16_30/
-/data/af2_ensemble_16_30/*
-!/data/af2_ensemble_16_30/smoke_2.fasta
-!/data/af2_ensemble_16_30/smoke_2.csv
-!/data/af2_ensemble_16_30/train_pilot_400.fasta
-!/data/af2_ensemble_16_30/train_pilot_400.csv
-!/data/af2_ensemble_16_30/train_full_2034.fasta
-!/data/af2_ensemble_16_30/train_full_2034.csv
-!/data/af2_ensemble_16_30/task_summary.json
-!/data/af2_ensemble_31_50/
-/data/af2_ensemble_31_50/*
-!/data/af2_ensemble_31_50/train_pilot_400.fasta
-!/data/af2_ensemble_31_50/train_pilot_400.csv
-!/data/bioemu_pilot/
-/data/bioemu_pilot/*
-!/data/bioemu_pilot/train_pilot_200.fasta
-!/data/bioemu_pilot/train_pilot_200.csv
-!/data/bioemu_pilot/smoke_6.fasta
-!/data/bioemu_pilot/smoke_6.csv
-!/data/bioemu_pilot/selection_summary.json
-!/data/bioemu_boundary_600/
-/data/bioemu_boundary_600/*
-!/data/bioemu_boundary_600/protocol.json
-!/data/bioemu_boundary_600/selection_summary.json
-!/data/bioemu_boundary_600/checksums.sha256
-!/data/bioemu_boundary_600/selected_600.csv
-!/data/bioemu_boundary_600/selected_600.fasta
-!/data/bioemu_boundary_600/generate_missing.csv
-!/data/bioemu_boundary_600/generate_missing.fasta
-!/data/bioemu_boundary_600/reuse_existing.csv
-!/data/bioemu_boundary_600/README_AUTODL.md
-!/data/bioemu_boundary_600/cache_600/
-/data/bioemu_boundary_600/cache_600/*
-!/data/bioemu_boundary_600/cache_600/conformer_manifest.csv
-!/data/bioemu_boundary_600/cache_600/import_summary.json
-!/data/bioemu_boundary_600/cache_600/import_checksums.sha256
-!/data/test_conformers/
-!/data/test_conformers/README_AUTODL.md
-!/data/test_conformers/tasks/
-!/data/test_conformers/tasks/**
-/dataset/
-/temp/
+/_extract_final.txt
+/paper_citations.csv
+/reference_papers_innovations.csv
+/references.bib
+/GHXTox_references_standardized.csv
 
-# BioEmu raw trajectories, batches and caches stay off Git; keep only the decision.
-/runs/bioemu_pilot_200/*
-!/runs/bioemu_pilot_200/decision.json
-/runs/bioemu_pilot_200_dry_run/
-/runs/bioemu_boundary_600_server/*
-!/runs/bioemu_boundary_600_server/generation_feasibility.json
+# Generated dataset illustrations
+dataset/*.jpg
+dataset/*.png
 
-# Keep the frozen Phase 26 protocol and compact reports, not fold weights/logs.
-/runs/3d_v2_multiseed/logs/
-/runs/3d_v2_multiseed/seed_*/driver*.log
-/runs/3d_v2_multiseed/seed_*/base/fold*/
-/runs/3d_v2_multiseed/seed_*/residual/fold*/
+# Internal publication-audit tests
+tests/test_expert_disagreement_analysis.py
+tests/test_selective_prediction_current_default_v2.py
+tests/test_selective_prediction_formal.py
+tests/test_selective_prediction_test_transfer.py
 
-# =========================
-# 5. IDE 配置和系统缓存
-# =========================
-!/runs/expert_disagreement_analysis_20260810_v1/
-!/runs/expert_disagreement_analysis_20260810_v1/**
-/runs/expert_disagreement_analysis_20260810_v2_repro/
-/runs/topology_feasibility_audit_20260809_v1/
-/runs/topology_feasibility_audit_20260809_v2/
-/runs/topology_feasibility_audit_20260809_v3/
-/runs/topology_feasibility_audit_20260809_v4/
-
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
+# Internal research code retained outside the public release
+scripts/
+configs/*.json
+!configs/default.json
+!configs/default_multidimensional_fusion.json
+!configs/lora_mamba_1d_autodl.json
+src/ghxtox/*.py
+!src/ghxtox/__init__.py
+!src/ghxtox/atom_graph.py
+!src/ghxtox/chemical_sites.py
+!src/ghxtox/conformer_features.py
+!src/ghxtox/constants.py
+!src/ghxtox/data.py
+!src/ghxtox/esmfold_cache.py
+!src/ghxtox/evaluate.py
+!src/ghxtox/fasta.py
+!src/ghxtox/features.py
+!src/ghxtox/folds.py
+!src/ghxtox/geometry_features.py
+!src/ghxtox/lora_mamba_1d.py
+!src/ghxtox/metrics.py
+!src/ghxtox/multidimensional_default.py
+!src/ghxtox/nested_folds.py
+!src/ghxtox/predict.py
+!src/ghxtox/preprocess.py
+!src/ghxtox/prott5_tokens.py
+!src/ghxtox/selective_prediction.py
+!src/ghxtox/structure.py
+!src/ghxtox/structure_inference.py
+!src/ghxtox/train.py
+!src/ghxtox/utils.py
+src/ghxtox/_legacy/
+tests/*.py
+!tests/test_conformer_features.py
+!tests/test_default_model_contract.py
+!tests/test_nested_folds.py
+!tests/test_prott5_tokens.py
+!tests/test_selective_prediction.py

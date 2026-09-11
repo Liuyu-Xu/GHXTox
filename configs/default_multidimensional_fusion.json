@@ -1,65 +1,40 @@
 {
- "canonical_public_default": true,
- "public_model_name": "GHXTox-Multidimensional-Fusion",
- "entrypoint": "ghxtox-predict",
- "schema_version": 1,
- "status": "active_project_default",
- "composition": {
-  "1d_expert": {
-   "name": "combination A (LoRA-adapted ProtT5 + bidirectional Mamba)",
-   "experiment_name": "lora_mamba_1d_combinationA_autodl",
-   "seeds": [42, 123, 2025],
-   "checkpoints": [
-    "runs/lora_mamba_full/full_seed42.pt",
-    "runs/lora_mamba_full/full_seed123.pt",
-    "runs/lora_mamba_full/full_seed2025.pt"
-   ],
-   "oof_jsons": [
-    "runs/lora_mamba_full/oof_seed42.json",
-    "runs/lora_mamba_full/oof_seed123.json",
-    "runs/lora_mamba_full/oof_seed2025.json"
-   ],
-   "artifacts": "runs/lora_mamba_full/full_seed{42,123,2025}.pt",
-   "test_probabilities": "runs/lora_mamba_full/test{1,2}_lora_mamba_calibrated.csv",
-   "calibration": "OOF-fitted Platt (runs/lora_mamba_full/oof_calibrated.json)"
+  "schema_version": 1,
+  "canonical_public_default": true,
+  "public_model_name": "GHXTox",
+  "entrypoint": "ghxtox-predict",
+  "composition": {
+    "sequence_submodel": {
+      "name": "LoRA-adapted ProtT5 with bidirectional Mamba",
+      "experiment_name": "lora_mamba_1d_combinationA_autodl",
+      "seeds": [42, 123, 2025],
+      "config": "configs/lora_mamba_1d_autodl.json",
+      "checkpoints": [
+        "runs/lora_mamba_full/full_seed42.pt",
+        "runs/lora_mamba_full/full_seed123.pt",
+        "runs/lora_mamba_full/full_seed2025.pt"
+      ],
+      "oof_calibration_files": [
+        "runs/lora_mamba_full/oof_seed42.json",
+        "runs/lora_mamba_full/oof_seed123.json",
+        "runs/lora_mamba_full/oof_seed2025.json"
+      ]
+    },
+    "structural_submodel": {
+      "name": "pLDDT-aware single-structure submodel",
+      "checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
+    }
   },
-  "3d_expert": {
-    "name": "pLDDT-aware multi-scale single-structure expert (Cα-EGNN + chemical sites; full2795 training checkpoint)",
-    "checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
-    "test_probability_column": "structure_probability in runs/single_structure_test_components/test{1,2}_structure_predictions.csv",
-    "inference_probability_source": "base_logits"
+  "inference": {
+    "structure_predictor": "ESMFold",
+    "structures_per_peptide": 1,
+    "structural_probability_source": "base_logits",
+    "multi_conformer_residual": "disabled"
+  },
+  "fusion": {
+    "weight_sequence": 0.72,
+    "weight_structure": 0.28,
+    "threshold": 0.47022256531284556,
+    "parameter_source": "group-aware training-set OOF predictions"
   }
- },
- "test_time_conformer_policy": {
-  "status": "disabled",
-  "probability_source": "base_logits",
-  "public_cli_accepts_conformer_cache": false,
-  "processed_inputs_with_active_conformer_features": "rejected",
-  "training_note": "The retained full2795 checkpoint was trained with the audited PepFlow/AF2 multi-conformer cohort, but its conformer residual is never activated on Test1, Test2, or new public predictions.",
-  "retirement_decision": "experiments/test_multiconformer_archive/decision.json",
-  "research_archive": "experiments/test_multiconformer_archive/"
- },
- "fusion": {
-  "formula": "p = w * p_1D + (1 - w) * p_3D",
-  "weight_1d": 0.72,
-  "weight_3d": 0.28,
-  "threshold": 0.47022256531284556,
-   "selection": "0.72/0.28 and threshold were frozen from training-only group-aware OOF on 2026-08-06; the public test protocol now always uses the full2795 checkpoint's single-structure base logits"
- },
- "outputs": {
-  "test_predictions": "runs/default_multidimensional_fusion_single_structure/test{1,2}_predictions.csv",
-  "metrics": "runs/default_multidimensional_fusion_single_structure/test{1,2}_metrics.json",
-  "summary": "runs/default_multidimensional_fusion_single_structure/summary.json"
- },
- "provenance": {
-  "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
-  "three_d_oof": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
-  "forbidden_mixed_oof": "runs/3d_v2_conformer_prott5_frozen_oof/predictions.csv",
-  "selection_artifact": "runs/lora_mamba_full/fusion_refreeze.json",
-  "single_structure_components": "runs/single_structure_test_components/test{1,2}_structure_predictions.csv",
-  "test_multiconformer_retirement_decision": "experiments/test_multiconformer_archive/decision.json",
-  "retired_test_multiconformer_evidence": "experiments/test_multiconformer_archive/",
-  "legacy_mixed_predictions_forbidden": "runs/default_3d_hybrid/test{1,2}_predictions.csv"
- },
- "protocol_audit_note": "Team decision on 2026-08-09: retain multi-conformer information only in training and ablation evidence; Test1, Test2, and public inference always use single-structure base logits. The 1D expert, 0.72/0.28 fusion, and threshold 0.4702 remain unchanged."
 }

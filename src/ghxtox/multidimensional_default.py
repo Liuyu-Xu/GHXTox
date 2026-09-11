@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Canonical GHXTox public inference: calibrated LoRA-BiMamba 1D + single-structure 3D.
+"""Default GHXTox inference with sequence and single-structure submodels.
 
 The module enforces the frozen public contract instead of silently accepting
 partial sample intersections, old checkpoints, mixed-generation OOF files, or
@@ -89,37 +89,28 @@ def validate_public_default_config(config: dict[str, Any]) -> None:
     if config.get("entrypoint") != "ghxtox-predict":
         raise ValueError("The canonical entrypoint must be ghxtox-predict.")
     fusion = config.get("fusion", {})
-    weight_1d = float(fusion.get("weight_1d", -1.0))
-    weight_3d = float(fusion.get("weight_3d", -1.0))
+    weight_1d = float(fusion.get("weight_sequence", -1.0))
+    weight_3d = float(fusion.get("weight_structure", -1.0))
     threshold = float(fusion.get("threshold", -1.0))
     if abs(weight_1d - DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D) > 1e-12:
-        raise ValueError("Canonical 1D weight differs from the frozen OOF value.")
+        raise ValueError("The sequence-submodel weight differs from the frozen OOF value.")
     if abs(weight_1d + weight_3d - 1.0) > 1e-12:
         raise ValueError("Canonical fusion weights must sum to one.")
     if abs(threshold - DEFAULT_MULTIDIMENSIONAL_THRESHOLD) > 1e-12:
         raise ValueError("Canonical decision threshold differs from the frozen OOF value.")
-    expert = config.get("composition", {}).get("1d_expert", {})
-    if tuple(expert.get("seeds", ())) != PUBLIC_1D_SEEDS:
-        raise ValueError(f"Canonical 1D seeds must be {PUBLIC_1D_SEEDS}.")
-    if expert.get("experiment_name") != PUBLIC_1D_EXPERIMENT:
-        raise ValueError("Canonical 1D experiment name is missing or stale.")
-    if config.get("provenance", {}).get("three_d_oof") != (
-        "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv"
-    ):
-        raise ValueError("Canonical operating-point 3D OOF provenance is missing or stale.")
-    test_policy = config.get("test_time_conformer_policy", {})
-    if test_policy.get("status") != "disabled":
+    sequence_submodel = config.get("composition", {}).get("sequence_submodel", {})
+    if tuple(sequence_submodel.get("seeds", ())) != PUBLIC_1D_SEEDS:
+        raise ValueError(f"Canonical sequence-submodel seeds must be {PUBLIC_1D_SEEDS}.")
+    if sequence_submodel.get("experiment_name") != PUBLIC_1D_EXPERIMENT:
+        raise ValueError("The sequence-submodel experiment name is missing or stale.")
+    inference = config.get("inference", {})
+    if inference.get("multi_conformer_residual") != "disabled":
         raise ValueError("Canonical public inference must disable test-time conformer ensembles.")
-    if test_policy.get("probability_source") != "base_logits":
+    if inference.get("structural_probability_source") != "base_logits":
         raise ValueError("Canonical public inference must use the single-structure base logits.")
-    structure = config.get("composition", {}).get("3d_expert", {})
+    structure = config.get("composition", {}).get("structural_submodel", {})
     if structure.get("checkpoint") != DEFAULT_STRUCTURE_CHECKPOINT:
-        raise ValueError("Canonical 3D checkpoint is missing or stale.")
-    probability_source = str(structure.get("test_probability_column", "")).lower()
-    if "default_3d_hybrid" in probability_source or "legacy" in probability_source:
-        raise ValueError("Canonical structure probabilities must not come from a legacy container.")
-    if "conformer" in probability_source or "source_aware" in probability_source:
-        raise ValueError("Canonical test probabilities must not come from a conformer-enabled export.")
+        raise ValueError("The structural-submodel checkpoint is missing or stale.")
 
 
 def _validate_operating_point(weight: float, threshold: float, allow_noncanonical: bool) -> None:
@@ -732,12 +723,12 @@ def predict(
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="GHXTox-Multidimensional-Fusion (public default)")
+    parser = argparse.ArgumentParser(description="GHXTox peptide toxicity prediction")
     parser.add_argument("--public-config", default=DEFAULT_MULTIDIMENSIONAL_CONFIG)
     subcommands = parser.add_subparsers(dest="command", required=True)
 
     assemble_parser = subcommands.add_parser(
-        "assemble", help="assemble the canonical fusion from aligned 1D/3D CSVs (CPU)"
+        "assemble", help="combine aligned sequence and structural probabilities (CPU)"
     )
     assemble_parser.add_argument("--cal-1d", required=True)
     assemble_parser.add_argument("--structure-csv", required=True)
@@ -752,12 +743,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     predict_parser = subcommands.add_parser(
-        "predict", help="end-to-end canonical inference on processed sequence/3D inputs (GPU)"
+        "predict", help="run inference from processed sequence and structural inputs"
     )
     predict_parser.add_argument("--processed", required=True)
     predict_parser.add_argument(
         "--sequence-records", "--adapter", dest="sequence_records", required=True,
-        help="Sequence/label record cache; --adapter is a deprecated compatibility alias.",
+        help="Sequence record cache; --adapter is a deprecated compatibility alias.",
     )
     predict_parser.add_argument("--config-1d", default=DEFAULT_1D_CONFIG)
     predict_parser.add_argument("--checkpoints", nargs="+", default=list(DEFAULT_CHECKPOINTS))

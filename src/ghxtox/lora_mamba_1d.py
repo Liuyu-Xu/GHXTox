@@ -1,11 +1,8 @@
-"""Combination-A 1D expert: LoRA task-adaptive ProtT5 + Bidirectional Mamba (SSM) classifier.
+"""Sequence submodel based on LoRA-adapted ProtT5 and bidirectional Mamba.
 
-This module replaces two of the four default 1D pipeline modules:
-  1. 蛋白质大模型 module  : frozen ProtT5 mean-pooled embeddings
-       -> ProtT5 encoder + LoRA task-adaptive fine-tuning (PLMTox-style)
-  2. 分类网络 module       : multi-scale TextCNN on a pooled vector
-       -> bidirectional Mamba / state-space sequence classifier (BiMA-DTI-style)
-The 数据增强 and 多人投票 (multi-seed ensemble) modules remain external.
+The module implements residue-aligned ProtT5 encoding, low-rank adaptation,
+and a bidirectional state-space classifier. Three independently trained seeds
+are combined outside this module to form the default sequence ensemble.
 
 Commands mirror ghxtox.sequence_chemistry:
   cv      : 5-fold group-aware OOF, threshold selected on OOF BACC
@@ -610,8 +607,8 @@ def validate_public_checkpoint_payload(
     experiment = checkpoint_config.get("experiment", {}).get("name")
     if experiment != PUBLIC_1D_EXPERIMENT:
         raise ValueError(
-            f"{checkpoint_path}: experiment {experiment!r} is not the public 1D expert "
-            f"{PUBLIC_1D_EXPERIMENT!r}."
+            f"{checkpoint_path}: experiment {experiment!r} does not match the published "
+            f"sequence-submodel configuration {PUBLIC_1D_EXPERIMENT!r}."
         )
     for key in PUBLIC_1D_ARCHITECTURE_KEYS:
         if checkpoint_config.get(key) != reference_config.get(key):
@@ -669,10 +666,15 @@ def run_cv(
     timing: dict[str, float] = {}
 
     for fold in range(5):
+        fold_seed = int(seed) * 1000 + fold
+        torch.manual_seed(fold_seed)
+        np.random.seed(fold_seed)
+        if device.type == "cuda":
+            torch.cuda.manual_seed_all(fold_seed)
         train_idx, val_idx = _load_fold_indices(fold_manifest, fold, count)
         train_records = [records[i] for i in train_idx]
         val_records = [records[i] for i in val_idx]
-        fold_rng = np.random.RandomState(seed * 1000 + fold)
+        fold_rng = np.random.RandomState(fold_seed)
         train_records = mutation_augment_records(train_records, val_records, config, fold_rng)
         n_pos = sum(1 for record in train_records if record.label == 1)
         n_neg = len(train_records) - n_pos
@@ -818,7 +820,9 @@ def predict_csv(
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="LoRA-ProtT5 + BiMamba 1D expert (combination A)")
+    parser = argparse.ArgumentParser(
+        description="Train or evaluate the LoRA-ProtT5 bidirectional Mamba sequence submodel."
+    )
     sub = parser.add_subparsers(dest="command", required=True)
     p_cv = sub.add_parser("cv")
     p_cv.add_argument("--fold-manifest", required=True)

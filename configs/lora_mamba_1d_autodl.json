@@ -19,7 +19,6 @@
   "grad_checkpoint": true,
   "experiment": {
     "name": "lora_mamba_1d_combinationA_autodl",
-    "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
-    "replaces": ["protein LLM module", "classification network module"]
+    "description": "LoRA-adapted ProtT5 with a bidirectional Mamba classifier"
   }
 }

@@ -1,7 +1,7 @@
-"""Pure 3D structure-expert inference for the current public default.
+"""Single-structure inference for the GHXTox structural submodel.
 
-This module deliberately has no dependency on the previous-generation
-ProtT5-TextCNN, cross-modal adapter, or BACC residual pipeline.
+This module returns the structural probability required by the fixed
+sequence-structure fusion.
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ def predict_structure(
     device: torch.device,
     batch_size: int,
 ) -> dict[str, Any]:
-    """Run only the pLDDT-aware 3D expert on a processed structure cache."""
+    """Run the pLDDT-aware structural submodel on a processed structure cache."""
 
     dataset = PeptideTensorDataset(processed_path, require_labels=False)
     checkpoint, selected, _, fallback_used = resolve_inference_checkpoint(

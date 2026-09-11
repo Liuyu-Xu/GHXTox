@@ -1021,7 +1021,7 @@ def train(config: dict, args: argparse.Namespace) -> Path:
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Train the GHXTox 3D structure expert.")
+    parser = argparse.ArgumentParser(description="Train the GHXTox structural submodel.")
     parser.add_argument("--train", default=DEFAULT_TRAIN_PROCESSED, help="Preprocessed training .pt file.")
     parser.add_argument("--val", default=None, help="Optional preprocessed validation .pt file.")
     parser.add_argument("--fold-manifest", default=None, help="Fixed fold CSV created by ghxtox.folds.")

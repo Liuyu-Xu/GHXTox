@@ -1,12 +1,5 @@
 {
   "seed": 42,
-  "public_default": {
-    "config": "configs/default_multidimensional_fusion.json",
-    "model_name": "GHXTox-Multidimensional-Fusion",
-    "entrypoint": "ghxtox-predict",
-    "role": "canonical public default; this file is only the 3D expert training config consumed by it"
-  },
-  "status": "active_3d_expert_component_for_public_default",
   "data": {
     "max_length": 128,
     "structure_mode": "cached",
@@ -69,19 +62,12 @@
   },
   "inference": {
     "default_checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
-    "public_probability_source": "base_logits",
-    "test_time_conformer_policy": "disabled",
+    "structural_probability_source": "base_logits",
+    "multi_conformer_residual": "disabled",
     "default_threshold": 0.677819,
     "threshold_source": "five-fold group-aware OOF MCC optimization",
     "fallback_checkpoint": "runs/plm_fusion_esm2_geometry_confidence/best_model.pt",
     "fallback_threshold": 0.85,
     "fallback_condition": "chemical-site tensors are unavailable"
-  },
-  "experiment": {
-    "name": "3d_v2_full2795_training_single_structure_test",
-    "fixed_epochs": 8,
-    "epoch_source": "median of five Pareto-selected best epochs: 8, 8, 14, 2, 4",
-    "selection_data": "training-only CD-HIT 0.80 group folds",
-    "external_sets_used_for_selection": false
   }
 }
