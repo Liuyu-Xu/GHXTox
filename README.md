@@ -23,7 +23,7 @@ residual extension is not enabled during default inference.
 GHXTox requires Python 3.9 or later.
 
 ```bash
-git clone https://github.com/Suiyumanbu/GHXTox.git
+git clone https://github.com/Liuyu-Xu/GHXTox.git
 cd GHXTox
 python -m pip install -e .
 ```
