@@ -1,0 +1,24 @@
+[
+  {
+    "arm": "fusion_3Di4",
+    "rescue_n": 101,
+    "rescue_already_correct_in_historical_canonical": 83,
+    "rescue_also_historical_canonical_errors": 18,
+    "harm_also_historical_canonical_errors": 24,
+    "rescues_with_curated_family": 9,
+    "rescues_with_any_name_proxy": 20,
+    "rescues_with_no_database_name": 17,
+    "rescues_with_cross_source_label_conflict": 4
+  },
+  {
+    "arm": "fusion_masked4",
+    "rescue_n": 96,
+    "rescue_already_correct_in_historical_canonical": 82,
+    "rescue_also_historical_canonical_errors": 14,
+    "harm_also_historical_canonical_errors": 24,
+    "rescues_with_curated_family": 9,
+    "rescues_with_any_name_proxy": 20,
+    "rescues_with_no_database_name": 16,
+    "rescues_with_cross_source_label_conflict": 4
+  }
+]

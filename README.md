@@ -121,3 +121,17 @@ in [`research/multiconformer/`](research/multiconformer/README.md).
 
 Please cite the associated GHXTox article when using this code or the provided
 datasets. Full citation information will be added after publication.
+
+
+## Fork research workbench (2026-10-26)
+
+This fork synchronizes the upstream public implementation at `a03f846` and
+preserves additional research in [research/workbench](research/workbench/README.md).
+The public model and its default inference configuration remain upstream code.
+Research protocols, negative results, SaProt fusion controls and per-sample
+contribution analyses are documented separately. Frozen-feature head results
+must not be reported as improvements to the full GHXTox model, and SaProt
+distillation has not yet been run. Large text results are compressed with a
+checksum-bearing restoration helper; checkpoints and feature caches are not
+included. Earlier fork-specific tools are archived in
+[research/legacy_hypeptox](research/legacy_hypeptox/ARCHIVE_NOTE.md).

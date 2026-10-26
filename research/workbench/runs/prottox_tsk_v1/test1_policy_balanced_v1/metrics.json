@@ -1,0 +1,56 @@
+{
+  "checkpoint": {
+    "metadata": {
+      "cache_path": "runs\\prottox_tsk_v1\\features.pt",
+      "cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+      "epochs": 20,
+      "fold_manifest": "data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+      "seed": 20261905,
+      "selection_scope": "full-data refit after OOF; not an OOF metric source",
+      "trained_records": 6387
+    },
+    "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\final_model.pt",
+    "sha256": "89efdb930775df887e3856baa5a6e3f66dd70864315adf4b09a3f4b12b62a188"
+  },
+  "decision_threshold": 0.486108660697937,
+  "heldout_cache": {
+    "path": "runs\\prottox_tsk_v1\\test1_features.pt",
+    "sha256": "0c8d5e2edb011121776e1b45ed75160d872c6e998ff95f2da740c290f4af06e2",
+    "source": {
+      "path": "D:\\dachuang2026\\ziliao\\test1_prott5_official_mean.pt",
+      "sha256": "fdabaa64100d8eb15119027ecceb914ae5b52c470c99474b9ca233d88884cf14"
+    }
+  },
+  "leakage_checks": {
+    "checkpoint_training_cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+    "heldout_cache_not_training_cache": true,
+    "policy_source": "training OOF only",
+    "test_set_not_used_for_model_or_threshold_selection": true
+  },
+  "metrics": {
+    "accuracy": 0.9280639431616341,
+    "auprc": 0.9318146481375159,
+    "auroc": 0.964709987593052,
+    "balanced_accuracy": 0.8979334677419355,
+    "brier": 0.0601020745279154,
+    "f1": 0.8674304418985271,
+    "fn": 55,
+    "fp": 26,
+    "mcc": 0.8199610823079824,
+    "precision": 0.9106529209621993,
+    "sensitivity": 0.828125,
+    "specificity": 0.967741935483871,
+    "threshold": 0.486108660697937,
+    "tn": 780,
+    "tp": 265
+  },
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "policy": {
+    "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\deployment_policy_v1.json",
+    "sha256": "cee60795261ee5a08d1719edb158bf3fcb662a2b9cfa4bb41bd912971e61d5fa"
+  },
+  "policy_mode": "balanced",
+  "records": 1126,
+  "split": "Test1"
+}

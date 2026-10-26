@@ -1,0 +1,9 @@
+﻿data_family,composition,verified_relation,appropriate_use
+GHXTox / CAPTP / ToxMSRC / ToxPLTC,6387 train + 1126 test1 + 582 test2,all sequence/label pairs and row order identical,same benchmark; not four external datasets
+StrucToxNet,6387 train + 1126 test,identical to GHXTox train/test1,relevant same-data structural-model comparator
+ToxiPep0.9 / ToxMamba,7056 train + 1766 test + 958 independent,identical sequence/label pairs,single data family; paper ToxMamba table says1768 but public test1766
+HyPepTox-Fuse / ToxinPred3,8828 train + 2208 test,identical sequence/label pairs,single data family
+PeptiTox,3864 merged records,3144 overlap GHXTox train;544 historical tests;176 new,public merged file does not retain paper split
+ToxiCompass,6114 binary records,operational comparators;target/effect labels separate,assay prioritization; not universal human toxicity
+HemoPI2,1926 HC50 records,1540 cross-val +386 independent,specific RBC endpoint; source dose/species/chemistry still verify
+MAOMAO v1.1,71857 sequences;169 measurements/166 sequences,all7513 GHXTox known unique sequences present,evidence recovery; never entire resource as independent test

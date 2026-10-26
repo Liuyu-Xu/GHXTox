@@ -1,0 +1,22 @@
+[
+  {
+    "design": "sequence_edit_groups",
+    "model": "training_mean",
+    "mae_percentage_points": 25.76824056762697
+  },
+  {
+    "design": "sequence_edit_groups",
+    "model": "training_median",
+    "mae_percentage_points": 24.132558913965315
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "training_mean",
+    "mae_percentage_points": 25.827508688610482
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "training_median",
+    "mae_percentage_points": 24.062235885776055
+  }
+]

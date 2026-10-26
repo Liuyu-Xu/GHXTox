@@ -1,0 +1,1031 @@
+[
+  {
+    "sequence": "KKLFKKILKFL",
+    "pmid": "17980935",
+    "species": "human",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "1829",
+        "pmid": "17980935",
+        "sequence": "KKLFKKILKFL",
+        "name": "BP76",
+        "MAP": "KKLFKKILKFL{ct:Amid}",
+        "chemical_key": "KKLFKKILKFL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 3.0,
+        "raw_activity": "3±1% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "1829"
+        ]
+      },
+      {
+        "id": "1833",
+        "pmid": "17980935",
+        "sequence": "KKLFKKILKFL",
+        "name": "BP77",
+        "MAP": "KKLFKKILKFL{nt:Acet}{ct:Amid}",
+        "chemical_key": "KKLFKKILKFL|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 6.0,
+        "raw_activity": "6±0.6% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "1833"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "KKLFKKILKFL",
+    "pmid": "17980935",
+    "species": "human",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "1843",
+        "pmid": "17980935",
+        "sequence": "KKLFKKILKFL",
+        "name": "BP76",
+        "MAP": "KKLFKKILKFL{ct:Amid}",
+        "chemical_key": "KKLFKKILKFL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 34.0,
+        "raw_activity": "34±2.1% Hemolysis at 100 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "1843"
+        ]
+      },
+      {
+        "id": "1847",
+        "pmid": "17980935",
+        "sequence": "KKLFKKILKFL",
+        "name": "BP77",
+        "MAP": "KKLFKKILKFL{nt:Acet}{ct:Amid}",
+        "chemical_key": "KKLFKKILKFL|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 40.0,
+        "raw_activity": "40±3.8% Hemolysis at 100 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "1847"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "KNWKGIAGMAKKLLGKNWKLM",
+    "pmid": "10879468",
+    "species": "human",
+    "dose_uM": 10.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2459",
+        "pmid": "10879468",
+        "sequence": "KNWKGIAGMAKKLLGKNWKLM",
+        "name": "Mast 21",
+        "MAP": "KNWKGIAGMAKKLLGKNWKLM",
+        "chemical_key": "KNWKGIAGMAKKLLGKNWKLM|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 5.4,
+        "raw_activity": "5.4% Hemolysis at 10 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2459",
+          "2522"
+        ]
+      },
+      {
+        "id": "2468",
+        "pmid": "10879468",
+        "sequence": "KNWKGIAGMAKKLLGKNWKLM",
+        "name": "Mast 21N",
+        "MAP": "KNWKGIAGMAKKLLGKNWKLM{ct:Amid}",
+        "chemical_key": "KNWKGIAGMAKKLLGKNWKLM|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 12.3,
+        "raw_activity": "12.3% Hemolysis at 10 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2468",
+          "2531"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "MLKKFRGMF",
+    "pmid": "28230084",
+    "species": "human",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "7041",
+        "pmid": "28230084",
+        "sequence": "MLKKFRGMF",
+        "name": "MreB1–9",
+        "MAP": "MLKKFRGMF{ct:Amid}",
+        "chemical_key": "MLKKFRGMF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 50 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7041"
+        ]
+      },
+      {
+        "id": "7042",
+        "pmid": "28230084",
+        "sequence": "MLKKFRGMF",
+        "name": "Ac-MreB1–9",
+        "MAP": "MLKKFRGMF{nt:Acet}{ct:Amid}",
+        "chemical_key": "MLKKFRGMF|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 50 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7042"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "WMLKKFRGMF",
+    "pmid": "28230084",
+    "species": "human",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "7043",
+        "pmid": "28230084",
+        "sequence": "WMLKKFRGMF",
+        "name": "W-MreB1–9",
+        "MAP": "WMLKKFRGMF{ct:Amid}",
+        "chemical_key": "WMLKKFRGMF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 50 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7043"
+        ]
+      },
+      {
+        "id": "7044",
+        "pmid": "28230084",
+        "sequence": "WMLKKFRGMF",
+        "name": "Ac-W-MreB1–9",
+        "MAP": "WMLKKFRGMF{nt:Acet}{ct:Amid}",
+        "chemical_key": "WMLKKFRGMF|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 4.15,
+        "raw_activity": "4.15±0.96 % Hemolysis at 50 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7044"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "MLKKFRGMF",
+    "pmid": "28230084",
+    "species": "human",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "7045",
+        "pmid": "28230084",
+        "sequence": "MLKKFRGMF",
+        "name": "MreB1–9",
+        "MAP": "MLKKFRGMF{ct:Amid}",
+        "chemical_key": "MLKKFRGMF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 100 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7045"
+        ]
+      },
+      {
+        "id": "7046",
+        "pmid": "28230084",
+        "sequence": "MLKKFRGMF",
+        "name": "Ac-MreB1–9",
+        "MAP": "MLKKFRGMF{nt:Acet}{ct:Amid}",
+        "chemical_key": "MLKKFRGMF|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 100 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7046"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "WMLKKFRGMF",
+    "pmid": "28230084",
+    "species": "human",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "7047",
+        "pmid": "28230084",
+        "sequence": "WMLKKFRGMF",
+        "name": "W-MreB1–9",
+        "MAP": "WMLKKFRGMF{ct:Amid}",
+        "chemical_key": "WMLKKFRGMF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 1.62,
+        "raw_activity": "1.62±0.08 % Hemolysis at 100 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7047"
+        ]
+      },
+      {
+        "id": "7048",
+        "pmid": "28230084",
+        "sequence": "WMLKKFRGMF",
+        "name": "Ac-W-MreB1–9",
+        "MAP": "WMLKKFRGMF{nt:Acet}{ct:Amid}",
+        "chemical_key": "WMLKKFRGMF|amide|acetyl|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "acetyl",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 11.88,
+        "raw_activity": "11.88±2.44 % Hemolysis at 100 µM",
+        "origin": "Membrane-Binding Region Of E. Coli Mreb",
+        "supporting_database_ids": [
+          "7048"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+    "pmid": "29108968",
+    "species": "fish",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8912",
+        "pmid": "29108968",
+        "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+        "name": "α-Pte",
+        "MAP": "FIHHIIGGLFHVGKSIHDLIR",
+        "chemical_key": "FIHHIIGGLFHVGKSIHDLIR|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 50 µM",
+        "origin": "Lionfish (Pterois Volitans),Piscidin-1",
+        "supporting_database_ids": [
+          "8912"
+        ]
+      },
+      {
+        "id": "8915",
+        "pmid": "29108968",
+        "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+        "name": "α-PteCONH2",
+        "MAP": "FIHHIIGGLFHVGKSIHDLIR{ct:Amid}",
+        "chemical_key": "FIHHIIGGLFHVGKSIHDLIR|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 90.0,
+        "raw_activity": "90 % Hemolysis at 50 µM",
+        "origin": "Lionfish (Pterois Volitans),Piscidin-1",
+        "supporting_database_ids": [
+          "8915",
+          "8917"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 1.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "11996",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 1.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 1 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "11996"
+        ]
+      },
+      {
+        "id": "12006",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 1.0,
+        "pH": null,
+        "hemolysis_percent": 0.1,
+        "raw_activity": "0.1 % Hemolysis at 1 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12006"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 2.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "11997",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 2.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0 % Hemolysis at 2 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "11997"
+        ]
+      },
+      {
+        "id": "12007",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 2.0,
+        "pH": null,
+        "hemolysis_percent": 0.3,
+        "raw_activity": "0.3 % Hemolysis at 2 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12007"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 4.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "11998",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 4.0,
+        "pH": null,
+        "hemolysis_percent": 0.4,
+        "raw_activity": "0.4 % Hemolysis at 4 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "11998"
+        ]
+      },
+      {
+        "id": "12008",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 4.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2 % Hemolysis at 4 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12008"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 8.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "11999",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 8.0,
+        "pH": null,
+        "hemolysis_percent": 0.7,
+        "raw_activity": "0.7 % Hemolysis at 8 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "11999"
+        ]
+      },
+      {
+        "id": "12009",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 8.0,
+        "pH": null,
+        "hemolysis_percent": 2.5,
+        "raw_activity": "2.5 % Hemolysis at 8 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12009"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 16.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12000",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 16.0,
+        "pH": null,
+        "hemolysis_percent": 1.4,
+        "raw_activity": "1.4 % Hemolysis at 16 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12000"
+        ]
+      },
+      {
+        "id": "12010",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 16.0,
+        "pH": null,
+        "hemolysis_percent": 5.4,
+        "raw_activity": "5.4 % Hemolysis at 16 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12010"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 32.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12001",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 32.0,
+        "pH": null,
+        "hemolysis_percent": 1.5,
+        "raw_activity": "1.5 % Hemolysis at 32 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12001"
+        ]
+      },
+      {
+        "id": "12011",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 32.0,
+        "pH": null,
+        "hemolysis_percent": 16.9,
+        "raw_activity": "16.9 % Hemolysis at 32 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12011"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 64.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12002",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 64.0,
+        "pH": null,
+        "hemolysis_percent": 1.8,
+        "raw_activity": "1.8 % Hemolysis at 64 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12002"
+        ]
+      },
+      {
+        "id": "12012",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 64.0,
+        "pH": null,
+        "hemolysis_percent": 40.3,
+        "raw_activity": "40.3 % Hemolysis at 64 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12012"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 128.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12003",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 128.0,
+        "pH": null,
+        "hemolysis_percent": 2.4,
+        "raw_activity": "2.4 % Hemolysis at 128 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12003"
+        ]
+      },
+      {
+        "id": "12013",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 128.0,
+        "pH": null,
+        "hemolysis_percent": 99.3,
+        "raw_activity": "99.3 % Hemolysis at 128 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12013"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "FIRRIARLLRRIF",
+    "pmid": "34361810",
+    "species": "sheep",
+    "dose_uM": 256.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12004",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R",
+        "MAP": "FIRRIARLLRRIF",
+        "chemical_key": "FIRRIARLLRRIF|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 256.0,
+        "pH": null,
+        "hemolysis_percent": 10.6,
+        "raw_activity": "10.6 % Hemolysis at 256 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12004"
+        ]
+      },
+      {
+        "id": "12014",
+        "pmid": "34361810",
+        "sequence": "FIRRIARLLRRIF",
+        "name": "Kn2-5R-NH2",
+        "MAP": "FIRRIARLLRRIF{ct:Amid}",
+        "chemical_key": "FIRRIARLLRRIF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 256.0,
+        "pH": null,
+        "hemolysis_percent": 99.5,
+        "raw_activity": "99.5 % Hemolysis at 256 µM",
+        "origin": "Variants Of The Scorpion Venom Peptide Bmkn-2",
+        "supporting_database_ids": [
+          "12014"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "WLRRIKAWLRRIKA",
+    "pmid": "34819923",
+    "species": "horse",
+    "dose_uM": 150.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12226",
+        "pmid": "34819923",
+        "sequence": "WLRRIKAWLRRIKA",
+        "name": "RR4-OH",
+        "MAP": "WLRRIKAWLRRIKA{ct:OH}",
+        "chemical_key": "WLRRIKAWLRRIKA|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 150.0,
+        "pH": null,
+        "hemolysis_percent": 3.2,
+        "raw_activity": "3.2 ± 1.0 % Hemolysis at 150 µM",
+        "origin": "Short Synthetic Peptide",
+        "supporting_database_ids": [
+          "12226"
+        ]
+      },
+      {
+        "id": "12229",
+        "pmid": "34819923",
+        "sequence": "WLRRIKAWLRRIKA",
+        "name": "RR4-NH2",
+        "MAP": "WLRRIKAWLRRIKA{ct:Amid}",
+        "chemical_key": "WLRRIKAWLRRIKA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 150.0,
+        "pH": null,
+        "hemolysis_percent": 64.3,
+        "raw_activity": "64.3 ± 5.4 % Hemolysis at 150 µM",
+        "origin": "Short Synthetic Peptide",
+        "supporting_database_ids": [
+          "12229"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  },
+  {
+    "sequence": "WLRRIKAWLRRIKA",
+    "pmid": "34819923",
+    "species": "horse",
+    "dose_uM": 375.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12288",
+        "pmid": "34819923",
+        "sequence": "WLRRIKAWLRRIKA",
+        "name": "RR4-OH",
+        "MAP": "WLRRIKAWLRRIKA{ct:OH}",
+        "chemical_key": "WLRRIKAWLRRIKA|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 375.0,
+        "pH": null,
+        "hemolysis_percent": 17.8,
+        "raw_activity": "17.8 ± 0.3 % Hemolysis at 375 µM",
+        "origin": "Short Synthetic Peptide",
+        "supporting_database_ids": [
+          "12288"
+        ]
+      },
+      {
+        "id": "12291",
+        "pmid": "34819923",
+        "sequence": "WLRRIKAWLRRIKA",
+        "name": "RR4-NH2",
+        "MAP": "WLRRIKAWLRRIKA{ct:Amid}",
+        "chemical_key": "WLRRIKAWLRRIKA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 375.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100.0 ± 5.4 % Hemolysis at 375 µM",
+        "origin": "Short Synthetic Peptide",
+        "supporting_database_ids": [
+          "12291"
+        ]
+      }
+    ],
+    "uncontrolled_fields": [
+      "temperature",
+      "exposure_time",
+      "RBC_density",
+      "buffer"
+    ],
+    "status": "数据库同已记录背景的末端形式对照线索，非全条件匹配证明"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "split": "test1",
+    "n": 1126,
+    "positive": 320,
+    "errors": 59,
+    "TP": 287,
+    "TN": 780,
+    "FP": 26,
+    "FN": 33,
+    "mcc": 0.8704599749746912,
+    "fragment": 299,
+    "label_disagreement": 54,
+    "both_flags": 9,
+    "unresolved_identity": 153,
+    "primary_flagged": 344,
+    "unresolved_without_primary_flag": 152
+  },
+  {
+    "split": "test2",
+    "n": 582,
+    "positive": 46,
+    "errors": 31,
+    "TP": 35,
+    "TN": 516,
+    "FP": 20,
+    "FN": 11,
+    "mcc": 0.6673395851029228,
+    "fragment": 172,
+    "label_disagreement": 47,
+    "both_flags": 8,
+    "unresolved_identity": 12,
+    "primary_flagged": 211,
+    "unresolved_without_primary_flag": 11
+  }
+]

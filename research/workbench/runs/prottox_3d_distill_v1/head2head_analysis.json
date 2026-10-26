@@ -1,0 +1,222 @@
+{
+  "artifact_type": "prottox_3d_distill_head2head_analysis",
+  "version": 1,
+  "n_bootstrap": 5000,
+  "bootstrap_seed": 20260909,
+  "stratum_quantiles": {
+    "predicted_mean_plddt": 0.25,
+    "predicted_low_plddt_fraction": 0.75,
+    "teacher_mlp_disagreement": 0.75
+  },
+  "stratum_thresholds": {
+    "predicted_mean_plddt": 0.6379970015,
+    "predicted_low_plddt_fraction": 0.2250100595,
+    "teacher_mlp_disagreement": 0.07979140423887386
+  },
+  "stratum_sizes": {
+    "low_predicted_mean_plddt": 1597,
+    "high_predicted_low_plddt_fraction": 1597,
+    "teacher_mlp_disagreement": 1597
+  },
+  "overall_point_deltas_proxy_minus_mlp": {
+    "mcc": {
+      "seed_20260905": -0.005324681354311633,
+      "seed_20260906": 0.003543983725108224
+    },
+    "auprc": {
+      "seed_20260905": -0.0015037178438765952,
+      "seed_20260906": -0.0017786880770642721
+    },
+    "brier": {
+      "seed_20260905": 0.0026212833127581964,
+      "seed_20260906": 0.000745648958784699
+    }
+  },
+  "overall_bootstrap": {
+    "mcc": {
+      "lower_ci95": -0.008092399907720867,
+      "upper_ci95": 0.006069680287689246,
+      "mean": -0.000921646130072687
+    },
+    "auprc": {
+      "lower_ci95": -0.004307645442503778,
+      "upper_ci95": 0.0008936645602587649,
+      "mean": -0.0016703833108047167
+    },
+    "brier": {
+      "lower_ci95": 9.488296179470917e-07,
+      "upper_ci95": 0.0033920080094510174,
+      "mean": 0.0017005032233155777
+    }
+  },
+  "subgroup_bootstrap": {
+    "low_predicted_mean_plddt": {
+      "mcc": {
+        "lower_ci95": -0.014320795117273273,
+        "upper_ci95": 0.014236230589274382,
+        "mean": -0.00010704981649737555
+      },
+      "auprc": {
+        "lower_ci95": -0.007226929691086441,
+        "upper_ci95": 0.005388720385201883,
+        "mean": -0.0007870842016341332
+      },
+      "brier": {
+        "lower_ci95": -0.002670906031832775,
+        "upper_ci95": 0.005853930165188074,
+        "mean": 0.0015880946092428382
+      }
+    },
+    "high_predicted_low_plddt_fraction": {
+      "mcc": {
+        "lower_ci95": -0.00948965633534444,
+        "upper_ci95": 0.017456290178295333,
+        "mean": 0.003883547923591088
+      },
+      "auprc": {
+        "lower_ci95": -0.006879393226240371,
+        "upper_ci95": 0.004990191481749221,
+        "mean": -0.0007505849627543957
+      },
+      "brier": {
+        "lower_ci95": -0.002434547413178429,
+        "upper_ci95": 0.005730299605306096,
+        "mean": 0.001543627640454045
+      }
+    },
+    "teacher_mlp_disagreement": {
+      "mcc": {
+        "lower_ci95": -0.028930217473846494,
+        "upper_ci95": 0.018366966039243045,
+        "mean": -0.00568496587962777
+      },
+      "auprc": {
+        "lower_ci95": -0.014207405896772808,
+        "upper_ci95": 0.009126115711838958,
+        "mean": -0.0023485836221442268
+      },
+      "brier": {
+        "lower_ci95": -0.0006750521748796312,
+        "upper_ci95": 0.012526199387266146,
+        "mean": 0.005928341977491149
+      }
+    }
+  },
+  "fold_stability": {
+    "comparisons": [
+      {
+        "seed": 20260905,
+        "fold": 0,
+        "delta": {
+          "mcc": 0.010343899931501976,
+          "auprc": 0.009931336372951072,
+          "brier": -0.004210001443139197
+        }
+      },
+      {
+        "seed": 20260905,
+        "fold": 1,
+        "delta": {
+          "mcc": -0.010024143269568797,
+          "auprc": -0.0007299364173615208,
+          "brier": 0.0041567358801927815
+        }
+      },
+      {
+        "seed": 20260905,
+        "fold": 2,
+        "delta": {
+          "mcc": -0.021599875490359244,
+          "auprc": -0.004473738083381473,
+          "brier": 0.004059018733156013
+        }
+      },
+      {
+        "seed": 20260905,
+        "fold": 3,
+        "delta": {
+          "mcc": -0.011890412379795046,
+          "auprc": -0.008164069271651586,
+          "brier": 0.007764508938825507
+        }
+      },
+      {
+        "seed": 20260905,
+        "fold": 4,
+        "delta": {
+          "mcc": 0.007261903882907483,
+          "auprc": 0.002508700960629495,
+          "brier": 0.0013554860685777437
+        }
+      },
+      {
+        "seed": 20260906,
+        "fold": 0,
+        "delta": {
+          "mcc": 0.002101565202638156,
+          "auprc": 0.002179779264498749,
+          "brier": -0.00015922720587279587
+        }
+      },
+      {
+        "seed": 20260906,
+        "fold": 1,
+        "delta": {
+          "mcc": 0.011827660196254475,
+          "auprc": -0.0009207364599638224,
+          "brier": 0.0011883793908831208
+        }
+      },
+      {
+        "seed": 20260906,
+        "fold": 2,
+        "delta": {
+          "mcc": 0.0028436682499721755,
+          "auprc": -0.0007098297957442989,
+          "brier": 0.000769300493593951
+        }
+      },
+      {
+        "seed": 20260906,
+        "fold": 3,
+        "delta": {
+          "mcc": -0.011135371588922083,
+          "auprc": -0.0019733643148887037,
+          "brier": 0.0018937753061318424
+        }
+      },
+      {
+        "seed": 20260906,
+        "fold": 4,
+        "delta": {
+          "mcc": 0.01040030356877819,
+          "auprc": -0.0027122307136864254,
+          "brier": 6.0571397177217046e-05
+        }
+      }
+    ],
+    "proxy_wins": {
+      "mcc": 6,
+      "auprc": 3,
+      "brier": 2
+    },
+    "total_comparisons": 10
+  },
+  "decision_rule": {
+    "brier_tolerance": 0.002,
+    "mcc_floor_for_auprc_route": -0.002,
+    "minimum_supporting_subgroups": 2
+  },
+  "decision": {
+    "decision": "mlp_teacher_kd",
+    "reason": "no reproducible proxy advantage over the simpler distilled MLP",
+    "overall_supported": false,
+    "subgroup_supported": false,
+    "subgroup_evidence": {
+      "low_predicted_mean_plddt": false,
+      "high_predicted_low_plddt_fraction": false,
+      "teacher_mlp_disagreement": false
+    }
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded"
+}

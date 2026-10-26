@@ -1,0 +1,101 @@
+{
+  "cache": {
+    "path": "runs\\prottox_tsk_smoke_20260905\\features_128_balanced.pt",
+    "records": 128,
+    "sha256": "eedccf93df04de9ea1d58a9cd15f0d1a99b9257a52dcde4491d82dbcb8f97008"
+  },
+  "device": "cuda",
+  "elapsed_seconds": 2.0591919000144117,
+  "epochs": 1,
+  "final_checkpoint": "runs\\prottox_tsk_smoke_20260905\\kan_1epoch_balanced\\final_model.pt",
+  "fold_manifest": null,
+  "folds": [
+    {
+      "auprc": 0.9158241758241756,
+      "auroc": 0.863905325443787,
+      "brier": 0.1787352853542607,
+      "fn": 4,
+      "fold": 0,
+      "fp": 0,
+      "mcc": 0.727606875108999,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 13,
+      "tp": 9
+    },
+    {
+      "auprc": 0.8302874902874904,
+      "auroc": 0.7751479289940828,
+      "brier": 0.19736909278328205,
+      "fn": 4,
+      "fold": 1,
+      "fp": 3,
+      "mcc": 0.46291004988627577,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 10,
+      "tp": 9
+    },
+    {
+      "auprc": 0.9029097536450477,
+      "auroc": 0.8875739644970415,
+      "brier": 0.17930355539543535,
+      "fn": 3,
+      "fold": 2,
+      "fp": 2,
+      "mcc": 0.6172133998483676,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 11,
+      "tp": 10
+    },
+    {
+      "auprc": 0.9365967365967365,
+      "auroc": 0.9230769230769231,
+      "brier": 0.15996498779178747,
+      "fn": 3,
+      "fold": 3,
+      "fp": 1,
+      "mcc": 0.7006490497453707,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 12,
+      "tp": 10
+    },
+    {
+      "auprc": 0.9512205387205387,
+      "auroc": 0.9513888888888888,
+      "brier": 0.1685804601428037,
+      "fn": 4,
+      "fold": 4,
+      "fp": 1,
+      "mcc": 0.6024640760767094,
+      "n_test": 24,
+      "n_train": 104,
+      "threshold": 0.5,
+      "tn": 11,
+      "tp": 8
+    }
+  ],
+  "head_kind": "kan",
+  "learning_rate": 0.001,
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "oof_metrics": {
+    "auprc": 0.8807689889400283,
+    "auroc": 0.866455078125,
+    "brier": 0.1769189609208687,
+    "fn": 18,
+    "fp": 7,
+    "mcc": 0.6185802368601524,
+    "threshold": 0.5,
+    "tn": 57,
+    "tp": 46
+  },
+  "parameter_count": 475027,
+  "warning": "KAN is a candidate only. Compare this OOF summary against a same-protocol MLP run before promotion."
+}

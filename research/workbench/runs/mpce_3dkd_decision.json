@@ -1,0 +1,104 @@
+{
+  "decision_date": "2026-09-05",
+  "deltas_vs_B": {
+    "auprc": 0.0045066304086140985,
+    "brier": -0.003937377071977229,
+    "mcc": 0.005288593584605539
+  },
+  "deployment_baseline": "ProtTox-3DKD v1 (immutable)",
+  "final_patent_architecture": "MPCE-3DKD",
+  "gate_result": {
+    "auprc_not_declined": true,
+    "brier_improved": true,
+    "mcc_tolerance_ok": true,
+    "mean_auprc_delta_D_minus_B": 0.0045066304086140985,
+    "mean_brier_delta_D_minus_B": -0.003937377071977229,
+    "mean_brier_improvement": 0.003937377071977229,
+    "mean_mcc_delta_D_minus_B": 0.005288593584605539,
+    "pass": true
+  },
+  "means": {
+    "A0": {
+      "auprc": 0.9288064883743334,
+      "brier": 0.05911753795437247,
+      "mcc": 0.8177706506249192
+    },
+    "B": {
+      "auprc": 0.9391417319201012,
+      "brier": 0.0619798346862865,
+      "mcc": 0.8328671487740998
+    },
+    "D": {
+      "auprc": 0.9436483623287153,
+      "brier": 0.05804245761430927,
+      "mcc": 0.8381557423587054
+    }
+  },
+  "per_seed": {
+    "A0": {
+      "20260905": {
+        "auprc": 0.9292699328792449,
+        "auroc": 0.9657684963068423,
+        "brier": 0.05931004665788307,
+        "mcc": 0.8157720085500801
+      },
+      "20260906": {
+        "auprc": 0.928343043869422,
+        "auroc": 0.9656197563288831,
+        "brier": 0.05892502925086187,
+        "mcc": 0.8197692926997581
+      }
+    },
+    "A1_v1_ensemble": {
+      "oof_metrics": {
+        "accuracy": 0.9301706591514013,
+        "auprc": 0.9429396579659794,
+        "auroc": 0.9720960550859201,
+        "balanced_accuracy": 0.9061511535263835,
+        "brier": 0.05763612562981321,
+        "f1": 0.8739400791407574,
+        "fn": 272,
+        "fp": 174,
+        "mcc": 0.8263082355798692,
+        "precision": 0.8988372093023256,
+        "sensitivity": 0.8503850385038504,
+        "specificity": 0.9619172685489166,
+        "threshold": 0.5,
+        "tn": 4395,
+        "tp": 1546
+      }
+    },
+    "B": {
+      "20260905": {
+        "auprc": 0.9386122474412074,
+        "auroc": 0.9703970123429502,
+        "brier": 0.06176672470715984,
+        "mcc": 0.8322355425352735
+      },
+      "20260906": {
+        "auprc": 0.9396712163989951,
+        "auroc": 0.9712832522035306,
+        "brier": 0.062192944665413155,
+        "mcc": 0.8334987550129261
+      }
+    },
+    "D": {
+      "20260905": {
+        "auprc": 0.9445745988581304,
+        "auroc": 0.9712786172467105,
+        "brier": 0.058710865608848625,
+        "mcc": 0.8367669498490595
+      },
+      "20260906": {
+        "auprc": 0.9427221257993,
+        "auroc": 0.9726270285159399,
+        "brier": 0.05737404961976991,
+        "mcc": 0.8395445348683511
+      }
+    }
+  },
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\mpce_3dkd_v1_protocol.json",
+  "selection_scope": "training OOF only; Test1/Test2 never read",
+  "v1_ensemble_csv": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\v2a_targets_corrected\\v1_fold_base_oof_probabilities.csv",
+  "v1_ensemble_csv_sha256": "828d50019559888d1e8cd34d3ea78beee86b267fd6f1f87506200aaf1b3ddad9"
+}

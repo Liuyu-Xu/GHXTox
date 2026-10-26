@@ -1,0 +1,553 @@
+[
+  {
+    "group": "PMAP36_truncations",
+    "pmc": "PMC4890124",
+    "name": "PMAP-36",
+    "sequence": "GRFRRLRKKTRKRLKKIGKVLKWIPPIVGSIPLGCG",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_5percent",
+      "operator": "=",
+      "value": 4.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "none",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "PMAP36_truncations",
+    "pmc": "PMC4890124",
+    "name": "RI21",
+    "sequence": "RRLRKKTRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_5percent",
+      "operator": "=",
+      "value": 32.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "none",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "PMAP36_truncations",
+    "pmc": "PMC4890124",
+    "name": "RI18",
+    "sequence": "RKKTRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_5percent",
+      "operator": "=",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "none",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "PMAP36_truncations",
+    "pmc": "PMC4890124",
+    "name": "TI15",
+    "sequence": "TRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_5percent",
+      "operator": ">",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "right",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "PMAP36_truncations",
+    "pmc": "PMC4890124",
+    "name": "RI12",
+    "sequence": "RLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_5percent",
+      "operator": ">",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "right",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-1",
+    "sequence": "RWKIFKKIEKVG",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": null,
+      "description": "no detectable hemolysis through 100 uM; exact values/detection limit unavailable",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 200,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-2",
+    "sequence": "RWKIFKKAAKKG",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": null,
+      "description": "no detectable hemolysis through 100 uM; exact values/detection limit unavailable",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 200,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-3",
+    "sequence": "RWKIFKKVVKKG",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": null,
+      "description": "no detectable hemolysis through 100 uM; exact values/detection limit unavailable",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 200,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-4",
+    "sequence": "RWKIFKKAAKKA",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": null,
+      "description": "no detectable hemolysis through 100 uM; exact values/detection limit unavailable",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 200,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-5",
+    "sequence": "RWKIFKKVVKKA",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": null,
+      "description": "no detectable hemolysis through 100 uM; exact values/detection limit unavailable",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 200,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "Pap12",
+    "pmc": "PMC6405874",
+    "name": "Pap12-6",
+    "sequence": "RWKIFKKVVKKW",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "percent_at_100uM",
+      "value": 3,
+      "description": "3% at 100 uM",
+      "dose": 100,
+      "dose_unit": "uM",
+      "rbc": "human",
+      "published_HC10_value": 100,
+      "published_HC10_is_observed": false,
+      "source": "Results Cytotoxicity; Table 2; Figure 2A not digitized",
+      "not_HC50": true
+    },
+    "sequence_source": "Table 1",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W1",
+    "sequence": "WLKKLLKKLLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W2",
+    "sequence": "KWLKKLLKKLL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 16,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W3",
+    "sequence": "LKWLKKLLKKL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W4",
+    "sequence": "LLKWLKKLLKK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W5",
+    "sequence": "KLLKWLKKLLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W6",
+    "sequence": "KKLLKWLKKLL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W7",
+    "sequence": "LKKLLKWLKKL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W8",
+    "sequence": "LLKKLLKWLKK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W9",
+    "sequence": "KLLKKLLKWLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W10",
+    "sequence": "KKLLKKLLKWL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  },
+  {
+    "group": "L5K5W_position_isomers",
+    "pmc": "PMC6270530",
+    "name": "W11",
+    "sequence": "LKKLLKKLLKW",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "hemolysis": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "sequence_source": "Original Figure 1 visual transcription; agrees with cached Hemolytik PMID23344198",
+    "measurement_type": "direct experiment reported in original article",
+    "same_chemical_form_basis": "same named synthetic preparation used across assays; no separate assay-specific form reported"
+  }
+]

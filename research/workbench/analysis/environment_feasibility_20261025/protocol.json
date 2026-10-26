@@ -1,0 +1,15 @@
+{
+  "target": "hemolysis percentage at reported exact molar concentration",
+  "molecular_scope": "5–50 standard-AA, L, linear, no other MAP tags, free/acetyl N, acid/amide C",
+  "environment_scope": "dose and reported red-blood-cell species; no time/temperature model; pH collected but not fitted",
+  "model": "ExtraTreesRegressor 160 trees min_samples_leaf4 max_features0.8 random_state2026",
+  "group_rule": "transitive clusters with unit-cost global edit distance <= floor(0.2*max sequence length); not standard identity/CD-HIT",
+  "evaluation": "5fold edit clusters; separately5fold paper holdout with all shared sequence clusters purged; per chemical-form weights",
+  "limitations": [
+    "database metadata may contain errors",
+    "missing time/temperature/buffer/RBC density",
+    "natural species proportions unbalanced",
+    "source PMID may reference reviews",
+    "no claim of independent GHXTox benchmark or mechanistic causality"
+  ]
+}

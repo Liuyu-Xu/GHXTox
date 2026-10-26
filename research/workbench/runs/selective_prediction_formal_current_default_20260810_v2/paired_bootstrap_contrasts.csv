@@ -1,0 +1,26 @@
+contrast,split_name,coverage_target,accepted_n,rejected_n,metric,positive_improvement_definition,point_estimate,median,ci95_lower,ci95_upper,bootstrap_probability_gt_0,bootstrap_replicates,seed
+positive values favor frozen uncertainty ranking,training OOF,1.0,6387,0,accepted_error_rate,random minus selective,0.0,0.0,0.0,0.0,0.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,1.0,6387,0,accepted_mcc,selective minus random,0.0,0.0,0.0,0.0,0.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,1.0,6387,0,accepted_balanced_accuracy,selective minus random,0.0,0.0,0.0,0.0,0.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,1.0,6387,0,accepted_sensitivity,selective minus random,0.0,0.0,0.0,0.0,0.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,1.0,6387,0,accepted_specificity,selective minus random,0.0,0.0,0.0,0.0,0.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.95,6068,319,accepted_error_rate,random minus selective,0.014707613711272246,0.014667106130520767,0.011700725115359266,0.017798286090969014,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.95,6068,319,accepted_mcc,selective minus random,0.03506839278207302,0.035099791218116294,0.02788070036928077,0.04242883370457055,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.95,6068,319,accepted_balanced_accuracy,selective minus random,0.018076310760887514,0.01808242078061828,0.013948217851715938,0.022329627583138525,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.95,6068,319,accepted_sensitivity,selective minus random,0.026898554785247684,0.026836329160554118,0.01888555146843938,0.03529957545454674,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.95,6068,319,accepted_specificity,selective minus random,0.009254066736527346,0.009212896063087395,0.006488870867576996,0.012188310183966069,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.9,5748,639,accepted_error_rate,random minus selective,0.021914439805149618,0.021920668058455113,0.018088900487125973,0.02574808629088379,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.9,5748,639,accepted_mcc,selective minus random,0.052271495247867936,0.05227401457535935,0.04273155146640021,0.06193435364863841,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.9,5748,639,accepted_balanced_accuracy,selective minus random,0.025937990575858477,0.025970755347560548,0.020555544030920036,0.03122375153572164,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.9,5748,639,accepted_sensitivity,selective minus random,0.03686109930851306,0.03689952041166039,0.026693067669692542,0.04662791234084365,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.9,5748,639,accepted_specificity,selective minus random,0.015014881843203903,0.014956072306649748,0.011320409097435017,0.018992097444760155,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.85,5429,958,accepted_error_rate,random minus selective,0.027109265058021737,0.027076809725547983,0.022656106096887087,0.03186590532326395,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.85,5429,958,accepted_mcc,selective minus random,0.06551603377909057,0.06543905643724907,0.054462207353767014,0.07701945685751208,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.85,5429,958,accepted_balanced_accuracy,selective minus random,0.032672300497865917,0.03267018527822613,0.026533749153142,0.03888304331981325,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.85,5429,958,accepted_sensitivity,selective minus random,0.04697357895617273,0.04699027125148941,0.035152756526444194,0.058739468644660835,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.85,5429,958,accepted_specificity,selective minus random,0.0183710220395591,0.018342964234516868,0.014144130641265162,0.022962979788454137,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.8,5110,1277,accepted_error_rate,random minus selective,0.03080379647749511,0.030724070450097847,0.02602739726027397,0.03600782778864971,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.8,5110,1277,accepted_mcc,selective minus random,0.07520934262283072,0.07512864863900498,0.06339470180726141,0.0878614494284727,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.8,5110,1277,accepted_balanced_accuracy,selective minus random,0.03832572662094956,0.03830982603206712,0.03150420388638117,0.04530755800374952,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.8,5110,1277,accepted_sensitivity,selective minus random,0.05673730177078448,0.0567847612055315,0.043335950275424286,0.06965563439441139,1.0,5000,20260821
+positive values favor frozen uncertainty ranking,training OOF,0.8,5110,1277,accepted_specificity,selective minus random,0.01991415147111464,0.019841352710150195,0.015411468304628452,0.024843471710174692,1.0,5000,20260821

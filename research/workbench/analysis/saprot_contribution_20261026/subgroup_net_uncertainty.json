@@ -1,0 +1,442 @@
+[
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "stratum": "all",
+    "n": 4569,
+    "net_errors_removed": 34,
+    "CI95_net_count": [
+      14.00971053321072,
+      52.65431972232779
+    ],
+    "fold_net": [
+      5,
+      16,
+      8,
+      4,
+      1
+    ],
+    "paired_seed_net": [
+      41,
+      42
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "stratum": "Cys_lt4",
+    "n": 4124,
+    "net_errors_removed": 32,
+    "CI95_net_count": [
+      16.182230703814238,
+      48.00075199749334
+    ],
+    "fold_net": [
+      6,
+      12,
+      9,
+      4,
+      1
+    ],
+    "paired_seed_net": [
+      42,
+      41
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "stratum": "Cys_ge4",
+    "n": 445,
+    "net_errors_removed": 2,
+    "CI95_net_count": [
+      -7.945481563751853,
+      11.912897168160386
+    ],
+    "fold_net": [
+      -1,
+      4,
+      -1,
+      0,
+      0
+    ],
+    "paired_seed_net": [
+      -1,
+      1
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "stratum": "membrane_mention",
+    "n": 227,
+    "net_errors_removed": 2,
+    "CI95_net_count": [
+      0.0,
+      5.0410816308904725
+    ],
+    "fold_net": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "paired_seed_net": [
+      2,
+      4
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "stratum": "no_cross_source_label_conflict",
+    "n": 4241,
+    "net_errors_removed": 31,
+    "CI95_net_count": [
+      11.997652654643367,
+      49.34087535129528
+    ],
+    "fold_net": [
+      5,
+      16,
+      5,
+      4,
+      1
+    ],
+    "paired_seed_net": [
+      33,
+      41
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "stratum": "all",
+    "n": 1818,
+    "net_errors_removed": 4,
+    "CI95_net_count": [
+      -14.004440119729628,
+      23.157817972961052
+    ],
+    "fold_net": [
+      2,
+      -9,
+      1,
+      2,
+      8
+    ],
+    "paired_seed_net": [
+      1,
+      29
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "stratum": "Cys_lt4",
+    "n": 421,
+    "net_errors_removed": -8,
+    "CI95_net_count": [
+      -22.597050422772934,
+      5.949998068968753
+    ],
+    "fold_net": [
+      2,
+      -10,
+      -1,
+      -1,
+      2
+    ],
+    "paired_seed_net": [
+      -13,
+      5
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "stratum": "Cys_ge4",
+    "n": 1397,
+    "net_errors_removed": 12,
+    "CI95_net_count": [
+      0.0,
+      24.220035644522763
+    ],
+    "fold_net": [
+      0,
+      1,
+      2,
+      3,
+      6
+    ],
+    "paired_seed_net": [
+      14,
+      24
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "stratum": "membrane_mention",
+    "n": 76,
+    "net_errors_removed": -6,
+    "CI95_net_count": [
+      -11.062395938019556,
+      -1.9850738742301826
+    ],
+    "fold_net": [
+      0,
+      -1,
+      -1,
+      -2,
+      -2
+    ],
+    "paired_seed_net": [
+      -8,
+      -2
+    ]
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "stratum": "no_cross_source_label_conflict",
+    "n": 1818,
+    "net_errors_removed": 4,
+    "CI95_net_count": [
+      -14.004440119729628,
+      23.157817972961052
+    ],
+    "fold_net": [
+      2,
+      -9,
+      1,
+      2,
+      8
+    ],
+    "paired_seed_net": [
+      1,
+      29
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "stratum": "all",
+    "n": 4569,
+    "net_errors_removed": 22,
+    "CI95_net_count": [
+      5.037169281752909,
+      39.148332433782876
+    ],
+    "fold_net": [
+      4,
+      12,
+      -2,
+      5,
+      3
+    ],
+    "paired_seed_net": [
+      36,
+      32
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "stratum": "Cys_lt4",
+    "n": 4124,
+    "net_errors_removed": 28,
+    "CI95_net_count": [
+      13.95167067665749,
+      42.720915831901834
+    ],
+    "fold_net": [
+      6,
+      10,
+      4,
+      4,
+      4
+    ],
+    "paired_seed_net": [
+      39,
+      38
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "stratum": "Cys_ge4",
+    "n": 445,
+    "net_errors_removed": -6,
+    "CI95_net_count": [
+      -15.04723615396602,
+      2.9921063751281576
+    ],
+    "fold_net": [
+      -2,
+      2,
+      -6,
+      1,
+      -1
+    ],
+    "paired_seed_net": [
+      -3,
+      -6
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "stratum": "membrane_mention",
+    "n": 227,
+    "net_errors_removed": 0,
+    "CI95_net_count": [
+      -4.018355452639049,
+      4.001252936570086
+    ],
+    "fold_net": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "paired_seed_net": [
+      0,
+      4
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "stratum": "no_cross_source_label_conflict",
+    "n": 4241,
+    "net_errors_removed": 20,
+    "CI95_net_count": [
+      3.9969521580081464,
+      36.84008542315475
+    ],
+    "fold_net": [
+      4,
+      12,
+      -3,
+      5,
+      2
+    ],
+    "paired_seed_net": [
+      30,
+      27
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "stratum": "all",
+    "n": 1818,
+    "net_errors_removed": 12,
+    "CI95_net_count": [
+      -7.865862816997513,
+      31.181490178273275
+    ],
+    "fold_net": [
+      4,
+      -8,
+      2,
+      6,
+      8
+    ],
+    "paired_seed_net": [
+      18,
+      38
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "stratum": "Cys_lt4",
+    "n": 421,
+    "net_errors_removed": -7,
+    "CI95_net_count": [
+      -22.208088282018103,
+      7.9667905167011135
+    ],
+    "fold_net": [
+      2,
+      -9,
+      -4,
+      1,
+      3
+    ],
+    "paired_seed_net": [
+      -4,
+      6
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "stratum": "Cys_ge4",
+    "n": 1397,
+    "net_errors_removed": 19,
+    "CI95_net_count": [
+      6.974801424101249,
+      31.752795804251992
+    ],
+    "fold_net": [
+      2,
+      1,
+      6,
+      5,
+      5
+    ],
+    "paired_seed_net": [
+      22,
+      32
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "stratum": "membrane_mention",
+    "n": 76,
+    "net_errors_removed": 0,
+    "CI95_net_count": [
+      -4.003839658769752,
+      4.018892636106361
+    ],
+    "fold_net": [
+      0,
+      1,
+      -2,
+      0,
+      1
+    ],
+    "paired_seed_net": [
+      0,
+      0
+    ]
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "stratum": "no_cross_source_label_conflict",
+    "n": 1818,
+    "net_errors_removed": 12,
+    "CI95_net_count": [
+      -7.865862816997513,
+      31.181490178273275
+    ],
+    "fold_net": [
+      4,
+      -8,
+      2,
+      6,
+      8
+    ],
+    "paired_seed_net": [
+      18,
+      38
+    ]
+  }
+]

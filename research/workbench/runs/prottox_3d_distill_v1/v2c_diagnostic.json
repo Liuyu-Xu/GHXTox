@@ -1,0 +1,238 @@
+{
+  "artifact_type": "prottox_3dkd_v2c_diagnostic",
+  "version": "v2c-1",
+  "definition": "\u53e3\u5f84 A component intervention effects",
+  "existence": {
+    "delta_chem": {
+      "mean": -0.0017856001091037014,
+      "abs_mean": 0.16754477801939047,
+      "abs_median": 0.031980037689208984,
+      "abs_p75": 0.14308691024780273,
+      "abs_p90": 0.39593143463134794,
+      "abs_max": 4.458874225616455,
+      "nonzero_gt_1e-4": 6366
+    },
+    "delta_structure_total": {
+      "mean": -0.4927704206851422,
+      "abs_mean": 0.8348693139110351,
+      "abs_median": 0.11700248718261719,
+      "abs_p75": 0.3843703269958496,
+      "abs_p90": 3.1846234321594244,
+      "abs_max": 14.44574499130249,
+      "nonzero_gt_1e-4": 6385
+    },
+    "delta_geo_conditional": {
+      "mean": -0.4909848205760385,
+      "abs_mean": 0.8197608384199783,
+      "abs_median": 0.14910316467285156,
+      "abs_p75": 0.3473842144012451,
+      "abs_p90": 2.774040412902835,
+      "abs_max": 13.29766035079956,
+      "nonzero_gt_1e-4": 6386
+    }
+  },
+  "relation_to_v1": {
+    "delta_chem": {
+      "by_category": {
+        "TP": {
+          "n": 1546,
+          "abs_mean": 0.12241945715493403
+        },
+        "FP": {
+          "n": 174,
+          "abs_mean": 0.15411876266201338
+        },
+        "TN": {
+          "n": 4395,
+          "abs_mean": 0.18267327407385572
+        },
+        "FN": {
+          "n": 272,
+          "abs_mean": 0.18817026540637016
+        }
+      },
+      "error_abs_mean": 0.17488559841641932,
+      "correct_abs_mean": 0.1669936913509719,
+      "spearman_with_teacher_v1_disagreement": 0.199118934709014
+    },
+    "delta_structure_total": {
+      "by_category": {
+        "TP": {
+          "n": 1546,
+          "abs_mean": 0.404210166829755
+        },
+        "FP": {
+          "n": 174,
+          "abs_mean": 0.5496071172000347
+        },
+        "TN": {
+          "n": 4395,
+          "abs_mean": 1.0003774481286232
+        },
+        "FN": {
+          "n": 272,
+          "abs_mean": 0.7908487761502757
+        }
+      },
+      "error_abs_mean": 0.6967320751248454,
+      "correct_abs_mean": 0.8452394887130281,
+      "spearman_with_teacher_v1_disagreement": -0.056820900809165936
+    },
+    "delta_geo_conditional": {
+      "by_category": {
+        "TP": {
+          "n": 1546,
+          "abs_mean": 0.40801310634667015
+        },
+        "FP": {
+          "n": 174,
+          "abs_mean": 0.5963655580477468
+        },
+        "TN": {
+          "n": 4395,
+          "abs_mean": 0.9801435967659381
+        },
+        "FN": {
+          "n": 272,
+          "abs_mean": 0.7114908003303058
+        }
+      },
+      "error_abs_mean": 0.6665764681393523,
+      "correct_abs_mean": 0.831260624507364,
+      "spearman_with_teacher_v1_disagreement": 0.015111405789400513
+    }
+  },
+  "predictability_probes": {
+    "0": {
+      "delta_chem": {
+        "ridge_r2": -0.020828338188203288,
+        "ridge_spearman": 0.010187100669803755,
+        "ridge_sign_accuracy": 0.5043273013375295,
+        "mlp_r2": -0.0010023347967338392,
+        "mlp_spearman": 0.06428282387356214,
+        "mlp_sign_accuracy": 0.5247836349331235
+      },
+      "delta_structure_total": {
+        "ridge_r2": -0.3179766066410863,
+        "ridge_spearman": 0.38334206106976415,
+        "ridge_sign_accuracy": 0.6852871754523997,
+        "mlp_r2": -0.32122688355757956,
+        "mlp_spearman": 0.4628143665399158,
+        "mlp_sign_accuracy": 0.7387883556254917
+      },
+      "delta_geo_conditional": {
+        "ridge_r2": -0.33293028973859484,
+        "ridge_spearman": 0.22042315456006892,
+        "ridge_sign_accuracy": 0.6152635719905586,
+        "mlp_r2": -0.3367150973480506,
+        "mlp_spearman": 0.3032439652085931,
+        "mlp_sign_accuracy": 0.6734854445318647
+      }
+    },
+    "1": {
+      "delta_chem": {
+        "ridge_r2": -31.619299774431177,
+        "ridge_spearman": 0.04424551997704078,
+        "ridge_sign_accuracy": 0.48576078112286414,
+        "mlp_r2": -11.648996550792132,
+        "mlp_spearman": 0.08417421771070431,
+        "mlp_sign_accuracy": 0.48576078112286414
+      },
+      "delta_structure_total": {
+        "ridge_r2": -1092.658885032288,
+        "ridge_spearman": 0.27759333946830705,
+        "ridge_sign_accuracy": 0.628152969894223,
+        "mlp_r2": -471.5616056537094,
+        "mlp_spearman": 0.39803684205687406,
+        "mlp_sign_accuracy": 0.6688364524003255
+      },
+      "delta_geo_conditional": {
+        "ridge_r2": -4146.311949948224,
+        "ridge_spearman": -0.17428667593395963,
+        "ridge_sign_accuracy": 0.5931651749389748,
+        "mlp_r2": -1706.8404986466385,
+        "mlp_spearman": -0.32204501482241865,
+        "mlp_sign_accuracy": 0.6037428803905615
+      }
+    },
+    "2": {
+      "delta_chem": {
+        "ridge_r2": -136.79480649149292,
+        "ridge_spearman": -0.00465106957723813,
+        "ridge_sign_accuracy": 0.49096622152395913,
+        "mlp_r2": -52.783982730963544,
+        "mlp_spearman": -0.00862623125323339,
+        "mlp_sign_accuracy": 0.5058915946582875
+      },
+      "delta_structure_total": {
+        "ridge_r2": -716.1312448464809,
+        "ridge_spearman": 0.13389508118307736,
+        "ridge_sign_accuracy": 0.6410054988216811,
+        "mlp_r2": -381.6854644046646,
+        "mlp_spearman": 0.1852560040766799,
+        "mlp_sign_accuracy": 0.6881382560879812
+      },
+      "delta_geo_conditional": {
+        "ridge_r2": -1801.5456449797862,
+        "ridge_spearman": 0.11474048370848877,
+        "ridge_sign_accuracy": 0.6355066771406127,
+        "mlp_r2": -1003.882763968895,
+        "mlp_spearman": 0.189886384802184,
+        "mlp_sign_accuracy": 0.6849960722702279
+      }
+    },
+    "3": {
+      "delta_chem": {
+        "ridge_r2": -45.638603964259474,
+        "ridge_spearman": 0.13103630260036156,
+        "ridge_sign_accuracy": 0.5213013168086754,
+        "mlp_r2": -15.43873327461571,
+        "mlp_spearman": 0.1882061653034274,
+        "mlp_sign_accuracy": 0.5484120836560805
+      },
+      "delta_structure_total": {
+        "ridge_r2": -74.54693753588622,
+        "ridge_spearman": 0.24657907403188672,
+        "ridge_sign_accuracy": 0.6041828040278854,
+        "mlp_r2": -30.292380362595182,
+        "mlp_spearman": 0.37585683689165833,
+        "mlp_sign_accuracy": 0.6491092176607282
+      },
+      "delta_geo_conditional": {
+        "ridge_r2": -79.1735875987953,
+        "ridge_spearman": 0.1987271363433481,
+        "ridge_sign_accuracy": 0.5855925639039504,
+        "mlp_r2": -33.07909355715902,
+        "mlp_spearman": 0.2856354245544279,
+        "mlp_sign_accuracy": 0.6312935708752905
+      }
+    },
+    "4": {
+      "delta_chem": {
+        "ridge_r2": -31283.660591447744,
+        "ridge_spearman": 0.0265313463543597,
+        "ridge_sign_accuracy": 0.5177626606198035,
+        "mlp_r2": -13269.191106075932,
+        "mlp_spearman": 0.0032863996219131488,
+        "mlp_sign_accuracy": 0.5351473922902494
+      },
+      "delta_structure_total": {
+        "ridge_r2": -21572.70950539168,
+        "ridge_spearman": 0.2190564145369214,
+        "ridge_sign_accuracy": 0.6349206349206349,
+        "mlp_r2": -11702.468518424072,
+        "mlp_spearman": 0.35854271679523236,
+        "mlp_sign_accuracy": 0.7233560090702947
+      },
+      "delta_geo_conditional": {
+        "ridge_r2": -21041.74305650212,
+        "ridge_spearman": 0.14861780701728383,
+        "ridge_sign_accuracy": 0.6235827664399093,
+        "mlp_r2": -11465.597876800617,
+        "mlp_spearman": 0.2507784301847031,
+        "mlp_sign_accuracy": 0.674225245653817
+      }
+    }
+  },
+  "selection_scope": "training diagnostic only; Test1/Test2 excluded"
+}

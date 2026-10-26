@@ -1,0 +1,40 @@
+[
+  {
+    "sample_id": "peptide_526",
+    "accessions": [
+      "Q3SAE6"
+    ],
+    "name": "Natriuretic peptide HsNP-a",
+    "curated_family": [],
+    "name_class": [
+      "natriuretic"
+    ],
+    "full_record_accessions": [],
+    "fragment_reference_flag": true,
+    "chain_boundary_outside": false,
+    "subunit_name_lead": false,
+    "chemical_feature_records": [],
+    "annotated_intra_pairs": [],
+    "annotated_interchain_records": [],
+    "annotated_arc_crossings": null,
+    "disulfide_evidence_status": "full_feature_record_unavailable",
+    "modification_evidence_status": "full_feature_record_unavailable",
+    "function_mentions": {
+      "membrane_or_lysis": [],
+      "ion_channel": [],
+      "receptor_or_signaling": [],
+      "hemostasis_or_proteolysis": [],
+      "antimicrobial": []
+    },
+    "function_texts": [
+      "FUNCTION: Snake venom natriuretic peptide that targets both NPR1 and NPR2 (By similarity). Exhibits hypotensive and vasodepressor activities (By similarity). {ECO:0000250|UniProtKB:C6EVG7, ECO:0000250|UniProtKB:Q3SAE9}."
+    ],
+    "annotation_negation_warning": false,
+    "pmids": [],
+    "cached_papers": [],
+    "full_record_details": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/Q3SAE6/entry"
+    ]
+  }
+]

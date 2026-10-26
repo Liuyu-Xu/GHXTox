@@ -1,0 +1,390 @@
+{
+  "artifact_type": "mpce_3dkd_prototype_profile_map",
+  "global_physchem_mean": {
+    "aromatic_fraction": 0.08733565360307693,
+    "basic_fraction": 0.15063126385211945,
+    "cysteine_count": 2.058712959289551,
+    "cysteine_fraction": 0.06467030197381973,
+    "hydrophobic_fraction": 0.38328564167022705,
+    "length": 31.625802993774414,
+    "mean_kyte_doolittle_hydropathy": -0.12413620203733444,
+    "minimum_cysteine_spacing": 1.287928581237793,
+    "net_charge_ph7": 1.8343724012374878
+  },
+  "model": "MPCE-3DKD-Product single-forward refit",
+  "note": "Descriptions are model-associated prototype summaries, not toxicity causes or decision rules.",
+  "per_seed": {
+    "20260905": {
+      "assignment": "global closest prototype across all 8 prototypes",
+      "prototypes": {
+        "0": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / moderate hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.08259240537881851,
+            "basic_fraction": 0.13354219496250153,
+            "cysteine_count": 4.01578950881958,
+            "cysteine_fraction": 0.1501573622226715,
+            "hydrophobic_fraction": 0.30001649260520935,
+            "length": 28.836841583251953,
+            "mean_kyte_doolittle_hydropathy": -0.21794018149375916,
+            "minimum_cysteine_spacing": 1.7447367906570435,
+            "net_charge_ph7": 0.2937542200088501
+          },
+          "similarity_stats": {
+            "mean": 0.9792485237121582,
+            "q25": 0.9729926437139511,
+            "q50": 0.9928622543811798,
+            "q75": 0.9962717294692993
+          },
+          "usage_count": 380
+        },
+        "1": {
+          "model_associated_pattern": "model-associated profile: high Cys count / moderate net charge / lower hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.0821104571223259,
+            "basic_fraction": 0.1393650472164154,
+            "cysteine_count": 5.740885257720947,
+            "cysteine_fraction": 0.1756293922662735,
+            "hydrophobic_fraction": 0.25950345396995544,
+            "length": 33.69270706176758,
+            "mean_kyte_doolittle_hydropathy": -0.3041341304779053,
+            "minimum_cysteine_spacing": 1.56640625,
+            "net_charge_ph7": 0.6880058646202087
+          },
+          "similarity_stats": {
+            "mean": 0.9797126650810242,
+            "q25": 0.9713494777679443,
+            "q50": 0.9874171316623688,
+            "q75": 0.9948149919509888
+          },
+          "usage_count": 768
+        },
+        "2": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / moderate hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.09087716788053513,
+            "basic_fraction": 0.12151072174310684,
+            "cysteine_count": 4.0724382400512695,
+            "cysteine_fraction": 0.1331956684589386,
+            "hydrophobic_fraction": 0.3080650866031647,
+            "length": 30.15194320678711,
+            "mean_kyte_doolittle_hydropathy": -0.21966446936130524,
+            "minimum_cysteine_spacing": 1.8480565547943115,
+            "net_charge_ph7": -0.08965188264846802
+          },
+          "similarity_stats": {
+            "mean": 0.974612832069397,
+            "q25": 0.9590500444173813,
+            "q50": 0.989256352186203,
+            "q75": 0.9960544556379318
+          },
+          "usage_count": 566
+        },
+        "3": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / lower hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.08964995294809341,
+            "basic_fraction": 0.12486393749713898,
+            "cysteine_count": 4.97169828414917,
+            "cysteine_fraction": 0.1632910966873169,
+            "hydrophobic_fraction": 0.28718772530555725,
+            "length": 30.962265014648438,
+            "mean_kyte_doolittle_hydropathy": -0.1827392876148224,
+            "minimum_cysteine_spacing": 1.6415094137191772,
+            "net_charge_ph7": 0.4424809515476227
+          },
+          "similarity_stats": {
+            "mean": 0.9863302111625671,
+            "q25": 0.9878580123186111,
+            "q50": 0.9944266080856323,
+            "q75": 0.9965993165969849
+          },
+          "usage_count": 106
+        },
+        "4": {
+          "model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.10030853003263474,
+            "basic_fraction": 0.1321752965450287,
+            "cysteine_count": 0.8132992386817932,
+            "cysteine_fraction": 0.02398597076535225,
+            "hydrophobic_fraction": 0.44632700085639954,
+            "length": 30.583120346069336,
+            "mean_kyte_doolittle_hydropathy": 0.046147994697093964,
+            "minimum_cysteine_spacing": 1.6342711448669434,
+            "net_charge_ph7": 1.244201421737671
+          },
+          "similarity_stats": {
+            "mean": 0.9920896887779236,
+            "q25": 0.9931638538837433,
+            "q50": 0.9968174993991852,
+            "q75": 0.9979682266712189
+          },
+          "usage_count": 782
+        },
+        "5": {
+          "model_associated_pattern": "model-associated profile: low Cys count / high net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.08964795619249344,
+            "basic_fraction": 0.17818333208560944,
+            "cysteine_count": 1.1307189464569092,
+            "cysteine_fraction": 0.02979031391441822,
+            "hydrophobic_fraction": 0.4179166555404663,
+            "length": 35.76552200317383,
+            "mean_kyte_doolittle_hydropathy": -0.12336309254169464,
+            "minimum_cysteine_spacing": 0.8243464231491089,
+            "net_charge_ph7": 4.3385090827941895
+          },
+          "similarity_stats": {
+            "mean": 0.9966404438018799,
+            "q25": 0.9962530583143234,
+            "q50": 0.998886376619339,
+            "q75": 0.9993709176778793
+          },
+          "usage_count": 1224
+        },
+        "6": {
+          "model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.10232824087142944,
+            "basic_fraction": 0.12623102962970734,
+            "cysteine_count": 0.6901140809059143,
+            "cysteine_fraction": 0.023040087893605232,
+            "hydrophobic_fraction": 0.45512646436691284,
+            "length": 30.047529220581055,
+            "mean_kyte_doolittle_hydropathy": 0.09762407839298248,
+            "minimum_cysteine_spacing": 0.76615971326828,
+            "net_charge_ph7": 0.5623172521591187
+          },
+          "similarity_stats": {
+            "mean": 0.9866005778312683,
+            "q25": 0.9909314513206482,
+            "q50": 0.9965493083000183,
+            "q75": 0.9983231872320175
+          },
+          "usage_count": 526
+        },
+        "7": {
+          "model_associated_pattern": "model-associated profile: low Cys count / high net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.0788365826010704,
+            "basic_fraction": 0.16434286534786224,
+            "cysteine_count": 0.9823095798492432,
+            "cysteine_fraction": 0.030009347945451736,
+            "hydrophobic_fraction": 0.4078523516654968,
+            "length": 30.129730224609375,
+            "mean_kyte_doolittle_hydropathy": -0.1322883516550064,
+            "minimum_cysteine_spacing": 1.203931212425232,
+            "net_charge_ph7": 2.211735486984253
+          },
+          "similarity_stats": {
+            "mean": 0.9953593611717224,
+            "q25": 0.9945705831050873,
+            "q50": 0.9968874454498291,
+            "q75": 0.9980016350746155
+          },
+          "usage_count": 2035
+        }
+      },
+      "usage_count": {
+        "0": 380,
+        "1": 768,
+        "2": 566,
+        "3": 106,
+        "4": 782,
+        "5": 1224,
+        "6": 526,
+        "7": 2035
+      }
+    },
+    "20260906": {
+      "assignment": "global closest prototype across all 8 prototypes",
+      "prototypes": {
+        "0": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / moderate hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.10097088664770126,
+            "basic_fraction": 0.11511926352977753,
+            "cysteine_count": 4.384615421295166,
+            "cysteine_fraction": 0.14912179112434387,
+            "hydrophobic_fraction": 0.3278595507144928,
+            "length": 29.901098251342773,
+            "mean_kyte_doolittle_hydropathy": -0.06289747357368469,
+            "minimum_cysteine_spacing": 2.2637362480163574,
+            "net_charge_ph7": -0.20067822933197021
+          },
+          "similarity_stats": {
+            "mean": 0.9825839400291443,
+            "q25": 0.9762095212936401,
+            "q50": 0.9932289123535156,
+            "q75": 0.9964628219604492
+          },
+          "usage_count": 91
+        },
+        "1": {
+          "model_associated_pattern": "model-associated profile: high Cys count / moderate net charge / lower hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.08938054740428925,
+            "basic_fraction": 0.1381836235523224,
+            "cysteine_count": 4.643386363983154,
+            "cysteine_fraction": 0.14249469339847565,
+            "hydrophobic_fraction": 0.29085803031921387,
+            "length": 32.19576644897461,
+            "mean_kyte_doolittle_hydropathy": -0.28743043541908264,
+            "minimum_cysteine_spacing": 1.5661375522613525,
+            "net_charge_ph7": 0.7165568470954895
+          },
+          "similarity_stats": {
+            "mean": 0.985291600227356,
+            "q25": 0.9836274981498718,
+            "q50": 0.9959815144538879,
+            "q75": 0.9976092576980591
+          },
+          "usage_count": 945
+        },
+        "2": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / lower hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.08062190562486649,
+            "basic_fraction": 0.11687078326940536,
+            "cysteine_count": 5.099307060241699,
+            "cysteine_fraction": 0.17710761725902557,
+            "hydrophobic_fraction": 0.27188214659690857,
+            "length": 30.170900344848633,
+            "mean_kyte_doolittle_hydropathy": -0.1767660230398178,
+            "minimum_cysteine_spacing": 1.5912240743637085,
+            "net_charge_ph7": -0.03988536447286606
+          },
+          "similarity_stats": {
+            "mean": 0.9798834919929504,
+            "q25": 0.9748942852020264,
+            "q50": 0.9921680092811584,
+            "q75": 0.9966024160385132
+          },
+          "usage_count": 433
+        },
+        "3": {
+          "model_associated_pattern": "model-associated profile: high Cys count / low/negative net charge / lower hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.07622773945331573,
+            "basic_fraction": 0.13784684240818024,
+            "cysteine_count": 5.0685715675354,
+            "cysteine_fraction": 0.17079107463359833,
+            "hydrophobic_fraction": 0.2708294093608856,
+            "length": 31.360000610351562,
+            "mean_kyte_doolittle_hydropathy": -0.3111126124858856,
+            "minimum_cysteine_spacing": 2.037142753601074,
+            "net_charge_ph7": -0.0015017209807410836
+          },
+          "similarity_stats": {
+            "mean": 0.9883766174316406,
+            "q25": 0.9897655695676804,
+            "q50": 0.9958297312259674,
+            "q75": 0.9973805248737335
+          },
+          "usage_count": 350
+        },
+        "4": {
+          "model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.10632124543190002,
+            "basic_fraction": 0.12715217471122742,
+            "cysteine_count": 0.6972476840019226,
+            "cysteine_fraction": 0.02090940810739994,
+            "hydrophobic_fraction": 0.46934258937835693,
+            "length": 32.57130813598633,
+            "mean_kyte_doolittle_hydropathy": 0.20317921042442322,
+            "minimum_cysteine_spacing": 0.5938282012939453,
+            "net_charge_ph7": 1.3688260316848755
+          },
+          "similarity_stats": {
+            "mean": 0.9915022253990173,
+            "q25": 0.99594846367836,
+            "q50": 0.9983000755310059,
+            "q75": 0.999073714017868
+          },
+          "usage_count": 1199
+        },
+        "5": {
+          "model_associated_pattern": "model-associated profile: low Cys count / high net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.07732938230037689,
+            "basic_fraction": 0.18622855842113495,
+            "cysteine_count": 1.3180077075958252,
+            "cysteine_fraction": 0.03789355978369713,
+            "hydrophobic_fraction": 0.39016106724739075,
+            "length": 32.54789352416992,
+            "mean_kyte_doolittle_hydropathy": -0.24088172614574432,
+            "minimum_cysteine_spacing": 1.6458066701889038,
+            "net_charge_ph7": 3.6651999950408936
+          },
+          "similarity_stats": {
+            "mean": 0.9961177706718445,
+            "q25": 0.9952802062034607,
+            "q50": 0.9972783327102661,
+            "q75": 0.9984620213508606
+          },
+          "usage_count": 2349
+        },
+        "6": {
+          "model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.0914229229092598,
+            "basic_fraction": 0.13605499267578125,
+            "cysteine_count": 0.43790850043296814,
+            "cysteine_fraction": 0.013572008349001408,
+            "hydrophobic_fraction": 0.4193730056285858,
+            "length": 27.446622848510742,
+            "mean_kyte_doolittle_hydropathy": -0.16048602759838104,
+            "minimum_cysteine_spacing": 0.4466230869293213,
+            "net_charge_ph7": 1.022322177886963
+          },
+          "similarity_stats": {
+            "mean": 0.995908796787262,
+            "q25": 0.9958734810352325,
+            "q50": 0.9975907802581787,
+            "q75": 0.9984018206596375
+          },
+          "usage_count": 459
+        },
+        "7": {
+          "model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+          "physchem_mean": {
+            "aromatic_fraction": 0.09176794439554214,
+            "basic_fraction": 0.12444812804460526,
+            "cysteine_count": 0.44028520584106445,
+            "cysteine_fraction": 0.01434098370373249,
+            "hydrophobic_fraction": 0.46187466382980347,
+            "length": 29.771835327148438,
+            "mean_kyte_doolittle_hydropathy": 0.117288738489151,
+            "minimum_cysteine_spacing": 0.6327985525131226,
+            "net_charge_ph7": 0.6328441500663757
+          },
+          "similarity_stats": {
+            "mean": 0.9942410588264465,
+            "q25": 0.9952577352523804,
+            "q50": 0.9977074265480042,
+            "q75": 0.9988487362861633
+          },
+          "usage_count": 561
+        }
+      },
+      "usage_count": {
+        "0": 91,
+        "1": 945,
+        "2": 433,
+        "3": 350,
+        "4": 1199,
+        "5": 2349,
+        "6": 459,
+        "7": 561
+      }
+    }
+  },
+  "prototype_profile_sha256": "175de8ef8defa3bc2e5f3fd6bb0873f62355624b5cdc29c5c49a5c8995d69920",
+  "prototype_profile_version": "1.0",
+  "source": {
+    "cache": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_cache.pt",
+    "manifest": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_refit_v1\\ensemble_manifest.json"
+  }
+}

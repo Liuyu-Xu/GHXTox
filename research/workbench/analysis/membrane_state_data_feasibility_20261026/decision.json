@@ -1,0 +1,21 @@
+{
+  "studies_reviewed": 5,
+  "new_studies": 2,
+  "reused_studies": 3,
+  "candidate_series_with_host_variation_and_environmental_CD": [
+    "PMAP36",
+    "L5K5W",
+    "PG1"
+  ],
+  "candidate_peptides_upper_bound_not_joined_training_rows": 56,
+  "independence": "operational series only, no claim3independent phylogenetic families",
+  "paired_water_membrane_atomic_structures_recovered": 0,
+  "native_per_peptide_CD_plus_host_table_complete": false,
+  "ready_to_train_new_3D_network": false,
+  "ready_for_claimed_toxicity_improvement": false,
+  "limited_mechanistic_followup_possible": true,
+  "next_if_continuing": "only recover existing source figure numerics and cohort/form mappings, then independent-series state-vs-static diagnostic; no further paper expansion or large simulations in this stage",
+  "stop": "stop this five-study search; no neural training,MD,or peptide design",
+  "model_fits": 0,
+  "simulations": 0
+}

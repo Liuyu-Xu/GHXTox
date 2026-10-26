@@ -1,0 +1,14 @@
+{
+  "artifact_type": "v6_retrieval_decision",
+  "version": "v6-0",
+  "date": "2026-09-05",
+  "decision": "stop_v6_retrieval",
+  "evidence": {
+    "local_auroc_mean": 0.952,
+    "local_spearman_vs_v1": 0.80,
+    "v1_error_direction_correct": "0.31-0.46"
+  },
+  "v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "v6_retrieval_diagnostic.json"
+}

@@ -1,0 +1,17 @@
+{
+  "artifact_type": "prottox_3d_distill_crossfit_teacher_targets",
+  "version": 1,
+  "rows": 6387,
+  "file": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv",
+  "sha256": "5fef37e473cb8c984b08464d42fd941457c02e452f2a3f952a8b9c4812362374",
+  "audit": {
+    "rows_equal_records": true,
+    "no_duplicate_source_index": true,
+    "every_teacher_fold_matches_sample_outer_fold": true,
+    "all_roles_are_outer_holdout": true,
+    "all_outputs_finite": true
+  },
+  "selection_scope": "training data only; Test1/Test2 excluded",
+  "elapsed_seconds": 20.685023199999705,
+  "device": "cuda"
+}

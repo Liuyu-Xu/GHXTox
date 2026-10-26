@@ -1,0 +1,39 @@
+[
+  {
+    "priority": 1,
+    "topic": "分子对象边界",
+    "anchor_ids": [
+      "peptide_201",
+      "peptide_74",
+      "peptide_309",
+      "peptide_4096"
+    ],
+    "computational_next": "在现有记录中扩展片段/亚基面板，区分整分子与片段标签，先报告同标签层内的错误与分歧；不把Toxin关键词作为模型输入",
+    "evidence_limit": "只说明输入与实验对象不同，不能自动判定标签错"
+  },
+  {
+    "priority": 2,
+    "topic": "终点明确的真实难例候选",
+    "anchor_ids": [
+      "peptide_249",
+      "peptide_463",
+      "peptide_94",
+      "peptide_1434"
+    ],
+    "computational_next": "固定为病例分析面板，对照同终点的可靠正确样本；不先加权；原OOF只发现假设",
+    "evidence_limit": "4例不能证明普遍机制；定量弱效应与广义标签判定链未恢复"
+  },
+  {
+    "priority": 3,
+    "topic": "化学形式",
+    "anchor_ids": [
+      "peptide_251",
+      "peptide_424",
+      "peptide_94",
+      "peptide_1434",
+      "peptide_160"
+    ],
+    "computational_next": "先用公开同序列不同末端记录形成成对计算面板；H1/H2因形式冲突不能做已确认修饰纠错样本",
+    "evidence_limit": "末端修饰与错误相关不等于因果；需同化学身份/背景对应"
+  }
+]

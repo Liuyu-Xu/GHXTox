@@ -1,0 +1,8 @@
+{
+  "timing": "explicit exploratory addendum after primary matching coverage was inspected; not confirmatory",
+  "why": "same-fold different-group controls were nearly absent; quantify actual near-family background rather than claim matched mechanism validation",
+  "supplements": ["same-label same-fold same-existing-group near relatives; one pair per group", "same-label across-fold different-group family/name-class and sequence-matched controls; one pair per group; different OOF models acknowledged", "same-label across-fold family/name-class+sequence controls for all 327 errors, stratified by existing pattern; new context coverage only, no new significance tests"],
+  "identity": "unchanged global identical pairs/max length >=0.4 and length ratio >=0.7; for same-group unknown-family only, identity >=0.8 required and sequence_group_proxy explicitly labeled",
+  "statistics": "descriptive support and feature differences only; no new p-values or retraining; do not present supplements as the prespecified comparison",
+  "controls": "fusion correct under original labels; not experimental gold standards; record exact-family versus name-class proxy and all unmatched cases"
+}

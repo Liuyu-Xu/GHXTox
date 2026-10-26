@@ -1,0 +1,410 @@
+[
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "pmid": "38655253",
+    "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+    "panel_a": "P0331",
+    "panel_b": "P0332",
+    "changed_field": "species",
+    "value_a": "fish",
+    "value_b": "human",
+    "shared_doses_uM": [
+      10.0,
+      30.0,
+      100.0
+    ],
+    "n_shared_doses": 3,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 0.0
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "pmid": "11739390",
+    "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+    "panel_a": "P0386",
+    "panel_b": "P0387",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "sheep",
+    "shared_doses_uM": [
+      10.0,
+      80.0
+    ],
+    "n_shared_doses": 2,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": -22.0
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "pmid": "27114317",
+    "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+    "panel_a": "P0425",
+    "panel_b": "P0426",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 4.175000000000001
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "pmid": "34361810",
+    "sequence": "FIRRIARLLRRIF",
+    "panel_a": "P0454",
+    "panel_b": "P0455",
+    "changed_field": "c_terminal",
+    "value_a": "acid",
+    "value_b": "amide",
+    "shared_doses_uM": [
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0,
+      256.0
+    ],
+    "n_shared_doses": 9,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 27.5
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "pmid": "27114317",
+    "sequence": "FLKGCWTKWYSLKPKCPF",
+    "panel_a": "P0535",
+    "panel_b": "P0536",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 1.9249999999999998
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "pmid": "38655253",
+    "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+    "panel_a": "P0331",
+    "panel_b": "P0332",
+    "changed_field": "species",
+    "value_a": "fish",
+    "value_b": "human",
+    "shared_doses_uM": [
+      10.0,
+      30.0,
+      100.0
+    ],
+    "n_shared_doses": 3,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 0.0
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "pmid": "11739390",
+    "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+    "panel_a": "P0386",
+    "panel_b": "P0387",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "sheep",
+    "shared_doses_uM": [
+      10.0,
+      80.0
+    ],
+    "n_shared_doses": 2,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": -22.0
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "pmid": "27114317",
+    "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+    "panel_a": "P0425",
+    "panel_b": "P0426",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 4.175000000000001
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "pmid": "34361810",
+    "sequence": "FIRRIARLLRRIF",
+    "panel_a": "P0454",
+    "panel_b": "P0455",
+    "changed_field": "c_terminal",
+    "value_a": "acid",
+    "value_b": "amide",
+    "shared_doses_uM": [
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0,
+      256.0
+    ],
+    "n_shared_doses": 9,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 27.5
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "pmid": "27114317",
+    "sequence": "FLKGCWTKWYSLKPKCPF",
+    "panel_a": "P0535",
+    "panel_b": "P0536",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 1.9249999999999998
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "pmid": "38655253",
+    "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+    "panel_a": "P0331",
+    "panel_b": "P0332",
+    "changed_field": "species",
+    "value_a": "fish",
+    "value_b": "human",
+    "shared_doses_uM": [
+      10.0,
+      30.0,
+      100.0
+    ],
+    "n_shared_doses": 3,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 0.0
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "pmid": "11739390",
+    "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+    "panel_a": "P0386",
+    "panel_b": "P0387",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "sheep",
+    "shared_doses_uM": [
+      10.0,
+      80.0
+    ],
+    "n_shared_doses": 2,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": -22.0
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "pmid": "27114317",
+    "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+    "panel_a": "P0425",
+    "panel_b": "P0426",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 4.175000000000001
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "pmid": "34361810",
+    "sequence": "FIRRIARLLRRIF",
+    "panel_a": "P0454",
+    "panel_b": "P0455",
+    "changed_field": "c_terminal",
+    "value_a": "acid",
+    "value_b": "amide",
+    "shared_doses_uM": [
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0,
+      256.0
+    ],
+    "n_shared_doses": 9,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 27.5
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "pmid": "27114317",
+    "sequence": "FLKGCWTKWYSLKPKCPF",
+    "panel_a": "P0535",
+    "panel_b": "P0536",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 1.9249999999999998
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "pmid": "38655253",
+    "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+    "panel_a": "P0331",
+    "panel_b": "P0332",
+    "changed_field": "species",
+    "value_a": "fish",
+    "value_b": "human",
+    "shared_doses_uM": [
+      10.0,
+      30.0,
+      100.0
+    ],
+    "n_shared_doses": 3,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 0.0
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "pmid": "11739390",
+    "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+    "panel_a": "P0386",
+    "panel_b": "P0387",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "sheep",
+    "shared_doses_uM": [
+      10.0,
+      80.0
+    ],
+    "n_shared_doses": 2,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": -22.0
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "pmid": "27114317",
+    "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+    "panel_a": "P0425",
+    "panel_b": "P0426",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 4.175000000000001
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "pmid": "34361810",
+    "sequence": "FIRRIARLLRRIF",
+    "panel_a": "P0454",
+    "panel_b": "P0455",
+    "changed_field": "c_terminal",
+    "value_a": "acid",
+    "value_b": "amide",
+    "shared_doses_uM": [
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0,
+      256.0
+    ],
+    "n_shared_doses": 9,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 27.5
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "pmid": "27114317",
+    "sequence": "FLKGCWTKWYSLKPKCPF",
+    "panel_a": "P0535",
+    "panel_b": "P0536",
+    "changed_field": "species",
+    "value_a": "human",
+    "value_b": "rabbit",
+    "shared_doses_uM": [
+      25.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "n_shared_doses": 4,
+    "scope": "metadata matched, missing assay conditions not certified controlled",
+    "mean_observed_b_minus_a_on_shared": 1.9249999999999998
+  }
+]

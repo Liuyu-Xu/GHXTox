@@ -1,0 +1,237 @@
+{
+  "candidate_deltas_vs_A": {
+    "B": {
+      "auprc_within_tolerance": false,
+      "brier_within_tolerance": false,
+      "continue": false,
+      "delta_auprc": -0.06553329794338714,
+      "delta_brier": 0.02497464834734038,
+      "delta_mcc": -0.09613891046290446,
+      "has_minimum_improvement": false,
+      "max_improvement": -0.02497464834734038,
+      "mean_mcc_not_lower": false
+    },
+    "C": {
+      "auprc_within_tolerance": false,
+      "brier_within_tolerance": false,
+      "continue": false,
+      "delta_auprc": -0.03504476078304375,
+      "delta_brier": 0.01412444677955367,
+      "delta_mcc": -0.05298134561780854,
+      "has_minimum_improvement": false,
+      "max_improvement": -0.01412444677955367,
+      "mean_mcc_not_lower": false
+    }
+  },
+  "decision": "stop_pepbert_representation_line",
+  "decision_date": "2026-09-05",
+  "fold_mcc_table": {
+    "A": [
+      [
+        0.8529033813370951,
+        0.8200637508135127,
+        0.8166641543846919,
+        0.7990735452052687,
+        0.7912822373092148
+      ],
+      [
+        0.8626755339222397,
+        0.8205619376246694,
+        0.8241769077892503,
+        0.8015813858843548,
+        0.7909735094602869
+      ]
+    ],
+    "B": [
+      [
+        0.7594749427985094,
+        0.7253446431244779,
+        0.7130593862053077,
+        0.7206479567200973,
+        0.6899858399231792
+      ],
+      [
+        0.7616592068175388,
+        0.7190873232852116,
+        0.7034460705543383,
+        0.7227645776767138,
+        0.7035505584000726
+      ]
+    ],
+    "C": [
+      [
+        0.8052448078821417,
+        0.7644856259393383,
+        0.7582723534803583,
+        0.7516284265098526,
+        0.7457955600908134
+      ],
+      [
+        0.8020089065993162,
+        0.7594265830447585,
+        0.7598444684915036,
+        0.7537209416505465,
+        0.7491780122754502
+      ]
+    ]
+  },
+  "note": "ProtTox-3DKD v1 remains the immutable deployment baseline; no model/checkpoint changed.",
+  "per_seed_summaries": {
+    "A": {
+      "20260905": {
+        "cache": {
+          "path": "runs\\prottox_tsk_v1\\features.pt",
+          "records": 6387,
+          "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+        },
+        "fold_mcc": [
+          0.8529033813370951,
+          0.8200637508135127,
+          0.8166641543846919,
+          0.7990735452052687,
+          0.7912822373092148
+        ],
+        "metrics": {
+          "auprc": 0.9292699328792449,
+          "auroc": 0.9657684963068423,
+          "brier": 0.05931004665788307,
+          "mcc": 0.8157720085500801
+        },
+        "parameter_count": 598099,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1"
+      },
+      "20260906": {
+        "cache": {
+          "path": "runs\\prottox_tsk_v1\\features.pt",
+          "records": 6387,
+          "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+        },
+        "fold_mcc": [
+          0.8626755339222397,
+          0.8205619376246694,
+          0.8241769077892503,
+          0.8015813858843548,
+          0.7909735094602869
+        ],
+        "metrics": {
+          "auprc": 0.928343043869422,
+          "auroc": 0.9656197563288831,
+          "brier": 0.05892502925086187,
+          "mcc": 0.8197692926997581
+        },
+        "parameter_count": 598099,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_seed20260906_v1"
+      }
+    },
+    "B": {
+      "20260905": {
+        "cache": {
+          "path": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_features.pt",
+          "records": 6387,
+          "sha256": "3b77e9a55aab6af7c7fd77f1b459be6acc5063b0fe282ac72fcdd0a194b93caf"
+        },
+        "fold_mcc": [
+          0.7594749427985094,
+          0.7253446431244779,
+          0.7130593862053077,
+          0.7206479567200973,
+          0.6899858399231792
+        ],
+        "metrics": {
+          "auprc": 0.8638260895176494,
+          "auroc": 0.9324069198340276,
+          "brier": 0.08425356051315387,
+          "mcc": 0.7212856538603603
+        },
+        "parameter_count": 95251,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_seed20260905_v1"
+      },
+      "20260906": {
+        "cache": {
+          "path": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_features.pt",
+          "records": 6387,
+          "sha256": "3b77e9a55aab6af7c7fd77f1b459be6acc5063b0fe282ac72fcdd0a194b93caf"
+        },
+        "fold_mcc": [
+          0.7616592068175388,
+          0.7190873232852116,
+          0.7034460705543383,
+          0.7227645776767138,
+          0.7035505584000726
+        ],
+        "metrics": {
+          "auprc": 0.8627202913442433,
+          "auroc": 0.9323704421219097,
+          "brier": 0.08393081209027183,
+          "mcc": 0.7219778264636691
+        },
+        "parameter_count": 95251,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_seed20260906_v1"
+      }
+    },
+    "C": {
+      "20260905": {
+        "cache": {
+          "path": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_features.pt",
+          "records": 6387,
+          "sha256": "7404a8212e1247189f0451649b4e8a428e899ba201c88ce08342efdfdb09d82d"
+        },
+        "fold_mcc": [
+          0.8052448078821417,
+          0.7644856259393383,
+          0.7582723534803583,
+          0.7516284265098526,
+          0.7457955600908134
+        ],
+        "metrics": {
+          "auprc": 0.8952355945026549,
+          "auroc": 0.9477146773552383,
+          "brier": 0.07295756183404335,
+          "mcc": 0.7648650121737975
+        },
+        "parameter_count": 188371,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_seed20260905_v1"
+      },
+      "20260906": {
+        "cache": {
+          "path": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_features.pt",
+          "records": 6387,
+          "sha256": "7404a8212e1247189f0451649b4e8a428e899ba201c88ce08342efdfdb09d82d"
+        },
+        "fold_mcc": [
+          0.8020089065993162,
+          0.7594265830447585,
+          0.7598444684915036,
+          0.7537209416505465,
+          0.7491780122754502
+        ],
+        "metrics": {
+          "auprc": 0.8922878606799246,
+          "auroc": 0.9468313870126344,
+          "brier": 0.07352640763380892,
+          "mcc": 0.7647135978404237
+        },
+        "parameter_count": 188371,
+        "run_dir": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_seed20260906_v1"
+      }
+    }
+  },
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\representation_shootout_v1.json",
+  "two_seed_means": {
+    "A": {
+      "auprc": 0.9288064883743334,
+      "brier": 0.05911753795437247,
+      "mcc": 0.8177706506249192
+    },
+    "B": {
+      "auprc": 0.8632731904309463,
+      "brier": 0.08409218630171285,
+      "mcc": 0.7216317401620147
+    },
+    "C": {
+      "auprc": 0.8937617275912897,
+      "brier": 0.07324198473392614,
+      "mcc": 0.7647893050071106
+    }
+  }
+}

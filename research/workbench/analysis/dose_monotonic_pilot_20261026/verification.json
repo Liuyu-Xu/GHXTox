@@ -1,0 +1,14 @@
+{
+  "all_frozen_original_inputs_unchanged": true,
+  "predictions_complete_and_unique": true,
+  "macro_MAE_and_adjacent_increment_errors_independently_recomputed": true,
+  "all_saved_model_point_predictions_reproduced": true,
+  "max_prediction_difference": 0.0,
+  "models_identical_except_dose_constraint": true,
+  "all_folds_paper_and_sequence_groups_disjoint": true,
+  "all_panels_nondose_features_identical": true,
+  "all_monotonic_64point_grids_verified": true,
+  "monotonic_grid_violation_count": 0,
+  "no_new_fit_in_verification": true,
+  "subagents_used": false
+}

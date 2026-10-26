@@ -1,0 +1,130 @@
+{
+  "assignment_scope": "each sample appears once per seed; fold-specific checkpoint used on its own outer fold",
+  "collapse_check": "no_collapse",
+  "global_assignment_entropy_bits": 2.8256622678964023,
+  "global_closest_counts_per_seed": {
+    "0": 353.0,
+    "1": 561.5,
+    "2": 465.0,
+    "3": 332.5,
+    "4": 1157.0,
+    "5": 1260.0,
+    "6": 1252.5,
+    "7": 1005.5
+  },
+  "label_toxic_fraction_by_global_closest": {
+    "0": 0.8654390934844193,
+    "1": 0.9323241317898486,
+    "2": 0.9075268817204301,
+    "3": 0.9172932330827067,
+    "4": 0.06006914433880726,
+    "5": 0.061507936507936505,
+    "6": 0.04151696606786427,
+    "7": 0.0626553953257086
+  },
+  "max_entropy_bits": 3.0,
+  "n_prototypes": 8,
+  "nontoxic_side_counts_per_seed": {
+    "0": 1601.5,
+    "1": 1667.5,
+    "2": 1620.0,
+    "3": 1498.0
+  },
+  "normalized_entropy": 0.9418874226321341,
+  "physchem_mean_by_global_closest": {
+    "0": {
+      "aromatic_fraction": 0.07871952484343359,
+      "basic_fraction": 0.13321641659517125,
+      "cysteine_count": 4.903682719546742,
+      "cysteine_fraction": 0.1658493300752118,
+      "hydrophobic_fraction": 0.267556119161439,
+      "length": 31.256373937677054,
+      "mean_kyte_doolittle_hydropathy": -0.3001746344551571,
+      "minimum_cysteine_spacing": 1.9674220963172804,
+      "net_charge_ph7": 0.38819519988598866
+    },
+    "1": {
+      "aromatic_fraction": 0.08580650902209755,
+      "basic_fraction": 0.13006801706865656,
+      "cysteine_count": 5.396260017809439,
+      "cysteine_fraction": 0.1746733074647873,
+      "hydrophobic_fraction": 0.26672105252318157,
+      "length": 31.96260017809439,
+      "mean_kyte_doolittle_hydropathy": -0.26740308133520363,
+      "minimum_cysteine_spacing": 1.4487978628673197,
+      "net_charge_ph7": 0.32175608789882076
+    },
+    "2": {
+      "aromatic_fraction": 0.08496970554353088,
+      "basic_fraction": 0.13265411292993895,
+      "cysteine_count": 5.187096774193549,
+      "cysteine_fraction": 0.16513984552834943,
+      "hydrophobic_fraction": 0.27970296257445887,
+      "length": 32.56236559139785,
+      "mean_kyte_doolittle_hydropathy": -0.23580577612544099,
+      "minimum_cysteine_spacing": 1.764516129032258,
+      "net_charge_ph7": 0.3940476676053618
+    },
+    "3": {
+      "aromatic_fraction": 0.08167526393400547,
+      "basic_fraction": 0.12757953747378703,
+      "cysteine_count": 5.3007518796992485,
+      "cysteine_fraction": 0.16770646350556298,
+      "hydrophobic_fraction": 0.27036378608834477,
+      "length": 32.26315789473684,
+      "mean_kyte_doolittle_hydropathy": -0.24380952603344744,
+      "minimum_cysteine_spacing": 1.7323308270676692,
+      "net_charge_ph7": 0.2260863129408414
+    },
+    "4": {
+      "aromatic_fraction": 0.09047489644767992,
+      "basic_fraction": 0.16527318645287997,
+      "cysteine_count": 0.918323249783924,
+      "cysteine_fraction": 0.027891276432434702,
+      "hydrophobic_fraction": 0.4304054629350646,
+      "length": 31.8876404494382,
+      "mean_kyte_doolittle_hydropathy": -0.04349063790144516,
+      "minimum_cysteine_spacing": 0.9671564390665515,
+      "net_charge_ph7": 2.9987451228136788
+    },
+    "5": {
+      "aromatic_fraction": 0.08911432223764086,
+      "basic_fraction": 0.1481912524003299,
+      "cysteine_count": 0.9083333333333333,
+      "cysteine_fraction": 0.026771218303797972,
+      "hydrophobic_fraction": 0.4264022520920705,
+      "length": 30.920238095238094,
+      "mean_kyte_doolittle_hydropathy": -0.04312477126747133,
+      "minimum_cysteine_spacing": 1.3543650793650794,
+      "net_charge_ph7": 1.8349672015421479
+    },
+    "6": {
+      "aromatic_fraction": 0.08584961014058062,
+      "basic_fraction": 0.16154111961642664,
+      "cysteine_count": 0.92375249500998,
+      "cysteine_fraction": 0.025759808856718792,
+      "hydrophobic_fraction": 0.4145840203304015,
+      "length": 32.15089820359282,
+      "mean_kyte_doolittle_hydropathy": -0.1376868439262952,
+      "minimum_cysteine_spacing": 1.1848303393213573,
+      "net_charge_ph7": 2.4512806285318467
+    },
+    "7": {
+      "aromatic_fraction": 0.09019031569876669,
+      "basic_fraction": 0.15678424280264644,
+      "cysteine_count": 0.8448533068125311,
+      "cysteine_fraction": 0.025466787717284285,
+      "hydrophobic_fraction": 0.42701535222728654,
+      "length": 30.852312282446544,
+      "mean_kyte_doolittle_hydropathy": -0.06854744766820788,
+      "minimum_cysteine_spacing": 1.0064644455494778,
+      "net_charge_ph7": 2.2756796171052383
+    }
+  },
+  "toxic_side_counts_per_seed": {
+    "0": 1589.0,
+    "1": 1808.5,
+    "2": 1770.0,
+    "3": 1219.5
+  }
+}

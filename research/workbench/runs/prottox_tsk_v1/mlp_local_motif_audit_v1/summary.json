@@ -1,0 +1,615 @@
+{
+  "architecture_premise_supported": true,
+  "artifact_type": "prottox-local-motif-audit-v1",
+  "low_cys_false_negative_vs_true_positive": {
+    "global_residualized": {
+      "correct_kind": "true_positive",
+      "correct_records": 69,
+      "error_kind": "false_negative",
+      "error_records": 193,
+      "features": [
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": -0.00551649464190728,
+          "feature": "residual_c_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": 0.26341189512202984,
+            "1": 0.0650296926168188,
+            "2": 0.31115892412704504,
+            "3": 0.5479597365938446,
+            "4": 0.23765093775273183
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.27843099559050055,
+          "true_positive_mean": -0.04062235659869532
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0006450384760018788,
+          "feature": "residual_max_positive_fraction_w7",
+          "fold_effects": {
+            "0": -0.5035028464218846,
+            "1": -0.2442261138433154,
+            "2": -0.1872042484634955,
+            "3": 0.41110689734028405,
+            "4": -0.6867853262079846
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": -0.24175795275725598,
+          "true_positive_mean": 0.02006599312815679
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0015316310896623013,
+          "feature": "residual_n_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.0038037118605837314,
+            "1": 0.3318338686183263,
+            "2": 0.804206965354077,
+            "3": 0.20272895364612314,
+            "4": -0.14942040002988657
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": 0.2057412376195983,
+          "true_positive_mean": -0.03469324509271872
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0015362148797777194,
+          "feature": "residual_c_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.13208916967170795,
+            "1": -0.18411452818327642,
+            "2": 0.18104852505817776,
+            "3": 0.22296007352800506,
+            "4": 0.44337320553232284
+          },
+          "matching_sign_folds": 4,
+          "stable": false,
+          "standardized_mean_difference": 0.1578391482150773,
+          "true_positive_mean": -0.03110558297482986
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": -0.00530693771276967,
+          "feature": "residual_max_hydrophobic_fraction_w7",
+          "fold_effects": {
+            "0": -0.07897252544308896,
+            "1": -0.0034909896714398108,
+            "2": -0.09088969796565194,
+            "3": -0.5430487196671565,
+            "4": -0.031248000678254065
+          },
+          "matching_sign_folds": 5,
+          "stable": false,
+          "standardized_mean_difference": -0.13091489191225822,
+          "true_positive_mean": 0.006896613390971536
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0042002887288560085,
+          "feature": "residual_max_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.2514087843582627,
+            "1": -0.28660864552701876,
+            "2": 0.40474516342147604,
+            "3": -0.2373541430008048,
+            "4": 0.051844559513546024
+          },
+          "matching_sign_folds": 3,
+          "stable": false,
+          "standardized_mean_difference": 0.05149564082106381,
+          "true_positive_mean": -0.0018466253102870508
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": -0.00815148268299316,
+          "feature": "residual_n_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": 0.0676155151949092,
+            "1": -0.5792405317902738,
+            "2": 0.22228569986990165,
+            "3": 0.14422547415638415,
+            "4": 0.3623554115813676
+          },
+          "matching_sign_folds": 1,
+          "stable": false,
+          "standardized_mean_difference": -0.04117548195192085,
+          "true_positive_mean": -0.0017743659306023968
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.006246235065174107,
+          "feature": "residual_max_positive_fraction_w5",
+          "fold_effects": {
+            "0": 0.10804422098096056,
+            "1": -0.36499209420906836,
+            "2": 0.040399995942044756,
+            "3": 0.4365153307021908,
+            "4": -0.125191081122068
+          },
+          "matching_sign_folds": 3,
+          "stable": false,
+          "standardized_mean_difference": 0.01335291970650343,
+          "true_positive_mean": 0.004904199723166736
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": -0.006372605277061006,
+          "feature": "residual_longest_hydrophobic_run_fraction",
+          "fold_effects": {
+            "0": 0.015269976738354066,
+            "1": -0.3122346084213682,
+            "2": 0.1741021087900415,
+            "3": -0.04515682514611171,
+            "4": 0.3568855650997894
+          },
+          "matching_sign_folds": 3,
+          "stable": false,
+          "standardized_mean_difference": 0.0015888651309757678,
+          "true_positive_mean": -0.0064496426673261295
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0,
+          "feature": "residual_max_hydrophobic_positive_mix_w5",
+          "fold_effects": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "matching_sign_folds": 0,
+          "stable": false,
+          "standardized_mean_difference": 0.0,
+          "true_positive_mean": 0.0
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0,
+          "feature": "residual_max_hydrophobic_positive_mix_w7",
+          "fold_effects": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "matching_sign_folds": 0,
+          "stable": false,
+          "standardized_mean_difference": 0.0,
+          "true_positive_mean": 0.0
+        }
+      ],
+      "stable_features": [
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": -0.00551649464190728,
+          "feature": "residual_c_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": 0.26341189512202984,
+            "1": 0.0650296926168188,
+            "2": 0.31115892412704504,
+            "3": 0.5479597365938446,
+            "4": 0.23765093775273183
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.27843099559050055,
+          "true_positive_mean": -0.04062235659869532
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0006450384760018788,
+          "feature": "residual_max_positive_fraction_w7",
+          "fold_effects": {
+            "0": -0.5035028464218846,
+            "1": -0.2442261138433154,
+            "2": -0.1872042484634955,
+            "3": 0.41110689734028405,
+            "4": -0.6867853262079846
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": -0.24175795275725598,
+          "true_positive_mean": 0.02006599312815679
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0015316310896623013,
+          "feature": "residual_n_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.0038037118605837314,
+            "1": 0.3318338686183263,
+            "2": 0.804206965354077,
+            "3": 0.20272895364612314,
+            "4": -0.14942040002988657
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": 0.2057412376195983,
+          "true_positive_mean": -0.03469324509271872
+        }
+      ]
+    },
+    "raw": {
+      "correct_kind": "true_positive",
+      "correct_records": 69,
+      "error_kind": "false_negative",
+      "error_records": 193,
+      "features": [
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.735751308693787,
+          "feature": "max_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.6576361070266877,
+            "1": 0.5502147587785793,
+            "2": 0.9678418446541078,
+            "3": 0.3657726244103244,
+            "4": 0.33773320637572146
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.6080473976524448,
+          "true_positive_mean": 0.6057971128519031
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.43626944079917945,
+          "feature": "n_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.44298070172182025,
+            "1": 0.8617516868856427,
+            "2": 1.5289679326756358,
+            "3": 0.43359918673258874,
+            "4": 0.021695425431617853
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.596530751413753,
+          "true_positive_mean": 0.3043478332135988
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.6410066771846978,
+          "feature": "max_hydrophobic_fraction_w7",
+          "fold_effects": {
+            "0": 0.5718586012492832,
+            "1": 0.8172913357658932,
+            "2": 0.718262922491041,
+            "3": 0.2918134933187185,
+            "4": 0.3159565249213576
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.5938326672460498,
+          "true_positive_mean": 0.5196687507888545
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.14249451819401948,
+          "feature": "longest_hydrophobic_run_fraction",
+          "fold_effects": {
+            "0": 0.5036903765900477,
+            "1": 0.33473257849412286,
+            "2": 0.6126751441935515,
+            "3": 0.2060324072695888,
+            "4": 0.6710357764005511
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.47478579342406174,
+          "true_positive_mean": 0.11226997878132523
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.4155440514260623,
+          "feature": "c_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.4948514377685512,
+            "1": 0.25916885723585975,
+            "2": 0.3921741265300083,
+            "3": 0.30020532746599643,
+            "4": 0.6390140669839945
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.43029836265681026,
+          "true_positive_mean": 0.31594203606895777
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.28719468005580606,
+          "feature": "max_positive_fraction_w7",
+          "fold_effects": {
+            "0": -0.37591204363627895,
+            "1": -0.0025843858260229113,
+            "2": -0.1353102130110527,
+            "3": -0.17895187168018248,
+            "4": -0.8357166659489851
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": -0.34668692849539023,
+          "true_positive_mean": 0.34989649208559503
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.36476684790201136,
+          "feature": "max_positive_fraction_w5",
+          "fold_effects": {
+            "0": -0.16068066695280092,
+            "1": -0.02623304411941432,
+            "2": -0.00570675375068233,
+            "3": -0.10379802664725825,
+            "4": -0.6029147482423682
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": -0.2245132522049076,
+          "true_positive_mean": 0.40869566258313
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.10569948359474617,
+          "feature": "n_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": -0.0922989410676251,
+            "1": -0.4878305531061262,
+            "2": 0.09632022297412556,
+            "3": -0.16927083665617867,
+            "4": -0.055569239407927955
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": -0.21821804775429315,
+          "true_positive_mean": 0.14202898827151975
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.17202072833795004,
+          "feature": "c_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": 0.12295238892832609,
+            "1": 0.19032659342075042,
+            "2": 0.2183658500016764,
+            "3": 0.18418786449618654,
+            "4": -0.15487910205248331
+          },
+          "matching_sign_folds": 4,
+          "stable": false,
+          "standardized_mean_difference": 0.08161054744046556,
+          "true_positive_mean": 0.15942029244657877
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0,
+          "feature": "max_hydrophobic_positive_mix_w5",
+          "fold_effects": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "matching_sign_folds": 0,
+          "stable": false,
+          "standardized_mean_difference": 0.0,
+          "true_positive_mean": 0.0
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.0,
+          "feature": "max_hydrophobic_positive_mix_w7",
+          "fold_effects": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "matching_sign_folds": 0,
+          "stable": false,
+          "standardized_mean_difference": 0.0,
+          "true_positive_mean": 0.0
+        }
+      ],
+      "stable_features": [
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.735751308693787,
+          "feature": "max_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.6576361070266877,
+            "1": 0.5502147587785793,
+            "2": 0.9678418446541078,
+            "3": 0.3657726244103244,
+            "4": 0.33773320637572146
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.6080473976524448,
+          "true_positive_mean": 0.6057971128519031
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.43626944079917945,
+          "feature": "n_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.44298070172182025,
+            "1": 0.8617516868856427,
+            "2": 1.5289679326756358,
+            "3": 0.43359918673258874,
+            "4": 0.021695425431617853
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.596530751413753,
+          "true_positive_mean": 0.3043478332135988
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.6410066771846978,
+          "feature": "max_hydrophobic_fraction_w7",
+          "fold_effects": {
+            "0": 0.5718586012492832,
+            "1": 0.8172913357658932,
+            "2": 0.718262922491041,
+            "3": 0.2918134933187185,
+            "4": 0.3159565249213576
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.5938326672460498,
+          "true_positive_mean": 0.5196687507888545
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.14249451819401948,
+          "feature": "longest_hydrophobic_run_fraction",
+          "fold_effects": {
+            "0": 0.5036903765900477,
+            "1": 0.33473257849412286,
+            "2": 0.6126751441935515,
+            "3": 0.2060324072695888,
+            "4": 0.6710357764005511
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.47478579342406174,
+          "true_positive_mean": 0.11226997878132523
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.4155440514260623,
+          "feature": "c_terminal_hydrophobic_fraction_w5",
+          "fold_effects": {
+            "0": 0.4948514377685512,
+            "1": 0.25916885723585975,
+            "2": 0.3921741265300083,
+            "3": 0.30020532746599643,
+            "4": 0.6390140669839945
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": 0.43029836265681026,
+          "true_positive_mean": 0.31594203606895777
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.28719468005580606,
+          "feature": "max_positive_fraction_w7",
+          "fold_effects": {
+            "0": -0.37591204363627895,
+            "1": -0.0025843858260229113,
+            "2": -0.1353102130110527,
+            "3": -0.17895187168018248,
+            "4": -0.8357166659489851
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": -0.34668692849539023,
+          "true_positive_mean": 0.34989649208559503
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.36476684790201136,
+          "feature": "max_positive_fraction_w5",
+          "fold_effects": {
+            "0": -0.16068066695280092,
+            "1": -0.02623304411941432,
+            "2": -0.00570675375068233,
+            "3": -0.10379802664725825,
+            "4": -0.6029147482423682
+          },
+          "matching_sign_folds": 5,
+          "stable": true,
+          "standardized_mean_difference": -0.2245132522049076,
+          "true_positive_mean": 0.40869566258313
+        },
+        {
+          "eligible_folds": 5,
+          "false_negative_mean": 0.10569948359474617,
+          "feature": "n_terminal_positive_fraction_w5",
+          "fold_effects": {
+            "0": -0.0922989410676251,
+            "1": -0.4878305531061262,
+            "2": 0.09632022297412556,
+            "3": -0.16927083665617867,
+            "4": -0.055569239407927955
+          },
+          "matching_sign_folds": 4,
+          "stable": true,
+          "standardized_mean_difference": -0.21821804775429315,
+          "true_positive_mean": 0.14202898827151975
+        }
+      ]
+    }
+  },
+  "low_cys_toxic_records": 262,
+  "raw_feature_contract": [
+    "max_hydrophobic_fraction_w5",
+    "max_hydrophobic_fraction_w7",
+    "max_positive_fraction_w5",
+    "max_positive_fraction_w7",
+    "max_hydrophobic_positive_mix_w5",
+    "max_hydrophobic_positive_mix_w7",
+    "longest_hydrophobic_run_fraction",
+    "n_terminal_hydrophobic_fraction_w5",
+    "c_terminal_hydrophobic_fraction_w5",
+    "n_terminal_positive_fraction_w5",
+    "c_terminal_positive_fraction_w5"
+  ],
+  "residual_feature_contract": [
+    "residual_max_hydrophobic_fraction_w5",
+    "residual_max_hydrophobic_fraction_w7",
+    "residual_max_positive_fraction_w5",
+    "residual_max_positive_fraction_w7",
+    "residual_max_hydrophobic_positive_mix_w5",
+    "residual_max_hydrophobic_positive_mix_w7",
+    "residual_longest_hydrophobic_run_fraction",
+    "residual_n_terminal_hydrophobic_fraction_w5",
+    "residual_c_terminal_hydrophobic_fraction_w5",
+    "residual_n_terminal_positive_fraction_w5",
+    "residual_c_terminal_positive_fraction_w5"
+  ],
+  "residualization": {
+    "fold_pure": true,
+    "global_features": [
+      "length",
+      "net_charge_ph7",
+      "mean_kyte_doolittle_hydropathy",
+      "basic_fraction",
+      "hydrophobic_fraction",
+      "aromatic_fraction",
+      "cysteine_count",
+      "cysteine_fraction",
+      "minimum_cysteine_spacing"
+    ],
+    "labels_used": false,
+    "ridge_lambda": 0.001
+  },
+  "scope": "training OOF only; Test1/Test2 and website excluded",
+  "source": {
+    "cache": {
+      "path": "runs\\prottox_tsk_v1\\features.pt",
+      "records": 6387,
+      "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+    },
+    "fold_manifest": {
+      "path": "data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+      "sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe"
+    },
+    "oof": {
+      "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\oof_predictions.csv",
+      "sha256": "d0968a2d8c61eef69e34ed89ff9f3b5a37be445886b872f89ed832a92d49a5cc"
+    }
+  },
+  "stability_rule": "absolute pooled standardized mean difference >= 0.20 and matching pooled-sign effect in at least four eligible folds",
+  "threshold": 0.5
+}

@@ -1,0 +1,53 @@
+{
+  "total_records": 100361,
+  "unique_sequences": 18136,
+  "dataset_splits": 32,
+  "methods": 14,
+  "broad_label_disagreements": 433,
+  "RBC_disagreements": 0,
+  "external_candidate_records": 28272,
+  "external_candidate_unique": 9637,
+  "GHXTox_train_label_disagreements": 328,
+  "GHXTox_test1_label_disagreements": 54,
+  "GHXTox_test2_label_disagreements": 47,
+  "GHXTox_unique_label_disagreement_sequences": 382,
+  "GHXTox_OOF_errors_with_label_disagreements": 31,
+  "low_identity_review_records": 8949,
+  "low_identity_review_unique": 2417,
+  "hemopi2_independent_priority_n": 69,
+  "hemopi2_independent_priority_pos": 31,
+  "hemopi2_independent_priority_neg": 38,
+  "maomao": {
+    "master_records": 71857,
+    "unique_sequences": 71857,
+    "exact_ghxtox_train": 6387,
+    "exact_ghxtox_known": 7513,
+    "quantitative_records": 169,
+    "quantitative_unique": 166,
+    "quantitative_ghxtox_train_unique": 18,
+    "quantitative_ghxtox_known_unique": 20,
+    "quantitative_unseen_in_scope_unique": 136,
+    "quantitative_unseen_in_scope_known_le40_unique": 35,
+    "measurement_types": {
+      "LC50": 59,
+      "MHC": 45,
+      "HC50": 44,
+      "LD50": 21
+    },
+    "relation_counts": {
+      "=": 114,
+      ">": 49,
+      "<": 6
+    },
+    "code_semantics": {
+      "0": "source_negative_evidence_not_universal_safety",
+      "1": "direct_or_hierarchy_supported_positive",
+      "2": "ambiguous",
+      "3": "unlabeled",
+      "999": "no_information"
+    }
+  },
+  "model_training_performed": false,
+  "external_model_predictions_performed": false,
+  "original_labels_modified": false
+}
