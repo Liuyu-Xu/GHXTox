@@ -1,0 +1,137 @@
+{
+  "train_path": "data/external/hypeptox_fuse/processed/train_fit_chemical_sites_esm2_augmix.pt",
+  "val_path": "data/external/hypeptox_fuse/processed/train_val_chemical_sites_esm2.pt",
+  "test_path": "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+  "device": "cuda",
+  "variants": [
+    {
+      "variant": "bilstm_focal_mcc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/bilstm_focal_mcc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_focal_mcc_seed42",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Increase sequence expert capacity and use focal BCE to improve hard-sample MCC/SN."
+    },
+    {
+      "variant": "bilstm_focal_mcc",
+      "seed": 123,
+      "config": "configs/hypeptox_tuning/bilstm_focal_mcc_seed123.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_focal_mcc_seed123",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Increase sequence expert capacity and use focal BCE to improve hard-sample MCC/SN."
+    },
+    {
+      "variant": "bilstm_focal_mcc",
+      "seed": 2025,
+      "config": "configs/hypeptox_tuning/bilstm_focal_mcc_seed2025.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_focal_mcc_seed2025",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Increase sequence expert capacity and use focal BCE to improve hard-sample MCC/SN."
+    },
+    {
+      "variant": "bilstm_smooth_auprc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_smooth_auprc_seed42",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Use mild label smoothing and AUPRC checkpointing to improve ranking stability."
+    },
+    {
+      "variant": "bilstm_smooth_auprc",
+      "seed": 123,
+      "config": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed123.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_smooth_auprc_seed123",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Use mild label smoothing and AUPRC checkpointing to improve ranking stability."
+    },
+    {
+      "variant": "bilstm_smooth_auprc",
+      "seed": 2025,
+      "config": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed2025.json",
+      "run_dir": "runs/hypeptox_tuning/bilstm_smooth_auprc_seed2025",
+      "base": "configs/sequence_1d_bilstm.json",
+      "reason": "Use mild label smoothing and AUPRC checkpointing to improve ranking stability."
+    },
+    {
+      "variant": "geometry_focal_mcc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/geometry_focal_mcc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_focal_mcc_seed42",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Tune geometry regularization and graph neighborhood for MCC while retaining 3D signal."
+    },
+    {
+      "variant": "geometry_focal_mcc",
+      "seed": 123,
+      "config": "configs/hypeptox_tuning/geometry_focal_mcc_seed123.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_focal_mcc_seed123",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Tune geometry regularization and graph neighborhood for MCC while retaining 3D signal."
+    },
+    {
+      "variant": "geometry_focal_mcc",
+      "seed": 2025,
+      "config": "configs/hypeptox_tuning/geometry_focal_mcc_seed2025.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_focal_mcc_seed2025",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Tune geometry regularization and graph neighborhood for MCC while retaining 3D signal."
+    },
+    {
+      "variant": "geometry_low_noise_auprc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_low_noise_auprc_seed42",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Reduce coordinate noise and select by AUPRC to target the remaining AUROC/AUPRC gap."
+    },
+    {
+      "variant": "geometry_low_noise_auprc",
+      "seed": 123,
+      "config": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed123.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_low_noise_auprc_seed123",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Reduce coordinate noise and select by AUPRC to target the remaining AUROC/AUPRC gap."
+    },
+    {
+      "variant": "geometry_low_noise_auprc",
+      "seed": 2025,
+      "config": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed2025.json",
+      "run_dir": "runs/hypeptox_tuning/geometry_low_noise_auprc_seed2025",
+      "base": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "reason": "Reduce coordinate noise and select by AUPRC to target the remaining AUROC/AUPRC gap."
+    },
+    {
+      "variant": "chemical_branch_focal_mcc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/chemical_branch_focal_mcc_seed42",
+      "base": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+      "reason": "Tune only the chemical-site expert capacity around the current 3D-v2 branch."
+    },
+    {
+      "variant": "chemical_branch_focal_mcc",
+      "seed": 123,
+      "config": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed123.json",
+      "run_dir": "runs/hypeptox_tuning/chemical_branch_focal_mcc_seed123",
+      "base": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+      "reason": "Tune only the chemical-site expert capacity around the current 3D-v2 branch."
+    },
+    {
+      "variant": "chemical_branch_focal_mcc",
+      "seed": 2025,
+      "config": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed2025.json",
+      "run_dir": "runs/hypeptox_tuning/chemical_branch_focal_mcc_seed2025",
+      "base": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+      "reason": "Tune only the chemical-site expert capacity around the current 3D-v2 branch."
+    },
+    {
+      "variant": "chemical_full_finetune_auprc",
+      "seed": 42,
+      "config": "configs/hypeptox_tuning/chemical_full_finetune_auprc_seed42.json",
+      "run_dir": "runs/hypeptox_tuning/chemical_full_finetune_auprc_seed42",
+      "base": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+      "reason": "Low-LR full fine-tune from the 3D-v2 initialization to test whether frozen-base training is limiting ranking metrics."
+    }
+  ],
+  "next_step": "After all runs finish, rank validation MCC/AUPRC, evaluate the best validation candidates once on test, then add useful checkpoints to ghxtox.ensemble_evaluate."
+}

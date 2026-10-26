@@ -1,0 +1,19 @@
+{
+  "encoder_manifest": "embedding_manifest.json",
+  "input_records_sha256": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+  "changed_component": "handcrafted sequence features replaced by 1024d frozen residue-mean ProtT5",
+  "unchanged": [
+    "records",
+    "target",
+    "terminal features",
+    "dose/species",
+    "sequence edit groups",
+    "PMID holdout and purging",
+    "head hyperparameters",
+    "chemical-form sample weighting"
+  ],
+  "head": "ExtraTreesRegressor 160 trees min_samples_leaf4 max_features0.8 seed2026",
+  "tuning": false,
+  "bootstrap": "2000 paired sequence-cluster resamples of fixed OOF errors; excludes model refitting and experimental uncertainty",
+  "note": "exploratory sequential representation comparison; no new blind validation"
+}

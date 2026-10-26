@@ -1,0 +1,144 @@
+{
+  "artifact_type": "prottox_tsk_deployment_policy",
+  "calibration": {
+    "cross_fitted_calibrated_oof_probability_metrics": {
+      "auprc": 0.9279960957907976,
+      "auroc": 0.9655471620701139,
+      "brier": 0.05880003225399583,
+      "ece_10": 0.01319810375571251
+    },
+    "deployment_calibrator_fit_on_full_training_oof": {
+      "bias": -0.24001823365688324,
+      "method": "platt",
+      "monotonic": true,
+      "scale": 0.8109809756278992
+    },
+    "fold_calibrators": {
+      "0": {
+        "bias": -0.25678279995918274,
+        "method": "platt",
+        "monotonic": true,
+        "scale": 0.7804036140441895
+      },
+      "1": {
+        "bias": -0.2439303696155548,
+        "method": "platt",
+        "monotonic": true,
+        "scale": 0.808015763759613
+      },
+      "2": {
+        "bias": -0.2640215754508972,
+        "method": "platt",
+        "monotonic": true,
+        "scale": 0.813765287399292
+      },
+      "3": {
+        "bias": -0.2399127036333084,
+        "method": "platt",
+        "monotonic": true,
+        "scale": 0.8105221390724182
+      },
+      "4": {
+        "bias": -0.19056527316570282,
+        "method": "platt",
+        "monotonic": true,
+        "scale": 0.845654308795929
+      }
+    },
+    "method": "cross_fitted_platt_for_policy_selection",
+    "raw_oof_probability_metrics": {
+      "auprc": 0.9292699328792449,
+      "auroc": 0.9657684963068423,
+      "brier": 0.05931004665788307,
+      "ece_10": 0.023658309131860733
+    }
+  },
+  "limitations": [
+    "Policy objectives are operational preferences, not clinical guarantees.",
+    "Thresholds were selected on training OOF only.",
+    "Test1 and Test2 are excluded from calibration and threshold selection.",
+    "Test2 is a historical Test1 subset and is not an independent validation cohort."
+  ],
+  "model": {
+    "head_kind": "mlp",
+    "name": "ProtTox-TSK",
+    "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\final_model.pt",
+    "sha256": "89efdb930775df887e3856baa5a6e3f66dd70864315adf4b09a3f4b12b62a188",
+    "training_cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+    "version": "prottox-tsk-v1"
+  },
+  "policies": {
+    "balanced": {
+      "metrics": {
+        "accuracy": 0.927352434632848,
+        "balanced_accuracy": 0.9016974415760683,
+        "f1": 0.8684061259217243,
+        "fn": 287,
+        "fp": 177,
+        "mcc": 0.8190607676343061,
+        "precision": 0.8963700234192038,
+        "sensitivity": 0.8421342134213421,
+        "specificity": 0.9612606697307945,
+        "tn": 4392,
+        "tp": 1531
+      },
+      "objective": "maximize_mcc",
+      "threshold": 0.486108660697937
+    },
+    "screening": {
+      "metrics": {
+        "accuracy": 0.8893064036323782,
+        "balanced_accuracy": 0.899613155668817,
+        "f1": 0.8260762607626077,
+        "fn": 139,
+        "fp": 568,
+        "mcc": 0.7552236552759831,
+        "precision": 0.7472185135736538,
+        "sensitivity": 0.9235423542354235,
+        "specificity": 0.8756839571022106,
+        "tn": 4001,
+        "tp": 1679
+      },
+      "objective": "maximize_f2",
+      "threshold": 0.19931122660636902
+    },
+    "strict": {
+      "metrics": {
+        "accuracy": 0.9220291216533584,
+        "balanced_accuracy": 0.881914061399574,
+        "f1": 0.8520499108734403,
+        "fn": 384,
+        "fp": 114,
+        "mcc": 0.8043403828799306,
+        "precision": 0.9263565891472868,
+        "sensitivity": 0.7887788778877888,
+        "specificity": 0.9750492449113591,
+        "tn": 4455,
+        "tp": 1434
+      },
+      "objective": "maximize_f0.5",
+      "threshold": 0.6287088394165039
+    }
+  },
+  "policy_version": "prottox-tsk-policy-v1",
+  "source": {
+    "oof_predictions": {
+      "folds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\oof_predictions.csv",
+      "records": 6387,
+      "sha256": "d0968a2d8c61eef69e34ed89ff9f3b5a37be445886b872f89ed832a92d49a5cc"
+    },
+    "scope": "training OOF only; held-out tests are excluded",
+    "training_cache": {
+      "path": "runs\\prottox_tsk_v1\\features.pt",
+      "records": 6387,
+      "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+    }
+  }
+}

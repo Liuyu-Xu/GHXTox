@@ -1,0 +1,19 @@
+{
+  "protected_input_hashes_before": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sources\\Hemolytik2_complete_data.csv": "60ea939eab999a375eb0b132afdce3f5ba0e21c753e32b50296df9b265647c42",
+    "D:\\dachuang2026\\GHXTox\\analysis\\label_ambiguity_map_20261025\\public_terminal_pair_blocks.json": "8105ceae8f21bf6aa024e743ecfbef8f5bcb5aef9a116369eec56f7298899b70"
+  },
+  "protected_input_hashes_after": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sources\\Hemolytik2_complete_data.csv": "60ea939eab999a375eb0b132afdce3f5ba0e21c753e32b50296df9b265647c42",
+    "D:\\dachuang2026\\GHXTox\\analysis\\label_ambiguity_map_20261025\\public_terminal_pair_blocks.json": "8105ceae8f21bf6aa024e743ecfbef8f5bcb5aef9a116369eec56f7298899b70"
+  },
+  "inputs_unchanged": true,
+  "dose_agent_input_hashes_verified": true,
+  "three_database_SI_errors_checked_against_original_table": true,
+  "terminal_pair_metadata_and_nonempty_SMILES_checked": true,
+  "no_model_training": true,
+  "no_test_predictions": true,
+  "chemistry_analysis_scope_limited_to_metadata": true
+}

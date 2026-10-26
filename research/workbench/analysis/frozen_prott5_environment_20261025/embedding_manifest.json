@@ -1,0 +1,35 @@
+{
+  "encoder": "Rostlab/prot_t5_xl_half_uniref50-enc",
+  "weights_path": "D:\\dachuang2026\\GHXTox-ziliao\\huggingface_cache\\hub\\models--Rostlab--prot_t5_xl_half_uniref50-enc\\snapshots\\d53b8ce63df74def1726cc2ca4582fb0f3f42a9d\\model.safetensors",
+  "weights_snapshot": "d53b8ce63df74def1726cc2ca4582fb0f3f42a9d",
+  "config_snapshot": "94a6abc029ae13029317b140b7424e012bf8dfbf",
+  "weights_sha256": "50e3e39b8ce0fa9f0cb6e07f0d9a94db415d05187c7127d9fc8c4e30c88e94bc",
+  "config_sha256": "c93cc8c31433fb062cad1825a9c16cde962a2015c8a3b10cfdc5f76a85128db3",
+  "tokenizer_sha256": "74da7b4afcde53faa570114b530c726135bdfcdb813dec3abfb27f9d44db7324",
+  "input_sha256": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+  "sequence_count": 1792,
+  "dimension": 1024,
+  "pooling": "residue mean, no EOS or padding",
+  "adapters": false,
+  "fine_tuning": false,
+  "all_parameters_frozen": true,
+  "dtype": "torch.float16",
+  "batch_size": 8,
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "elapsed_seconds": 11.802867412567139,
+  "batch_consistency_checks": [
+    {
+      "sequence_index": 0,
+      "cosine_batched_vs_single": 0.9999995231628418
+    },
+    {
+      "sequence_index": 896,
+      "cosine_batched_vs_single": 0.9999995827674866
+    },
+    {
+      "sequence_index": 1791,
+      "cosine_batched_vs_single": 0.9999995827674866
+    }
+  ],
+  "cache_sha256": "a1ed5fdf1db941219f7dce0e8d790b270ca041e334833cc8fe990d0b457d92f4"
+}

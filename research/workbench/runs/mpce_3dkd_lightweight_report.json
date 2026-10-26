@@ -1,0 +1,25 @@
+{
+  "3d_expert_required": false,
+  "device": "cuda",
+  "embedding_dim": 1024,
+  "encoder": "Frozen ProtT5 prot_t5_xl_half_uniref50-enc",
+  "esmfold_required": false,
+  "feature_dim": 3081,
+  "gpu_peak_memory_bytes": 3240304640,
+  "gpu_peak_memory_mib": 3090.1953125,
+  "model": "MPCE-3DKD-Product (dual-seed ensemble)",
+  "mpce_head_parameters_single_seed": 322274,
+  "mpce_head_parameters_two_seed": 644548,
+  "note": "ProtT5 model files occupy about 2.4 GB on disk; MPCE ensemble is a few MB. Throughput is measured on a local RTX 4060 Laptop GPU.",
+  "per_sequence_forward": {
+    "correctness_mode": "one sequence per ProtT5 forward (required for exact train/API parity)",
+    "first_run_seconds": 2.1059484999859706,
+    "per_query_seconds": 0.02053703300014604,
+    "queries_per_second": 48.69252535129534,
+    "second_run_seconds": 2.053703300014604,
+    "timed_queries": 100,
+    "warmup_queries": 5
+  },
+  "prot_t5_parameters": 1208141824,
+  "remote_gpu_required": false
+}

@@ -1,0 +1,49 @@
+{
+  "inputs": {
+    "atlas": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv",
+      "sha256": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a"
+    },
+    "reviewed": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\label_ambiguity_map_20261025\\reviewed_cases.json",
+      "sha256": "7f21bc61d37476ce96a93f05698f2560b7dee37e9fcb62dfa684a7744b0b0a42"
+    },
+    "conditions": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\assay_completion_20261025\\conditions.json",
+      "sha256": "247402a2e90e5f6e0799ad9d9bea40da7600421d22bdcd49c7668e8c7188c55c"
+    },
+    "annotations": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv",
+      "sha256": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd"
+    },
+    "case_annotations": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_annotation_ledger.csv",
+      "sha256": "977afa5566dc1fbe6cb552f065da529e1effcebc6412347948653a4c31c0a28e"
+    },
+    "training_matches": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv",
+      "sha256": "b4c32b7626783f43d8794318de45a6f9d648d6c0027710dd1dce2a78f9edc0fc"
+    },
+    "existing_summary": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\summary.json",
+      "sha256": "8108df5c37d8d06f6669dc52216b0e4b78e36eb694febf10fcbcf20dd41bb28f"
+    },
+    "existing_verification": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\verification.json",
+      "sha256": "e2450a461ade28af2fdaff842a3a1bda1e15d2d3d5ff71c3168db4dbe2b44ec5"
+    },
+    "entity_audit": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\entity_input_audit_20261025\\panel.json",
+      "sha256": "7af702abd7d9ab19d3874f7d5b124fd4eeb6c081918380496edc52592c43a8a0"
+    }
+  },
+  "inputs_unchanged": true,
+  "sequence_label_links_verified": true,
+  "all_original_rows_and_probabilities_preserved": true,
+  "n_manual_cases": 36,
+  "existing_verification_reused": true,
+  "grouping_or_matching_or_tests_rerun": false,
+  "new_statistics": "only evidence linkage coverage; old group counts reused",
+  "models_trained": false,
+  "test_predictions_read": false
+}

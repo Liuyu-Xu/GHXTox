@@ -1,0 +1,58 @@
+{
+  "seed": 42,
+  "data": {
+    "max_length": 128,
+    "structure_mode": "cached",
+    "structure_cache_dir": "data/structures"
+  },
+  "model": {
+    "modality": "sequence_only",
+    "sequence_architecture": "multiscale_1d",
+    "sequence_use_multiscale": false,
+    "sequence_use_bilstm": true,
+    "sequence_use_residual": false,
+    "aa_embedding_dim": 32,
+    "group_embedding_dim": 12,
+    "hidden_dim": 128,
+    "dropout": 0.18,
+    "plm_embedding_dim": 1280,
+    "global_features": true
+  },
+  "train": {
+    "epochs": 45,
+    "batch_size": 48,
+    "learning_rate": 0.00035,
+    "weight_decay": 0.0002,
+    "val_fraction": 0.15,
+    "early_stop_patience": 10,
+    "pos_weight": "auto",
+    "monitor": "auprc",
+    "scheduler": "cosine",
+    "min_learning_rate": 3e-05,
+    "ema_decay": 0.995,
+    "ema_start_epoch": 2,
+    "selection_score": {
+      "mcc": 1.0,
+      "auroc": 0.2,
+      "auprc": 0.2
+    },
+    "selection_constraints": {
+      "sn": {
+        "min": 0.875
+      },
+      "sp": {
+        "min": 0.91
+      }
+    },
+    "selection_penalty_weight": 8.0,
+    "label_smoothing": 0.03,
+    "save_auxiliary_checkpoints": true
+  },
+  "experiment": {
+    "name": "hypeptox_tuning_bilstm_smooth_auprc_seed42",
+    "tuning_variant": "bilstm_smooth_auprc",
+    "reason": "Use mild label smoothing and AUPRC checkpointing to improve ranking stability.",
+    "selection_data": "HyPepTox-Fuse train-fit/train-val split; independent test untouched.",
+    "external_sets_used_for_selection": false
+  }
+}

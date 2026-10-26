@@ -1,0 +1,69 @@
+{
+  "seed": 2025,
+  "data": {
+    "max_length": 128,
+    "structure_mode": "cached",
+    "structure_cache_dir": "data/structures"
+  },
+  "model": {
+    "aa_embedding_dim": 32,
+    "group_embedding_dim": 12,
+    "hidden_dim": 128,
+    "num_sequence_layers": 2,
+    "num_egnn_layers": 3,
+    "num_attention_heads": 4,
+    "dropout": 0.18,
+    "graph_mode": "hybrid",
+    "spatial_top_k": 8,
+    "rbf_bins": 16,
+    "rbf_max_distance": 24.0,
+    "fusion_gate": "learned_confidence",
+    "ahp_initial_3d_weight": 0.35,
+    "plddt_gate_center": 0.7,
+    "plddt_gate_temperature": 0.16,
+    "plddt_edge_min": 0.1,
+    "plddt_edge_power": 1.5,
+    "plm_embedding_dim": 1280,
+    "structure_feature_dim": 16,
+    "global_features": true
+  },
+  "train": {
+    "epochs": 45,
+    "batch_size": 40,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0002,
+    "val_fraction": 0.15,
+    "early_stop_patience": 10,
+    "pos_weight": "auto",
+    "coord_noise_std": 0.06,
+    "coord_noise_plddt_scale": 1.0,
+    "monitor": "auprc",
+    "scheduler": "cosine",
+    "min_learning_rate": 3e-05,
+    "ema_decay": 0.995,
+    "ema_start_epoch": 2,
+    "selection_score": {
+      "mcc": 1.0,
+      "auroc": 0.2,
+      "auprc": 0.2
+    },
+    "selection_constraints": {
+      "sn": {
+        "min": 0.875
+      },
+      "sp": {
+        "min": 0.91
+      }
+    },
+    "selection_penalty_weight": 8.0,
+    "label_smoothing": 0.02,
+    "save_auxiliary_checkpoints": true
+  },
+  "experiment": {
+    "name": "hypeptox_tuning_geometry_low_noise_auprc_seed2025",
+    "tuning_variant": "geometry_low_noise_auprc",
+    "reason": "Reduce coordinate noise and select by AUPRC to target the remaining AUROC/AUPRC gap.",
+    "selection_data": "HyPepTox-Fuse train-fit/train-val split; independent test untouched.",
+    "external_sets_used_for_selection": false
+  }
+}

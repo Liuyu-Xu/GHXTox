@@ -1,0 +1,31 @@
+{
+  "scope": "exploratory mechanism-feature diagnosis within fixed positive-labelled 76; no toxicity predictor training",
+  "primary_features": [
+    "hydrophobic_contact_excess",
+    "positive_hydrophobic_contact_excess",
+    "charge_hydrophobic_separation",
+    "hydrophobic_patch_fraction"
+  ],
+  "background": [
+    "length",
+    "cys_fraction",
+    "charge_density",
+    "mean_hydropathy",
+    "aromatic_fraction",
+    "ideal_alpha_hydrophobic_moment",
+    "ideal_beta_hydrophobic_moment",
+    "mean_plddt",
+    "low_plddt_fraction",
+    "nonlocal_contact_density",
+    "ca_radius_gyration"
+  ],
+  "adjustment": "leave-original-fold-out StandardScaler plus fixed Ridge alpha10, spatial y standardized using training mean/std; no outcome enters fit; group overlap checked",
+  "contrast": "mean residual error43 minus correct33, equal old sequence group weight within each outcome",
+  "uncertainty": "5000 bootstrap old sequence groups;95% exploratory and98.75% four-feature Bonferroni percentile intervals; no p-value or causal claim",
+  "sensitivity": "no-fragment/no-crosssource-conflict subset; exclude negative/protective/unrelated and prior molecule-evidence concerns; fold signs",
+  "continuation_gate": "adjusted98.75% interval excludes0, at least4/5 fold signs, both sensitivity contrasts same sign; screen only, not classification benefit",
+  "fixed_seed": 20261026,
+  "no_reextract_3d": true,
+  "no_test_use": true,
+  "missing_target_amendment": "Before results inspection: charge_hydrophobic_separation absent in721/871; all76 retained; feature-specific74 complete cases, no target imputation; other3 features76."
+}

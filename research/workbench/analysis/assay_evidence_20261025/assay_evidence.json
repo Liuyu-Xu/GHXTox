@@ -1,0 +1,155 @@
+[
+  {
+    "sample_ids": [
+      "peptide_249"
+    ],
+    "molecule": "Na1b合成肽；单链25残基",
+    "endpoint": "HEK293活性降低",
+    "value": "CC50 4.5–5.9",
+    "unit": "μM",
+    "exposure": "24 h；随后resazurin 3 h",
+    "temperature": "37°C",
+    "dose_range": "0.02–50 μg/mL（方法提取文本范围符号丢失）",
+    "chemical_state": "合成品与天然质谱/色谱吻合；末端形式未独立核实",
+    "evidence": "原文BioC机器提取，未视觉核对PDF",
+    "location": "Methods cytotoxicity offset20073；Results offset29601；Table3 offset72913",
+    "url": "https://doi.org/10.1016/j.bcp.2021.114693",
+    "unknown": "具体未修饰末端形式"
+  },
+  {
+    "sample_ids": [
+      "peptide_249"
+    ],
+    "molecule": "Na1b合成肽",
+    "endpoint": "人红细胞溶血",
+    "value": "HC50 39.9–61.5",
+    "unit": "μM",
+    "exposure": "1 h",
+    "temperature": "37°C",
+    "chemical_state": "同前",
+    "evidence": "原文BioC机器提取",
+    "location": "Methods hemolysis offset21390；Table3 offset72913",
+    "url": "https://doi.org/10.1016/j.bcp.2021.114693",
+    "unknown": "方法段未明确列出肽的浓度梯度"
+  },
+  {
+    "sample_ids": [
+      "peptide_201",
+      "peptide_74"
+    ],
+    "molecule": "完整Ectatomin A+B双链毒素，非孤立单链",
+    "endpoint": "Sf9细胞XTT",
+    "value": "ED50 2±0.8",
+    "unit": "μM；原文(2±0.8)×10^-6 M",
+    "exposure": "24 h",
+    "temperature": "培养27°C；测定段未单独重述温度",
+    "chemical_state": "A22–B20链间二硫键；A12–A34、B10–B32链内键",
+    "evidence": "原文出版商网页索引全文",
+    "location": "Introduction；Cytotoxicity assays；Results首段",
+    "url": "https://doi.org/10.1046/j.1432-1327.1999.00426.x",
+    "unknown": "孤立A/B链毒性测定未找到"
+  },
+  {
+    "sample_ids": [
+      "peptide_201",
+      "peptide_74"
+    ],
+    "molecule": "完整Ectatomin",
+    "endpoint": "兔红细胞溶血",
+    "value": "41",
+    "unit": "HU/mg",
+    "exposure": "unknown",
+    "temperature": "unknown",
+    "chemical_state": "完整双链",
+    "evidence": "原文网页索引",
+    "location": "Estimation of hemolytic activity；Results",
+    "url": "https://doi.org/10.1046/j.1432-1327.1999.00426.x",
+    "unknown": "完整剂量时间需沿原方法引用继续追溯"
+  },
+  {
+    "sample_ids": [
+      "peptide_251"
+    ],
+    "molecule": "H1C/H1U",
+    "endpoint": "人红细胞溶血；摘要另支持人纤维细胞效应",
+    "value": "HD50 3.32",
+    "unit": "mM（数据库原样，原表未核实）",
+    "exposure": "unknown",
+    "temperature": "unknown",
+    "chemical_state": "UniProt N-formylmethionine；Hemolytik Free/Free，冲突待核",
+    "evidence": "原摘要支持定性活性；数据库定量记录未经原表复核",
+    "location": "PMID18752624 abstract；UniProt P85219 FUNCTION/Modified residue；Hemolytik 1232",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18752624/",
+    "unknown": "剂量单位、处理时间、确切化学状态及单独/协同条件"
+  },
+  {
+    "sample_ids": [
+      "peptide_424"
+    ],
+    "molecule": "H2C/H2U",
+    "endpoint": "人红细胞溶血；摘要另支持人纤维细胞效应",
+    "value": "HD50 6.34",
+    "unit": "mM（数据库原样，原表未核实）",
+    "exposure": "unknown",
+    "temperature": "unknown",
+    "chemical_state": "UniProt N-formylmethionine；Hemolytik Free/Free，冲突待核",
+    "evidence": "原摘要支持定性活性；数据库定量记录未经原表复核",
+    "location": "PMID18752624 abstract；UniProt P85220 FUNCTION/Modified residue；Hemolytik 1237",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18752624/",
+    "unknown": "剂量单位、处理时间、确切化学状态及单独/协同条件"
+  },
+  {
+    "sample_ids": [
+      "peptide_139"
+    ],
+    "molecule": "Antibacterial protein2",
+    "endpoint": "溶血（数据库有实验来源注释）",
+    "value": "unknown",
+    "unit": "unknown",
+    "exposure": "unknown",
+    "chemical_state": "原摘要有N端甲酰化线索，未核实具体测定分子",
+    "evidence": "UniProt P11698 ECO0000269 PMID3138972；原摘要",
+    "location": "UniProt FUNCTION；PMID3138972 abstract",
+    "url": "https://doi.org/10.1042/bj2520087",
+    "unknown": "溶血方法与剂量未恢复"
+  },
+  {
+    "sample_ids": [
+      "peptide_308"
+    ],
+    "molecule": "Cupiennin-4a",
+    "endpoint": "本轮未找到本条直接毒性测量",
+    "value": "unknown",
+    "chemical_state": "UniProt B3EWV6位置27 Glutamic acid 1-amide",
+    "evidence": "UniProt实验来源修饰注释；原论文摘要成分鉴定",
+    "location": "B3EWV6 Modified residue；PMID22672445 abstract",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22672445/",
+    "unknown": "毒性对象/终点/剂量/时间"
+  },
+  {
+    "sample_ids": [
+      "peptide_19"
+    ],
+    "molecule": "hhe53",
+    "endpoint": "本轮未找到直接毒性测量",
+    "value": "unknown",
+    "chemical_state": "cDNA预测成熟肽，不能当作已测毒性",
+    "evidence": "相关原研究全文",
+    "location": "Augerpeptide Hhe53小节；Fig10；P0CI21参考PMID17886885",
+    "url": "https://doi.org/10.1371/journal.pone.0087648",
+    "unknown": "本条直接毒性证据"
+  },
+  {
+    "sample_ids": [
+      "peptide_4117"
+    ],
+    "molecule": "Na1a",
+    "endpoint": "本条直接毒性/无毒测量未恢复",
+    "value": "unknown",
+    "chemical_state": "unknown",
+    "evidence": "P0DSM2活性为ECO0000250相似性推断",
+    "location": "UniProt P0DSM2 FUNCTION evidence source P82423",
+    "url": "https://www.uniprot.org/uniprotkb/P0DSM2/entry",
+    "unknown": "原阴性标签的直接实验来源"
+  }
+]

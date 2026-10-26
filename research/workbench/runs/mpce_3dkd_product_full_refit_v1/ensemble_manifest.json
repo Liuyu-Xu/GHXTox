@@ -1,0 +1,49 @@
+{
+  "architecture": "Frozen ProtT5 TriStat views + PhysChem -> MPCE multi-view/cross/prototype -> probability; 3D teacher is training-only",
+  "artifact_type": "mpce_3dkd_product_full_refit",
+  "cache": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a"
+  },
+  "checkpoints": [
+    {
+      "final_train_loss": 0.2336116661198807,
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_full_refit_v1\\full_model_seed20260905.pt",
+      "seed": 20260905,
+      "sha256": "e230d31f57043d282991237f83105f3f2403928c23767b5884cf8d7123fbb72b"
+    },
+    {
+      "final_train_loss": 0.23310906535791123,
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_full_refit_v1\\full_model_seed20260906.pt",
+      "seed": 20260906,
+      "sha256": "0e9aaf16551924683d2917c6c0af9dceb93ae850dca69dfb55c0554eff0bac9c"
+    }
+  ],
+  "crossfit_targets": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv",
+    "rows": 6387,
+    "sha256": "5fef37e473cb8c984b08464d42fd941457c02e452f2a3f952a8b9c4812362374"
+  },
+  "device": "cuda",
+  "elapsed_seconds": 6.335511599958409,
+  "ensemble": {
+    "kind": "mean_probability",
+    "members": [
+      20260905,
+      20260906
+    ],
+    "threshold": 0.5
+  },
+  "hyperparameters": {
+    "batch_size": 256,
+    "epochs": 20,
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "learning_rate": 0.001,
+    "prototype_weight": 0.5
+  },
+  "model_name": "MPCE-3DKD-Product",
+  "model_version": "mpce-3dkd-product-v1",
+  "selection_scope": "full training-data refit after frozen OOF architecture decision; Test1/Test2 excluded",
+  "version": 1
+}

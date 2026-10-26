@@ -128,3 +128,14 @@ tests/*.py
 !tests/test_prott5_tokens.py
 !tests/test_pepflow_batch.py
 !tests/test_selective_prediction.py
+
+# Research snapshot: selected text assets only; binaries remain excluded.
+!research/workbench/**/
+!research/workbench/**/*.csv
+!research/workbench/**/*.tsv
+!research/workbench/**/*.gz
+!research/workbench/scripts/**
+!research/workbench/runs/**
+!research/legacy_hypeptox/**/
+!research/legacy_hypeptox/**/*.csv
+!research/legacy_hypeptox/**/*.tsv

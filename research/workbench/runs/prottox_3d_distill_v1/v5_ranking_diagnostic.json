@@ -1,0 +1,81 @@
+{
+  "artifact_type": "prottox_3dkd_v5_ranking_diagnostic",
+  "version": "v5-0",
+  "scope": "outer-safe per-sample own-fold teacher/base; training OOF only",
+  "folds": [
+    {
+      "fold": 0,
+      "n": 1271,
+      "base_auroc": 0.9778674891892709,
+      "teacher_auroc": 0.9950255526323747,
+      "base_auprc": 0.9500384810865711,
+      "teacher_auprc": 0.9889772559594268,
+      "base_pair_order_accuracy": 0.9778674891892709,
+      "teacher_pair_order_accuracy": 0.9950255526323747,
+      "total_pairs": 330690,
+      "v1_misordered_pairs": 7319,
+      "teacher_corrects_misordered_fraction": 0.9411121737942342
+    },
+    {
+      "fold": 1,
+      "n": 1229,
+      "base_auroc": 0.9725834292289989,
+      "teacher_auroc": 0.9894802454929037,
+      "base_auprc": 0.9446666897260867,
+      "teacher_auprc": 0.979604321092176,
+      "base_pair_order_accuracy": 0.9725834292289989,
+      "teacher_pair_order_accuracy": 0.9894802454929037,
+      "total_pairs": 312840,
+      "v1_misordered_pairs": 8577,
+      "teacher_corrects_misordered_fraction": 0.844934126151335
+    },
+    {
+      "fold": 2,
+      "n": 1273,
+      "base_auroc": 0.9715609032874665,
+      "teacher_auroc": 0.9869996201585531,
+      "base_auprc": 0.9423201303027714,
+      "teacher_auprc": 0.9816064348419289,
+      "base_pair_order_accuracy": 0.9715609032874665,
+      "teacher_pair_order_accuracy": 0.9869996201585531,
+      "total_pairs": 326452,
+      "v1_misordered_pairs": 9284,
+      "teacher_corrects_misordered_fraction": 0.8789314950452392
+    },
+    {
+      "fold": 3,
+      "n": 1291,
+      "base_auroc": 0.9697718404670419,
+      "teacher_auroc": 0.9937658237274,
+      "base_auprc": 0.9432709904430394,
+      "teacher_auprc": 0.9873309611680268,
+      "base_pair_order_accuracy": 0.969771840467042,
+      "teacher_pair_order_accuracy": 0.9937658237274,
+      "total_pairs": 335730,
+      "v1_misordered_pairs": 10147,
+      "teacher_corrects_misordered_fraction": 0.909037153838573
+    },
+    {
+      "fold": 4,
+      "n": 1323,
+      "base_auroc": 0.9716321418140151,
+      "teacher_auroc": 0.957502976926015,
+      "base_auprc": 0.9407526034516271,
+      "teacher_auprc": 0.9173530249569248,
+      "base_pair_order_accuracy": 0.9716321418140151,
+      "teacher_pair_order_accuracy": 0.9575029769260149,
+      "total_pairs": 356072,
+      "v1_misordered_pairs": 10101,
+      "teacher_corrects_misordered_fraction": 0.44985644985644985
+    }
+  ],
+  "overall": {
+    "teacher_auroc_mean": 0.9845548437874492,
+    "base_auroc_mean": 0.9726831607973587,
+    "teacher_pair_order_accuracy_mean": 0.9845548437874492,
+    "base_pair_order_accuracy_mean": 0.9726831607973587,
+    "teacher_corrects_misordered_fraction_mean": 0.8047742797371662
+  },
+  "stability_note": "report per-fold values; no selection or tuning after inspection",
+  "test1_test2_used": false
+}

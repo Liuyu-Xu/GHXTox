@@ -1,0 +1,14 @@
+{
+  "primary": "fragment_review_flag OR cross_source_label_disagreement",
+  "fragment": "exact same retained sequence matches any reviewed UniProt entry flagged Fragment in pinned snapshot",
+  "label_disagreement": "same normalized sequence has both broad/operational binary labels across pinned sources; RBC labels excluded",
+  "unknown": "no exact short-entry match is unresolved, not proof of ambiguity; separately reported and expanded sensitivity only",
+  "comparison_row": "unflagged means no selected evidence marker, not proven clear",
+  "predictions": "saved canonical default_multidimensional_fusion_single_structure predictions, original decisions retained",
+  "primary_statistics": "two-sided Fisher exact, risk ratio with log95CI, two primary p values Holm adjusted",
+  "sensitivity": "single flags and expanded union; class strata and Mantel-Haenszel odds ratio controlling original class",
+  "dependence": "Test2 subset of Test1, not independent replication; peptide-level tests exploratory and not family-cluster adjusted",
+  "no_relabel": true,
+  "no_deletion": true,
+  "no_model_training": true
+}

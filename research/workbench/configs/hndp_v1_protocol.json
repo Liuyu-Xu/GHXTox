@@ -1,0 +1,56 @@
+{
+  "artifact_type": "physchem_hypernetwork_first_round_protocol",
+  "phase": "HNDP-B",
+  "version": "hndp-v1",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "ProtTox-3DKD v1": "immutable product baseline",
+    "frontend_change_allowed": false
+  },
+  "model": {
+    "name": "PhysChem-Conditioned Hypernetwork Dynamic Predictor",
+    "input": "Frozen ProtT5 TriStat (3072) as main features; 9 PhysChem as context",
+    "candidate_C": {
+      "static_layer": "W0: Linear(3072->192)",
+      "low_rank_modulation": "W = W0 + U diag(g(x)) V; U[r,192], V[r,3072], r=16",
+      "context": "PhysChem(9) -> 64 -> 16 g(x)",
+      "init": "U,V and g output zero-initialized so C starts at static",
+      "kd": false,
+      "3d": false
+    },
+    "control_B": {
+      "same main network plus static low-rank factors U,V",
+      "no context-dependent g",
+      "params close to C"
+    }
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt"
+  },
+  "controls": {
+    "A": "ProtTox-3DKD v1 frozen OOF",
+    "B": "static low-rank network",
+    "C": "hypernetwork dynamic predictor"
+  },
+  "promotion_gate": {
+    "C_vs_A": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "C_vs_B": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.002,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "scope": "all 6387 archived training OOF records; no length, Cys, charge, hydropathy or annotation prefilter",
+  "thresholds_source": "analysis/ghxtox_error_atlas_20261025/protocol.json",
+  "A": "sequence correct AND structure wrong AND fusion wrong",
+  "B": "sequence wrong AND structure wrong AND fusion wrong; separate original-positive FN from original-negative FP",
+  "C": "at least one branch wrong AND fusion correct",
+  "D": "at least one branch correct AND fusion wrong; A is subset of D",
+  "exclusive_groups": "all 8 binary combinations of sequence/structure/fusion correctness, including zero-count cells",
+  "contrasts": {
+    "A_vs_same_branches_fusion_correct": ["100", "101"],
+    "B_vs_all_correct": ["000", "111"],
+    "structure_correct_fusion_wrong_vs_fusion_correct": ["010", "011"]
+  },
+  "matching": "within each contrast: same original label and fold, different group; abs length <=3, charge <=2, hydropathy <=0.5, Cys <=1; smallest eligible pool first then normalized squared distance then sample_id; no group reused within contrast. These calipers restrict secondary matched comparisons only, not full-sample grouping.",
+  "features": ["local_positive_excess", "local_hydrophobic_excess", "ideal_alpha_hydrophobic_moment", "hydrophobic_contact_excess", "charge_hydrophobic_separation", "mean_plddt"],
+  "inference": "paired mean difference case minus control; 2000 paired bootstrap; 5000 random sign flips; BH over all 36 tests (3 contrasts x 2 partitions x 6 features); fewer than 5 pairs flagged insufficient",
+  "discovery_folds": [0, 1, 2],
+  "internal_replication_folds": [3, 4],
+  "replication_blinded": false,
+  "seed": 20261025,
+  "limitations": ["existing OOF calibration and checkpoint selection are not strictly nested", "all folds already inspected; split consistency is descriptive, not independent validation", "composition matching does not match assay endpoints or molecular states", "error-based grouping supports diagnosis, not causal claims", "prior composition screen counts already observed; this is an explicitly redirected exploratory analysis"],
+  "no_test_inputs": true,
+  "no_model_or_label_changes": true
+}

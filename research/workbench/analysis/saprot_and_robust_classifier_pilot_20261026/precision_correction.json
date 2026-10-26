@@ -1,0 +1,8 @@
+{
+  "reason": "float32 sigmoid saturation created artificial ties, especiallyGCE; allarms uniformly corrected",
+  "method": "AP/AUROC use stable logodds of exactly same two-seed mean probability; classifier threshold unchanged",
+  "n_classifier_decisions_changed": 0,
+  "not_a_new_prediction_rule": true,
+  "not_a_new_fit": true,
+  "rounded_original_metrics_preserved": true
+}

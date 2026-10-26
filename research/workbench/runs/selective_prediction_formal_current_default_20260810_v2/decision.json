@@ -1,0 +1,28 @@
+{
+  "artifact_type": "ghxtox_selective_prediction_formal_decision",
+  "decision": "supports_difficult_sample_identification_on_training_oof",
+  "selected_policy_remains": "margin_only",
+  "policy_reselected": false,
+  "test1_or_test2_labels_used": false,
+  "canonical_binary_model_changed": false,
+  "primary_coverage": 0.9,
+  "primary_metric": "random minus selective accepted error",
+  "primary_effect": {
+    "contrast": "positive values favor frozen uncertainty ranking",
+    "split_name": "training OOF",
+    "coverage_target": 0.9,
+    "accepted_n": 5748,
+    "rejected_n": 639,
+    "metric": "accepted_error_rate",
+    "positive_improvement_definition": "random minus selective",
+    "point_estimate": 0.021914439805149618,
+    "median": 0.021920668058455113,
+    "ci95_lower": 0.018088900487125973,
+    "ci95_upper": 0.02574808629088379,
+    "bootstrap_probability_gt_0": 1.0,
+    "bootstrap_replicates": 5000,
+    "seed": 20260821
+  },
+  "selective_error_below_random_mean_at_all_partial_coverages": true,
+  "external_generalization_claimed": false
+}

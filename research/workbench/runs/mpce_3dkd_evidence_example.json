@@ -1,0 +1,270 @@
+{
+  "sequence": "ACGRCGKKVY",
+  "evidence_schema_version": "1.0",
+  "model_architecture": "MPCE-3DKD",
+  "model_version": "v1.0-product-single-forward-audit",
+  "prototype_profile_version": "1.0",
+  "prototype_profile_sha256": "175de8ef8defa3bc2e5f3fd6bb0873f62355624b5cdc29c5c49a5c8995d69920",
+  "analysis_level": "detailed",
+  "prediction": "Non-toxic",
+  "probability": 0.0007898380281403661,
+  "calibrated_probability": 0.06576751917600632,
+  "decision_threshold": 0.5,
+  "prototype_evidence": {
+    "per_seed": {
+      "20260905": {
+        "toxic_pattern_id": "T2",
+        "toxic_similarity": -0.9901541471481323,
+        "toxic_pattern_profile": "model-associated profile: high Cys count / moderate net charge / lower hydrophobicity (not an experimental toxicity cause)",
+        "toxic_pattern_support_count": 768,
+        "toxic_pattern_mean_similarity": 0.9797126650810242,
+        "toxic_pattern_similarity_q25": 0.9713494777679443,
+        "toxic_pattern_similarity_q50": 0.9874171316623688,
+        "toxic_pattern_similarity_q75": 0.9948149919509888,
+        "non_toxic_pattern_id": "N3",
+        "non_toxic_similarity": 0.9901781678199768,
+        "non_toxic_pattern_profile": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+        "non_toxic_pattern_support_count": 526,
+        "non_toxic_pattern_mean_similarity": 0.9866005778312683,
+        "non_toxic_pattern_similarity_q25": 0.9909314513206482,
+        "non_toxic_pattern_similarity_q50": 0.9965493083000183,
+        "non_toxic_pattern_similarity_q75": 0.9983231872320175,
+        "prototype_affinity_logit": -1.9803224802017212
+      },
+      "20260906": {
+        "toxic_pattern_id": "T1",
+        "toxic_similarity": -0.9664888978004456,
+        "toxic_pattern_profile": "model-associated profile: high Cys count / low/negative net charge / moderate hydrophobicity (not an experimental toxicity cause)",
+        "toxic_pattern_support_count": 91,
+        "toxic_pattern_mean_similarity": 0.9825839400291443,
+        "toxic_pattern_similarity_q25": 0.9762095212936401,
+        "toxic_pattern_similarity_q50": 0.9932289123535156,
+        "toxic_pattern_similarity_q75": 0.9964628219604492,
+        "non_toxic_pattern_id": "N3",
+        "non_toxic_similarity": 0.9665365219116211,
+        "non_toxic_pattern_profile": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+        "non_toxic_pattern_support_count": 459,
+        "non_toxic_pattern_mean_similarity": 0.995908796787262,
+        "non_toxic_pattern_similarity_q25": 0.9958734810352325,
+        "non_toxic_pattern_similarity_q50": 0.9975907802581787,
+        "non_toxic_pattern_similarity_q75": 0.9984018206596375,
+        "prototype_affinity_logit": -1.9330213069915771
+      }
+    },
+    "representative_seed": "20260906",
+    "dominant_side": "non_toxic",
+    "dominant_pattern_id": "N3",
+    "dominant_pattern_similarity": 0.9665365219116211,
+    "dominant_model_associated_pattern": "model-associated profile: low Cys count / moderate net charge / higher hydrophobicity (not an experimental toxicity cause)",
+    "interpretation_note": "model-associated prototype evidence; not an experimental toxicity cause"
+  },
+  "cross_view_evidence": {
+    "branch_removal_delta": {
+      "mean_max": 0.006872735801152885,
+      "mean_std": 0.002743452903814614,
+      "max_std": 0.0024921208387240767,
+      "sequence_physchem": 0.000567261828109622
+    },
+    "dominant_interaction": "mean_max",
+    "dominant_removal_delta": 0.006872735801152885,
+    "support_count": 4,
+    "support_fraction": 1.0,
+    "interpretation_note": "removal_delta = probability without that interaction group - full probability; model-associated evidence only"
+  },
+  "perturbation_stability": {
+    "analysis_performed": true,
+    "prediction_stability_score": 0.0,
+    "prediction_stability_label": "low",
+    "mean_abs_probability_delta": 0.26969634294218847,
+    "max_abs_probability_shift": 0.7716432044981048,
+    "label_flip_count": 1,
+    "position_count": 10,
+    "most_sensitive_positions": [
+      {
+        "position": 6,
+        "mutation": "G6->A",
+        "delta_probability": 0.7716432044981048
+      },
+      {
+        "position": 5,
+        "mutation": "C5->S",
+        "delta_probability": 0.47577719192486256
+      },
+      {
+        "position": 2,
+        "mutation": "C2->S",
+        "delta_probability": 0.4213078747270629
+      }
+    ],
+    "largest_probability_shift": {
+      "position": 6,
+      "mutation": "G6->A",
+      "delta_probability": 0.7716432044981048
+    },
+    "direction": "increases_toxicity_probability",
+    "position_analysis": [
+      {
+        "position": 1,
+        "original_aa": "A",
+        "substituted_aa": "G",
+        "mutant_probability": 0.2823534905910492,
+        "delta_probability": 0.28156365256290883
+      },
+      {
+        "position": 2,
+        "original_aa": "C",
+        "substituted_aa": "S",
+        "mutant_probability": 0.42209771275520325,
+        "delta_probability": 0.4213078747270629
+      },
+      {
+        "position": 3,
+        "original_aa": "G",
+        "substituted_aa": "A",
+        "mutant_probability": 0.3507269322872162,
+        "delta_probability": 0.3499370942590758
+      },
+      {
+        "position": 4,
+        "original_aa": "R",
+        "substituted_aa": "K",
+        "mutant_probability": 0.0030200728215277195,
+        "delta_probability": 0.0022302347933873534
+      },
+      {
+        "position": 5,
+        "original_aa": "C",
+        "substituted_aa": "S",
+        "mutant_probability": 0.47656702995300293,
+        "delta_probability": 0.47577719192486256
+      },
+      {
+        "position": 6,
+        "original_aa": "G",
+        "substituted_aa": "A",
+        "mutant_probability": 0.7724330425262451,
+        "delta_probability": 0.7716432044981048
+      },
+      {
+        "position": 7,
+        "original_aa": "K",
+        "substituted_aa": "R",
+        "mutant_probability": 0.3833507001399994,
+        "delta_probability": 0.382560862111859
+      },
+      {
+        "position": 8,
+        "original_aa": "K",
+        "substituted_aa": "R",
+        "mutant_probability": 0.009430725127458572,
+        "delta_probability": 0.008640887099318206
+      },
+      {
+        "position": 9,
+        "original_aa": "V",
+        "substituted_aa": "I",
+        "mutant_probability": 0.0037336465902626514,
+        "delta_probability": 0.0029438085621222854
+      },
+      {
+        "position": 10,
+        "original_aa": "Y",
+        "substituted_aa": "F",
+        "mutant_probability": 0.0004312191449571401,
+        "delta_probability": -0.000358618883183226
+      }
+    ],
+    "interpretation_note": "single conservative substitutions; model-output response only, not experimental mutagenesis",
+    "decision_rules": {
+      "high": {
+        "rule": "mean_abs_probability_delta < 0.02"
+      },
+      "moderate": {
+        "rule": "0.02 <= mean_abs_probability_delta < 0.08"
+      },
+      "low": {
+        "rule": "mean_abs_probability_delta >= 0.08"
+      }
+    }
+  },
+  "evidence_record": {
+    "probability_margin": 0.49921016197185963,
+    "cross_view_support_fraction": 1.0,
+    "perturbation_stability": "low",
+    "evidence_consistency": "low",
+    "review_recommended": true,
+    "review_priority": "high",
+    "reason": [
+      "prediction changes materially under conservative single substitutions"
+    ],
+    "note": "evidence consistency is a model-output property, not experimental toxicity confidence",
+    "decision_rules": {
+      "evidence_consistency_high": "margin >= 0.25 AND cross_view_support_fraction >= 0.75 AND perturbation stability != low",
+      "evidence_consistency_moderate": "margin >= 0.10 AND cross_view_support_fraction >= 0.50 AND perturbation stability != low",
+      "review_recommended": "evidence_consistency == low OR margin < 0.15 OR (margin < 0.25 AND evidence_consistency == moderate)"
+    }
+  },
+  "provenance": {
+    "model_name": "MPCE-3DKD",
+    "model_version": "v1.0-product-single-forward-audit",
+    "encoder": "prot_t5_xl_half_uniref50-enc",
+    "ensemble_seeds": [
+      20260905,
+      20260906
+    ],
+    "ensemble_manifest": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_refit_v1\\ensemble_manifest.json",
+    "ensemble_manifest_sha256": "ab9d6ee0d501ce6923bf477f01194344093aaccfe65e16d12ca8ca7713a56b66",
+    "checkpoints": {
+      "20260905": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_refit_v1\\full_model_seed20260905.pt",
+        "sha256": "633dafae37be161888da6effadc270d303131b44d6c5bb71fe2593613df15d46",
+        "metadata": {
+          "seed": 20260905,
+          "cache_path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_cache.pt",
+          "cache_sha256": "9a302b5fc34d5e992c8ac6ee33838f3af084e3174fb4f9cbc85f9bd459fde212",
+          "crossfit_targets": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv",
+          "crossfit_targets_sha256": "5fef37e473cb8c984b08464d42fd941457c02e452f2a3f952a8b9c4812362374",
+          "epochs": 20,
+          "learning_rate": 0.001,
+          "batch_size": 256,
+          "prototype_weight": 0.5,
+          "kd_temperature": 2.0,
+          "kd_weight": 1.0,
+          "selection_scope": "full training-data refit; Test1/Test2 excluded",
+          "final_train_loss": 0.23339628513260255
+        }
+      },
+      "20260906": {
+        "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_refit_v1\\full_model_seed20260906.pt",
+        "sha256": "f32db46d60ec3151ac01be0b468b74d8e109211595806a1aa67acc57fb4784e1",
+        "metadata": {
+          "seed": 20260906,
+          "cache_path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_cache.pt",
+          "cache_sha256": "9a302b5fc34d5e992c8ac6ee33838f3af084e3174fb4f9cbc85f9bd459fde212",
+          "crossfit_targets": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv",
+          "crossfit_targets_sha256": "5fef37e473cb8c984b08464d42fd941457c02e452f2a3f952a8b9c4812362374",
+          "epochs": 20,
+          "learning_rate": 0.001,
+          "batch_size": 256,
+          "prototype_weight": 0.5,
+          "kd_temperature": 2.0,
+          "kd_weight": 1.0,
+          "selection_scope": "full training-data refit; Test1/Test2 excluded",
+          "final_train_loss": 0.2336385485075889
+        }
+      }
+    },
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "display_calibration_temperature": 2.69177508354187,
+    "training_scope": "full training-data refit; Test1/Test2 excluded",
+    "teacher_used_during_inference": false,
+    "structural_input_used_during_inference": false,
+    "esmfold_used_during_inference": false,
+    "evidence_layers": [
+      "prototype_evidence",
+      "cross_view_counterfactual",
+      "sequence_perturbation_stability"
+    ]
+  }
+}

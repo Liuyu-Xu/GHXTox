@@ -1,0 +1,30 @@
+{
+  "status": "frozen_before_new_dose_model_fits",
+  "objective": "exploratory cross-paper, unseen-edit-group prediction of hemolysis percentage under reported dose; test utility of monotonic dose constraint",
+  "datasets": {
+    "confirmed_overlay_primary": "reuse confirmed_non_point_exclusion_panels.json; 284 metadata panels with >=3 distinct positive molar doses; 1305 points. No filter by response span, monotonicity or model outcomes",
+    "all_exact50_quarantine_sensitivity": "reuse all_exact50_quarantine_panels.json; 253 panels >=3 doses, 1208 points. Response-dependent conservative exclusion; not asserted clean or representative"
+  },
+  "measurement_policy": "original database untouched. Inherited confirmed exclusions: raw11995 reportedHC50-derived not direct point;12005/12025 wrongSI columns;D-type12015 already outside scope. Other percent literals remain unverified-source candidates, exact50 flagged rather than labeled wrong",
+  "panel_key": "sequence + chemical form + PMID + reported RBC species + reported pH; unknown pH does not establish same actual conditions",
+  "split": "5 folds by entire PMID, greedy descending primary-panel count then numeric PMID tie; assign lowest panel-load fold (index tie). Reuse this mapping for sensitivity. Purge any training panel whose existing unit-edit20percent transitive group appears in test. Train/test use entire panels, no dose-point random split",
+  "training_scope": "only >=3-dose eligible metadata panels in each dataset; no samples added or dropped on the basis of outcome pattern",
+  "features": "fixed previous sequence composition20 + dipeptide400 + length/charge density/meanKD/ideal helix hydrophobic moment + explicit C-amide/N-acetyl + reported RBC one-hot + log10 positive dose_uM. No target/HC50/SI/PMID/panel_id/name/SMILES/heldout predictions as inputs",
+  "models": {
+    "unconstrained": "sklearn HistGradientBoostingRegressor squared_error; all monotonic constraints zero",
+    "monotonic_dose": "identical model and feature matrix; log10dose monotonic_cst=+1, all other constraints zero"
+  },
+  "shared_parameters": {"loss":"squared_error","learning_rate":0.05,"max_iter":150,"max_leaf_nodes":15,"min_samples_leaf":10,"l2_regularization":1.0,"max_bins":64,"early_stopping":false,"categorical_features":null,"random_state":20261026},
+  "weights": "each training panel total weight1 before normalizing average row weight to1; test primary MAE equal weight per panel",
+  "prediction": "clip both models to [0,100]; numeric outputs are exploratory estimates, no deployable model or HC50 extrapolation",
+  "metrics": ["panel_macro_MAE_percentage_points primary", "point_MAE secondary", "within-panel adjacent-response-increment_MAE", "decreasing predicted adjacent steps and 64point log-dose grid violations", "mean predicted and observed panel response spans"],
+  "reference": "training-panel-weighted median constant, fitted only on training fold; no new baseline hyperparameter search",
+  "uncertainty": "2000 paired bootstrap of retained sequence edit groups, sum equal-panel loss difference / panel count; report positive MAE reduction for monotonic benefit, plus per-fold differences. Secondary paper-cluster CI. Fixed OOF predictions only, no retraining uncertainty",
+  "continue_gate": "for this exploratory screen only: primary paired-group MAE-reduction CI lower>0 and >=4/5 fold MAE improvements; sensitivity effect same direction; incremental-response MAE not worse. Gate failure means do not upscale network or search new hyperparameters on these results",
+  "seed": 20261026,
+  "cpu_thread_limit": 2,
+  "no_hyperparameter_search": true,
+  "no_test_predictions": true,
+  "no_GHXTox_weight_or_label_changes": true,
+  "limitations": ["previously examined observational data, not new blind validation", "PMID identifiers may include indirect sources", "unreported assay conditions and incomplete original-measurement provenance", "retained exact50 records may still mix derived endpoints; sensitivity is also selected on response value", "sequence edit groups are not certified biological families", "nondecreasing response is a candidate prior within reported conditions, not a universal biological mechanism", "monotonic boosting is established, not neural-network novelty by itself"]
+}

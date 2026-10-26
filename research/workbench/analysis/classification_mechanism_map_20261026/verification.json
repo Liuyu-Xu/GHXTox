@@ -1,0 +1,28 @@
+{
+  "source_hashes": {
+    "linked": "963268735f3608dbb15755327b045464b7fa8592b5df2cf3f74e6c95342ef106",
+    "annotations": "0b8d7e071ffe39a8685bbaf15bc7cec7bb9bb5d474d80c852593d077c7c322e2",
+    "public": "523b65365c608c73fc1aa00fed848f9ccf2095b59a2f8bdbb725815c83afcf18",
+    "pairs": "36e3e72149c7dc94745e457f45f4b73fc35073361cb052c9a2ba7b3ae5b2e9f4",
+    "review": "7f21bc61d37476ce96a93f05698f2560b7dee37e9fcb62dfa684a7744b0b0a42"
+  },
+  "source_unchanged": true,
+  "n_training": 6387,
+  "original_patterns": {
+    "全部正确": 5824,
+    "C_一维错三维对融合对": 98,
+    "B_两路及融合都错": 229,
+    "A_D_一维对三维错融合错": 48,
+    "C_一维对三维错融合对": 138,
+    "D其余_一维错三维对融合错": 50
+  },
+  "public_link_rows": 73,
+  "unique_public_linked_samples": 68,
+  "existing_pairs_reused": 27,
+  "new_fits": 0,
+  "new_pair_matching": 0,
+  "test_predictions_read": false,
+  "probabilities_and_labels_copied_unchanged": true,
+  "independent_rowwise_comparison_passed": true,
+  "all_category_denominators_and_partition_sums_verified": true
+}

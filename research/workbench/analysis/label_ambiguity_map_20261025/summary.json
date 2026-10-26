@@ -1,0 +1,169 @@
+{
+  "total": {
+    "samples": 6387,
+    "fusion_errors": 327,
+    "FP": 135,
+    "FN": 192,
+    "expert_disagreements": 334
+  },
+  "machine_hints": [
+    {
+      "flag": "fragment_reference_match",
+      "title": "精确匹配到Fragment参考条目",
+      "coverage": "all_train",
+      "samples": 1606,
+      "fusion_errors": 138,
+      "FP": 58,
+      "FN": 80,
+      "expert_disagreements": 150
+    },
+    {
+      "flag": "cross_source_label_disagreement",
+      "title": "其他来源有相反广义标签",
+      "coverage": "all_train",
+      "samples": 328,
+      "fusion_errors": 31,
+      "FP": 31,
+      "FN": 0,
+      "expert_disagreements": 29
+    },
+    {
+      "flag": "identity_unresolved",
+      "title": "未恢复短条目身份",
+      "coverage": "all_train",
+      "samples": 924,
+      "fusion_errors": 42,
+      "FP": 3,
+      "FN": 39,
+      "expert_disagreements": 36
+    },
+    {
+      "flag": "interchain_annotation",
+      "title": "错误样本有链间键注释（仅错误缓存覆盖）",
+      "coverage": "error_records_only",
+      "samples": 5,
+      "fusion_errors": 5,
+      "FP": 3,
+      "FN": 2,
+      "expert_disagreements": 1
+    },
+    {
+      "flag": "non_disulfide_modification_annotation",
+      "title": "错误样本有非二硫键修饰注释（仅错误缓存覆盖）",
+      "coverage": "error_records_only",
+      "samples": 59,
+      "fusion_errors": 59,
+      "FP": 19,
+      "FN": 40,
+      "expert_disagreements": 14
+    }
+  ],
+  "manual_reviewed": {
+    "samples": 36,
+    "fusion_errors": 28,
+    "FP": 10,
+    "FN": 18,
+    "expert_disagreements": 9
+  },
+  "manual_primary_statuses": [
+    {
+      "status": "分子对象问题的具体案例/线索",
+      "samples": 13,
+      "fusion_errors": 12,
+      "FP": 8,
+      "FN": 4,
+      "expert_disagreements": 2
+    },
+    {
+      "status": "化学形式证据冲突待确认",
+      "samples": 2,
+      "fusion_errors": 2,
+      "FP": 0,
+      "FN": 2,
+      "expert_disagreements": 1
+    },
+    {
+      "status": "实验终点或作用背景需区分",
+      "samples": 6,
+      "fusion_errors": 5,
+      "FP": 1,
+      "FN": 4,
+      "expert_disagreements": 0
+    },
+    {
+      "status": "尚未逐条归因",
+      "samples": 6351,
+      "fusion_errors": 299,
+      "FP": 125,
+      "FN": 174,
+      "expert_disagreements": 325
+    },
+    {
+      "status": "直接效应支持的漏判候选",
+      "samples": 4,
+      "fusion_errors": 4,
+      "FP": 0,
+      "FN": 4,
+      "expert_disagreements": 2
+    },
+    {
+      "status": "该具体分子/终点证据不足",
+      "samples": 11,
+      "fusion_errors": 5,
+      "FP": 1,
+      "FN": 4,
+      "expert_disagreements": 4
+    }
+  ],
+  "manual_overlapping_tags": [
+    {
+      "tag": "molecular_entity",
+      "samples": 13,
+      "fusion_errors": 12,
+      "FP": 8,
+      "FN": 4,
+      "expert_disagreements": 2
+    },
+    {
+      "tag": "assay_endpoint_context",
+      "samples": 7,
+      "fusion_errors": 6,
+      "FP": 2,
+      "FN": 4,
+      "expert_disagreements": 0
+    },
+    {
+      "tag": "chemical_state",
+      "samples": 10,
+      "fusion_errors": 8,
+      "FP": 1,
+      "FN": 7,
+      "expert_disagreements": 5
+    },
+    {
+      "tag": "insufficient_specific_evidence",
+      "samples": 15,
+      "fusion_errors": 9,
+      "FP": 3,
+      "FN": 6,
+      "expert_disagreements": 5
+    },
+    {
+      "tag": "direct_effect_supported_error",
+      "samples": 4,
+      "fusion_errors": 4,
+      "FP": 0,
+      "FN": 4,
+      "expert_disagreements": 2
+    }
+  ],
+  "historical_fragment_or_crosssource_flag": {
+    "samples": 1875,
+    "fusion_errors": 158,
+    "FP": 78,
+    "FN": 80,
+    "expert_disagreements": 176
+  },
+  "unreviewed_is_not_insufficient_evidence": true,
+  "causal_error_mechanisms_proven": 0
+}

@@ -1,0 +1,50 @@
+{
+  "artifact_type": "prottox_3d_distill_product_full_refit",
+  "version": 1,
+  "model_name": "ProtTox-3D-Distill-Product",
+  "model_version": "prottox-3d-distill-product-v1",
+  "architecture": "Frozen ProtT5 TriStat + PhysChem -> TriStat-MLP -> probability (KD only during training)",
+  "cache": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a"
+  },
+  "crossfit_targets": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv",
+    "sha256": "5fef37e473cb8c984b08464d42fd941457c02e452f2a3f952a8b9c4812362374",
+    "rows": 6387
+  },
+  "checkpoints": [
+    {
+      "seed": 20260905,
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\product_full_refit_v1\\full_model_seed20260905.pt",
+      "sha256": "4089d38f3a360be1ac46bbc102fe067612863754d89d592d77a2e0802f63b9ea",
+      "final_train_loss": 0.18498554724061994
+    },
+    {
+      "seed": 20260906,
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\product_full_refit_v1\\full_model_seed20260906.pt",
+      "sha256": "4f4a18908f822e127b103c9c3b5b40bbacdb58ed97f23be7f73cb8628b235a79",
+      "final_train_loss": 0.18751037765906153
+    }
+  ],
+  "ensemble": {
+    "kind": "mean_probability",
+    "members": [
+      20260905,
+      20260906
+    ],
+    "threshold": 0.5
+  },
+  "hyperparameters": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "hidden_dim": 192,
+    "dropout": 0.1
+  },
+  "selection_scope": "full training-data refit after frozen OOF product decision; Test1/Test2 excluded",
+  "elapsed_seconds": 3.406057199987117,
+  "device": "cuda"
+}

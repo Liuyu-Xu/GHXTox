@@ -1,0 +1,27 @@
+{
+  "model_name": "ProtTox-3DKD",
+  "model_version": "v1.0",
+  "ensemble_seeds": [20260905, 20260906],
+  "generated_by": "single-sequence web runner path on 2026-09-05",
+  "tolerance_absolute": 1e-4,
+  "cases": [
+    {
+      "name": "regression_amp_1",
+      "sequence": "GIGKFLHSAKKFGKAFVGEIMNS",
+      "probability": 8.771652937866747e-05,
+      "prediction": "Non-toxic"
+    },
+    {
+      "name": "regression_cys",
+      "sequence": "ACGRCGKKVY",
+      "probability": 0.0011242951732128859,
+      "prediction": "Non-toxic"
+    },
+    {
+      "name": "regression_neutral",
+      "sequence": "GASGAGAGAGAG",
+      "probability": 0.0025946300011128187,
+      "prediction": "Non-toxic"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "artifact_type": "ghxtox_selective_prediction_formal_experiment_protocol",
+  "version": 2,
+  "frozen_at": "2026-08-10",
+  "purpose": "Complete the current-default training-OOF selective-prediction experiment with five operating coverages and an equal-coverage random-rejection control.",
+  "scope": {
+    "allow_policy_refit": false,
+    "allow_feature_reselection": false,
+    "allow_binary_model_change": false,
+    "allow_fusion_or_threshold_change": false,
+    "allow_test1_or_test2_labels": false,
+    "external_validation_claimed": false
+  },
+  "inputs": [
+    {
+      "role": "frozen_cross_fitted_oof_predictions",
+      "path": "runs/selective_prediction_current_default_oof_20260810_v2/oof_selective_predictions.csv",
+      "sha256": "4feaadc46a2f4d00a403c57a0f9a38757e882d9e37753dc53af665c64f5b36b7"
+    },
+    {
+      "role": "frozen_selected_policy",
+      "path": "runs/selective_prediction_current_default_oof_20260810_v2/selected_policy.json",
+      "sha256": "335cba7f43cafbda7cb76d41348ec067a5a76bfbb6d10e9b45c32eac91893a21"
+    },
+    {
+      "role": "frozen_policy_selection_audit",
+      "path": "runs/selective_prediction_current_default_oof_20260810_v2/summary.json",
+      "sha256": "2acc794604ddcedf4f5a143571dca06fc9a0379be1a2a6fed18a53432596b01a"
+    }
+  ],
+  "selected_uncertainty_policy": {
+    "required_profile": "margin_only",
+    "required_feature_names": [
+      "decision_closeness"
+    ],
+    "required_model_type": "direct_feature_score",
+    "decision_closeness_definition": "1 - abs(p_GHXTox - tau) / max(tau, 1 - tau)",
+    "oof_uncertainty_column": "uncertainty_margin_only",
+    "ranking_direction": "ascending uncertainty is accepted first",
+    "interpretation": "The uncertainty score is the direct normalized proximity to the frozen decision boundary; it is label-independent and is not a calibrated per-sample error probability."
+  },
+  "operating_points": {
+    "coverage_targets": [
+      1.0,
+      0.95,
+      0.9,
+      0.85,
+      0.8
+    ],
+    "accepted_count_rule": "max(1, min(n, int(round(coverage * n))))",
+    "selective_tie_rule": "stable mergesort by uncertainty; original source_index order breaks exact ties",
+    "reported_metrics": [
+      "coverage",
+      "accepted_n",
+      "rejected_n",
+      "accepted_error_rate",
+      "accepted_mcc",
+      "accepted_balanced_accuracy",
+      "accepted_sensitivity",
+      "accepted_specificity"
+    ]
+  },
+  "random_rejection_control": {
+    "definition": "Uniform random ranking of all OOF samples, accepting the first k samples at each target coverage.",
+    "nested_across_coverages": true,
+    "replicates": 5000,
+    "seed": 20260820,
+    "summary": "mean, median, 2.5th percentile, and 97.5th percentile across random rankings",
+    "same_accepted_count_as_selective": true
+  },
+  "paired_bootstrap": {
+    "replicates": 5000,
+    "seed": 20260821,
+    "sampling": "resample within true label with replacement, retaining original class counts",
+    "random_control_within_each_replicate": "one uniform nested random ranking of the resampled observations",
+    "confidence_level": 0.95,
+    "method_intervals": [
+      "selective uncertainty ranking",
+      "random rejection"
+    ],
+    "raw_delta": "selective metric minus random metric",
+    "positive_improvement_definition": {
+      "accepted_error_rate": "random minus selective",
+      "accepted_mcc": "selective minus random",
+      "accepted_balanced_accuracy": "selective minus random",
+      "accepted_sensitivity": "selective minus random",
+      "accepted_specificity": "selective minus random"
+    },
+    "multiple_comparison_policy": "Report effect sizes and percentile intervals without p-values or significance stars; no multiplicity-adjusted confirmatory claim is made."
+  },
+  "interpretation_rule": {
+    "primary_control_point": 0.9,
+    "supports_difficult_sample_identification_when": [
+      "the 95% paired-bootstrap lower bound for random-minus-selective accepted error is above zero at 90% coverage",
+      "the selective accepted-error point estimate is below the random-rejection mean at all four partial-coverage operating points"
+    ],
+    "does_not_change_policy_selection": true,
+    "does_not_establish_external_generalization": true
+  },
+  "output_dir": "runs/selective_prediction_formal_current_default_20260810_v2"
+}

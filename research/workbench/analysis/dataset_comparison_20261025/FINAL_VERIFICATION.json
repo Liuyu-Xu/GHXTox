@@ -1,0 +1,37 @@
+{
+  "all_original_inputs_unchanged": true,
+  "independent_Bio_fasta_parsing_agrees": true,
+  "reused_families_independently_confirmed": true,
+  "naive_exhaustive_vs_pruned_global_search": [
+    {
+      "sequence": "DCLGFMRKCIPDEDKCCRPNLVCSRTHKWCKYVF",
+      "naive_max": 0.9705882352941176,
+      "pruned_max": 0.9705882352941176,
+      "references": 6387
+    },
+    {
+      "sequence": "DEALRLKQRRRTLK",
+      "naive_max": 0.42857142857142855,
+      "pruned_max": 0.42857142857142855,
+      "references": 6387
+    },
+    {
+      "sequence": "DSKLDTKKCALERGEVCVVPILGTLACCRAFCSGVCL",
+      "naive_max": 0.40540540540540543,
+      "pruned_max": 0.40540540540540543,
+      "references": 6387
+    },
+    {
+      "sequence": "MGQFFAYATVITVKENDHVA",
+      "naive_max": 0.3333333333333333,
+      "pruned_max": 0.3333333333333333,
+      "references": 6387
+    }
+  ],
+  "independent_Biopython_scores_and_terminal_gap_controls": true,
+  "HemoPI2_labels_match_reported_HC50_threshold": true,
+  "candidate_panel_not_declared_gold_or_used_for_model_selection": true,
+  "MAOMAO_contains_all_GHXTox_known_unique_sequences": true,
+  "ToxiCompass_manifests_match_official_card_SHA256": true,
+  "passed": true
+}

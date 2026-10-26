@@ -1,0 +1,59 @@
+{
+  "status": "complete",
+  "decision": "retain_seed42_3d_handoff",
+  "promotion_authorized": false,
+  "handoff_regeneration_authorized": false,
+  "best_single_seed_selection_authorized": false,
+  "external_test_labels_read": false,
+  "fold_mcc_non_decrease_count": 3,
+  "length_gates": {
+    "11-15": {
+      "mcc_within_0_005": false,
+      "auprc_within_0_002": false,
+      "all_conditions_passed": false
+    },
+    "16-30": {
+      "mcc_within_0_005": true,
+      "auprc_within_0_002": true,
+      "all_conditions_passed": true
+    },
+    "31-50": {
+      "mcc_within_0_005": true,
+      "auprc_within_0_002": true,
+      "all_conditions_passed": true
+    }
+  },
+  "gate": {
+    "mcc_strictly_higher": false,
+    "auprc_at_least_reference": false,
+    "at_least_three_fold_mcc_non_decreases": true,
+    "brier_within_0_001": true,
+    "ece_10_within_0_002": true,
+    "all_length_strata_within_tolerances": false,
+    "all_conditions_passed": false
+  },
+  "reference_metrics": {
+    "accuracy": 0.9350242680444654,
+    "balanced_accuracy": 0.9150081948444352,
+    "precision": 0.8997150997150997,
+    "recall": 0.8685368536853685,
+    "f1": 0.8838511055135739,
+    "mcc": 0.8390181404798325,
+    "auroc": 0.960692676840457,
+    "auprc": 0.9281708597568626,
+    "brier": 0.05939949004168534,
+    "ece_10": 0.05110902710928455
+  },
+  "ensemble_metrics": {
+    "accuracy": 0.9337717238139972,
+    "balanced_accuracy": 0.9123111917232432,
+    "precision": 0.9006318207926479,
+    "recall": 0.8624862486248625,
+    "f1": 0.8811463894352346,
+    "mcc": 0.835648521721285,
+    "auroc": 0.9607455273870569,
+    "auprc": 0.9276302761040205,
+    "brier": 0.05864765493360107,
+    "ece_10": 0.04884912073851912
+  }
+}

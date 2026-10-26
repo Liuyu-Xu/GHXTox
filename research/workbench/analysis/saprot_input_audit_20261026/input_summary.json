@@ -1,0 +1,28 @@
+{
+  "n": 6387,
+  "coordinates_source": "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+  "coordinate_field_fingerprint_sha256": "d76bc089ac43839b4b775ba42b1c008cd668210dda062e1005887a24956decfd",
+  "mini3di_version": "0.2.1",
+  "backbone_complete_n": 6387,
+  "entirely_structure_masked_n": 1295,
+  "total_residues": 201994,
+  "unmasked_structure_residues": 107258,
+  "rigid_transform_checks": [
+    {
+      "sample_id": "peptide_1",
+      "rigid_rotation_translation_states_equal": true
+    },
+    {
+      "sample_id": "peptide_3194",
+      "rigid_rotation_translation_states_equal": true
+    },
+    {
+      "sample_id": "peptide_6387",
+      "rigid_rotation_translation_states_equal": true
+    }
+  ],
+  "scope": "backbone-reconstructed3Di,notfull-nativeCB Foldseek equivalence; frozen predicted structure, not experimental biology labels",
+  "official_mask_threshold_plddt": 70,
+  "raw_pdb_required_not_recovered": true,
+  "sidechain_centroid_not_used_as_CB": true
+}
