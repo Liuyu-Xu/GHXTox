@@ -1,13 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "canonical_public_default": true,
   "public_model_name": "GHXTox",
+  "model_status": "primary",
+  "architecture_version": "no_inner_transformer_20261023",
   "entrypoint": "ghxtox-predict",
   "composition": {
     "sequence_submodel": {
       "name": "LoRA-adapted ProtT5 with bidirectional Mamba",
       "experiment_name": "lora_mamba_1d_combinationA_autodl",
-      "seeds": [42, 123, 2025],
+      "seeds": [
+        42,
+        123,
+        2025
+      ],
       "config": "configs/lora_mamba_1d_autodl.json",
       "checkpoints": [
         "runs/lora_mamba_full/full_seed42.pt",
@@ -21,8 +27,11 @@
       ]
     },
     "structural_submodel": {
-      "name": "pLDDT-aware single-structure submodel",
-      "checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
+      "name": "pLDDT-aware three-scale submodel without the extra sequence Transformer",
+      "architecture": "no_inner_transformer",
+      "num_sequence_layers": 0,
+      "config": "configs/default.json",
+      "checkpoint": "runs/default_no_inner_transformer_20261023/best_model.pt"
     }
   },
   "inference": {
@@ -32,9 +41,9 @@
     "multi_conformer_residual": "disabled"
   },
   "fusion": {
-    "weight_sequence": 0.72,
-    "weight_structure": 0.28,
-    "threshold": 0.47022256531284556,
-    "parameter_source": "group-aware training-set OOF predictions"
+    "weight_sequence": 0.76,
+    "weight_structure": 0.24,
+    "threshold": 0.5063534554819765,
+    "parameter_source": "aligned training OOF; deployment parameter selection only, not independent evaluation"
   }
 }

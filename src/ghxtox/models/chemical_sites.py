@@ -37,6 +37,7 @@ class ChemicalSiteInteractionBranch(nn.Module):
         max_site_slots: int = 2,
         exclude_same_residue_edges: bool = True,
         zero_init_residual: bool = True,
+        use_plddt_weighting: bool = True,
     ) -> None:
         super().__init__()
         self.max_distance = float(max_distance)
@@ -45,6 +46,7 @@ class ChemicalSiteInteractionBranch(nn.Module):
         self.use_orientation = bool(use_orientation)
         self.use_interaction_types = bool(use_interaction_types)
         self.use_plddt = bool(use_plddt)
+        self.use_plddt_weighting = bool(use_plddt_weighting)
         self.use_hydrophobic_sites = bool(use_hydrophobic_sites)
         self.max_site_slots = max(int(max_site_slots), 1)
         self.exclude_same_residue_edges = bool(exclude_same_residue_edges)
@@ -170,7 +172,11 @@ class ChemicalSiteInteractionBranch(nn.Module):
         if self.use_plddt:
             parts.append(pair_confidence.unsqueeze(-1))
         edge_features = torch.cat(parts, dim=-1)
-        message_weight = pair_confidence if self.use_plddt else torch.ones_like(pair_confidence)
+        message_weight = (
+            pair_confidence
+            if self.use_plddt and self.use_plddt_weighting
+            else torch.ones_like(pair_confidence)
+        )
         return edge_features, message_weight
 
     def forward(

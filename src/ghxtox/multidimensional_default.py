@@ -24,6 +24,7 @@ from ghxtox.lora_mamba_1d import (
 )
 from ghxtox.selective_prediction import apply_selective_policy, load_selective_policy
 from ghxtox.utils import (
+    DEFAULT_CHECKPOINT,
     DEFAULT_MULTIDIMENSIONAL_CONFIG,
     DEFAULT_MULTIDIMENSIONAL_MODEL_NAME,
     DEFAULT_MULTIDIMENSIONAL_THRESHOLD,
@@ -38,9 +39,7 @@ DEFAULT_OOF_JSONS = tuple(
     f"runs/lora_mamba_full/oof_seed{seed}.json" for seed in PUBLIC_1D_SEEDS
 )
 DEFAULT_MANIFEST = "data/folds/train_cdhit080_fallback_folds.csv"
-DEFAULT_STRUCTURE_CHECKPOINT = (
-    "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
-)
+DEFAULT_STRUCTURE_CHECKPOINT = DEFAULT_CHECKPOINT
 DEFAULT_1D_CONFIG = "configs/lora_mamba_1d_autodl.json"
 LEGACY_STRUCTURE_COLUMNS = {
     "prott5_probability",
@@ -111,6 +110,10 @@ def validate_public_default_config(config: dict[str, Any]) -> None:
     structure = config.get("composition", {}).get("structural_submodel", {})
     if structure.get("checkpoint") != DEFAULT_STRUCTURE_CHECKPOINT:
         raise ValueError("The structural-submodel checkpoint is missing or stale.")
+    if structure.get("config") != "configs/default.json":
+        raise ValueError("The canonical structural submodel must use configs/default.json.")
+    if structure.get("architecture") != "no_inner_transformer" or structure.get("num_sequence_layers") != 0:
+        raise ValueError("The canonical structural submodel must remove the extra sequence Transformer.")
 
 
 def _validate_operating_point(weight: float, threshold: float, allow_noncanonical: bool) -> None:
@@ -561,6 +564,19 @@ def _validate_canonical_predict_assets(
         normalized = str(value).replace("\\", "/").lower()
         if any(token in normalized for token in ("/_legacy/", "hybrid_default", "default_3d_hybrid")):
             raise ValueError("Legacy model assets are forbidden in the public predictor.")
+    _validate_structure_checkpoint_architecture(structure_checkpoint)
+
+
+def _validate_structure_checkpoint_architecture(path: str | Path) -> None:
+    """Reject stale structural weights before running the three PLM passes."""
+    import torch
+
+    checkpoint = torch.load(path, map_location="cpu", weights_only=False)
+    model_config = checkpoint.get("config", {}).get("model", {})
+    if model_config.get("num_sequence_layers") != 0:
+        raise ValueError("Canonical structural weights must have num_sequence_layers=0.")
+    if any(key.startswith("sequence_branch.encoder.") for key in checkpoint["model_state"]):
+        raise ValueError("Canonical structural weights contain extra Transformer parameters.")
 
 
 def predict(

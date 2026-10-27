@@ -8,6 +8,16 @@ import torch
 from torch import nn
 
 
+def _validate_sequence_separation_normalization(value: str) -> str:
+    mode = str(value).lower()
+    if mode not in {"batch_length_legacy", "peptide_length"}:
+        raise ValueError(
+            "sequence_separation_normalization must be "
+            "'peptide_length' or 'batch_length_legacy'."
+        )
+    return mode
+
+
 def masked_mean(values: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
     weights = mask.float().unsqueeze(-1)
     return (values * weights).sum(dim=1) / weights.sum(dim=1).clamp_min(1.0)
@@ -61,16 +71,21 @@ class SequenceBranch(nn.Module):
             aa_embedding_dim + group_embedding_dim + residue_feature_dim + projected_plm_dim,
             hidden_dim,
         )
-        layer = nn.TransformerEncoderLayer(
-            d_model=hidden_dim,
-            nhead=num_heads,
-            dim_feedforward=hidden_dim * 4,
-            dropout=dropout,
-            batch_first=True,
-            activation="gelu",
-            norm_first=True,
-        )
-        self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+        if num_layers < 0:
+            raise ValueError("num_sequence_layers must be nonnegative.")
+        if num_layers:
+            layer = nn.TransformerEncoderLayer(
+                d_model=hidden_dim,
+                nhead=num_heads,
+                dim_feedforward=hidden_dim * 4,
+                dropout=dropout,
+                batch_first=True,
+                activation="gelu",
+                norm_first=True,
+            )
+            self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+        else:
+            self.encoder = nn.Identity()
         self.norm = nn.LayerNorm(hidden_dim)
         self.dropout = nn.Dropout(dropout)
 
@@ -107,7 +122,8 @@ class SequenceBranch(nn.Module):
             self.position_embedding.num_embeddings - 1
         )
         h = h + self.position_embedding(positions).unsqueeze(0)
-        h = self.encoder(h, src_key_padding_mask=~mask)
+        if not isinstance(self.encoder, nn.Identity):
+            h = self.encoder(h, src_key_padding_mask=~mask)
         return self.norm(self.dropout(h))
 
 
@@ -214,6 +230,12 @@ class SequenceMultiscaleBranch(nn.Module):
 
 
 class PLDDTAwareEGNNLayer(nn.Module):
+    """Spatial message passing with an explicit sequence-feature version.
+
+    The legacy default preserves existing checkpoint semantics. New training
+    should select ``peptide_length`` so edge features do not depend on padding.
+    """
+
     def __init__(
         self,
         hidden_dim: int,
@@ -226,6 +248,7 @@ class PLDDTAwareEGNNLayer(nn.Module):
         enhanced_edge_features: bool = False,
         local_frame_edge_features: bool = False,
         backbone_geometry_edge_features: bool = False,
+        sequence_separation_normalization: str = "batch_length_legacy",
     ) -> None:
         super().__init__()
         self.graph_mode = graph_mode
@@ -235,6 +258,9 @@ class PLDDTAwareEGNNLayer(nn.Module):
         self.enhanced_edge_features = bool(enhanced_edge_features)
         self.local_frame_edge_features = bool(local_frame_edge_features)
         self.backbone_geometry_edge_features = bool(backbone_geometry_edge_features)
+        self.sequence_separation_normalization = _validate_sequence_separation_normalization(
+            sequence_separation_normalization
+        )
         edge_dim = rbf_bins + 2
         edge_dim += 6 if self.enhanced_edge_features else 0
         edge_dim += 15 if self.local_frame_edge_features else 0
@@ -254,6 +280,19 @@ class PLDDTAwareEGNNLayer(nn.Module):
             nn.Linear(hidden_dim * 2, hidden_dim),
         )
         self.norm = nn.LayerNorm(hidden_dim)
+
+    def _sequence_separation(self, mask: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        length = mask.shape[1]
+        positions = torch.arange(length, device=mask.device).float()
+        separation = (positions.view(1, -1, 1) - positions.view(1, 1, -1)).abs()
+        if self.sequence_separation_normalization == "batch_length_legacy":
+            # Keep the historical arithmetic exactly for saved checkpoints.
+            normalizer = torch.log(torch.tensor(float(length + 1), device=mask.device))
+        else:
+            lengths = mask.bool().sum(dim=1).clamp_min(1).float()
+            normalizer = torch.log1p(lengths).view(-1, 1, 1)
+        separation = torch.log1p(separation) / normalizer
+        return separation.expand(mask.shape[0], -1, -1), normalizer
 
     def _graph_mask(self, distances: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
         batch, length, _ = distances.shape
@@ -388,10 +427,7 @@ class PLDDTAwareEGNNLayer(nn.Module):
         graph_mask = self._graph_mask(distances, mask)
 
         pair_conf = (plddt.unsqueeze(1) * plddt.unsqueeze(2)).clamp_min(0.0).sqrt()
-        positions = torch.arange(h.shape[1], device=h.device).float()
-        seq_sep = (positions.view(1, -1, 1) - positions.view(1, 1, -1)).abs()
-        seq_sep = torch.log1p(seq_sep) / torch.log(torch.tensor(float(h.shape[1] + 1), device=h.device))
-        seq_sep = seq_sep.expand(h.shape[0], -1, -1)
+        seq_sep, seq_normalizer = self._sequence_separation(mask)
 
         hi = h.unsqueeze(2).expand(-1, -1, h.shape[1], -1)
         hj = h.unsqueeze(1).expand(-1, h.shape[1], -1, -1)
@@ -407,7 +443,7 @@ class PLDDTAwareEGNNLayer(nn.Module):
             centroid = masked_mean(coords, mask).unsqueeze(1)
             radial = (coords - centroid).norm(dim=-1)
             radial_delta = (radial.unsqueeze(2) - radial.unsqueeze(1)) / radial.max(dim=1).values.view(-1, 1, 1).clamp_min(1.0)
-            seq_adjacent_float = (seq_sep <= (1.0 / torch.log(torch.tensor(float(h.shape[1] + 1), device=h.device)) + 1e-6)).float()
+            seq_adjacent_float = (seq_sep <= (1.0 / seq_normalizer + 1e-6)).float()
             nonlocal_contact = ((seq_sep > 0.4) & (distances < 8.0)).float()
             enhanced = torch.stack(
                 [
@@ -464,6 +500,8 @@ class PLDDTAwareEGNNLayer(nn.Module):
 
 
 class SpatialBranch(nn.Module):
+    """EGNN encoder; opt into peptide-length normalization for new training."""
+
     def __init__(
         self,
         residue_feature_dim: int,
@@ -481,10 +519,14 @@ class SpatialBranch(nn.Module):
         enhanced_edge_features: bool = False,
         local_frame_edge_features: bool = False,
         backbone_geometry_edge_features: bool = False,
+        sequence_separation_normalization: str = "batch_length_legacy",
     ) -> None:
         super().__init__()
         self.structure_feature_dim = max(int(structure_feature_dim), 0)
         self.plm_embedding_dim = max(int(plm_embedding_dim), 0)
+        self.sequence_separation_normalization = _validate_sequence_separation_normalization(
+            sequence_separation_normalization
+        )
         self.plm_projection = (
             nn.Sequential(nn.LayerNorm(self.plm_embedding_dim), nn.Linear(self.plm_embedding_dim, hidden_dim), nn.GELU())
             if self.plm_embedding_dim > 0
@@ -509,6 +551,7 @@ class SpatialBranch(nn.Module):
                     enhanced_edge_features=enhanced_edge_features,
                     local_frame_edge_features=local_frame_edge_features,
                     backbone_geometry_edge_features=backbone_geometry_edge_features,
+                    sequence_separation_normalization=self.sequence_separation_normalization,
                 )
                 for _ in range(num_layers)
             ]

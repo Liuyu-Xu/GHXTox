@@ -150,6 +150,9 @@ class GHXToxModel(nn.Module):
             enhanced_edge_features=bool(model_cfg.get("enhanced_edge_features", False)),
             local_frame_edge_features=bool(model_cfg.get("local_frame_edge_features", False)),
             backbone_geometry_edge_features=bool(model_cfg.get("backbone_geometry_edge_features", False)),
+            sequence_separation_normalization=str(
+                model_cfg.get("sequence_separation_normalization", "batch_length_legacy")
+            ),
         )
         self.chemical_site_branch = None
         if bool(model_cfg.get("chemical_site_branch", False)):
@@ -185,6 +188,9 @@ class GHXToxModel(nn.Module):
                 ),
                 zero_init_residual=bool(
                     model_cfg.get("chemical_site_zero_init_residual", True)
+                ),
+                use_plddt_weighting=bool(
+                    model_cfg.get("chemical_site_use_plddt_weighting", True)
                 ),
             )
         self.fusion = PLDDTAwareFusion(
