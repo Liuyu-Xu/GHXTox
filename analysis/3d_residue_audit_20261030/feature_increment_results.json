@@ -1,0 +1,159 @@
+{
+  "all": {
+    "score_only": {
+      "n": 6387,
+      "errors": 426,
+      "mcc": 0.8349670094543976,
+      "auroc": 0.9569749599166527,
+      "auprc": 0.9233013713309851
+    },
+    "score_basic": {
+      "n": 6387,
+      "errors": 441,
+      "mcc": 0.8284875521979782,
+      "auroc": 0.9583289090563685,
+      "auprc": 0.9276217717132993
+    },
+    "score_basic_local": {
+      "n": 6387,
+      "errors": 439,
+      "mcc": 0.8293404060531383,
+      "auroc": 0.9580352213378485,
+      "auprc": 0.9260879513024105
+    },
+    "local_vs_basic": {
+      "corrected": 17,
+      "harmed": 15
+    }
+  },
+  "low_positive": {
+    "score_only": {
+      "n": 262,
+      "errors": 161,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic": {
+      "n": 262,
+      "errors": 191,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic_local": {
+      "n": 262,
+      "errors": 187,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "local_vs_basic": {
+      "corrected": 6,
+      "harmed": 2
+    }
+  },
+  "low_negative": {
+    "score_only": {
+      "n": 3537,
+      "errors": 55,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic": {
+      "n": 3537,
+      "errors": 30,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic_local": {
+      "n": 3537,
+      "errors": 32,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "local_vs_basic": {
+      "corrected": 3,
+      "harmed": 5
+    }
+  },
+  "high_negative": {
+    "score_only": {
+      "n": 240,
+      "errors": 58,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic": {
+      "n": 240,
+      "errors": 75,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic_local": {
+      "n": 240,
+      "errors": 74,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "local_vs_basic": {
+      "corrected": 4,
+      "harmed": 3
+    }
+  },
+  "high_positive": {
+    "score_only": {
+      "n": 1063,
+      "errors": 15,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic": {
+      "n": 1063,
+      "errors": 11,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "score_basic_local": {
+      "n": 1063,
+      "errors": 11,
+      "mcc": null,
+      "auroc": null,
+      "auprc": null
+    },
+    "local_vs_basic": {
+      "corrected": 0,
+      "harmed": 0
+    }
+  },
+  "folds": {
+    "0": {
+      "score_basic_errors": 67,
+      "score_basic_local_errors": 67
+    },
+    "1": {
+      "score_basic_errors": 108,
+      "score_basic_local_errors": 105
+    },
+    "2": {
+      "score_basic_errors": 84,
+      "score_basic_local_errors": 89
+    },
+    "3": {
+      "score_basic_errors": 86,
+      "score_basic_local_errors": 85
+    },
+    "4": {
+      "score_basic_errors": 96,
+      "score_basic_local_errors": 93
+    }
+  }
+}

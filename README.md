@@ -144,3 +144,9 @@ included. Earlier fork-specific tools are archived in
 - 共同错误的排列配对及轻量探针仅提供探索线索；探针对原完整模型纠正 90 条、新错 448 条，尚不适合直接融合。见 [配对分析](analysis/both_wrong_order_matched_20261030/REPORT.md) 和 [探针对照](analysis/residue_order_probe_20261030/GHX_COMPARISON.md)。
 - 下一步：先审计原三维分支已有残基、化学位点和局部交互特征，再设计残基信息补充的匹配消融；同折同种子比较一维、三维和完整融合，关注两类 Cys 错误与整体 MCC/AUPRC。既有 OOF 校准非完全嵌套，历史测试集已参与开发，均不能视为盲测。
 
+
+### 2026-10-30：三维残基与本地训练进展
+
+- 历史三维五折候选权重已核验，第2折化学位点残差为零；上游权重谱系不完整，相关结果为探索性。残基位置探针、化学位点遮蔽及匹配对照见 [三维残基审计](analysis/3d_residue_audit_20261030/REPORT.md) 和 [输入及配对分析](analysis/3d_residue_audit_20261030/INPUT_AND_MATCHED_REVIEW.md)。
+- 局部及空间统计特征的轻量增量对照没有显示稳定收益；本地单折冻结主干的普通残基/Cys残差头没有改善重点群体。减弱惩罚虽增大修正但验证错误增加；用基础模型未见样本训练修正头的探索亦未改善分类。详见 [本地训练报告](analysis/local_residue_interaction_20261030/REPORT.md)。
+- 这些试验均非最终完整 GHXTox 模型对比；上游OOF/历史测试已有开发使用、单折单种子及标签不确定性限制结论。下一步研究残基级三维交互，设置匹配训练与等参数对照，并评价三维与完整融合。
