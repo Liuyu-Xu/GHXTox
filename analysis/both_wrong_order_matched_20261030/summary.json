@@ -1,0 +1,173 @@
+{
+  "low_pos": {
+    "targets": 107,
+    "controls": 94,
+    "matched": 63,
+    "unmatched": 44,
+    "unmatched_ids": [
+      "peptide_93",
+      "peptide_322",
+      "peptide_426",
+      "peptide_802",
+      "peptide_884",
+      "peptide_907",
+      "peptide_9",
+      "peptide_59",
+      "peptide_447",
+      "peptide_460",
+      "peptide_463",
+      "peptide_486",
+      "peptide_730",
+      "peptide_742",
+      "peptide_785",
+      "peptide_792",
+      "peptide_104",
+      "peptide_110",
+      "peptide_203",
+      "peptide_247",
+      "peptide_289",
+      "peptide_307",
+      "peptide_320",
+      "peptide_470",
+      "peptide_721",
+      "peptide_806",
+      "peptide_827",
+      "peptide_865",
+      "peptide_871",
+      "peptide_886",
+      "peptide_1107",
+      "peptide_1148",
+      "peptide_1580",
+      "peptide_102",
+      "peptide_193",
+      "peptide_309",
+      "peptide_1109",
+      "peptide_175",
+      "peptide_226",
+      "peptide_324",
+      "peptide_398",
+      "peptide_401",
+      "peptide_815",
+      "peptide_956"
+    ],
+    "shared_family_pairs": 4,
+    "flagged_pairs": 23,
+    "fold_counts": {
+      "0": 11,
+      "1": 11,
+      "2": 10,
+      "3": 15,
+      "4": 16
+    },
+    "features": {
+      "cys_mean_gap_norm": {
+        "n": 0,
+        "median_difference": null,
+        "wrong_greater": 0,
+        "wrong_smaller": 0,
+        "ties": 0
+      },
+      "cys_span_norm": {
+        "n": 0,
+        "median_difference": null,
+        "wrong_greater": 0,
+        "wrong_smaller": 0,
+        "ties": 0
+      },
+      "hydrophobic_adjacent_fraction": {
+        "n": 63,
+        "median_difference": 0.04999999999999999,
+        "wrong_greater": 36,
+        "wrong_smaller": 23,
+        "ties": 4
+      },
+      "charged_hydrophobic_boundaries": {
+        "n": 63,
+        "median_difference": -0.041958041958041925,
+        "wrong_greater": 27,
+        "wrong_smaller": 34,
+        "ties": 2
+      },
+      "cys_neighbor_hydrophobic_fraction": {
+        "n": 10,
+        "median_difference": 0.0,
+        "wrong_greater": 2,
+        "wrong_smaller": 2,
+        "ties": 6
+      }
+    }
+  },
+  "high_neg": {
+    "targets": 37,
+    "controls": 167,
+    "matched": 18,
+    "unmatched": 19,
+    "unmatched_ids": [
+      "peptide_1948",
+      "peptide_2697",
+      "peptide_3116",
+      "peptide_3602",
+      "peptide_3648",
+      "peptide_3712",
+      "peptide_4289",
+      "peptide_4364",
+      "peptide_5006",
+      "peptide_5875",
+      "peptide_3270",
+      "peptide_3470",
+      "peptide_2992",
+      "peptide_2345",
+      "peptide_2380",
+      "peptide_3037",
+      "peptide_3326",
+      "peptide_5011",
+      "peptide_5902"
+    ],
+    "shared_family_pairs": 0,
+    "flagged_pairs": 6,
+    "fold_counts": {
+      "0": 2,
+      "1": 4,
+      "2": 3,
+      "3": 3,
+      "4": 6
+    },
+    "features": {
+      "cys_mean_gap_norm": {
+        "n": 18,
+        "median_difference": 0.012562724014336918,
+        "wrong_greater": 12,
+        "wrong_smaller": 6,
+        "ties": 0
+      },
+      "cys_span_norm": {
+        "n": 18,
+        "median_difference": 0.07365990490199431,
+        "wrong_greater": 12,
+        "wrong_smaller": 6,
+        "ties": 0
+      },
+      "hydrophobic_adjacent_fraction": {
+        "n": 18,
+        "median_difference": 0.016125541125541123,
+        "wrong_greater": 11,
+        "wrong_smaller": 6,
+        "ties": 1
+      },
+      "charged_hydrophobic_boundaries": {
+        "n": 18,
+        "median_difference": 0.02056131592421915,
+        "wrong_greater": 11,
+        "wrong_smaller": 6,
+        "ties": 1
+      },
+      "cys_neighbor_hydrophobic_fraction": {
+        "n": 18,
+        "median_difference": 0.0,
+        "wrong_greater": 7,
+        "wrong_smaller": 8,
+        "ties": 3
+      }
+    }
+  }
+}

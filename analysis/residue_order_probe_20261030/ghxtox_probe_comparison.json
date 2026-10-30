@@ -1,0 +1,58 @@
+{
+  "all": {
+    "n": 6387,
+    "GHX_error": 327,
+    "probe_error": 685,
+    "corrected": 90,
+    "harmed": 448,
+    "both_wrong": 237
+  },
+  "high_label1": {
+    "n": 1063,
+    "GHX_error": 6,
+    "probe_error": 64,
+    "corrected": 6,
+    "harmed": 64,
+    "both_wrong": 0
+  },
+  "mid_label1": {
+    "n": 493,
+    "GHX_error": 46,
+    "probe_error": 114,
+    "corrected": 16,
+    "harmed": 84,
+    "both_wrong": 30
+  },
+  "low_label1": {
+    "n": 262,
+    "GHX_error": 140,
+    "probe_error": 192,
+    "corrected": 16,
+    "harmed": 68,
+    "both_wrong": 124
+  },
+  "low_label0": {
+    "n": 3537,
+    "GHX_error": 24,
+    "probe_error": 112,
+    "corrected": 19,
+    "harmed": 107,
+    "both_wrong": 5
+  },
+  "mid_label0": {
+    "n": 792,
+    "GHX_error": 61,
+    "probe_error": 98,
+    "corrected": 25,
+    "harmed": 62,
+    "both_wrong": 36
+  },
+  "high_label0": {
+    "n": 240,
+    "GHX_error": 50,
+    "probe_error": 105,
+    "corrected": 8,
+    "harmed": 63,
+    "both_wrong": 42
+  }
+}

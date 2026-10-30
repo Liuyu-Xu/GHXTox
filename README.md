@@ -135,3 +135,12 @@ distillation has not yet been run. Large text results are compressed with a
 checksum-bearing restoration helper; checkpoints and feature caches are not
 included. Earlier fork-specific tools are archived in
 [research/legacy_hypeptox](research/legacy_hypeptox/ARCHIVE_NOTE.md).
+
+### 2026-10-30：Cys、对比学习与残基排列进展
+
+- B/C/D 三种子五折条件融合 MCC 为 0.8614/0.8680/0.8743；历史模型 0.8733，D 的差异区间跨零，不能证明提升。历史与新模型训练不完全匹配。详见 [报告](analysis/official_bcd_oof_20261030/REPORT.md)。
+- 融合权重探索中 D 五折都选择原一维权重 0.72，指标不变；结果仅有汇总，服务端脚本尚未独立审计。详见 [审计](analysis/fusion_weight_crossfit_20261030/AUDIT.md)。
+- 两路共同错误：低 Cys 有毒 107/262，高 Cys 无毒 37/240；C→D 共纠正 64 条、新错 48 条。见 [报告](analysis/expert_cys_cd_family_20261030/REPORT.md)。
+- 共同错误的排列配对及轻量探针仅提供探索线索；探针对原完整模型纠正 90 条、新错 448 条，尚不适合直接融合。见 [配对分析](analysis/both_wrong_order_matched_20261030/REPORT.md) 和 [探针对照](analysis/residue_order_probe_20261030/GHX_COMPARISON.md)。
+- 下一步：先审计原三维分支已有残基、化学位点和局部交互特征，再设计残基信息补充的匹配消融；同折同种子比较一维、三维和完整融合，关注两类 Cys 错误与整体 MCC/AUPRC。既有 OOF 校准非完全嵌套，历史测试集已参与开发，均不能视为盲测。
+
