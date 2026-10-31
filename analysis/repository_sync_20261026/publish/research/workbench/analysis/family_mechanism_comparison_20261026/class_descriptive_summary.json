@@ -1,0 +1,1823 @@
+[
+  {
+    "family": "Kunitz",
+    "original_label": 0,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_4315"
+    ],
+    "control_ids": [
+      "peptide_4148"
+    ],
+    "case_fragments": 1,
+    "control_fragments": 1,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.021428571428571463,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.17997775305895436,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.08506483937518419,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.07725288759771518,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.029647874475460682,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.5186666243371282,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09230769230769231,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.11282377244557444,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.051897316788595015,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.012225985999999911,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.4778588627127645,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_min_distance": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.4968918882626281,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "L_amino_acid_oxidase",
+    "original_label": 1,
+    "n_pairs": 2,
+    "case_ids": [
+      "peptide_617",
+      "peptide_119"
+    ],
+    "control_ids": [
+      "peptide_538",
+      "peptide_1410"
+    ],
+    "case_fragments": 2,
+    "control_fragments": 2,
+    "case_full_feature_records": 2,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 2,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 2,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "cys_span_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.21052631578947367,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "net_charge_proxy": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.5,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_hydropathy": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.06353218210361075,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.05706841003271325,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.018833340605120544,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.05757698984286566,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.24085218631701172,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.022222222222222254,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.000261643118785973,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.030359498713378383,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "mean_plddt": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0006807150000000262,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "sequence_seed_std": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.26140068485724105,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "20203422"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "PLA2",
+    "original_label": 0,
+    "n_pairs": 2,
+    "case_ids": [
+      "peptide_5091",
+      "peptide_3434"
+    ],
+    "control_ids": [
+      "peptide_5046",
+      "peptide_5947"
+    ],
+    "case_fragments": 2,
+    "control_fragments": 2,
+    "case_full_feature_records": 2,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "cys_span_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.2962962962962963,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.5,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.1492997198879552,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.013971665589312635,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.028424908424908427,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.021538461538461538,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.43787908034143175,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.020292207792207806,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.08165266106442576,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.0010747398818823223,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "mean_plddt": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.053574711,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "sequence_seed_std": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.31552154545266076,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "20203422"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "PLA2",
+    "original_label": 1,
+    "n_pairs": 4,
+    "case_ids": [
+      "peptide_151",
+      "peptide_800",
+      "peptide_1175",
+      "peptide_826"
+    ],
+    "control_ids": [
+      "peptide_85",
+      "peptide_1125",
+      "peptide_851",
+      "peptide_725"
+    ],
+    "case_fragments": 4,
+    "control_fragments": 4,
+    "case_full_feature_records": 4,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 3,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.25,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.06098463937443783,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.03435710513826897,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.013848810634863755,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 4,
+        "mean_case_minus_control": -0.0045617980452695335,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.16762084723213774,
+        "n_case_higher": 1,
+        "n_case_lower": 2
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.026136363636363652,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 4,
+        "mean_case_minus_control": -0.017623615998649648,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 4,
+        "mean_case_minus_control": -0.005625288080086992,
+        "n_case_higher": 2,
+        "n_case_lower": 2
+      },
+      "mean_plddt": {
+        "n_finite": 4,
+        "mean_case_minus_control": -0.06206288900000001,
+        "n_case_higher": 1,
+        "n_case_lower": 3
+      },
+      "sequence_seed_std": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.1097514424426136,
+        "n_case_higher": 3,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 4,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "amylase_inhibitor",
+    "original_label": 0,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_2355"
+    ],
+    "control_ids": [
+      "peptide_6218"
+    ],
+    "case_fragments": 1,
+    "control_fragments": 1,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.29666666666666663,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -5.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.6599999999999999,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.052569169960474255,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.02621870882740448,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.007905138339920948,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.622643191290523,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.125,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.06747252747252747,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.11190136650083946,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.03360515799999997,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09415444380349064,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 1,
+        "mean_case_minus_control": 22.8371045931945,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "bacteriocin",
+    "original_label": 0,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_2697"
+    ],
+    "control_ids": [
+      "peptide_4337"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 4.0,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.5651629072681704,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -2.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.4175909361955873,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.04471910935325571,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.02629641836958911,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.01726543616787519,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.604906499165779,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.1428571428571429,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.07786012437175228,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.12499075857311343,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.04693603499999999,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.032875591194611226,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.6287476736215176,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 3.0,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "belongs to the ectatomin family. ectatomin-et subfamily",
+    "original_label": 1,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_201"
+    ],
+    "control_ids": [
+      "peptide_74"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 1,
+    "explicit_family_pairs": 1,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.05555555555555547,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -3.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.17996820349761536,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.013858355102673525,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.03791285571877781,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.010906645536626562,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.1364156663370159,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.3571428571428571,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09675221439927323,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.02006293886253882,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.210579097,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.4709259357040087,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 1.0,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 1,
+        "mean_case_minus_control": -13.76881815043215,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "10336635",
+      "26805882",
+      "7826413",
+      "7881269",
+      "8033986"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "belongs to the mcd family. bombolitin subfamily",
+    "original_label": 1,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_228"
+    ],
+    "control_ids": [
+      "peptide_378"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 1,
+    "explicit_family_pairs": 1,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.03157894736842093,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.04530360531309302,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.011385199240986743,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.10412713472485768,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.12540131263573273,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.10526315789473684,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.057229602369203963,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.020526409000000023,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.37746965952406286,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "16626777"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "belongs to the staphylococcal hemolytic protein family",
+    "original_label": 1,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_251"
+    ],
+    "control_ids": [
+      "peptide_139"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 1,
+    "explicit_family_pairs": 1,
+    "different_fold_pairs": 0,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": -2.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.46427061310782247,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.014389264374571414,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.0036347480514392003,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.011057470299315728,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.023362037804796232,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09523809523809523,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09845967985502868,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.04878267130093404,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.09370231600000001,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.30983756993622674,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "18752624"
+    ],
+    "documented_chemical_descriptions": [
+      "N-formylmethionine"
+    ]
+  },
+  {
+    "family": "conantokin",
+    "original_label": 1,
+    "n_pairs": 3,
+    "case_ids": [
+      "peptide_195",
+      "peptide_57",
+      "peptide_66"
+    ],
+    "control_ids": [
+      "peptide_854",
+      "peptide_359",
+      "peptide_218"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 3,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 3,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 3,
+        "mean_case_minus_control": -1.3333333333333333,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "mean_hydropathy": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.05675589746797186,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.01574259083672135,
+        "n_case_higher": 1,
+        "n_case_lower": 2
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.03562265622440843,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.06811653515498862,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.12335787750332812,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.12222222222222219,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "local_positive_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.06259484123261212,
+        "n_case_higher": 1,
+        "n_case_lower": 2
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.04801161926681897,
+        "n_case_higher": 3,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.024294972666666692,
+        "n_case_higher": 0,
+        "n_case_lower": 3
+      },
+      "sequence_seed_std": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0925315612278243,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": [
+      "4-carboxyglutamate"
+    ]
+  },
+  {
+    "family": "conotoxin_broad",
+    "original_label": 1,
+    "n_pairs": 2,
+    "case_ids": [
+      "peptide_353",
+      "peptide_332"
+    ],
+    "control_ids": [
+      "peptide_131",
+      "peptide_456"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 2,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 2,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 2,
+        "mean_case_minus_control": -2.0,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "cys_span_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.1863636363636364,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "net_charge_proxy": {
+        "n_finite": 2,
+        "mean_case_minus_control": 2.0,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "mean_hydropathy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.3949242424242426,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0035270285270285195,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.17972721722721724,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.011111111111111112,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.21644683275887866,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.125,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.043614718614718606,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.03259927485161035,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "mean_plddt": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.05459040450000002,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "sequence_seed_std": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.16359882715493146,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.25,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "sg_min_distance": {
+        "n_finite": 2,
+        "mean_case_minus_control": 2.565284109440063,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "22079220",
+      "22776330"
+    ],
+    "documented_chemical_descriptions": [
+      "Cysteine amide; partial"
+    ]
+  },
+  {
+    "family": "metalloproteinase",
+    "original_label": 1,
+    "n_pairs": 2,
+    "case_ids": [
+      "peptide_742",
+      "peptide_816"
+    ],
+    "control_ids": [
+      "peptide_1409",
+      "peptide_917"
+    ],
+    "case_fragments": 2,
+    "control_fragments": 2,
+    "case_full_feature_records": 2,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 2,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 2,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "cys_span_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.14285714285714285,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "net_charge_proxy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -1.0,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "mean_hydropathy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.1176979665071769,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.04128697949871729,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.02310426903154726,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.034614179679969145,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.26326889619457255,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.1875,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "local_positive_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.014838516746411477,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.10660124334405621,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.04099702799999999,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "sequence_seed_std": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.26470519063926407,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "20203422"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "natriuretic",
+    "original_label": 1,
+    "n_pairs": 3,
+    "case_ids": [
+      "peptide_1508",
+      "peptide_333",
+      "peptide_605"
+    ],
+    "control_ids": [
+      "peptide_294",
+      "peptide_498",
+      "peptide_526"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 2,
+    "case_full_feature_records": 3,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 2,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.08429227189838395,
+        "n_case_higher": 3,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 3,
+        "mean_case_minus_control": 1.6666666666666667,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "mean_hydropathy": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.3415717728217728,
+        "n_case_higher": 1,
+        "n_case_lower": 2
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.00592880877466051,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.029697107981976473,
+        "n_case_higher": 1,
+        "n_case_lower": 2
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.007070160575371918,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0579056436137149,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.003030303030303013,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.02317639192639191,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.048433297596710466,
+        "n_case_higher": 0,
+        "n_case_lower": 3
+      },
+      "mean_plddt": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.043616195999999996,
+        "n_case_higher": 3,
+        "n_case_lower": 0
+      },
+      "sequence_seed_std": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.03392714016998679,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 3,
+        "mean_case_minus_control": -0.3333333333333333,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sg_min_distance": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.5676613368562252,
+        "n_case_higher": 2,
+        "n_case_lower": 1
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 3,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "ponericin_name_class",
+    "original_label": 0,
+    "n_pairs": 2,
+    "case_ids": [
+      "peptide_2707",
+      "peptide_4875"
+    ],
+    "control_ids": [
+      "peptide_2283",
+      "peptide_4439"
+    ],
+    "case_fragments": 0,
+    "control_fragments": 0,
+    "case_full_feature_records": 2,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 1,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.5,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_hydropathy": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.41019841269841256,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.022057920870222014,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.020764447641435972,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.0022352928874668004,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.025305934323477275,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.1111111111111111,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.06878306878306878,
+        "n_case_higher": 1,
+        "n_case_lower": 1
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.06294726216119588,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 2,
+        "mean_case_minus_control": -0.07178252949999997,
+        "n_case_higher": 0,
+        "n_case_lower": 2
+      },
+      "sequence_seed_std": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.16288454512783868,
+        "n_case_higher": 2,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 2,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [
+      "26805882"
+    ],
+    "documented_chemical_descriptions": []
+  },
+  {
+    "family": "serine_protease",
+    "original_label": 1,
+    "n_pairs": 1,
+    "case_ids": [
+      "peptide_709"
+    ],
+    "control_ids": [
+      "peptide_850"
+    ],
+    "case_fragments": 1,
+    "control_fragments": 1,
+    "case_full_feature_records": 1,
+    "control_full_feature_records": 0,
+    "explicit_family_pairs": 0,
+    "different_fold_pairs": 0,
+    "descriptive_only": true,
+    "features": {
+      "cys_count": {
+        "n_finite": 1,
+        "mean_case_minus_control": 1.0,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "cys_span_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.7619047619047619,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "net_charge_proxy": {
+        "n_finite": 1,
+        "mean_case_minus_control": 1.0,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_hydropathy": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.5600000000000002,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.01578087375300996,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "positive_hydrophobic_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "like_charge_contact_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.00780873753009976,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "charge_hydrophobic_separation": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "hydrophobic_patch_fraction": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.2777777777777778,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "local_positive_excess": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "ideal_alpha_hydrophobic_moment": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0760029493822309,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "mean_plddt": {
+        "n_finite": 1,
+        "mean_case_minus_control": -0.32493454199999994,
+        "n_case_higher": 0,
+        "n_case_lower": 1
+      },
+      "sequence_seed_std": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.48932757952577455,
+        "n_case_higher": 1,
+        "n_case_lower": 0
+      },
+      "sg_close_edge_fraction": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_min_distance": {
+        "n_finite": 0,
+        "mean_case_minus_control": null,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      },
+      "sg_proxy_arc_crossings": {
+        "n_finite": 1,
+        "mean_case_minus_control": 0.0,
+        "n_case_higher": 0,
+        "n_case_lower": 0
+      }
+    },
+    "cached_primary_pmids": [],
+    "documented_chemical_descriptions": []
+  }
+]

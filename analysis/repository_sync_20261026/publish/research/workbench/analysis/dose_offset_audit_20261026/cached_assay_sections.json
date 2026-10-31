@@ -1,0 +1,16 @@
+[
+  {
+    "pmid": "34361810",
+    "source_path": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_chemistry_audit_20261026\\sources\\PMC8348142.xml",
+    "source_sha256": "e7ae0c227f315cbab43c472c7d3a365771f0e71202ce15dc5dcca1f1c6d3bcdf",
+    "section_title": "2.6. Hemolytic Activity Assay",
+    "source_text": "2.6. Hemolytic Activity AssayThe peptide toxicity to the mammalian system was screened based on the hemolytic test by measuring the hemoglobin released from ruptured red blood cells (RBCs) [36]. In this study, sheep RBCs (sRBCs) were employed. They were thrice washed and prepared as a suspension in phosphate-buffered saline (PBS, Oxoid). A suspension of 2% sRBCs was incubated with 2-fold serial dilutions of peptide (final concentrations; 256 to 1 µM in a total volume of 200 µL) at 37 °C for 1 h. The solutions of 0.1% (final concentration) Triton X-100 (Sigma-Aldrich) and PBS containing the peptide solvent were used instead of the peptides as the controls of hemolysis at 100% and 0%, respectively. Thereafter, the post-incubated suspensions were centrifuged (1000× g, 3 min) to pelletize residual sRBCs. The supernatants were then transferred into a flat-bottom PS 96-well plate and were measured the absorbance at 540 nm (OD540) by a microplate reader. The test was conducted in triplicate and the mean OD540 was used to calculate the hemolysis (%) as; ((OD540 (peptide) − OD540 (PBS + peptide solvent))/(OD540 (0.1% Triton X-100) − OD540 (PBS + peptide solvent))) × 100. The hemolytic concentration 50 (HC50), a concentration inducing 50% hemolysis, was determined."
+  },
+  {
+    "pmid": "34819923",
+    "source_path": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_chemistry_audit_20261026\\sources\\PMC8606745.xml",
+    "source_sha256": "badc88dcb8993c00a8c17e23c40444cc37a6d88ba3b1b379ba126eb13f12f075",
+    "section_title": "Hemolytic Activity",
+    "source_text": "Hemolytic ActivityThe hemolytic activity of peptides was used as an indication of its toxicity, according to the current literature in this field (Montesinos et al., 2012; Inui Kishi et al., 2018). It was assessed by determining hemoglobin release from erythrocyte suspensions of horse blood (5% vol/vol) (SR0050C, Thermo Fisher Scientific, Spain) as previously described (Badosa et al., 2007). Briefly, peptides were solubilized in TRIS buffer and mixed with cleaned 10-fold diluted horse erythrocytes. The final peptide concentrations tested were 150, 250, and 375 μM. The percentage of hemolysis (H) was calculated using the equation: H = 100 × [(Op - Ob)/(Om - Ob)], where Op is the optical density at 540 nm for a given peptide concentration, Ob for the buffer, and Om for the melittin positive control."
+  }
+]

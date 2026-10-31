@@ -1,0 +1,87 @@
+{
+  "selected_by_validation_only": "lora_lr1e5",
+  "metrics": {
+    "sequence": {
+      "no_lora": {
+        "n": 1271,
+        "MCC": 0.8639006450512589,
+        "AUPRC": 0.9582193936526393,
+        "AUROC": 0.9775726511234086,
+        "errors": 70,
+        "FP": 25,
+        "FN": 45
+      },
+      "lora_lr1e5": {
+        "n": 1271,
+        "MCC": 0.8518849376184064,
+        "AUPRC": 0.9540232540867103,
+        "AUROC": 0.9770358946445311,
+        "errors": 76,
+        "FP": 25,
+        "FN": 51
+      },
+      "lora_lr3e5": {
+        "n": 1271,
+        "MCC": 0.8640006204465045,
+        "AUPRC": 0.9540747214051454,
+        "AUROC": 0.9781577912848891,
+        "errors": 70,
+        "FP": 26,
+        "FN": 44
+      }
+    },
+    "fusion": {
+      "no_lora": {
+        "n": 1271,
+        "MCC": 0.8775544946882927,
+        "AUPRC": 0.9636772406481723,
+        "AUROC": 0.979672805346397,
+        "errors": 63,
+        "FP": 21,
+        "FN": 42
+      },
+      "lora_lr1e5": {
+        "n": 1271,
+        "MCC": 0.8699052942232044,
+        "AUPRC": 0.9601469331904252,
+        "AUROC": 0.9803471529226768,
+        "errors": 67,
+        "FP": 25,
+        "FN": 42
+      },
+      "lora_lr3e5": {
+        "n": 1271,
+        "MCC": 0.879797791016234,
+        "AUPRC": 0.9601055504026562,
+        "AUROC": 0.981048716320421,
+        "errors": 62,
+        "FP": 24,
+        "FN": 38
+      }
+    }
+  },
+  "comparisons": {
+    "sequence": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr1e5",
+      "delta_MCC": -0.012015707432852407,
+      "bootstrap_95CI": [
+        -0.03498438180404067,
+        0.010057163601435586
+      ],
+      "corrected": 14,
+      "harmed": 20
+    },
+    "fusion": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr1e5",
+      "delta_MCC": -0.007649200465088324,
+      "bootstrap_95CI": [
+        -0.024671865884468267,
+        0.010576553831887053
+      ],
+      "corrected": 8,
+      "harmed": 12
+    }
+  }
+}

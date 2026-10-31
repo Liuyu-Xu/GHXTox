@@ -1,0 +1,44 @@
+[
+  {
+    "direction": "四项膜类空间电荷/疏水代理",
+    "source": "analysis/membrane_class_feature_diagnosis_20261026/REPORT.md",
+    "result": "背景扣除后区间跨0、五折方向不稳定，未过继续门槛",
+    "scope": "旧76注释候选的关联筛查，不是证明膜机制无用",
+    "do_not_repeat": "不直接将相同四项代理拼成新模块"
+  },
+  {
+    "direction": "真实溶血辅助监督小头",
+    "source": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/REPORT.md",
+    "result": "MCC约0.81836→0.81967、区间跨零，打乱辅助对照更高",
+    "scope": "冻结ProtT5均值的小头，未并入完整GHXTox",
+    "do_not_repeat": "不将同配置多任务或拟合曲线改名重做，也不外推所有溶血模型无效"
+  },
+  {
+    "direction": "普通Soft-Cys拓扑",
+    "source": "reports/topology_strict_oof_v1_final_result.md",
+    "result": "虽好于简单基线，但未优于matching必要对照，未过该协议晋级规则",
+    "scope": "独立scratch协议，不与完整canonical高分横比",
+    "do_not_repeat": "不把相同Cys配对/拓扑分支当新想法再调"
+  },
+  {
+    "direction": "Gla有无解释Conantokin错误",
+    "source": "analysis/conantokin_chemical_state_20261026/REPORT.md",
+    "result": "6条对/错均有Gla，相同Gla模式仍一对一错",
+    "scope": "限制单一解释，不否定所有化学修饰机制",
+    "do_not_repeat": "不重查同6条或训练Gla有无纠错头"
+  },
+  {
+    "direction": "SaProt固定及受控融合/门控",
+    "source": "analysis/saprot_selective_value_20261027/REPORT.md;analysis/saprot_gain_decomposition_20261027/REPORT.md",
+    "result": "完整模型无稳定确认增益；旧近似3Di净少错11条依赖分数/阈值配合，区间跨零，特征门控未晋级",
+    "scope": "保存历史OOF上的回顾性研究，不证明SaProt毫无信息",
+    "do_not_repeat": "不以尚未融合或未调比例为由重复，不在同一评价集扫到涨分"
+  },
+  {
+    "direction": "膜环境/溶血剂量曲线",
+    "source": "analysis/environment_feasibility_20261025/REPORT.md;reports/尝试总结与研究优先级_20261026.md",
+    "result": "当前配置未提供稳定毒性分类补强证据",
+    "scope": "回归终点和通用毒性分类不同",
+    "do_not_repeat": "不把曲线回归精度作为本项目继续投入的主要标准"
+  }
+]

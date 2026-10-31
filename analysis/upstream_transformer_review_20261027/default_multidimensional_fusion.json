@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "canonical_public_default": true,
+  "public_model_name": "GHXTox",
+  "model_status": "primary",
+  "architecture_version": "no_inner_transformer_20261023",
+  "entrypoint": "ghxtox-predict",
+  "composition": {
+    "sequence_submodel": {
+      "name": "LoRA-adapted ProtT5 with bidirectional Mamba",
+      "experiment_name": "lora_mamba_1d_combinationA_autodl",
+      "seeds": [
+        42,
+        123,
+        2025
+      ],
+      "config": "configs/lora_mamba_1d_autodl.json",
+      "checkpoints": [
+        "runs/lora_mamba_full/full_seed42.pt",
+        "runs/lora_mamba_full/full_seed123.pt",
+        "runs/lora_mamba_full/full_seed2025.pt"
+      ],
+      "oof_calibration_files": [
+        "runs/lora_mamba_full/oof_seed42.json",
+        "runs/lora_mamba_full/oof_seed123.json",
+        "runs/lora_mamba_full/oof_seed2025.json"
+      ]
+    },
+    "structural_submodel": {
+      "name": "pLDDT-aware three-scale submodel without the extra sequence Transformer",
+      "architecture": "no_inner_transformer",
+      "num_sequence_layers": 0,
+      "config": "configs/default.json",
+      "checkpoint": "runs/default_no_inner_transformer_20261023/best_model.pt"
+    }
+  },
+  "inference": {
+    "structure_predictor": "ESMFold",
+    "structures_per_peptide": 1,
+    "structural_probability_source": "base_logits",
+    "multi_conformer_residual": "disabled"
+  },
+  "fusion": {
+    "weight_sequence": 0.76,
+    "weight_structure": 0.24,
+    "threshold": 0.5063534554819765,
+    "parameter_source": "aligned training OOF; deployment parameter selection only, not independent evaluation"
+  }
+}
+

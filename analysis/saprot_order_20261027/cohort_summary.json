@@ -1,0 +1,26 @@
+{
+  "n_cohort": 763,
+  "role_counts": {
+    "fusion_masked4": {
+      "persistent_correct": 251,
+      "harmed": 62,
+      "corrected": 96,
+      "persistent_wrong": 354
+    },
+    "fusion_3Di4": {
+      "persistent_correct": 250,
+      "harmed": 63,
+      "corrected": 101,
+      "persistent_wrong": 349
+    }
+  },
+  "n_sequences": 6867,
+  "unique_sequences": 6295,
+  "ineligible_by_mode": {
+    "local_nonCys_shuffle": 0,
+    "global_nonCys_shuffle": 0,
+    "Cys_relocation": 566,
+    "global_all_shuffle": 0
+  },
+  "matched_pairs_retained": 86
+}

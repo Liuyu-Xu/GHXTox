@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghxtox"
+version = "0.1.0"
+description = "Sequence-structure fusion for peptide toxicity prediction."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.23",
+    "torch>=2.0",
+    "networkx>=2.8",
+]
+
+[project.optional-dependencies]
+metrics = ["scikit-learn>=1.2"]
+similarity = ["biopython>=1.80"]
+reporting = ["matplotlib>=3.7", "scikit-learn>=1.2"]
+plm = ["fair-esm>=2.0.0", "transformers>=4.30", "sentencepiece>=0.1.99"]
+esmfold = ["fair-esm[esmfold]>=2.0.0"]
+atom-graph = ["rdkit>=2023.9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+ghxtox-preprocess = "ghxtox.preprocess:main"
+ghxtox-train = "ghxtox.train:main"
+ghxtox-predict = "ghxtox.multidimensional_default:main"
+ghxtox-structure-predict = "ghxtox.predict:main"
+ghxtox-evaluate = "ghxtox.evaluate:main"
+ghxtox-esmfold-cache = "ghxtox.esmfold_cache:main"
+ghxtox-prott5-tokens = "ghxtox.prott5_tokens:main"
+
+[project.urls]
+Repository = "https://github.com/Liuyu-Xu/GHXTox"

@@ -1,0 +1,40 @@
+{
+  "phase": "development only, not confirmatory evaluation",
+  "arms": {
+    "no_lora": {
+      "lora_lr": null
+    },
+    "lora_lr1e5": {
+      "lora_lr": 1e-05
+    },
+    "lora_lr3e5": {
+      "lora_lr": 3e-05
+    }
+  },
+  "head_lr": 0.0003,
+  "weight_decay": 0.01,
+  "seed": 42,
+  "outer_fold": 0,
+  "max_epochs": 8,
+  "patience": 2,
+  "checkpoint_selection": "minimum unweighted validation BCE; strict lower only",
+  "same_roles_as": "../group_weight_trial_20261027/role_weight_contract.json",
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "roles_not_loaded_for_predictions": [
+    "calibration",
+    "test"
+  ],
+  "batch_size": 16,
+  "class_positive_weight": "train-only negative/positive ratio",
+  "group_extra_weights": false,
+  "AMP": "fp16 initial scale128, record skipped steps",
+  "gradient_clip": 1,
+  "no_lora_definition": "physically unwrap all LoRALinear into frozen base Linear; same already-initialized Mamba/head",
+  "compare": "same initial head hash, same batch permutations; adapter dropout consumes additional RNG so exact dropout streams not matched",
+  "promotion": "no deployment; validate selected configuration across folds/seeds before any improvement claim",
+  "historical_fold0_test": "already examined; not a new blind test",
+  "smoke": "2 actual optimizer attempts per arm only, no performance claim"
+}

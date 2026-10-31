@@ -1,0 +1,67 @@
+{
+  "assertions_passed": true,
+  "model_training": false,
+  "ghxtox_predictions_read": false,
+  "within_study_screening_ratios": [
+    {
+      "name": "W1",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 8.0
+    },
+    {
+      "name": "W2",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 8.0
+    },
+    {
+      "name": "W3",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 16.0
+    },
+    {
+      "name": "W4",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 32.0
+    },
+    {
+      "name": "W5",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 32.0
+    },
+    {
+      "name": "W6",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 16.0
+    },
+    {
+      "name": "W7",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 64.0
+    },
+    {
+      "name": "W8",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 32.0
+    },
+    {
+      "name": "W9",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 32.0
+    },
+    {
+      "name": "W10",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 16.0
+    },
+    {
+      "name": "W11",
+      "endpoint": "MHC_gt5percent / MIC; within-study screening ratio only",
+      "ratio": 32.0
+    }
+  ],
+  "range": [
+    8.0,
+    64.0
+  ],
+  "interpretation": "No HC50, no cross-paper pooled ratio. Same human RBC source does not imply same assay conditions."
+}

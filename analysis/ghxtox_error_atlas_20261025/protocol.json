@@ -1,0 +1,42 @@
+{
+  "status": "exploratory_training_oof_error_analysis",
+  "seed": 20261025,
+  "external_test_files_allowed": false,
+  "model_updates_allowed": false,
+  "fusion_weight_sequence": 0.72,
+  "fusion_threshold": 0.47022256531284556,
+  "sequence_reference_threshold": 0.3920986715756582,
+  "structure_reference_threshold": 0.677819,
+  "discovery_folds": [0, 1, 2],
+  "internal_replication_folds": [3, 4],
+  "replication_is_blinded": false,
+  "hypotheses": {
+    "H1": "Local charge and hydrophobic spatial organization differs between errors and same-label correct controls after approximate matching on global composition.",
+    "H2": "Low structure confidence and seed disagreement are associated with errors. Association does not establish a mechanism."
+  },
+  "matching": {
+    "same_label_and_fold": true,
+    "different_group": true,
+    "reuse_groups": false,
+    "max_length_difference": 3,
+    "max_net_charge_difference": 2,
+    "max_mean_hydropathy_difference": 0.5,
+    "max_cys_count_difference": 1,
+    "max_aromatic_fraction_difference": 0.1,
+    "source_family_endpoint_matching": "not available; no mechanistic or causal claim",
+    "order": "smallest eligible control pool then source_index; no p-value-driven matching"
+  },
+  "statistical_test": {
+    "bootstrap_replicates": 2000,
+    "sign_flip_replicates": 5000,
+    "unit": "matched pair with no group reused within error type",
+    "multiplicity": "BH across all FP/FN-feature comparisons, exploratory only"
+  },
+  "limitations": [
+    "Archived OOF probabilities are not fully nested: calibration and operating point were fitted using all training OOF labels.",
+    "Some historical structural checkpoint provenance confirms outer-fold checkpoint selection; complete lineage of this prediction stream is not certified.",
+    "Cross-fold association replication is not independent validation of a newly trained correction model.",
+    "Predicted isolated-structure geometry is not a measured membrane-bound state.",
+    "No hard-negative reweighting or corrective model is trained on these errors."
+  ]
+}

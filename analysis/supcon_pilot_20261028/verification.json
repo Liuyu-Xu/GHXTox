@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "fold": 3,
+  "seed": 42,
+  "same_initial_head_and_batch_orders": true,
+  "n_test": 1291,
+  "target_count": 4,
+  "groups_disjoint": true,
+  "no_lora_all_arms": true,
+  "no_amp_skips": true,
+  "fixed_historical_3D_conditional": true,
+  "no_Test1_Test2": true,
+  "fold_and_targets_chosen_after_previous_error_observation": true,
+  "not_blind_not_gold": true
+}

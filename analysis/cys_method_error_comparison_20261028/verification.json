@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "n_fold3": 1291,
+  "same_ids_labels_groups": true,
+  "same_thresholds": true,
+  "baseline_and_weight_match_existing_oof": true,
+  "contrastive_only_fold3": true,
+  "other_folds_only_weight": true,
+  "no_retraining": true,
+  "no_Test1_Test2": true,
+  "analysis_posthoc_not_routing": true
+}

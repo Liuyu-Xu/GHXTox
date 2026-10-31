@@ -1,0 +1,87 @@
+{
+  "selected_by_validation_only": "lora_lr1e5",
+  "metrics": {
+    "sequence": {
+      "no_lora": {
+        "n": 1323,
+        "MCC": 0.81308034557269,
+        "AUPRC": 0.9248482735992097,
+        "AUROC": 0.9640971488912354,
+        "errors": 99,
+        "FP": 36,
+        "FN": 63
+      },
+      "lora_lr1e5": {
+        "n": 1323,
+        "MCC": 0.7772855093786355,
+        "AUPRC": 0.9213885967230935,
+        "AUROC": 0.9612760902289426,
+        "errors": 118,
+        "FP": 47,
+        "FN": 71
+      },
+      "lora_lr3e5": {
+        "n": 1323,
+        "MCC": 0.7740071953171418,
+        "AUPRC": 0.9265308149804261,
+        "AUROC": 0.9634104900132558,
+        "errors": 121,
+        "FP": 57,
+        "FN": 64
+      }
+    },
+    "fusion": {
+      "no_lora": {
+        "n": 1323,
+        "MCC": 0.8155530238936023,
+        "AUPRC": 0.9355708622414809,
+        "AUROC": 0.9690287357613068,
+        "errors": 98,
+        "FP": 39,
+        "FN": 59
+      },
+      "lora_lr1e5": {
+        "n": 1323,
+        "MCC": 0.805371460107477,
+        "AUPRC": 0.9352139576806706,
+        "AUROC": 0.9693236199420341,
+        "errors": 104,
+        "FP": 47,
+        "FN": 57
+      },
+      "lora_lr3e5": {
+        "n": 1323,
+        "MCC": 0.8016252302520086,
+        "AUPRC": 0.9391562700688324,
+        "AUROC": 0.9710199060864094,
+        "errors": 106,
+        "FP": 48,
+        "FN": 58
+      }
+    }
+  },
+  "comparisons": {
+    "sequence": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr1e5",
+      "delta_MCC": -0.03579483619405455,
+      "bootstrap_95CI": [
+        -0.06233991540731199,
+        -0.009463119394744394
+      ],
+      "corrected": 16,
+      "harmed": 35
+    },
+    "fusion": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr1e5",
+      "delta_MCC": -0.010181563786125336,
+      "bootstrap_95CI": [
+        -0.0363517978009242,
+        0.015558858672950078
+      ],
+      "corrected": 21,
+      "harmed": 27
+    }
+  }
+}

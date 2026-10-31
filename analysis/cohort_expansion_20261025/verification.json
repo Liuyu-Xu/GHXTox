@@ -1,0 +1,19 @@
+{
+  "input_hashes_before": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv": "b4c32b7626783f43d8794318de45a6f9d648d6c0027710dd1dce2a78f9edc0fc",
+    "D:\\dachuang2026\\GHXTox\\analysis\\cohort_expansion_20261025\\protocol.json": "cc0c455d64ad99f27d301b60aff68fda92ce3aace7f6fd743f4e763af29ade5e"
+  },
+  "input_hashes_after": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv": "b4c32b7626783f43d8794318de45a6f9d648d6c0027710dd1dce2a78f9edc0fc",
+    "D:\\dachuang2026\\GHXTox\\analysis\\cohort_expansion_20261025\\protocol.json": "cc0c455d64ad99f27d301b60aff68fda92ce3aace7f6fd743f4e763af29ade5e"
+  },
+  "inputs_unchanged": true,
+  "selection_uses_no_prediction_or_label": true,
+  "no_test_inputs": true,
+  "no_training": true,
+  "group_fold_consistent": true,
+  "matched_groups_not_reused": true,
+  "n_screened": 6387
+}

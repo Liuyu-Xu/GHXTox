@@ -1,0 +1,16 @@
+{
+  "blocks": 61,
+  "records": 134,
+  "chemical_forms": 41,
+  "blocks_observed_range_at_least_10pp": 20,
+  "median_observed_range_pp": 2.0,
+  "same_paper_same_dose_not_full_assay_matching": true,
+  "confounders_unknown": [
+    "time",
+    "temperature",
+    "RBC_density",
+    "buffer"
+  ],
+  "outcome_zero_rows": 690,
+  "outcome_hundred_rows": 174
+}

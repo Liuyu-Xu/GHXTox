@@ -1,0 +1,81 @@
+{
+  "artifact_type": "prottox_3d_distill_v1",
+  "status": "frozen_before_target_generation",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "teacher": {
+    "definition": "strict-outer-fold single-structure GHXToxModel scratch bases from topology_strict_oof_v1_final.tar.gz",
+    "source_package": "D:\\dachuang2026\\ziliao\\topology_strict_oof_v1_final.tar.gz",
+    "source_package_sha256": "606f042abce6243dae61873034fcf3dd65fd413130497207b6ada80097aefce3",
+    "checkpoint_root": "runs\\prottox_3d_distill_v1\\teacher_checkpoints",
+    "selection_policy": "fixed_epoch_12; inner validation diagnostic only; selection_indices empty",
+    "processed_train": "D:\\dachuang2026\\ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "processed_train_sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+    "outer_fold_manifest": "D:\\dachuang2026\\GHXTox\\data\\folds\\train_cdhit080_fallback_folds.csv",
+    "outer_fold_manifest_sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4",
+    "nested_manifest": "D:\\dachuang2026\\GHXTox\\data\\folds\\topology_strict_nested_v1.csv",
+    "nested_manifest_sha256": "3ca8fb9b462d3b3816724e2c0f12ff303576affbbef14f7c3b936bc1ad1d45ba"
+  },
+  "teacher_targets": {
+    "output_dir": "runs\\prottox_3d_distill_v1\\teacher_targets",
+    "per_outer_fold_file": "teacher_outer{k}_targets.csv",
+    "coverage": "every training record whose outer fold differs from k; outer-k records are never present",
+    "columns": [
+      "source_index",
+      "sample_id",
+      "sequence",
+      "outer_fold",
+      "teacher_sample_role",
+      "teacher_probability",
+      "teacher_logit",
+      "checkpoint_sha256",
+      "teacher_train_indices_sha256",
+      "outer_manifest_sha256",
+      "nested_manifest_sha256",
+      "teacher_config_sha256"
+    ],
+    "role_mapping": {
+      "train": "fitting",
+      "validation": "inner_validation",
+      "calibration": "calibration",
+      "test": "outer_held_out_not_emitted"
+    }
+  },
+  "student": {
+    "name": "ProtTox-3D-Distill",
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "cache_sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a",
+    "fold_manifest": "D:\\dachuang2026\\GHXTox\\data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+    "fold_manifest_sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe",
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "shared_dim": 192,
+    "proxy_hidden_dim": 64,
+    "decision_hidden_dim": 96,
+    "dropout": 0.1,
+    "auxiliary_weight": 0.1,
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "seeds": [
+      20260905,
+      20260906
+    ],
+    "threshold": 0.5,
+    "variants": [
+      "mlp_teacher_kd",
+      "proxy_teacher_kd"
+    ],
+    "controls": {
+      "mlp": "retained TriStat-MLP OOF runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1",
+      "proxy_no_kd": "ProtTox-StructGuide v1 runs/prottox_tsk_v1/structguide_comparison_v1"
+    },
+    "promotion_rule": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002,
+      "decision_target": "retained TriStat-MLP; Test1/Test2 are never selection inputs"
+    }
+  }
+}

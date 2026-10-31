@@ -1,0 +1,38 @@
+{
+  "A": {
+    "mcc": 0.776719292556526,
+    "auroc": 0.9566734161157328,
+    "auprc": 0.9137117420027415,
+    "errors": 56,
+    "low_pos_fn": 15,
+    "low_pos_n": 20,
+    "high_neg_fp": 5,
+    "high_neg_n": 17
+  },
+  "B": {
+    "mcc": 0.7692240346678378,
+    "auroc": 0.913237052035813,
+    "auprc": 0.8886443220331333,
+    "errors": 58,
+    "low_pos_fn": 15,
+    "low_pos_n": 20,
+    "high_neg_fp": 5,
+    "high_neg_n": 17,
+    "corrected": 2,
+    "harmed": 4,
+    "params": 32960
+  },
+  "C": {
+    "mcc": 0.773750109066287,
+    "auroc": 0.9293869385962772,
+    "auprc": 0.8958196172491875,
+    "errors": 57,
+    "low_pos_fn": 15,
+    "low_pos_n": 20,
+    "high_neg_fp": 5,
+    "high_neg_n": 17,
+    "corrected": 4,
+    "harmed": 5,
+    "params": 32960
+  }
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "arm": "constant_teacher",
+    "teacher_probability_R2": -0.002690070294978586,
+    "teacher_probability_MAE": 0.3765798400168064,
+    "clipped_teacher_MAE": 0.3765798400168064,
+    "teacher_decision_agreement": 0.7069046500704557,
+    "unbounded_predictions_outside01": 0,
+    "saprot_representation_skill": 0.0,
+    "protT5_representation_skill": 0.0,
+    "saprot_centered_cosine_mean": 0.0,
+    "protT5_centered_cosine_mean": 0.0,
+    "actual_fusion_rescues_reproduced": 20,
+    "actual_fusion_harms_reproduced": 25,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.814297811224078,
+      "AUPRC": 0.9092310042080097,
+      "AUROC": 0.9470087192566925,
+      "FN": 307,
+      "FP": 168
+    },
+    "new_rescues_vs_baseline4": 40,
+    "new_harms_vs_baseline4": 65,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      -0.0014638553490022854,
+      -0.00625901080699065,
+      -0.007029022515911754,
+      -0.00010423445507279361,
+      -1.6295232296847928e-07
+    ]
+  },
+  {
+    "arm": "composition_linear",
+    "teacher_probability_R2": 0.5989486729657187,
+    "teacher_probability_MAE": 0.19350530839065624,
+    "clipped_teacher_MAE": 0.17819341601602784,
+    "teacher_decision_agreement": 0.8996398935337404,
+    "unbounded_predictions_outside01": 1172,
+    "saprot_representation_skill": 0.6564170300332351,
+    "protT5_representation_skill": 0.34871902345650563,
+    "saprot_centered_cosine_mean": 0.8087317762102141,
+    "protT5_centered_cosine_mean": 0.5863345531899334,
+    "actual_fusion_rescues_reproduced": 40,
+    "actual_fusion_harms_reproduced": 29,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.8169593164861864,
+      "AUPRC": 0.9170051184664476,
+      "AUROC": 0.9492770791633771,
+      "FN": 283,
+      "FP": 187
+    },
+    "new_rescues_vs_baseline4": 58,
+    "new_harms_vs_baseline4": 78,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      0.5849991256345917,
+      0.6363898383372704,
+      0.6215400120122812,
+      0.6282119935153878,
+      0.5279325104326824
+    ]
+  },
+  {
+    "arm": "composition_quadratic",
+    "teacher_probability_R2": 0.27709940355495777,
+    "teacher_probability_MAE": 0.23781908775861713,
+    "clipped_teacher_MAE": 0.17681471332770043,
+    "teacher_decision_agreement": 0.878346641615782,
+    "unbounded_predictions_outside01": 2123,
+    "saprot_representation_skill": 0.5248436117487923,
+    "protT5_representation_skill": -0.1193444375567847,
+    "saprot_centered_cosine_mean": 0.811830016754608,
+    "protT5_centered_cosine_mean": 0.5486230389918639,
+    "actual_fusion_rescues_reproduced": 47,
+    "actual_fusion_harms_reproduced": 33,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.803185421626073,
+      "AUPRC": 0.9147824412803296,
+      "AUROC": 0.9514138544517616,
+      "FN": 273,
+      "FP": 236
+    },
+    "new_rescues_vs_baseline4": 71,
+    "new_harms_vs_baseline4": 130,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      0.32481154982824245,
+      0.2742939271580487,
+      0.3946477339214983,
+      0.1455813179982226,
+      0.24930061858546582
+    ]
+  },
+  {
+    "arm": "composition_RBF",
+    "teacher_probability_R2": 0.6643103743613611,
+    "teacher_probability_MAE": 0.17708248607622235,
+    "clipped_teacher_MAE": 0.17016700916612085,
+    "teacher_decision_agreement": 0.9096602473774855,
+    "unbounded_predictions_outside01": 914,
+    "saprot_representation_skill": 0.6577759851274717,
+    "protT5_representation_skill": 0.40951468978370154,
+    "saprot_centered_cosine_mean": 0.8533453264335429,
+    "protT5_centered_cosine_mean": 0.6520472043206911,
+    "actual_fusion_rescues_reproduced": 37,
+    "actual_fusion_harms_reproduced": 31,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.817487453896558,
+      "AUPRC": 0.9213027612351394,
+      "AUROC": 0.9573871701024338,
+      "FN": 270,
+      "FP": 200
+    },
+    "new_rescues_vs_baseline4": 50,
+    "new_harms_vs_baseline4": 70,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      0.6614277549626009,
+      0.6995397668991605,
+      0.691235206593782,
+      0.6832723801770296,
+      0.5905095362416801
+    ]
+  },
+  {
+    "arm": "composition_plus_order_linear",
+    "teacher_probability_R2": -0.019868068083642942,
+    "teacher_probability_MAE": 0.3226764189210739,
+    "clipped_teacher_MAE": 0.22374219816597923,
+    "teacher_decision_agreement": 0.8163457022076092,
+    "unbounded_predictions_outside01": 2443,
+    "saprot_representation_skill": 0.024548483962720358,
+    "protT5_representation_skill": -0.833057193309994,
+    "saprot_centered_cosine_mean": 0.624726198037475,
+    "protT5_centered_cosine_mean": 0.37399604080524007,
+    "actual_fusion_rescues_reproduced": 36,
+    "actual_fusion_harms_reproduced": 23,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.7857087616048632,
+      "AUPRC": 0.905831796665978,
+      "AUROC": 0.9463966641794405,
+      "FN": 291,
+      "FP": 264
+    },
+    "new_rescues_vs_baseline4": 89,
+    "new_harms_vs_baseline4": 194,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      -0.086900492446367,
+      -0.1533813461446656,
+      0.026189126976341348,
+      -0.036223536383239496,
+      0.13796385428847047
+    ]
+  },
+  {
+    "arm": "composition_order_kernel",
+    "teacher_probability_R2": 0.635562942503211,
+    "teacher_probability_MAE": 0.19180218140124497,
+    "clipped_teacher_MAE": 0.18572434672243576,
+    "teacher_decision_agreement": 0.905276342570847,
+    "unbounded_predictions_outside01": 752,
+    "saprot_representation_skill": 0.5932990936379462,
+    "protT5_representation_skill": 0.35517736925599974,
+    "saprot_centered_cosine_mean": 0.80741474055424,
+    "protT5_centered_cosine_mean": 0.5975432104908728,
+    "actual_fusion_rescues_reproduced": 32,
+    "actual_fusion_harms_reproduced": 27,
+    "approx_fusion": {
+      "n": 6387,
+      "MCC": 0.8242912948874386,
+      "AUPRC": 0.9215962329160908,
+      "AUROC": 0.9571918999735386,
+      "FN": 266,
+      "FP": 186
+    },
+    "new_rescues_vs_baseline4": 48,
+    "new_harms_vs_baseline4": 50,
+    "practical_screen_passed": false,
+    "fold_teacher_R2": [
+      0.6480680081258535,
+      0.6627485311562796,
+      0.6409007041562206,
+      0.6524189307582546,
+      0.5766404260294304
+    ]
+  }
+]

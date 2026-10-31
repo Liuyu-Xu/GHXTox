@@ -1,0 +1,39 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 0.5737064349689062,
+      "validation_bce": 0.3768553179492141,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 38.44425129890442
+    },
+    {
+      "epoch": 2,
+      "train_loss_mean": 0.3656424883210772,
+      "validation_bce": 0.39072812789977157,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 69.17679762840271
+    },
+    {
+      "epoch": 3,
+      "train_loss_mean": 0.2397554947519164,
+      "validation_bce": 0.4196478129214286,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 97.78552532196045
+    }
+  ],
+  "arm": "B",
+  "smoke": false
+}

@@ -1,0 +1,23 @@
+{
+  "inputs": {
+    "meta": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_background_20261027\\all_samples_with_symmetric_family.json",
+      "sha256": "47fa3b7be5d9741821b62bc4e0ed673408c7b8d7f8202db3cafb781ec915b6e4"
+    },
+    "old": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\error_evidence_linkage_20261025\\all_training_linked.json",
+      "sha256": "963268735f3608dbb15755327b045464b7fa8592b5df2cf3f74e6c95342ef106"
+    },
+    "new": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\lora_multifold_screen_20261028\\all_fold_predictions.json",
+      "sha256": "669619ed5a938bbad50afd2703c59321314cba0a6f0634867543edf45125a2b7"
+    }
+  },
+  "sample_count": 6387,
+  "cross_version_alignment_verified": true,
+  "old_full_3seed_with_historical_3D": true,
+  "new_one_seed_conditional_3D": true,
+  "no_Test1_Test2": true,
+  "matching": "same label by cohort, same fold, exact unique full family and flag, different unreused sequence groups, Cys diff<=1, length diff<=20% longer; no identity or endpoint equivalence required",
+  "limitations": "opportunistic posthoc, greedy matching not optimal, selected outcome, no causal or statistical inference; residual quality/sequence unknown; no blank treated negative"
+}

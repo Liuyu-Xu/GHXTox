@@ -1,0 +1,13 @@
+{
+  "input_files": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_background_20261027\\all_samples_with_symmetric_family.json": "47fa3b7be5d9741821b62bc4e0ed673408c7b8d7f8202db3cafb781ec915b6e4",
+    "D:\\dachuang2026\\GHXTox\\analysis\\lora_multifold_screen_20261028\\all_fold_predictions.json": "669619ed5a938bbad50afd2703c59321314cba0a6f0634867543edf45125a2b7"
+  },
+  "n": 6387,
+  "errors": 408,
+  "crossvalidated": "fivefold single-seed non-LoRA 1D plus historical 3D OOF",
+  "threshold": 0.47022256531284556,
+  "no_new_training": true,
+  "not_new_blind_test": true,
+  "flags": "fragment-match or broad cross-source conflict, not verified label correctness"
+}

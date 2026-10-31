@@ -1,0 +1,26 @@
+{
+  "old_masked": {
+    "prespecified_feature_gate_continue_gate_passed": false,
+    "delta_MCC_vs_baseline": -0.004592724986115737,
+    "delta_MCC_vs_controlled_weight": -0.003041827126731511,
+    "no_promotion_or_distillation": true
+  },
+  "old_3Di": {
+    "prespecified_feature_gate_continue_gate_passed": false,
+    "delta_MCC_vs_baseline": -0.005586304271974374,
+    "delta_MCC_vs_controlled_weight": -0.009732216780420022,
+    "no_promotion_or_distillation": true
+  },
+  "new_masked": {
+    "prespecified_feature_gate_continue_gate_passed": false,
+    "delta_MCC_vs_baseline": -0.0014914008374987686,
+    "delta_MCC_vs_controlled_weight": 0.002491598567989639,
+    "no_promotion_or_distillation": true
+  },
+  "new_3Di": {
+    "prespecified_feature_gate_continue_gate_passed": false,
+    "delta_MCC_vs_baseline": 0.001091712799712985,
+    "delta_MCC_vs_controlled_weight": 7.165465497638301e-05,
+    "no_promotion_or_distillation": true
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "source_sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5",
+  "role_sha256": "c52497f9b8da7154a9ebab21450a71cc90a5ba7985641d30b5c9aa1e24bb3493",
+  "protocol_sha256": "a123f86455624421b9b9a3e9db2d6cc65dde373ab049189be70aca86a503fc51",
+  "initial_training_note": "historical baseline source hash differs after removal update; new run verifies same initial head and per-epoch order; prior baseline mathematically no LoRA, same optimizer/roles/settings"
+}

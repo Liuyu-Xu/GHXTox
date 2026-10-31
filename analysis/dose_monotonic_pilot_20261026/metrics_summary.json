@@ -1,0 +1,66 @@
+{
+  "confirmed_overlay_primary": {
+    "training_weighted_median": {
+      "panels": 284,
+      "macro_MAE_pp": 26.59537725659513,
+      "macro_increment_MAE_pp": 10.88693785490722,
+      "panels_with_predicted_decrease": 0,
+      "predicted_decreasing_steps": 0,
+      "adjacent_steps": 1021,
+      "mean_observed_panel_span_pp": 31.616053169014084,
+      "mean_predicted_panel_span_pp": 0.0
+    },
+    "unconstrained": {
+      "panels": 284,
+      "macro_MAE_pp": 24.23597673740999,
+      "macro_increment_MAE_pp": 10.724201783831504,
+      "panels_with_predicted_decrease": 39,
+      "predicted_decreasing_steps": 50,
+      "adjacent_steps": 1021,
+      "mean_observed_panel_span_pp": 31.616053169014084,
+      "mean_predicted_panel_span_pp": 22.570628162514257
+    },
+    "monotonic_dose": {
+      "panels": 284,
+      "macro_MAE_pp": 24.795657540357407,
+      "macro_increment_MAE_pp": 10.574422589524133,
+      "panels_with_predicted_decrease": 0,
+      "predicted_decreasing_steps": 0,
+      "adjacent_steps": 1021,
+      "mean_observed_panel_span_pp": 31.616053169014084,
+      "mean_predicted_panel_span_pp": 21.936138936785287
+    }
+  },
+  "all_exact50_quarantine_sensitivity": {
+    "training_weighted_median": {
+      "panels": 253,
+      "macro_MAE_pp": 25.90061847512391,
+      "macro_increment_MAE_pp": 8.498697038710082,
+      "panels_with_predicted_decrease": 0,
+      "predicted_decreasing_steps": 0,
+      "adjacent_steps": 955,
+      "mean_observed_panel_span_pp": 27.728968774703556,
+      "mean_predicted_panel_span_pp": 0.0
+    },
+    "unconstrained": {
+      "panels": 253,
+      "macro_MAE_pp": 25.079149772370435,
+      "macro_increment_MAE_pp": 9.285812107792484,
+      "panels_with_predicted_decrease": 47,
+      "predicted_decreasing_steps": 60,
+      "adjacent_steps": 955,
+      "mean_observed_panel_span_pp": 27.728968774703556,
+      "mean_predicted_panel_span_pp": 21.185734717115697
+    },
+    "monotonic_dose": {
+      "panels": 253,
+      "macro_MAE_pp": 25.519768705014087,
+      "macro_increment_MAE_pp": 9.046462987682526,
+      "panels_with_predicted_decrease": 0,
+      "predicted_decreasing_steps": 0,
+      "adjacent_steps": 955,
+      "mean_observed_panel_span_pp": 27.728968774703556,
+      "mean_predicted_panel_span_pp": 20.146215952345106
+    }
+  }
+}

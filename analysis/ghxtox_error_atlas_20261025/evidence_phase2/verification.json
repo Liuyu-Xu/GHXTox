@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "full/error identities",
+    "fragment counts",
+    "representative19/20 recovery",
+    "no labels changed",
+    "no automatic gold-label assignment",
+    "312 accession ledger",
+    "upstream6387 identities"
+  ],
+  "no_test_inputs": true
+}

@@ -1,0 +1,10 @@
+{
+ "stage":"bounded follow-up after main controls, before fitting these two arms",
+ "reason":"training-half eligible family vocabulary contains only name proxies, while missing-annotation flags also enter full arm; cannot attribute its gain to verified family biology",
+ "new_arms":["baseline4_CysLengthMissingOnly","baseline4_CysLengthNamesOnly"],
+ "MissingOnly":"same fixed CysLength matrix plus curated-family-missing and name-class-missing indicators, no family tokens",
+ "NamesOnly":"same CysLength matrix plus the exact training-half eligible token vocabulary from primary arm, omit missing indicators",
+ "fit":"same original-fold halves and scaler/logistic C1 settings, total20 small logistic fits, no tuning or neural retraining",
+ "contrasts":"MissingOnly-CysLength; fullFamily-MissingOnly; NamesOnly-CysLength; exploratory 2000 originalgroup bootstrap95 and98.3333 intervals for3 comparisons. No confirmatory family claim; annotate curated token coverage.",
+ "limits":"posthoc diagnosis; metadata may encode source selection; eligibility threshold fixed, no relaxation to force family findings"
+}

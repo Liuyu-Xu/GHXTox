@@ -1,0 +1,66 @@
+{
+  "sequence": [
+    {
+      "comparison": "A->B",
+      "delta_MCC": 0.02289009069874781,
+      "CI95_group_bootstrap": [
+        -0.005327686335929144,
+        0.052038188491592384
+      ],
+      "corrected": 36,
+      "harmed": 23
+    },
+    {
+      "comparison": "A->C",
+      "delta_MCC": 0.014683431009522518,
+      "CI95_group_bootstrap": [
+        -0.018470841934750962,
+        0.04873779324461124
+      ],
+      "corrected": 39,
+      "harmed": 30
+    },
+    {
+      "comparison": "B->C",
+      "delta_MCC": -0.008206659689225293,
+      "CI95_group_bootstrap": [
+        -0.032292198839944955,
+        0.014817224902298108
+      ],
+      "corrected": 15,
+      "harmed": 19
+    }
+  ],
+  "fusion": [
+    {
+      "comparison": "A->B",
+      "delta_MCC": 0.014652187449173182,
+      "CI95_group_bootstrap": [
+        -0.011933430936684258,
+        0.0429661190185787
+      ],
+      "corrected": 29,
+      "harmed": 21
+    },
+    {
+      "comparison": "A->C",
+      "delta_MCC": 0.00570581370702683,
+      "CI95_group_bootstrap": [
+        -0.023594458498227087,
+        0.03736385220101866
+      ],
+      "corrected": 31,
+      "harmed": 27
+    },
+    {
+      "comparison": "B->C",
+      "delta_MCC": -0.008946373742146352,
+      "CI95_group_bootstrap": [
+        -0.030119300351981373,
+        0.012774050520369699
+      ],
+      "corrected": 13,
+      "harmed": 17
+    }
+  ]
+}

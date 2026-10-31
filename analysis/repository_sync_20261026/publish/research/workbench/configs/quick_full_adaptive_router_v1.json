@@ -1,0 +1,51 @@
+{
+  "artifact_type": "ghxtox_quick_full_adaptive_router_protocol",
+  "version": 1,
+  "status": "frozen_before_oof",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "baseline_ledger": "D:\\dachuang2026\\GHXTox\\runs\\quick_full_margin_baseline_oof_v1\\quick_full_oof_ledger.csv",
+  "baseline_ledger_sha256": "c69df0fec7d229d0850b93826cc40e37e8839bc65b39398720aa11848f164dc0",
+  "quick_threshold": 0.3920986715756582,
+  "full_threshold": 0.47022256531284556,
+  "target": {
+    "loss": "brier_gain",
+    "definition": "(p_quick - label)^2 - (p_full - label)^2"
+  },
+  "pre_structure_feature_columns": [
+    "p_quick",
+    "quick_margin",
+    "sequence_seed_dispersion",
+    "sequence_length",
+    "net_charge_ph7",
+    "hydropathy_kd",
+    "basic_fraction",
+    "hydrophobic_fraction",
+    "aromatic_fraction",
+    "cys_count",
+    "cys_fraction",
+    "cys_span_fraction",
+    "cys_min_gap_fraction",
+    "cys_adjacent_pairs",
+    "cys_terminal_count"
+  ],
+  "embedding_features": {
+    "used": false,
+    "reason": "No identity-aligned, frozen Quick-stage embedding OOF artifact is retained; embeddings must not be regenerated from a model that observed the target fold."
+  },
+  "model": {
+    "type": "ridge",
+    "alpha": 1.0,
+    "fit": "five-fold group-disjoint cross-fitting"
+  },
+  "route_policy": {
+    "trigger": "predicted_brier_gain_gt_full_analysis_cost",
+    "full_analysis_cost": 0.0025
+  },
+  "promotion_gate": {
+    "cost_adjusted_utility": "strictly lower than frozen margin baseline",
+    "net_corrections": "strictly positive",
+    "mean_realized_gain_selected": "strictly greater than full_analysis_cost"
+  },
+  "selection": "No threshold, feature, model, alpha, or cost tuning after cross-fitted OOF evaluation."
+}

@@ -1,0 +1,742 @@
+[
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_1508",
+    "control_id": "peptide_294",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 4,
+    "case_group": "reference_001228",
+    "control_group": "reference_000287",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "natriuretic",
+    "identity": 0.5625,
+    "length_ratio": 0.78125,
+    "case_categories": [
+      "receptor_or_signaling",
+      "disulfide_annotation"
+    ],
+    "control_categories": [
+      "receptor_or_signaling"
+    ],
+    "shared_categories": [
+      "receptor_or_signaling"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_201",
+    "control_id": "peptide_74",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 3,
+    "case_group": "reference_000196",
+    "control_group": "reference_000071",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "explicit_cached_family",
+    "family": "belongs to the ectatomin family. ectatomin-et subfamily",
+    "identity": 0.4864864864864865,
+    "length_ratio": 0.918918918918919,
+    "case_categories": [
+      "membrane_or_lysis",
+      "ion_channel",
+      "disulfide_annotation"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "ion_channel",
+      "disulfide_annotation"
+    ],
+    "shared_categories": [
+      "disulfide_annotation",
+      "ion_channel",
+      "membrane_or_lysis"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": true,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_228",
+    "control_id": "peptide_378",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 4,
+    "case_group": "reference_000221",
+    "control_group": "reference_000369",
+    "case_pattern": "both_wrong",
+    "family_support": "explicit_cached_family",
+    "family": "belongs to the mcd family. bombolitin subfamily",
+    "identity": 0.6842105263157895,
+    "length_ratio": 1.0,
+    "case_categories": [
+      "receptor_or_signaling",
+      "antimicrobial"
+    ],
+    "control_categories": [
+      "receptor_or_signaling",
+      "antimicrobial"
+    ],
+    "shared_categories": [
+      "antimicrobial",
+      "receptor_or_signaling"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": true,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_2355",
+    "control_id": "peptide_6218",
+    "label": 0,
+    "case_fold": 4,
+    "control_fold": 2,
+    "case_group": "reference_001997",
+    "control_group": "reference_003562",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "amylase_inhibitor",
+    "identity": 0.4615384615384615,
+    "length_ratio": 0.9615384615384616,
+    "case_categories": [],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_251",
+    "control_id": "peptide_139",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 3,
+    "case_group": "reference_000244",
+    "control_group": "reference_000134",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "explicit_cached_family",
+    "family": "belongs to the staphylococcal hemolytic protein family",
+    "identity": 0.4772727272727273,
+    "length_ratio": 0.9772727272727272,
+    "case_categories": [
+      "membrane_or_lysis",
+      "hemolysis_text",
+      "chemical_annotation"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "hemolysis_text",
+      "chemical_annotation"
+    ],
+    "shared_categories": [
+      "chemical_annotation",
+      "hemolysis_text",
+      "membrane_or_lysis"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": true,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_353",
+    "control_id": "peptide_131",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 0,
+    "case_group": "reference_000344",
+    "control_group": "reference_000126",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "conotoxin_broad",
+    "identity": 0.4166666666666667,
+    "length_ratio": 1.0,
+    "case_categories": [
+      "disulfide_annotation"
+    ],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_4315",
+    "control_id": "peptide_4148",
+    "label": 0,
+    "case_fold": 1,
+    "control_fold": 2,
+    "case_group": "reference_003846",
+    "control_group": "reference_003722",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "Kunitz",
+    "identity": 0.7096774193548387,
+    "length_ratio": 0.935483870967742,
+    "case_categories": [],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_5091",
+    "control_id": "peptide_5046",
+    "label": 0,
+    "case_fold": 1,
+    "control_fold": 4,
+    "case_group": "singleton_005090",
+    "control_group": "singleton_005045",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.4642857142857143,
+    "length_ratio": 0.7142857142857143,
+    "case_categories": [],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_617",
+    "control_id": "peptide_538",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 4,
+    "case_group": "reference_000560",
+    "control_group": "singleton_000537",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "L_amino_acid_oxidase",
+    "identity": 0.673469387755102,
+    "length_ratio": 0.7959183673469388,
+    "case_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "hemolysis_text"
+    ],
+    "shared_categories": [
+      "hemolysis_text",
+      "hemostasis_or_proteolysis",
+      "membrane_or_lysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_742",
+    "control_id": "peptide_1409",
+    "label": 1,
+    "case_fold": 1,
+    "control_fold": 2,
+    "case_group": "reference_000645",
+    "control_group": "reference_001165",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "metalloproteinase",
+    "identity": 0.4545454545454545,
+    "length_ratio": 0.7272727272727273,
+    "case_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_151",
+    "control_id": "peptide_85",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 1,
+    "case_group": "reference_000146",
+    "control_group": "reference_000082",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.4782608695652174,
+    "length_ratio": 0.9130434782608696,
+    "case_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "control_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "shared_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_195",
+    "control_id": "peptide_854",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 3,
+    "case_group": "reference_000190",
+    "control_group": "reference_000731",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "conantokin",
+    "identity": 0.7368421052631579,
+    "length_ratio": 1.0,
+    "case_categories": [
+      "ion_channel",
+      "receptor_or_signaling",
+      "chemical_annotation"
+    ],
+    "control_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "shared_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_2707",
+    "control_id": "peptide_2283",
+    "label": 0,
+    "case_fold": 4,
+    "control_fold": 4,
+    "case_group": "reference_002349",
+    "control_group": "reference_001925",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "ponericin_name_class",
+    "identity": 0.5714285714285714,
+    "length_ratio": 0.9642857142857144,
+    "case_categories": [
+      "membrane_or_lysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "control_categories": [
+      "antimicrobial"
+    ],
+    "shared_categories": [
+      "antimicrobial"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_3434",
+    "control_id": "peptide_5947",
+    "label": 0,
+    "case_fold": 2,
+    "control_fold": 2,
+    "case_group": "reference_003069",
+    "control_group": "singleton_005946",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.4117647058823529,
+    "length_ratio": 0.8823529411764706,
+    "case_categories": [],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_57",
+    "control_id": "peptide_359",
+    "label": 1,
+    "case_fold": 2,
+    "control_fold": 0,
+    "case_group": "reference_000054",
+    "control_group": "reference_000350",
+    "case_pattern": "structure_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "conantokin",
+    "identity": 0.4090909090909091,
+    "length_ratio": 0.8181818181818182,
+    "case_categories": [
+      "ion_channel",
+      "receptor_or_signaling",
+      "chemical_annotation"
+    ],
+    "control_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "shared_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_66",
+    "control_id": "peptide_218",
+    "label": 1,
+    "case_fold": 1,
+    "control_fold": 3,
+    "case_group": "reference_000063",
+    "control_group": "reference_000212",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "conantokin",
+    "identity": 0.5263157894736842,
+    "length_ratio": 0.8947368421052632,
+    "case_categories": [
+      "ion_channel",
+      "receptor_or_signaling",
+      "chemical_annotation"
+    ],
+    "control_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "shared_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_800",
+    "control_id": "peptide_1125",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 1,
+    "case_group": "reference_000689",
+    "control_group": "reference_000943",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.5625,
+    "length_ratio": 0.875,
+    "case_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "hemolysis_text"
+    ],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_816",
+    "control_id": "peptide_917",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 4,
+    "case_group": "reference_000702",
+    "control_group": "reference_000774",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "metalloproteinase",
+    "identity": 0.48,
+    "length_ratio": 0.76,
+    "case_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "control_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "shared_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_1175",
+    "control_id": "peptide_851",
+    "label": 1,
+    "case_fold": 4,
+    "control_fold": 4,
+    "case_group": "reference_000989",
+    "control_group": "reference_000728",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.5263157894736842,
+    "length_ratio": 0.8947368421052632,
+    "case_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "hemolysis_text"
+    ],
+    "shared_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_826",
+    "control_id": "peptide_725",
+    "label": 1,
+    "case_fold": 1,
+    "control_fold": 0,
+    "case_group": "reference_000708",
+    "control_group": "singleton_000724",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "PLA2",
+    "identity": 0.4347826086956521,
+    "length_ratio": 0.782608695652174,
+    "case_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "hemolysis_text"
+    ],
+    "control_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "shared_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_332",
+    "control_id": "peptide_456",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 3,
+    "case_group": "reference_000324",
+    "control_group": "reference_000443",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "conotoxin_broad",
+    "identity": 0.4666666666666667,
+    "length_ratio": 0.7333333333333333,
+    "case_categories": [
+      "disulfide_annotation",
+      "chemical_annotation"
+    ],
+    "control_categories": [
+      "ion_channel",
+      "receptor_or_signaling"
+    ],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_119",
+    "control_id": "peptide_1410",
+    "label": 1,
+    "case_fold": 4,
+    "control_fold": 1,
+    "case_group": "reference_000114",
+    "control_group": "singleton_001409",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "L_amino_acid_oxidase",
+    "identity": 0.65,
+    "length_ratio": 1.0,
+    "case_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "hemostasis_or_proteolysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "shared_categories": [
+      "antimicrobial",
+      "hemolysis_text",
+      "hemostasis_or_proteolysis",
+      "membrane_or_lysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_4875",
+    "control_id": "peptide_4439",
+    "label": 0,
+    "case_fold": 1,
+    "control_fold": 0,
+    "case_group": "reference_004185",
+    "control_group": "reference_000422",
+    "case_pattern": "structure_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "ponericin_name_class",
+    "identity": 0.8,
+    "length_ratio": 1.0,
+    "case_categories": [
+      "membrane_or_lysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "control_categories": [
+      "membrane_or_lysis",
+      "antimicrobial",
+      "hemolysis_text"
+    ],
+    "shared_categories": [
+      "antimicrobial",
+      "hemolysis_text",
+      "membrane_or_lysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_2697",
+    "control_id": "peptide_4337",
+    "label": 0,
+    "case_fold": 1,
+    "control_fold": 4,
+    "case_group": "reference_002339",
+    "control_group": "reference_003860",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "bacteriocin",
+    "identity": 0.5116279069767442,
+    "length_ratio": 0.9069767441860463,
+    "case_categories": [],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": true,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_333",
+    "control_id": "peptide_498",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 2,
+    "case_group": "reference_000325",
+    "control_group": "reference_000481",
+    "case_pattern": "both_wrong",
+    "family_support": "name_class_proxy",
+    "family": "natriuretic",
+    "identity": 0.5384615384615384,
+    "length_ratio": 0.8461538461538461,
+    "case_categories": [
+      "receptor_or_signaling",
+      "disulfide_annotation"
+    ],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_709",
+    "control_id": "peptide_850",
+    "label": 1,
+    "case_fold": 0,
+    "control_fold": 0,
+    "case_group": "singleton_000708",
+    "control_group": "singleton_000849",
+    "case_pattern": "sequence_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "serine_protease",
+    "identity": 0.5,
+    "length_ratio": 0.9090909090909092,
+    "case_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "control_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "shared_categories": [
+      "hemostasis_or_proteolysis"
+    ],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  },
+  {
+    "supplement": "crossfold_all327_errors_vs_all_correct",
+    "case_id": "peptide_605",
+    "control_id": "peptide_526",
+    "label": 1,
+    "case_fold": 3,
+    "control_fold": 3,
+    "case_group": "reference_000553",
+    "control_group": "reference_000354",
+    "case_pattern": "structure_only_correct",
+    "family_support": "name_class_proxy",
+    "family": "natriuretic",
+    "identity": 0.5128205128205128,
+    "length_ratio": 0.9487179487179488,
+    "case_categories": [
+      "receptor_or_signaling",
+      "hemostasis_or_proteolysis",
+      "disulfide_annotation"
+    ],
+    "control_categories": [],
+    "shared_categories": [],
+    "both_without_fragment_or_conflict": false,
+    "both_full_records": false,
+    "scope": "existing exploratory pair, no new matching; name class proxy not curated family; OOF development folds already inspected"
+  }
+]

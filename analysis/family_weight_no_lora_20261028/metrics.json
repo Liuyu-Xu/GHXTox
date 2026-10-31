@@ -1,0 +1,558 @@
+{
+  "sequence": {
+    "A": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 104,
+        "FN": 52,
+        "FP": 52,
+        "MCC": 0.8000417001757365,
+        "AUPRC": 0.9310491179985404,
+        "AUROC": 0.9589983022071308
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 44,
+        "FN": 44,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 43,
+        "FN": 15,
+        "FP": 28,
+        "MCC": 0.5874330979951516,
+        "AUPRC": 0.7011093283056783,
+        "AUROC": 0.8986079545454546
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 61,
+        "FN": 37,
+        "FP": 24,
+        "MCC": 0.8491667931241504,
+        "AUPRC": 0.9612548279233573,
+        "AUROC": 0.9724124075859852
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 52,
+        "FN": 0,
+        "FP": 52,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 48,
+        "FN": 48,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 1,
+        "FN": 1,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 2,
+        "FN": 2,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    },
+    "B": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 90,
+        "FN": 58,
+        "FP": 32,
+        "MCC": 0.8241381020892992,
+        "AUPRC": 0.9259364142293794,
+        "AUROC": 0.9578723974622465
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 47,
+        "FN": 47,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 33,
+        "FN": 16,
+        "FP": 17,
+        "MCC": 0.6511008290167266,
+        "AUPRC": 0.6996634389211518,
+        "AUROC": 0.896875
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 57,
+        "FN": 42,
+        "FP": 15,
+        "MCC": 0.8589702428985077,
+        "AUPRC": 0.9647465810066588,
+        "AUROC": 0.9729320690024644
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 32,
+        "FN": 0,
+        "FP": 32,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 54,
+        "FN": 54,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 0,
+        "FN": 0,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 3,
+        "FN": 3,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    },
+    "C": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 112,
+        "FN": 58,
+        "FP": 54,
+        "MCC": 0.7839512307679446,
+        "AUPRC": 0.9254601244773532,
+        "AUROC": 0.9550367855121675
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 52,
+        "FN": 52,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 44,
+        "FN": 21,
+        "FP": 23,
+        "MCC": 0.5383217992323489,
+        "AUPRC": 0.6757139880710413,
+        "AUROC": 0.8837499999999999
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 68,
+        "FN": 37,
+        "FP": 31,
+        "MCC": 0.8324230776359051,
+        "AUPRC": 0.9576209937529225,
+        "AUROC": 0.9692087217400622
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 54,
+        "FN": 0,
+        "FP": 54,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 54,
+        "FN": 54,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 0,
+        "FN": 0,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 6,
+        "FN": 6,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    }
+  },
+  "fusion": {
+    "A": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 88,
+        "FN": 44,
+        "FP": 44,
+        "MCC": 0.8308045155333155,
+        "AUPRC": 0.9449691708938003,
+        "AUROC": 0.9664641229559467
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 38,
+        "FN": 38,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 33,
+        "FN": 11,
+        "FP": 22,
+        "MCC": 0.6793146889343272,
+        "AUPRC": 0.7607079826513308,
+        "AUROC": 0.9191477272727273
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 55,
+        "FN": 33,
+        "FP": 22,
+        "MCC": 0.864149535113826,
+        "AUPRC": 0.9688220681439415,
+        "AUROC": 0.9771295403407266
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 44,
+        "FN": 0,
+        "FP": 44,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 40,
+        "FN": 40,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 1,
+        "FN": 1,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 2,
+        "FN": 2,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    },
+    "B": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 75,
+        "FN": 50,
+        "FP": 25,
+        "MCC": 0.8537082550000642,
+        "AUPRC": 0.9409792032692524,
+        "AUROC": 0.968251273344652
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 42,
+        "FN": 42,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 27,
+        "FN": 14,
+        "FP": 13,
+        "MCC": 0.7102169592378705,
+        "AUPRC": 0.7263974177030723,
+        "AUROC": 0.9230681818181818
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 48,
+        "FN": 36,
+        "FP": 12,
+        "MCC": 0.8814680698148447,
+        "AUPRC": 0.9738781930450422,
+        "AUROC": 0.9798885674488375
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 25,
+        "FN": 0,
+        "FP": 25,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 46,
+        "FN": 46,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 0,
+        "FN": 0,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 3,
+        "FN": 3,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    },
+    "C": {
+      "all": {
+        "n": 1291,
+        "groups": 1052,
+        "errors": 98,
+        "FN": 46,
+        "FP": 52,
+        "MCC": 0.8125844574066435,
+        "AUPRC": 0.941751295479525,
+        "AUROC": 0.9643761355851429
+      },
+      "target": {
+        "n": 4,
+        "groups": 4,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "lowcys_positive": {
+        "n": 93,
+        "groups": 79,
+        "errors": 40,
+        "FN": 40,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "flagged": {
+        "n": 375,
+        "groups": 355,
+        "errors": 36,
+        "FN": 14,
+        "FP": 22,
+        "MCC": 0.6403359072335192,
+        "AUPRC": 0.7460787162056185,
+        "AUROC": 0.9139772727272727
+      },
+      "unflagged_not_gold": {
+        "n": 916,
+        "groups": 709,
+        "errors": 62,
+        "FN": 32,
+        "FP": 30,
+        "MCC": 0.8476352155190291,
+        "AUPRC": 0.9668701551159178,
+        "AUROC": 0.9750830386799528
+      },
+      "negative": {
+        "n": 930,
+        "groups": 752,
+        "errors": 52,
+        "FN": 0,
+        "FP": 52,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "other_positive": {
+        "n": 357,
+        "groups": 298,
+        "errors": 42,
+        "FN": 42,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "Cupiennin": {
+        "n": 4,
+        "groups": 3,
+        "errors": 0,
+        "FN": 0,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      },
+      "MSDIN": {
+        "n": 11,
+        "groups": 6,
+        "errors": 4,
+        "FN": 4,
+        "FP": 0,
+        "MCC": null,
+        "AUPRC": null,
+        "AUROC": null
+      }
+    }
+  }
+}

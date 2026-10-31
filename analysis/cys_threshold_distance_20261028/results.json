@@ -1,0 +1,458 @@
+{
+  "threshold": 0.47022256531284556,
+  "n": 6387,
+  "distance_bins": "[0,0.05), [0.05,0.15), [0.15,infinity)",
+  "counts": {
+    "low_positive": {
+      "total": 262,
+      "error": 140,
+      "correct": 122,
+      "error_distance_bins": {
+        "under_0.05": 5,
+        "0.05_to_0.15": 26,
+        "at_least_0.15": 109
+      },
+      "correct_distance_bins": {
+        "under_0.05": 5,
+        "0.05_to_0.15": 13,
+        "at_least_0.15": 104
+      },
+      "error_median_probability": 0.09332394620358993
+    },
+    "low_negative": {
+      "total": 3537,
+      "error": 24,
+      "correct": 3513,
+      "error_distance_bins": {
+        "under_0.05": 3,
+        "0.05_to_0.15": 11,
+        "at_least_0.15": 10
+      },
+      "correct_distance_bins": {
+        "under_0.05": 15,
+        "0.05_to_0.15": 40,
+        "at_least_0.15": 3458
+      },
+      "error_median_probability": 0.6020777317233035
+    },
+    "high_positive": {
+      "total": 1063,
+      "error": 6,
+      "correct": 1057,
+      "error_distance_bins": {
+        "under_0.05": 0,
+        "0.05_to_0.15": 1,
+        "at_least_0.15": 5
+      },
+      "correct_distance_bins": {
+        "under_0.05": 2,
+        "0.05_to_0.15": 5,
+        "at_least_0.15": 1050
+      },
+      "error_median_probability": 0.06503901653801805
+    },
+    "high_negative": {
+      "total": 240,
+      "error": 50,
+      "correct": 190,
+      "error_distance_bins": {
+        "under_0.05": 1,
+        "0.05_to_0.15": 9,
+        "at_least_0.15": 40
+      },
+      "correct_distance_bins": {
+        "under_0.05": 5,
+        "0.05_to_0.15": 8,
+        "at_least_0.15": 177
+      },
+      "error_median_probability": 0.8893952801700278
+    }
+  },
+  "scenarios_descriptive_only": {
+    "low": {
+      "0.025": {
+        "corrected": 2,
+        "harmed": 11,
+        "corrected_target": 2,
+        "harmed_opposite": 11
+      },
+      "0.05": {
+        "corrected": 5,
+        "harmed": 15,
+        "corrected_target": 5,
+        "harmed_opposite": 15
+      },
+      "0.1": {
+        "corrected": 18,
+        "harmed": 37,
+        "corrected_target": 18,
+        "harmed_opposite": 37
+      },
+      "0.15": {
+        "corrected": 31,
+        "harmed": 55,
+        "corrected_target": 31,
+        "harmed_opposite": 55
+      }
+    },
+    "high": {
+      "0.025": {
+        "corrected": 1,
+        "harmed": 1,
+        "corrected_target": 1,
+        "harmed_opposite": 1
+      },
+      "0.05": {
+        "corrected": 1,
+        "harmed": 2,
+        "corrected_target": 1,
+        "harmed_opposite": 2
+      },
+      "0.1": {
+        "corrected": 8,
+        "harmed": 6,
+        "corrected_target": 8,
+        "harmed_opposite": 6
+      },
+      "0.15": {
+        "corrected": 10,
+        "harmed": 7,
+        "corrected_target": 10,
+        "harmed_opposite": 7
+      }
+    }
+  },
+  "folds": {
+    "0": {
+      "low_positive": {
+        "total": 48,
+        "error": 22,
+        "correct": 26,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 5,
+          "at_least_0.15": 17
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 5,
+          "at_least_0.15": 21
+        },
+        "error_median_probability": 0.10779893460012126
+      },
+      "low_negative": {
+        "total": 696,
+        "error": 4,
+        "correct": 692,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 2,
+          "at_least_0.15": 2
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 3,
+          "at_least_0.15": 689
+        },
+        "error_median_probability": 0.5977326128828999
+      },
+      "high_positive": {
+        "total": 216,
+        "error": 3,
+        "correct": 213,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 2
+        },
+        "correct_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 3,
+          "at_least_0.15": 209
+        },
+        "error_median_probability": 0.08915685238351498
+      },
+      "high_negative": {
+        "total": 40,
+        "error": 3,
+        "correct": 37,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 2
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 2,
+          "at_least_0.15": 35
+        },
+        "error_median_probability": 0.6655552756728738
+      }
+    },
+    "1": {
+      "low_positive": {
+        "total": 55,
+        "error": 31,
+        "correct": 24,
+        "error_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 6,
+          "at_least_0.15": 23
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 21
+        },
+        "error_median_probability": 0.21956700590434292
+      },
+      "low_negative": {
+        "total": 674,
+        "error": 9,
+        "correct": 665,
+        "error_distance_bins": {
+          "under_0.05": 3,
+          "0.05_to_0.15": 5,
+          "at_least_0.15": 1
+        },
+        "correct_distance_bins": {
+          "under_0.05": 8,
+          "0.05_to_0.15": 9,
+          "at_least_0.15": 648
+        },
+        "error_median_probability": 0.5723318710668679
+      },
+      "high_positive": {
+        "total": 217,
+        "error": 1,
+        "correct": 216,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 1
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 216
+        },
+        "error_median_probability": 0.24450341557307317
+      },
+      "high_negative": {
+        "total": 42,
+        "error": 16,
+        "correct": 26,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 15
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 2,
+          "at_least_0.15": 22
+        },
+        "error_median_probability": 0.8893952801700278
+      }
+    },
+    "2": {
+      "low_positive": {
+        "total": 51,
+        "error": 33,
+        "correct": 18,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 7,
+          "at_least_0.15": 26
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 17
+        },
+        "error_median_probability": 0.05454087699190931
+      },
+      "low_negative": {
+        "total": 722,
+        "error": 4,
+        "correct": 718,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 4
+        },
+        "correct_distance_bins": {
+          "under_0.05": 3,
+          "0.05_to_0.15": 6,
+          "at_least_0.15": 709
+        },
+        "error_median_probability": 0.6705087034153916
+      },
+      "high_positive": {
+        "total": 203,
+        "error": 2,
+        "correct": 201,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 2
+        },
+        "correct_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 199
+        },
+        "error_median_probability": 0.03003188660661131
+      },
+      "high_negative": {
+        "total": 38,
+        "error": 10,
+        "correct": 28,
+        "error_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 5,
+          "at_least_0.15": 4
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 2,
+          "at_least_0.15": 26
+        },
+        "error_median_probability": 0.5937681673355713
+      }
+    },
+    "3": {
+      "low_positive": {
+        "total": 48,
+        "error": 25,
+        "correct": 23,
+        "error_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 5,
+          "at_least_0.15": 19
+        },
+        "correct_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 2,
+          "at_least_0.15": 20
+        },
+        "error_median_probability": 0.08007582538330613
+      },
+      "low_negative": {
+        "total": 730,
+        "error": 2,
+        "correct": 728,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 2
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 9,
+          "at_least_0.15": 717
+        },
+        "error_median_probability": 0.9005019544614419
+      },
+      "high_positive": {
+        "total": 209,
+        "error": 0,
+        "correct": 209,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 0
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 208
+        },
+        "error_median_probability": null
+      },
+      "high_negative": {
+        "total": 43,
+        "error": 4,
+        "correct": 39,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 3
+        },
+        "correct_distance_bins": {
+          "under_0.05": 1,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 37
+        },
+        "error_median_probability": 0.9407730540220625
+      }
+    },
+    "4": {
+      "low_positive": {
+        "total": 60,
+        "error": 29,
+        "correct": 31,
+        "error_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 3,
+          "at_least_0.15": 24
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 4,
+          "at_least_0.15": 25
+        },
+        "error_median_probability": 0.05883353050982866
+      },
+      "low_negative": {
+        "total": 715,
+        "error": 5,
+        "correct": 710,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 4,
+          "at_least_0.15": 1
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 13,
+          "at_least_0.15": 695
+        },
+        "error_median_probability": 0.5612792066931761
+      },
+      "high_positive": {
+        "total": 218,
+        "error": 0,
+        "correct": 218,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 0
+        },
+        "correct_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 0,
+          "at_least_0.15": 218
+        },
+        "error_median_probability": null
+      },
+      "high_negative": {
+        "total": 77,
+        "error": 17,
+        "correct": 60,
+        "error_distance_bins": {
+          "under_0.05": 0,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 16
+        },
+        "correct_distance_bins": {
+          "under_0.05": 2,
+          "0.05_to_0.15": 1,
+          "at_least_0.15": 57
+        },
+        "error_median_probability": 0.9311765288511857
+      }
+    }
+  },
+  "limitation": "Historical original upstream OOF is not fully nested. Directions and groups were informed by prior development. Test sets unused. Exploratory fixed changes are not independently validated."
+}

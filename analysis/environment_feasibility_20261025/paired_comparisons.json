@@ -1,0 +1,46 @@
+[
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "baseline": "peptide",
+    "augmented": "peptide_dose",
+    "MAE_reduction_percentage_points": -0.016174518437452937,
+    "paired_cluster_bootstrap_95pct": [
+      -0.31870886742543614,
+      0.2677011049566302
+    ],
+    "scope": "冻结OOF预测的序列群重采样；不覆盖所有模型训练/原始实验不确定性"
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "baseline": "peptide_dose",
+    "augmented": "peptide_dose_species",
+    "MAE_reduction_percentage_points": 0.18653848274730994,
+    "paired_cluster_bootstrap_95pct": [
+      -0.11677487879511783,
+      0.5362146863004071
+    ],
+    "scope": "冻结OOF预测的序列群重采样；不覆盖所有模型训练/原始实验不确定性"
+  },
+  {
+    "design": "sequence_edit_groups",
+    "baseline": "peptide",
+    "augmented": "peptide_dose",
+    "MAE_reduction_percentage_points": 0.2007527743439297,
+    "paired_cluster_bootstrap_95pct": [
+      -0.1076982464962899,
+      0.5109430489675869
+    ],
+    "scope": "冻结OOF预测的序列群重采样；不覆盖所有模型训练/原始实验不确定性"
+  },
+  {
+    "design": "sequence_edit_groups",
+    "baseline": "peptide_dose",
+    "augmented": "peptide_dose_species",
+    "MAE_reduction_percentage_points": 0.16423490583868505,
+    "paired_cluster_bootstrap_95pct": [
+      -0.13534266909836862,
+      0.4573455998303062
+    ],
+    "scope": "冻结OOF预测的序列群重采样；不覆盖所有模型训练/原始实验不确定性"
+  }
+]

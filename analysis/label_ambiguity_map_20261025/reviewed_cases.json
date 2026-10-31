@@ -1,0 +1,1363 @@
+[
+  {
+    "sample_id": "peptide_19",
+    "sequence": "GLSQSGCQAFTGRWCVGCERLRSRVVWECSPKRVVNSI",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.70172908319954541",
+    "p_struct": "0.00033095190900000001",
+    "p_fusion": "0.5053376064381927",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "4",
+    "exact_match_accessions": "P0CI21",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Augerpeptide hhe53",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "cDNA预测成熟肽；本轮未找到直接毒性测定，不作为可靠阳性标准",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_33",
+    "sequence": "LLACLFGNGRCSSNRDCCELTPVCKRGSCVSSGPGLVGGILGGIL",
+    "label": "1",
+    "fold": "2",
+    "p_seq": "0.056667482512223796",
+    "p_struct": "0.00043069029900000001",
+    "p_fusion": "0.040921180692521132",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "6",
+    "exact_match_accessions": "P82852",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Omega-hexatoxin-Hv2a",
+      "review_tags": [
+        "assay_endpoint_context",
+        "chemical_state"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Omega-HXTX-Hv2a：昆虫钙通道选择性证据，不能无条件解释为人类毒性；原记录还含C端修饰。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P82852/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_74",
+    "sequence": "WSTIVKLTICPTLKSMAKKCEGSIATMIKKKCDK",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.92785814848404724",
+    "p_struct": "0.026956481899999999",
+    "p_fusion": "0.67560568184051395",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "3",
+    "exact_match_accessions": "P49344",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Ectatomin B",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "原研究显示所测分子与孤立输入不同",
+      "review_note": "模型判对不等于孤立B链已证实有毒；与A来自同一完整毒素",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_94",
+    "sequence": "IWLTALKFLGKHAAKHLAKQQLSKL",
+    "label": "1",
+    "fold": "1",
+    "p_seq": "0.3978707418184031",
+    "p_struct": "0.11551658099999999",
+    "p_fusion": "0.31881157678925021",
+    "fusion_category": "FN",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "P61507",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "Lycotoxin I",
+      "review_tags": [
+        "direct_effect_supported_error",
+        "chemical_state"
+      ],
+      "review_grade": "指定终点直接记录",
+      "review_note": "合成LycotoxinI C端酰胺化；兔红细胞室温1h，200μM约55%溶血；1D TP/3D FN/融合FN；不证明修饰导致错误。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.273.4.2059"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "直接效应支持的漏判候选",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_139",
+    "sequence": "MEKIANAVKSAIEAGQNQDWTKLGTSILDIVSNGVTELSKIFGF",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.94300116253695676",
+    "p_struct": "0.0131421015",
+    "p_fusion": "0.68264062544660886",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "P11698;Q4L5M2",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Antibacterial protein 2",
+      "review_tags": [
+        "insufficient_specific_evidence",
+        "chemical_state"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "P11698有实验来源溶血注释；同序列Q4L5M2仅相似性推断；具体条件待核实",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_160",
+    "sequence": "KIKWFKTMKSIAKFIAKEQMKKHLGGE",
+    "label": "1",
+    "fold": "4",
+    "p_seq": "0.53201590595809045",
+    "p_struct": "0.19098979199999999",
+    "p_fusion": "0.43652859404982514",
+    "fusion_category": "FN",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "P61508",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Lycotoxin II",
+      "review_tags": [
+        "insufficient_specific_evidence",
+        "chemical_state"
+      ],
+      "review_grade": "具体证据限制已记录",
+      "review_note": "本轮没有确认其单独直接红细胞剂量曲线；C端直接确认；无本条溶血曲线",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.273.4.2059"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_201",
+    "sequence": "GVIPKKIWETVCPTVEPWAKKCSGDIATYIKRECGKL",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.41033624994129919",
+    "p_struct": "0.033050812800000003",
+    "p_fusion": "0.30469632754173542",
+    "fusion_category": "FN",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "3",
+    "exact_match_accessions": "P49343",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "interchain_annotation"
+    ],
+    "manual_review": {
+      "name": "Ectatomin A",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "原研究显示所测分子与孤立输入不同",
+      "review_note": "原文活性对象是完整A+B双链毒素；本轮未找到孤立A链的直接毒性测定",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_249",
+    "sequence": "FLGALLKIGAKLLPSVVGLFKKKQQ",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.023601242325874395",
+    "p_struct": "2.5897839800000001e-05",
+    "p_fusion": "0.017000145869773563",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0DSM4",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Na1b",
+      "review_tags": [
+        "direct_effect_supported_error"
+      ],
+      "review_grade": "指定终点直接记录",
+      "review_note": "原文精确序列有HEK293活性与人红细胞溶血测量；融合FN；这支持研究该难例，不证明具体致错机制。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "直接效应支持的漏判候选",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_251",
+    "sequence": "MSGIVEAISNAVKSGLDHDWVNMGTSIADVVAKGADFIAGFFS",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.46168595813229463",
+    "p_struct": "9.02491934e-07",
+    "p_fusion": "0.33241414255299362",
+    "fusion_category": "FN",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "P85219;P85222",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "H1C/H1U",
+      "review_tags": [
+        "chemical_state",
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "原摘要支持溶血/细胞效应，但UniProt N端甲酰化与Hemolytik Free记录冲突；原表单位/条件未全部核实，未证明修饰导致漏判。",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "化学形式证据冲突待确认",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_288",
+    "sequence": "GKFSVFGKILRSIAKVFKGVGKVRKQFKTASDLDKNQ",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.61594718014049887",
+    "p_struct": "0.36401590700000003",
+    "p_fusion": "0.54540642366115921",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "P83248",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Oxyopinin-2a",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "具体证据限制已记录",
+      "review_note": "已撤回直接溶血正确对照认定：原文后续合成代表肽是2b；不能将曲线归给2a。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.M200511200"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_308",
+    "sequence": "GFGMLFKFLAKKVAKKLVSHVAQKQLE",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.96039272320275948",
+    "p_struct": "0.99908435299999998",
+    "p_fusion": "0.97122637954598678",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "TP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "B3EWV6",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Cupiennin-4a",
+      "review_tags": [
+        "insufficient_specific_evidence",
+        "chemical_state"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "测序/酰胺化注释有依据；本轮未确认本条肽直接毒性测定",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_309",
+    "sequence": "ARTQPGNIAPVGDFTLYPNAPRQGHIVA",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.0143004545954787",
+    "p_struct": "0.000327397283",
+    "p_fusion": "0.010387998547984665",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P83245",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Ribosome-inactivating protein pleuturegin",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "原研究显示所测分子与孤立输入不同",
+      "review_note": "输入28 aa是38 kDa pleuturegin 的N端测序片段；原论文的翻译抑制实验对象为完整分离蛋白，未建立孤立28 aa的同等活性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P83245/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_322",
+    "sequence": "TVSDPPARPAVFHSREELMNYVRELNRYFAIVGRPRF",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.010005917249897097",
+    "p_struct": "5.2481755799999998e-08",
+    "p_fusion": "0.0072042751148175335",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0CJ22",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "Neuropeptide Y1-like conopeptide",
+      "review_tags": [
+        "assay_endpoint_context",
+        "chemical_state"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Cono-NPY1，C端酰胺化；注释/原始论文支持小鼠脑室给药后的行为效应，不是溶血或某个已确证受体机制。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0CJ22/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_332",
+    "sequence": "SCSCKRNFLCC",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.033861578025074064",
+    "p_struct": "0.032626379300000001",
+    "p_fusion": "0.033515722382053324",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "4",
+    "exact_match_accessions": "P86942",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "Conotoxin pc16a",
+      "review_tags": [
+        "assay_endpoint_context"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "pc16a 原论文报告所测动物、Na/K通道及烟碱受体实验未见活性；不能据此证明普遍安全，但正标签不应被当作这些终点的实测阳性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P86942/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_424",
+    "sequence": "MDFIIDIIKKIVGLFTGK",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.010129671381064364",
+    "p_struct": "6.7856217399999995e-07",
+    "p_fusion": "0.0072935533917750615",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P85220;P85223",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "H2C/H2U",
+      "review_tags": [
+        "chemical_state",
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "原摘要支持溶血/细胞效应，但UniProt N端甲酰化与Hemolytik Free记录冲突；原表单位/条件未全部核实，未证明修饰导致漏判。",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "化学形式证据冲突待确认",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_444",
+    "sequence": "AGTKEWLNKAKDFIKEKGLGMLSAAANAALN",
+    "label": "1",
+    "fold": "4",
+    "p_seq": "0.12052802490861661",
+    "p_struct": "1.24998596e-05",
+    "p_fusion": "0.086783677894891956",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0DV18",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Nc3b",
+      "review_tags": [
+        "assay_endpoint_context"
+      ],
+      "review_grade": "具体证据限制已记录",
+      "review_note": "原标签1且融合FN；原研究哺乳动物CC50/HC50均>300μM，另有昆虫作用。不同终点不能混为通用毒性阈值。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_463",
+    "sequence": "FVKELWDKVKKMGSAAWSAAKGAFA",
+    "label": "1",
+    "fold": "1",
+    "p_seq": "0.26279173153820107",
+    "p_struct": "0.034266952400000002",
+    "p_fusion": "0.19880479337950477",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0DV16",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Nc2a",
+      "review_tags": [
+        "direct_effect_supported_error"
+      ],
+      "review_grade": "指定终点直接记录",
+      "review_note": "原文有较弱HEK293效应，HC50>250μM；融合FN；具体终点阈值与原标签生成链仍未知。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "直接效应支持的漏判候选",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_622",
+    "sequence": "CLSVCSMEYWPVCGSDGKTYPNECHLTSEACMSNTDITVAHVGKCDQ",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.033072928941720314",
+    "p_struct": "4.3642305099999999e-07",
+    "p_fusion": "0.023812631036492903",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "6",
+    "exact_match_accessions": "P0DKM8",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Turripeptide Ici9.1",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Turripeptide Ici9.1；Fragment，离子通道毒性为同源推断，不能当作该精确短肽直接活性证据。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DKM8/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_643",
+    "sequence": "CMTICTMEYWPVCGSDGKTYPNKCHLTSTACTSQKDITVLHEGKC",
+    "label": "1",
+    "fold": "0",
+    "p_seq": "0.12382886443697853",
+    "p_struct": "2.49960323e-07",
+    "p_fusion": "0.089156852383514978",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "6",
+    "exact_match_accessions": "P0DKM9",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Turripeptide OL11-like",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Turripeptide OL11-like；Fragment，离子通道毒性为同源推断，优先检查实体和实验效应。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DKM9/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_652",
+    "sequence": "GKLSGISKVLRAIAKFFKGVGKARKQFKEASDLDKNQ",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.81489036957008709",
+    "p_struct": "0.67899465599999997",
+    "p_fusion": "0.77683956977046276",
+    "fusion_category": "TP",
+    "sequence_category": "TP",
+    "structure_category": "TP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P83250",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Oxyopinin-2c",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "具体证据限制已记录",
+      "review_note": "数据库活性来源不能代替逐肽测定覆盖；不能将2b的后续曲线归给2c。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.M200511200"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_806",
+    "sequence": "LKVPDLPLPESYKKALELAKDDLAREII",
+    "label": "1",
+    "fold": "2",
+    "p_seq": "0.011117366656018967",
+    "p_struct": "0.00191063597",
+    "p_fusion": "0.0085394820639336563",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "",
+    "identity_status": "no_short_entry_match",
+    "machine_review_hints": [
+      "identity_unresolved"
+    ],
+    "manual_review": {
+      "name": "unknown",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "本轮短条目精确匹配和精确网页搜索未恢复可靠身份；保持未知，不按模型意见补标签。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_1392",
+    "sequence": "MLTKFETKSARVKGLSFHPKRPWIL",
+    "label": "1",
+    "fold": "3",
+    "p_seq": "0.0076993061620932836",
+    "p_struct": "8.6386353399999996e-07",
+    "p_fusion": "0.0055437423184966838",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "",
+    "identity_status": "no_short_entry_match",
+    "machine_review_hints": [
+      "identity_unresolved"
+    ],
+    "manual_review": {
+      "name": "Human xenin-25",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "序列匹配 human xenin-25；内源激素身份既不证明安全，也不证明原标签有误。优先恢复原始毒性依据。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://gpcrdb.org/ligand/8890/info/"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_1434",
+    "sequence": "IWLTALKFLGKNLGKHLAKQQLAKL",
+    "label": "1",
+    "fold": "1",
+    "p_seq": "0.48323327873053351",
+    "p_struct": "0.32173663400000002",
+    "p_fusion": "0.43801421820598418",
+    "fusion_category": "FN",
+    "sequence_category": "TP",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "True",
+    "cys_count": "0",
+    "exact_match_accessions": "C0HJU9",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "LyeTx I",
+      "review_tags": [
+        "direct_effect_supported_error",
+        "chemical_state"
+      ],
+      "review_grade": "指定终点直接记录",
+      "review_note": "LyeTxI为游离N端、酰胺化C端；兔红细胞37°C1h，ED50=130μM；1D TP/3D FN/融合FN；无同序列修饰因果对照。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1007/s00726-009-0385-x"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "直接效应支持的漏判候选",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_1623",
+    "sequence": "TPMCGATCAMACPNDFVEDEHGCPICKCREE",
+    "label": "1",
+    "fold": "2",
+    "p_seq": "0.024829238692085406",
+    "p_struct": "0.00451978808",
+    "p_fusion": "0.019142592520701489",
+    "fusion_category": "FN",
+    "sequence_category": "FN",
+    "structure_category": "FN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "6",
+    "exact_match_accessions": "",
+    "identity_status": "no_short_entry_match",
+    "machine_review_hints": [
+      "identity_unresolved"
+    ],
+    "manual_review": {
+      "name": "ConoServer G9.1",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "ConoServer G9.1；由前体推定成熟序列，序列证据为核酸层面，不能当作成熟肽已实测毒性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.conoserver.org/?id=5758&page=card&table=protein"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_2165",
+    "sequence": "GLLEFNKMIKFETRKNAIPFYAFYGCYCGWGGRRRPKDA",
+    "label": "0",
+    "fold": "3",
+    "p_seq": "0.95580280102717097",
+    "p_struct": "0.99851304299999999",
+    "p_fusion": "0.96776166877956304",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "2",
+    "exact_match_accessions": "C0HLL0",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Phospholipase A2 CS24a",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "PLA2 CS24a 片段；酶活性功能注释含同源推断，不能视为该短序列的实测毒性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HLL0/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_2653",
+    "sequence": "DCCRKPFRKHCWDCTAGTPYYGYSTRNIFGCTC",
+    "label": "0",
+    "fold": "3",
+    "p_seq": "0.98549316029622147",
+    "p_struct": "0.99689108100000001",
+    "p_fusion": "0.98868457809327948",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "6",
+    "exact_match_accessions": "P81614",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Mytimycin",
+      "review_tags": [
+        "molecular_entity",
+        "assay_endpoint_context"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Mytimycin 标记 Fragment；原始研究描述部分表征的约6.2 kDa抗真菌肽，而保留输入只有33 aa。抗真菌也不是宿主无毒证据。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P81614/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_2726",
+    "sequence": "SCSCQKHFSCCD",
+    "label": "0",
+    "fold": "2",
+    "p_seq": "0.97890125480280132",
+    "p_struct": "0.99968087699999997",
+    "p_fusion": "0.98471954901801695",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "4",
+    "exact_match_accessions": "P0DMA4",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "cross_source_label_disagreement",
+      "non_disulfide_modification_annotation"
+    ],
+    "manual_review": {
+      "name": "Conotoxin pc16c",
+      "review_tags": [
+        "insufficient_specific_evidence",
+        "chemical_state"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "pc16c 的序列和C端酰胺化有记录，未恢复对应毒性测定；没有 Toxin 关键词不等于已证实无毒。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DMA4/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_3648",
+    "sequence": "SCADAYKSCDSLKCCNNRTCMCSMIGTNCTCRKK",
+    "label": "0",
+    "fold": "1",
+    "p_seq": "0.98193392575281013",
+    "p_struct": "0.99572694299999998",
+    "p_fusion": "0.9857959705820234",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "8",
+    "exact_match_accessions": "P84000",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match",
+      "cross_source_label_disagreement"
+    ],
+    "manual_review": {
+      "name": "U10-ctenitoxin-Pr1a",
+      "review_tags": [
+        "molecular_entity",
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "条目注释对小鼠和昆虫无毒，但序列标记 Fragment，功能证据指向数据库提交。不能当作合成该34 aa片段已测得无毒。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84000/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_3912",
+    "sequence": "FWGAAAKMLGKALPGLISMFQKN",
+    "label": "0",
+    "fold": "4",
+    "p_seq": "0.20295539006812016",
+    "p_struct": "3.0012861899999999e-07",
+    "p_fusion": "0.14612796488505983",
+    "fusion_category": "TN",
+    "sequence_category": "TN",
+    "structure_category": "TN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0DV15",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "cross_source_label_disagreement"
+    ],
+    "manual_review": {
+      "name": "Nc1a",
+      "review_tags": [
+        "assay_endpoint_context"
+      ],
+      "review_grade": "具体证据限制已记录",
+      "review_note": "原标签0且模型TN；原研究有HEK293与人红细胞效应。原标签终点未知，不能认定原标错或可靠无毒。",
+      "evidence_files": [
+        "analysis/assay_completion_20261025/conditions.json",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_3921",
+    "sequence": "LKDGPCPSYMDTCCLSPDRR",
+    "label": "0",
+    "fold": "0",
+    "p_seq": "0.9503029907488213",
+    "p_struct": "0.99916934999999996",
+    "p_fusion": "0.96398557133915119",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "3",
+    "exact_match_accessions": "C0HLY5",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "Putative serine protease",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "疑似丝氨酸蛋白酶片段；已注释真菌细胞壁组分结合功能，不能据此证明孤立短肽无毒。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HLY5/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_4096",
+    "sequence": "LFGNIIDKLREKIKKYCNKENLDKACSKL",
+    "label": "0",
+    "fold": "4",
+    "p_seq": "0.96741831964079106",
+    "p_struct": "0.99714893100000002",
+    "p_fusion": "0.97574289082136956",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "2",
+    "exact_match_accessions": "P0DSM1",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "cross_source_label_disagreement",
+      "interchain_annotation"
+    ],
+    "manual_review": {
+      "name": "U1-pseudomyrmecitoxin-Pt1 subunit SS3",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "Myrmexin 异二聚体中的 SS3 亚基；功能证据涉及异二聚体/复合物的抗炎活性，不是孤立 SS3 的毒性证明。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DSM1/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_4117",
+    "sequence": "FLGGLMKIGAKLLPSVIGLFKKKQ",
+    "label": "0",
+    "fold": "0",
+    "p_seq": "0.019225558813214562",
+    "p_struct": "2.5006979700000001e-06",
+    "p_fusion": "0.013843102540946084",
+    "fusion_category": "TN",
+    "sequence_category": "TN",
+    "structure_category": "TN",
+    "expert_decision_disagreement": "False",
+    "cys_count": "0",
+    "exact_match_accessions": "P0DSM2",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [
+      "cross_source_label_disagreement"
+    ],
+    "manual_review": {
+      "name": "Na1a",
+      "review_tags": [
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "指定分子/终点资料核查",
+      "review_note": "原标签0；数据库活性注释来自相似性推断，不证明本条有毒或无毒",
+      "evidence_files": [
+        "analysis/assay_evidence_20261025/REPORT.md",
+        "analysis/assay_completion_20261025/REPORT.md"
+      ],
+      "source_urls": [],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "该具体分子/终点证据不足",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_4448",
+    "sequence": "NQDCRPGWSFYEQNCYKVF",
+    "label": "0",
+    "fold": "2",
+    "p_seq": "0.96741831964079106",
+    "p_struct": "0.88726389400000005",
+    "p_fusion": "0.94497508046136958",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "2",
+    "exact_match_accessions": "P86534",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match"
+    ],
+    "manual_review": {
+      "name": "C-type lectin domain-containing protein 2",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "蛇毒 C 型凝集素蛋白的片段；没有恢复该短序列的独立毒性终点。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P86534/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_5033",
+    "sequence": "APRSMRRSSDCFGSRIDRIGAQSGMGCGRF",
+    "label": "0",
+    "fold": "0",
+    "p_seq": "0.94415402945739668",
+    "p_struct": "0.95904135700000004",
+    "p_fusion": "0.9483224811693256",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "2",
+    "exact_match_accessions": "P09196",
+    "identity_status": "matched_not_fragment_flagged",
+    "machine_review_hints": [],
+    "manual_review": {
+      "name": "Natriuretic peptides A",
+      "review_tags": [
+        "assay_endpoint_context"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "蛙利钠肽相关条目，血管活性/激素功能；记录还涉及前体和切割链，不能把生理活性等同于统一毒性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P09196/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "实验终点或作用背景需区分",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_5875",
+    "sequence": "ECIGHRRSCKEDRNGCCKLYTCNCWYPTPDDQWCKCLL",
+    "label": "0",
+    "fold": "1",
+    "p_seq": "0.97890125480280132",
+    "p_struct": "0.99850970500000003",
+    "p_fusion": "0.98439162085801701",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "8",
+    "exact_match_accessions": "P84013",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match",
+      "cross_source_label_disagreement"
+    ],
+    "manual_review": {
+      "name": "U9-ctenitoxin-Pk1a",
+      "review_tags": [
+        "molecular_entity"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "蜘蛛毒液蛋白 PKTx22C1 的片段；来源和家族相似性不能确定其宿主毒性。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84013/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  },
+  {
+    "sample_id": "peptide_5902",
+    "sequence": "GSCLELGEYCNGSKDDCQCCRDNAYCGCDIF",
+    "label": "0",
+    "fold": "4",
+    "p_seq": "0.97621046873670936",
+    "p_struct": "0.99999296699999995",
+    "p_fusion": "0.9828695682504307",
+    "fusion_category": "FP",
+    "sequence_category": "FP",
+    "structure_category": "FP",
+    "expert_decision_disagreement": "False",
+    "cys_count": "7",
+    "exact_match_accessions": "P85146",
+    "identity_status": "fragment_match",
+    "machine_review_hints": [
+      "fragment_reference_match",
+      "cross_source_label_disagreement"
+    ],
+    "manual_review": {
+      "name": "U14-ctenitoxin-Co1c",
+      "review_tags": [
+        "molecular_entity",
+        "insufficient_specific_evidence"
+      ],
+      "review_grade": "已有具体资料线索，非全部原文方法核实",
+      "review_note": "注释称脑室注射小鼠未见毒性，但为 Fragment 且功能依据为提交记录；不能外推到任意实验条件或孤立片段。",
+      "evidence_files": [
+        "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv"
+      ],
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P85146/entry"
+      ],
+      "causal_error_explanation_established": false,
+      "original_binary_label_provenance": "未恢复完整历史判定链"
+    },
+    "primary_review_status": "分子对象问题的具体案例/线索",
+    "original_label_unchanged": true,
+    "suggested_weight_change": null
+  }
+]

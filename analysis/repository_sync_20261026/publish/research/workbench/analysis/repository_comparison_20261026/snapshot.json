@@ -1,0 +1,2673 @@
+{
+  "checked_date": "2026-10-26",
+  "upstream_head": "a03f846f502e07c3e3a179e1720a0a1518d6596d",
+  "fork_head": "49a330f1811243f8df155040e1be90aa8e86e362",
+  "fork_ahead": 1,
+  "fork_behind": 69,
+  "merge_base": {
+    "sha": "a8328d25bd61dcb646fb14a702596c78966dd499",
+    "url": "https://api.github.com/repos/Liuyu-Xu/GHXTox/commits/a8328d25bd61dcb646fb14a702596c78966dd499",
+    "html_url": "https://github.com/Liuyu-Xu/GHXTox/commit/a8328d25bd61dcb646fb14a702596c78966dd499"
+  },
+  "upstream_changes_since_mergebase": [
+    {
+      "filename": ".gitignore",
+      "status": "modified",
+      "additions": 118,
+      "deletions": 33,
+      "changes": 151,
+      "previous_filename": null
+    },
+    {
+      "filename": "2025PeptiTox.docx",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "2025ToxMSRC.docx",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "2025ToxiPep.docx",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "Jiao, S., Ye, X., Sakurai, T. et al. Integration of pre-trained protein language models with equivariant graph neural networks for peptide toxicity prediction. BMC Biol 23, 229 (2025)..docx",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 83,
+      "deletions": 1723,
+      "changes": 1806,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/3d_v2_default_refit.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 76,
+      "changes": 76,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/chemical_site_interaction_final.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 59,
+      "changes": 59,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/chemical_site_interaction_pareto.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 64,
+      "changes": 64,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/chemical_site_interaction_pareto_same_residue.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 64,
+      "changes": 64,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/default.json",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 8,
+      "changes": 11,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/default_3d_v1.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 49,
+      "changes": 49,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/default_groupfold_control.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 27,
+      "changes": 27,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/default_multidimensional_fusion.json",
+      "status": "added",
+      "additions": 40,
+      "deletions": 0,
+      "changes": 40,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/lora_mamba_1d_autodl.json",
+      "status": "added",
+      "additions": 24,
+      "deletions": 0,
+      "changes": 24,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/plm_fusion_esm2_geometry_confidence.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/plm_fusion_esm2_geometry_confidence_seed123.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/plm_fusion_esm2_geometry_confidence_seed2025.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/plm_sequence_atom_cross_attention.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 34,
+      "changes": 34,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/sequence_1d_bilstm.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 18,
+      "changes": 18,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/sequence_1d_bilstm_nested.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 18,
+      "changes": 18,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/sequence_1d_bilstm_seed123.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 18,
+      "changes": 18,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/sequence_1d_bilstm_seed2025.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 18,
+      "changes": 18,
+      "previous_filename": null
+    },
+    {
+      "filename": "dataset/test_set_1.fasta",
+      "status": "renamed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": "dataset/test1.fasta"
+    },
+    {
+      "filename": "dataset/test_set_2.fasta",
+      "status": "renamed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": "dataset/test2.fasta"
+    },
+    {
+      "filename": "dataset/training_set.fasta",
+      "status": "renamed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": "dataset/train_data or benchmark_data.fasta"
+    },
+    {
+      "filename": "dataset/数据集详情.jpg",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "pyproject.toml",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 26,
+      "changes": 35,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/figures/default_model_evaluation.pdf",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/figures/default_model_evaluation.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/figures/figure_metadata.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 44,
+      "changes": 44,
+      "previous_filename": null
+    },
+    {
+      "filename": "requirements.txt",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/README.md",
+      "status": "added",
+      "additions": 211,
+      "deletions": 0,
+      "changes": 211,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/config.json",
+      "status": "renamed",
+      "additions": 36,
+      "deletions": 22,
+      "changes": 58,
+      "previous_filename": "runs/3d_v2_default/config.json"
+    },
+    {
+      "filename": "research/multiconformer/evaluate.py",
+      "status": "added",
+      "additions": 440,
+      "deletions": 0,
+      "changes": 440,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/test_set_1_colabfold.csv",
+      "status": "added",
+      "additions": 357,
+      "deletions": 0,
+      "changes": 357,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/test_set_1_colabfold.fasta",
+      "status": "added",
+      "additions": 712,
+      "deletions": 0,
+      "changes": 712,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/test_set_1_pepflow.csv",
+      "status": "added",
+      "additions": 131,
+      "deletions": 0,
+      "changes": 131,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/test_set_1_pepflow.fasta",
+      "status": "added",
+      "additions": 260,
+      "deletions": 0,
+      "changes": 260,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_colabfold.csv",
+      "status": "added",
+      "additions": 2035,
+      "deletions": 0,
+      "changes": 2035,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_colabfold.fasta",
+      "status": "added",
+      "additions": 4068,
+      "deletions": 0,
+      "changes": 4068,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_folds.csv",
+      "status": "added",
+      "additions": 6388,
+      "deletions": 0,
+      "changes": 6388,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_pepflow.csv",
+      "status": "added",
+      "additions": 762,
+      "deletions": 0,
+      "changes": 762,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_pepflow.fasta",
+      "status": "added",
+      "additions": 1522,
+      "deletions": 0,
+      "changes": 1522,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/manifests/training_subset_folds.csv",
+      "status": "added",
+      "additions": 2796,
+      "deletions": 0,
+      "changes": 2796,
+      "previous_filename": null
+    },
+    {
+      "filename": "research/multiconformer/reported_results.json",
+      "status": "added",
+      "additions": 95,
+      "deletions": 0,
+      "changes": 95,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v1_control_oof/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "changes": 98,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/decision.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 54,
+      "changes": 54,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/default_entry_smoke_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 16,
+      "changes": 16,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/fallback_smoke_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 16,
+      "changes": 16,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 124,
+      "changes": 124,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/oof_summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "changes": 98,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/3d_v2_default/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/biological_interpretation/smoke_test1/figures/peptide_1.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/biological_interpretation/smoke_test1/figures/peptide_2.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/biological_interpretation/smoke_test1/figures/peptide_321.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/biological_interpretation/smoke_test1/figures/peptide_322.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/biological_interpretation/smoke_test1/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 39,
+      "changes": 39,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/bootstrap_ci/test1_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 203,
+      "changes": 203,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/bootstrap_ci/test1_sequence_bilstm_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 203,
+      "changes": 203,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/bootstrap_ci/test2_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 203,
+      "changes": 203,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/bootstrap_ci/test2_sequence_bilstm_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 203,
+      "changes": 203,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold0/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold0/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 580,
+      "changes": 580,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold1/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold1/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 580,
+      "changes": 580,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold2/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold2/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 796,
+      "changes": 796,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold3/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold3/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 364,
+      "changes": 364,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold4/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ablation_include_same_residue_fold4/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 436,
+      "changes": 436,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_component_ablation/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 134,
+      "changes": 134,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold0/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold0/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 760,
+      "changes": 760,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold1/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold1/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 382,
+      "changes": 382,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold2/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold2/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 517,
+      "changes": 517,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold3/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold3/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 490,
+      "changes": 490,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold4/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_final_control_fold4/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 814,
+      "changes": 814,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_include_same_residue_cv/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 255,
+      "changes": 255,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_cv/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 49,
+      "changes": 49,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold0/comparison.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold0/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 58,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold0/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 436,
+      "changes": 436,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold1/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 58,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold1/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 436,
+      "changes": 436,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold2/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 58,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold2/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 247,
+      "changes": 247,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold3/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 58,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold3/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 328,
+      "changes": 328,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold4/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 58,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_final_fold4/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 436,
+      "changes": 436,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_interaction_pareto_cv/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 233,
+      "changes": 233,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/chemical_site_ranknet_screen/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 104,
+      "changes": 104,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/complementarity/test1_3d_vs_bilstm.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 168,
+      "changes": 168,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/complementarity/test2_3d_vs_bilstm.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 168,
+      "changes": 168,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_1d/bootstrap_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 243,
+      "changes": 243,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_1d/seed123/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_1d/seed2025/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_1d/seed42/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_2d/bootstrap.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 129,
+      "changes": 129,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_2d/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_3d/bootstrap_multiseed.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 243,
+      "changes": 243,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_3d/seed123/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_3d/seed2025/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/external_toxinpred3_3d/seed42/metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/nested_p1/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 229,
+      "changes": 229,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/nested_p1_fold0.stderr.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/nested_p1_fold0.stdout.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 75,
+      "changes": 75,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/nested_p1_remaining.stderr.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/nested_p1_remaining.stdout.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 270,
+      "changes": 270,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/oof/sequence_bilstm_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 97,
+      "changes": 97,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/oof/sequence_transformer_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 97,
+      "changes": 97,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/oof/triroute_1d_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "changes": 98,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/oof/triroute_2d_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "changes": 98,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/oof/triroute_3d_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "changes": 98,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/efficiency.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 47,
+      "changes": 47,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_234.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_42.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_537.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_7.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_731.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_762.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_850.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test1_peptide_90.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_122_122.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_182_182.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_282_282.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_28_28.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_336_336.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_390_390.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_41_41.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_43_43.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_77_77.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_78_78.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/figures/test2_sequence_9_9.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/paired_comparison.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 269,
+      "changes": 269,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/paper_validation_summary.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_234.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_42.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_537.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_7.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_731.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_762.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_850.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/figures/peptide_90.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test1/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 35,
+      "changes": 35,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_122_122.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_282_282.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_28_28.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_41_41.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_43_43.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_77_77.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_78_78.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/figures/sequence_9_9.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/sequence_interpretation_test2/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 35,
+      "changes": 35,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/stratified_summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 55,
+      "changes": 55,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/paper_validation/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 50,
+      "changes": 50,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/compatibility_check.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 625,
+      "changes": 625,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test1_metrics_plddt070.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test1_metrics_thr082.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test2_metrics_plddt070.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/test2_metrics_thr082.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 14,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence/threshold_mcc.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 15,
+      "changes": 15,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed123/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 42,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed123/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed123/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed123/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed2025/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed2025/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed2025/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_fusion_esm2_geometry_confidence_seed2025/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_sequence_atom_cross_attention/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_sequence_atom_cross_attention/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_sequence_atom_cross_attention/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_sequence_atom_cross_attention/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/plm_sequence_atom_cross_attention/threshold_mcc.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed123/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed123/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed123/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed123/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed2025/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed2025/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed2025/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed2025/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed42/config.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed42/history.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed42/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_1d_bilstm_full_seed42/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_similarity/test1_subset_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_similarity/test1_summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_similarity/test2_subset_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/sequence_similarity/test2_summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_cdhit_combined_clusters_e0/combined.clstr",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_native_cdhit_audit_prepar0/audit/native_cdhit_audit.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_native_cdhit_length_bucke0/buckets/bucket_manifest.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_nested_group_folds_keep_g0/nested.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_parse_esmfold_pdb_extract0/sample.pdb",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_report_figure_generation0/figures/default_model_evaluation.pdf",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_report_figure_generation0/figures/default_model_evaluation.png",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/tmp/pytest-of-xly74/pytest-0/test_report_figure_generation0/figures/figure_metadata.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_confidence_final/decision.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_confidence_final/test1_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_confidence_final/test2_metrics.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_confidence_oof/summary.json",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_frozen_eval.stderr.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_frozen_eval.stdout.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_oof_export.stderr.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_oof_export.stdout.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_oof_training.stderr.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "runs/triroute_oof_training.stdout.log",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/attach_chemical_sites.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/biological_interpretation.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/bootstrap_ci.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/cdhit_clusters.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/chemical_site_ablation.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/chemical_site_report.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/colabfold_ensemble_cache.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/complementarity.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/confidence_predict.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/conformer_cache.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/conformer_features.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/data.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/esmfold_predict.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/folds.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/lora_mamba_1d.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/metrics.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/models/conformer_graph.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/models/dual_modal.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/multidimensional_default.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/native_cdhit_audit.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/oof.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/optimize_threshold.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/paper_validation.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/pepflow_batch.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/plm_embed.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/predict.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/prepare_cdhit.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/prepare_toxinpred3.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/preprocess.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/prott5_tokens.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/report_figures.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/selective_prediction.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/sequence_similarity.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/similarity_subset_eval.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/structure_inference.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/subset_processed.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/train.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/triroute.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/triroute_apply.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/utils.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_biological_interpretation.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_colabfold_ensemble_cache.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_conformer_cache.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_conformer_features.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_default_model_contract.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_paper_validation.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_pepflow_batch.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_prott5_tokens.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_selective_prediction.py",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_smoke.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_triroute.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    }
+  ],
+  "fork_changes_since_mergebase": [
+    {
+      "filename": ".gitignore",
+      "status": "modified",
+      "additions": 48,
+      "deletions": 23,
+      "changes": 71,
+      "previous_filename": null
+    },
+    {
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 121,
+      "deletions": 2,
+      "changes": 123,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_fuse_3d_v2.json",
+      "status": "added",
+      "additions": 76,
+      "deletions": 0,
+      "changes": 76,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+      "status": "added",
+      "additions": 76,
+      "deletions": 0,
+      "changes": 76,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak.json",
+      "status": "added",
+      "additions": 43,
+      "deletions": 0,
+      "changes": 43,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak_seed123.json",
+      "status": "added",
+      "additions": 43,
+      "deletions": 0,
+      "changes": 43,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak_seed2025.json",
+      "status": "added",
+      "additions": 43,
+      "deletions": 0,
+      "changes": 43,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_focal_mcc_seed123.json",
+      "status": "added",
+      "additions": 59,
+      "deletions": 0,
+      "changes": 59,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_focal_mcc_seed2025.json",
+      "status": "added",
+      "additions": 59,
+      "deletions": 0,
+      "changes": 59,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_focal_mcc_seed42.json",
+      "status": "added",
+      "additions": 59,
+      "deletions": 0,
+      "changes": 59,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed123.json",
+      "status": "added",
+      "additions": 58,
+      "deletions": 0,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed2025.json",
+      "status": "added",
+      "additions": 58,
+      "deletions": 0,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed42.json",
+      "status": "added",
+      "additions": 58,
+      "deletions": 0,
+      "changes": 58,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed123.json",
+      "status": "added",
+      "additions": 103,
+      "deletions": 0,
+      "changes": 103,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed2025.json",
+      "status": "added",
+      "additions": 103,
+      "deletions": 0,
+      "changes": 103,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed42.json",
+      "status": "added",
+      "additions": 103,
+      "deletions": 0,
+      "changes": 103,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/chemical_full_finetune_auprc_seed42.json",
+      "status": "added",
+      "additions": 100,
+      "deletions": 0,
+      "changes": 100,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_focal_mcc_seed123.json",
+      "status": "added",
+      "additions": 70,
+      "deletions": 0,
+      "changes": 70,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_focal_mcc_seed2025.json",
+      "status": "added",
+      "additions": 70,
+      "deletions": 0,
+      "changes": 70,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_focal_mcc_seed42.json",
+      "status": "added",
+      "additions": 70,
+      "deletions": 0,
+      "changes": 70,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed123.json",
+      "status": "added",
+      "additions": 69,
+      "deletions": 0,
+      "changes": 69,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed2025.json",
+      "status": "added",
+      "additions": 69,
+      "deletions": 0,
+      "changes": 69,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed42.json",
+      "status": "added",
+      "additions": 69,
+      "deletions": 0,
+      "changes": 69,
+      "previous_filename": null
+    },
+    {
+      "filename": "configs/hypeptox_tuning/manifest.json",
+      "status": "added",
+      "additions": 137,
+      "deletions": 0,
+      "changes": 137,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/hypeptox_fuse_paper_analysis_plan.md",
+      "status": "added",
+      "additions": 150,
+      "deletions": 0,
+      "changes": 150,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/hypeptox_fuse_tuning_commands.ps1",
+      "status": "added",
+      "additions": 483,
+      "deletions": 0,
+      "changes": 483,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/hypeptox_fuse_tuning_commands.sh",
+      "status": "added",
+      "additions": 485,
+      "deletions": 0,
+      "changes": 485,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/local_metric_optimization.md",
+      "status": "added",
+      "additions": 81,
+      "deletions": 0,
+      "changes": 81,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/prediction_ensemble_search_autodl.md",
+      "status": "added",
+      "additions": 81,
+      "deletions": 0,
+      "changes": 81,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/prott5_textcnn_hypeptox_autodl.md",
+      "status": "added",
+      "additions": 158,
+      "deletions": 0,
+      "changes": 158,
+      "previous_filename": null
+    },
+    {
+      "filename": "pyproject.toml",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0,
+      "changes": 8,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/ablation_progression.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/ablation_table_no_bacc.csv",
+      "status": "added",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/calibration_brier_ece.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/final_roc_pr_calibration.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/headline_comparison_no_bacc.csv",
+      "status": "added",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/headline_delta_vs_hypeptox_fuse.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/paired_bootstrap_vs_final.csv",
+      "status": "added",
+      "additions": 82,
+      "deletions": 0,
+      "changes": 82,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/raw_summaries/seven_model_platt_summary.json",
+      "status": "added",
+      "additions": 122,
+      "deletions": 0,
+      "changes": 122,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top5_platt_summary.json",
+      "status": "added",
+      "additions": 122,
+      "deletions": 0,
+      "changes": 122,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top8_test_metrics.json",
+      "status": "added",
+      "additions": 63,
+      "deletions": 0,
+      "changes": 63,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top8_val_metrics.json",
+      "status": "added",
+      "additions": 88,
+      "deletions": 0,
+      "changes": 88,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/summary.json",
+      "status": "added",
+      "additions": 113,
+      "deletions": 0,
+      "changes": 113,
+      "previous_filename": null
+    },
+    {
+      "filename": "reports/hypeptox_fuse_paper_analysis/tuning_summary.csv",
+      "status": "added",
+      "additions": 17,
+      "deletions": 0,
+      "changes": 17,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/attach_chemical_sites.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/augment_processed.py",
+      "status": "added",
+      "additions": 229,
+      "deletions": 0,
+      "changes": 229,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/calibrate_predictions.py",
+      "status": "added",
+      "additions": 215,
+      "deletions": 0,
+      "changes": 215,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/ensemble_evaluate.py",
+      "status": "added",
+      "additions": 353,
+      "deletions": 0,
+      "changes": 353,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/evaluate.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/hypeptox_paper_analysis.py",
+      "status": "added",
+      "additions": 607,
+      "deletions": 0,
+      "changes": 607,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/hypeptox_tuning_matrix.py",
+      "status": "added",
+      "additions": 332,
+      "deletions": 0,
+      "changes": 332,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/metrics.py",
+      "status": "modified",
+      "additions": 43,
+      "deletions": 0,
+      "changes": 43,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/models/dual_modal.py",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/models/layers.py",
+      "status": "modified",
+      "additions": 102,
+      "deletions": 0,
+      "changes": 102,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/plm_embed.py",
+      "status": "modified",
+      "additions": 36,
+      "deletions": 6,
+      "changes": 42,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/prediction_ensemble_search.py",
+      "status": "added",
+      "additions": 406,
+      "deletions": 0,
+      "changes": 406,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/threshold_predictions.py",
+      "status": "added",
+      "additions": 172,
+      "deletions": 0,
+      "changes": 172,
+      "previous_filename": null
+    },
+    {
+      "filename": "src/ghxtox/train.py",
+      "status": "modified",
+      "additions": 209,
+      "deletions": 21,
+      "changes": 230,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_algorithm_optimization.py",
+      "status": "added",
+      "additions": 82,
+      "deletions": 0,
+      "changes": 82,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_hypeptox_paper_analysis.py",
+      "status": "added",
+      "additions": 25,
+      "deletions": 0,
+      "changes": 25,
+      "previous_filename": null
+    },
+    {
+      "filename": "tests/test_smoke.py",
+      "status": "modified",
+      "additions": 119,
+      "deletions": 0,
+      "changes": 119,
+      "previous_filename": null
+    }
+  ],
+  "note": "GitHub compare files are merge-base-to-head, NOT direct endpoint tree diff; remote checks used GitHub connector and git ls-remote; no fetch/pull/checkout/remote modification."
+}

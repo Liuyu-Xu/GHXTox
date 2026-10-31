@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "NN_fits": 2,
+  "completed_arms": [
+    "A",
+    "B"
+  ],
+  "C_deferred_by_user": true,
+  "epochs_each": 15,
+  "outer_fold": 0,
+  "seed": 42,
+  "evaluation_rows": 2542,
+  "same_initialization_batch_orders_class_weight_and_optimizer_attempts": true,
+  "A_LoRA_B_zero_and_disconnected_reproduced": true,
+  "repaired_arms_LoRA_B_updated_and_gradient_present": true,
+  "calibration_role_only": true,
+  "source_hash_unchanged": true,
+  "no_MCD_NDBP_extra_boost": true,
+  "no_Test1_Test2_used": true,
+  "limits": [
+    "onefold/oneseed",
+    "single1Dmember not original3seed ensemble",
+    "historical frozen3D fusion conditional",
+    "no new blind confirmation"
+  ]
+}

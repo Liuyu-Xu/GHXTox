@@ -1,0 +1,11 @@
+{
+  "inputs_sha256": {
+    "analysis/ghxtox_shortfall_registry_20261027/all_sample_shortfall_index.json": "ae2f2979a1b6bdec4304e708a93a4d24d6b986c88758356150b77bf342823104",
+    "analysis/label_ambiguity_map_20261025/training_triage.json": "dbd7e9f7e94915666b91407e3940aaf1715a205f45e3fdf3eb1421def02e46b9",
+    "analysis/expert_disagreement_20261025/training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "analysis/label_ambiguity_map_20261025/summary.json": "758bbe36ae4a1a0e97141cb1b63409da8e4284bc1c5160739fe46e59f7f691d1",
+    "analysis/test_ambiguity_association_20261025/summary.json": "793f04a3cec16be40f2e78838f7b8cc2cb13fa1b5db07599d5a50055402286fb",
+    "analysis/ghxtox_shortfall_registry_20261027/existing_control_edges.json": "365ff5b2c247dcfcb33ca06cd610c9c2d4014307cacfe75fb98971de00006534"
+  },
+  "prediction_identity": "old archived p_fusion/operating point, new row-specific frozen threshold per shortfall registry; different inner protocols, not matched causal architecture comparison"
+}

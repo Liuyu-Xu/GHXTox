@@ -1,0 +1,29 @@
+{
+  "model_name": "ProtTox-StructGuide",
+  "model_version": "prottox-struct-guide-v1",
+  "inference": {
+    "input": "Frozen ProtT5 TriStat + nine PhysChem features only",
+    "stage_1": "sequence-derived prediction of mean pLDDT, min pLDDT and low-pLDDT fraction",
+    "stage_2": "shared representation plus predicted quality proxies to one final toxicity logit",
+    "excluded": ["ESMFold runtime", "coordinates", "3D graph", "GHXTox probability", "LoRA", "Mamba", "website changes"]
+  },
+  "training": {
+    "structure_quality_source": "runs/conformer_ensemble_residual_oof/full_calibrated_predictions.csv",
+    "auxiliary_targets": ["mean_plddt", "min_plddt", "low_plddt_fraction"],
+    "auxiliary_loss": "normalized Huber",
+    "auxiliary_weight": 0.1,
+    "folds": 5,
+    "seeds": [20260905, 20260906],
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "selection_scope": "training OOF only"
+  },
+  "promotion_rule": {
+    "both_seeds_mcc_not_lower": true,
+    "minimum_mean_mcc_advantage": 0.005,
+    "maximum_mean_auprc_decline": 0.002,
+    "maximum_mean_brier_increase": 0.002,
+    "test1_test2_allowed_for_selection": false
+  }
+}

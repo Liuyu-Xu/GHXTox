@@ -1,0 +1,161 @@
+{
+  "status": "exploratory_training_oof_error_analysis",
+  "inputs": [
+    {
+      "role": "contract",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\unified_inference_oof_v1\\contract.csv",
+      "sha256": "619aa5e930cafadb7edc41f24cbd5734209623a35de90099b6abf8446aabd2a0",
+      "bytes": 1198950
+    },
+    {
+      "role": "folds",
+      "path": "D:\\dachuang2026\\GHXTox\\data\\folds\\train_cdhit080_fallback_folds.csv",
+      "sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4",
+      "bytes": 461697
+    },
+    {
+      "role": "calibrated_sequence",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_calibrated.json",
+      "sha256": "016158c5577aa21abd612720089780d2006a3788f7e68cc8543741a589b507af",
+      "bytes": 274431
+    },
+    {
+      "role": "archived_structure_oof",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\conformer_ensemble_residual_oof\\full_calibrated_predictions.csv",
+      "sha256": "13aa080dea07af24945c89115575b592cc74106204e34741d6cdbb0f8ea05dc0",
+      "bytes": 1062931
+    },
+    {
+      "role": "fusion_spec",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\fusion_refreeze.json",
+      "sha256": "cb54787226b7453ef20cb5e4a46a495796990fbeec9d09071eb8d2dd995ffdc4",
+      "bytes": 1053
+    },
+    {
+      "role": "structure_cache",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+      "sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+      "bytes": 1176973278
+    },
+    {
+      "role": "historical_selection_provenance",
+      "path": "D:\\dachuang2026\\GHXTox\\configs\\provenance\\historical_selected_base_v1\\fold0_historical_selected_base.provenance.json",
+      "sha256": "dbfe9bbbcf9c77d6603ea6369a2c243d3f3db9795fd2da06c2e15543a963af60",
+      "bytes": 72589
+    },
+    {
+      "role": "seed42",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed42.json",
+      "sha256": "bd6d2c6e8d63b5905affb1db12398211d6d1c600a9c3aaf326f431b0d6445937",
+      "bytes": 396839
+    },
+    {
+      "role": "seed123",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed123.json",
+      "sha256": "34821366963b499bff4b6af1a2e6f6c6703d5880f478e82b471974f35b791d7b",
+      "bytes": 394165
+    },
+    {
+      "role": "seed2025",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed2025.json",
+      "sha256": "d4b730685eca50cf2ab1d8e8c4d7ee939c676d764b60903435711186de4ecb88",
+      "bytes": 395731
+    }
+  ],
+  "n": 6387,
+  "unique_groups": 5258,
+  "group_crossfold_overlap": false,
+  "duplicate_sequences": 0,
+  "baseline": {
+    "n": 6387,
+    "TP": 1626,
+    "TN": 4434,
+    "FP": 135,
+    "FN": 192,
+    "errors": 327,
+    "accuracy": 0.9488022545796149,
+    "sensitivity": 0.8943894389438944,
+    "specificity": 0.9704530531845043,
+    "mcc": 0.8732971560275273,
+    "auroc": 0.9780005085209769,
+    "auprc": 0.9577424717702984,
+    "brier": 0.04312172845783044
+  },
+  "sequence": {
+    "n": 6387,
+    "TP": 1643,
+    "TN": 4367,
+    "FP": 202,
+    "FN": 175,
+    "errors": 377,
+    "accuracy": 0.940973853139189,
+    "sensitivity": 0.9037403740374037,
+    "specificity": 0.9557890129131101,
+    "mcc": 0.8557491923088177,
+    "auroc": 0.976130935483568,
+    "auprc": 0.9532682028993572,
+    "brier": 0.045371807241507627
+  },
+  "structure": {
+    "n": 6387,
+    "TP": 1579,
+    "TN": 4393,
+    "FP": 176,
+    "FN": 239,
+    "errors": 415,
+    "accuracy": 0.9350242680444654,
+    "sensitivity": 0.8685368536853685,
+    "specificity": 0.9614795360035019,
+    "mcc": 0.8390181404798325,
+    "auroc": 0.960692676840457,
+    "auprc": 0.9281708597568626,
+    "brier": 0.05939949004168534
+  },
+  "fusion_corrects_sequence": 98,
+  "fusion_harms_sequence": 48,
+  "near_boundary_band": 0.2788566526576914,
+  "near_boundary_errors": 159,
+  "seed_disagreement_errors": 109,
+  "max_cached_vs_archived_mean_plddt_difference": 1.3237017959522035e-07,
+  "external_test_inputs_read": false,
+  "new_model_trained": false,
+  "limitations": [
+    "Archived OOF probabilities are not fully nested: calibration and operating point were fitted using all training OOF labels.",
+    "Some historical structural checkpoint provenance confirms outer-fold checkpoint selection; complete lineage of this prediction stream is not certified.",
+    "Cross-fold association replication is not independent validation of a newly trained correction model.",
+    "Predicted isolated-structure geometry is not a measured membrane-bound state.",
+    "No hard-negative reweighting or corrective model is trained on these errors."
+  ],
+  "FP": {
+    "n": 135,
+    "cys_ge4": 76,
+    "mean_plddt": 0.6722284065777779,
+    "mean_margin": 0.26908090233227455,
+    "reference_seed_disagreement": 48,
+    "all_seed_reference_wrong": 87
+  },
+  "FN": {
+    "n": 192,
+    "cys_ge4": 17,
+    "mean_plddt": 0.700175201703125,
+    "mean_margin": 0.29386335724146523,
+    "reference_seed_disagreement": 61,
+    "all_seed_reference_wrong": 129
+  },
+  "TP": {
+    "n": 1626,
+    "cys_ge4": 1380,
+    "mean_plddt": 0.7120220496340713,
+    "mean_margin": 0.458770943714072,
+    "reference_seed_disagreement": 99,
+    "all_seed_reference_wrong": 0
+  },
+  "TN": {
+    "n": 4434,
+    "cys_ge4": 369,
+    "mean_plddt": 0.7278380740739738,
+    "mean_margin": 0.42953347180023327,
+    "reference_seed_disagreement": 211,
+    "all_seed_reference_wrong": 7
+  }
+}

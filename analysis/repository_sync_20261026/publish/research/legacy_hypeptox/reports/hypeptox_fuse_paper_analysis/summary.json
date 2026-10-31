@@ -1,0 +1,113 @@
+{
+  "updated_at": "2026-07-22",
+  "protocol": {
+    "benchmark": "HyPepTox-Fuse balanced independent set",
+    "train_set": "4414 toxic + 4414 non-toxic",
+    "independent_test_set": "1104 toxic + 1104 non-toxic",
+    "headline_metrics": [
+      "ACC",
+      "SN",
+      "SP",
+      "F1",
+      "MCC",
+      "AUROC",
+      "AUPRC",
+      "Brier",
+      "ECE-10"
+    ],
+    "balanced_accuracy_policy": "Omitted from headline tables because the independent test set is balanced.",
+    "hyptox_fuse_limitation": "Only paper-level point metrics are available; paired statistical tests against HyPepTox-Fuse require per-sample predictions.",
+    "bootstrap_iterations": 200,
+    "seed": 2026
+  },
+  "recommended_paper_model": {
+    "model": "ESM2+3D 7-model ensemble + validation threshold + Platt calibration",
+    "role": "main paper result",
+    "metrics_source": "runs/hypeptox_fuse_ensemble_augmix_esm2_geometry_3dv2_7model/calibration_platt_summary.json",
+    "threshold": 0.503851,
+    "accuracy": 0.9085144927536232,
+    "sn": 0.8958333333333334,
+    "sp": 0.9211956521739131,
+    "f1": 0.9073394495412844,
+    "mcc": 0.8172918881581523,
+    "auroc": 0.958041656821046,
+    "auprc": 0.9610877631158721,
+    "brier": 0.07695122808218002,
+    "ece_10": 0.03301606699824333
+  },
+  "lightweight_calibrated_model": {
+    "model": "Top5 tuned ensemble + Platt calibration",
+    "role": "lightweight/calibration ablation, not the main result",
+    "metrics_source": "AutoDL archive GHXTox_hypeptox_results.tar.gz",
+    "threshold": 0.58,
+    "accuracy": 0.9021739130434783,
+    "sn": 0.8804347826086957,
+    "sp": 0.9239130434782609,
+    "f1": 0.8999999999999999,
+    "mcc": 0.8051091587951025,
+    "auroc": 0.9520895688930897,
+    "auprc": 0.9516869227767233,
+    "brier": 0.07804570347070694,
+    "ece_10": 0.016180269420146942
+  },
+  "top8_tuned_reference": {
+    "model": "Top8 tuned ensemble",
+    "role": "ranking/probability reference",
+    "metrics_source": "AutoDL archive GHXTox_hypeptox_results.tar.gz",
+    "threshold": 0.553624,
+    "accuracy": 0.901268,
+    "sn": 0.875906,
+    "sp": 0.92663,
+    "mcc": 0.803571,
+    "auroc": 0.959024,
+    "auprc": 0.960605,
+    "brier": 0.076046,
+    "ece_10": 0.025454
+  },
+  "hyptox_fuse_target": {
+    "accuracy": 0.9067,
+    "sn": 0.8832,
+    "sp": 0.9303,
+    "f1": 0.9045,
+    "mcc": 0.8143,
+    "auroc": 0.9624,
+    "auprc": null,
+    "brier": null,
+    "ece_10": null
+  },
+  "toxmsrc_reference": {
+    "note": "Different dataset/protocol; use only as methodological reference, not as direct benchmark superiority.",
+    "test_set_1": {
+      "bacc": 0.9217,
+      "sn": 0.8781,
+      "sp": 0.9653,
+      "mcc": 0.852,
+      "auroc": 0.965
+    },
+    "test_set_2": {
+      "bacc": 0.8689,
+      "sn": 0.7826,
+      "sp": 0.9552,
+      "mcc": 0.655,
+      "auroc": 0.943
+    }
+  },
+  "outputs": {
+    "headline_comparison": "headline_comparison_no_bacc.csv",
+    "ablation_table": "ablation_table_no_bacc.csv",
+    "tuning_summary": "tuning_summary.csv",
+    "paired_bootstrap": "paired_bootstrap_vs_final.csv",
+    "figures": [
+      "headline_delta_vs_hypeptox_fuse.png",
+      "ablation_progression.png",
+      "calibration_brier_ece.png",
+      "final_roc_pr_calibration.png"
+    ]
+  },
+  "next_algorithm_priority": [
+    "Run prediction-level ensemble search with validation-only threshold selection.",
+    "If a searched ensemble improves MCC/ACC without sacrificing SN/SP, refresh the final report.",
+    "Add bootstrap confidence intervals and paired tests for internal ablations.",
+    "Then consider heavier model upgrades such as stacking/gated meta-fusion or ProtT5/TextCNN."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "training_n": 6387,
+  "errors_n": 327,
+  "current_uniprot_snapshot_entries": 12032,
+  "training_exact_identity_n": 5463,
+  "error_exact_identity_n": 285,
+  "error_matched_accessions": 312,
+  "any_fragment_training_n": 1606,
+  "any_fragment_error_n": 138,
+  "mixed_fragment_status_n": 1,
+  "negative_current_toxin_keyword_n": 35,
+  "negative_current_toxin_keyword_fp_n": 5,
+  "representative_n": 20,
+  "representative_identity_recovered": 19,
+  "primary_article_abstracts_retrieved": 16,
+  "upstream_captp_sequence_label_agreement": true,
+  "labels_edited": 0,
+  "records_removed": 0,
+  "new_models_trained": 0,
+  "external_test_labels_read": false,
+  "limitations": [
+    "Current exact identity is not proof of original database accession or original release annotation.",
+    "Fragment status is an evidence audit flag, not proof that the isolated short sequence is nontoxic.",
+    "Not fragment-flagged does not prove a complete tested molecular entity.",
+    "Original dose, chemistry and organism-specific endpoints remain incomplete.",
+    "No metric is presented as performance on a new clean independent dataset."
+  ]
+}

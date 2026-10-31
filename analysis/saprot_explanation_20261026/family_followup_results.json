@@ -1,0 +1,171 @@
+{
+  "metrics": [
+    {
+      "arm": "baseline4_CysLengthMissingOnly",
+      "MCC": 0.8372779108813202,
+      "AUPRC": 0.9391708920817623,
+      "Brier": 0.05064423689014044,
+      "FN": 272,
+      "FP": 145
+    },
+    {
+      "arm": "baseline4_CysLengthNamesOnly",
+      "MCC": 0.8315057860455065,
+      "AUPRC": 0.9429357090126796,
+      "Brier": 0.05236513262452885,
+      "FN": 292,
+      "FP": 139
+    },
+    {
+      "arm": "baseline4_CysLength",
+      "MCC": 0.8255879356387313,
+      "AUPRC": 0.9428888080823188,
+      "Brier": 0.05378951772107746,
+      "FN": 299,
+      "FP": 147
+    },
+    {
+      "arm": "baseline4_CysLengthFamily",
+      "MCC": 0.8368957833619565,
+      "AUPRC": 0.9389714963689001,
+      "Brier": 0.05030785390759067,
+      "FN": 272,
+      "FP": 146
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "baseline4_CysLengthMissingOnly",
+      "reference": "baseline4_CysLength",
+      "delta_MCC": 0.011689975242588857,
+      "CI95": [
+        0.00094190056921864,
+        0.02214912831225075
+      ],
+      "CI98_3333": [
+        -0.0010007465713713934,
+        0.024772066843271316
+      ]
+    },
+    {
+      "candidate": "baseline4_CysLengthFamily",
+      "reference": "baseline4_CysLengthMissingOnly",
+      "delta_MCC": -0.0003821275193637286,
+      "CI95": [
+        -0.0065648174967846305,
+        0.0054119711756281785
+      ],
+      "CI98_3333": [
+        -0.007840056600620444,
+        0.006580429544374793
+      ]
+    },
+    {
+      "candidate": "baseline4_CysLengthNamesOnly",
+      "reference": "baseline4_CysLength",
+      "delta_MCC": 0.005917850406775171,
+      "CI95": [
+        -5.231397241428329e-07,
+        0.011785409597010226
+      ],
+      "CI98_3333": [
+        -0.0007845313909778541,
+        0.013438097707662874
+      ]
+    }
+  ],
+  "vocabularies": [
+    {
+      "fold": 0,
+      "half": 0,
+      "vocab": [
+        "name:conotoxin_broad",
+        "name:metalloproteinase"
+      ]
+    },
+    {
+      "fold": 0,
+      "half": 1,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad",
+        "name:cyclotide",
+        "name:defensin"
+      ]
+    },
+    {
+      "fold": 1,
+      "half": 0,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad",
+        "name:cyclotide",
+        "name:serine_protease"
+      ]
+    },
+    {
+      "fold": 1,
+      "half": 1,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad"
+      ]
+    },
+    {
+      "fold": 2,
+      "half": 0,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad"
+      ]
+    },
+    {
+      "fold": 2,
+      "half": 1,
+      "vocab": [
+        "name:conotoxin_broad",
+        "name:cyclotide"
+      ]
+    },
+    {
+      "fold": 3,
+      "half": 0,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad",
+        "name:cyclotide"
+      ]
+    },
+    {
+      "fold": 3,
+      "half": 1,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad",
+        "name:cyclotide",
+        "name:natriuretic"
+      ]
+    },
+    {
+      "fold": 4,
+      "half": 0,
+      "vocab": [
+        "name:PLA2",
+        "name:bacteriocin",
+        "name:conotoxin_broad",
+        "name:cyclotide"
+      ]
+    },
+    {
+      "fold": 4,
+      "half": 1,
+      "vocab": [
+        "name:PLA2",
+        "name:conotoxin_broad",
+        "name:cyclotide"
+      ]
+    }
+  ],
+  "eligible_curated_token_count": 0,
+  "scope": "posthoc exploratory metadata check, not biological attribution"
+}

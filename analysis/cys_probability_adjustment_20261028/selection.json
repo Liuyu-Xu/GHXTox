@@ -1,0 +1,152 @@
+[
+  {
+    "fold": 0,
+    "dev_n": 5116,
+    "test_n": 1271,
+    "choices": {
+      "A": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556
+      },
+      "B": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8684607707992769
+      },
+      "C_fixed": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8711405366856958
+      },
+      "C_joint": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8711405366856958
+      }
+    }
+  },
+  {
+    "fold": 1,
+    "dev_n": 5158,
+    "test_n": 1229,
+    "choices": {
+      "A": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556
+      },
+      "B": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8803388884199616
+      },
+      "C_fixed": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8811268557544304
+      },
+      "C_joint": {
+        "low_offset": 0.025,
+        "high_offset": -0.15,
+        "threshold": 0.46,
+        "dev_MCC": 0.8812332533202262
+      }
+    }
+  },
+  {
+    "fold": 2,
+    "dev_n": 5114,
+    "test_n": 1273,
+    "choices": {
+      "A": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556
+      },
+      "B": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8752667552271348
+      },
+      "C_fixed": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8752667552271348
+      },
+      "C_joint": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8752667552271348
+      }
+    }
+  },
+  {
+    "fold": 3,
+    "dev_n": 5096,
+    "test_n": 1291,
+    "choices": {
+      "A": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556
+      },
+      "B": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8677846080773266
+      },
+      "C_fixed": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8689941664957354
+      },
+      "C_joint": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8689941664957354
+      }
+    }
+  },
+  {
+    "fold": 4,
+    "dev_n": 5064,
+    "test_n": 1323,
+    "choices": {
+      "A": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556
+      },
+      "B": {
+        "low_offset": 0.0,
+        "high_offset": 0.0,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8747006407715637
+      },
+      "C_fixed": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8754936127933802
+      },
+      "C_joint": {
+        "low_offset": 0.0,
+        "high_offset": -0.15,
+        "threshold": 0.47022256531284556,
+        "dev_MCC": 0.8754936127933802
+      }
+    }
+  }
+]

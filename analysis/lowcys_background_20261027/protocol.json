@@ -1,0 +1,15 @@
+{
+ "scope":"all 6387 retained samples, symmetric current annotation field completion; no new sample matching or model training",
+ "frozen_evidence":"reuse label_cys_joint uniform fragment/conflict flag unchanged; new UniProt identity/family is sidecar, never relabel",
+ "annotation_query":"all reviewed UniProt entries length7..50, accession+sequence+protein_name+cc_similarity+organism; same rule before outcome join",
+ "identity_join":"exact full retained sequence only; multiple matching accessions/families retained, unresolved/conflicting-family states explicit",
+ "primary_family":"normalized entire author SIMILARITY comment, compatible with previous strict full-family snapshot",
+ "secondary_parent_family":"first SIMILARITY sentence that states belongs to family or superfamily; explicitly broader hierarchy, exploratory not relaxed strict proof",
+ "name_proxy":"same old predeclared regex list applied to full symmetric protein-name set; not verified family",
+ "comparisons":"all original label1 lowCys421 versus highCys1397 and full same-label family background; all lowCys errors/correct plus151/213 pooled and90/110 unflagged pools; retain old/new streams and all label0 background",
+ "outcomes_not_selection":"include every family and its full denominator regardless correctness, don't choose a family because it supports Cys hypothesis",
+ "common_support":"report both-Cys membership; >=5 distinct sequence groups per arm gives descriptive support, >=2 such families for class-general hypothesis; counts below retained as small not excluded silently",
+ "conditional_analysis":"exact-single-family membership only for stratified contrast; multi-family ambiguous cannot be assigned best-fit family; adjustment cannot certify causality or experimental label reliability",
+ "controls":"reuse original178 independent edges; no new nearest neighbor or pair optimization",
+ "prediction_policy":"no Test, no new classification threshold/weight, no NN fits, old/new raw errors not matched architecture causal trial"
+}

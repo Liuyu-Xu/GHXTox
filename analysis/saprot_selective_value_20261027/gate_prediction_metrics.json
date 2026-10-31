@@ -1,0 +1,82 @@
+{
+  "old_masked": {
+    "evaluation_disagreements": 337,
+    "helpful_n": 91,
+    "harmful_n": 246,
+    "helpful_prevalence": 0.27002967359050445,
+    "score_gate": {
+      "AUROC_teacher_helpful": 0.5825962655230948,
+      "AUPRC_teacher_helpful": 0.3356359207636312,
+      "selected_n": 3,
+      "selected_helpful": 0,
+      "selected_harmful": 3
+    },
+    "feature_gate": {
+      "AUROC_teacher_helpful": 0.5605289019923166,
+      "AUPRC_teacher_helpful": 0.3181090165394628,
+      "selected_n": 20,
+      "selected_helpful": 4,
+      "selected_harmful": 16
+    }
+  },
+  "old_3Di": {
+    "evaluation_disagreements": 375,
+    "helpful_n": 96,
+    "harmful_n": 279,
+    "helpful_prevalence": 0.256,
+    "score_gate": {
+      "AUROC_teacher_helpful": 0.5978942652329751,
+      "AUPRC_teacher_helpful": 0.3292423788181064,
+      "selected_n": 1,
+      "selected_helpful": 0,
+      "selected_harmful": 1
+    },
+    "feature_gate": {
+      "AUROC_teacher_helpful": 0.580047789725209,
+      "AUPRC_teacher_helpful": 0.32771123518842893,
+      "selected_n": 32,
+      "selected_helpful": 9,
+      "selected_harmful": 23
+    }
+  },
+  "new_masked": {
+    "evaluation_disagreements": 367,
+    "helpful_n": 121,
+    "harmful_n": 246,
+    "helpful_prevalence": 0.329700272479564,
+    "score_gate": {
+      "AUROC_teacher_helpful": 0.5767318416985823,
+      "AUPRC_teacher_helpful": 0.4284586184995155,
+      "selected_n": 9,
+      "selected_helpful": 5,
+      "selected_harmful": 4
+    },
+    "feature_gate": {
+      "AUROC_teacher_helpful": 0.5723644426526909,
+      "AUPRC_teacher_helpful": 0.3928533516754348,
+      "selected_n": 28,
+      "selected_helpful": 12,
+      "selected_harmful": 16
+    }
+  },
+  "new_3Di": {
+    "evaluation_disagreements": 371,
+    "helpful_n": 109,
+    "harmful_n": 262,
+    "helpful_prevalence": 0.29380053908355797,
+    "score_gate": {
+      "AUROC_teacher_helpful": 0.6512010645003152,
+      "AUPRC_teacher_helpful": 0.487720820951405,
+      "selected_n": 18,
+      "selected_helpful": 8,
+      "selected_harmful": 10
+    },
+    "feature_gate": {
+      "AUROC_teacher_helpful": 0.6278450871909798,
+      "AUPRC_teacher_helpful": 0.441449497323368,
+      "selected_n": 35,
+      "selected_helpful": 19,
+      "selected_harmful": 16
+    }
+  }
+}

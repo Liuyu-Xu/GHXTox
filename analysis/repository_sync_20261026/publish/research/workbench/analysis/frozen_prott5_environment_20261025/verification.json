@@ -1,0 +1,29 @@
+{
+  "input_hashes_before": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sequence_clusters.json": "dccfcf4bc19b9fbd60fb6194948788bfc80fc50c1db926c1907edb7612bf6e43",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\pilot_predictions.json": "6675bc1b9b7ee6a33674e1831264d87a39aaa351c0cef674ed0e179547254c63"
+  },
+  "input_hashes_after": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sequence_clusters.json": "dccfcf4bc19b9fbd60fb6194948788bfc80fc50c1db926c1907edb7612bf6e43",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\pilot_predictions.json": "6675bc1b9b7ee6a33674e1831264d87a39aaa351c0cef674ed0e179547254c63"
+  },
+  "same_exact_folds_as_previous": true,
+  "sequence_group_disjoint": true,
+  "strict_paper_group_disjoint": true,
+  "records_per_model_per_design": 3380,
+  "frozen_original_encoder": true,
+  "head_fits": 30,
+  "condition_only_predictions_reused": true,
+  "labels_or_GHXTox_weights_modified": false,
+  "test_prediction_access": false,
+  "independent_checks": [
+    "saved-index train/test disjoint",
+    "saved-index sequence groups disjoint",
+    "strict PMID disjoint",
+    "3380 predictions per arm",
+    "MAE recalculated from raw targets and chemical weights",
+    "condition baseline exactly reused"
+  ]
+}

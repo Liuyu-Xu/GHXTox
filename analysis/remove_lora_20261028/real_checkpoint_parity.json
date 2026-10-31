@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "seed": 42,
+      "removed_adapters": 144,
+      "samples": 4,
+      "max_abs_logit_difference": 0.0
+    },
+    {
+      "seed": 123,
+      "removed_adapters": 144,
+      "samples": 4,
+      "max_abs_logit_difference": 0.0
+    },
+    {
+      "seed": 2025,
+      "removed_adapters": 144,
+      "samples": 4,
+      "max_abs_logit_difference": 0.0
+    }
+  ],
+  "scope": "four sequences, three real checkpoints, same GPU fp16 inference"
+}

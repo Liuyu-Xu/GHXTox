@@ -1,0 +1,35 @@
+{
+  "model": "ntxpred2",
+  "classification_variant": "peptide ESM2-t30 (-m 1), reproducible Model.zip NOT Model_whole.zip",
+  "folder": "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\ntxpred2\\Model\\Peptide\\saved_model_t30",
+  "weight_sha256": "6169eecebe770cb71086e636c50c8d7aa276d99f0160f5fd5b09f4648723388d",
+  "threshold": 0.45,
+  "threshold_source": "author current code actual branch default; no selection on GHXTox",
+  "torch": "2.3.1+cu118",
+  "cuda": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "parameter_count": 148140123,
+  "loading": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "seconds": 14.734193086624146,
+  "rows": 6738,
+  "batch_checks": [
+    {
+      "sample_id": "author_independent_row_276",
+      "single_batch_probability_difference": 0.0
+    },
+    {
+      "sample_id": "peptide_958",
+      "single_batch_probability_difference": 0.0
+    },
+    {
+      "sample_id": "author_independent_row_339",
+      "single_batch_probability_difference": 5.122274160385132e-09
+    }
+  ],
+  "tokenization": "same author padding/truncation, no max_length override, float32, eval/inference_mode, softmax[:,1]",
+  "train_calls": 0
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "candidate": "composition_linear",
+    "reference": "constant_teacher",
+    "measure": "probability_R2",
+    "delta": 0.6016387432606973,
+    "CI95": [
+      0.5759825314189552,
+      0.6266543804733371
+    ],
+    "CI99": [
+      0.5684101990267418,
+      0.6338454659658117
+    ]
+  },
+  {
+    "candidate": "composition_linear",
+    "reference": "constant_teacher",
+    "measure": "saprot_skill",
+    "delta": 0.6564170300332351,
+    "CI95": [
+      0.6506926153446324,
+      0.6616973644619325
+    ],
+    "CI99": [
+      0.6493678046768666,
+      0.6632100012464627
+    ]
+  },
+  {
+    "candidate": "composition_linear",
+    "reference": "constant_teacher",
+    "measure": "protT5_skill",
+    "delta": 0.34871902345650563,
+    "CI95": [
+      0.3417082809986421,
+      0.356335385250371
+    ],
+    "CI99": [
+      0.33929501481663077,
+      0.35807683671398166
+    ]
+  },
+  {
+    "candidate": "composition_quadratic",
+    "reference": "composition_linear",
+    "measure": "probability_R2",
+    "delta": -0.321849269410761,
+    "CI95": [
+      -0.5023709730147753,
+      -0.1962678492451837
+    ],
+    "CI99": [
+      -0.6007342111310563,
+      -0.18061387701949438
+    ]
+  },
+  {
+    "candidate": "composition_quadratic",
+    "reference": "composition_linear",
+    "measure": "saprot_skill",
+    "delta": -0.1315734182844428,
+    "CI95": [
+      -0.18834521154634506,
+      -0.08808997754043975
+    ],
+    "CI99": [
+      -0.2146445553946231,
+      -0.07994095676510365
+    ]
+  },
+  {
+    "candidate": "composition_quadratic",
+    "reference": "composition_linear",
+    "measure": "protT5_skill",
+    "delta": -0.4680634610132903,
+    "CI95": [
+      -0.6059522400828171,
+      -0.3636987669321668
+    ],
+    "CI99": [
+      -0.6548376246749029,
+      -0.3432612424101564
+    ]
+  },
+  {
+    "candidate": "composition_RBF",
+    "reference": "composition_linear",
+    "measure": "probability_R2",
+    "delta": 0.06536170139564235,
+    "CI95": [
+      0.05205477654327291,
+      0.0784662540075344
+    ],
+    "CI99": [
+      0.048239335439841616,
+      0.08119565847176012
+    ]
+  },
+  {
+    "candidate": "composition_RBF",
+    "reference": "composition_linear",
+    "measure": "saprot_skill",
+    "delta": 0.001358955094236558,
+    "CI95": [
+      -0.004751066249310459,
+      0.0073520602357924686
+    ],
+    "CI99": [
+      -0.0070322147989758345,
+      0.00946003659147929
+    ]
+  },
+  {
+    "candidate": "composition_RBF",
+    "reference": "composition_linear",
+    "measure": "protT5_skill",
+    "delta": 0.06079566632719591,
+    "CI95": [
+      0.05456397238515739,
+      0.06699076266470023
+    ],
+    "CI99": [
+      0.05286582115867103,
+      0.06854872216127843
+    ]
+  },
+  {
+    "candidate": "composition_plus_order_linear",
+    "reference": "composition_linear",
+    "measure": "probability_R2",
+    "delta": -0.6188167410493617,
+    "CI95": [
+      -0.673113231605451,
+      -0.5653322869413392
+    ],
+    "CI99": [
+      -0.6951995393355317,
+      -0.5469971008399636
+    ]
+  },
+  {
+    "candidate": "composition_plus_order_linear",
+    "reference": "composition_linear",
+    "measure": "saprot_skill",
+    "delta": -0.6318685460705148,
+    "CI95": [
+      -0.6594788441286532,
+      -0.6076882275880479
+    ],
+    "CI99": [
+      -0.6645887520616728,
+      -0.6027867912522725
+    ]
+  },
+  {
+    "candidate": "composition_plus_order_linear",
+    "reference": "composition_linear",
+    "measure": "protT5_skill",
+    "delta": -1.1817762167664996,
+    "CI95": [
+      -1.2246977780890849,
+      -1.1415661284843526
+    ],
+    "CI99": [
+      -1.2377139970571898,
+      -1.1295541957272073
+    ]
+  },
+  {
+    "candidate": "composition_order_kernel",
+    "reference": "composition_RBF",
+    "measure": "probability_R2",
+    "delta": -0.028747431858150096,
+    "CI95": [
+      -0.03635439979431852,
+      -0.021047717833096502
+    ],
+    "CI99": [
+      -0.03871840079246335,
+      -0.01796877314606887
+    ]
+  },
+  {
+    "candidate": "composition_order_kernel",
+    "reference": "composition_RBF",
+    "measure": "saprot_skill",
+    "delta": -0.06447689148952551,
+    "CI95": [
+      -0.06692930487398,
+      -0.06188040484140494
+    ],
+    "CI99": [
+      -0.06781130341998876,
+      -0.06113426980940895
+    ]
+  },
+  {
+    "candidate": "composition_order_kernel",
+    "reference": "composition_RBF",
+    "measure": "protT5_skill",
+    "delta": -0.05433732052770179,
+    "CI95": [
+      -0.05734932683780683,
+      -0.05140333333619384
+    ],
+    "CI99": [
+      -0.058507908376347284,
+      -0.05049295726052182
+    ]
+  }
+]

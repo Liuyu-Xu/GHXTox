@@ -1,0 +1,30 @@
+{
+  "phase": "one-fold exploratory weight pilot",
+  "outer_fold": 3,
+  "seed": 42,
+  "baseline_reused": "D:\\dachuang2026\\GHXTox\\analysis\\lora_multifold_screen_20261028\\fold3",
+  "baseline_experiment_source": "previous no-LoRA fold3 matched initialization and epoch ordering; code changed only LoRA default/compatibility after baseline, head SHA and epoch orders verified",
+  "why_fold3": "4 of 11 target members in held-out group, largest target count; selected after observing labels and prior outcomes, exploratory",
+  "arms": {
+    "low_cys": {},
+    "family_boost": {}
+  },
+  "weights": "base BCE native train-only class weight; label1 Cys<4 gets 1.5; family_boost for single exact MCD/NDBP parent total2.0, no multiplicative 3.0; others1",
+  "normalization": "weighted loss sum / batch sum weights",
+  "head_lr": 0.0003,
+  "weight_decay": 0.01,
+  "max_epochs": 8,
+  "patience": 2,
+  "batch_size": 16,
+  "calibration": "independent outer-calibration role Platt",
+  "roles": "train validation calibration outer-test disjoint 80% sequence groups; prior dataset and fold results examined",
+  "primary_comparisons": [
+    "low_cys vs no_lora",
+    "family_boost vs low_cys"
+  ],
+  "secondary": "overall MCC/AUPRC and errors, MCD/NDBP 4 targets, other families, flagged and unflagged (not gold), full sequence and conditional 3D fusion",
+  "no_reliability_inference": "label1 weights based on original label; uncertain flags not proof of bad labels. Never claim all unflagged verified",
+  "test1_test2": false,
+  "no_claim_blind": true,
+  "no_deployment_or_weight_search": true
+}

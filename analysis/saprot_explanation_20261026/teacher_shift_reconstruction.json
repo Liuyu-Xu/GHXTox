@@ -1,0 +1,200 @@
+[
+  {
+    "kind": "3Di",
+    "level": "base",
+    "R2_shift": 0.1293098699160441,
+    "MAE_shift": 0.055955967227889696,
+    "true_shift_std": 0.10552083416703886,
+    "fold_R2": [
+      0.154268547820953,
+      0.13733717049084648,
+      0.16154844289300596,
+      0.10134172363781968,
+      0.07547324444779624
+    ],
+    "actual_teacher_rescues": 101,
+    "rescues_reproduced": 13,
+    "actual_teacher_harms": 63,
+    "harms_reproduced": 9,
+    "approximation_vs_baseline_rescues": 21,
+    "approximation_vs_baseline_harms": 17,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.8268261822623404,
+      "AUPRC": 0.9399456481494806,
+      "AUROC": 0.970898249816227,
+      "Brier": 0.056043589052761175,
+      "NLL": 0.19702941023335477,
+      "FN": 258,
+      "FP": 188,
+      "TP": 1560,
+      "TN": 4381
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  },
+  {
+    "kind": "3Di",
+    "level": "sequence",
+    "R2_shift": 0.18935491259181825,
+    "MAE_shift": 0.053623518574058206,
+    "true_shift_std": 0.10552083416703886,
+    "fold_R2": [
+      0.22576111645981312,
+      0.1845365471537984,
+      0.2171695161016659,
+      0.18571792817769517,
+      0.11467775813911962
+    ],
+    "actual_teacher_rescues": 101,
+    "rescues_reproduced": 15,
+    "actual_teacher_harms": 63,
+    "harms_reproduced": 4,
+    "approximation_vs_baseline_rescues": 20,
+    "approximation_vs_baseline_harms": 13,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.8281364943744718,
+      "AUPRC": 0.9368691020191912,
+      "AUROC": 0.9679504774727855,
+      "Brier": 0.054889498394355085,
+      "NLL": 0.20532245941852006,
+      "FN": 253,
+      "FP": 190,
+      "TP": 1565,
+      "TN": 4379
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  },
+  {
+    "kind": "3Di",
+    "level": "family",
+    "R2_shift": 0.18894079752595516,
+    "MAE_shift": 0.05381316557546702,
+    "true_shift_std": 0.10552083416703886,
+    "fold_R2": [
+      0.18849200311957748,
+      0.17681636832492764,
+      0.2007696384893609,
+      0.22675401459792455,
+      0.1369716592220772
+    ],
+    "actual_teacher_rescues": 101,
+    "rescues_reproduced": 14,
+    "actual_teacher_harms": 63,
+    "harms_reproduced": 7,
+    "approximation_vs_baseline_rescues": 21,
+    "approximation_vs_baseline_harms": 14,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.828178428925514,
+      "AUPRC": 0.9284077112188577,
+      "AUROC": 0.9632627303001694,
+      "Brier": 0.05472197838888205,
+      "NLL": 0.28816319327432477,
+      "FN": 252,
+      "FP": 191,
+      "TP": 1566,
+      "TN": 4378
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  },
+  {
+    "kind": "masked",
+    "level": "base",
+    "R2_shift": 0.15578064248223344,
+    "MAE_shift": 0.05684928744256123,
+    "true_shift_std": 0.10520369715458672,
+    "fold_R2": [
+      0.1612229993441896,
+      0.16589607467939482,
+      0.1763055293830995,
+      0.11436152905620744,
+      0.15278761391827977
+    ],
+    "actual_teacher_rescues": 96,
+    "rescues_reproduced": 4,
+    "actual_teacher_harms": 62,
+    "harms_reproduced": 4,
+    "approximation_vs_baseline_rescues": 10,
+    "approximation_vs_baseline_harms": 7,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.8267991779013856,
+      "AUPRC": 0.9424961314749875,
+      "AUROC": 0.971375108620514,
+      "Brier": 0.05578255137716131,
+      "NLL": 0.19583504227701637,
+      "FN": 250,
+      "FP": 197,
+      "TP": 1568,
+      "TN": 4372
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  },
+  {
+    "kind": "masked",
+    "level": "sequence",
+    "R2_shift": 0.23878759171282116,
+    "MAE_shift": 0.054109978399937905,
+    "true_shift_std": 0.10520369715458672,
+    "fold_R2": [
+      0.26024531528688033,
+      0.20977551249359527,
+      0.2840535423032753,
+      0.20729415163368625,
+      0.21340042461930175
+    ],
+    "actual_teacher_rescues": 96,
+    "rescues_reproduced": 12,
+    "actual_teacher_harms": 62,
+    "harms_reproduced": 5,
+    "approximation_vs_baseline_rescues": 20,
+    "approximation_vs_baseline_harms": 9,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.8299465373601266,
+      "AUPRC": 0.9384193494732264,
+      "AUROC": 0.9677562306460454,
+      "Brier": 0.05468125957207992,
+      "NLL": 0.20049629507990085,
+      "FN": 245,
+      "FP": 194,
+      "TP": 1573,
+      "TN": 4375
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  },
+  {
+    "kind": "masked",
+    "level": "family",
+    "R2_shift": 0.23626610289028493,
+    "MAE_shift": 0.05460994492174283,
+    "true_shift_std": 0.10520369715458672,
+    "fold_R2": [
+      0.2561316788523327,
+      0.20838649019327748,
+      0.2803716776800621,
+      0.2074379082251263,
+      0.21052703721754884
+    ],
+    "actual_teacher_rescues": 96,
+    "rescues_reproduced": 13,
+    "actual_teacher_harms": 62,
+    "harms_reproduced": 10,
+    "approximation_vs_baseline_rescues": 23,
+    "approximation_vs_baseline_harms": 14,
+    "approximate_classifier": {
+      "n": 6387,
+      "MCC": 0.8291268581797394,
+      "AUPRC": 0.9301314806720006,
+      "AUROC": 0.9669878511160375,
+      "Brier": 0.054299185114410356,
+      "NLL": 0.2550040071573973,
+      "FN": 247,
+      "FP": 194,
+      "TP": 1571,
+      "TN": 4375
+    },
+    "scope": "toxicity-label-free fit to frozen teacher behavior; predictability not causal explained fraction"
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "n": 6387,
+  "folds": [
+    {
+      "fold": 0,
+      "train_validation_cal_test_sequence_group_disjoint": true,
+      "selected_C": {
+        "low": 0.1,
+        "middle": 0.01,
+        "high": 0.1
+      },
+      "n_test": 1271
+    },
+    {
+      "fold": 1,
+      "train_validation_cal_test_sequence_group_disjoint": true,
+      "selected_C": {
+        "low": 0.1,
+        "middle": 0.01,
+        "high": 0.1
+      },
+      "n_test": 1229
+    },
+    {
+      "fold": 2,
+      "train_validation_cal_test_sequence_group_disjoint": true,
+      "selected_C": {
+        "low": 0.1,
+        "middle": 0.01,
+        "high": 0.1
+      },
+      "n_test": 1273
+    },
+    {
+      "fold": 3,
+      "train_validation_cal_test_sequence_group_disjoint": true,
+      "selected_C": {
+        "low": 0.1,
+        "middle": 0.01,
+        "high": 0.1
+      },
+      "n_test": 1291
+    },
+    {
+      "fold": 4,
+      "train_validation_cal_test_sequence_group_disjoint": true,
+      "selected_C": {
+        "low": 0.1,
+        "middle": 0.01,
+        "high": 0.1
+      },
+      "n_test": 1323
+    }
+  ],
+  "same_sequence_label_all_sources": true,
+  "history_fusion_reconstructed": true,
+  "historical_A_3seed_and_3D": true,
+  "B_frozen_PLM_features_1d_only": true,
+  "C_fixed_equal_probability": true,
+  "no_Test1_Test2": true,
+  "historical_global_calibration_not_nested": true,
+  "not_external_blind": true,
+  "different_thresholds": true
+}

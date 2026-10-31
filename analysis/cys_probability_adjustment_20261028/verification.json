@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "n": 6387,
+  "source_sha256": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_background_20261027\\all_samples_with_symmetric_family.json": "47fa3b7be5d9741821b62bc4e0ed673408c7b8d7f8202db3cafb781ec915b6e4",
+    "D:\\dachuang2026\\GHXTox\\analysis\\error_evidence_linkage_20261025\\all_training_linked.json": "963268735f3608dbb15755327b045464b7fa8592b5df2cf3f74e6c95342ef106",
+    "D:\\dachuang2026\\GHXTox\\analysis\\cys_probability_adjustment_20261028\\protocol.json": "e97efa4106709ec26e38addb8312277b78522c632fae70cbf2669d994f2fb41f"
+  },
+  "original_fusion_reconstructed": true,
+  "same_sample_label_fold_and_group": true,
+  "outer_group_isolation": true,
+  "A_errors": 327,
+  "A_errors_expected_327": true,
+  "threshold_only_AUPRC_unchanged": true,
+  "Test1_Test2_unused": true,
+  "upstream_full_pipeline_independence_not_established": true
+}

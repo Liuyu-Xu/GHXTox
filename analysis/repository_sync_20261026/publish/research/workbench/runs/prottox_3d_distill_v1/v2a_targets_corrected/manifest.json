@@ -1,0 +1,42 @@
+{
+  "artifact_type": "prottox_3dkd_v2a_targets",
+  "version": "v2a-1",
+  "targets": [
+    {
+      "outer_fold": 0,
+      "rows": 5116,
+      "file": "v2a_residual_targets_outer0.csv",
+      "sha256": "ac3fb13605d437db4b1b43da436ba3f035347f53391133455d53aa6aca3f0f60"
+    },
+    {
+      "outer_fold": 1,
+      "rows": 5158,
+      "file": "v2a_residual_targets_outer1.csv",
+      "sha256": "25c2b0576b595b13af408cca68a01fede5837f39295146af6b60119a3766401a"
+    },
+    {
+      "outer_fold": 2,
+      "rows": 5114,
+      "file": "v2a_residual_targets_outer2.csv",
+      "sha256": "82c54302ff76f060c2092021ee25bd9cc6717c9197735e35ac40650b272c56cb"
+    },
+    {
+      "outer_fold": 3,
+      "rows": 5096,
+      "file": "v2a_residual_targets_outer3.csv",
+      "sha256": "e36c0c2c6d3e5a2da72edc8b6444d4bbbb86088ed926836670297b2c9a184e83"
+    },
+    {
+      "outer_fold": 4,
+      "rows": 5064,
+      "file": "v2a_residual_targets_outer4.csv",
+      "sha256": "29b955cd26b553bcf169fed71c9eb6f8a60a8f59a5c48965e3359804cdb8a626"
+    }
+  ],
+  "v1_fold_base_oof": {
+    "file": "v1_fold_base_oof_probabilities.csv",
+    "sha256": "828d50019559888d1e8cd34d3ea78beee86b267fd6f1f87506200aaf1b3ddad9",
+    "rows": 6387
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded"
+}

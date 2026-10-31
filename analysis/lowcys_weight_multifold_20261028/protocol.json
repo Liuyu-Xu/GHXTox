@@ -1,0 +1,30 @@
+{
+  "stage": "fixed single-seed group-aware follow-up of low-Cys positive weighting, not blind external validation",
+  "folds_new": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "previous_exploratory_fold": 3,
+  "seed": 42,
+  "arms": {
+    "low_cys": {}
+  },
+  "weights": "label1 and Cys<4 weight1.5; others1; original class-pos-weight nneg/npos for all arms; per-batch weighted mean",
+  "flags": "flagged and unflagged kept; unflagged not certified gold",
+  "reference": "same fold no_lora baseline from prior multfold; fold0 from prior lora_training_validation; same train/val/cal/test, initial head hash, order, optimizer, epoch selection, max8 patience2",
+  "head_lr": 0.0003,
+  "weight_decay": 0.01,
+  "max_epochs": 8,
+  "patience": 2,
+  "batch_size": 16,
+  "roles": "sequence cluster disjoint outer evaluation / inner train validation calibration",
+  "thresholds": "0.5 sequence, fixed 0.47022256531284556 conditional fusion",
+  "fusion": "0.72 new sequence + 0.28 historical fixed 3D OOF; not independently re-trained full model",
+  "primary": "folds0,1,2,4 combined (fold3 selected after prior results); metrics MCC,AUPRC,FN,FP, subgroup flags, corrected/harmed, paired group bootstrap",
+  "post_selection": "same data and original benchmark historically studied; folds0,1,2,4 should not be called blind prospective or independent external",
+  "primary_decision": "no preregistered statistical promotion gate; stable gain across folds and no material deterioration of recall/AUPRC would warrant further multiseed study, never claim proof from single seed",
+  "Test1_Test2": false,
+  "family_extra_weight": false
+}

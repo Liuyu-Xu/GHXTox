@@ -1,0 +1,4518 @@
+[
+  {
+    "path": "src/ghxtox/partial_unfreeze_3d.py",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/atom_graph.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/chemical_sites.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/conformer_graph.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/cys_conditional.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/dual_modal.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/layers.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/local_motif.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/mpce_3dkd_ablations.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/physchem_features.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/soft_cys_topology.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/spectral_physchem.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/spectral_refine.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/structure_quality_proxy.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/tristat_head.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/tristat_pooling.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/models/__pycache__/__init__.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/atom_graph.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/audit_prottox_3dkd_test.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/calibrate_predictions.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/chemical_sites.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/conformer_features.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/constants.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/data.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/esmfold_cache.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/esmfold_predict.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/evaluate_mpce_3dkd_product.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/evaluate_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/fasta.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/features.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/folds.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/geometry_features.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/local_web_api.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/local_web_api.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/lora_mamba_1d.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/lora_mamba_1d.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/metrics.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/mpce_3dkd_evidence.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/mpce_3dkd_predict.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/multidimensional_default.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/nested_folds.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/plm_embed.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/predict_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/preprocess.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_predict.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v2a_targets.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v2b_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v2b_teacher_pooled.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v2c_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v2c_effects.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v3_utility_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v4_uncertainty_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v5_ranking_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3dkd_v6_retrieval_diagnostic.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3d_distill_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3d_distill_crossfit.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3d_distill_head2head.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_3d_distill_targets.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_cys_conditional.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_cys_conditional_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_local_motif.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_local_motif_audit.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_local_motif_cache.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_local_motif_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_spectral_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_spectral_refine.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_struct_guided.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_struct_guided_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk_cache.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk_compare.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk_error_audit.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk_manifest.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/prottox_tsk_policy.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/quick_full_routing.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/refit_mpce_3dkd.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/refit_prottox_3d_distill.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/selective_prediction.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/soft_cys_topology.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/structure.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/structure_utility_router.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/topology_oof.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_3dkd_hypernet.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_hndp.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_kd_prototype_residual.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_kd_prototype_residual_v2.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_mpce_3dkd.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_mpce_3dkd_ablation.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_mpce_net.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_mpce_net_b2.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_3dkd_v2a.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_3dkd_v4.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_3d_distill.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_cys_conditional.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_local_motif.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_spectral_refine.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_struct_guided.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/train_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/unified_inference.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/utils.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_canonical_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_canonical_runner.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_mpce_3dkd_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_prottox_3dkd_batch_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_prottox_3dkd_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_prottox_tsk_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_quick_policy.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_quick_policy.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_quick_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/web_quick_runner.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/__init__.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox/__pycache__/__init__.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "src/ghxtox.egg-info/PKG-INFO",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "scripts/evaluate_partial_unfreeze_3d_oof.ps1",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "scripts/evaluate_partial_unfreeze_3d_oof.sh",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "scripts/__pycache__/analyze_quick_full_routing.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/build_prottox_struct_guided_cache.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/build_unified_inference_oof.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/cache_frozen_prott5_features.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/cache_soft_cys_topology.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/compare_prottox_struct_guided.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/evaluate_structure_utility_router_oof.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/evaluate_topology_aware_oof.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/freeze_web_quick_sequence_policy.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/mpce_3dkd_deployment_audit.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/predict_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/prepare_strict_topology_oof.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/run_topology_fold_smoke.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/train_prottox_struct_guided.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "scripts/__pycache__/train_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/chemical_state_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/fetch_log.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/initial_primary_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/Lycotoxin1998.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx2010.pdf",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx2010_pages.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx2018_BioC.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx2018_passages.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx_Fig3-06.png",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/LyeTx_methods-03.png",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/Na1b_NTNU.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/oxy_identity_correction_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_completion_20261025/sources/remaining_scope_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/alternate_fetch_log.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/B3EWV6.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/control139_BioC.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/control139_primary.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/ectatomin_primary_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/ectatomin_web_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/hemolytik.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/hhe53_plos.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/hhe53_primary.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/initial_fetch_log.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/Na1b_nci_fulltext.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/Na1b_passages.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/Na1b_usc.html",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P0CI21.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P0DSM2.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P11698.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P49344.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P85219.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/P85220.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/Q4L5M2.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/supplementary_fetch_log.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/assay_evidence_20261025/sources/uniprot_evidence_summary.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/cohort_expansion_20261025/run.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/cohort_expansion_20261025/run.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/conantokin_chemical_state_20261026/sources/P0C8E1.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/conantokin_chemical_state_20261026/sources/P0C8E2.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/conantokin_chemical_state_20261026/sources/P0DP00.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/conantokin_chemical_state_20261026/sources/primary_papers.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__CAPTP_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Marscolono__ToxMamba_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__HemoPI2_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/WYLqlit__PeptiTox_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse/raw_dataset/test_neg.fa",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse/raw_dataset/test_pos.fa",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse/raw_dataset/train_neg.fa",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cbbl-skku-org__HyPepTox-Fuse/raw_dataset/train_pos.fa",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass/data/benchmark/binary_manifest.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass/data/benchmark/target_manifest.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass/docs/BENCHMARK_CARD.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/cihebiyql__ToxiCompass/docs/source_of_truth/original_data_sources.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/Dataset/0.8/test.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/Dataset/0.8/train.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/Dataset/0.9/test.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/Dataset/0.9/train.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/GGCL7__ToxiPep/Dataset/Independent set/independent test set.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__CAPTP/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__CAPTP/data/test1.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__CAPTP/data/test2.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__CAPTP/data/train_data.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet/data/all_peptides.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet/data/all_peptides_cdhit0.9.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet/data/test_data.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/jiaoshihu__StrucToxNet/data/train_data.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/audit_endpoint_counts.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/core_tail.bin",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/maomao_sequence_pivot.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/maomao_toxicity_measurements.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/metadata_toxicity_properties.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/selective_download_manifest.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/kren-ai-lab__maomao/zenodo_record.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Marscolono__ToxMamba/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Marscolono__ToxMamba/data/Toxi_data/independent_test.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Marscolono__ToxMamba/data/Toxi_data/test.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Marscolono__ToxMamba/data/Toxi_data/train.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__HemoPI2/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__HemoPI2/Dataset/cross_val_dataset.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__HemoPI2/Dataset/independent_dataset.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3/dataset/test_neg.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3/dataset/test_pos.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3/dataset/train_neg.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/raghavagps__toxinpred3/dataset/train_pos.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/test1.fasta",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/test2.fasta",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/train_data.fasta",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/y_test1.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/y_test2.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/Renjingyi123__ToxMSRC/Raw data/y_train.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/WYLqlit__PeptiTox/Data/merged_data.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/Datasets.rar",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/Indtest1/neg_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/Indtest1/pos_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/Indtest2/neg_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/Indtest2/pos_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/train/neg_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/sources/yunyunliang88__ToxPLTC/train/pos_fasta.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/parasail.dll",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/cpuid.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/function_lookup.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/internal_altivec.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/internal_avx.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/internal_neon.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/internal_sse.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/io.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrix_lookup.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/memory.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/stats.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum100.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum30.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum35.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum40.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum45.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum50.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum55.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum60.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum62.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum65.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum70.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum75.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum80.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum85.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum90.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosumn.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/blosum_map.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/dnafull.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/nuc44.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam10.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam100.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam110.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam120.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam130.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam140.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam150.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam160.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam170.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam180.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam190.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam20.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam200.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam210.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam220.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam230.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam240.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam250.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam260.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam270.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam280.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam290.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam30.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam300.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam310.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam320.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam330.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam340.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam350.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam360.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam370.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam380.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam390.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam40.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam400.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam410.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam420.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam430.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam440.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam450.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam460.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam470.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam480.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam490.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam50.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam500.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam60.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam70.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam80.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam90.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail/include/parasail/matrices/pam_map.h",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/COPYING",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/INSTALLER",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/METADATA",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/RECORD",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/REQUESTED",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/_vendor/parasail-1.3.4.dist-info/WHEEL",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dataset_comparison_20261025/__pycache__/audit_datasets.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/run.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/run.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold0_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold0_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold1_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold1_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold2_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold2_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold3_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold3_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold4_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/all_exact50_quarantine_sensitivity_fold4_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold0_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold0_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold1_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold1_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold2_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold2_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold3_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold3_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold4_monotonic_dose.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/dose_monotonic_pilot_20261026/fold_models/confirmed_overlay_primary_fold4_unconstrained.joblib",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/entity_input_audit_20261025/runtime_stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/environment_feasibility_20261025/sources/download.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/environment_feasibility_20261025/sources/Hemolytik2_complete_data.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/environment_feasibility_20261025/sources/human_api.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/expert_disagreement_20261025/__pycache__/analyze.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/classes.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/classes.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/run.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/run.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/supplement.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/family_mechanism_comparison_20261026/supplement.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/frozen_prott5_environment_20261025/embedding_run.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/frozen_prott5_environment_20261025/evaluation_run.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/frozen_prott5_environment_20261025/partial_embeddings.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/frozen_prott5_environment_20261025/partial_predictions.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/frozen_prott5_environment_20261025/prott5_mean_embeddings.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/cys_error_rates.png",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/run.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/run.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/captp_source_verification.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/captp_training_source.fasta",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/conoserver_G9_1.html",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/conoserver_pc16c.html",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/entity_stratified_error_rates.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/errors_uniprot_exact_matches.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/error_accession_evidence_ledger.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/error_evidence_flags.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/error_primary_reference_links.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/EVIDENCE_REPORT.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/fetch_uniprot.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/fragment_probe_P83245.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/identity_recovery_summary.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/negative_current_toxin_keyword_review.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/NEXT_EXPERIMENT.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative20_review.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative_paper_abstracts.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/representative_paper_abstracts.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/source_cache_manifest.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/summarize_evidence.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/summary.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/training_evidence_flags.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/training_uniprot_exact_matches.csv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch0.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch0.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch1.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch1.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch2.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch2.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch3.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch3.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch4.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch4.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch5.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_error_records_batch5.json.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_fragment_accessions.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_fragment_accessions.tsv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_query_probe.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_query_probe_valid.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_reviewed_length11_50_20261025.tsv",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/uniprot_reviewed_length11_50_20261025.tsv.request.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/ghxtox_error_atlas_20261025/evidence_phase2/verification.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/ensemble_predictions.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/fit_logs_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/frozen_mean_features.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/oof_predictions_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold0_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold0_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold0_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold1_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold1_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold1_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold2_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold2_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold2_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold3_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold3_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold3_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold4_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold4_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261026_fold4_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold0_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold0_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold0_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold1_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold1_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold1_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold2_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold2_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold2_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold3_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold3_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold3_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold4_permuted_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold4_real_hemolysis_aux.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_auxiliary_classifier_pilot_20261026/checkpoints/20261027_fold4_toxicity_only.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/europepmc_six_core.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/frontiers_full.html",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/PMC5322399.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/PMC8348142.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/PMC8606745.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/PMC8606745_supplementary.zip",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/Table_1.DOCX",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/Table_1.DOCX.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/Table_4.DOCX",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_chemistry_audit_20261026/sources/Table_4.DOCX.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_dose_audit_20261026/PMID34361810_fulltext.xml",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/L5figure.png",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/L5_figure1.jpg",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PG1.html",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PG1.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PMC12044605.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PMC4890124.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PMC6270530.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/hemolysis_selectivity_audit_20261026/sources/PMC6405874.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/assay_detail_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/assay_scope_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/C0HJU9.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/candidate_summary.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/oxy_additional_matches.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P0DV15.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P0DV16.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P0DV18.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P61507.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P61508.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P82425.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P83247.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P83248.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P83249.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P83250.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/P83251.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_expansion_20261025/sources/primary_search.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/Cumulative_Peptide_data_PG1.xlsx",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/Cumulative_Peptide_data_PG1_v01.2.xlsx",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/cyclic2025.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/cyclic2025_body.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/PG1_BioC.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/PG1_preprint.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/PG1_repository.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/PG1_tree.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_data_feasibility_20261026/sources/README.md",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/L5_fig3.png",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/L5_fig6.png",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMAP_article.pdf",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMAP_page3_image0_X1.jpg",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC12044605_oa.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC12044605_oa_modern.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC4890124_oa.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC4890124_oa_modern.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC6270530_oa.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/membrane_state_numeric_recovery_20261026/sources/PMC6270530_oa_modern.xml",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/repository_sync_20261026/prepare.py",
+    "reason": "sync tooling/private backup"
+  },
+  {
+    "path": "analysis/research_review_20261026/inventory.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/ensemble_predictions.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/ensemble_stable_ranking.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/fit_logs_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/frozen_features.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/oof_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold0_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold0_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold0_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold0_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold1_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold1_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold1_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold1_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold2_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold2_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold2_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold2_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold3_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold3_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold3_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold3_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold4_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold4_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold4_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261026_fold4_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold0_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold0_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold0_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold0_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold1_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold1_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold1_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold1_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold2_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold2_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold2_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold2_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold3_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold3_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold3_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold3_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold4_baseline_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold4_baseline_GCE_q07.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold4_plus_SaProt_3Di_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/checkpoints/20261027_fold4_plus_SaProt_masked_BCE.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/rounded_probability_archive/decision.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/rounded_probability_archive/ensemble_metrics.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/rounded_probability_archive/paired_comparisons.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_and_robust_classifier_pilot_20261026/rounded_probability_archive/seed_metrics.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_contribution_20261026/run.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_contribution_20261026/run.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_contribution_20261026/supplement.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_contribution_20261026/supplement.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/ensemble_scores.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261028_fold0.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261028_fold1.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261028_fold2.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261028_fold3.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261028_fold4.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261029_fold0.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261029_fold1.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261029_fold2.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261029_fold3.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_ensemble_size_control_20261026/checkpoints/20261029_fold4.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/model/config.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/model/pytorch_model.bin",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/model/special_tokens_map.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/model/tokenizer_config.json",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/model/vocab.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/encoder.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/encoder_weights_3di.kerasify",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/layers.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/py.typed",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/utils.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/_unkerasify.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__init__.py",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__pycache__/encoder.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__pycache__/layers.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__pycache__/utils.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__pycache__/_unkerasify.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di/__pycache__/__init__.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/COPYING",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/INSTALLER",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/METADATA",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/RECORD",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/REQUESTED",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/top_level.txt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/WHEEL",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_input_audit_20261026/vendor/mini3di-0.2.1.dist-info/zip-safe",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/ensemble_scores.npz",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/fit_logs_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/oof_partial.json",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold0_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold0_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold1_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold1_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold2_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold2_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold3_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold3_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold4_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261026_fold4_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold0_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold0_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold1_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold1_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold2_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold2_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold3_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold3_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold4_SaProt_only_3Di.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/saprot_standalone_20261026/checkpoints/20261027_fold4_SaProt_only_masked.pt",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "analysis/test_ambiguity_association_20261025/__pycache__/analyze.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "reports/报告1-ds.pdf",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "reports/figures/ghxtox_architecture.dot",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "reports/mentor_report/figure6_current_architecture.dot",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "reports/mentor_report/figure_1d_architecture.dot",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "reports/mentor_report/REPORT.html",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/af2_31_50_pilot400_pipeline.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/af2_31_50_pilot400_pipeline.pid",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/af2_31_50_pilot400_pipeline.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/af2_31_50_pilot400_pipeline.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/independent_structure_spatial_chemical_isolated_pipeline.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/independent_structure_spatial_chemical_isolated_pipeline.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/independent_structure_spatial_chemical_pipeline.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/independent_structure_spatial_chemical_pipeline.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_canonical_cache.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_canonical_cache_rerun.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_single_cache.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_test1_canonical_single_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_test2_canonical_single_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/nested_p1_fold0.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/nested_p1_fold0.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/nested_p1_remaining.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/nested_p1_remaining.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/original_lineage_fusion_aware_residual_screen_checkpoint_audit_v1",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_frozen_eval.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_frozen_eval.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_oof_export.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_oof_export.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_oof_training.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/triroute_oof_training.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_dynamic_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/3dkd_hyper_static_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/bacc_prioritized_decision_residual/run.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/docx_review_manuscript_metrics_20260905/Manuscript for GHXTox.pdf",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/docx_review_manuscript_metrics_20260905/page-14.png",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/docx_review_manuscript_metrics_20260905/page-15.png",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/docx_review_manuscript_metrics_20260905/page-25.png",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/docx_review_manuscript_metrics_20260905/page-26.png",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/geometry_ssl_oof/train.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/geometry_ssl_oof/train.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_B_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/hndp_C_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_B_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/kd_proto_C_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed123.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed2025.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed42.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_cross_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_ablation_no_proto_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_canonical_refit_v1/full_model_seed20260905.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_canonical_refit_v1/full_model_seed20260906.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_full_refit_v1/full_model_seed20260905.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_full_refit_v1/full_model_seed20260906.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_single_refit_v1/full_model_seed20260905.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_product_single_refit_v1/full_model_seed20260906.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_3dkd_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_fixed_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_gated_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_b2_global_only_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/mpce_net_b_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_conformer_residual_evalfreeze_seed42_oof/train.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_conformer_residual_evalfreeze_seed42_oof/train.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_conformer_residual_oof/train.pid",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_conformer_residual_oof/train.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_conformer_residual_oof/train.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_cross_attention_oof/train.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_cross_attention_oof/train.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_cross_attention_reproduced_oof/train.pid",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_cross_attention_reproduced_oof/train.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_chemical_cross_attention_reproduced_oof/train.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_cross_attention_oof/train.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_cross_attention_oof/train.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_hierarchical_ssl_fold_ensemble/run.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_hierarchical_ssl_fold_ensemble/run.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_hierarchical_ssl_oof/train.err.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prott5_structure_hierarchical_ssl_oof/train.out.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/mlp_teacher_kd_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/product_full_refit_v1/full_model_seed20260905.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/product_full_refit_v1/full_model_seed20260906.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/proxy_teacher_kd_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/teacher_checkpoints/fold0/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/teacher_checkpoints/fold1/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/teacher_checkpoints/fold2/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/teacher_checkpoints/fold3/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/teacher_checkpoints/fold4/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_corrected_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_corrected_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_corrected_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_corrected_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_corrected_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_corrected_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_corrected_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_corrected_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_corrected_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_corrected_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2a_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2b_teacher_pooled/teacher_pooled_outer0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2b_teacher_pooled/teacher_pooled_outer1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2b_teacher_pooled/teacher_pooled_outer2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2b_teacher_pooled/teacher_pooled_outer3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2b_teacher_pooled/teacher_pooled_outer4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2c_component_effects/v2c_component_effects_outer0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2c_component_effects/v2c_component_effects_outer1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2c_component_effects/v2c_component_effects_outer2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2c_component_effects/v2c_component_effects_outer3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v2c_component_effects/v2c_component_effects_outer4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armB_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armC_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_3d_distill_v1/v4_armD_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/features_128.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/features_128_balanced.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/kan_1epoch_balanced/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_balanced/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_smoke_20260905/mlp_1epoch_stratified/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_residue_cache_v1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structure_quality_proxy_v1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/test1_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/test2_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_candidate_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/cys_conditional_shared_residual_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/kan_fivefold_20epochs_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_cnn_attention_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/local_motif_nonlocal_control_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/mlp_fivefold_20epochs_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_concat_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_gated_residual_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/spectral_refine_spectral_only_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_candidate_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/prottox_tsk_v1/structguide_control_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_features.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_large_uniparc_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260905_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/final_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/fold_0.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/fold_1.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/fold_2.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/fold_3.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/representation_shootout_v1/pepbert_small_uniparc_seed20260906_v1/fold_4.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/combined.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/combined.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/control.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/control.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/margin.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/margin.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/source_length.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/required_coupling_ablation/source_length.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/selective_prediction_formal_current_default_20260810_v2/paired_bootstrap_replicates.csv",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "runs/selective_prediction_formal_experiment_20260809_v1/paired_bootstrap_replicates.csv",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "runs/topology_strict_base_fold0_smoke_v1/best_model.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/topology_strict_fold0_smoke_v1/topology_branch.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_api_logs/api.stderr.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_api_logs/api.stdout.log",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_api_logs/start_quick_api.cmd",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_155603e1ee1c4ca9a060efc436884de0/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_2c50022188c344a4a82670aeaa826231/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_38b51ef8a36b40058ee394dd67b0a6b5/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_42a39a1fe70d45eebf92ac2642749523/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_5e2653325187404e9119304d45e276c1/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_62bf356a7a714aabad42d9b12ea0a940/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_e0575ac5d28d4cf1bfaf0625405cb58c/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "runs/web_local_jobs/quick_f5f942e94a334aa6830f44438c5ecbad/sequence_records.pt",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "docs/research_sources_20261025/Manuscript for GHXTox.docx",
+    "reason": "binary/generated/non-text"
+  },
+  {
+    "path": "tests/test_partial_unfreeze_3d.py",
+    "reason": "partial/log/resampling duplicate"
+  },
+  {
+    "path": "tests/__pycache__/test_local_web_api.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_local_web_api.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_prottox_3dkd_runner.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_prottox_tsk.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_quick_full_routing.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_soft_cys_topology.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_structure_utility_router.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_web_quick_policy.cpython-310.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  },
+  {
+    "path": "tests/__pycache__/test_web_quick_policy.cpython-313.pyc",
+    "reason": "raw/cache/third-party/checkpoint directory"
+  }
+]

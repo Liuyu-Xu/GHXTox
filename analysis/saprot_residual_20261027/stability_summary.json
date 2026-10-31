@@ -1,0 +1,572 @@
+[
+  {
+    "cohort": "fusion_harm",
+    "label": "all",
+    "n": 62,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 18,
+    "both_residuals_helpful": 10,
+    "both_residuals_misleading": 43,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 14,
+    "strong_misleading_residual": 14,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8519836689009515,
+    "raw_residual_Spearman": 0.8414545088262698,
+    "fold_n": [
+      9,
+      15,
+      20,
+      8,
+      10
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      -0.23155919588674162,
+      -0.23687196933356724
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "fusion_harm",
+    "label": 0,
+    "n": 26,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 10,
+    "both_residuals_helpful": 5,
+    "both_residuals_misleading": 20,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 8,
+    "strong_misleading_residual": 8,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8068524681246686,
+    "raw_residual_Spearman": 0.7976068376068376,
+    "fold_n": [
+      4,
+      2,
+      12,
+      3,
+      5
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      -0.29190749391294357,
+      -0.336262528824605
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "fusion_harm",
+    "label": 1,
+    "n": 36,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 8,
+    "both_residuals_helpful": 5,
+    "both_residuals_misleading": 23,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 6,
+    "strong_misleading_residual": 6,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.6929743727436493,
+    "raw_residual_Spearman": 0.770913770913771,
+    "fold_n": [
+      5,
+      13,
+      8,
+      5,
+      5
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      -0.18797431397892897,
+      -0.16508989859003995
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_correct",
+    "label": "all",
+    "n": 5875,
+    "both_seed_actual_rescues": 2,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 4292,
+    "both_residuals_misleading": 985,
+    "strict_useful_residual": 2,
+    "strong_useful_residual": 2,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.000855161348156452
+    ],
+    "raw_residual_Pearson": 0.8998010703493707,
+    "raw_residual_Spearman": 0.8945081829287983,
+    "fold_n": [
+      1185,
+      1129,
+      1166,
+      1187,
+      1208
+    ],
+    "fold_strict_useful": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.13060071278041022,
+      0.13204282020123265
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_correct",
+    "label": 0,
+    "n": 4338,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 3085,
+    "both_residuals_misleading": 776,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8521824999654012,
+    "raw_residual_Spearman": 0.8706471328160895,
+    "fold_n": [
+      869,
+      819,
+      868,
+      888,
+      894
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.1057251526669215,
+      0.10784830923891908
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_correct",
+    "label": 1,
+    "n": 1537,
+    "both_seed_actual_rescues": 2,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 1207,
+    "both_residuals_misleading": 209,
+    "strict_useful_residual": 2,
+    "strong_useful_residual": 2,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.003287365047233468
+    ],
+    "raw_residual_Pearson": 0.8718947452329106,
+    "raw_residual_Spearman": 0.8839780993036525,
+    "fold_n": [
+      316,
+      310,
+      298,
+      299,
+      314
+    ],
+    "fold_strict_useful": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.2008090275314283,
+      0.20032895458933653
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_wrong",
+    "label": "all",
+    "n": 354,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 4,
+    "both_residuals_helpful": 101,
+    "both_residuals_misleading": 198,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 3,
+    "strong_misleading_residual": 3,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8483754853230587,
+    "raw_residual_Spearman": 0.8379238217995735,
+    "fold_n": [
+      60,
+      66,
+      67,
+      77,
+      84
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      -0.07088037545347668,
+      -0.06396855042902738
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_wrong",
+    "label": 0,
+    "n": 157,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 2,
+    "both_residuals_helpful": 35,
+    "both_residuals_misleading": 93,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 2,
+    "strong_misleading_residual": 2,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8418928104110311,
+    "raw_residual_Spearman": 0.821212609852455,
+    "fold_n": [
+      25,
+      34,
+      27,
+      31,
+      40
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      -0.1727363831356466,
+      -0.18072808471015864
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "persistent_wrong",
+    "label": 1,
+    "n": 197,
+    "both_seed_actual_rescues": 0,
+    "both_seed_actual_harms": 2,
+    "both_residuals_helpful": 66,
+    "both_residuals_misleading": 105,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 1,
+    "strong_misleading_residual": 1,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8406316664555787,
+    "raw_residual_Spearman": 0.8441793884143413,
+    "fold_n": [
+      35,
+      32,
+      40,
+      46,
+      44
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.010294209349064798,
+      0.029083464201112758
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "reproduced_rescue",
+    "label": "all",
+    "n": 37,
+    "both_seed_actual_rescues": 11,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 22,
+    "both_residuals_misleading": 9,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.732943503841102,
+    "raw_residual_Spearman": 0.6469890943575154,
+    "fold_n": [
+      6,
+      13,
+      9,
+      3,
+      6
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.09041443041714489,
+      0.05178179385598787
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "reproduced_rescue",
+    "label": 0,
+    "n": 25,
+    "both_seed_actual_rescues": 8,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 16,
+    "both_residuals_misleading": 3,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.614187103438716,
+    "raw_residual_Spearman": 0.5092307692307693,
+    "fold_n": [
+      5,
+      9,
+      6,
+      2,
+      3
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.08097886802363556,
+      0.03533937845488781
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "reproduced_rescue",
+    "label": 1,
+    "n": 12,
+    "both_seed_actual_rescues": 3,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 6,
+    "both_residuals_misleading": 6,
+    "strict_useful_residual": 0,
+    "strong_useful_residual": 0,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.0,
+      0.0
+    ],
+    "raw_residual_Pearson": 0.8711317571309032,
+    "raw_residual_Spearman": 0.8881118881118882,
+    "fold_n": [
+      1,
+      4,
+      3,
+      1,
+      3
+    ],
+    "fold_strict_useful": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.11007185207028931,
+      0.08603682594161306
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "unreproduced_rescue",
+    "label": "all",
+    "n": 59,
+    "both_seed_actual_rescues": 34,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 57,
+    "both_residuals_misleading": 0,
+    "strict_useful_residual": 31,
+    "strong_useful_residual": 31,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.3939393939393939,
+      0.6585365853658537
+    ],
+    "raw_residual_Pearson": 0.9400158141332456,
+    "raw_residual_Spearman": 0.9257159555815315,
+    "fold_n": [
+      11,
+      6,
+      11,
+      16,
+      15
+    ],
+    "fold_strict_useful": [
+      4,
+      2,
+      8,
+      8,
+      9
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.3891772158403123,
+      0.411899594524978
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "unreproduced_rescue",
+    "label": 0,
+    "n": 23,
+    "both_seed_actual_rescues": 15,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 23,
+    "both_residuals_misleading": 0,
+    "strict_useful_residual": 13,
+    "strong_useful_residual": 13,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.35714285714285715,
+      0.782608695652174
+    ],
+    "raw_residual_Pearson": 0.6544189789530944,
+    "raw_residual_Spearman": 0.6482213438735179,
+    "fold_n": [
+      3,
+      5,
+      4,
+      6,
+      5
+    ],
+    "fold_strict_useful": [
+      2,
+      2,
+      2,
+      3,
+      4
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.2950177555374245,
+      0.3042812286591183
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  },
+  {
+    "cohort": "unreproduced_rescue",
+    "label": 1,
+    "n": 36,
+    "both_seed_actual_rescues": 19,
+    "both_seed_actual_harms": 0,
+    "both_residuals_helpful": 34,
+    "both_residuals_misleading": 0,
+    "strict_useful_residual": 18,
+    "strong_useful_residual": 18,
+    "strict_misleading_residual": 0,
+    "strong_misleading_residual": 0,
+    "strict_fraction_CI95": [
+      0.32554996857322444,
+      0.6666666666666666
+    ],
+    "raw_residual_Pearson": 0.7700734399425541,
+    "raw_residual_Spearman": 0.7644787644787645,
+    "fold_n": [
+      8,
+      1,
+      7,
+      10,
+      10
+    ],
+    "fold_strict_useful": [
+      2,
+      0,
+      6,
+      5,
+      5
+    ],
+    "mean_oriented_residual_by_seed": [
+      0.44933464881160173,
+      0.480655772717055
+    ],
+    "scope": "outcome-selected diagnostic; shared encoders/folds, not independent biological replication"
+  }
+]

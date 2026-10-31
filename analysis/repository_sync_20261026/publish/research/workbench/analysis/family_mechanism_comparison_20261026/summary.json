@@ -1,0 +1,59 @@
+{
+  "target148": 148,
+  "failure50": 50,
+  "rescue98": 98,
+  "coverage": {
+    "failure50": {
+      "n": 50,
+      "identity_recovered_n": 45,
+      "full_feature_record_n": 45,
+      "explicit_family_n": 29,
+      "name_class_n": 25,
+      "cached_abstract_sample_n": 2
+    },
+    "rescue98": {
+      "n": 98,
+      "identity_recovered_n": 88,
+      "full_feature_record_n": 4,
+      "explicit_family_n": 1,
+      "name_class_n": 21,
+      "cached_abstract_sample_n": 3
+    }
+  },
+  "comparisons": {
+    "failure50_vs_rescue98": {
+      "pairs": 0,
+      "explicit_family_pairs": 0,
+      "name_proxy_pairs": 0,
+      "identity_ge60_pairs": 0,
+      "unmatched_failures": 50
+    },
+    "failure50_vs_all_fusion_correct": {
+      "pairs": 1,
+      "explicit_family_pairs": 0,
+      "name_proxy_pairs": 1,
+      "identity_ge60_pairs": 0,
+      "unmatched_failures": 49
+    }
+  },
+  "testable_tests": 0,
+  "planned_tests": 32,
+  "q_lt05": [],
+  "failure_structure_not_correct_at_fusion_threshold": [
+    "peptide_2738",
+    "peptide_3247",
+    "peptide_3308",
+    "peptide_4759",
+    "peptide_4875",
+    "peptide_4895",
+    "peptide_6357"
+  ],
+  "limitations": [
+    "no test predictions",
+    "no new training",
+    "no label/weight/threshold selection",
+    "old OOF not certified nested",
+    "controls correct only relative to original labels, not experimental safety gold standards",
+    "unmatched families and annotation missingness limit generalization"
+  ]
+}

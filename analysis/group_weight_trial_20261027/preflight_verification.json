@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "role_weight_rows": 31935,
+  "structural_completed_fits": 3,
+  "structural_outer_evaluation_predictions": 3813,
+  "actual_sequence_gradient_steps": 6,
+  "old_final_checkpoints_inspected": 3,
+  "old_final_B_tensors_checked": 432,
+  "new_actual_LoRA_B_gradients_present_per_step": 144,
+  "targets_unreachable_by_frozen1D_structure_only": 8,
+  "formal_sequence_OOF_fits_completed": 0,
+  "full_ABC_efficacy_comparison_completed": false,
+  "past_predictions_unchanged": true,
+  "regression_test_note": "2 pytest cases: current non-reentrant API and legacy input-grad-hook fallback; gradient updates and exact eval output parity"
+}

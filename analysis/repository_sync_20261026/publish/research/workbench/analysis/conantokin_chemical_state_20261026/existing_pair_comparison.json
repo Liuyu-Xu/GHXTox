@@ -1,0 +1,41 @@
+[
+  {
+    "error_id": "peptide_195",
+    "correct_id": "peptide_854",
+    "gla_present_both": true,
+    "same_gla_count": true,
+    "same_gla_positions": true,
+    "same_species": true,
+    "same_original_Pr_study": true,
+    "same_original_label": true,
+    "same_fold": false,
+    "hyp_positions_error": "",
+    "hyp_positions_correct": "3"
+  },
+  {
+    "error_id": "peptide_57",
+    "correct_id": "peptide_359",
+    "gla_present_both": true,
+    "same_gla_count": false,
+    "same_gla_positions": false,
+    "same_species": false,
+    "same_original_Pr_study": false,
+    "same_original_label": true,
+    "same_fold": false,
+    "hyp_positions_error": "",
+    "hyp_positions_correct": ""
+  },
+  {
+    "error_id": "peptide_66",
+    "correct_id": "peptide_218",
+    "gla_present_both": true,
+    "same_gla_count": false,
+    "same_gla_positions": false,
+    "same_species": false,
+    "same_original_Pr_study": false,
+    "same_original_label": true,
+    "same_fold": false,
+    "hyp_positions_error": "",
+    "hyp_positions_correct": "3"
+  }
+]

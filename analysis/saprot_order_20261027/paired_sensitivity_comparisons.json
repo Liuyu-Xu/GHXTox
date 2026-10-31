@@ -1,0 +1,370 @@
+[
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "measure": "absolute_probability_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.4121202647049281,
+    "CI95": [
+      -0.47263181787031716,
+      -0.34992031031091997
+    ],
+    "CI99_6875": [
+      -0.4952770323737036,
+      -0.31256089718472163
+    ],
+    "fold_differences": [
+      -0.38138472391962575,
+      -0.32630389348456734,
+      -0.4900424845796678,
+      -0.5606880845907053,
+      -0.3060146585721866
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "measure": "normalized_logodds_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.18849055807855516,
+    "CI95": [
+      -0.2528117982196344,
+      -0.12512428298704178
+    ],
+    "CI99_6875": [
+      -0.28768809569698844,
+      -0.08943750037461932
+    ],
+    "fold_differences": [
+      -0.10094683380199974,
+      -0.1806977425927677,
+      -0.30470001629694293,
+      -0.28088582800903117,
+      -0.07213853493020289
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "measure": "absolute_probability_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.30046848848158864,
+    "CI95": [
+      -0.37820583970393823,
+      -0.2183764173685109
+    ],
+    "CI99_6875": [
+      -0.41180595086907756,
+      -0.17526882400810648
+    ],
+    "fold_differences": [
+      -0.2037884174317131,
+      -0.24488663995745424,
+      -0.4534499464612402,
+      -0.23843338245197124,
+      -0.2145184940770693
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "measure": "normalized_logodds_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.20204824183327652,
+    "CI95": [
+      -0.27271584167113205,
+      -0.12703778005342573
+    ],
+    "CI99_6875": [
+      -0.3054652990287523,
+      -0.0866059564896611
+    ],
+    "fold_differences": [
+      -0.1788266531855119,
+      -0.18452383098968753,
+      -0.2511678094222164,
+      -0.13164334471975234,
+      -0.20731907039458738
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "measure": "absolute_probability_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.33666286536134127,
+    "CI95": [
+      -0.4125263592971426,
+      -0.25855271340999203
+    ],
+    "CI99_6875": [
+      -0.4532823605706059,
+      -0.21387737773899437
+    ],
+    "fold_differences": [
+      -0.4712737491650368,
+      -0.27048641783880384,
+      -0.4512773670628142,
+      -0.29492758125293006,
+      -0.21616990547066248
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "measure": "normalized_logodds_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.18908833030699826,
+    "CI95": [
+      -0.26592368266144123,
+      -0.11081150933531714
+    ],
+    "CI99_6875": [
+      -0.30007793009212397,
+      -0.07875840228848453
+    ],
+    "fold_differences": [
+      -0.2391900076084541,
+      -0.22529271498968848,
+      -0.31912069172536983,
+      -0.10627592694471362,
+      -0.06685864518414646
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "measure": "absolute_probability_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.2694847792811295,
+    "CI95": [
+      -0.35574605065064707,
+      -0.17887156092027692
+    ],
+    "CI99_6875": [
+      -0.4046244749723405,
+      -0.10849285891192413
+    ],
+    "fold_differences": [
+      -0.22508359042983145,
+      -0.2127324333863247,
+      -0.4589197904786613,
+      -0.2055161845992044,
+      -0.06687922143998111
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "measure": "normalized_logodds_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.21025473224296615,
+    "CI95": [
+      -0.2944680302316369,
+      -0.1212986357697592
+    ],
+    "CI99_6875": [
+      -0.3305306419927234,
+      -0.08396609820311048
+    ],
+    "fold_differences": [
+      -0.23942375431797616,
+      -0.17658923016266184,
+      -0.29605623350035054,
+      -0.21379028011493806,
+      -0.060069424683567144
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "measure": "absolute_probability_change",
+    "n": 59,
+    "mean_teacher_minus_baseline": -0.41162149080001204,
+    "CI95": [
+      -0.4941997343553967,
+      -0.33083819340905946
+    ],
+    "CI99_6875": [
+      -0.5387764752539663,
+      -0.2961264444540128
+    ],
+    "fold_differences": [
+      -0.5195347963915422,
+      -0.3170235579200903,
+      -0.45522399838065997,
+      -0.4020355597422643,
+      -0.3581047094704309
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "measure": "normalized_logodds_change",
+    "n": 59,
+    "mean_teacher_minus_baseline": -0.3086067534800201,
+    "CI95": [
+      -0.4235089027151871,
+      -0.20389938999943147
+    ],
+    "CI99_6875": [
+      -0.48294904488380214,
+      -0.15250187704569257
+    ],
+    "fold_differences": [
+      -0.4816456625704016,
+      -0.1995084522704541,
+      -0.389164328925594,
+      -0.15752138067964308,
+      -0.32801717883669906
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "measure": "absolute_probability_change",
+    "n": 46,
+    "mean_teacher_minus_baseline": -0.34076225533626636,
+    "CI95": [
+      -0.4284722772402219,
+      -0.25435293765451095
+    ],
+    "CI99_6875": [
+      -0.4680390654519312,
+      -0.2195456985365339
+    ],
+    "fold_differences": [
+      -0.366713292059537,
+      -0.18852357634819134,
+      -0.5108082755846863,
+      -0.21955264467127386,
+      -0.26809737767315756
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "measure": "normalized_logodds_change",
+    "n": 46,
+    "mean_teacher_minus_baseline": -0.24859771776283848,
+    "CI95": [
+      -0.35369387496465393,
+      -0.14976848599487014
+    ],
+    "CI99_6875": [
+      -0.40399603212939966,
+      -0.11277919797559544
+    ],
+    "fold_differences": [
+      -0.1947608777850526,
+      -0.11029373579498639,
+      -0.3493626559492384,
+      -0.06240141932366363,
+      -0.4513746116685327
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "measure": "absolute_probability_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.3778856682940435,
+    "CI95": [
+      -0.451094239977514,
+      -0.30171218894136803
+    ],
+    "CI99_6875": [
+      -0.48251223177975694,
+      -0.2607188989656048
+    ],
+    "fold_differences": [
+      -0.40705592588624046,
+      -0.2855342736430117,
+      -0.5476391030877654,
+      -0.35039845062584996,
+      -0.3010271234904006
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "measure": "normalized_logodds_change",
+    "n": 96,
+    "mean_teacher_minus_baseline": -0.24324479726288328,
+    "CI95": [
+      -0.3297683254595475,
+      -0.15352253394351165
+    ],
+    "CI99_6875": [
+      -0.3782939231987883,
+      -0.09795028977699027
+    ],
+    "fold_differences": [
+      -0.18293151348681538,
+      -0.3026956321668216,
+      -0.4982148038206898,
+      -0.1068762996892738,
+      -0.11883342982292049
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "measure": "absolute_probability_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.24098338466221875,
+    "CI95": [
+      -0.3381966741722172,
+      -0.13917736612796036
+    ],
+    "CI99_6875": [
+      -0.3754362389689247,
+      -0.0812840625404753
+    ],
+    "fold_differences": [
+      -0.08175821231808317,
+      -0.11960642269545842,
+      -0.42823337140968354,
+      -0.3141009331546132,
+      -0.13335747043323626
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "measure": "normalized_logodds_change",
+    "n": 62,
+    "mean_teacher_minus_baseline": -0.20407482291585918,
+    "CI95": [
+      -0.2841779769724156,
+      -0.12114108571582091
+    ],
+    "CI99_6875": [
+      -0.32288362600464804,
+      -0.09090466048946856
+    ],
+    "fold_differences": [
+      -0.10000271311515202,
+      -0.08126011568029652,
+      -0.31208539194965884,
+      -0.3139223595232448,
+      -0.17806261523633168
+    ],
+    "interpretation": "greater response is sensitivity, not improved accuracy or biology"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "url": "https://rest.uniprot.org/uniprotkb/search?query=reviewed%3Atrue+AND+length%3A%5B11+TO+50%5D&format=tsv&fields=accession%2Cid%2Cprotein_name%2Corganism_name%2Clength%2Csequence%2Ckeyword%2Ccc_function%2Cft_chain%2Cft_peptide&size=1",
+  "status": 200,
+  "headers": {
+    "Vary": "accept,accept-encoding,x-uniprot-release,x-api-deployment-date, User-Agent, Accept-Encoding",
+    "Cache-Control": "public, max-age=43200",
+    "x-cache": "miss cached",
+    "Content-Type": "text/plain;format=tsv",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date",
+    "X-API-Deployment-Date": "07-October-2026",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Date": "Sun, 25 Oct 2026 05:43:31 GMT",
+    "Access-Control-Max-Age": "1728000",
+    "X-UniProt-Release": "2026_03",
+    "Link": "<https://rest.uniprot.org/uniprotkb/search?format=tsv&fields=accession,id,protein_name,organism_name,length,sequence,keyword,cc_function,ft_chain,ft_peptide&query=reviewed%3Atrue%20AND%20length%3A%5B11%20TO%2050%5D&cursor=verqtw3fkc8geosmj6l3ex2372zlw0crsvjryu7kdh348t&size=1>; rel=\"next\"",
+    "X-Total-Results": "12032",
+    "Transfer-Encoding": "chunked",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "keep-alive",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "X-UniProt-Release-Date": "02-September-2026"
+  },
+  "text": "Entry\tEntry Name\tProtein names\tOrganism\tLength\tSequence\tKeywords\tFunction [CC]\tChain\tPeptide\nA0A0C5B5G6\tMOTSC_HUMAN\tMitochondrial-derived peptide MOTS-c (Mitochondrial open reading frame of the 12S rRNA-c)\tHomo sapiens (Human)\t16\tMRWQEMGYIFYPRKLR\tDNA-binding;Mitochondrion;Nucleus;Osteogenesis;Reference proteome;Secreted;Transcription;Transcription regulation\tFUNCTION: Regulates insulin sensitivity and metabolic homeostasis (PubMed:25738459, PubMed:33468709). Inhibits the folate cycle, thereby reducing de novo purine biosynthesis which leads to the accumulation of the de novo purine synthesis intermediate 5-aminoimidazole-4-carboxamide (AICAR) and the activation of the metabolic regulator 5'-AMP-activated protein kinase (AMPK) (PubMed:25738459). Protects against age-dependent and diet-induced insulin resistance as well as diet-induced obesity (PubMed:25738459). In response to metabolic stress, translocates to the nucleus where it binds to antioxidant response elements (ARE) present in the promoter regions of a number of genes and plays a role in regulating nuclear gene expression in an NFE2L2-dependent manner and increasing cellular resistance to metabolic stress (PubMed:29983246). Increases mitochondrial respiration and levels of CPT1A and cytokines IL1B, IL6, IL8, IL10 and TNF in senescent cells (PubMed:29886458). Increases activity of the serine/threonine protein kinase complex mTORC2 and reduces activity of the PTEN phosphatase, thus promoting phosphorylation of AKT (PubMed:33554779). This promotes AKT-mediated phosphorylation of transcription factor FOXO1 which reduces FOXO1 activity, leading to reduced levels of MSTN and promotion of skeletal muscle growth (PubMed:33554779). Promotes osteogenic differentiation of bone marrow mesenchymal stem cells via the TGFB/SMAD pathway (PubMed:30468456). Promotes osteoblast proliferation and osteoblast synthesis of type I collagens COL1A1 and COL1A2 via the TGFB/SMAD pathway (PubMed:31081069). {ECO:0000269|PubMed:25738459, ECO:0000269|PubMed:29886458, ECO:0000269|PubMed:29983246, ECO:0000269|PubMed:30468456, ECO:0000269|PubMed:31081069, ECO:0000269|PubMed:33468709, ECO:0000269|PubMed:33554779}.\tCHAIN 1..16; /note=\"Mitochondrial-derived peptide MOTS-c\"; /evidence=\"ECO:0000305\"; /id=\"PRO_0000435952\"\t\n"
+}

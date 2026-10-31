@@ -1,0 +1,140 @@
+{
+  "artifact_type": "retrieval_memory_v6_diagnostic",
+  "version": "v6-0",
+  "method": "cosine similarity over standardized TriStat+PhysChem; weighted kNN local toxicity probability",
+  "folds": [
+    {
+      "fold": 0,
+      "bank_n": 5116,
+      "query_n": 1271,
+      "5": {
+        "auroc": 0.9597583839850011,
+        "auprc": 0.9267468139472581,
+        "mean_local_p": 0.28272149442387845,
+        "mean_density": 0.7710131406784058,
+        "mean_reliability": 0.6594873551340065,
+        "spearman_vs_v1": 0.8011307757973054,
+        "v1_error_direction_correct": 0.4567901234567901,
+        "v1_error_n": 81
+      },
+      "11": {
+        "auroc": 0.969498624089026,
+        "auprc": 0.9499869563229408,
+        "mean_local_p": 0.28163840564812126,
+        "mean_density": 0.752887487411499,
+        "mean_reliability": 0.5906315833941232,
+        "spearman_vs_v1": 0.8295650153821994,
+        "v1_error_direction_correct": null
+      }
+    },
+    {
+      "fold": 1,
+      "bank_n": 5158,
+      "query_n": 1229,
+      "5": {
+        "auroc": 0.9515902697864723,
+        "auprc": 0.906342899151126,
+        "mean_local_p": 0.28699110593344884,
+        "mean_density": 0.766890823841095,
+        "mean_reliability": 0.6419799397897286,
+        "spearman_vs_v1": 0.8149573913829976,
+        "v1_error_direction_correct": 0.36046511627906974,
+        "v1_error_n": 86
+      },
+      "11": {
+        "auroc": 0.9581143715637386,
+        "auprc": 0.9203016510681585,
+        "mean_local_p": 0.28733017309411635,
+        "mean_density": 0.7495876550674438,
+        "mean_reliability": 0.589197071760313,
+        "spearman_vs_v1": 0.8326952779498935,
+        "v1_error_direction_correct": null
+      }
+    },
+    {
+      "fold": 2,
+      "bank_n": 5114,
+      "query_n": 1273,
+      "5": {
+        "auroc": 0.9564453579699312,
+        "auprc": 0.9226239170204548,
+        "mean_local_p": 0.27713963899764854,
+        "mean_density": 0.7689882516860962,
+        "mean_reliability": 0.6372090464293025,
+        "spearman_vs_v1": 0.8076744299558227,
+        "v1_error_direction_correct": 0.34523809523809523,
+        "v1_error_n": 84
+      },
+      "11": {
+        "auroc": 0.9644266232095378,
+        "auprc": 0.9304728122183192,
+        "mean_local_p": 0.27317452010598736,
+        "mean_density": 0.7519603967666626,
+        "mean_reliability": 0.5862698136696004,
+        "spearman_vs_v1": 0.8284006439946152,
+        "v1_error_direction_correct": null
+      }
+    },
+    {
+      "fold": 3,
+      "bank_n": 5096,
+      "query_n": 1291,
+      "5": {
+        "auroc": 0.9465046316980907,
+        "auprc": 0.9063002067188307,
+        "mean_local_p": 0.27440836662027573,
+        "mean_density": 0.7699698209762573,
+        "mean_reliability": 0.6633243529747131,
+        "spearman_vs_v1": 0.7911624519426932,
+        "v1_error_direction_correct": 0.3146067415730337,
+        "v1_error_n": 89
+      },
+      "11": {
+        "auroc": 0.9546614839305395,
+        "auprc": 0.9281068511322904,
+        "mean_local_p": 0.2717436947612991,
+        "mean_density": 0.751305341720581,
+        "mean_reliability": 0.594488632810993,
+        "spearman_vs_v1": 0.8271250724383767,
+        "v1_error_direction_correct": null
+      }
+    },
+    {
+      "fold": 4,
+      "bank_n": 5064,
+      "query_n": 1323,
+      "5": {
+        "auroc": 0.943691163584893,
+        "auprc": 0.8840378359689343,
+        "mean_local_p": 0.2854493230433745,
+        "mean_density": 0.77203768491745,
+        "mean_reliability": 0.6660605862277645,
+        "spearman_vs_v1": 0.7912696230172925,
+        "v1_error_direction_correct": 0.3490566037735849,
+        "v1_error_n": 106
+      },
+      "11": {
+        "auroc": 0.9522807185063695,
+        "auprc": 0.9142454253593542,
+        "mean_local_p": 0.2846009177195972,
+        "mean_density": 0.7527631521224976,
+        "mean_reliability": 0.5980835023851921,
+        "spearman_vs_v1": 0.816309599385535,
+        "v1_error_direction_correct": null
+      }
+    }
+  ],
+  "aggregate": {
+    "k5": {
+      "auroc": 0.9515979614048777,
+      "auprc": 0.9092103345613207,
+      "spearman_vs_v1": 0.8012389344192222
+    },
+    "k11": {
+      "auroc": 0.9597963642598423,
+      "auprc": 0.9286227392202127,
+      "spearman_vs_v1": 0.826819121830124
+    }
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded"
+}

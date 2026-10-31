@@ -1,0 +1,208 @@
+[
+  {
+    "label": 1,
+    "version": "old",
+    "mode": "unadjusted",
+    "n": 1818,
+    "groups": 1509,
+    "events": 192,
+    "formula": "old_error ~ difficult_cys",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 57.747489239380165,
+    "cluster_sandwich_CI95": [
+      34.12564110436986,
+      97.72043558839704
+    ],
+    "params": {
+      "Intercept": -4.396625434091263,
+      "difficult_cys": 4.0560798720824085
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 1,
+    "version": "old",
+    "mode": "flag_length_fold_identity_adjusted",
+    "n": 1818,
+    "groups": 1509,
+    "events": 192,
+    "formula": "old_error ~ difficult_cys + fragment + unresolved_identity + bs(length, df=3) + C(fold)",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 53.193493449846876,
+    "cluster_sandwich_CI95": [
+      28.428627275110035,
+      99.53163471513243
+    ],
+    "params": {
+      "Intercept": -3.923608125010665,
+      "C(fold)[T.1]": -0.29004232487510234,
+      "C(fold)[T.2]": 0.12397579741784374,
+      "C(fold)[T.3]": -0.6476947491615171,
+      "C(fold)[T.4]": -0.454992643543746,
+      "difficult_cys": 3.9739360852936,
+      "fragment": -0.1324088113875023,
+      "unresolved_identity": -0.1825165197735663,
+      "bs(length, df=3)[0]": 2.195871191385452,
+      "bs(length, df=3)[1]": -3.5767526588584726,
+      "bs(length, df=3)[2]": 1.050792747465519
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 1,
+    "version": "new",
+    "mode": "unadjusted",
+    "n": 1818,
+    "groups": 1509,
+    "events": 209,
+    "formula": "new_error ~ difficult_cys",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 42.60725738396834,
+    "cluster_sandwich_CI95": [
+      26.81039628996635,
+      67.71173249919919
+    ],
+    "params": {
+      "Intercept": -4.00514898341769,
+      "difficult_cys": 3.7520245998915334
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 1,
+    "version": "new",
+    "mode": "flag_length_fold_identity_adjusted",
+    "n": 1818,
+    "groups": 1509,
+    "events": 209,
+    "formula": "new_error ~ difficult_cys + fragment + unresolved_identity + bs(length, df=3) + C(fold)",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 35.07809648347262,
+    "cluster_sandwich_CI95": [
+      20.30365273119931,
+      60.60352140543786
+    ],
+    "params": {
+      "Intercept": -3.7494797200007417,
+      "C(fold)[T.1]": 0.007644701772654429,
+      "C(fold)[T.2]": -0.09233358100888443,
+      "C(fold)[T.3]": -0.05846994074455646,
+      "C(fold)[T.4]": 0.2770418468624719,
+      "difficult_cys": 3.557576903873033,
+      "fragment": -0.32165211973523694,
+      "unresolved_identity": -0.688387968915835,
+      "bs(length, df=3)[0]": 2.583756243997497,
+      "bs(length, df=3)[1]": -3.226553442412737,
+      "bs(length, df=3)[2]": 1.2313952203611258
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 0,
+    "version": "old",
+    "mode": "unadjusted",
+    "n": 4569,
+    "groups": 3755,
+    "events": 135,
+    "formula": "old_error ~ difficult_cys",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 14.190436819619327,
+    "cluster_sandwich_CI95": [
+      9.685724105063516,
+      20.790236738865623
+    ],
+    "params": {
+      "Intercept": -4.232631578076147,
+      "difficult_cys": 2.6525682743217764
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 0,
+    "version": "old",
+    "mode": "flag_length_fold_identity_adjusted",
+    "n": 4569,
+    "groups": 3755,
+    "events": 135,
+    "formula": "old_error ~ difficult_cys + fragment + conflict + unresolved_identity + bs(length, df=3) + C(fold)",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 27.785558925674103,
+    "cluster_sandwich_CI95": [
+      16.58851726542118,
+      46.54046365080633
+    ],
+    "params": {
+      "Intercept": -5.254735311862269,
+      "C(fold)[T.1]": 1.0694230132972635,
+      "C(fold)[T.2]": 0.3852257717038828,
+      "C(fold)[T.3]": 0.47428221178852026,
+      "C(fold)[T.4]": 0.7250022284826636,
+      "difficult_cys": 3.324516422623642,
+      "fragment": 1.3872060356702158,
+      "conflict": 1.0306641626675788,
+      "unresolved_identity": 1.3415154425692175,
+      "bs(length, df=3)[0]": -0.9146355819586618,
+      "bs(length, df=3)[1]": 1.3929810022015374,
+      "bs(length, df=3)[2]": -2.2666541124467225
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 0,
+    "version": "new",
+    "mode": "unadjusted",
+    "n": 4569,
+    "groups": 3755,
+    "events": 148,
+    "formula": "new_error ~ difficult_cys",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 11.591087021981703,
+    "cluster_sandwich_CI95": [
+      7.95264618305522,
+      16.894162679765703
+    ],
+    "params": {
+      "Intercept": -4.030299746352538,
+      "difficult_cys": 2.4502364425983547
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  },
+  {
+    "label": 0,
+    "version": "new",
+    "mode": "flag_length_fold_identity_adjusted",
+    "n": 4569,
+    "groups": 3755,
+    "events": 148,
+    "formula": "new_error ~ difficult_cys + fragment + conflict + unresolved_identity + bs(length, df=3) + C(fold)",
+    "converged": true,
+    "odds_ratio_difficult_Cys": 21.218377088352987,
+    "cluster_sandwich_CI95": [
+      13.08979589776021,
+      34.39469414038609
+    ],
+    "params": {
+      "Intercept": -5.0553882931644525,
+      "C(fold)[T.1]": 0.2541365400454652,
+      "C(fold)[T.2]": 1.0606833462747651,
+      "C(fold)[T.3]": 0.23693983339941238,
+      "C(fold)[T.4]": 0.2397591004190057,
+      "difficult_cys": 3.0548676499761034,
+      "fragment": 0.9610896899605335,
+      "conflict": 1.0144615958642698,
+      "unresolved_identity": 0.4793050157031726,
+      "bs(length, df=3)[0]": 1.2798917853814333,
+      "bs(length, df=3)[1]": -0.20370976245073552,
+      "bs(length, df=3)[2]": -1.2665919741567402
+    },
+    "warnings": [],
+    "limit": "Historical conditional association, NOT causal, source-adjusted or family-adjusted; group is sequence clustering unit, not full family."
+  }
+]

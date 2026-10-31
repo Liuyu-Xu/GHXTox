@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "samples": 6387,
+  "source_hashes_unchanged": 6,
+  "physical_evidence_version_tables_rebuilt_independently": 12,
+  "common_error_correct_pools": 4,
+  "statistical_association_fits_converged": 8,
+  "strict_label_gold_records_certified_in_retained_metadata": 0,
+  "no_gold_does_not_mean_all_labels_wrong": true,
+  "no_NN_training_or_weight_changes": true,
+  "no_Test_recomputation": true,
+  "limitations": [
+    "No complete original source/endpoint provenance",
+    "No adequate family common support",
+    "Conditional OR not causal or error risk ratio",
+    "Historical hypothesis-informed analysis, no new blind confirmation"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "n": 6387,
+  "original_labels_unchanged": true,
+  "source_alignment": "ID/sequence/label/fold/group checked; old counts consistency-checked only",
+  "old": {
+    "source": "D:\\dachuang2026\\GHXTox\\analysis\\error_evidence_linkage_20261025\\all_training_linked.json",
+    "identity": "archived operatingpoint, not arbitrary full2795 deployment lineage",
+    "threshold": 0.47022256531284556,
+    "wrong": 327,
+    "FN": 192,
+    "FP": 135,
+    "same_fullmodel_seed_replications_available": false
+  },
+  "new": {
+    "source": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\runs\\structure_candidates_20261022\\report\\S3_plus_no_inner_transformer_oof.csv",
+    "identity": "handoff seed42 no-innerTransformer structure+originalS3 sequence OOF; differing inner protocol",
+    "threshold": "each original row threshold",
+    "wrong": 357,
+    "FN": 209,
+    "FP": 148,
+    "same_fullmodel_seed_replications_available": false
+  },
+  "joint_modes": {
+    "both_right": 5960,
+    "both_prediction_streams_wrong": 257,
+    "old_wrong_new_right": 70,
+    "old_right_new_wrong": 100
+  },
+  "groups": 5258,
+  "scope": "Descriptive intersection, not architecturecausality/independentconfirmation/crossseedstability; no Test1/Test2 used."
+}

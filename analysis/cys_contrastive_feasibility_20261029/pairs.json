@@ -1,0 +1,332 @@
+[
+  {
+    "fold": 0,
+    "train_n": 3789,
+    "groups": {
+      "low": {
+        "all": {
+          "positive_samples": 165,
+          "negative_samples": 2086,
+          "positive_groups": 153,
+          "negative_groups": 1774,
+          "cross_label_different_group_pairs": 344187,
+          "positive_same_label_different_group_pairs": 13516,
+          "negative_same_label_different_group_pairs": 2174116
+        },
+        "unflagged": {
+          "positive_samples": 96,
+          "negative_samples": 1285,
+          "positive_groups": 89,
+          "negative_groups": 1014,
+          "cross_label_different_group_pairs": 123360,
+          "positive_same_label_different_group_pairs": 4552,
+          "negative_same_label_different_group_pairs": 824486
+        }
+      },
+      "mid": {
+        "all": {
+          "positive_samples": 300,
+          "negative_samples": 474,
+          "positive_groups": 245,
+          "negative_groups": 368,
+          "cross_label_different_group_pairs": 142199,
+          "positive_same_label_different_group_pairs": 44778,
+          "negative_same_label_different_group_pairs": 111827
+        },
+        "unflagged": {
+          "positive_samples": 208,
+          "negative_samples": 368,
+          "positive_groups": 169,
+          "negative_groups": 269,
+          "cross_label_different_group_pairs": 76544,
+          "positive_same_label_different_group_pairs": 21478,
+          "negative_same_label_different_group_pairs": 67261
+        }
+      },
+      "high": {
+        "all": {
+          "positive_samples": 625,
+          "negative_samples": 139,
+          "positive_groups": 511,
+          "negative_groups": 114,
+          "cross_label_different_group_pairs": 86875,
+          "positive_same_label_different_group_pairs": 194854,
+          "negative_same_label_different_group_pairs": 9546
+        },
+        "unflagged": {
+          "positive_samples": 593,
+          "negative_samples": 112,
+          "positive_groups": 484,
+          "negative_groups": 93,
+          "cross_label_different_group_pairs": 66416,
+          "positive_same_label_different_group_pairs": 175389,
+          "negative_same_label_different_group_pairs": 6189
+        }
+      }
+    }
+  },
+  {
+    "fold": 1,
+    "train_n": 3866,
+    "groups": {
+      "low": {
+        "all": {
+          "positive_samples": 158,
+          "negative_samples": 2144,
+          "positive_groups": 144,
+          "negative_groups": 1779,
+          "cross_label_different_group_pairs": 338749,
+          "positive_same_label_different_group_pairs": 12385,
+          "negative_same_label_different_group_pairs": 2296666
+        },
+        "unflagged": {
+          "positive_samples": 97,
+          "negative_samples": 1351,
+          "positive_groups": 87,
+          "negative_groups": 1034,
+          "cross_label_different_group_pairs": 131047,
+          "positive_same_label_different_group_pairs": 4643,
+          "negative_same_label_different_group_pairs": 911357
+        }
+      },
+      "mid": {
+        "all": {
+          "positive_samples": 301,
+          "negative_samples": 491,
+          "positive_groups": 254,
+          "negative_groups": 376,
+          "cross_label_different_group_pairs": 147791,
+          "positive_same_label_different_group_pairs": 45090,
+          "negative_same_label_different_group_pairs": 120003
+        },
+        "unflagged": {
+          "positive_samples": 207,
+          "negative_samples": 388,
+          "positive_groups": 178,
+          "negative_groups": 286,
+          "cross_label_different_group_pairs": 80316,
+          "positive_same_label_different_group_pairs": 21285,
+          "negative_same_label_different_group_pairs": 74803
+        }
+      },
+      "high": {
+        "all": {
+          "positive_samples": 635,
+          "negative_samples": 137,
+          "positive_groups": 512,
+          "negative_groups": 102,
+          "cross_label_different_group_pairs": 86995,
+          "positive_same_label_different_group_pairs": 201131,
+          "negative_same_label_different_group_pairs": 9222
+        },
+        "unflagged": {
+          "positive_samples": 594,
+          "negative_samples": 107,
+          "positive_groups": 479,
+          "negative_groups": 80,
+          "cross_label_different_group_pairs": 63558,
+          "positive_same_label_different_group_pairs": 175968,
+          "negative_same_label_different_group_pairs": 5615
+        }
+      }
+    }
+  },
+  {
+    "fold": 2,
+    "train_n": 3806,
+    "groups": {
+      "low": {
+        "all": {
+          "positive_samples": 156,
+          "negative_samples": 2109,
+          "positive_groups": 142,
+          "negative_groups": 1778,
+          "cross_label_different_group_pairs": 329001,
+          "positive_same_label_different_group_pairs": 12073,
+          "negative_same_label_different_group_pairs": 2222314
+        },
+        "unflagged": {
+          "positive_samples": 95,
+          "negative_samples": 1313,
+          "positive_groups": 83,
+          "negative_groups": 1018,
+          "cross_label_different_group_pairs": 124735,
+          "positive_same_label_different_group_pairs": 4450,
+          "negative_same_label_different_group_pairs": 860803
+        }
+      },
+      "mid": {
+        "all": {
+          "positive_samples": 305,
+          "negative_samples": 453,
+          "positive_groups": 261,
+          "negative_groups": 372,
+          "cross_label_different_group_pairs": 138164,
+          "positive_same_label_different_group_pairs": 46297,
+          "negative_same_label_different_group_pairs": 102239
+        },
+        "unflagged": {
+          "positive_samples": 205,
+          "negative_samples": 355,
+          "positive_groups": 175,
+          "negative_groups": 280,
+          "cross_label_different_group_pairs": 72775,
+          "positive_same_label_different_group_pairs": 20869,
+          "negative_same_label_different_group_pairs": 62702
+        }
+      },
+      "high": {
+        "all": {
+          "positive_samples": 632,
+          "negative_samples": 151,
+          "positive_groups": 507,
+          "negative_groups": 110,
+          "cross_label_different_group_pairs": 95432,
+          "positive_same_label_different_group_pairs": 199224,
+          "negative_same_label_different_group_pairs": 11184
+        },
+        "unflagged": {
+          "positive_samples": 601,
+          "negative_samples": 120,
+          "positive_groups": 483,
+          "negative_groups": 87,
+          "cross_label_different_group_pairs": 72120,
+          "positive_same_label_different_group_pairs": 180138,
+          "negative_same_label_different_group_pairs": 7051
+        }
+      }
+    }
+  },
+  {
+    "fold": 3,
+    "train_n": 3794,
+    "groups": {
+      "low": {
+        "all": {
+          "positive_samples": 165,
+          "negative_samples": 2110,
+          "positive_groups": 149,
+          "negative_groups": 1794,
+          "cross_label_different_group_pairs": 348146,
+          "positive_same_label_different_group_pairs": 13509,
+          "negative_same_label_different_group_pairs": 2224458
+        },
+        "unflagged": {
+          "positive_samples": 94,
+          "negative_samples": 1313,
+          "positive_groups": 83,
+          "negative_groups": 1033,
+          "cross_label_different_group_pairs": 123422,
+          "positive_same_label_different_group_pairs": 4357,
+          "negative_same_label_different_group_pairs": 860831
+        }
+      },
+      "mid": {
+        "all": {
+          "positive_samples": 287,
+          "negative_samples": 457,
+          "positive_groups": 249,
+          "negative_groups": 352,
+          "cross_label_different_group_pairs": 131159,
+          "positive_same_label_different_group_pairs": 40996,
+          "negative_same_label_different_group_pairs": 103943
+        },
+        "unflagged": {
+          "positive_samples": 197,
+          "negative_samples": 357,
+          "positive_groups": 168,
+          "negative_groups": 261,
+          "cross_label_different_group_pairs": 70329,
+          "positive_same_label_different_group_pairs": 19272,
+          "negative_same_label_different_group_pairs": 63306
+        }
+      },
+      "high": {
+        "all": {
+          "positive_samples": 630,
+          "negative_samples": 145,
+          "positive_groups": 510,
+          "negative_groups": 114,
+          "cross_label_different_group_pairs": 91350,
+          "positive_same_label_different_group_pairs": 197985,
+          "negative_same_label_different_group_pairs": 10350
+        },
+        "unflagged": {
+          "positive_samples": 592,
+          "negative_samples": 107,
+          "positive_groups": 480,
+          "negative_groups": 86,
+          "cross_label_different_group_pairs": 63344,
+          "positive_same_label_different_group_pairs": 174797,
+          "negative_same_label_different_group_pairs": 5627
+        }
+      }
+    }
+  },
+  {
+    "fold": 4,
+    "train_n": 3773,
+    "groups": {
+      "low": {
+        "all": {
+          "positive_samples": 147,
+          "negative_samples": 2088,
+          "positive_groups": 132,
+          "negative_groups": 1782,
+          "cross_label_different_group_pairs": 306932,
+          "positive_same_label_different_group_pairs": 10711,
+          "negative_same_label_different_group_pairs": 2178309
+        },
+        "unflagged": {
+          "positive_samples": 94,
+          "negative_samples": 1284,
+          "positive_groups": 83,
+          "negative_groups": 1017,
+          "cross_label_different_group_pairs": 120696,
+          "positive_same_label_different_group_pairs": 4356,
+          "negative_same_label_different_group_pairs": 823210
+        }
+      },
+      "mid": {
+        "all": {
+          "positive_samples": 311,
+          "negative_samples": 476,
+          "positive_groups": 266,
+          "negative_groups": 364,
+          "cross_label_different_group_pairs": 148035,
+          "positive_same_label_different_group_pairs": 48144,
+          "negative_same_label_different_group_pairs": 112765
+        },
+        "unflagged": {
+          "positive_samples": 211,
+          "negative_samples": 368,
+          "positive_groups": 183,
+          "negative_groups": 268,
+          "cross_label_different_group_pairs": 77648,
+          "positive_same_label_different_group_pairs": 22119,
+          "negative_same_label_different_group_pairs": 67258
+        }
+      },
+      "high": {
+        "all": {
+          "positive_samples": 621,
+          "negative_samples": 130,
+          "positive_groups": 519,
+          "negative_groups": 107,
+          "cross_label_different_group_pairs": 80730,
+          "positive_same_label_different_group_pairs": 192386,
+          "negative_same_label_different_group_pairs": 8350
+        },
+        "unflagged": {
+          "positive_samples": 583,
+          "negative_samples": 99,
+          "positive_groups": 490,
+          "negative_groups": 84,
+          "cross_label_different_group_pairs": 57717,
+          "positive_same_label_different_group_pairs": 169540,
+          "negative_same_label_different_group_pairs": 4828
+        }
+      }
+    }
+  }
+]

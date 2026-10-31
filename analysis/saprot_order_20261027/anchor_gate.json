@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "feature_cosine": {
+    "base": {
+      "min": 0.9998180866241455,
+      "mean": 0.9999992251396179,
+      "passing": true
+    },
+    "saprot": {
+      "min": 0.9999994039535522,
+      "mean": 1.0,
+      "passing": true
+    }
+  },
+  "prediction_alignment": {
+    "baseline4": {
+      "mean_absolute_probability_difference": 0.0006201687910292783,
+      "median_absolute_probability_difference": 6.0638506402033165e-05,
+      "decision_agreement": 1.0,
+      "passing": true
+    },
+    "teacher2": {
+      "mean_absolute_probability_difference": 0.00019366336940319605,
+      "median_absolute_probability_difference": 8.122396288889888e-08,
+      "decision_agreement": 1.0,
+      "passing": true
+    }
+  },
+  "scope": "required input contract before perturbation; fresh originals are paired reference"
+}

@@ -1,0 +1,12 @@
+{
+  "before_perturbation_outputs": true,
+  "change": "add confidence-scale normalization before mutated outcomes",
+  "prior_protocol_sha256": "d3e12211dd157fcd2809072894c7dbcd2a1c697c3af29a491f19b45ce8efe305",
+  "new_protocol_sha256": "f269cbec9e6cb85f1e79ef55384133341e1e852eef727f3f9ee2966573037fe3",
+  "followup_clarification": {
+    "prior_sha256": "f269cbec9e6cb85f1e79ef55384133341e1e852eef727f3f9ee2966573037fe3",
+    "new_sha256": "0da4a1d32b8b856a87f0eee09a7a3b1f9ba245f010d1ec1f3c14e3c3785cd2cb",
+    "timing": "before response summarization or inspection; mutated score file already exists",
+    "change": "tighten multiplicity to16 comparisons; original member attribution and confidence-scale diagnostic documented"
+  }
+}

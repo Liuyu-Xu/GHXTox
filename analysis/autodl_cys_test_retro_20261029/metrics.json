@@ -1,0 +1,106 @@
+{
+  "test1": {
+    "A": {
+      "n": 1126,
+      "MCC": 0.8390225641740506,
+      "AUPRC": 0.9494488971034447,
+      "AUROC": 0.9732707816377171,
+      "FN": 43,
+      "FP": 30,
+      "low_cys_positive_FN": 36,
+      "high_cys_negative_FP": 13
+    },
+    "B": {
+      "n": 1126,
+      "MCC": 0.860854552960276,
+      "AUPRC": 0.9562545993692357,
+      "AUROC": 0.9767990074441688,
+      "FN": 40,
+      "FP": 23,
+      "low_cys_positive_FN": 27,
+      "high_cys_negative_FP": 10
+    },
+    "C": {
+      "n": 1126,
+      "MCC": 0.8612940338888803,
+      "AUPRC": 0.9513788440842128,
+      "AUROC": 0.9756164702233251,
+      "FN": 37,
+      "FP": 26,
+      "low_cys_positive_FN": 27,
+      "high_cys_negative_FP": 9
+    },
+    "D": {
+      "n": 1126,
+      "MCC": 0.8654149937544939,
+      "AUPRC": 0.958567660053365,
+      "AUROC": 0.975942152605459,
+      "FN": 38,
+      "FP": 23,
+      "low_cys_positive_FN": 26,
+      "high_cys_negative_FP": 10
+    },
+    "historical": {
+      "n": 1126,
+      "MCC": 0.8704599749746912,
+      "AUPRC": 0.9674027821512894,
+      "AUROC": 0.9810561414392059,
+      "FN": 33,
+      "FP": 26,
+      "low_cys_positive_FN": 25,
+      "high_cys_negative_FP": 9
+    }
+  },
+  "test2": {
+    "A": {
+      "n": 582,
+      "MCC": 0.582885264906905,
+      "AUPRC": 0.6702606528977212,
+      "AUROC": 0.9338497728747567,
+      "FN": 14,
+      "FP": 26,
+      "low_cys_positive_FN": 10,
+      "high_cys_negative_FP": 10
+    },
+    "B": {
+      "n": 582,
+      "MCC": 0.7041629617463911,
+      "AUPRC": 0.7414733411151269,
+      "AUROC": 0.9438676184295912,
+      "FN": 10,
+      "FP": 17,
+      "low_cys_positive_FN": 8,
+      "high_cys_negative_FP": 7
+    },
+    "C": {
+      "n": 582,
+      "MCC": 0.6533878131065503,
+      "AUPRC": 0.6884210069010139,
+      "AUROC": 0.94329980532122,
+      "FN": 11,
+      "FP": 22,
+      "low_cys_positive_FN": 9,
+      "high_cys_negative_FP": 6
+    },
+    "D": {
+      "n": 582,
+      "MCC": 0.6598912923355238,
+      "AUPRC": 0.750147969984542,
+      "AUROC": 0.9461794289422454,
+      "FN": 12,
+      "FP": 19,
+      "low_cys_positive_FN": 9,
+      "high_cys_negative_FP": 7
+    },
+    "historical": {
+      "n": 582,
+      "MCC": 0.6673395851029228,
+      "AUPRC": 0.8042931888020413,
+      "AUROC": 0.9432186891628812,
+      "FN": 11,
+      "FP": 20,
+      "low_cys_positive_FN": 9,
+      "high_cys_negative_FP": 6
+    }
+  }
+}

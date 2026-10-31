@@ -1,0 +1,36 @@
+{
+  "model": "hemopi2",
+  "classification_variant": "ESM-only (-m 3), not MERCI hybrid",
+  "folder": "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\Model",
+  "weight_sha256": "f4210829794c4a804b266fab3ac7d5f71c2d99f0d8de021cc6a8dfa28dff93e4",
+  "threshold": 0.58,
+  "threshold_source": "author current code actual branch default; no selection on GHXTox",
+  "torch": "2.3.1+cu118",
+  "cuda": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "parameter_count": 7512443,
+  "loading": {
+    "manual_safe_torch_load": "weights_only=True, strict=True after audited rotary-unused compatibility keys",
+    "ignored_rotary_unused_keys": [
+      "esm.embeddings.position_embeddings.weight",
+      "esm.embeddings.position_ids"
+    ]
+  },
+  "seconds": 2.7285704612731934,
+  "rows": 6773,
+  "batch_checks": [
+    {
+      "sample_id": "author_independent_row_34",
+      "single_batch_probability_difference": 1.341104507446289e-07
+    },
+    {
+      "sample_id": "peptide_80",
+      "single_batch_probability_difference": 0.0
+    },
+    {
+      "sample_id": "peptide_6257",
+      "single_batch_probability_difference": 0.0
+    }
+  ],
+  "tokenization": "same author padding/truncation, no max_length override, float32, eval/inference_mode, softmax[:,1]",
+  "train_calls": 0
+}

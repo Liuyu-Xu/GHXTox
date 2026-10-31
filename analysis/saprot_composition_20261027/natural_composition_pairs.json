@@ -1,0 +1,62 @@
+[
+  {
+    "left_id": "peptide_1598",
+    "right_id": "peptide_1787",
+    "left_sequence": "TSRSSGRYCRSPYDRRRRYCRRITDASV",
+    "right_sequence": "TCRSSGRYSRSPYDRRRRYSRRITDACV",
+    "original_fold": 2,
+    "same_group": true,
+    "left_label_metadata_only": 1,
+    "right_label_metadata_only": 1,
+    "same_original_label": true,
+    "teacher_left_probability": 0.0002419919360962282,
+    "teacher_right_probability": 5.334274766568017e-05,
+    "teacher_probability_gap": 0.000188649188430548,
+    "baseline_probability_gap": 0.30291778681393566
+  },
+  {
+    "left_id": "peptide_4306",
+    "right_id": "peptide_5417",
+    "left_sequence": "MKRTFQPSNLVRKRRHGFRARMATASGRAILRNRRAKGRKKLSA",
+    "right_sequence": "MKRTFQPSNLVRKRRHGFRARMATKAGRKILNARRARGRKSLSA",
+    "original_fold": 4,
+    "same_group": true,
+    "left_label_metadata_only": 0,
+    "right_label_metadata_only": 0,
+    "same_original_label": true,
+    "teacher_left_probability": 1.4193607900005841e-12,
+    "teacher_right_probability": 2.1202167813749148e-12,
+    "teacher_probability_gap": 7.008559913743306e-13,
+    "baseline_probability_gap": 5.643143129658312e-14
+  },
+  {
+    "left_id": "peptide_5170",
+    "right_id": "peptide_5833",
+    "left_sequence": "GLFDVIKKVASVIGGL",
+    "right_sequence": "GLFDIIKKVASVVGGL",
+    "original_fold": 3,
+    "same_group": false,
+    "left_label_metadata_only": 0,
+    "right_label_metadata_only": 0,
+    "same_original_label": true,
+    "teacher_left_probability": 9.24688514838138e-08,
+    "teacher_right_probability": 6.727690109637837e-08,
+    "teacher_probability_gap": 2.5191950387435433e-08,
+    "baseline_probability_gap": 7.345495767649492e-09
+  },
+  {
+    "left_id": "peptide_5211",
+    "right_id": "peptide_5646",
+    "left_sequence": "FLPIIAKVLSGLL",
+    "right_sequence": "FLPIIAKLVSGLL",
+    "original_fold": 4,
+    "same_group": true,
+    "left_label_metadata_only": 0,
+    "right_label_metadata_only": 0,
+    "same_original_label": true,
+    "teacher_left_probability": 0.014926849296932212,
+    "teacher_right_probability": 0.022123450494107525,
+    "teacher_probability_gap": 0.007196601197175313,
+    "baseline_probability_gap": 0.0001385300337497187
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "compare.py": {
+    "bytes": 1386,
+    "sha256": "4b464d1de197d0423b5f0507c2ab7da9ab5a52b5e009d623bb4265226702504f"
+  },
+  "README.md": {
+    "bytes": 4256,
+    "sha256": "645471c265cb9d9bc4e8087c792cd5e13f7ef8c56837d69f56bb32e756c1acdc"
+  },
+  "requirements.txt": {
+    "bytes": 80,
+    "sha256": "c46b697c7032824ff7aa4ac610a645a2454b664a77acb0972280e5171c033b2a"
+  },
+  "sampling.py": {
+    "bytes": 1951,
+    "sha256": "1f69d1faf576f5785a203e66ac34fb07601c805ccd9fec759253e6f1318fc5e9"
+  },
+  "train.py": {
+    "bytes": 7572,
+    "sha256": "f1a6eaecea7decaf517ea923bcb770c487e2ea1b7d9939197caad9280d3a4aab"
+  },
+  "configs/model.json": {
+    "bytes": 602,
+    "sha256": "6a716ac885c0af3b488f41ba325a372fd7b35040e37c719840f8d360d8803b76"
+  },
+  "data/roles.json": {
+    "bytes": 3818665,
+    "sha256": "a8cadab1a0bf169612d996b9e2267b1f48bb69e779bf425e5acbfebf02561530"
+  },
+  "data/samples.json": {
+    "bytes": 1175351,
+    "sha256": "df0db5639509b860ba2c998765f06666074bd7dc696c4cca46dfd0bccdafbd3f"
+  },
+  "smoke/fold1/D/progress.json": {
+    "bytes": 317,
+    "sha256": "49de96eb906aad98fbe7a52a4fd23cce38ba3388291786d8bff1daa5e1663528"
+  },
+  "smoke/fold1/D/result.json": {
+    "bytes": 416,
+    "sha256": "d99954967653d07632e33f83909a941cccad9d6da1eb37c79187840c283e67c3"
+  },
+  "src/ghxtox/lora_mamba_1d.py": {
+    "bytes": 43076,
+    "sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5"
+  },
+  "src/ghxtox/__init__.py": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

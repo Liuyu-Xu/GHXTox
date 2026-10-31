@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "delta_MCC_at_least_005": false,
+    "bootstrap_lower_above_zero": false,
+    "both_seeds_nonnegative": true,
+    "AUPRC_not_down_more_than_002": true,
+    "real_above_permuted": false
+  },
+  "continue_gate_passed": false,
+  "action": "do_not_tune_or_scale_this_fixed_auxiliary_configuration",
+  "scope": "only this source-label frozen-mean small-head pilot, not a proof all hemolysis supervision cannot help"
+}

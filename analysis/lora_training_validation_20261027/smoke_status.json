@@ -1,0 +1,14 @@
+{
+  "state": "completed",
+  "completed_arms": [
+    "no_lora",
+    "lora_lr1e5",
+    "lora_lr3e5"
+  ],
+  "selected_lora_candidate_by_validation_only": "lora_lr3e5",
+  "no_lora_validation_BCE": 0.36640430986881256,
+  "selected_lora_validation_BCE": 0.4175993353128433,
+  "smoke_only": true,
+  "no_test_evaluation": true,
+  "seconds": 10.576680183410645
+}

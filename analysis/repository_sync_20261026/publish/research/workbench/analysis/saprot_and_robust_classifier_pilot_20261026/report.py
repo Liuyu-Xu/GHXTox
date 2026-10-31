@@ -1,0 +1,71 @@
+from pathlib import Path
+import json
+O=Path(__file__).resolve().parent;R=O.parents[1];A=R/'analysis/saprot_input_audit_20261026';read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+em=read(O/'ensemble_metrics.json');cmp=read(O/'paired_comparisons.json');sub=read(O/'subgroup_metrics.json');train=read(O/'training_verification.json');emb=read(O/'embedding_manifest.json');audit=read(A/'input_summary.json');decision=read(O/'decision.json')
+names={'baseline_BCE':'原冻结特征+BCE','plus_SaProt_masked_BCE':'加SaProt，结构全遮罩','plus_SaProt_3Di_BCE':'加SaProt，近似3Di结构','baseline_GCE_q07':'原特征+稳健GCE(q=0.7)'}
+lines=['# SaProt结构信息与标签稳健训练：固定分类小试验','',
+'2026-10-26，仅主Agent。**两条筛查均未通过继续门槛；本轮不蒸馏、不接入GHXTox、不追加调参。** 已完成输入审核、冻结表征提取、40次小头分类拟合、三项预定比较及独立重载核验。',
+'','## 结果先看整体分类','',
+'以下为同6387条原训练OOF、两固定种子概率均值、阈值0.5。基线是原始冻结ProtT5 TriStat+PhysChem的本轮小头，不是完整GHXTox的重训结果。不能与原稿、以前不同架构/训练口径直接混比。',
+'','|配置|MCC|AUPRC|敏感性|特异性|FN|FP|','|---|---:|---:|---:|---:|---:|---:|']
+for x in em:lines.append(f"|{names[x['arm']]}|{x['MCC']:.4f}|{x['AUPRC']:.4f}|{x['sensitivity']:.4f}|{x['specificity']:.4f}|{x['FN']}|{x['FP']}|")
+lines+=['',
+'SaProt结构组相对原基线少漏18条，但多误报21条，MCC基本不变。全遮罩对照点估计较高，不能把任何微涨直接归为3D信息贡献；该对照也不因此被事后晋级为新默认模型。',
+'',
+'GCE少漏62条，却多误报123条，整体MCC/AUPRC更低。它没有删除或重标数据，但当前固定损失并未实现我们需要的整体改善。不要把它推广为“所有稳健方法无效”，本轮没有完整运行Cleanlab、DivideMix或Co-teaching。',
+'','## 预定比较与不确定性','',
+'|比较|ΔMCC|95%群bootstrap区间|三比较修正98.333%区间|','|---|---:|---|---|']
+for c in cmp:lines.append(f"|{names[c['candidate']]}−{names[c['reference']]}|{c['delta_MCC']:+.5f}|[{c['CI95'][0]:+.5f}, {c['CI95'][1]:+.5f}]|[{c['CI98_3333'][0]:+.5f}, {c['CI98_3333'][1]:+.5f}]|")
+lines+=['',
+'2000次配对重采样按5258个原序列群进行，条件于保存的预测，不包含完整重训或整个研究流程选择的不确定性。旧OOF和旧错误分组已被研究查看，仍为探索性筛查，不是最终独立泛化结论。',
+'',
+'结构候选相对基线的两个种子MCC变化−0.00582/+0.01202，方向不稳；相对全遮罩对照−0.01134/+0.00596。不能只报告较好的第二种子。GCE两个种子均下降。完整每折每种子指标保留。',
+'','## 原先关注的子群','',
+'|配置|膜候选76条FN|跨来源冲突328条与原标签不一致数|','|---|---:|---:|']
+for arm in names:
+ m=next(x for x in sub if x['arm']==arm and x['subgroup']=='membrane76');c=next(x for x in sub if x['arm']==arm and x['subgroup']=='cross_source_label_conflict');lines.append(f"|{names[arm]}|{m['FN']}|{c['original_label_disagreements']}|")
+lines+=['',
+'328条相反标签仍只是疑点；其原标签在本数据中都是0，所以这里只列与原标签的不一致数，**不能叫已确认真实错误数或去噪成功率**。没有实验真值，就不能因模型更同意另一来源而认定其修复了标签。',
+'',
+'膜候选也不是统一实验证实的机制阳性。低Cys原阳性、全结构遮罩子群、无简单疑点标记4512条等结果均完整保存；GCE在无简单标记组同样增加误报，不能只挑减少漏判的子群宣称整体有效。',
+'','## SaProt输入到底是什么','',
+'现有结构缓存包含6387条完整N/Cα/C骨架。虽然原PDB未找回，但这部分真实缓存坐标可读取。第五个坐标字段是侧链中心，不是真实Cβ；本轮没有冒用它。',
+'',
+'采用mini3di0.2.1的公开缺Cβ处理逻辑，由N/Cα/C估计缺失Cβ并编码3Di，明确称“骨架重建近似3Di”。它不是完整原生Cβ输入，也未证明与官方Foldseek处理原始全原子结构逐token等价。三例刚体旋转/平移编码检查通过。',
+'',
+'按固定pLDDT70门槛及无效位置遮罩，201994个残基中107258个保留结构字符，1295条整段全#。与同一SaProt的AA+#全遮罩输入比较；这1295条输入相同，特征也经检查完全相同。所有样本均保留，不只取高质量结构或有利子群。',
+'',
+'SaProt为官方35M_AF2，revision316cd4017d29f4657b959365f24b57f1ee278912；文件按HuggingFaceLFS SHA校验，使用weights_only安全读取。当前Transformers与旧checkpoint对rotary模式未使用的两个绝对位置张量存在兼容差异，仅移除精确两键后其余全部strict匹配，源权重未修改。',
+'',
+'模型全冻结，在本地RTX4060提取两套480维残基均值表征，排除CLS/EOS/padding，所有token逐条验证长度且无UNK。主ProtT5的3072维TriStat+9个理化特征全部复用。',
+'','## 四臂如何公平比较','',
+'四臂统一3561→128→64→1的ReLU小头：基线在附加480维填0；全遮罩/结构臂填对应SaProt特征；GCE臂仍填0且不使用SaProt。参数数目、初始化、训练batch顺序、优化步数均一致，避免同时改教师和稳健损失。',
+'',
+'五个既有群折×两个种子20261026/20261027×四臂，共40拟合；20epochs、batch256、AdamW lr0.001、weight_decay0.0001、无dropout或早停。每折标准化和正类权重只来自该折训练部分，训练/评价群互斥。GCE使用(1−p_y^0.7)/0.7与相同类权重，无标签修改、删除或根据旧错题给予额外权重。',
+'',
+'稳健训练首先采用低成本、不改标签的损失基线，并非已经实现完整标签清洗系统。它可能改变难例的梯度，却不能恢复未记录的化学形式、实验终点或分子对象。',
+'','## 排序指标的数值精度修正','',
+'最初float32 sigmoid使部分接近1的分数全部舍入成1，制造排序并列：两种子12774条中，基线655条恰为1，GCE2742条。原始概率文件与修正前指标完整保留在rounded_probability_archive。',
+'',
+'重载全部40模型恢复logit，用logsumexp稳定计算**同一个两种子平均概率**的log-odds，供AUPRC/AUROC排序。四臂统一处理，分类仍按同一平均概率0.5阈值；全部分类决定及MCC均未改变。没有改预测汇总规则、调阈值或重新训练。表中AUPRC为修正后的值；不能用旧GCE0.8631作为最终排序指标（正确稳定值0.8888）。',
+'','## 决定与限制','',
+'结构继续要求：MCC至少+0.005、两种子不退化、AUPRC下降不超过0.002，以及相对基线/遮罩对照的修正区间均正。稳健路线还要求敏感性不明显下降。实际两条均失败。',
+'',
+'本次只限制35M冻结教师+骨架重建3Di+固定头，以及固定GCE配置。没有测试原生全原子3Di、650M SaProt、微调教师或其他噪声方法；也没有证实新生物机制。不能把负结果扩展成所有结构蒸馏或稳健训练都无效。',
+'',
+'当前不进入蒸馏或替换GHXTox，不根据当前结果追加门槛/种子/权重搜索。若有新独立理由重启，需新冻结协议；现有独立验证和必要消融仍是更高优先级。',
+'','## 产物与核验','',
+f"SaProt配对特征提取约{emb['elapsed_seconds']:.1f}秒；CPU2线程40小头拟合脚本约{train['seconds']:.1f}秒（含保存，不含下载、输入和核验）。无服务器租用、无编码器微调、无MD或新结构预测。",
+'',
+'protocol.json、before_fitting_manifest.json先于拟合；checkpoints保存40模型；oof_predictions.json保留51096条原始预测，oof_logits.json用于精度修正。verify_and_extract_logits.py独立重载所有模型，最大预测差0，核验群隔离、固定输入哈希以及四臂初始化/批次/步数/容量一致。',
+'',
+'同级saprot_input_audit_20261026保留token序列、结构来源、坐标指纹、模型revision及下载SHA；vendor仅在该目录安装mini3di，未更换系统环境。全部原标签和GHXTox权重不变，未使用历史测试预测或外部标签进行选择。',
+'','## 原始方法来源','',
+'[SaProt官方实现](https://github.com/westlake-repl/SaProt)、[35M模型](https://huggingface.co/westlake-repl/SaProt_35M_AF2)、[mini3di作者实现](https://github.com/althonos/mini3di)、[GCE原论文](https://proceedings.neurips.cc/paper/2018/file/f2925f97bc13ad2852a7a551802feea0-Paper.pdf)。']
+(O/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+brief=['# SaProt输入与模型检查','',
+'6387条现有缓存N/Cα/C骨架完整，原PDB未恢复，真实Cβ未保留；侧链中心没有被当作Cβ。采用mini3di支持的骨架重建模式生成近似3Di，非原生全原子Foldseek等价保证。','',
+'按固定pLDDT70及无效位置遮罩，1295条全结构遮罩；对应同模型全#对照，6387条全部进入评估。官方35M模型revision和文件SHA已冻结。','',
+'已完成4臂×2种子×5折分类探针，结构信息未显示稳定净收益，当前不蒸馏。详见[完整分类报告](../saprot_and_robust_classifier_pilot_20261026/REPORT.md)。']
+(A/'REPORT.md').write_text('\n'.join(brief)+'\n',encoding='utf-8')
+print('Input audit and classifier reports written; both continuation gates failed.')

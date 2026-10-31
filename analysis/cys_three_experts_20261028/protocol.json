@@ -1,0 +1,23 @@
+{
+  "objective": "A historical original GHXTox OOF; B route three Cys-specific frozen-ProtT5 linear experts; C fixed 50:50 A and B",
+  "groups": {
+    "low": "Cys 0-1",
+    "middle": "Cys 2-5",
+    "high": "Cys >=6"
+  },
+  "features": "reused frozen ProtT5 TriStat 3072, unsupervised; no external assay labels",
+  "roles": "existing sequence-group-separated train, validation, calibration, outer test per fold; no Test1/Test2",
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "expert": "per group StandardScaler fit on train only, L2 logistic with train-only class balancing; L2 C candidates 0.001, 0.01, 0.1 selected by unweighted validation logloss; Platt fitted on separate group calibration only",
+  "decision": "B threshold 0.5 after calibration; A historical p_fusion threshold 0.47022256531284556; C fixed 0.5*A+0.5*B same A threshold. No test tuning. Different thresholds may affect comparisons; include AUROC/AUPRC and calibration.",
+  "selection": "C fixed before outer test; global historical A includes 3-seed 1D and 3D, training protocol differs; historic global calibration and thresholds previously studied. not blind full nested comparison",
+  "risk": "low group few positives; high group few negatives; flags carry uncertainty; not route using true labels; OOF has historic leakage risk and known Test1/Test2 overlap; results exploratory",
+  "further_baseline": "global feature model at same compute as three experts is required before claiming grouping advantage; not yet implemented",
+  "no_loRA_training": true
+}

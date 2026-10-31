@@ -1,0 +1,20 @@
+{
+  "arm": "family_boost",
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 1.2076289057731628,
+      "validation_unweighted_BCE": 1.6453060507774353,
+      "successful_optimizer_steps": 2,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "0821dc297b7977fba49b34972e224ea27db94dcb7b66ee85ed6268f82ad4bb68",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 5.103604555130005
+    }
+  ],
+  "selected_epoch": 1
+}

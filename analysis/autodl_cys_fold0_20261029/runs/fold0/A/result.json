@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "smoke": false,
+  "fold": 0,
+  "seed": 42,
+  "arm": "A",
+  "initial_head_sha256": "c6f332be2aead421ca70ae0e5812a06e5a9d4d7de3d3d6f2fa22d5f23506571f",
+  "selected_validation_bce": 0.27369074583738406,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 0.48710848380053096,
+      "validation_bce": 0.27369074583738406,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 38.296518087387085
+    },
+    {
+      "epoch": 2,
+      "train_loss_mean": 0.3515855686243954,
+      "validation_bce": 0.3015258179311805,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 67.81011033058167
+    },
+    {
+      "epoch": 3,
+      "train_loss_mean": 0.3206725362590062,
+      "validation_bce": 0.2737651298925209,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 96.29191565513611
+    }
+  ],
+  "metrics": {
+    "sequence": {
+      "MCC": 0.8023547240835688,
+      "AUPRC": 0.9381636775403436,
+      "FN": 66,
+      "FP": 35,
+      "low_positive_FN": 47,
+      "low_positive_n": 48,
+      "high_negative_FP": 16,
+      "high_negative_n": 40
+    },
+    "fusion": {
+      "MCC": 0.8418106108995289,
+      "AUPRC": 0.9551937933264859,
+      "FN": 57,
+      "FP": 24,
+      "low_positive_FN": 42,
+      "low_positive_n": 48,
+      "high_negative_FP": 12,
+      "high_negative_n": 40
+    }
+  },
+  "note": "historical 3D OOF and threshold; conditional exploratory fusion, not full nested or external validation"
+}

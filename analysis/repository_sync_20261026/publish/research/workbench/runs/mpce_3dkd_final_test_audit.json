@@ -1,0 +1,41 @@
+{
+  "audit_date": "2026-09-05",
+  "model": "MPCE-3DKD product single-forward full refit, dual-seed mean probability, threshold 0.5, raw probability",
+  "rows": [
+    {
+      "dataset": "Test1",
+      "model": "Paper GHXTox",
+      "mcc": 0.8705,
+      "auroc": 0.9811,
+      "auprc": 0.9674,
+      "brier": 0.041
+    },
+    {
+      "dataset": "Test1",
+      "model": "MPCE-3DKD",
+      "mcc": 0.851843403205136,
+      "auroc": 0.9735460607940447,
+      "auprc": 0.9523087196026869,
+      "brier": 0.050995005979271826,
+      "artifact": "runs\\mpce_3dkd_final_audit_test1_v1\\metrics.json"
+    },
+    {
+      "dataset": "Test2",
+      "model": "Paper GHXTox",
+      "mcc": 0.6673,
+      "auroc": 0.9433,
+      "auprc": 0.8046,
+      "brier": 0.0436
+    },
+    {
+      "dataset": "Test2",
+      "model": "MPCE-3DKD",
+      "mcc": 0.6156196229246563,
+      "auroc": 0.9347014925373135,
+      "auprc": 0.7168154827430453,
+      "brier": 0.04995061237554109,
+      "artifact": "runs\\mpce_3dkd_final_audit_test2_v1\\metrics.json"
+    }
+  ],
+  "note": "Test2 is a labeled subset of Test1; reported only as a historical audit split. Paper GHXTox numbers were provided by the user and not rerun here."
+}

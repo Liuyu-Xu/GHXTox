@@ -1,0 +1,90 @@
+{
+  "arm": "lora_lr1e5",
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.5019887638818812,
+      "validation_unweighted_BCE": 0.26933533484946953,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "2be8d93e84cd15e24ec04ce48e86ae27431571f6395c7c2bfba6bd11c0ef8813",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 577.1760368347168
+    },
+    {
+      "epoch": 2,
+      "train_weighted_BCE": 0.37432208890083063,
+      "validation_unweighted_BCE": 0.2526198923121409,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "3ec7b3704534082f527cebf8db3006b0d71fc827d5d9e2aee06721fa943f218b",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 738.1971292495728
+    },
+    {
+      "epoch": 3,
+      "train_weighted_BCE": 0.3179929147226951,
+      "validation_unweighted_BCE": 0.28059910216801603,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "775ea57c376a8f3cf0f553c8b9508b08339d6109d238d565d90bb1bf4cf4bed7",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 898.7979109287262
+    },
+    {
+      "epoch": 4,
+      "train_weighted_BCE": 0.26708151956474,
+      "validation_unweighted_BCE": 0.2439497088042783,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6af7763b7583af4da32c0b61b5c7fe4b5cd7a8163380e2428d4e9be4dbf09902",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1059.4579436779022
+    },
+    {
+      "epoch": 5,
+      "train_weighted_BCE": 0.22578919130407213,
+      "validation_unweighted_BCE": 0.25940416641358477,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "94f604556ac84d94aa4a7dae94b83d82155c2492536e24b1a0a2c6ef226e8d42",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1218.0469670295715
+    },
+    {
+      "epoch": 6,
+      "train_weighted_BCE": 0.1941328671298514,
+      "validation_unweighted_BCE": 0.2701410750431447,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "5c50fddb1410016ba570c4d661dfcbd2057d294ce3efb19c4c9d54d5b9bd7f33",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1373.4718766212463
+    }
+  ],
+  "selected_epoch": 4
+}

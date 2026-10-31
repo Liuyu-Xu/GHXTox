@@ -1,0 +1,28 @@
+{
+  "fixed_fusion_screens": [
+    {
+      "candidate": "fusion_masked",
+      "criteria": {
+        "MCC_atleast005": true,
+        "correctedCIpositive": true,
+        "bothseeds_nondecreasing": true,
+        "AUPRC_not_down_more002": true
+      },
+      "passed": true
+    },
+    {
+      "candidate": "fusion_3Di",
+      "criteria": {
+        "MCC_atleast005": true,
+        "correctedCIpositive": true,
+        "bothseeds_nondecreasing": true,
+        "AUPRC_not_down_more002": true
+      },
+      "passed": true
+    }
+  ],
+  "any_fusion_passed": true,
+  "automatic_GHXTox_integration": false,
+  "distillation_performed": false,
+  "scope": "only frozen35M meanfeatures and approximate3Di; no model/weight tuning from outcomes"
+}

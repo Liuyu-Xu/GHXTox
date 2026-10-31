@@ -1,0 +1,358 @@
+{
+  "low_0_1_positive": {
+    "old": [
+      {
+        "family": "belongs to the msdin fungal toxin family",
+        "n": 14,
+        "errors": 1,
+        "correct": 13,
+        "flagged": 4,
+        "groups": 13
+      },
+      {
+        "family": "belongs to the bradykinin-related peptide family",
+        "n": 13,
+        "errors": 3,
+        "correct": 10,
+        "flagged": 0,
+        "groups": 9
+      },
+      {
+        "family": "belongs to the phospholipase a2 family. group ii subfamily",
+        "n": 11,
+        "errors": 2,
+        "correct": 9,
+        "flagged": 11,
+        "groups": 11
+      },
+      {
+        "family": "belongs to the flavin monoamine oxidase family. fig1 subfamily",
+        "n": 9,
+        "errors": 3,
+        "correct": 6,
+        "flagged": 9,
+        "groups": 9
+      },
+      {
+        "family": "belongs to the peptidase s1 family. snake venom subfamily",
+        "n": 8,
+        "errors": 1,
+        "correct": 7,
+        "flagged": 8,
+        "groups": 8
+      },
+      {
+        "family": "belongs to the actinoporin family. sea anemone subfamily",
+        "n": 6,
+        "errors": 5,
+        "correct": 1,
+        "flagged": 6,
+        "groups": 4
+      },
+      {
+        "family": "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily",
+        "n": 6,
+        "errors": 4,
+        "correct": 2,
+        "flagged": 0,
+        "groups": 4
+      },
+      {
+        "family": "belongs to the crisp family",
+        "n": 5,
+        "errors": 3,
+        "correct": 2,
+        "flagged": 5,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the phospholipase a2 family. group i subfamily",
+        "n": 5,
+        "errors": 3,
+        "correct": 2,
+        "flagged": 5,
+        "groups": 5
+      },
+      {
+        "family": "belongs to the ribosome-inactivating protein family. type 1 rip subfamily",
+        "n": 5,
+        "errors": 4,
+        "correct": 1,
+        "flagged": 5,
+        "groups": 5
+      },
+      {
+        "family": "belongs to the arthropod phospholipase d family. class ii subfamily",
+        "n": 4,
+        "errors": 3,
+        "correct": 1,
+        "flagged": 4,
+        "groups": 4
+      },
+      {
+        "family": "belongs to the conotoxin b superfamily",
+        "n": 3,
+        "errors": 1,
+        "correct": 2,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the staphylococcal hemolytic protein family",
+        "n": 3,
+        "errors": 1,
+        "correct": 2,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the venom metalloproteinase (m12b) family",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 3,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the venom metalloproteinase (m12b) family. p-iii subfamily. p-iiia sub-subfamily",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 3,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 2
+      },
+      {
+        "family": "belongs to the long (4 c-c) scorpion toxin superfamily. sodium channel inhibitor family. beta subfamily",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 2,
+        "groups": 2
+      },
+      {
+        "family": "belongs to the mcd family. bombolitin subfamily",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 2
+      },
+      {
+        "family": "belongs to the snaclec family",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 2,
+        "groups": 2
+      }
+    ],
+    "new": [
+      {
+        "family": "belongs to the bradykinin-potentiating peptide family",
+        "n": 17,
+        "errors": 2,
+        "correct": 15,
+        "flagged": 0,
+        "groups": 15
+      },
+      {
+        "family": "belongs to the msdin fungal toxin family",
+        "n": 14,
+        "errors": 4,
+        "correct": 10,
+        "flagged": 4,
+        "groups": 13
+      },
+      {
+        "family": "belongs to the bradykinin-related peptide family",
+        "n": 13,
+        "errors": 11,
+        "correct": 2,
+        "flagged": 0,
+        "groups": 9
+      },
+      {
+        "family": "belongs to the phospholipase a2 family. group ii subfamily",
+        "n": 11,
+        "errors": 7,
+        "correct": 4,
+        "flagged": 11,
+        "groups": 11
+      },
+      {
+        "family": "belongs to the flavin monoamine oxidase family. fig1 subfamily",
+        "n": 9,
+        "errors": 7,
+        "correct": 2,
+        "flagged": 9,
+        "groups": 9
+      },
+      {
+        "family": "belongs to the peptidase s1 family. snake venom subfamily",
+        "n": 8,
+        "errors": 1,
+        "correct": 7,
+        "flagged": 8,
+        "groups": 8
+      },
+      {
+        "family": "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily",
+        "n": 6,
+        "errors": 5,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 4
+      },
+      {
+        "family": "belongs to the crisp family",
+        "n": 5,
+        "errors": 3,
+        "correct": 2,
+        "flagged": 5,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the conotoxin b superfamily",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the staphylococcal hemolytic protein family",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the venom metalloproteinase (m12b) family",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 3,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 2
+      },
+      {
+        "family": "belongs to the long (4 c-c) scorpion toxin superfamily. sodium channel inhibitor family",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 2,
+        "groups": 2
+      }
+    ]
+  },
+  "high_6plus_negative": {
+    "old": [
+      {
+        "family": "belongs to the alpha-defensin family",
+        "n": 8,
+        "errors": 1,
+        "correct": 7,
+        "flagged": 0,
+        "groups": 8
+      },
+      {
+        "family": "belongs to the ornatin family",
+        "n": 4,
+        "errors": 3,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the mirabilis serine proteinase inhibitor family",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the thiocillin family",
+        "n": 3,
+        "errors": 1,
+        "correct": 2,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the diapausin family",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 2
+      }
+    ],
+    "new": [
+      {
+        "family": "belongs to the protease inhibitor i7 (squash-type serine protease inhibitor) family",
+        "n": 16,
+        "errors": 3,
+        "correct": 13,
+        "flagged": 0,
+        "groups": 14
+      },
+      {
+        "family": "belongs to the cyclotide family",
+        "n": 11,
+        "errors": 2,
+        "correct": 9,
+        "flagged": 3,
+        "groups": 9
+      },
+      {
+        "family": "belongs to the alpha-defensin family",
+        "n": 8,
+        "errors": 2,
+        "correct": 6,
+        "flagged": 0,
+        "groups": 8
+      },
+      {
+        "family": "belongs to the insulin family",
+        "n": 5,
+        "errors": 1,
+        "correct": 4,
+        "flagged": 1,
+        "groups": 4
+      },
+      {
+        "family": "belongs to the thiocillin family",
+        "n": 3,
+        "errors": 2,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 3
+      },
+      {
+        "family": "belongs to the transferrin family",
+        "n": 2,
+        "errors": 1,
+        "correct": 1,
+        "flagged": 0,
+        "groups": 2
+      }
+    ]
+  }
+}

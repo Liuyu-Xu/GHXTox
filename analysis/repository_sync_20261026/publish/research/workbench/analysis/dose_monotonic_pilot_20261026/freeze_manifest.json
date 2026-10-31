@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-10-26T04:07:24.275473+00:00",
+  "stage": "before_any_new_candidate_fit",
+  "input_hashes": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\dose_monotonic_pilot_20261026\\protocol.json": "3fd4a611b0fc15e5ca8bb170bc0588cc5a58bd320a7956ffb33d269fd77bcf4d",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793",
+    "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sequence_clusters.json": "dccfcf4bc19b9fbd60fb6194948788bfc80fc50c1db926c1907edb7612bf6e43",
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_dose_audit_20261026\\confirmed_non_point_exclusion_panels.json": "ca146a8b6d90aa5cecc62a6e943fe9d65ff70154f82f46eb92fb3146c0dc4bc5",
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_dose_audit_20261026\\all_exact50_quarantine_panels.json": "f504114fc280b64106c351c810ecf43e006c4e1bab4aec0bfe24a8a835b5a32f",
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_dose_audit_20261026\\confirmed_non_point_records.json": "2511248e9eca1fc0c38f1c5c91b918d43235baf12dfb4dc395e0f2a15595c6a8"
+  },
+  "frozen_hashes": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\dose_monotonic_pilot_20261026\\protocol.json": "3fd4a611b0fc15e5ca8bb170bc0588cc5a58bd320a7956ffb33d269fd77bcf4d",
+    "D:\\dachuang2026\\GHXTox\\analysis\\dose_monotonic_pilot_20261026\\prepared_data.json": "a4cf5a195f92b6e90345996ec887b38524149eabf16d03cbf38f59dad1caed34",
+    "D:\\dachuang2026\\GHXTox\\analysis\\dose_monotonic_pilot_20261026\\folds.json": "c0ed9825cfb93768c0eb6ec9866d02ca662bc6c37f8ccd70da031f01e1755dd9",
+    "D:\\dachuang2026\\GHXTox\\analysis\\dose_monotonic_pilot_20261026\\pmid_to_fold.json": "d409da7f28e1cdae302d970a5c8d2cb1ebd9748cd496507803bea1ac333d2de6"
+  },
+  "dataset_counts": {
+    "confirmed_overlay_primary": {
+      "panels": 284,
+      "points": 1305,
+      "sequences": 269,
+      "pmid_identifiers": 90
+    },
+    "all_exact50_quarantine_sensitivity": {
+      "panels": 253,
+      "points": 1208,
+      "sequences": 238,
+      "pmid_identifiers": 84
+    }
+  },
+  "input_unchanged": true,
+  "all_test_papers_and_edit_groups_excluded_from_training": true
+}

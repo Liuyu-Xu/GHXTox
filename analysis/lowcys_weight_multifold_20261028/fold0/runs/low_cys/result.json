@@ -1,0 +1,149 @@
+{
+  "arm": "low_cys",
+  "smoke_only": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.5578023571708832,
+      "validation_unweighted_BCE": 0.2668175643225418,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "2be8d93e84cd15e24ec04ce48e86ae27431571f6395c7c2bfba6bd11c0ef8813",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 84.07352137565613
+    },
+    {
+      "epoch": 2,
+      "train_weighted_BCE": 0.434118769695212,
+      "validation_unweighted_BCE": 0.24170290724212576,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "3ec7b3704534082f527cebf8db3006b0d71fc827d5d9e2aee06721fa943f218b",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 166.44976115226746
+    },
+    {
+      "epoch": 3,
+      "train_weighted_BCE": 0.367659126459278,
+      "validation_unweighted_BCE": 0.233084714002266,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "775ea57c376a8f3cf0f553c8b9508b08339d6109d238d565d90bb1bf4cf4bed7",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 248.1151044368744
+    },
+    {
+      "epoch": 4,
+      "train_weighted_BCE": 0.3184632431842558,
+      "validation_unweighted_BCE": 0.22325561966321464,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6af7763b7583af4da32c0b61b5c7fe4b5cd7a8163380e2428d4e9be4dbf09902",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 329.96011424064636
+    },
+    {
+      "epoch": 5,
+      "train_weighted_BCE": 0.2633782903882327,
+      "validation_unweighted_BCE": 0.21879989813564343,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "94f604556ac84d94aa4a7dae94b83d82155c2492536e24b1a0a2c6ef226e8d42",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 411.31667613983154
+    },
+    {
+      "epoch": 6,
+      "train_weighted_BCE": 0.23531235409785023,
+      "validation_unweighted_BCE": 0.22975709707897407,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "5c50fddb1410016ba570c4d661dfcbd2057d294ce3efb19c4c9d54d5b9bd7f33",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 492.3080859184265
+    },
+    {
+      "epoch": 7,
+      "train_weighted_BCE": 0.18863227772709562,
+      "validation_unweighted_BCE": 0.2677116337609776,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "76fd43f1f0f51dc42330a9a88f74cafb332a60aa35ea774608c51471b9a59cb6",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 573.557950258255
+    }
+  ],
+  "selected_epoch": 5,
+  "validation_BCE": 0.21879989813564343,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 0,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 0.0003
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5"
+}

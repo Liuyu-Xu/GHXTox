@@ -1,0 +1,305 @@
+distance hemopi2_train 1540
+distance hemopi2_independent 386
+distance ntxpred2_peptides_train 1403
+distance ntxpred2_peptides_independent 351
+distance ntxpred2_protein_train 1240
+distance ntxpred2_protein_independent 310
+{
+  "metric": "global normalized Levenshtein edit similarity = 1 - edit_distance/max(lengths); substitutions/insertions/deletions cost 1; NOT alignment percent identity, not a phylogenetic/family test",
+  "thresholds_frozen": [
+    0.7,
+    0.8,
+    0.9
+  ],
+  "checkpoint_training_lineage": "train versus independent separately; all-public conservative union for candidate discovery only",
+  "source_statistics": {
+    "hemopi2_train": {
+      "rows": 1540,
+      "unique_sequences": 1540,
+      "label_counts": {
+        "0": 828,
+        "1": 712
+      },
+      "min_length": 6,
+      "max_length": 39,
+      "sha256": "7bdaf3ede499d1eda2712585d2e52d7700f3f138776d1a0a46e2ca88e8152da0"
+    },
+    "hemopi2_independent": {
+      "rows": 386,
+      "unique_sequences": 386,
+      "label_counts": {
+        "0": 207,
+        "1": 179
+      },
+      "min_length": 6,
+      "max_length": 39,
+      "sha256": "500013c2244219762ff3ff4a03401c7419790c83d0ef0c3aeebfdbea426b3eb5"
+    },
+    "ntxpred2_peptides_train": {
+      "rows": 1403,
+      "unique_sequences": 1403,
+      "label_counts": {
+        "1": 701,
+        "0": 702
+      },
+      "min_length": 7,
+      "max_length": 50,
+      "sha256": "314f939e417eb37aa563b581208cf714a654e81a22216dff7420f62deb2c8cb1"
+    },
+    "ntxpred2_peptides_independent": {
+      "rows": 351,
+      "unique_sequences": 351,
+      "label_counts": {
+        "1": 176,
+        "0": 175
+      },
+      "min_length": 7,
+      "max_length": 50,
+      "sha256": "4c7b366b9e3fe672f016d4e2c58ba33e4e0f5690f7fe24f5d38ce34d66e1e1fb"
+    },
+    "ntxpred2_protein_train": {
+      "rows": 1240,
+      "unique_sequences": 1240,
+      "label_counts": {
+        "0": 620,
+        "1": 620
+      },
+      "min_length": 51,
+      "max_length": 1487,
+      "sha256": "89aa7d8b2cf2f8febc3b2b3f5fe45ed5d32027705ecace988c7987fb86a4efe6"
+    },
+    "ntxpred2_protein_independent": {
+      "rows": 310,
+      "unique_sequences": 310,
+      "label_counts": {
+        "1": 155,
+        "0": 155
+      },
+      "min_length": 52,
+      "max_length": 1336,
+      "sha256": "6c28bb73775e63179ddbe31154f37bf2d1ffe99f3c15b2d622d7e32a06fb0146"
+    }
+  },
+  "categories": {
+    "all": {
+      "n": 6387,
+      "ntx_peptide_in_domain": 6387,
+      "sources": {
+        "hemopi2_train": {
+          "exact": 79,
+          "edit_sim_ge_0_9": 131,
+          "edit_sim_ge_0_8": 202,
+          "edit_sim_ge_0_7": 261
+        },
+        "hemopi2_independent": {
+          "exact": 14,
+          "edit_sim_ge_0_9": 47,
+          "edit_sim_ge_0_8": 98,
+          "edit_sim_ge_0_7": 161
+        },
+        "ntxpred2_peptides_train": {
+          "exact": 986,
+          "edit_sim_ge_0_9": 1024,
+          "edit_sim_ge_0_8": 1195,
+          "edit_sim_ge_0_7": 1437
+        },
+        "ntxpred2_peptides_independent": {
+          "exact": 259,
+          "edit_sim_ge_0_9": 278,
+          "edit_sim_ge_0_8": 371,
+          "edit_sim_ge_0_7": 490
+        },
+        "ntxpred2_protein_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 1
+        },
+        "ntxpred2_protein_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        }
+      },
+      "hemopi2_conservative_below_0_7": 6096,
+      "ntxpred2_conservative_below_0_7": 4632
+    },
+    "low_cys_positive": {
+      "n": 421,
+      "ntx_peptide_in_domain": 421,
+      "sources": {
+        "hemopi2_train": {
+          "exact": 8,
+          "edit_sim_ge_0_9": 9,
+          "edit_sim_ge_0_8": 12,
+          "edit_sim_ge_0_7": 15
+        },
+        "hemopi2_independent": {
+          "exact": 2,
+          "edit_sim_ge_0_9": 4,
+          "edit_sim_ge_0_8": 8,
+          "edit_sim_ge_0_7": 9
+        },
+        "ntxpred2_peptides_train": {
+          "exact": 92,
+          "edit_sim_ge_0_9": 96,
+          "edit_sim_ge_0_8": 106,
+          "edit_sim_ge_0_7": 115
+        },
+        "ntxpred2_peptides_independent": {
+          "exact": 16,
+          "edit_sim_ge_0_9": 18,
+          "edit_sim_ge_0_8": 24,
+          "edit_sim_ge_0_7": 27
+        },
+        "ntxpred2_protein_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        },
+        "ntxpred2_protein_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        }
+      },
+      "hemopi2_conservative_below_0_7": 402,
+      "ntxpred2_conservative_below_0_7": 287
+    },
+    "high_cys_negative": {
+      "n": 445,
+      "ntx_peptide_in_domain": 445,
+      "sources": {
+        "hemopi2_train": {
+          "exact": 11,
+          "edit_sim_ge_0_9": 29,
+          "edit_sim_ge_0_8": 61,
+          "edit_sim_ge_0_7": 78
+        },
+        "hemopi2_independent": {
+          "exact": 1,
+          "edit_sim_ge_0_9": 10,
+          "edit_sim_ge_0_8": 35,
+          "edit_sim_ge_0_7": 64
+        },
+        "ntxpred2_peptides_train": {
+          "exact": 55,
+          "edit_sim_ge_0_9": 55,
+          "edit_sim_ge_0_8": 61,
+          "edit_sim_ge_0_7": 86
+        },
+        "ntxpred2_peptides_independent": {
+          "exact": 17,
+          "edit_sim_ge_0_9": 17,
+          "edit_sim_ge_0_8": 19,
+          "edit_sim_ge_0_7": 20
+        },
+        "ntxpred2_protein_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 1
+        },
+        "ntxpred2_protein_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        }
+      },
+      "hemopi2_conservative_below_0_7": 364,
+      "ntxpred2_conservative_below_0_7": 340
+    },
+    "shared_low_cys_FN": {
+      "n": 151,
+      "ntx_peptide_in_domain": 151,
+      "sources": {
+        "hemopi2_train": {
+          "exact": 7,
+          "edit_sim_ge_0_9": 8,
+          "edit_sim_ge_0_8": 10,
+          "edit_sim_ge_0_7": 13
+        },
+        "hemopi2_independent": {
+          "exact": 1,
+          "edit_sim_ge_0_9": 2,
+          "edit_sim_ge_0_8": 3,
+          "edit_sim_ge_0_7": 3
+        },
+        "ntxpred2_peptides_train": {
+          "exact": 37,
+          "edit_sim_ge_0_9": 41,
+          "edit_sim_ge_0_8": 42,
+          "edit_sim_ge_0_7": 45
+        },
+        "ntxpred2_peptides_independent": {
+          "exact": 7,
+          "edit_sim_ge_0_9": 7,
+          "edit_sim_ge_0_8": 9,
+          "edit_sim_ge_0_7": 10
+        },
+        "ntxpred2_protein_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        },
+        "ntxpred2_protein_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        }
+      },
+      "hemopi2_conservative_below_0_7": 138,
+      "ntxpred2_conservative_below_0_7": 99
+    },
+    "shared_high_cys_FP": {
+      "n": 64,
+      "ntx_peptide_in_domain": 64,
+      "sources": {
+        "hemopi2_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        },
+        "hemopi2_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 1,
+          "edit_sim_ge_0_8": 1,
+          "edit_sim_ge_0_7": 1
+        },
+        "ntxpred2_peptides_train": {
+          "exact": 19,
+          "edit_sim_ge_0_9": 19,
+          "edit_sim_ge_0_8": 21,
+          "edit_sim_ge_0_7": 22
+        },
+        "ntxpred2_peptides_independent": {
+          "exact": 10,
+          "edit_sim_ge_0_9": 10,
+          "edit_sim_ge_0_8": 10,
+          "edit_sim_ge_0_7": 11
+        },
+        "ntxpred2_protein_train": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        },
+        "ntxpred2_protein_independent": {
+          "exact": 0,
+          "edit_sim_ge_0_9": 0,
+          "edit_sim_ge_0_8": 0,
+          "edit_sim_ge_0_7": 0
+        }
+      },
+      "hemopi2_conservative_below_0_7": 63,
+      "ntxpred2_conservative_below_0_7": 33
+    }
+  }
+}

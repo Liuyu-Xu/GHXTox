@@ -1,0 +1,20 @@
+{
+  "arm": "low_cys",
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.8565588593482971,
+      "validation_unweighted_BCE": 0.1543397158384323,
+      "successful_optimizer_steps": 2,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "63ac7d83732c7c40598e283c934bdfc5452d5a6faf454e595062177836a7245f",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 3.57814359664917
+    }
+  ],
+  "selected_epoch": 1
+}

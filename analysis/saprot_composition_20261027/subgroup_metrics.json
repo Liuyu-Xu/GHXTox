@@ -1,0 +1,162 @@
+[
+  {
+    "arm": "baseline4",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 203,
+    "FP": 0
+  },
+  {
+    "arm": "baseline4",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 42,
+    "FP": 0
+  },
+  {
+    "arm": "actual_masked_fusion",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 210,
+    "FP": 0
+  },
+  {
+    "arm": "actual_masked_fusion",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 42,
+    "FP": 0
+  },
+  {
+    "arm": "constant_teacher",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 231,
+    "FP": 0
+  },
+  {
+    "arm": "constant_teacher",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 45,
+    "FP": 0
+  },
+  {
+    "arm": "composition_linear",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 250,
+    "FP": 0
+  },
+  {
+    "arm": "composition_linear",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 54,
+    "FP": 0
+  },
+  {
+    "arm": "composition_quadratic",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 242,
+    "FP": 0
+  },
+  {
+    "arm": "composition_quadratic",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 52,
+    "FP": 0
+  },
+  {
+    "arm": "composition_RBF",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 236,
+    "FP": 0
+  },
+  {
+    "arm": "composition_RBF",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 51,
+    "FP": 0
+  },
+  {
+    "arm": "composition_plus_order_linear",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 237,
+    "FP": 0
+  },
+  {
+    "arm": "composition_plus_order_linear",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 51,
+    "FP": 0
+  },
+  {
+    "arm": "composition_order_kernel",
+    "subgroup": "lowCys_positive",
+    "n": 421,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 229,
+    "FP": 0
+  },
+  {
+    "arm": "composition_order_kernel",
+    "subgroup": "membrane76",
+    "n": 76,
+    "MCC": null,
+    "AUPRC": null,
+    "AUROC": null,
+    "FN": 48,
+    "FP": 0
+  }
+]

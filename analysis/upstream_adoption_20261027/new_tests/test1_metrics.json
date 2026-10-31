@@ -1,0 +1,48 @@
+{
+  "model": "GHXTox",
+  "n": 1126,
+  "weight_1d": 0.76,
+  "threshold": 0.5063534554819765,
+  "checkpoint_seeds": [
+    42,
+    123,
+    2025
+  ],
+  "oof_seeds": [
+    42,
+    123,
+    2025
+  ],
+  "checkpoints": [
+    "runs/lora_mamba_full/full_seed42.pt",
+    "runs/lora_mamba_full/full_seed123.pt",
+    "runs/lora_mamba_full/full_seed2025.pt"
+  ],
+  "oof_jsons": [
+    "runs/lora_mamba_full/oof_seed42.json",
+    "runs/lora_mamba_full/oof_seed123.json",
+    "runs/lora_mamba_full/oof_seed2025.json"
+  ],
+  "structure_checkpoint": "runs/default_no_inner_transformer_20261023/best_model.pt",
+  "test_time_structure_protocol": {
+    "mode": "single_structure_only",
+    "probability_source": "base_logits",
+    "conformer_inputs_allowed": false,
+    "conformer_available_records": 0
+  },
+  "selective_prediction": {
+    "enabled": false
+  },
+  "metrics": {
+    "accuracy": 0.9458259325044405,
+    "balanced_accuracy": 0.9301256203473945,
+    "precision": 0.9137380191693291,
+    "sensitivity": 0.89375,
+    "specificity": 0.966501240694789,
+    "f1": 0.9036334913112164,
+    "mcc": 0.8660647770310785,
+    "auroc": 0.9827388337468983,
+    "auprc": 0.9685160165776497,
+    "brier": 0.04139179450164247
+  }
+}

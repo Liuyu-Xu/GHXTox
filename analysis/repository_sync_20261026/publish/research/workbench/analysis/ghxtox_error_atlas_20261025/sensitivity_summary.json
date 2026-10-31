@@ -1,0 +1,269 @@
+{
+  "status": "post-discovery secondary diagnostics",
+  "calipers": {
+    "length": 3.0,
+    "net_charge_proxy": 2.0,
+    "mean_hydropathy": 0.5,
+    "aromatic_fraction": 0.1,
+    "mean_plddt": 0.1,
+    "low_plddt_fraction": 0.15,
+    "max_otherfold_kmer_cosine": 0.15,
+    "sequence_seed_std": 0.15
+  },
+  "exact_cys_count": true,
+  "coverage": [
+    {
+      "error_type": "FP",
+      "total_errors": 135,
+      "matched": 12
+    },
+    {
+      "error_type": "FN",
+      "total_errors": 192,
+      "matched": 8
+    }
+  ],
+  "tests": [
+    {
+      "error_type": "FN",
+      "feature": "hydrophobic_contact_excess",
+      "n": 8,
+      "mean_difference": -0.04589519906747023,
+      "ci_low": -0.1506679218683819,
+      "ci_high": 0.06717832562053463,
+      "p": 0.45250949810037994,
+      "positive_folds": 1,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.7749219386891852
+    },
+    {
+      "error_type": "FN",
+      "feature": "like_charge_contact_excess",
+      "n": 8,
+      "mean_difference": 0.05596337151667662,
+      "ci_low": -0.011991111148945143,
+      "ci_high": 0.14517487397830783,
+      "p": 0.27554489102179563,
+      "positive_folds": 3,
+      "negative_folds": 1,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FN",
+      "feature": "positive_hydrophobic_contact_excess",
+      "n": 8,
+      "mean_difference": 0.04682125719684256,
+      "ci_low": -0.040096339417610156,
+      "ci_high": 0.15229978351275192,
+      "p": 0.5036992601479704,
+      "positive_folds": 2,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.7749219386891852
+    },
+    {
+      "error_type": "FN",
+      "feature": "charge_hydrophobic_separation",
+      "n": 8,
+      "mean_difference": 0.0024854107248119053,
+      "ci_low": -0.2946740608944045,
+      "ci_high": 0.33006794169192516,
+      "p": 0.9684063187362527,
+      "positive_folds": 1,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.9800039992001601
+    },
+    {
+      "error_type": "FN",
+      "feature": "hydrophobic_patch_fraction",
+      "n": 8,
+      "mean_difference": -0.2095914502164502,
+      "ci_low": -0.3922916666666666,
+      "ci_high": -0.04583333333333332,
+      "p": 0.1245750849830034,
+      "positive_folds": 1,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FN",
+      "feature": "local_positive_excess",
+      "n": 8,
+      "mean_difference": 0.0355260307509883,
+      "ci_low": -0.014908137367018947,
+      "ci_high": 0.08161971729458994,
+      "p": 0.1839632073585283,
+      "positive_folds": 3,
+      "negative_folds": 1,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FN",
+      "feature": "local_hydrophobic_excess",
+      "n": 8,
+      "mean_difference": -0.001587617249756458,
+      "ci_low": -0.09114389430603345,
+      "ci_high": 0.08027194544278571,
+      "p": 0.98000399920016,
+      "positive_folds": 3,
+      "negative_folds": 1,
+      "q_bh_secondary_family": 0.9800039992001601
+    },
+    {
+      "error_type": "FN",
+      "feature": "ideal_alpha_hydrophobic_moment",
+      "n": 8,
+      "mean_difference": -0.07146702540346953,
+      "ci_low": -0.13584551212507212,
+      "ci_high": 0.0023627434276765596,
+      "p": 0.06638672265546891,
+      "positive_folds": 1,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FN",
+      "feature": "ideal_beta_hydrophobic_moment",
+      "n": 8,
+      "mean_difference": 0.03452470541887632,
+      "ci_low": -0.0360990252372185,
+      "ci_high": 0.11780861595278676,
+      "p": 0.4797040591881624,
+      "positive_folds": 3,
+      "negative_folds": 1,
+      "q_bh_secondary_family": 0.7749219386891852
+    },
+    {
+      "error_type": "FN",
+      "feature": "nonlocal_contact_density",
+      "n": 8,
+      "mean_difference": -0.014628712174079916,
+      "ci_low": -0.08723486302529102,
+      "ci_high": 0.059613620821971844,
+      "p": 0.6982603479304139,
+      "positive_folds": 2,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.8728254349130173
+    },
+    {
+      "error_type": "FP",
+      "feature": "hydrophobic_contact_excess",
+      "n": 12,
+      "mean_difference": -0.05385721438805044,
+      "ci_low": -0.12754081746220805,
+      "ci_high": 0.013661408025412054,
+      "p": 0.2455508898220356,
+      "positive_folds": 3,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FP",
+      "feature": "like_charge_contact_excess",
+      "n": 12,
+      "mean_difference": -0.012589858266663137,
+      "ci_low": -0.06539381748885027,
+      "ci_high": 0.021252203329611943,
+      "p": 0.8874225154969007,
+      "positive_folds": 4,
+      "negative_folds": 1,
+      "q_bh_secondary_family": 0.9800039992001601
+    },
+    {
+      "error_type": "FP",
+      "feature": "positive_hydrophobic_contact_excess",
+      "n": 12,
+      "mean_difference": -0.020538198192142726,
+      "ci_low": -0.05460071111532989,
+      "ci_high": 0.011930571716379195,
+      "p": 0.28074385122975404,
+      "positive_folds": 2,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FP",
+      "feature": "charge_hydrophobic_separation",
+      "n": 7,
+      "mean_difference": -0.13787871140586086,
+      "ci_low": -0.2515435228166172,
+      "ci_high": -0.013043082663321826,
+      "p": 0.09658068386322735,
+      "positive_folds": 1,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FP",
+      "feature": "hydrophobic_patch_fraction",
+      "n": 12,
+      "mean_difference": 0.03188339438339438,
+      "ci_low": -0.07725160256410257,
+      "ci_high": 0.15234661172161157,
+      "p": 0.6722655468906219,
+      "positive_folds": 2,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.8728254349130173
+    },
+    {
+      "error_type": "FP",
+      "feature": "local_positive_excess",
+      "n": 12,
+      "mean_difference": -0.014276962308115551,
+      "ci_low": -0.07415270495862598,
+      "ci_high": 0.0441208185896653,
+      "p": 0.6502699460107978,
+      "positive_folds": 2,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.8728254349130173
+    },
+    {
+      "error_type": "FP",
+      "feature": "local_hydrophobic_excess",
+      "n": 12,
+      "mean_difference": 0.0038851368185733406,
+      "ci_low": -0.04901079817440112,
+      "ci_high": 0.056263011963718176,
+      "p": 0.8874225154969007,
+      "positive_folds": 3,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.9800039992001601
+    },
+    {
+      "error_type": "FP",
+      "feature": "ideal_alpha_hydrophobic_moment",
+      "n": 12,
+      "mean_difference": -0.05375921367873562,
+      "ci_low": -0.12187134310632233,
+      "ci_high": 0.016009477235446774,
+      "p": 0.17236552689462106,
+      "positive_folds": 1,
+      "negative_folds": 4,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FP",
+      "feature": "ideal_beta_hydrophobic_moment",
+      "n": 12,
+      "mean_difference": 0.0571811941487509,
+      "ci_low": 0.004299477760890937,
+      "ci_high": 0.1184527451373507,
+      "p": 0.09798040391921616,
+      "positive_folds": 2,
+      "negative_folds": 3,
+      "q_bh_secondary_family": 0.5614877024595081
+    },
+    {
+      "error_type": "FP",
+      "feature": "nonlocal_contact_density",
+      "n": 12,
+      "mean_difference": 0.04648332957933494,
+      "ci_low": -0.016293507483279207,
+      "ci_high": 0.12381471286435133,
+      "p": 0.27454509098180363,
+      "positive_folds": 3,
+      "negative_folds": 2,
+      "q_bh_secondary_family": 0.5614877024595081
+    }
+  ],
+  "causal_or_independent_claim": false
+}

@@ -1,0 +1,24 @@
+{
+  "url": "https://rest.uniprot.org/uniprotkb/stream?query=accession%3AB1P1H0+OR+accession%3AB3EWV6+OR+accession%3AP0CD68+OR+accession%3AP0CI21+OR+accession%3AP0DV97+OR+accession%3AP21376+OR+accession%3AP56675+OR+accession%3AP84972+OR+accession%3AP86114+OR+accession%3AP86930+OR+accession%3AQ8TGP3&format=json",
+  "retrieved_utc": "2026-10-25T11:07:03.045266+00:00",
+  "sha256": "c14543fc03c795fb845c903a588c666432c18aaaf493831a1e35aa5d7f1ab858",
+  "headers": {
+    "Vary": "accept,accept-encoding,x-uniprot-release,x-api-deployment-date, User-Agent, Accept-Encoding",
+    "Cache-Control": "public, max-age=43200",
+    "Content-Type": "application/json",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date",
+    "X-API-Deployment-Date": "15-October-2026",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Date": "Sun, 25 Oct 2026 11:07:02 GMT",
+    "Access-Control-Max-Age": "1728000",
+    "X-UniProt-Release": "2026_03",
+    "Transfer-Encoding": "chunked",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "keep-alive",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "X-UniProt-Release-Date": "02-September-2026"
+  }
+}

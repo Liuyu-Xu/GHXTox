@@ -1,0 +1,32 @@
+{
+  "artifact_type": "prottox_3dkd_test_audit",
+  "model_name": "ProtTox-3DKD",
+  "model_version": "v1.0",
+  "split": "Test2",
+  "records": 582,
+  "positive": 46,
+  "negative": 536,
+  "threshold": 0.5,
+  "training_cache_sha256": null,
+  "exact_sequence_overlap_with_training": 0,
+  "metrics": {
+    "accuracy": 0.9381443298969072,
+    "balanced_accuracy": 0.8273036988968203,
+    "precision": 0.5925925925925926,
+    "sensitivity": 0.6956521739130435,
+    "specificity": 0.9589552238805971,
+    "f1": 0.6399999999999999,
+    "mcc": 0.6087351481994338,
+    "brier": 0.0458523614184721,
+    "threshold": 0.5,
+    "tp": 32,
+    "tn": 514,
+    "fp": 22,
+    "fn": 14,
+    "auroc": 0.9359587929915638,
+    "auprc": 0.7143390448187132,
+    "ece_10": 0.03797957053989533
+  },
+  "test_csv": "D:\\dachuang2026\\GHXTox\\runs\\single_structure_test_components\\test2_structure_predictions.csv",
+  "selection_scope": "frozen deployment version; read-only historical audit; no model/threshold/ensemble change"
+}

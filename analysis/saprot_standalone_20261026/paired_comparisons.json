@@ -1,0 +1,173 @@
+[
+  {
+    "candidate": "SaProt_only_3Di",
+    "reference": "baseline",
+    "primary": true,
+    "delta_MCC": -0.02178224236972104,
+    "delta_AUPRC": -0.020174414986766642,
+    "delta_FN": 11,
+    "delta_FP": 48,
+    "CI95": [
+      -0.03848604130070332,
+      -0.0056523121242898445
+    ],
+    "CI98_3333": [
+      -0.042624131278710994,
+      -0.0014859737637511934
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.032590122458348914,
+        "delta_AUPRC": -0.02060311947171245
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": -0.02684006539529471,
+        "delta_AUPRC": -0.02232215885337363
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  },
+  {
+    "candidate": "fusion_3Di",
+    "reference": "baseline",
+    "primary": true,
+    "delta_MCC": 0.019416974432145517,
+    "delta_AUPRC": 0.0036983196415698583,
+    "delta_FN": -16,
+    "delta_FP": -35,
+    "CI95": [
+      0.008591844043956876,
+      0.029794314206767144
+    ],
+    "CI98_3333": [
+      0.006469687670475941,
+      0.032113450222816656
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": 0.015365703343925619,
+        "delta_AUPRC": 0.004288085146343601
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": 0.02733793270123941,
+        "delta_AUPRC": 0.0043483515930520245
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  },
+  {
+    "candidate": "fusion_masked",
+    "reference": "baseline",
+    "primary": true,
+    "delta_MCC": 0.01824763191431067,
+    "delta_AUPRC": 0.004979950647630349,
+    "delta_FN": -24,
+    "delta_FP": -23,
+    "CI95": [
+      0.007637151053143934,
+      0.028550720970716523
+    ],
+    "CI98_3333": [
+      0.00534939210600429,
+      0.030432255633315055
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": 0.020456371268985807,
+        "delta_AUPRC": 0.004203831972884986
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": 0.027314981351120426,
+        "delta_AUPRC": 0.006969961299614136
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  },
+  {
+    "candidate": "SaProt_only_masked",
+    "reference": "baseline",
+    "primary": false,
+    "delta_MCC": -0.015567869307933524,
+    "delta_AUPRC": -0.019956557716018564,
+    "delta_FN": -28,
+    "delta_FP": 77,
+    "CI95": [
+      -0.03268629153579464,
+      0.0008499765114745102
+    ],
+    "CI98_3333": null,
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.02570135406219476,
+        "delta_AUPRC": -0.02342543804242614
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": -0.014702482973285691,
+        "delta_AUPRC": -0.020103251248390408
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  },
+  {
+    "candidate": "SaProt_only_3Di",
+    "reference": "SaProt_only_masked",
+    "primary": false,
+    "delta_MCC": -0.006214373061787515,
+    "delta_AUPRC": -0.0002178572707480786,
+    "delta_FN": 39,
+    "delta_FP": -29,
+    "CI95": [
+      -0.02129331858074137,
+      0.007995117453917736
+    ],
+    "CI98_3333": null,
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.006888768396154155,
+        "delta_AUPRC": 0.002822318570713689
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": -0.012137582422009019,
+        "delta_AUPRC": -0.0022189076049832224
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  },
+  {
+    "candidate": "fusion_3Di",
+    "reference": "fusion_masked",
+    "primary": false,
+    "delta_MCC": 0.0011693425178348482,
+    "delta_AUPRC": -0.0012816310060604907,
+    "delta_FN": 8,
+    "delta_FP": -12,
+    "CI95": [
+      -0.007061131819868244,
+      0.009635595625062367
+    ],
+    "CI98_3333": null,
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.005090667925060188,
+        "delta_AUPRC": 8.425317345861494e-05
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": 2.295135011898264e-05,
+        "delta_AUPRC": -0.0026216097065621113
+      }
+    ],
+    "scope": "paired originalgroup bootstrap conditional on saved fits; not independent final validation"
+  }
+]

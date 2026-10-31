@@ -1,0 +1,89 @@
+{
+  "test1": {
+    "n": 1126,
+    "old": {
+      "MCC": 0.8704599749746912,
+      "AUPRC": 0.9674027821512894,
+      "AUROC": 0.9810561414392059,
+      "FN": 33,
+      "FP": 26,
+      "SN": 0.896875,
+      "SP": 0.967741935483871
+    },
+    "new": {
+      "MCC": 0.8660647770310785,
+      "AUPRC": 0.9685160165776497,
+      "AUROC": 0.9827388337468983,
+      "FN": 34,
+      "FP": 27,
+      "SN": 0.89375,
+      "SP": 0.966501240694789
+    },
+    "corrected": 10,
+    "harmed": 12,
+    "delta_MCC": -0.00439519794361265,
+    "delta_AUPRC": 0.0011132344263603544,
+    "delta_MCC_95CI": [
+      -0.0243970712400575,
+      0.015640592684837282
+    ],
+    "delta_AUPRC_95CI": [
+      -0.00208328296379203,
+      0.004544790608978047
+    ],
+    "sequence_probability_max_abs_change": 0.0026758426999999863,
+    "bootstrap": "5000 paired label-stratified sample draws, seed20261027; retrospective, no retraining uncertainty",
+    "old_structure_with_new_sequence_probability_control": {
+      "MCC": 0.8704599749746912,
+      "AUPRC": 0.9674357488946901,
+      "FN": 33,
+      "FP": 26,
+      "scope": "Hold sequence probability fixed to new inference; reuse old cached structure; old operating point unchanged."
+    }
+  },
+  "test2": {
+    "n": 582,
+    "old": {
+      "MCC": 0.6673395851029228,
+      "AUPRC": 0.804583043874505,
+      "AUROC": 0.9432592472420506,
+      "FN": 11,
+      "FP": 20,
+      "SN": 0.7608695652173914,
+      "SP": 0.9626865671641791
+    },
+    "new": {
+      "MCC": 0.6306858208296736,
+      "AUPRC": 0.7963240029055678,
+      "AUROC": 0.9503974691758598,
+      "FN": 13,
+      "FP": 21,
+      "SN": 0.717391304347826,
+      "SP": 0.960820895522388
+    },
+    "corrected": 4,
+    "harmed": 7,
+    "delta_MCC": -0.03665376427324918,
+    "delta_AUPRC": -0.008259040968937148,
+    "delta_MCC_95CI": [
+      -0.09767963132368418,
+      0.01632687436940058
+    ],
+    "delta_AUPRC_95CI": [
+      -0.03780117203323027,
+      0.0193395566708371
+    ],
+    "sequence_probability_max_abs_change": 0.002299842300000021,
+    "bootstrap": "5000 paired label-stratified sample draws, seed20261027; retrospective, no retraining uncertainty",
+    "old_structure_with_new_sequence_probability_control": {
+      "MCC": 0.6673395851029228,
+      "AUPRC": 0.8046439377972915,
+      "FN": 11,
+      "FP": 20,
+      "scope": "Hold sequence probability fixed to new inference; reuse old cached structure; old operating point unchanged."
+    }
+  },
+  "decision": "Keep old local production default: new candidate does not meet user condition of higher test classification metrics. Preserve new candidate and matched OOF evidence; no test tuning.",
+  "new_checkpoint_and_oof_available": true,
+  "saprot_fusion_executed": false
+}

@@ -1,0 +1,47 @@
+{
+  "artifact": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_features.pt",
+  "artifact_sha256": "3b77e9a55aab6af7c7fd77f1b459be6acc5063b0fe282ac72fcdd0a194b93caf",
+  "checks": {
+    "all_features_finite": true,
+    "exact_reference_order": true,
+    "records": 6387
+  },
+  "encoder": {
+    "checkpoint_file": "tmodel_16.pt",
+    "checkpoint_sha256": "dcd287668e50141e6f11b43e9ef797200357ce27b396e9da685a585ef2bd272b",
+    "config_py_sha256": "586545eedda5667c3715e468675ffe408345369a81c07e150025f6c830a8a1e8",
+    "embedding_dim": 160,
+    "frozen": true,
+    "identifier": "pepbert-small-uniparc",
+    "model_py_sha256": "2781d24e3dea444c9a764217092c94b8a70c63c9ba58c5d0f70b5249beafe7b4",
+    "parameters": 1861469,
+    "repo": "D:\\dachuang2026\\ziliao\\pepbert_small_UniParc",
+    "seq_len": 52,
+    "tokenizer_sha256": "ab01eee5607c8feb2a933718cf0406358d309b6c235919edaff5af6abfe3057c"
+  },
+  "feature_contract": [
+    "tristat_mean",
+    "tristat_max",
+    "tristat_std",
+    "physchem_9"
+  ],
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "num_records": 6387,
+  "peak_cuda_memory_bytes": 134210560,
+  "reference_cache": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\features.pt",
+    "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+  },
+  "source": {
+    "path": "D:\\dachuang2026\\GHXTox\\data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+    "scope": "training OOF only; Test1/Test2 excluded",
+    "sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe"
+  },
+  "timing": {
+    "average_seconds_per_record": 0.0005984457648300621,
+    "device": "cuda",
+    "forward_only_seconds": 0.8331197003135458,
+    "total_elapsed_seconds": 3.822273099969607
+  }
+}

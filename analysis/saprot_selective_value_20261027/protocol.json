@@ -1,0 +1,42 @@
+{
+  "stage": "frozen before standalone fullmodel fourway outcome counts or selector fitting",
+  "task": "Whole-population independent expert correctness atlas; held-out feasibility of selecting SaProt; compare controlled weight selection; no neural retraining, no Test1/Test2",
+  "population": 6387,
+  "sources": "reuse saprot_fullmodel_fusion crossfit alignment/meta, original old_full probability+threshold, new_full probability+perrowthreshold, standalone two-seed SaProt stablelogodds, old contribution features/annotations/matched controls",
+  "fourway": "Primary source atlas uses original full-model natural decisions and standalone SaProt threshold0.5; four exclusive groups Gwrong_Sright/Gright_Swrong/bothwrong/bothright; distinguish this from fusion corrected/harmed. Teacher two-seed stability holds GHXTox fixed; same sample occurs only once in OOF, so do not claim per-sample crossfold replication.",
+  "evaluation_split": "Reuse fixed group halves within each original neural-heldout fold: one half development, other half evaluation, reverse. No meta training on other original neural OOFfolds. Historical neural/calibration/selection leakage caveats retained.",
+  "inner_calibration": "Within development half, unique groups sort SHA256(group|saprot_selective_inner_v1), assign modulo3; generate three-fold calibration-out predictions with StandardScaler plus LogisticRegressionC1 unweighted on each scalar score; fit final scalar calibrator on whole development half for evaluation. All group-disjoint.",
+  "scores": "Old/new full logit(prob)-logit(own original threshold); SaProt standalone stablelogodds. Probabilities clip1e-12 for logit only.",
+  "baseline": "Development-inner predictions select exact MCC-optimal threshold for calibrated GHXTox; tie threshold closest0.5. Apply final calibrator to evaluation and frozen threshold. Include preexisting unmodified full-model decisions as reference.",
+  "controlled_fixedweight": "SaProt weights0,0.1,...,1; for each weight select exact MCC-optimal threshold using development-inner predictions. Tie prefer smaller SaProt weight, then thresholdclosest0.5. Freeze weight and threshold for evaluation. Weight0 is included. No evaluation-based selection.",
+  "teacher_operating_point": "Similarly choose SaProt threshold on development-inner predictions; used to define expert disagreements for gate fitting and evaluation. No evaluation labels.",
+  "gate_target": "Only development-inner expert disagreements: binary1 if SaProt decision matches original label, else0; agreement rows are not misleading negative labels. Train one small standardized logistic C0.1, no classweights, maxiter3000. If fewer20disagreements or fewer3examples of either outcome, constant development helpful prevalence (prior=(sum+1)/(n+2)); no post-hoc rule changes.",
+  "gate_score_features": [
+    "GHXTox calibrated probability",
+    "SaProt calibrated probability",
+    "GHXTox probability minus frozen baseline threshold",
+    "SaProt probability minus frozen teacher threshold",
+    "absolute probability disagreement"
+  ],
+  "gate_extra_features": [
+    "log1p(sequence_length)",
+    "cys_fraction",
+    "net_charge_proxy/sequence_length",
+    "mean_hydropathy",
+    "aromatic_fraction",
+    "proline_fraction",
+    "mean_plddt",
+    "unmasked_fraction",
+    "hydrophobic_contact_excess",
+    "positive_hydrophobic_contact_excess",
+    "charge_hydrophobic_separation",
+    "nonlocal_contact_density"
+  ],
+  "gate_variants": "score_only vs score_plus_seq_spatial, sameC0.1 and target. No metadata/family/labels/sourceIDs/groupIDs in deployable gate features; medians fitted development only if required.",
+  "gate_inference": "At evaluation, retain GHXTox unless calibrated experts disagree and q(SaProtcorrect)>.5. If selecting SaProt use its probability after centering its frozen threshold to0.5; otherwise centered GHXTox probability. This output is a decision score, not necessarily calibrated toxicity probability. Cannot use actual correctness to route.",
+  "comparisons": "2GHXTox versions x2SaProt modes x3methods(weight-selected,scoregate,featuregate)=12 contrasts vs matched baseline;4featuregate-vs-weight and4featuregate-vs-scoregate=20 total corrected MCC contrasts",
+  "uncertainty": "2000 paired original-group bootstrap conditional on saved calibration/selection, seed20261028; 95% and99.75%Bonferroni20 MCC intervals; no refit uncertainty. Teacher-win prediction AUROC/AUPRC/prevalence and hard decisionselection diagnostic.",
+  "mechanism": "Reuse cached annotations and existing matchedpair archive only. Per true label contrast helpful vs harmful attributes and fold direction; gate coefficient sign stability conditional on score+phys background, exploratory, no causality. Unknown annotation never absent; no literature expansion or single-case claims. Curatedfamily support counted separately from nameproxy.",
+  "continue_gate": "Featuregate vs matchedbaseline AND vs controlledweight: deltaMCC>=.005 and correctedCI lower>0, AUPRC>=baseline-.002,>=4/5fold neterrors>=0; wholeclass biological explanation still required before namingmechanism. No automatic deployment/distillation.",
+  "guardrails": "Inherited old globalOOF calibration and new reusedsequenceOOF selection are historical development limits; honest meta holdouts do not erase them. No matched fullensemble-sizecontrol available. No defaultweights changed, no train/testlabels altered. Stop at fixed analysis and record all negatives."
+}

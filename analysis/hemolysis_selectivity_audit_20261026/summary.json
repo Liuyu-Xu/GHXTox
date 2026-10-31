@@ -1,0 +1,31 @@
+{
+  "original_articles_recovered": 3,
+  "independent_scaffold_series": 3,
+  "unique_compounds": 22,
+  "compound_counts": {
+    "PMAP36_truncations": 5,
+    "Pap12": 6,
+    "L5K5W_position_isomers": 11
+  },
+  "paired_mic_strain_rows": 222,
+  "paired_current_article_mic_rows": 210,
+  "previous_publication_mic_rows": 12,
+  "exact_HC50_compounds": 0,
+  "threshold_MHC5_compounds": 16,
+  "right_censored_MHC5_compounds": 2,
+  "qualitative_or_fixed_dose_Pap12_compounds": 6,
+  "near_variant_edges_20percent": 20,
+  "near_variant_edges_by_group": {
+    "PMAP36_truncations": 3,
+    "Pap12": 6,
+    "L5K5W_position_isomers": 11
+  },
+  "strict_condition_complete_multistudy_panel": false,
+  "training_recommended": false,
+  "PG1": "not recovered: original paper supports experimental subset but no raw selected-variant table recovered; SLAY and predicted variants excluded",
+  "decision": "Can do small within-study diagnostic; insufficient for credible multi-paper/multi-scaffold predictive generalization; endpoint heterogeneity and censoring remain",
+  "stop_condition": "No model training until >=5 independent paper/scaffold blocks each >=8 exact-identity+chemistry dual-endpoint variants, >=3 usable near-variant pairs, known RBC/strain and assay conditions, >=40 non-surrogate comparable quantitative outcomes total; threshold is planning gate, not power proof",
+  "author_HC10_two_times_maximum_placeholders": 5,
+  "author_HC10_conflicts_with_body": 1,
+  "independent_scaffold_definition": "three named design series; no claim of statistical or evolutionary independence"
+}

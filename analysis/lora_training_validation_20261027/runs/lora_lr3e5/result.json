@@ -1,0 +1,140 @@
+{
+  "arm": "lora_lr3e5",
+  "smoke_only": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.5012308197195784,
+      "validation_unweighted_BCE": 0.2649581163701877,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "2be8d93e84cd15e24ec04ce48e86ae27431571f6395c7c2bfba6bd11c0ef8813",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1535.3789925575256
+    },
+    {
+      "epoch": 2,
+      "train_weighted_BCE": 0.36843807095901165,
+      "validation_unweighted_BCE": 0.2472559798491393,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "3ec7b3704534082f527cebf8db3006b0d71fc827d5d9e2aee06721fa943f218b",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1696.783950328827
+    },
+    {
+      "epoch": 3,
+      "train_weighted_BCE": 0.2922280745216522,
+      "validation_unweighted_BCE": 0.2951788299706807,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "775ea57c376a8f3cf0f553c8b9508b08339d6109d238d565d90bb1bf4cf4bed7",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 1857.808262348175
+    },
+    {
+      "epoch": 4,
+      "train_weighted_BCE": 0.2575803289146183,
+      "validation_unweighted_BCE": 0.24631108537153085,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6af7763b7583af4da32c0b61b5c7fe4b5cd7a8163380e2428d4e9be4dbf09902",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 2018.7767629623413
+    },
+    {
+      "epoch": 5,
+      "train_weighted_BCE": 0.20815079915540047,
+      "validation_unweighted_BCE": 0.3594497414262082,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "94f604556ac84d94aa4a7dae94b83d82155c2492536e24b1a0a2c6ef226e8d42",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 2181.853558778763
+    },
+    {
+      "epoch": 6,
+      "train_weighted_BCE": 0.17356502750013922,
+      "validation_unweighted_BCE": 0.2854367321494133,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "5c50fddb1410016ba570c4d661dfcbd2057d294ce3efb19c4c9d54d5b9bd7f33",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 2343.168941259384
+    }
+  ],
+  "selected_epoch": 4,
+  "validation_BCE": 0.24631108537153085,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    },
+    {
+      "name": "lora",
+      "lr": 3e-05,
+      "parameter_count": 10616832
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 3e-05
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "9c23749f02adb5a0c57053763f180b1f1a567ed6af8a84ff27e6df4c13beaf49"
+}

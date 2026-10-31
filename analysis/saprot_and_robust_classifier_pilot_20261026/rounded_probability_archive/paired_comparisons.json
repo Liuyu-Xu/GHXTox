@@ -1,0 +1,95 @@
+[
+  {
+    "candidate": "plus_SaProt_3Di_BCE",
+    "reference": "baseline_BCE",
+    "delta_MCC": -0.00014568485629440353,
+    "delta_AUPRC": 0.0005560360266013697,
+    "delta_sensitivity": 0.009900990099009799,
+    "delta_FN": -18,
+    "delta_FP": 21,
+    "CI95": [
+      -0.009095747946958397,
+      0.009174871952600284
+    ],
+    "CI98_3333": [
+      -0.011054242034272554,
+      0.011399870511248408
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.005820932762692688,
+        "delta_AUPRC": -0.0011059682598510978
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": 0.012020984005666868,
+        "delta_AUPRC": 0.003800715942524513
+      }
+    ],
+    "n_groups": 5258,
+    "scope": "paired group resampling conditional on predictions; not re-training uncertainty or independent final validation"
+  },
+  {
+    "candidate": "plus_SaProt_3Di_BCE",
+    "reference": "plus_SaProt_masked_BCE",
+    "delta_MCC": -0.004660377240385594,
+    "delta_AUPRC": -0.0016409070053838848,
+    "delta_sensitivity": 0.0,
+    "delta_FN": 0,
+    "delta_FP": 13,
+    "CI95": [
+      -0.013396987613449683,
+      0.005148450627979628
+    ],
+    "CI98_3333": [
+      -0.015524630120740568,
+      0.007183333405081291
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.011339687346191396,
+        "delta_AUPRC": -0.0019751220168522376
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": 0.0059611725170996,
+        "delta_AUPRC": 0.00011545003004020948
+      }
+    ],
+    "n_groups": 5258,
+    "scope": "paired group resampling conditional on predictions; not re-training uncertainty or independent final validation"
+  },
+  {
+    "candidate": "baseline_GCE_q07",
+    "reference": "baseline_BCE",
+    "delta_MCC": -0.016701531483547027,
+    "delta_AUPRC": -0.07618150804394408,
+    "delta_sensitivity": 0.034103410341034035,
+    "delta_FN": -62,
+    "delta_FP": 123,
+    "CI95": [
+      -0.03380208720668719,
+      -0.00039134545612191473
+    ],
+    "CI98_3333": [
+      -0.036698371574108726,
+      0.0031195419815892977
+    ],
+    "seed_deltas": [
+      {
+        "seed": 20261026,
+        "delta_MCC": -0.025910788690881925,
+        "delta_AUPRC": -0.07467134575321788
+      },
+      {
+        "seed": 20261027,
+        "delta_MCC": -0.016344450966653823,
+        "delta_AUPRC": -0.07831945182384858
+      }
+    ],
+    "n_groups": 5258,
+    "scope": "paired group resampling conditional on predictions; not re-training uncertainty or independent final validation"
+  }
+]

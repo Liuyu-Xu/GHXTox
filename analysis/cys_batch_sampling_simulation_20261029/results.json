@@ -1,0 +1,1343 @@
+{
+  "moderate": [
+    {
+      "fold": 0,
+      "steps": 237,
+      "quota": {
+        "low_pos": 2,
+        "low_neg": 3,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 4,
+        "high_neg": 2
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 474,
+          "seen": 165,
+          "mean_exposure": 2.8727272727272726,
+          "max_exposure": 3,
+          "min_exposure": 2,
+          "repeat_samples": 165,
+          "flagged_draws": 197
+        },
+        "low_neg": {
+          "n": 2086,
+          "draws": 711,
+          "seen": 711,
+          "mean_exposure": 0.3408437200383509,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 286
+        },
+        "mid_pos": {
+          "n": 300,
+          "draws": 474,
+          "seen": 300,
+          "mean_exposure": 1.58,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 174,
+          "flagged_draws": 153
+        },
+        "mid_neg": {
+          "n": 474,
+          "draws": 711,
+          "seen": 474,
+          "mean_exposure": 1.5,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 237,
+          "flagged_draws": 162
+        },
+        "high_pos": {
+          "n": 625,
+          "draws": 948,
+          "seen": 625,
+          "mean_exposure": 1.5168,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 323,
+          "flagged_draws": 48
+        },
+        "high_neg": {
+          "n": 139,
+          "draws": 474,
+          "seen": 139,
+          "mean_exposure": 3.4100719424460433,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 139,
+          "flagged_draws": 89
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 702,
+        "mid": 870,
+        "high": 1285
+      },
+      "effective_anchor_draws": {
+        "low": 440,
+        "mid": 668,
+        "high": 1182
+      },
+      "effective_fraction": {
+        "low": 0.6267806267806267,
+        "mid": 0.767816091954023,
+        "high": 0.9198443579766536
+      }
+    },
+    {
+      "fold": 1,
+      "steps": 242,
+      "quota": {
+        "low_pos": 2,
+        "low_neg": 3,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 4,
+        "high_neg": 2
+      },
+      "categories": {
+        "low_pos": {
+          "n": 158,
+          "draws": 484,
+          "seen": 158,
+          "mean_exposure": 3.0632911392405062,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 158,
+          "flagged_draws": 185
+        },
+        "low_neg": {
+          "n": 2144,
+          "draws": 726,
+          "seen": 726,
+          "mean_exposure": 0.33861940298507465,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 265
+        },
+        "mid_pos": {
+          "n": 301,
+          "draws": 484,
+          "seen": 301,
+          "mean_exposure": 1.6079734219269104,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 183,
+          "flagged_draws": 152
+        },
+        "mid_neg": {
+          "n": 491,
+          "draws": 726,
+          "seen": 491,
+          "mean_exposure": 1.4786150712830957,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 235,
+          "flagged_draws": 153
+        },
+        "high_pos": {
+          "n": 635,
+          "draws": 968,
+          "seen": 635,
+          "mean_exposure": 1.5244094488188977,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 333,
+          "flagged_draws": 61
+        },
+        "high_neg": {
+          "n": 137,
+          "draws": 484,
+          "seen": 137,
+          "mean_exposure": 3.5328467153284673,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 137,
+          "flagged_draws": 107
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 760,
+        "mid": 905,
+        "high": 1284
+      },
+      "effective_anchor_draws": {
+        "low": 526,
+        "mid": 716,
+        "high": 1163
+      },
+      "effective_fraction": {
+        "low": 0.6921052631578948,
+        "mid": 0.7911602209944751,
+        "high": 0.9057632398753894
+      }
+    },
+    {
+      "fold": 2,
+      "steps": 238,
+      "quota": {
+        "low_pos": 2,
+        "low_neg": 3,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 4,
+        "high_neg": 2
+      },
+      "categories": {
+        "low_pos": {
+          "n": 156,
+          "draws": 476,
+          "seen": 156,
+          "mean_exposure": 3.051282051282051,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 156,
+          "flagged_draws": 186
+        },
+        "low_neg": {
+          "n": 2109,
+          "draws": 714,
+          "seen": 714,
+          "mean_exposure": 0.3385490753911807,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 250
+        },
+        "mid_pos": {
+          "n": 305,
+          "draws": 476,
+          "seen": 305,
+          "mean_exposure": 1.560655737704918,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 171,
+          "flagged_draws": 155
+        },
+        "mid_neg": {
+          "n": 453,
+          "draws": 714,
+          "seen": 453,
+          "mean_exposure": 1.576158940397351,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 261,
+          "flagged_draws": 152
+        },
+        "high_pos": {
+          "n": 632,
+          "draws": 952,
+          "seen": 632,
+          "mean_exposure": 1.5063291139240507,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 320,
+          "flagged_draws": 46
+        },
+        "high_neg": {
+          "n": 151,
+          "draws": 476,
+          "seen": 151,
+          "mean_exposure": 3.152317880794702,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 151,
+          "flagged_draws": 98
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 754,
+        "mid": 883,
+        "high": 1284
+      },
+      "effective_anchor_draws": {
+        "low": 508,
+        "mid": 688,
+        "high": 1167
+      },
+      "effective_fraction": {
+        "low": 0.6737400530503979,
+        "mid": 0.7791619479048698,
+        "high": 0.9088785046728972
+      }
+    },
+    {
+      "fold": 3,
+      "steps": 238,
+      "quota": {
+        "low_pos": 2,
+        "low_neg": 3,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 4,
+        "high_neg": 2
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 476,
+          "seen": 165,
+          "mean_exposure": 2.8848484848484848,
+          "max_exposure": 3,
+          "min_exposure": 2,
+          "repeat_samples": 165,
+          "flagged_draws": 204
+        },
+        "low_neg": {
+          "n": 2110,
+          "draws": 714,
+          "seen": 714,
+          "mean_exposure": 0.33838862559241706,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 269
+        },
+        "mid_pos": {
+          "n": 287,
+          "draws": 476,
+          "seen": 287,
+          "mean_exposure": 1.6585365853658536,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 189,
+          "flagged_draws": 151
+        },
+        "mid_neg": {
+          "n": 457,
+          "draws": 714,
+          "seen": 457,
+          "mean_exposure": 1.562363238512035,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 257,
+          "flagged_draws": 152
+        },
+        "high_pos": {
+          "n": 630,
+          "draws": 952,
+          "seen": 630,
+          "mean_exposure": 1.511111111111111,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 322,
+          "flagged_draws": 56
+        },
+        "high_neg": {
+          "n": 145,
+          "draws": 476,
+          "seen": 145,
+          "mean_exposure": 3.282758620689655,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 145,
+          "flagged_draws": 126
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 717,
+        "mid": 887,
+        "high": 1246
+      },
+      "effective_anchor_draws": {
+        "low": 467,
+        "mid": 704,
+        "high": 1098
+      },
+      "effective_fraction": {
+        "low": 0.6513249651324965,
+        "mid": 0.7936865839909808,
+        "high": 0.8812199036918138
+      }
+    },
+    {
+      "fold": 4,
+      "steps": 236,
+      "quota": {
+        "low_pos": 2,
+        "low_neg": 3,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 4,
+        "high_neg": 2
+      },
+      "categories": {
+        "low_pos": {
+          "n": 147,
+          "draws": 472,
+          "seen": 147,
+          "mean_exposure": 3.2108843537414966,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 147,
+          "flagged_draws": 166
+        },
+        "low_neg": {
+          "n": 2088,
+          "draws": 708,
+          "seen": 708,
+          "mean_exposure": 0.3390804597701149,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 265
+        },
+        "mid_pos": {
+          "n": 311,
+          "draws": 472,
+          "seen": 311,
+          "mean_exposure": 1.517684887459807,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 161,
+          "flagged_draws": 152
+        },
+        "mid_neg": {
+          "n": 476,
+          "draws": 708,
+          "seen": 476,
+          "mean_exposure": 1.4873949579831933,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 232,
+          "flagged_draws": 159
+        },
+        "high_pos": {
+          "n": 621,
+          "draws": 944,
+          "seen": 621,
+          "mean_exposure": 1.5201288244766507,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 323,
+          "flagged_draws": 60
+        },
+        "high_neg": {
+          "n": 130,
+          "draws": 472,
+          "seen": 130,
+          "mean_exposure": 3.6307692307692307,
+          "max_exposure": 4,
+          "min_exposure": 3,
+          "repeat_samples": 130,
+          "flagged_draws": 112
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 749,
+        "mid": 869,
+        "high": 1244
+      },
+      "effective_anchor_draws": {
+        "mid": 688,
+        "low": 516,
+        "high": 1110
+      },
+      "effective_fraction": {
+        "low": 0.6889185580774366,
+        "mid": 0.7917146144994246,
+        "high": 0.8922829581993569
+      }
+    }
+  ],
+  "light": [
+    {
+      "fold": 0,
+      "steps": 237,
+      "quota": {
+        "low_pos": 1,
+        "low_neg": 4,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 5,
+        "high_neg": 1
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 237,
+          "seen": 165,
+          "mean_exposure": 1.4363636363636363,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 72,
+          "flagged_draws": 95
+        },
+        "low_neg": {
+          "n": 2086,
+          "draws": 948,
+          "seen": 948,
+          "mean_exposure": 0.45445829338446786,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 366
+        },
+        "mid_pos": {
+          "n": 300,
+          "draws": 474,
+          "seen": 300,
+          "mean_exposure": 1.58,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 174,
+          "flagged_draws": 147
+        },
+        "mid_neg": {
+          "n": 474,
+          "draws": 711,
+          "seen": 474,
+          "mean_exposure": 1.5,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 237,
+          "flagged_draws": 154
+        },
+        "high_pos": {
+          "n": 625,
+          "draws": 1185,
+          "seen": 625,
+          "mean_exposure": 1.896,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 560,
+          "flagged_draws": 63
+        },
+        "high_neg": {
+          "n": 139,
+          "draws": 237,
+          "seen": 139,
+          "mean_exposure": 1.7050359712230216,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 98,
+          "flagged_draws": 45
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 724,
+        "mid": 884,
+        "high": 1314
+      },
+      "effective_anchor_draws": {
+        "mid": 697,
+        "high": 911,
+        "low": 337
+      },
+      "effective_fraction": {
+        "low": 0.4654696132596685,
+        "mid": 0.7884615384615384,
+        "high": 0.693302891933029
+      }
+    },
+    {
+      "fold": 1,
+      "steps": 242,
+      "quota": {
+        "low_pos": 1,
+        "low_neg": 4,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 5,
+        "high_neg": 1
+      },
+      "categories": {
+        "low_pos": {
+          "n": 158,
+          "draws": 242,
+          "seen": 158,
+          "mean_exposure": 1.5316455696202531,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 84,
+          "flagged_draws": 96
+        },
+        "low_neg": {
+          "n": 2144,
+          "draws": 968,
+          "seen": 968,
+          "mean_exposure": 0.45149253731343286,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 371
+        },
+        "mid_pos": {
+          "n": 301,
+          "draws": 484,
+          "seen": 301,
+          "mean_exposure": 1.6079734219269104,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 183,
+          "flagged_draws": 148
+        },
+        "mid_neg": {
+          "n": 491,
+          "draws": 726,
+          "seen": 491,
+          "mean_exposure": 1.4786150712830957,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 235,
+          "flagged_draws": 151
+        },
+        "high_pos": {
+          "n": 635,
+          "draws": 1210,
+          "seen": 635,
+          "mean_exposure": 1.905511811023622,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 575,
+          "flagged_draws": 79
+        },
+        "high_neg": {
+          "n": 137,
+          "draws": 242,
+          "seen": 137,
+          "mean_exposure": 1.7664233576642336,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 105,
+          "flagged_draws": 54
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 743,
+        "mid": 911,
+        "high": 1319
+      },
+      "effective_anchor_draws": {
+        "low": 357,
+        "mid": 729,
+        "high": 878
+      },
+      "effective_fraction": {
+        "low": 0.48048452220726784,
+        "mid": 0.8002195389681669,
+        "high": 0.66565579984837
+      }
+    },
+    {
+      "fold": 2,
+      "steps": 238,
+      "quota": {
+        "low_pos": 1,
+        "low_neg": 4,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 5,
+        "high_neg": 1
+      },
+      "categories": {
+        "low_pos": {
+          "n": 156,
+          "draws": 238,
+          "seen": 156,
+          "mean_exposure": 1.5256410256410255,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 82,
+          "flagged_draws": 94
+        },
+        "low_neg": {
+          "n": 2109,
+          "draws": 952,
+          "seen": 952,
+          "mean_exposure": 0.45139876718824085,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 328
+        },
+        "mid_pos": {
+          "n": 305,
+          "draws": 476,
+          "seen": 305,
+          "mean_exposure": 1.560655737704918,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 171,
+          "flagged_draws": 161
+        },
+        "mid_neg": {
+          "n": 453,
+          "draws": 714,
+          "seen": 453,
+          "mean_exposure": 1.576158940397351,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 261,
+          "flagged_draws": 155
+        },
+        "high_pos": {
+          "n": 632,
+          "draws": 1190,
+          "seen": 632,
+          "mean_exposure": 1.8829113924050633,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 558,
+          "flagged_draws": 60
+        },
+        "high_neg": {
+          "n": 151,
+          "draws": 238,
+          "seen": 151,
+          "mean_exposure": 1.576158940397351,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 87,
+          "flagged_draws": 52
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 768,
+        "mid": 874,
+        "high": 1316
+      },
+      "effective_anchor_draws": {
+        "low": 369,
+        "mid": 677,
+        "high": 880
+      },
+      "effective_fraction": {
+        "low": 0.48046875,
+        "mid": 0.7745995423340961,
+        "high": 0.668693009118541
+      }
+    },
+    {
+      "fold": 3,
+      "steps": 238,
+      "quota": {
+        "low_pos": 1,
+        "low_neg": 4,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 5,
+        "high_neg": 1
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 238,
+          "seen": 165,
+          "mean_exposure": 1.4424242424242424,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 73,
+          "flagged_draws": 103
+        },
+        "low_neg": {
+          "n": 2110,
+          "draws": 952,
+          "seen": 952,
+          "mean_exposure": 0.45118483412322274,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 360
+        },
+        "mid_pos": {
+          "n": 287,
+          "draws": 476,
+          "seen": 287,
+          "mean_exposure": 1.6585365853658536,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 189,
+          "flagged_draws": 150
+        },
+        "mid_neg": {
+          "n": 457,
+          "draws": 714,
+          "seen": 457,
+          "mean_exposure": 1.562363238512035,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 257,
+          "flagged_draws": 168
+        },
+        "high_pos": {
+          "n": 630,
+          "draws": 1190,
+          "seen": 630,
+          "mean_exposure": 1.8888888888888888,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 560,
+          "flagged_draws": 71
+        },
+        "high_neg": {
+          "n": 145,
+          "draws": 238,
+          "seen": 145,
+          "mean_exposure": 1.6413793103448275,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 93,
+          "flagged_draws": 64
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 727,
+        "mid": 872,
+        "high": 1293
+      },
+      "effective_anchor_draws": {
+        "low": 323,
+        "mid": 686,
+        "high": 819
+      },
+      "effective_fraction": {
+        "low": 0.4442916093535076,
+        "mid": 0.786697247706422,
+        "high": 0.6334106728538283
+      }
+    },
+    {
+      "fold": 4,
+      "steps": 236,
+      "quota": {
+        "low_pos": 1,
+        "low_neg": 4,
+        "mid_pos": 2,
+        "mid_neg": 3,
+        "high_pos": 5,
+        "high_neg": 1
+      },
+      "categories": {
+        "low_pos": {
+          "n": 147,
+          "draws": 236,
+          "seen": 147,
+          "mean_exposure": 1.6054421768707483,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 89,
+          "flagged_draws": 85
+        },
+        "low_neg": {
+          "n": 2088,
+          "draws": 944,
+          "seen": 944,
+          "mean_exposure": 0.4521072796934866,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 382
+        },
+        "mid_pos": {
+          "n": 311,
+          "draws": 472,
+          "seen": 311,
+          "mean_exposure": 1.517684887459807,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 161,
+          "flagged_draws": 153
+        },
+        "mid_neg": {
+          "n": 476,
+          "draws": 708,
+          "seen": 476,
+          "mean_exposure": 1.4873949579831933,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 232,
+          "flagged_draws": 159
+        },
+        "high_pos": {
+          "n": 621,
+          "draws": 1180,
+          "seen": 621,
+          "mean_exposure": 1.9001610305958132,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 559,
+          "flagged_draws": 74
+        },
+        "high_neg": {
+          "n": 130,
+          "draws": 236,
+          "seen": 130,
+          "mean_exposure": 1.8153846153846154,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 106,
+          "flagged_draws": 60
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 713,
+        "mid": 868,
+        "high": 1282
+      },
+      "effective_anchor_draws": {
+        "mid": 683,
+        "high": 822,
+        "low": 335
+      },
+      "effective_fraction": {
+        "low": 0.46984572230014027,
+        "mid": 0.7868663594470046,
+        "high": 0.641185647425897
+      }
+    }
+  ],
+  "strong": [
+    {
+      "fold": 0,
+      "steps": 237,
+      "quota": {
+        "low_pos": 3,
+        "low_neg": 3,
+        "mid_pos": 1,
+        "mid_neg": 2,
+        "high_pos": 4,
+        "high_neg": 3
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 711,
+          "seen": 165,
+          "mean_exposure": 4.3090909090909095,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 165,
+          "flagged_draws": 301
+        },
+        "low_neg": {
+          "n": 2086,
+          "draws": 711,
+          "seen": 711,
+          "mean_exposure": 0.3408437200383509,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 273
+        },
+        "mid_pos": {
+          "n": 300,
+          "draws": 237,
+          "seen": 237,
+          "mean_exposure": 0.79,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 76
+        },
+        "mid_neg": {
+          "n": 474,
+          "draws": 474,
+          "seen": 474,
+          "mean_exposure": 1.0,
+          "max_exposure": 1,
+          "min_exposure": 1,
+          "repeat_samples": 0,
+          "flagged_draws": 106
+        },
+        "high_pos": {
+          "n": 625,
+          "draws": 948,
+          "seen": 625,
+          "mean_exposure": 1.5168,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 323,
+          "flagged_draws": 46
+        },
+        "high_neg": {
+          "n": 139,
+          "draws": 711,
+          "seen": 139,
+          "mean_exposure": 5.115107913669065,
+          "max_exposure": 6,
+          "min_exposure": 5,
+          "repeat_samples": 139,
+          "flagged_draws": 136
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 848,
+        "mid": 529,
+        "high": 1477
+      },
+      "effective_anchor_draws": {
+        "low": 660,
+        "high": 1456,
+        "mid": 188
+      },
+      "effective_fraction": {
+        "low": 0.7783018867924528,
+        "mid": 0.3553875236294896,
+        "high": 0.985781990521327
+      }
+    },
+    {
+      "fold": 1,
+      "steps": 242,
+      "quota": {
+        "low_pos": 3,
+        "low_neg": 3,
+        "mid_pos": 1,
+        "mid_neg": 2,
+        "high_pos": 4,
+        "high_neg": 3
+      },
+      "categories": {
+        "low_pos": {
+          "n": 158,
+          "draws": 726,
+          "seen": 158,
+          "mean_exposure": 4.594936708860759,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 158,
+          "flagged_draws": 283
+        },
+        "low_neg": {
+          "n": 2144,
+          "draws": 726,
+          "seen": 726,
+          "mean_exposure": 0.33861940298507465,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 251
+        },
+        "mid_pos": {
+          "n": 301,
+          "draws": 242,
+          "seen": 242,
+          "mean_exposure": 0.8039867109634552,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 77
+        },
+        "mid_neg": {
+          "n": 491,
+          "draws": 484,
+          "seen": 484,
+          "mean_exposure": 0.9857433808553971,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 101
+        },
+        "high_pos": {
+          "n": 635,
+          "draws": 968,
+          "seen": 635,
+          "mean_exposure": 1.5244094488188977,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 333,
+          "flagged_draws": 61
+        },
+        "high_neg": {
+          "n": 137,
+          "draws": 726,
+          "seen": 137,
+          "mean_exposure": 5.299270072992701,
+          "max_exposure": 6,
+          "min_exposure": 5,
+          "repeat_samples": 137,
+          "flagged_draws": 157
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 918,
+        "mid": 548,
+        "high": 1476
+      },
+      "effective_anchor_draws": {
+        "low": 747,
+        "mid": 214,
+        "high": 1440
+      },
+      "effective_fraction": {
+        "low": 0.8137254901960784,
+        "mid": 0.3905109489051095,
+        "high": 0.975609756097561
+      }
+    },
+    {
+      "fold": 2,
+      "steps": 238,
+      "quota": {
+        "low_pos": 3,
+        "low_neg": 3,
+        "mid_pos": 1,
+        "mid_neg": 2,
+        "high_pos": 4,
+        "high_neg": 3
+      },
+      "categories": {
+        "low_pos": {
+          "n": 156,
+          "draws": 714,
+          "seen": 156,
+          "mean_exposure": 4.576923076923077,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 156,
+          "flagged_draws": 278
+        },
+        "low_neg": {
+          "n": 2109,
+          "draws": 714,
+          "seen": 714,
+          "mean_exposure": 0.3385490753911807,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 254
+        },
+        "mid_pos": {
+          "n": 305,
+          "draws": 238,
+          "seen": 238,
+          "mean_exposure": 0.780327868852459,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 78
+        },
+        "mid_neg": {
+          "n": 453,
+          "draws": 476,
+          "seen": 453,
+          "mean_exposure": 1.0507726269315674,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 23,
+          "flagged_draws": 103
+        },
+        "high_pos": {
+          "n": 632,
+          "draws": 952,
+          "seen": 632,
+          "mean_exposure": 1.5063291139240507,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 320,
+          "flagged_draws": 46
+        },
+        "high_neg": {
+          "n": 151,
+          "draws": 714,
+          "seen": 151,
+          "mean_exposure": 4.728476821192053,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 151,
+          "flagged_draws": 144
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 896,
+        "mid": 533,
+        "high": 1476
+      },
+      "effective_anchor_draws": {
+        "low": 728,
+        "high": 1450,
+        "mid": 190
+      },
+      "effective_fraction": {
+        "low": 0.8125,
+        "mid": 0.35647279549718575,
+        "high": 0.9823848238482384
+      }
+    },
+    {
+      "fold": 3,
+      "steps": 238,
+      "quota": {
+        "low_pos": 3,
+        "low_neg": 3,
+        "mid_pos": 1,
+        "mid_neg": 2,
+        "high_pos": 4,
+        "high_neg": 3
+      },
+      "categories": {
+        "low_pos": {
+          "n": 165,
+          "draws": 714,
+          "seen": 165,
+          "mean_exposure": 4.327272727272727,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 165,
+          "flagged_draws": 305
+        },
+        "low_neg": {
+          "n": 2110,
+          "draws": 714,
+          "seen": 714,
+          "mean_exposure": 0.33838862559241706,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 270
+        },
+        "mid_pos": {
+          "n": 287,
+          "draws": 238,
+          "seen": 238,
+          "mean_exposure": 0.8292682926829268,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 73
+        },
+        "mid_neg": {
+          "n": 457,
+          "draws": 476,
+          "seen": 457,
+          "mean_exposure": 1.0415754923413567,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 19,
+          "flagged_draws": 105
+        },
+        "high_pos": {
+          "n": 630,
+          "draws": 952,
+          "seen": 630,
+          "mean_exposure": 1.511111111111111,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 322,
+          "flagged_draws": 62
+        },
+        "high_neg": {
+          "n": 145,
+          "draws": 714,
+          "seen": 145,
+          "mean_exposure": 4.924137931034482,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 145,
+          "flagged_draws": 188
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 853,
+        "mid": 536,
+        "high": 1416
+      },
+      "effective_anchor_draws": {
+        "low": 664,
+        "mid": 200,
+        "high": 1370
+      },
+      "effective_fraction": {
+        "low": 0.7784290738569754,
+        "mid": 0.373134328358209,
+        "high": 0.9675141242937854
+      }
+    },
+    {
+      "fold": 4,
+      "steps": 236,
+      "quota": {
+        "low_pos": 3,
+        "low_neg": 3,
+        "mid_pos": 1,
+        "mid_neg": 2,
+        "high_pos": 4,
+        "high_neg": 3
+      },
+      "categories": {
+        "low_pos": {
+          "n": 147,
+          "draws": 708,
+          "seen": 147,
+          "mean_exposure": 4.816326530612245,
+          "max_exposure": 5,
+          "min_exposure": 4,
+          "repeat_samples": 147,
+          "flagged_draws": 257
+        },
+        "low_neg": {
+          "n": 2088,
+          "draws": 708,
+          "seen": 708,
+          "mean_exposure": 0.3390804597701149,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 291
+        },
+        "mid_pos": {
+          "n": 311,
+          "draws": 236,
+          "seen": 236,
+          "mean_exposure": 0.7588424437299035,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 79
+        },
+        "mid_neg": {
+          "n": 476,
+          "draws": 472,
+          "seen": 472,
+          "mean_exposure": 0.9915966386554622,
+          "max_exposure": 1,
+          "min_exposure": 0,
+          "repeat_samples": 0,
+          "flagged_draws": 107
+        },
+        "high_pos": {
+          "n": 621,
+          "draws": 944,
+          "seen": 621,
+          "mean_exposure": 1.5201288244766507,
+          "max_exposure": 2,
+          "min_exposure": 1,
+          "repeat_samples": 323,
+          "flagged_draws": 60
+        },
+        "high_neg": {
+          "n": 130,
+          "draws": 708,
+          "seen": 130,
+          "mean_exposure": 5.446153846153846,
+          "max_exposure": 6,
+          "min_exposure": 5,
+          "repeat_samples": 130,
+          "flagged_draws": 165
+        }
+      },
+      "eligible_anchor_draws": {
+        "low": 868,
+        "mid": 522,
+        "high": 1427
+      },
+      "effective_anchor_draws": {
+        "high": 1391,
+        "low": 686,
+        "mid": 196
+      },
+      "effective_fraction": {
+        "low": 0.7903225806451613,
+        "mid": 0.37547892720306514,
+        "high": 0.9747722494744219
+      }
+    }
+  ]
+}

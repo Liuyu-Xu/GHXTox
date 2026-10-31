@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "arms": [
+    "no_lora",
+    "lora_lr1e5",
+    "lora_lr3e5"
+  ],
+  "epochs": {
+    "no_lora": 5,
+    "lora_lr1e5": 6,
+    "lora_lr3e5": 6
+  },
+  "same_initial_head_and_order": true,
+  "no_amp_skips": true,
+  "all_lora_B_updated": true,
+  "same1271_evaluation_ids": true,
+  "choice_based_on_validation": true,
+  "external_Test1_Test2_used": false,
+  "scope": "development and exploratory historical outer fold; not multi-fold or blind validation"
+}

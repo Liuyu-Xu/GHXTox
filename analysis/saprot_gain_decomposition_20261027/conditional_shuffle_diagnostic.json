@@ -1,0 +1,58 @@
+{
+  "old_masked": {
+    "actual_MCC": 0.8655644896946144,
+    "conditional_shuffle_MCC_mean": 0.8635667797790504,
+    "conditional_shuffle_MCC_95_range": [
+      0.8602032914694406,
+      0.8677841630136566
+    ],
+    "shuffles_with_MCC_at_least_actual": 30,
+    "n_shuffles": 200,
+    "shuffle_net_fewer_errors_mean": -8.73,
+    "actual_AUPRC": 0.9563228548538419,
+    "shuffle_AUPRC_mean": 0.953472619265944,
+    "scope": "Descriptive coarse-confidence conditional permutation; no pvalue, model-selection, group-exchangeability, or biological causality claim."
+  },
+  "old_3Di": {
+    "actual_MCC": 0.8712613000624443,
+    "conditional_shuffle_MCC_mean": 0.8626998107749378,
+    "conditional_shuffle_MCC_95_range": [
+      0.8594524634093418,
+      0.866835878987175
+    ],
+    "shuffles_with_MCC_at_least_actual": 0,
+    "n_shuffles": 200,
+    "shuffle_net_fewer_errors_mean": -11.685,
+    "actual_AUPRC": 0.9567350613216596,
+    "shuffle_AUPRC_mean": 0.9528554644533284,
+    "scope": "Descriptive coarse-confidence conditional permutation; no pvalue, model-selection, group-exchangeability, or biological causality claim."
+  },
+  "new_masked": {
+    "actual_MCC": 0.8512944901976895,
+    "conditional_shuffle_MCC_mean": 0.8517563412018093,
+    "conditional_shuffle_MCC_95_range": [
+      0.8470083435636728,
+      0.8555773931263315
+    ],
+    "shuffles_with_MCC_at_least_actual": 124,
+    "n_shuffles": 200,
+    "shuffle_net_fewer_errors_mean": -9.83,
+    "actual_AUPRC": 0.9514909145730946,
+    "shuffle_AUPRC_mean": 0.9474016830649683,
+    "scope": "Descriptive coarse-confidence conditional permutation; no pvalue, model-selection, group-exchangeability, or biological causality claim."
+  },
+  "new_3Di": {
+    "actual_MCC": 0.8562975477479146,
+    "conditional_shuffle_MCC_mean": 0.8493463685145606,
+    "conditional_shuffle_MCC_95_range": [
+      0.8442261319345773,
+      0.8537488229831464
+    ],
+    "shuffles_with_MCC_at_least_actual": 0,
+    "n_shuffles": 200,
+    "shuffle_net_fewer_errors_mean": -19.295,
+    "actual_AUPRC": 0.9541171352093891,
+    "shuffle_AUPRC_mean": 0.9484144719502555,
+    "scope": "Descriptive coarse-confidence conditional permutation; no pvalue, model-selection, group-exchangeability, or biological causality claim."
+  }
+}

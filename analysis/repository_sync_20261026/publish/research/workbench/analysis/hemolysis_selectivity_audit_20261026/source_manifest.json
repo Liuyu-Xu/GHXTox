@@ -1,0 +1,95 @@
+[
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC4890124.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4890124/fullTextXML",
+    "status": 200,
+    "bytes": 124635,
+    "sha256": "0114a891fd4dc349b898b871fb76a431ee80a919b1b2599d456d60d841bedcbc",
+    "role": "original article XML or original Figure 1"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC6405874.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6405874/fullTextXML",
+    "status": 200,
+    "bytes": 121399,
+    "sha256": "c90195ee1a173472164c1d3b051988dcf56b0efe0dcec1328954dcd2f815abf2",
+    "role": "original article XML or original Figure 1"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC6270530.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6270530/fullTextXML",
+    "status": 200,
+    "bytes": 131892,
+    "sha256": "1da8baf89cb23e778addb890f4f7576545059ae0494509e1a1e5ee1916edef36",
+    "role": "original article XML or original Figure 1"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\L5figure.png",
+    "url": "https://pub.mdpi-res.com/molecules/molecules-18-00859/article_deploy/html/images/molecules-18-00859-g001.png",
+    "status": 200,
+    "bytes": 87311,
+    "sha256": "c6130b19550e7c726dcd574a9e9fc41ea74c785eb80d8d7a9076cb8e8446112e",
+    "role": "original article XML or original Figure 1"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC12044605.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12044605/fullTextXML",
+    "status": 500,
+    "bytes": 151,
+    "sha256": "e34428ec751446fd628f10f02b1b4a62600fc4da062784cdf63b67a78c8c2642",
+    "role": "failed retrieval; NOT evidence"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PG1.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12044605/fullTextXML?format=xml",
+    "status": 500,
+    "bytes": 151,
+    "sha256": "d209dccfa5ac2ba7a243c0c3f2c40aebc8dae41181eb43baed1f83fc21a15b4d",
+    "role": "failed retrieval; NOT evidence"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PG1.html",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12044605/",
+    "status": 403,
+    "bytes": 134,
+    "sha256": "c996c0469ef05ff6fdd1f7cefbc3f7e109bb21969de42fcf591498a828a7ad5f",
+    "role": "failed retrieval; NOT evidence"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\L5_figure1.jpg",
+    "url": "https://www.mdpi.com/molecules/molecules-18-00859/article_deploy/html/images/molecules-18-00859-g001.png",
+    "status": 403,
+    "bytes": 495,
+    "sha256": "b64283ac793dcf26ca9a41be6b69195e3bda98297992406720a01839e034c656",
+    "role": "failed retrieval; NOT evidence"
+  },
+  {
+    "file": "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sources\\Hemolytik2_complete_data.csv",
+    "url": "https://webs.iiitd.edu.in/raghava/hemolytik2/Hemolytik2_complete_data.csv",
+    "sha256": "60ea939eab999a375eb0b132afdce3f5ba0e21c753e32b50296df9b265647c42",
+    "rows": 13215,
+    "columns": [
+      "id",
+      "pmid",
+      "year",
+      "seq",
+      "MAP",
+      "name",
+      "cter",
+      "nter",
+      "lyn_cyc",
+      "ldmix",
+      "non_nat",
+      "len",
+      "nature",
+      "activity",
+      "source",
+      "origin",
+      "exp_str",
+      "non_hem",
+      "dssp",
+      "smiles"
+    ],
+    "role": "reused local official database cache; lacks paired MIC fields; no same-PMID-only joins"
+  }
+]

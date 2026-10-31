@@ -1,0 +1,149 @@
+{
+  "artifact_type": "prottox_3d_distill_promotion_report",
+  "decision_target": "retained TriStat-MLP",
+  "controls": {
+    "mlp": {
+      "20260905": {
+        "mcc": 0.8157720085500801,
+        "auprc": 0.9292699328792449,
+        "brier": 0.05931004665788307
+      },
+      "20260906": {
+        "mcc": 0.8197692926997581,
+        "auprc": 0.928343043869422,
+        "brier": 0.05892502925086187
+      }
+    },
+    "proxy_no_kd_structguide": {
+      "20260905": {
+        "mcc": 0.8079856703508863,
+        "auprc": 0.9260588894462524,
+        "brier": 0.0681259378856622
+      },
+      "20260906": {
+        "mcc": 0.8125912856525279,
+        "auprc": 0.927360847595755,
+        "brier": 0.06817315374120453
+      }
+    }
+  },
+  "arms": {
+    "proxy_teacher_kd": {
+      "oof_metrics_by_seed": {
+        "20260905": {
+          "mcc": 0.8217327295664529,
+          "auprc": 0.9402782199279339,
+          "brier": 0.061129250307504775
+        },
+        "20260906": {
+          "mcc": 0.8274650118368378,
+          "auprc": 0.9400435643572894,
+          "brier": 0.06017636156785023
+        }
+      },
+      "delta_vs_retained_mlp": {
+        "20260905": {
+          "mcc": 0.005960721016372794,
+          "auprc": 0.011008287048689058,
+          "brier": 0.001819203649621702
+        },
+        "20260906": {
+          "mcc": 0.007695719137079782,
+          "auprc": 0.011700520487867405,
+          "brier": 0.00125133231698836
+        }
+      },
+      "mean_delta_vs_retained_mlp": {
+        "mcc": 0.006828220076726288,
+        "auprc": 0.011354403768278232,
+        "brier": 0.001535267983305031
+      },
+      "delta_vs_structguide_proxy_no_kd": {
+        "20260905": {
+          "mcc": 0.013747059215566626,
+          "auprc": 0.014219330481681558,
+          "brier": -0.006996687578157419
+        },
+        "20260906": {
+          "mcc": 0.014873726184309932,
+          "auprc": 0.01268271676153443,
+          "brier": -0.007996792173354299
+        }
+      },
+      "mean_delta_vs_structguide_proxy_no_kd": {
+        "mcc": 0.014310392699938279,
+        "auprc": 0.013451023621607994,
+        "brier": -0.007496739875755859
+      },
+      "gate_vs_retained_mlp": {
+        "both_seeds_mcc_not_lower": true,
+        "minimum_mean_mcc_advantage": true,
+        "maximum_mean_auprc_decline": true,
+        "maximum_mean_brier_increase": true
+      }
+    },
+    "mlp_teacher_kd": {
+      "oof_metrics_by_seed": {
+        "20260905": {
+          "mcc": 0.8270574109207646,
+          "auprc": 0.9417230108345334,
+          "brier": 0.05850796699737459
+        },
+        "20260906": {
+          "mcc": 0.8239210281117296,
+          "auprc": 0.9417264536476598,
+          "brier": 0.059430712607837416
+        }
+      },
+      "delta_vs_retained_mlp": {
+        "20260905": {
+          "mcc": 0.011285402370684428,
+          "auprc": 0.012453077955288494,
+          "brier": -0.0008020796605084854
+        },
+        "20260906": {
+          "mcc": 0.004151735411971558,
+          "auprc": 0.01338340977823782,
+          "brier": 0.0005056833569755462
+        }
+      },
+      "mean_delta_vs_retained_mlp": {
+        "mcc": 0.007718568891327993,
+        "auprc": 0.012918243866763157,
+        "brier": -0.0001481981517664696
+      },
+      "delta_vs_structguide_proxy_no_kd": {
+        "20260905": {
+          "mcc": 0.01907174056987826,
+          "auprc": 0.015664121388280994,
+          "brier": -0.009617970888287607
+        },
+        "20260906": {
+          "mcc": 0.011329742459201708,
+          "auprc": 0.014365606051904845,
+          "brier": -0.008742441133367113
+        }
+      },
+      "mean_delta_vs_structguide_proxy_no_kd": {
+        "mcc": 0.015200741514539984,
+        "auprc": 0.01501486372009292,
+        "brier": -0.00918020601082736
+      },
+      "gate_vs_retained_mlp": {
+        "both_seeds_mcc_not_lower": true,
+        "minimum_mean_mcc_advantage": true,
+        "maximum_mean_auprc_decline": true,
+        "maximum_mean_brier_increase": true
+      }
+    }
+  },
+  "primary_candidate": "proxy_teacher_kd",
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "decision": "promote_proxy_teacher_kd",
+  "gate_checks": {
+    "both_seeds_mcc_not_lower": true,
+    "minimum_mean_mcc_advantage": true,
+    "maximum_mean_auprc_decline": true,
+    "maximum_mean_brier_increase": true
+  }
+}

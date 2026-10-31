@@ -1,0 +1,94 @@
+{
+  "evaluate.py": {
+    "bytes": 4991,
+    "sha256": "5d1fe0fa87bae1dd1328107391e1d28e71bd47aa930c830dcf5df52e3698de28"
+  },
+  "README.md": {
+    "bytes": 5359,
+    "sha256": "6476733d10e1977d0de5ab18a8ea7ab1600a88da86095016813bb24aa62eb2eb"
+  },
+  "requirements.txt": {
+    "bytes": 80,
+    "sha256": "c46b697c7032824ff7aa4ac610a645a2454b664a77acb0972280e5171c033b2a"
+  },
+  "run_all.sh": {
+    "bytes": 1393,
+    "sha256": "5bc8cbd95c137b0e9bf3b6e23904af36a3d455854c84b3a8a13f2bcff38987d5"
+  },
+  "sampling.py": {
+    "bytes": 1951,
+    "sha256": "1f69d1faf576f5785a203e66ac34fb07601c805ccd9fec759253e6f1318fc5e9"
+  },
+  "train.py": {
+    "bytes": 6545,
+    "sha256": "2d9106eafd3c0f52ccf8058d30be3aad7bdd3d9f6863ed8cc40542a8e5a18f11"
+  },
+  "validate_inputs.py": {
+    "bytes": 1010,
+    "sha256": "1f2178cc1111f76b0b12216a48eaa1279c26cd9d5dc2ed9506f175a8ea593f31"
+  },
+  "configs/historical_model.json": {
+    "bytes": 656,
+    "sha256": "cf715a70d84de02a0c7df513f657426757ebcb51f59c0068b8fe1dffaa854f14"
+  },
+  "configs/model.json": {
+    "bytes": 629,
+    "sha256": "ae7ccd7afe996390f7d6f7f913f9d87f9bb6db15884b0a5c7966186b3fb81a7e"
+  },
+  "data/annotations.json": {
+    "bytes": 1029374,
+    "sha256": "d440f83433f7e08f550edcdd368db875b8de0b98c789e70c979d5260a6037a6d"
+  },
+  "data/folds.csv": {
+    "bytes": 461697,
+    "sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4"
+  },
+  "data/structure_oof.csv": {
+    "bytes": 1062931,
+    "sha256": "13aa080dea07af24945c89115575b592cc74106204e34741d6cdbb0f8ea05dc0"
+  },
+  "data/test1_structure.csv": {
+    "bytes": 86134,
+    "sha256": "01f8d1669a3beb1c1f231044edd908622490fbbcaf1f988858bb62d3b1729a13"
+  },
+  "data/test2_structure.csv": {
+    "bytes": 46446,
+    "sha256": "65393bafb6af711e7a303ea6c3f501833e5c7594f144956832a3d7d9c29ffa18"
+  },
+  "reference/oof_seed123.json": {
+    "bytes": 394165,
+    "sha256": "34821366963b499bff4b6af1a2e6f6c6703d5880f478e82b471974f35b791d7b"
+  },
+  "reference/oof_seed2025.json": {
+    "bytes": 395731,
+    "sha256": "d4b730685eca50cf2ab1d8e8c4d7ee939c676d764b60903435711186de4ecb88"
+  },
+  "reference/oof_seed42.json": {
+    "bytes": 396839,
+    "sha256": "bd6d2c6e8d63b5905affb1db12398211d6d1c600a9c3aaf326f431b0d6445937"
+  },
+  "reference/test1_original.csv": {
+    "bytes": 90794,
+    "sha256": "73f1f65270219d7570003d1007a28fb9d3cb7567e279672a45a37edefcab67e3"
+  },
+  "reference/test1_reproduction_audit.json": {
+    "bytes": 349,
+    "sha256": "427f0db432a1dae83a187338957320a3bc29cf3355c06cc9ee4f3a30cf8a1fb9"
+  },
+  "reference/test2_original.csv": {
+    "bytes": 50089,
+    "sha256": "5a5bc243dd849d98be04631842cb49fb463d72bb61df7f0c808a46f6fd2906bf"
+  },
+  "reference/test2_reproduction_audit.json": {
+    "bytes": 347,
+    "sha256": "1d5db777cb5af76ae371b0d08bbb7af362f2a26279a01ca31d668c5cc5b2a668"
+  },
+  "src/ghxtox/lora_mamba_1d.py": {
+    "bytes": 43076,
+    "sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5"
+  },
+  "src/ghxtox/__init__.py": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "scope": "discovery",
+    "feature": "local_positive_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": 0.005555555555555564,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "discovery",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.041269841269841345,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "discovery",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.027084565957568363,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "discovery",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.06371953486858772,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "discovery",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.11030487606744688,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "discovery",
+    "feature": "mean_plddt",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": 0.0056147579999999975,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "local_positive_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.13242236024844722,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.10111801242236018,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": 0.18973696699367262,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": 0.11595771378380071,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": 0.37476445845664896,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  },
+  {
+    "scope": "internal_replication",
+    "feature": "mean_plddt",
+    "n_pairs": 1,
+    "mean_FN_minus_TP": -0.046293974000000016,
+    "ci_low": null,
+    "ci_high": null,
+    "sign_flip_p": 1.0,
+    "BH_q_all12": 1.0
+  }
+]

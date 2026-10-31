@@ -1,0 +1,65 @@
+{
+  "arm": "no_lora",
+  "smoke_only": true,
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.8106283247470856,
+      "validation_unweighted_BCE": 0.9491134583950043,
+      "successful_optimizer_steps": 2,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6d404aa79f5cac2c70c6124a479fd589a50f9fc48b6eadd3c2443d867ed9a005",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 4.2152159214019775
+    }
+  ],
+  "selected_epoch": 1,
+  "validation_BCE": 0.9491134583950043,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 0,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 0.0003
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "9c23749f02adb5a0c57053763f180b1f1a567ed6af8a84ff27e6df4c13beaf49"
+}

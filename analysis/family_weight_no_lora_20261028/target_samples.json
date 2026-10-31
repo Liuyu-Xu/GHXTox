@@ -1,0 +1,90 @@
+[
+  {
+    "sample_id": "peptide_102",
+    "group_id": "reference_000097",
+    "parent_family": [
+      "belongs to the mcd family"
+    ],
+    "uniform_flag": 0,
+    "probabilities": {
+      "A": {
+        "sequence": 0.02060285066658955,
+        "fusion": 0.014838393645192476
+      },
+      "B": {
+        "sequence": 0.05124361610100691,
+        "fusion": 0.036899744757972974
+      },
+      "C": {
+        "sequence": 0.038874076749247324,
+        "fusion": 0.027993676424706074
+      }
+    }
+  },
+  {
+    "sample_id": "peptide_228",
+    "group_id": "reference_000221",
+    "parent_family": [
+      "belongs to the mcd family"
+    ],
+    "uniform_flag": 0,
+    "probabilities": {
+      "A": {
+        "sequence": 0.047466634383915775,
+        "fusion": 0.06072909201641936
+      },
+      "B": {
+        "sequence": 0.07343627775839577,
+        "fusion": 0.07942723524604495
+      },
+      "C": {
+        "sequence": 0.06189991264839765,
+        "fusion": 0.07112105236684631
+      }
+    }
+  },
+  {
+    "sample_id": "peptide_259",
+    "group_id": "reference_000252",
+    "parent_family": [
+      "belongs to the non-disulfide-bridged peptide (ndbp) superfamily"
+    ],
+    "uniform_flag": 0,
+    "probabilities": {
+      "A": {
+        "sequence": 0.10512419156321777,
+        "fusion": 0.1018295272215168
+      },
+      "B": {
+        "sequence": 0.08376593300271684,
+        "fusion": 0.08645158105795613
+      },
+      "C": {
+        "sequence": 0.2213294920763593,
+        "fusion": 0.1854973435909787
+      }
+    }
+  },
+  {
+    "sample_id": "peptide_383",
+    "group_id": "reference_000374",
+    "parent_family": [
+      "belongs to the mcd family"
+    ],
+    "uniform_flag": 0,
+    "probabilities": {
+      "A": {
+        "sequence": 0.10406345573478873,
+        "fusion": 0.07533275614144788
+      },
+      "B": {
+        "sequence": 0.18267883929393078,
+        "fusion": 0.13193583230403017
+      },
+      "C": {
+        "sequence": 0.13583747113442546,
+        "fusion": 0.09821004722918632
+      }
+    }
+  }
+]

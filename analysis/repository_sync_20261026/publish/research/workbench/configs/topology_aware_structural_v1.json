@@ -1,0 +1,26 @@
+{
+  "status": "implementation_template_not_frozen_for_training",
+  "scope": "training_oof_only",
+  "processed_train": "REPLACE_WITH_TRAINING_CACHE.pt",
+  "training_data_sha256": "REQUIRED",
+  "fold_manifest": "REPLACE_WITH_GROUP_FOLD_MANIFEST.csv",
+  "fold_manifest_sha256": "REQUIRED",
+  "checkpoints": [],
+  "checkpoint_selection": "fixed_epochs",
+  "seed": 42,
+  "epochs": 5,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "threshold": 0.5,
+  "variants": ["local", "matching", "topology", "null"],
+  "model_overrides": {
+    "topology_max_distance": 8.0,
+    "topology_max_candidates": 8,
+    "topology_temperature": 1.0
+  },
+  "stability_repeats": 3,
+  "stability_sigma": 0.5,
+  "bootstrap_resamples": 1000,
+  "promotion_rule": null
+}

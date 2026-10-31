@@ -1,0 +1,121 @@
+{
+  "arm": "no_lora",
+  "smoke_only": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.48733875074041144,
+      "validation_unweighted_BCE": 0.2625027809157991,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "2be8d93e84cd15e24ec04ce48e86ae27431571f6395c7c2bfba6bd11c0ef8813",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 84.76585936546326
+    },
+    {
+      "epoch": 2,
+      "train_weighted_BCE": 0.3718426930507968,
+      "validation_unweighted_BCE": 0.24156673954499533,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "3ec7b3704534082f527cebf8db3006b0d71fc827d5d9e2aee06721fa943f218b",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 167.34835720062256
+    },
+    {
+      "epoch": 3,
+      "train_weighted_BCE": 0.31546938004241076,
+      "validation_unweighted_BCE": 0.2345687768455589,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "775ea57c376a8f3cf0f553c8b9508b08339d6109d238d565d90bb1bf4cf4bed7",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 249.23179578781128
+    },
+    {
+      "epoch": 4,
+      "train_weighted_BCE": 0.2717689061043334,
+      "validation_unweighted_BCE": 0.2356179353776672,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6af7763b7583af4da32c0b61b5c7fe4b5cd7a8163380e2428d4e9be4dbf09902",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 330.99333572387695
+    },
+    {
+      "epoch": 5,
+      "train_weighted_BCE": 0.23333917037104832,
+      "validation_unweighted_BCE": 0.23476365502451507,
+      "successful_optimizer_steps": 237,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "94f604556ac84d94aa4a7dae94b83d82155c2492536e24b1a0a2c6ef226e8d42",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 414.07872915267944
+    }
+  ],
+  "selected_epoch": 3,
+  "validation_BCE": 0.2345687768455589,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 0,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 0.0003
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "9c23749f02adb5a0c57053763f180b1f1a567ed6af8a84ff27e6df4c13beaf49"
+}

@@ -1,0 +1,7 @@
+# 化学方向执行状态
+
+子Agent在生成报告时被系统安全审查中止，未交付完整机制分析报告。不能将本目录中下载/检查脚本视作最终已审核结论。
+
+主Agent已在analysis/hemolysis_three_direction_review_20261026/独立核对19个比较块的记录一致性、7个状态对/7骨架/6来源PMID、相同非空SMILES，以及其中一篇原文9个直接百分比对照块。仅为数据质量复核，无活性优化或分子设计结论。
+
+请阅读上级三方向汇总REPORT.md、chemistry_metadata_parent_verification.json及endpoint_table_parent_check.json。

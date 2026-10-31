@@ -1,0 +1,226 @@
+{
+  "sample_sequence_label_outerfold_group_alignment": true,
+  "n": 6387,
+  "groups": 5258,
+  "saved_SaProt_models_membership_audited": [
+    {
+      "mode": "masked",
+      "seed": 20261026,
+      "fold": 0,
+      "train_n": 5116,
+      "test_n": 1271,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold0_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261026,
+      "fold": 1,
+      "train_n": 5158,
+      "test_n": 1229,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold1_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261026,
+      "fold": 2,
+      "train_n": 5114,
+      "test_n": 1273,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold2_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261026,
+      "fold": 3,
+      "train_n": 5096,
+      "test_n": 1291,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold3_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261026,
+      "fold": 4,
+      "train_n": 5064,
+      "test_n": 1323,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold4_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261027,
+      "fold": 0,
+      "train_n": 5116,
+      "test_n": 1271,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold0_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261027,
+      "fold": 1,
+      "train_n": 5158,
+      "test_n": 1229,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold1_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261027,
+      "fold": 2,
+      "train_n": 5114,
+      "test_n": 1273,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold2_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261027,
+      "fold": 3,
+      "train_n": 5096,
+      "test_n": 1291,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold3_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "masked",
+      "seed": 20261027,
+      "fold": 4,
+      "train_n": 5064,
+      "test_n": 1323,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold4_SaProt_only_masked.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261026,
+      "fold": 0,
+      "train_n": 5116,
+      "test_n": 1271,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold0_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261026,
+      "fold": 1,
+      "train_n": 5158,
+      "test_n": 1229,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold1_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261026,
+      "fold": 2,
+      "train_n": 5114,
+      "test_n": 1273,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold2_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261026,
+      "fold": 3,
+      "train_n": 5096,
+      "test_n": 1291,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold3_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261026,
+      "fold": 4,
+      "train_n": 5064,
+      "test_n": 1323,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261026_fold4_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261027,
+      "fold": 0,
+      "train_n": 5116,
+      "test_n": 1271,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold0_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261027,
+      "fold": 1,
+      "train_n": 5158,
+      "test_n": 1229,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold1_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261027,
+      "fold": 2,
+      "train_n": 5114,
+      "test_n": 1273,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold2_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261027,
+      "fold": 3,
+      "train_n": 5096,
+      "test_n": 1291,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold3_SaProt_only_3Di.pt"
+    },
+    {
+      "mode": "3Di",
+      "seed": 20261027,
+      "fold": 4,
+      "train_n": 5064,
+      "test_n": 1323,
+      "train_test_group_disjoint": true,
+      "checkpoint": "D:\\dachuang2026\\GHXTox\\analysis\\saprot_standalone_20261026\\checkpoints\\20261027_fold4_SaProt_only_3Di.pt"
+    }
+  ],
+  "new_structure_roles": {
+    "0": {
+      "train": 3789,
+      "validation": 639,
+      "calibration": 688,
+      "test": 1271
+    },
+    "1": {
+      "train": 3866,
+      "validation": 659,
+      "calibration": 633,
+      "test": 1229
+    },
+    "2": {
+      "train": 3806,
+      "validation": 630,
+      "calibration": 678,
+      "test": 1273
+    },
+    "3": {
+      "train": 3794,
+      "validation": 662,
+      "calibration": 640,
+      "test": 1291
+    },
+    "4": {
+      "train": 3773,
+      "validation": 658,
+      "calibration": 633,
+      "test": 1323
+    }
+  },
+  "source_caveats": [
+    "Old full predictions used global OOF calibration/selection and repeated development.",
+    "New structure has inner train/validation/calibration roles; SaProt used all other outer folds for fixed20epoch fitting: not same training budget.",
+    "New fusion reused original sequence OOF. Original inner-calibration-row sequence predictors may have trained on current outer fold; original training memberships unavailable for full forensic verification. Do not call new fusion fully independent nested validation.",
+    "New global study candidates already chosen using development data; new withinfold calibration does not remove historical use.",
+    "No equivalent extra full-GHXTox-member or six-sequence-seed saved control supplied; cannot rule out ensemble size."
+  ]
+}

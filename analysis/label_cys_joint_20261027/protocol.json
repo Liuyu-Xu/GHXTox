@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-27",
+  "scope": "reuse 6387 frozen sample/prediction registry and archived evidence, no Test recalculation or new model inference",
+  "primary_concern": "any_fragment_match OR cross_source_label_disagreement, inherited all-population operational flag; not label error",
+  "reliability_tiers": ["original_label_endpoint_and_molecular_identity_verified", "recorded_review_concern_not_proven_error", "insufficient_original_label_provenance_or_not_individually_reviewed"],
+  "strict_reliable_requirement": "original binary labeling rule/endpoint traceable AND exact tested molecular/chemical identity and experimental evidence aligned; cannot substitute current keyword, absence of flag or model agreement",
+  "manual_review_use": "descriptive sidecar only; 36-case ascertainment biased toward errors; not added to uniform primary marker or used as reliability weight",
+  "direct_effect_candidates": "archived 4 records support specific effects, not original toxicity endpoint/label gold",
+  "physical_strata": "original label 0/1 crossed with Cys<4/Cys>=4, retain all four",
+  "statistical_scope": "historical exploratory association, not newly held-out hypothesis confirmation or causal shortcut proof",
+  "conditional_model": "separate by original label/version: error ~ difficult_Cys_stratum + fragment + cross_source_conflict(if variable) + length spline(df=3) + heldout fold + unresolved_identity(if variable); sequence-group cluster sandwich CI; report coverage, do not claim source or family adjusted",
+  "difficult_Cys_stratum": "label1 Cys<4; label0 Cys>=4",
+  "family_source_constraint": "audit full provenance and within-group overlap; curated/name annotations are sparse/error-ascertained, no missing-family imputation as confirmed adjustment",
+  "no_change": ["labels", "dataset membership", "weights", "thresholds", "OOF folds", "NN parameters"],
+  "training_readiness": "no numerical reliability weighting until evidential coverage adequate and training/evaluation isolated"
+}

@@ -1,0 +1,37 @@
+{
+  "artifact_type": "prottox_struct_guide_promotion_report",
+  "controls": {
+    "baseline": "retained TriStat-MLP",
+    "toxicity_only_control": "same architecture and parameter count; auxiliary Huber target loss disabled"
+  },
+  "decision": "retain_as_ablation",
+  "frozen_rule": {
+    "both_seeds_mcc_not_lower": true,
+    "maximum_mean_auprc_decline": 0.002,
+    "maximum_mean_brier_increase": 0.002,
+    "minimum_mean_mcc_advantage": 0.005
+  },
+  "mean_delta": {
+    "auprc_delta": -0.002096619853329762,
+    "brier_delta": 0.00903200785906089,
+    "candidate_minus_control_mcc": 0.002815640899317684,
+    "mcc_delta": -0.007482172623211991
+  },
+  "paired_deltas": [
+    {
+      "auprc_delta": -0.0032110434329924997,
+      "brier_delta": 0.008815891227779121,
+      "candidate_minus_control_mcc": 0.005401176805024166,
+      "mcc_delta": -0.007786338199193832,
+      "seed": 20260905
+    },
+    {
+      "auprc_delta": -0.0009821962736670242,
+      "brier_delta": 0.009248124490342659,
+      "candidate_minus_control_mcc": 0.00023010499361120207,
+      "mcc_delta": -0.0071780070472301505,
+      "seed": 20260906
+    }
+  ],
+  "selection_scope": "paired training OOF only; Test1/Test2 excluded"
+}

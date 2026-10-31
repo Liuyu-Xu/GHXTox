@@ -1,0 +1,82 @@
+{
+  "all": {
+    "B": {
+      "corrected": 69,
+      "harmed": 207
+    },
+    "C": {
+      "corrected": 45,
+      "harmed": 74
+    }
+  },
+  "low": {
+    "B": {
+      "corrected": 23,
+      "harmed": 102
+    },
+    "C": {
+      "corrected": 20,
+      "harmed": 38
+    }
+  },
+  "middle": {
+    "B": {
+      "corrected": 36,
+      "harmed": 76
+    },
+    "C": {
+      "corrected": 20,
+      "harmed": 22
+    }
+  },
+  "high": {
+    "B": {
+      "corrected": 10,
+      "harmed": 29
+    },
+    "C": {
+      "corrected": 5,
+      "harmed": 14
+    }
+  },
+  "low_positive": {
+    "B": {
+      "corrected": 3,
+      "harmed": 74
+    },
+    "C": {
+      "corrected": 2,
+      "harmed": 29
+    }
+  },
+  "high_negative": {
+    "B": {
+      "corrected": 8,
+      "harmed": 15
+    },
+    "C": {
+      "corrected": 4,
+      "harmed": 8
+    }
+  },
+  "flagged": {
+    "B": {
+      "corrected": 37,
+      "harmed": 88
+    },
+    "C": {
+      "corrected": 25,
+      "harmed": 38
+    }
+  },
+  "unflagged_not_gold": {
+    "B": {
+      "corrected": 32,
+      "harmed": 119
+    },
+    "C": {
+      "corrected": 20,
+      "harmed": 36
+    }
+  }
+}

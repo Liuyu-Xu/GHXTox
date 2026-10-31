@@ -1,0 +1,56 @@
+{
+  "n_total": 6387,
+  "original_errors": 327,
+  "anchors": [
+    "peptide_249",
+    "peptide_463",
+    "peptide_94",
+    "peptide_1434"
+  ],
+  "excluded_anchor_groups": [
+    "reference_000090",
+    "reference_000242",
+    "reference_000450"
+  ],
+  "n_in_anchor_groups": 6,
+  "function_annotation_available": 3650,
+  "cohorts": {
+    "sequence_neighbor": {
+      "all_n": 134,
+      "without_anchor_groups_n": 128,
+      "original_positive_n": 27,
+      "original_negative_n": 107
+    },
+    "physicochemical": {
+      "all_n": 521,
+      "without_anchor_groups_n": 517,
+      "original_positive_n": 24,
+      "original_negative_n": 497
+    },
+    "annotation_mention": {
+      "all_n": 305,
+      "without_anchor_groups_n": 300,
+      "original_positive_n": 77,
+      "original_negative_n": 228
+    },
+    "union": {
+      "all_n": 807,
+      "without_anchor_groups_n": 801,
+      "original_positive_n": 104,
+      "original_negative_n": 703
+    },
+    "physicochemical_non_neighbor": {
+      "all_n": 449,
+      "without_anchor_groups_n": 449,
+      "original_positive_n": 13,
+      "original_negative_n": 436
+    }
+  },
+  "matching": {
+    "eligible_FN": 12,
+    "eligible_TP": 9,
+    "matched_pairs": 2,
+    "unique_groups": 4
+  },
+  "stable_features": []
+}

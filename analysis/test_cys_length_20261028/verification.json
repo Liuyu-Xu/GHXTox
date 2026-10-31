@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "inputs": {
+    "D:\\dachuang2026\\GHXTox\\runs\\default_multidimensional_fusion_single_structure\\test1_predictions.csv": "73f1f65270219d7570003d1007a28fb9d3cb7567e279672a45a37edefcab67e3",
+    "D:\\dachuang2026\\GHXTox\\runs\\single_structure_test_components\\test1_structure_predictions.csv": "01f8d1669a3beb1c1f231044edd908622490fbbcaf1f988858bb62d3b1729a13",
+    "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test1_sample_audit.csv": "7a0933dbaf6f1a76d9a3812c0ba4e3498b74e96b3b5c177750b5c5435f38dd8c",
+    "D:\\dachuang2026\\GHXTox\\runs\\default_multidimensional_fusion_single_structure\\test2_predictions.csv": "5a5bc243dd849d98be04631842cb49fb463d72bb61df7f0c808a46f6fd2906bf",
+    "D:\\dachuang2026\\GHXTox\\runs\\single_structure_test_components\\test2_structure_predictions.csv": "65393bafb6af711e7a303ea6c3f501833e5c7594f144956832a3d7d9c29ffa18",
+    "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test2_sample_audit.csv": "5447670c2b96381be5a335f8ecf63c240ef6f9588548817c0c7b03be2b3313e0"
+  },
+  "sample_alignment_verified": true,
+  "prediction_threshold_verified": true,
+  "test2_sequence_subset_of_test1": true,
+  "no_model_training": true,
+  "test_sets_previously_examined_not_blind": true,
+  "no_multiple_testing_claim": true
+}

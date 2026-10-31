@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "folds": [
+    {
+      "fold": 0,
+      "test_n": 1271,
+      "same_initial_head_and_order": true,
+      "no_lora": true,
+      "amp_skips": 0,
+      "weighted_train_n": 269,
+      "weighted_train_flagged": 128,
+      "weighted_epochs": 7,
+      "base_epochs": 5
+    },
+    {
+      "fold": 1,
+      "test_n": 1229,
+      "same_initial_head_and_order": true,
+      "no_lora": true,
+      "amp_skips": 0,
+      "weighted_train_n": 260,
+      "weighted_train_flagged": 115,
+      "weighted_epochs": 6,
+      "base_epochs": 6
+    },
+    {
+      "fold": 2,
+      "test_n": 1273,
+      "same_initial_head_and_order": true,
+      "no_lora": true,
+      "amp_skips": 0,
+      "weighted_train_n": 254,
+      "weighted_train_flagged": 118,
+      "weighted_epochs": 6,
+      "base_epochs": 6
+    },
+    {
+      "fold": 3,
+      "test_n": 1291,
+      "same_initial_head_and_order": true,
+      "no_lora": true,
+      "amp_skips": 0,
+      "weighted_train_n": 251,
+      "weighted_train_flagged": 120,
+      "weighted_epochs": 7,
+      "base_epochs": 5
+    },
+    {
+      "fold": 4,
+      "test_n": 1323,
+      "same_initial_head_and_order": true,
+      "no_lora": true,
+      "amp_skips": 0,
+      "weighted_train_n": 263,
+      "weighted_train_flagged": 117,
+      "weighted_epochs": 5,
+      "base_epochs": 4
+    }
+  ],
+  "unique_oof_samples": 6387,
+  "primary_followup_folds": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "previously_inspected_fold3_reported_separately": true,
+  "not_blind_external": true,
+  "three_seed_full_ensemble_not_trained": true,
+  "Test1_Test2_unused": true,
+  "baseline_source_hash_diff": "previous baseline before LoRA removal compatibility change; same initial head and epoch order, same no-LoRA train path, settings and roles verified",
+  "confidence_interval_scope": "paired group bootstrap fixed predictions, grouped within folds; excludes training and selection uncertainty"
+}

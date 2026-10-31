@@ -1,0 +1,32 @@
+[
+  {
+    "fold": 0,
+    "train_n": 5116,
+    "valid_n": 1271,
+    "valid_errors": 55
+  },
+  {
+    "fold": 1,
+    "train_n": 5158,
+    "valid_n": 1229,
+    "valid_errors": 79
+  },
+  {
+    "fold": 2,
+    "train_n": 5114,
+    "valid_n": 1273,
+    "valid_errors": 68
+  },
+  {
+    "fold": 3,
+    "train_n": 5096,
+    "valid_n": 1291,
+    "valid_errors": 54
+  },
+  {
+    "fold": 4,
+    "train_n": 5064,
+    "valid_n": 1323,
+    "valid_errors": 71
+  }
+]

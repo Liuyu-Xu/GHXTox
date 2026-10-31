@@ -1,0 +1,17 @@
+{
+ "user_request":"2026-10-27 screenshot: A original ineffective-LoRA training; B repairedLoRA otherwise matched; C repairedLoRA + difficult-group weighting. MCD/NDBP-specific boost deferred.",
+ "stage":"one fixed outerfold0, seed42, 3 arms,15epochs each; first directional experiment, not complete5fold or 3seed ensemble",
+ "A":"original reentrant checkpointing with frozen embeddings; LoRA_B expected no gradient and zero increments, BiMamba/classifier trains",
+ "B":"fixed non-reentrant checkpointing; extra sample weights all1",
+ "C":"same repair asB; original label1 and Cys<4 extra weight1.5, others1; no family extra factor, no reliability scoring",
+ "same_conditions":"same pretrained ProtT5 base, same initial trainable parameter tensors, same batch order/RNG seeds, same original architecture and native config15epochs,batch16,AdamW lr.0003 wd.01,fp16; original train-only class pos_weight same across arms",
+ "common_adaptations_vs_historical_training":"A reproduces the old gradient mechanism, NOT a bitwise historical-paper replication. All arms share archived nested train/validation/calibration roles, minimum validationBCE checkpoint selection rather than blindly last epoch, gradient clip1.0, AMP initial scale128, and explicitly deterministic per-epoch batch permutations. These are identical across A/B/C; do not compare newA absolute metrics to historical final ensemble.",
+ "roles":"frozen existing outerfold0 train/validation/calibration/test, sequence-group isolated; additional weights only train role",
+ "selection":"all15epochs run. Minimum unweighted validationBCE checkpoint per arm, identical rule; scalar Platt on own calibration role, threshold0.5 fixed",
+ "full_fusion":"single newly trained 1D member + same archived3D OOF p_struct, fixed.72/.28 and historicalthreshold.47022256531284556. Conditional diagnostic only; NOT published3seed ensemble or fully nested blind pipeline",
+ "primary_contrasts":["B-A repair effect","C-B extra difficulty weighting effect"],
+ "guard":"A must keep LoRA_B zero; B/C must have LoRA gradients and real updated B weights; frozen base no gradients. Abort on OOM or broken gradient rather than silently train surrogate.",
+ "evidence":"Original labels/flags unchanged; unflagged not gold; all physical strata, flagged/unflagged and targetfamilies reported, no test-set tuning",
+ "no_external_Test1_Test2":true,
+ "past_artifacts":"Old group_weight_trial_20261027 preserved as previous hypothesis/preflight, not mixed with current A/B/C nomenclature"
+}

@@ -1,0 +1,142 @@
+{
+  "all": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 4,
+      "harmed": 5
+    },
+    "C_joint": {
+      "corrected": 5,
+      "harmed": 13
+    }
+  },
+  "low_cys_positive": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 1,
+      "harmed": 0
+    }
+  },
+  "high_cys_negative": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 4,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 4,
+      "harmed": 0
+    }
+  },
+  "middle_cys": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 0,
+      "harmed": 1
+    }
+  },
+  "flagged": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 1,
+      "harmed": 1
+    },
+    "C_joint": {
+      "corrected": 1,
+      "harmed": 5
+    }
+  },
+  "unflagged_not_gold": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 3,
+      "harmed": 4
+    },
+    "C_joint": {
+      "corrected": 4,
+      "harmed": 8
+    }
+  },
+  "low_pos_flagged": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 0,
+      "harmed": 0
+    }
+  },
+  "low_pos_unflagged": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 1,
+      "harmed": 0
+    }
+  },
+  "high_neg_flagged": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 1,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 1,
+      "harmed": 0
+    }
+  },
+  "high_neg_unflagged": {
+    "B": {
+      "corrected": 0,
+      "harmed": 0
+    },
+    "C_fixed": {
+      "corrected": 3,
+      "harmed": 0
+    },
+    "C_joint": {
+      "corrected": 3,
+      "harmed": 0
+    }
+  }
+}

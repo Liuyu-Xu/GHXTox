@@ -1,0 +1,18 @@
+{
+  "n_pairs": 4,
+  "n_distinct_samples": 8,
+  "same_group_pairs": 3,
+  "same_label_pairs": 4,
+  "fold_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 1,
+    "3": 1,
+    "4": 2
+  },
+  "teacher_mean_gap": 0.0018463188945642762,
+  "teacher_max_gap": 0.007196601197175313,
+  "teacher_gap_ge025": 0,
+  "teacher_opposite_decisions": 0,
+  "scope": "all exactcomposition/samefold natural pairs, descriptive; not mechanism intervention"
+}

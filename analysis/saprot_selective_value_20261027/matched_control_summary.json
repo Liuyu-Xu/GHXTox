@@ -1,0 +1,416 @@
+{
+  "retained_records_before_dedup": 50,
+  "within_pair_unique_control_pairs": 38,
+  "globally_unique_case_control_pairs": 17,
+  "scope": "Existing lightweight-study matches reused only when source full/SaProt classes fit. Sparse outcome-selected coverage, not a fresh matched sample for entire population. No experimental endpoint equality established.",
+  "by_pair_and_class": {
+    "old_masked": {
+      "G_wrong_S_right": {
+        "unique_pairs": 5,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 2,
+        "sequence_only_pairs": 3,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -1.6,
+            "positive_pairs": 0,
+            "negative_pairs": 2
+          },
+          "mean_plddt": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.12006292920000002,
+            "positive_pairs": 3,
+            "negative_pairs": 2
+          },
+          "mean_hydropathy": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.6276048399953573,
+            "positive_pairs": 1,
+            "negative_pairs": 4
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.027290593456764618,
+            "positive_pairs": 2,
+            "negative_pairs": 3
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.029215454044123273,
+            "positive_pairs": 1,
+            "negative_pairs": 4
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.26146290535077527,
+            "positive_pairs": 2,
+            "negative_pairs": 3
+          }
+        }
+      },
+      "G_right_S_wrong": {
+        "unique_pairs": 2,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 1,
+        "sequence_only_pairs": 1,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": 0.0,
+            "positive_pairs": 0,
+            "negative_pairs": 0
+          },
+          "mean_plddt": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.03562018299999997,
+            "positive_pairs": 0,
+            "negative_pairs": 2
+          },
+          "mean_hydropathy": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.14190476190476192,
+            "positive_pairs": 1,
+            "negative_pairs": 1
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.02960133758612199,
+            "positive_pairs": 1,
+            "negative_pairs": 1
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.03372954983765547,
+            "positive_pairs": 0,
+            "negative_pairs": 2
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 1,
+            "missing_pairs": 1,
+            "mean": -0.04841599379454298,
+            "positive_pairs": 0,
+            "negative_pairs": 1
+          }
+        }
+      }
+    },
+    "old_3Di": {
+      "G_wrong_S_right": {
+        "unique_pairs": 4,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 2,
+        "sequence_only_pairs": 2,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -1.0,
+            "positive_pairs": 0,
+            "negative_pairs": 1
+          },
+          "mean_plddt": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -0.03925835325000003,
+            "positive_pairs": 3,
+            "negative_pairs": 1
+          },
+          "mean_hydropathy": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -0.6227872999941966,
+            "positive_pairs": 1,
+            "negative_pairs": 3
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -0.06566922308958073,
+            "positive_pairs": 1,
+            "negative_pairs": 3
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -0.031921616405728805,
+            "positive_pairs": 1,
+            "negative_pairs": 3
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 4,
+            "missing_pairs": 0,
+            "mean": -0.05046602103641326,
+            "positive_pairs": 2,
+            "negative_pairs": 2
+          }
+        }
+      },
+      "G_right_S_wrong": {
+        "unique_pairs": 7,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 1,
+        "sequence_only_pairs": 6,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.5714285714285714,
+            "positive_pairs": 0,
+            "negative_pairs": 3
+          },
+          "mean_plddt": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.07483938357142858,
+            "positive_pairs": 2,
+            "negative_pairs": 5
+          },
+          "mean_hydropathy": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.16013428255112627,
+            "positive_pairs": 2,
+            "negative_pairs": 5
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": 0.05803257221527758,
+            "positive_pairs": 3,
+            "negative_pairs": 4
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": 0.00027090472733749615,
+            "positive_pairs": 4,
+            "negative_pairs": 3
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.11213456135462178,
+            "positive_pairs": 3,
+            "negative_pairs": 4
+          }
+        }
+      }
+    },
+    "new_masked": {
+      "G_wrong_S_right": {
+        "unique_pairs": 7,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 4,
+        "sequence_only_pairs": 3,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": 0.0,
+            "positive_pairs": 0,
+            "negative_pairs": 0
+          },
+          "mean_plddt": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.02414616900000002,
+            "positive_pairs": 4,
+            "negative_pairs": 3
+          },
+          "mean_hydropathy": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.3445719741460465,
+            "positive_pairs": 2,
+            "negative_pairs": 5
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": -0.005370738857922663,
+            "positive_pairs": 3,
+            "negative_pairs": 4
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 7,
+            "missing_pairs": 0,
+            "mean": 0.020567848685963192,
+            "positive_pairs": 4,
+            "negative_pairs": 3
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 6,
+            "missing_pairs": 1,
+            "mean": -0.14499750353607768,
+            "positive_pairs": 3,
+            "negative_pairs": 3
+          }
+        }
+      },
+      "G_right_S_wrong": {
+        "unique_pairs": 2,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 1,
+        "sequence_only_pairs": 1,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": 0.0,
+            "positive_pairs": 0,
+            "negative_pairs": 0
+          },
+          "mean_plddt": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.03562018299999997,
+            "positive_pairs": 0,
+            "negative_pairs": 2
+          },
+          "mean_hydropathy": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.14190476190476192,
+            "positive_pairs": 1,
+            "negative_pairs": 1
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.02960133758612199,
+            "positive_pairs": 1,
+            "negative_pairs": 1
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 2,
+            "missing_pairs": 0,
+            "mean": -0.03372954983765547,
+            "positive_pairs": 0,
+            "negative_pairs": 2
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 1,
+            "missing_pairs": 1,
+            "mean": -0.04841599379454298,
+            "positive_pairs": 0,
+            "negative_pairs": 1
+          }
+        }
+      }
+    },
+    "new_3Di": {
+      "G_wrong_S_right": {
+        "unique_pairs": 5,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 3,
+        "sequence_only_pairs": 2,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": 0.0,
+            "positive_pairs": 0,
+            "negative_pairs": 0
+          },
+          "mean_plddt": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": 0.039228433799999976,
+            "positive_pairs": 4,
+            "negative_pairs": 1
+          },
+          "mean_hydropathy": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.20882770071195123,
+            "positive_pairs": 2,
+            "negative_pairs": 3
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": -0.014647133225657558,
+            "positive_pairs": 2,
+            "negative_pairs": 3
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 5,
+            "missing_pairs": 0,
+            "mean": 0.01555949151452662,
+            "positive_pairs": 3,
+            "negative_pairs": 2
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 4,
+            "missing_pairs": 1,
+            "mean": -0.36174298013567624,
+            "positive_pairs": 1,
+            "negative_pairs": 3
+          }
+        }
+      },
+      "G_right_S_wrong": {
+        "unique_pairs": 6,
+        "curated_family_pairs": 0,
+        "name_proxy_pairs": 0,
+        "sequence_only_pairs": 6,
+        "feature_case_minus_control": {
+          "cys_count": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": -1.3333333333333333,
+            "positive_pairs": 0,
+            "negative_pairs": 4
+          },
+          "mean_plddt": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": -0.10033192766666665,
+            "positive_pairs": 2,
+            "negative_pairs": 4
+          },
+          "mean_hydropathy": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": -0.06665827706588584,
+            "positive_pairs": 2,
+            "negative_pairs": 4
+          },
+          "hydrophobic_contact_excess": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": 0.08280190607643562,
+            "positive_pairs": 3,
+            "negative_pairs": 3
+          },
+          "positive_hydrophobic_contact_excess": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": -0.013778659122574652,
+            "positive_pairs": 3,
+            "negative_pairs": 3
+          },
+          "charge_hydrophobic_separation": {
+            "available_pairs": 6,
+            "missing_pairs": 0,
+            "mean": -0.4112298785694691,
+            "positive_pairs": 1,
+            "negative_pairs": 5
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "mode": "local_nonCys_shuffle",
+    "n": 763,
+    "mean_direct_physchem_probability_effect": 0.0,
+    "median_direct_physchem_probability_effect": 0.0,
+    "original_teacher_gap_direction_retained": 0.6494102228047182,
+    "changed_fraction": 0.6038276834575953
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "n": 763,
+    "mean_direct_physchem_probability_effect": 0.0,
+    "median_direct_physchem_probability_effect": 0.0,
+    "original_teacher_gap_direction_retained": 0.6081258191349934,
+    "changed_fraction": 0.8092958696379203
+  },
+  {
+    "mode": "Cys_relocation",
+    "n": 480,
+    "mean_direct_physchem_probability_effect": 0.006635808682591255,
+    "median_direct_physchem_probability_effect": 5.948784467446622e-05,
+    "original_teacher_gap_direction_retained": 0.61875,
+    "changed_fraction": 0.5471023178002241
+  },
+  {
+    "mode": "global_all_shuffle",
+    "n": 763,
+    "mean_direct_physchem_probability_effect": 0.0048941583439062065,
+    "median_direct_physchem_probability_effect": 0.0,
+    "original_teacher_gap_direction_retained": 0.5674967234600262,
+    "changed_fraction": 0.885696212679701
+  }
+]

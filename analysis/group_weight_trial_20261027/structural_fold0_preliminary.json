@@ -1,0 +1,35 @@
+{
+  "A": {
+    "n": 1271,
+    "conditional_fusion_MCC": 0.887274054376591,
+    "conditional_fusion_AUPRC": 0.9698383236639231,
+    "FN": 42,
+    "FP": 16,
+    "target_test_n": 3,
+    "target_FN": 3,
+    "seconds": 175.08234667778015,
+    "selected_epoch": 5
+  },
+  "B": {
+    "n": 1271,
+    "conditional_fusion_MCC": 0.8912368180267473,
+    "conditional_fusion_AUPRC": 0.9676655833952303,
+    "FN": 39,
+    "FP": 17,
+    "target_test_n": 3,
+    "target_FN": 2,
+    "seconds": 161.35830450057983,
+    "selected_epoch": 5
+  },
+  "C": {
+    "n": 1271,
+    "conditional_fusion_MCC": 0.8833419302923483,
+    "conditional_fusion_AUPRC": 0.9696163346739372,
+    "FN": 43,
+    "FP": 17,
+    "target_test_n": 3,
+    "target_FN": 3,
+    "seconds": 167.4898226261139,
+    "selected_epoch": 5
+  }
+}

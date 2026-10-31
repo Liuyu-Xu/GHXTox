@@ -1,0 +1,4460 @@
+{
+  "four_followup_folds": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 5096,
+          "groups": 4206,
+          "TP": 1234,
+          "TN": 3515,
+          "FP": 124,
+          "FN": 223,
+          "errors": 347,
+          "sensitivity": 0.846945778997941,
+          "specificity": 0.9659247045891729,
+          "MCC": 0.830754350381742,
+          "AUPRC": 0.9412802147736504,
+          "AUROC": 0.9710264365130065
+        },
+        "B": {
+          "n": 5096,
+          "groups": 4206,
+          "TP": 1223,
+          "TN": 3498,
+          "FP": 141,
+          "FN": 234,
+          "errors": 375,
+          "sensitivity": 0.8393960192175703,
+          "specificity": 0.9612530915086562,
+          "MCC": 0.8171184686344858,
+          "AUPRC": 0.9356095659162575,
+          "AUROC": 0.9670501240752822
+        },
+        "delta_MCC": -0.013635881747256162,
+        "delta_AUPRC": -0.005670648857392879,
+        "corrected": 61,
+        "harmed": 89,
+        "MCC_difference_95CI": [
+          -0.02726270977557147,
+          -0.001296769946204998
+        ],
+        "AUPRC_difference_95CI": [
+          -0.011932092840611364,
+          -2.7368355229683443e-05
+        ]
+      },
+      "fusion": {
+        "A": {
+          "n": 5096,
+          "groups": 4206,
+          "TP": 1261,
+          "TN": 3515,
+          "FP": 124,
+          "FN": 196,
+          "errors": 320,
+          "sensitivity": 0.8654770075497598,
+          "specificity": 0.9659247045891729,
+          "MCC": 0.8444255284972102,
+          "AUPRC": 0.9492309401761868,
+          "AUROC": 0.9741443973366393
+        },
+        "B": {
+          "n": 5096,
+          "groups": 4206,
+          "TP": 1260,
+          "TN": 3493,
+          "FP": 146,
+          "FN": 197,
+          "errors": 343,
+          "sensitivity": 0.8647906657515443,
+          "specificity": 0.9598790876614455,
+          "MCC": 0.8336716372455212,
+          "AUPRC": 0.9459132136892069,
+          "AUROC": 0.972404118201675
+        },
+        "delta_MCC": -0.010753891251689018,
+        "delta_AUPRC": -0.0033177264869799217,
+        "corrected": 49,
+        "harmed": 72,
+        "MCC_difference_95CI": [
+          -0.02176885297142609,
+          -0.00018306346587220945
+        ],
+        "AUPRC_difference_95CI": [
+          -0.00728151666061517,
+          0.00011553049833620816
+        ]
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 328,
+          "groups": 297,
+          "TP": 139,
+          "TN": 0,
+          "FP": 0,
+          "FN": 189,
+          "errors": 189,
+          "sensitivity": 0.42378048780487804,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 328,
+          "groups": 297,
+          "TP": 154,
+          "TN": 0,
+          "FP": 0,
+          "FN": 174,
+          "errors": 174,
+          "sensitivity": 0.4695121951219512,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 32,
+        "harmed": 17
+      },
+      "fusion": {
+        "A": {
+          "n": 328,
+          "groups": 297,
+          "TP": 156,
+          "TN": 0,
+          "FP": 0,
+          "FN": 172,
+          "errors": 172,
+          "sensitivity": 0.47560975609756095,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 328,
+          "groups": 297,
+          "TP": 174,
+          "TN": 0,
+          "FP": 0,
+          "FN": 154,
+          "errors": 154,
+          "sensitivity": 0.5304878048780488,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 28,
+        "harmed": 10
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 1129,
+          "groups": 913,
+          "TP": 1095,
+          "TN": 0,
+          "FP": 0,
+          "FN": 34,
+          "errors": 34,
+          "sensitivity": 0.9698848538529672,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 1129,
+          "groups": 913,
+          "TP": 1069,
+          "TN": 0,
+          "FP": 0,
+          "FN": 60,
+          "errors": 60,
+          "sensitivity": 0.9468556244464128,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 8,
+        "harmed": 34
+      },
+      "fusion": {
+        "A": {
+          "n": 1129,
+          "groups": 913,
+          "TP": 1105,
+          "TN": 0,
+          "FP": 0,
+          "FN": 24,
+          "errors": 24,
+          "sensitivity": 0.978742249778565,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 1129,
+          "groups": 913,
+          "TP": 1086,
+          "TN": 0,
+          "FP": 0,
+          "FN": 43,
+          "errors": 43,
+          "sensitivity": 0.9619131975199291,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 7,
+        "harmed": 26
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 3270,
+          "groups": 2710,
+          "TP": 0,
+          "TN": 3220,
+          "FP": 50,
+          "FN": 0,
+          "errors": 50,
+          "sensitivity": null,
+          "specificity": 0.9847094801223242,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 3270,
+          "groups": 2710,
+          "TP": 0,
+          "TN": 3196,
+          "FP": 74,
+          "FN": 0,
+          "errors": 74,
+          "sensitivity": null,
+          "specificity": 0.9773700305810398,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 12,
+        "harmed": 36
+      },
+      "fusion": {
+        "A": {
+          "n": 3270,
+          "groups": 2710,
+          "TP": 0,
+          "TN": 3218,
+          "FP": 52,
+          "FN": 0,
+          "errors": 52,
+          "sensitivity": null,
+          "specificity": 0.9840978593272172,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 3270,
+          "groups": 2710,
+          "TP": 0,
+          "TN": 3195,
+          "FP": 75,
+          "FN": 0,
+          "errors": 75,
+          "sensitivity": null,
+          "specificity": 0.9770642201834863,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 9,
+        "harmed": 32
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 369,
+          "groups": 294,
+          "TP": 0,
+          "TN": 295,
+          "FP": 74,
+          "FN": 0,
+          "errors": 74,
+          "sensitivity": null,
+          "specificity": 0.7994579945799458,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 369,
+          "groups": 294,
+          "TP": 0,
+          "TN": 302,
+          "FP": 67,
+          "FN": 0,
+          "errors": 67,
+          "sensitivity": null,
+          "specificity": 0.8184281842818428,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 9,
+        "harmed": 2
+      },
+      "fusion": {
+        "A": {
+          "n": 369,
+          "groups": 294,
+          "TP": 0,
+          "TN": 297,
+          "FP": 72,
+          "FN": 0,
+          "errors": 72,
+          "sensitivity": null,
+          "specificity": 0.8048780487804879,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 369,
+          "groups": 294,
+          "TP": 0,
+          "TN": 298,
+          "FP": 71,
+          "FN": 0,
+          "errors": 71,
+          "sensitivity": null,
+          "specificity": 0.8075880758807588,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 4
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 1500,
+          "groups": 1429,
+          "TP": 155,
+          "TN": 1169,
+          "FP": 68,
+          "FN": 108,
+          "errors": 176,
+          "sensitivity": 0.5893536121673004,
+          "specificity": 0.9450282942603072,
+          "MCC": 0.57117157861187,
+          "AUPRC": 0.6954905329395275,
+          "AUROC": 0.8852676197472727
+        },
+        "B": {
+          "n": 1500,
+          "groups": 1429,
+          "TP": 161,
+          "TN": 1156,
+          "FP": 81,
+          "FN": 102,
+          "errors": 183,
+          "sensitivity": 0.6121673003802282,
+          "specificity": 0.9345189975747777,
+          "MCC": 0.565135916828782,
+          "AUPRC": 0.7058962876081666,
+          "AUROC": 0.870129191500349
+        },
+        "delta_MCC": -0.006035661783088009,
+        "delta_AUPRC": 0.010405754668639133,
+        "corrected": 33,
+        "harmed": 40
+      },
+      "fusion": {
+        "A": {
+          "n": 1500,
+          "groups": 1429,
+          "TP": 168,
+          "TN": 1167,
+          "FP": 70,
+          "FN": 95,
+          "errors": 165,
+          "sensitivity": 0.6387832699619772,
+          "specificity": 0.9434114793856103,
+          "MCC": 0.6059166022378886,
+          "AUPRC": 0.7376602842736554,
+          "AUROC": 0.9010730609748226
+        },
+        "B": {
+          "n": 1500,
+          "groups": 1429,
+          "TP": 179,
+          "TN": 1155,
+          "FP": 82,
+          "FN": 84,
+          "errors": 166,
+          "sensitivity": 0.6806083650190115,
+          "specificity": 0.9337105901374293,
+          "MCC": 0.6161702603510997,
+          "AUPRC": 0.7458283881372262,
+          "AUROC": 0.8952666668715861
+        },
+        "delta_MCC": 0.010253658113211106,
+        "delta_AUPRC": 0.008168103863570808,
+        "corrected": 28,
+        "harmed": 29
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 3596,
+          "groups": 2828,
+          "TP": 1079,
+          "TN": 2346,
+          "FP": 56,
+          "FN": 115,
+          "errors": 171,
+          "sensitivity": 0.9036850921273032,
+          "specificity": 0.9766860949208993,
+          "MCC": 0.8920737246745154,
+          "AUPRC": 0.9743419906941104,
+          "AUROC": 0.9860763015744836
+        },
+        "B": {
+          "n": 3596,
+          "groups": 2828,
+          "TP": 1062,
+          "TN": 2342,
+          "FP": 60,
+          "FN": 132,
+          "errors": 192,
+          "sensitivity": 0.8894472361809045,
+          "specificity": 0.9750208159866778,
+          "MCC": 0.8787014370672654,
+          "AUPRC": 0.9685983093736641,
+          "AUROC": 0.9842084415973846
+        },
+        "delta_MCC": -0.013372287607249955,
+        "delta_AUPRC": -0.005743681320446337,
+        "corrected": 28,
+        "harmed": 49
+      },
+      "fusion": {
+        "A": {
+          "n": 3596,
+          "groups": 2828,
+          "TP": 1093,
+          "TN": 2348,
+          "FP": 54,
+          "FN": 101,
+          "errors": 155,
+          "sensitivity": 0.9154103852596315,
+          "specificity": 0.97751873438801,
+          "MCC": 0.9022555237393136,
+          "AUPRC": 0.9766198163913112,
+          "AUROC": 0.987030977814412
+        },
+        "B": {
+          "n": 3596,
+          "groups": 2828,
+          "TP": 1081,
+          "TN": 2338,
+          "FP": 64,
+          "FN": 113,
+          "errors": 177,
+          "sensitivity": 0.9053601340033501,
+          "specificity": 0.9733555370524563,
+          "MCC": 0.8883060861810336,
+          "AUPRC": 0.9732441678339675,
+          "AUROC": 0.9860543349553764
+        },
+        "delta_MCC": -0.013949437558280042,
+        "delta_AUPRC": -0.0033756485573437356,
+        "corrected": 21,
+        "harmed": 43
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 7,
+          "groups": 7,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 7,
+          "errors": 7,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 7,
+          "groups": 7,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 7,
+          "errors": 7,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 7,
+          "groups": 7,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 7,
+          "errors": 7,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 7,
+          "groups": 7,
+          "TP": 1,
+          "TN": 0,
+          "FP": 0,
+          "FN": 6,
+          "errors": 6,
+          "sensitivity": 0.14285714285714285,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 0
+      }
+    }
+  },
+  "prior_selected_fold3": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 309,
+          "TN": 878,
+          "FP": 52,
+          "FN": 52,
+          "errors": 104,
+          "sensitivity": 0.8559556786703602,
+          "specificity": 0.9440860215053763,
+          "MCC": 0.8000417001757365,
+          "AUPRC": 0.9310491179985404,
+          "AUROC": 0.9589983022071308
+        },
+        "B": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 303,
+          "TN": 898,
+          "FP": 32,
+          "FN": 58,
+          "errors": 90,
+          "sensitivity": 0.8393351800554016,
+          "specificity": 0.9655913978494624,
+          "MCC": 0.8241381020892992,
+          "AUPRC": 0.9259364142293794,
+          "AUROC": 0.9578723974622465
+        },
+        "delta_MCC": 0.02409640191356266,
+        "delta_AUPRC": -0.005112703769160953,
+        "corrected": 37,
+        "harmed": 23
+      },
+      "fusion": {
+        "A": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 317,
+          "TN": 886,
+          "FP": 44,
+          "FN": 44,
+          "errors": 88,
+          "sensitivity": 0.8781163434903048,
+          "specificity": 0.9526881720430107,
+          "MCC": 0.8308045155333155,
+          "AUPRC": 0.9449691708938003,
+          "AUROC": 0.9664641229559467
+        },
+        "B": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 311,
+          "TN": 905,
+          "FP": 25,
+          "FN": 50,
+          "errors": 75,
+          "sensitivity": 0.8614958448753463,
+          "specificity": 0.9731182795698925,
+          "MCC": 0.8537082550000642,
+          "AUPRC": 0.9409792032692524,
+          "AUROC": 0.968251273344652
+        },
+        "delta_MCC": 0.02290373946674873,
+        "delta_AUPRC": -0.003989967624547841,
+        "corrected": 37,
+        "harmed": 24
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 93,
+          "groups": 79,
+          "TP": 49,
+          "TN": 0,
+          "FP": 0,
+          "FN": 44,
+          "errors": 44,
+          "sensitivity": 0.5268817204301075,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 93,
+          "groups": 79,
+          "TP": 46,
+          "TN": 0,
+          "FP": 0,
+          "FN": 47,
+          "errors": 47,
+          "sensitivity": 0.4946236559139785,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 8
+      },
+      "fusion": {
+        "A": {
+          "n": 93,
+          "groups": 79,
+          "TP": 55,
+          "TN": 0,
+          "FP": 0,
+          "FN": 38,
+          "errors": 38,
+          "sensitivity": 0.5913978494623656,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 93,
+          "groups": 79,
+          "TP": 51,
+          "TN": 0,
+          "FP": 0,
+          "FN": 42,
+          "errors": 42,
+          "sensitivity": 0.5483870967741935,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 9
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 268,
+          "groups": 223,
+          "TP": 260,
+          "TN": 0,
+          "FP": 0,
+          "FN": 8,
+          "errors": 8,
+          "sensitivity": 0.9701492537313433,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 268,
+          "groups": 223,
+          "TP": 257,
+          "TN": 0,
+          "FP": 0,
+          "FN": 11,
+          "errors": 11,
+          "sensitivity": 0.9589552238805971,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 4,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 268,
+          "groups": 223,
+          "TP": 262,
+          "TN": 0,
+          "FP": 0,
+          "FN": 6,
+          "errors": 6,
+          "sensitivity": 0.9776119402985075,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 268,
+          "groups": 223,
+          "TP": 260,
+          "TN": 0,
+          "FP": 0,
+          "FN": 8,
+          "errors": 8,
+          "sensitivity": 0.9701492537313433,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 7
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 821,
+          "FP": 33,
+          "FN": 0,
+          "errors": 33,
+          "sensitivity": null,
+          "specificity": 0.9613583138173302,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 836,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.9789227166276346,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 20,
+        "harmed": 5
+      },
+      "fusion": {
+        "A": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 830,
+          "FP": 24,
+          "FN": 0,
+          "errors": 24,
+          "sensitivity": null,
+          "specificity": 0.9718969555035128,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 841,
+          "FP": 13,
+          "FN": 0,
+          "errors": 13,
+          "sensitivity": null,
+          "specificity": 0.9847775175644028,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 16,
+        "harmed": 5
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 57,
+          "FP": 19,
+          "FN": 0,
+          "errors": 19,
+          "sensitivity": null,
+          "specificity": 0.75,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 62,
+          "FP": 14,
+          "FN": 0,
+          "errors": 14,
+          "sensitivity": null,
+          "specificity": 0.8157894736842105,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 8,
+        "harmed": 3
+      },
+      "fusion": {
+        "A": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 56,
+          "FP": 20,
+          "FN": 0,
+          "errors": 20,
+          "sensitivity": null,
+          "specificity": 0.7368421052631579,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 64,
+          "FP": 12,
+          "FN": 0,
+          "errors": 12,
+          "sensitivity": null,
+          "specificity": 0.8421052631578947,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 11,
+        "harmed": 3
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 375,
+          "groups": 355,
+          "TP": 40,
+          "TN": 292,
+          "FP": 28,
+          "FN": 15,
+          "errors": 43,
+          "sensitivity": 0.7272727272727273,
+          "specificity": 0.9125,
+          "MCC": 0.5874330979951516,
+          "AUPRC": 0.7011093283056783,
+          "AUROC": 0.8986079545454546
+        },
+        "B": {
+          "n": 375,
+          "groups": 355,
+          "TP": 39,
+          "TN": 303,
+          "FP": 17,
+          "FN": 16,
+          "errors": 33,
+          "sensitivity": 0.7090909090909091,
+          "specificity": 0.946875,
+          "MCC": 0.6511008290167266,
+          "AUPRC": 0.6996634389211518,
+          "AUROC": 0.896875
+        },
+        "delta_MCC": 0.06366773102157497,
+        "delta_AUPRC": -0.0014458893845264997,
+        "corrected": 14,
+        "harmed": 4
+      },
+      "fusion": {
+        "A": {
+          "n": 375,
+          "groups": 355,
+          "TP": 44,
+          "TN": 298,
+          "FP": 22,
+          "FN": 11,
+          "errors": 33,
+          "sensitivity": 0.8,
+          "specificity": 0.93125,
+          "MCC": 0.6793146889343272,
+          "AUPRC": 0.7607079826513308,
+          "AUROC": 0.9191477272727273
+        },
+        "B": {
+          "n": 375,
+          "groups": 355,
+          "TP": 41,
+          "TN": 307,
+          "FP": 13,
+          "FN": 14,
+          "errors": 27,
+          "sensitivity": 0.7454545454545455,
+          "specificity": 0.959375,
+          "MCC": 0.7102169592378705,
+          "AUPRC": 0.7263974177030723,
+          "AUROC": 0.9230681818181818
+        },
+        "delta_MCC": 0.03090227030354331,
+        "delta_AUPRC": -0.03431056494825846,
+        "corrected": 14,
+        "harmed": 8
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 916,
+          "groups": 709,
+          "TP": 269,
+          "TN": 586,
+          "FP": 24,
+          "FN": 37,
+          "errors": 61,
+          "sensitivity": 0.8790849673202614,
+          "specificity": 0.9606557377049181,
+          "MCC": 0.8491667931241504,
+          "AUPRC": 0.9612548279233573,
+          "AUROC": 0.9724124075859852
+        },
+        "B": {
+          "n": 916,
+          "groups": 709,
+          "TP": 264,
+          "TN": 595,
+          "FP": 15,
+          "FN": 42,
+          "errors": 57,
+          "sensitivity": 0.8627450980392157,
+          "specificity": 0.9754098360655737,
+          "MCC": 0.8589702428985077,
+          "AUPRC": 0.9647465810066588,
+          "AUROC": 0.9729320690024644
+        },
+        "delta_MCC": 0.009803449774357209,
+        "delta_AUPRC": 0.0034917530833015187,
+        "corrected": 23,
+        "harmed": 19
+      },
+      "fusion": {
+        "A": {
+          "n": 916,
+          "groups": 709,
+          "TP": 273,
+          "TN": 588,
+          "FP": 22,
+          "FN": 33,
+          "errors": 55,
+          "sensitivity": 0.8921568627450981,
+          "specificity": 0.9639344262295082,
+          "MCC": 0.864149535113826,
+          "AUPRC": 0.9688220681439415,
+          "AUROC": 0.9771295403407266
+        },
+        "B": {
+          "n": 916,
+          "groups": 709,
+          "TP": 270,
+          "TN": 598,
+          "FP": 12,
+          "FN": 36,
+          "errors": 48,
+          "sensitivity": 0.8823529411764706,
+          "specificity": 0.980327868852459,
+          "MCC": 0.8814680698148447,
+          "AUPRC": 0.9738781930450422,
+          "AUROC": 0.9798885674488375
+        },
+        "delta_MCC": 0.01731853470101874,
+        "delta_AUPRC": 0.005056124901100745,
+        "corrected": 23,
+        "harmed": 16
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      }
+    }
+  },
+  "all_five_folds": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 6387,
+          "groups": 5258,
+          "TP": 1543,
+          "TN": 4393,
+          "FP": 176,
+          "FN": 275,
+          "errors": 451,
+          "sensitivity": 0.8487348734873488,
+          "specificity": 0.9614795360035019,
+          "MCC": 0.8243357202898458,
+          "AUPRC": 0.9393219486485702,
+          "AUROC": 0.9685790859672527
+        },
+        "B": {
+          "n": 6387,
+          "groups": 5258,
+          "TP": 1526,
+          "TN": 4396,
+          "FP": 173,
+          "FN": 292,
+          "errors": 465,
+          "sensitivity": 0.8393839383938394,
+          "specificity": 0.962136134821624,
+          "MCC": 0.8185240242864772,
+          "AUPRC": 0.9318300520470292,
+          "AUROC": 0.9646570095836461
+        },
+        "delta_MCC": -0.005811696003368616,
+        "delta_AUPRC": -0.007491896601541037,
+        "corrected": 98,
+        "harmed": 112,
+        "MCC_difference_95CI": [
+          -0.018201686660120932,
+          0.006072625078347908
+        ],
+        "AUPRC_difference_95CI": [
+          -0.014166428468733717,
+          -0.0012970380594900907
+        ]
+      },
+      "fusion": {
+        "A": {
+          "n": 6387,
+          "groups": 5258,
+          "TP": 1578,
+          "TN": 4401,
+          "FP": 168,
+          "FN": 240,
+          "errors": 408,
+          "sensitivity": 0.8679867986798679,
+          "specificity": 0.9632304661851608,
+          "MCC": 0.8415776044195126,
+          "AUPRC": 0.948203744832125,
+          "AUROC": 0.9725067604155907
+        },
+        "B": {
+          "n": 6387,
+          "groups": 5258,
+          "TP": 1571,
+          "TN": 4398,
+          "FP": 171,
+          "FN": 247,
+          "errors": 418,
+          "sensitivity": 0.8641364136413642,
+          "specificity": 0.9625738673670388,
+          "MCC": 0.8376139902542836,
+          "AUPRC": 0.9447309044733757,
+          "AUROC": 0.9713587357860322
+        },
+        "delta_MCC": -0.003963614165228946,
+        "delta_AUPRC": -0.003472840358749285,
+        "corrected": 86,
+        "harmed": 96,
+        "MCC_difference_95CI": [
+          -0.014400771698829811,
+          0.007297965597392435
+        ],
+        "AUPRC_difference_95CI": [
+          -0.007970026289170784,
+          0.0005572143944571497
+        ]
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 421,
+          "groups": 376,
+          "TP": 188,
+          "TN": 0,
+          "FP": 0,
+          "FN": 233,
+          "errors": 233,
+          "sensitivity": 0.44655581947743467,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 421,
+          "groups": 376,
+          "TP": 200,
+          "TN": 0,
+          "FP": 0,
+          "FN": 221,
+          "errors": 221,
+          "sensitivity": 0.4750593824228028,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 37,
+        "harmed": 25
+      },
+      "fusion": {
+        "A": {
+          "n": 421,
+          "groups": 376,
+          "TP": 211,
+          "TN": 0,
+          "FP": 0,
+          "FN": 210,
+          "errors": 210,
+          "sensitivity": 0.501187648456057,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 421,
+          "groups": 376,
+          "TP": 225,
+          "TN": 0,
+          "FP": 0,
+          "FN": 196,
+          "errors": 196,
+          "sensitivity": 0.5344418052256532,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 33,
+        "harmed": 19
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 1397,
+          "groups": 1136,
+          "TP": 1355,
+          "TN": 0,
+          "FP": 0,
+          "FN": 42,
+          "errors": 42,
+          "sensitivity": 0.9699355762347889,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 1397,
+          "groups": 1136,
+          "TP": 1326,
+          "TN": 0,
+          "FP": 0,
+          "FN": 71,
+          "errors": 71,
+          "sensitivity": 0.9491768074445239,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 12,
+        "harmed": 41
+      },
+      "fusion": {
+        "A": {
+          "n": 1397,
+          "groups": 1136,
+          "TP": 1367,
+          "TN": 0,
+          "FP": 0,
+          "FN": 30,
+          "errors": 30,
+          "sensitivity": 0.9785254115962777,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 1397,
+          "groups": 1136,
+          "TP": 1346,
+          "TN": 0,
+          "FP": 0,
+          "FN": 51,
+          "errors": 51,
+          "sensitivity": 0.9634931997136722,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 12,
+        "harmed": 33
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 4124,
+          "groups": 3405,
+          "TP": 0,
+          "TN": 4041,
+          "FP": 83,
+          "FN": 0,
+          "errors": 83,
+          "sensitivity": null,
+          "specificity": 0.9798739088263821,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4124,
+          "groups": 3405,
+          "TP": 0,
+          "TN": 4032,
+          "FP": 92,
+          "FN": 0,
+          "errors": 92,
+          "sensitivity": null,
+          "specificity": 0.9776915615906887,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 32,
+        "harmed": 41
+      },
+      "fusion": {
+        "A": {
+          "n": 4124,
+          "groups": 3405,
+          "TP": 0,
+          "TN": 4048,
+          "FP": 76,
+          "FN": 0,
+          "errors": 76,
+          "sensitivity": null,
+          "specificity": 0.9815712900096993,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4124,
+          "groups": 3405,
+          "TP": 0,
+          "TN": 4036,
+          "FP": 88,
+          "FN": 0,
+          "errors": 88,
+          "sensitivity": null,
+          "specificity": 0.9786614936954413,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 25,
+        "harmed": 37
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 445,
+          "groups": 352,
+          "TP": 0,
+          "TN": 352,
+          "FP": 93,
+          "FN": 0,
+          "errors": 93,
+          "sensitivity": null,
+          "specificity": 0.7910112359550562,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 445,
+          "groups": 352,
+          "TP": 0,
+          "TN": 364,
+          "FP": 81,
+          "FN": 0,
+          "errors": 81,
+          "sensitivity": null,
+          "specificity": 0.8179775280898877,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 17,
+        "harmed": 5
+      },
+      "fusion": {
+        "A": {
+          "n": 445,
+          "groups": 352,
+          "TP": 0,
+          "TN": 353,
+          "FP": 92,
+          "FN": 0,
+          "errors": 92,
+          "sensitivity": null,
+          "specificity": 0.7932584269662921,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 445,
+          "groups": 352,
+          "TP": 0,
+          "TN": 362,
+          "FP": 83,
+          "FN": 0,
+          "errors": 83,
+          "sensitivity": null,
+          "specificity": 0.8134831460674158,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 16,
+        "harmed": 7
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 1875,
+          "groups": 1784,
+          "TP": 195,
+          "TN": 1461,
+          "FP": 96,
+          "FN": 123,
+          "errors": 219,
+          "sensitivity": 0.6132075471698113,
+          "specificity": 0.9383429672447013,
+          "MCC": 0.5716353491594215,
+          "AUPRC": 0.6927863631725295,
+          "AUROC": 0.8859593315640867
+        },
+        "B": {
+          "n": 1875,
+          "groups": 1784,
+          "TP": 200,
+          "TN": 1459,
+          "FP": 98,
+          "FN": 118,
+          "errors": 216,
+          "sensitivity": 0.6289308176100629,
+          "specificity": 0.9370584457289659,
+          "MCC": 0.5809544469578102,
+          "AUPRC": 0.7008854722456236,
+          "AUROC": 0.872553653009537
+        },
+        "delta_MCC": 0.009319097798388687,
+        "delta_AUPRC": 0.00809910907309408,
+        "corrected": 47,
+        "harmed": 44
+      },
+      "fusion": {
+        "A": {
+          "n": 1875,
+          "groups": 1784,
+          "TP": 212,
+          "TN": 1465,
+          "FP": 92,
+          "FN": 106,
+          "errors": 198,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.9409120102761721,
+          "MCC": 0.6186364511047387,
+          "AUPRC": 0.7378706873726565,
+          "AUROC": 0.9026995148709622
+        },
+        "B": {
+          "n": 1875,
+          "groups": 1784,
+          "TP": 220,
+          "TN": 1462,
+          "FP": 95,
+          "FN": 98,
+          "errors": 193,
+          "sensitivity": 0.6918238993710691,
+          "specificity": 0.938985228002569,
+          "MCC": 0.6331961401958401,
+          "AUPRC": 0.740437030655275,
+          "AUROC": 0.8988459503237559
+        },
+        "delta_MCC": 0.014559689091101391,
+        "delta_AUPRC": 0.0025663432826185106,
+        "corrected": 42,
+        "harmed": 37
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 4512,
+          "groups": 3537,
+          "TP": 1348,
+          "TN": 2932,
+          "FP": 80,
+          "FN": 152,
+          "errors": 232,
+          "sensitivity": 0.8986666666666666,
+          "specificity": 0.9734395750332006,
+          "MCC": 0.8833264188044027,
+          "AUPRC": 0.9718387802866612,
+          "AUROC": 0.983470672864099
+        },
+        "B": {
+          "n": 4512,
+          "groups": 3537,
+          "TP": 1326,
+          "TN": 2937,
+          "FP": 75,
+          "FN": 174,
+          "errors": 249,
+          "sensitivity": 0.884,
+          "specificity": 0.9750996015936255,
+          "MCC": 0.8746766999268912,
+          "AUPRC": 0.9667281678673468,
+          "AUROC": 0.9819930278884461
+        },
+        "delta_MCC": -0.008649718877511425,
+        "delta_AUPRC": -0.00511061241931432,
+        "corrected": 51,
+        "harmed": 68
+      },
+      "fusion": {
+        "A": {
+          "n": 4512,
+          "groups": 3537,
+          "TP": 1366,
+          "TN": 2936,
+          "FP": 76,
+          "FN": 134,
+          "errors": 210,
+          "sensitivity": 0.9106666666666666,
+          "specificity": 0.9747675962815405,
+          "MCC": 0.8944943853285411,
+          "AUPRC": 0.9751898179883056,
+          "AUROC": 0.9851726427622842
+        },
+        "B": {
+          "n": 4512,
+          "groups": 3537,
+          "TP": 1351,
+          "TN": 2936,
+          "FP": 76,
+          "FN": 149,
+          "errors": 225,
+          "sensitivity": 0.9006666666666666,
+          "specificity": 0.9747675962815405,
+          "MCC": 0.886864115393211,
+          "AUPRC": 0.9738821592984054,
+          "AUROC": 0.9850261177512173
+        },
+        "delta_MCC": -0.007630269935330114,
+        "delta_AUPRC": -0.0013076586899002374,
+        "corrected": 44,
+        "harmed": 59
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 11,
+          "groups": 11,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 11,
+          "errors": 11,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 11,
+          "groups": 11,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 11,
+          "errors": 11,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 11,
+          "groups": 11,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 11,
+          "errors": 11,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 11,
+          "groups": 11,
+          "TP": 1,
+          "TN": 0,
+          "FP": 0,
+          "FN": 10,
+          "errors": 10,
+          "sensitivity": 0.09090909090909091,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 0
+      }
+    }
+  },
+  "fold0": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1271,
+          "groups": 1052,
+          "TP": 320,
+          "TN": 881,
+          "FP": 25,
+          "FN": 45,
+          "errors": 70,
+          "sensitivity": 0.8767123287671232,
+          "specificity": 0.9724061810154525,
+          "MCC": 0.8639006450512589,
+          "AUPRC": 0.9582193936526393,
+          "AUROC": 0.9775726511234086
+        },
+        "B": {
+          "n": 1271,
+          "groups": 1052,
+          "TP": 314,
+          "TN": 876,
+          "FP": 30,
+          "FN": 51,
+          "errors": 81,
+          "sensitivity": 0.8602739726027397,
+          "specificity": 0.9668874172185431,
+          "MCC": 0.8423288913338016,
+          "AUPRC": 0.9489568082194062,
+          "AUROC": 0.9718316247845413
+        },
+        "delta_MCC": -0.02157175371745723,
+        "delta_AUPRC": -0.009262585433233106,
+        "corrected": 11,
+        "harmed": 22
+      },
+      "fusion": {
+        "A": {
+          "n": 1271,
+          "groups": 1052,
+          "TP": 323,
+          "TN": 885,
+          "FP": 21,
+          "FN": 42,
+          "errors": 63,
+          "sensitivity": 0.8849315068493151,
+          "specificity": 0.9768211920529801,
+          "MCC": 0.8775544946882927,
+          "AUPRC": 0.9636772406481723,
+          "AUROC": 0.979672805346397
+        },
+        "B": {
+          "n": 1271,
+          "groups": 1052,
+          "TP": 325,
+          "TN": 877,
+          "FP": 29,
+          "FN": 40,
+          "errors": 69,
+          "sensitivity": 0.8904109589041096,
+          "specificity": 0.9679911699779249,
+          "MCC": 0.866393166559066,
+          "AUPRC": 0.9583202215345904,
+          "AUROC": 0.9761891801989778
+        },
+        "delta_MCC": -0.011161328129226766,
+        "delta_AUPRC": -0.0053570191135818845,
+        "corrected": 9,
+        "harmed": 15
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 73,
+          "groups": 68,
+          "TP": 34,
+          "TN": 0,
+          "FP": 0,
+          "FN": 39,
+          "errors": 39,
+          "sensitivity": 0.4657534246575342,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 73,
+          "groups": 68,
+          "TP": 34,
+          "TN": 0,
+          "FP": 0,
+          "FN": 39,
+          "errors": 39,
+          "sensitivity": 0.4657534246575342,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 6,
+        "harmed": 6
+      },
+      "fusion": {
+        "A": {
+          "n": 73,
+          "groups": 68,
+          "TP": 37,
+          "TN": 0,
+          "FP": 0,
+          "FN": 36,
+          "errors": 36,
+          "sensitivity": 0.5068493150684932,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 73,
+          "groups": 68,
+          "TP": 41,
+          "TN": 0,
+          "FP": 0,
+          "FN": 32,
+          "errors": 32,
+          "sensitivity": 0.5616438356164384,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 6,
+        "harmed": 2
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 292,
+          "groups": 234,
+          "TP": 286,
+          "TN": 0,
+          "FP": 0,
+          "FN": 6,
+          "errors": 6,
+          "sensitivity": 0.9794520547945206,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 292,
+          "groups": 234,
+          "TP": 280,
+          "TN": 0,
+          "FP": 0,
+          "FN": 12,
+          "errors": 12,
+          "sensitivity": 0.958904109589041,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 292,
+          "groups": 234,
+          "TP": 286,
+          "TN": 0,
+          "FP": 0,
+          "FN": 6,
+          "errors": 6,
+          "sensitivity": 0.9794520547945206,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 292,
+          "groups": 234,
+          "TP": 284,
+          "TN": 0,
+          "FP": 0,
+          "FN": 8,
+          "errors": 8,
+          "sensitivity": 0.9726027397260274,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 2
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 821,
+          "groups": 682,
+          "TP": 0,
+          "TN": 809,
+          "FP": 12,
+          "FN": 0,
+          "errors": 12,
+          "sensitivity": null,
+          "specificity": 0.9853836784409257,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 821,
+          "groups": 682,
+          "TP": 0,
+          "TN": 804,
+          "FP": 17,
+          "FN": 0,
+          "errors": 17,
+          "sensitivity": null,
+          "specificity": 0.9792935444579781,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 821,
+          "groups": 682,
+          "TP": 0,
+          "TN": 812,
+          "FP": 9,
+          "FN": 0,
+          "errors": 9,
+          "sensitivity": null,
+          "specificity": 0.9890377588306942,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 821,
+          "groups": 682,
+          "TP": 0,
+          "TN": 805,
+          "FP": 16,
+          "FN": 0,
+          "errors": 16,
+          "sensitivity": null,
+          "specificity": 0.9805115712545676,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 8
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 85,
+          "groups": 71,
+          "TP": 0,
+          "TN": 72,
+          "FP": 13,
+          "FN": 0,
+          "errors": 13,
+          "sensitivity": null,
+          "specificity": 0.8470588235294118,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 71,
+          "TP": 0,
+          "TN": 72,
+          "FP": 13,
+          "FN": 0,
+          "errors": 13,
+          "sensitivity": null,
+          "specificity": 0.8470588235294118,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 2
+      },
+      "fusion": {
+        "A": {
+          "n": 85,
+          "groups": 71,
+          "TP": 0,
+          "TN": 73,
+          "FP": 12,
+          "FN": 0,
+          "errors": 12,
+          "sensitivity": null,
+          "specificity": 0.8588235294117647,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 71,
+          "TP": 0,
+          "TN": 72,
+          "FP": 13,
+          "FN": 0,
+          "errors": 13,
+          "sensitivity": null,
+          "specificity": 0.8470588235294118,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 3
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 364,
+          "groups": 350,
+          "TP": 38,
+          "TN": 286,
+          "FP": 15,
+          "FN": 25,
+          "errors": 40,
+          "sensitivity": 0.6031746031746031,
+          "specificity": 0.9501661129568106,
+          "MCC": 0.5935099730527036,
+          "AUPRC": 0.7168602199815193,
+          "AUROC": 0.8794494542002848
+        },
+        "B": {
+          "n": 364,
+          "groups": 350,
+          "TP": 36,
+          "TN": 284,
+          "FP": 17,
+          "FN": 27,
+          "errors": 44,
+          "sensitivity": 0.5714285714285714,
+          "specificity": 0.9435215946843853,
+          "MCC": 0.5523324966034167,
+          "AUPRC": 0.7118511372724515,
+          "AUROC": 0.8590940252069821
+        },
+        "delta_MCC": -0.04117747644928693,
+        "delta_AUPRC": -0.005009082709067747,
+        "corrected": 5,
+        "harmed": 9
+      },
+      "fusion": {
+        "A": {
+          "n": 364,
+          "groups": 350,
+          "TP": 39,
+          "TN": 288,
+          "FP": 13,
+          "FN": 24,
+          "errors": 37,
+          "sensitivity": 0.6190476190476191,
+          "specificity": 0.9568106312292359,
+          "MCC": 0.6225728063646903,
+          "AUPRC": 0.7488804377602428,
+          "AUROC": 0.8878342034488214
+        },
+        "B": {
+          "n": 364,
+          "groups": 350,
+          "TP": 41,
+          "TN": 285,
+          "FP": 16,
+          "FN": 22,
+          "errors": 38,
+          "sensitivity": 0.6507936507936508,
+          "specificity": 0.946843853820598,
+          "MCC": 0.6221351663865123,
+          "AUPRC": 0.7491308207254921,
+          "AUROC": 0.883984601592575
+        },
+        "delta_MCC": -0.0004376399781779172,
+        "delta_AUPRC": 0.00025038296524926285,
+        "corrected": 5,
+        "harmed": 6
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 907,
+          "groups": 714,
+          "TP": 282,
+          "TN": 595,
+          "FP": 10,
+          "FN": 20,
+          "errors": 30,
+          "sensitivity": 0.9337748344370861,
+          "specificity": 0.9834710743801653,
+          "MCC": 0.9252049732071718,
+          "AUPRC": 0.9863545279190079,
+          "AUROC": 0.9923129549559411
+        },
+        "B": {
+          "n": 907,
+          "groups": 714,
+          "TP": 278,
+          "TN": 592,
+          "FP": 13,
+          "FN": 24,
+          "errors": 37,
+          "sensitivity": 0.9205298013245033,
+          "specificity": 0.9785123966942149,
+          "MCC": 0.9076624828380561,
+          "AUPRC": 0.9780684555168668,
+          "AUROC": 0.9887116195063215
+        },
+        "delta_MCC": -0.017542490369115704,
+        "delta_AUPRC": -0.008286072402141076,
+        "corrected": 6,
+        "harmed": 13
+      },
+      "fusion": {
+        "A": {
+          "n": 907,
+          "groups": 714,
+          "TP": 284,
+          "TN": 597,
+          "FP": 8,
+          "FN": 18,
+          "errors": 26,
+          "sensitivity": 0.9403973509933775,
+          "specificity": 0.9867768595041322,
+          "MCC": 0.9352194240777357,
+          "AUPRC": 0.9875180130336307,
+          "AUROC": 0.9929451042635871
+        },
+        "B": {
+          "n": 907,
+          "groups": 714,
+          "TP": 284,
+          "TN": 592,
+          "FP": 13,
+          "FN": 18,
+          "errors": 31,
+          "sensitivity": 0.9403973509933775,
+          "specificity": 0.9785123966942149,
+          "MCC": 0.9228069891889765,
+          "AUPRC": 0.9823610634782675,
+          "AUROC": 0.9899458157736304
+        },
+        "delta_MCC": -0.012412434888759205,
+        "delta_AUPRC": -0.005156949555363277,
+        "corrected": 4,
+        "harmed": 9
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 3,
+          "groups": 3,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 3,
+          "errors": 3,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 3,
+          "groups": 3,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 3,
+          "errors": 3,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 3,
+          "groups": 3,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 3,
+          "errors": 3,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 3,
+          "groups": 3,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 3,
+          "errors": 3,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      }
+    }
+  },
+  "fold1": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1229,
+          "groups": 1051,
+          "TP": 295,
+          "TN": 843,
+          "FP": 26,
+          "FN": 65,
+          "errors": 91,
+          "sensitivity": 0.8194444444444444,
+          "specificity": 0.9700805523590333,
+          "MCC": 0.8179590892816662,
+          "AUPRC": 0.9472457294788459,
+          "AUROC": 0.9720975578570515
+        },
+        "B": {
+          "n": 1229,
+          "groups": 1051,
+          "TP": 308,
+          "TN": 839,
+          "FP": 30,
+          "FN": 52,
+          "errors": 82,
+          "sensitivity": 0.8555555555555555,
+          "specificity": 0.9654775604142692,
+          "MCC": 0.8368056637725988,
+          "AUPRC": 0.9487595928378759,
+          "AUROC": 0.973425712824447
+        },
+        "delta_MCC": 0.018846574490932633,
+        "delta_AUPRC": 0.001513863359030032,
+        "corrected": 15,
+        "harmed": 6
+      },
+      "fusion": {
+        "A": {
+          "n": 1229,
+          "groups": 1051,
+          "TP": 304,
+          "TN": 840,
+          "FP": 29,
+          "FN": 56,
+          "errors": 85,
+          "sensitivity": 0.8444444444444444,
+          "specificity": 0.9666283084004603,
+          "MCC": 0.8305099290984609,
+          "AUPRC": 0.9489331379320035,
+          "AUROC": 0.9715765247410817
+        },
+        "B": {
+          "n": 1229,
+          "groups": 1051,
+          "TP": 316,
+          "TN": 836,
+          "FP": 33,
+          "FN": 44,
+          "errors": 77,
+          "sensitivity": 0.8777777777777778,
+          "specificity": 0.9620253164556962,
+          "MCC": 0.8475875317754586,
+          "AUPRC": 0.9490330564494016,
+          "AUROC": 0.9723436900652089
+        },
+        "delta_MCC": 0.01707760267699776,
+        "delta_AUPRC": 9.991851739810098e-05,
+        "corrected": 13,
+        "harmed": 5
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 87,
+          "groups": 76,
+          "TP": 36,
+          "TN": 0,
+          "FP": 0,
+          "FN": 51,
+          "errors": 51,
+          "sensitivity": 0.41379310344827586,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 87,
+          "groups": 76,
+          "TP": 44,
+          "TN": 0,
+          "FP": 0,
+          "FN": 43,
+          "errors": 43,
+          "sensitivity": 0.5057471264367817,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 9,
+        "harmed": 1
+      },
+      "fusion": {
+        "A": {
+          "n": 87,
+          "groups": 76,
+          "TP": 40,
+          "TN": 0,
+          "FP": 0,
+          "FN": 47,
+          "errors": 47,
+          "sensitivity": 0.45977011494252873,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 87,
+          "groups": 76,
+          "TP": 47,
+          "TN": 0,
+          "FP": 0,
+          "FN": 40,
+          "errors": 40,
+          "sensitivity": 0.5402298850574713,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 7,
+        "harmed": 0
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 273,
+          "groups": 226,
+          "TP": 259,
+          "TN": 0,
+          "FP": 0,
+          "FN": 14,
+          "errors": 14,
+          "sensitivity": 0.9487179487179487,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 273,
+          "groups": 226,
+          "TP": 264,
+          "TN": 0,
+          "FP": 0,
+          "FN": 9,
+          "errors": 9,
+          "sensitivity": 0.967032967032967,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 273,
+          "groups": 226,
+          "TP": 264,
+          "TN": 0,
+          "FP": 0,
+          "FN": 9,
+          "errors": 9,
+          "sensitivity": 0.967032967032967,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 273,
+          "groups": 226,
+          "TP": 269,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.9853479853479854,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 0
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 784,
+          "groups": 674,
+          "TP": 0,
+          "TN": 776,
+          "FP": 8,
+          "FN": 0,
+          "errors": 8,
+          "sensitivity": null,
+          "specificity": 0.9897959183673469,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 784,
+          "groups": 674,
+          "TP": 0,
+          "TN": 772,
+          "FP": 12,
+          "FN": 0,
+          "errors": 12,
+          "sensitivity": null,
+          "specificity": 0.9846938775510204,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 5
+      },
+      "fusion": {
+        "A": {
+          "n": 784,
+          "groups": 674,
+          "TP": 0,
+          "TN": 773,
+          "FP": 11,
+          "FN": 0,
+          "errors": 11,
+          "sensitivity": null,
+          "specificity": 0.985969387755102,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 784,
+          "groups": 674,
+          "TP": 0,
+          "TN": 770,
+          "FP": 14,
+          "FN": 0,
+          "errors": 14,
+          "sensitivity": null,
+          "specificity": 0.9821428571428571,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 4
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 85,
+          "groups": 76,
+          "TP": 0,
+          "TN": 67,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.788235294117647,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 76,
+          "TP": 0,
+          "TN": 67,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.788235294117647,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 85,
+          "groups": 76,
+          "TP": 0,
+          "TN": 67,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.788235294117647,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 76,
+          "TP": 0,
+          "TN": 66,
+          "FP": 19,
+          "FN": 0,
+          "errors": 19,
+          "sensitivity": null,
+          "specificity": 0.7764705882352941,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 1
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 380,
+          "groups": 367,
+          "TP": 34,
+          "TN": 304,
+          "FP": 12,
+          "FN": 30,
+          "errors": 42,
+          "sensitivity": 0.53125,
+          "specificity": 0.9620253164556962,
+          "MCC": 0.5659404853610602,
+          "AUPRC": 0.7138100445319607,
+          "AUROC": 0.9053352452531646
+        },
+        "B": {
+          "n": 380,
+          "groups": 367,
+          "TP": 44,
+          "TN": 299,
+          "FP": 17,
+          "FN": 20,
+          "errors": 37,
+          "sensitivity": 0.6875,
+          "specificity": 0.9462025316455697,
+          "MCC": 0.6460389630856974,
+          "AUPRC": 0.7289311557329957,
+          "AUROC": 0.9133208069620253
+        },
+        "delta_MCC": 0.08009847772463718,
+        "delta_AUPRC": 0.015121111201034987,
+        "corrected": 11,
+        "harmed": 6
+      },
+      "fusion": {
+        "A": {
+          "n": 380,
+          "groups": 367,
+          "TP": 39,
+          "TN": 301,
+          "FP": 15,
+          "FN": 25,
+          "errors": 40,
+          "sensitivity": 0.609375,
+          "specificity": 0.9525316455696202,
+          "MCC": 0.602271089973284,
+          "AUPRC": 0.7147686471109214,
+          "AUROC": 0.8991297468354431
+        },
+        "B": {
+          "n": 380,
+          "groups": 367,
+          "TP": 47,
+          "TN": 297,
+          "FP": 19,
+          "FN": 17,
+          "errors": 36,
+          "sensitivity": 0.734375,
+          "specificity": 0.939873417721519,
+          "MCC": 0.6660650908670234,
+          "AUPRC": 0.7291550420989749,
+          "AUROC": 0.9061511075949368
+        },
+        "delta_MCC": 0.06379400089373932,
+        "delta_AUPRC": 0.014386394988053497,
+        "corrected": 8,
+        "harmed": 4
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 849,
+          "groups": 693,
+          "TP": 261,
+          "TN": 539,
+          "FP": 14,
+          "FN": 35,
+          "errors": 49,
+          "sensitivity": 0.8817567567567568,
+          "specificity": 0.9746835443037974,
+          "MCC": 0.8721340116855838,
+          "AUPRC": 0.9786993505543752,
+          "AUROC": 0.9864345584282294
+        },
+        "B": {
+          "n": 849,
+          "groups": 693,
+          "TP": 264,
+          "TN": 540,
+          "FP": 13,
+          "FN": 32,
+          "errors": 45,
+          "sensitivity": 0.8918918918918919,
+          "specificity": 0.976491862567812,
+          "MCC": 0.8826371694463926,
+          "AUPRC": 0.977577378121212,
+          "AUROC": 0.9863948487366209
+        },
+        "delta_MCC": 0.01050315776080879,
+        "delta_AUPRC": -0.001121972433163143,
+        "corrected": 4,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 849,
+          "groups": 693,
+          "TP": 265,
+          "TN": 539,
+          "FP": 14,
+          "FN": 31,
+          "errors": 45,
+          "sensitivity": 0.8952702702702703,
+          "specificity": 0.9746835443037974,
+          "MCC": 0.8826023682888562,
+          "AUPRC": 0.9789752908446663,
+          "AUROC": 0.9860282977371586
+        },
+        "B": {
+          "n": 849,
+          "groups": 693,
+          "TP": 269,
+          "TN": 539,
+          "FP": 14,
+          "FN": 27,
+          "errors": 41,
+          "sensitivity": 0.9087837837837838,
+          "specificity": 0.9746835443037974,
+          "MCC": 0.8930946363190335,
+          "AUPRC": 0.9777136665787408,
+          "AUROC": 0.9858328038707787
+        },
+        "delta_MCC": 0.010492268030177332,
+        "delta_AUPRC": -0.001261624265925465,
+        "corrected": 5,
+        "harmed": 1
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      }
+    }
+  },
+  "fold2": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1273,
+          "groups": 1052,
+          "TP": 306,
+          "TN": 880,
+          "FP": 37,
+          "FN": 50,
+          "errors": 87,
+          "sensitivity": 0.8595505617977528,
+          "specificity": 0.9596510359869138,
+          "MCC": 0.8287278296607778,
+          "AUPRC": 0.9500632359905458,
+          "AUROC": 0.9739655447048877
+        },
+        "B": {
+          "n": 1273,
+          "groups": 1052,
+          "TP": 295,
+          "TN": 882,
+          "FP": 35,
+          "FN": 61,
+          "errors": 96,
+          "sensitivity": 0.8286516853932584,
+          "specificity": 0.9618320610687023,
+          "MCC": 0.8096359711868364,
+          "AUPRC": 0.9398687059435539,
+          "AUROC": 0.9665647629666841
+        },
+        "delta_MCC": -0.01909185847394146,
+        "delta_AUPRC": -0.01019453004699189,
+        "corrected": 13,
+        "harmed": 22
+      },
+      "fusion": {
+        "A": {
+          "n": 1273,
+          "groups": 1052,
+          "TP": 317,
+          "TN": 882,
+          "FP": 35,
+          "FN": 39,
+          "errors": 74,
+          "sensitivity": 0.8904494382022472,
+          "specificity": 0.9618320610687023,
+          "MCC": 0.8552470427516131,
+          "AUPRC": 0.9562331237668272,
+          "AUROC": 0.9779722593214316
+        },
+        "B": {
+          "n": 1273,
+          "groups": 1052,
+          "TP": 304,
+          "TN": 882,
+          "FP": 35,
+          "FN": 52,
+          "errors": 87,
+          "sensitivity": 0.8539325842696629,
+          "specificity": 0.9618320610687023,
+          "MCC": 0.828325934211133,
+          "AUPRC": 0.9507127164603314,
+          "AUROC": 0.9740084300295296
+        },
+        "delta_MCC": -0.026921108540480132,
+        "delta_AUPRC": -0.005520407306495834,
+        "corrected": 5,
+        "harmed": 18
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 85,
+          "groups": 76,
+          "TP": 42,
+          "TN": 0,
+          "FP": 0,
+          "FN": 43,
+          "errors": 43,
+          "sensitivity": 0.49411764705882355,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 76,
+          "TP": 39,
+          "TN": 0,
+          "FP": 0,
+          "FN": 46,
+          "errors": 46,
+          "sensitivity": 0.4588235294117647,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 4,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 85,
+          "groups": 76,
+          "TP": 50,
+          "TN": 0,
+          "FP": 0,
+          "FN": 35,
+          "errors": 35,
+          "sensitivity": 0.5882352941176471,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 85,
+          "groups": 76,
+          "TP": 46,
+          "TN": 0,
+          "FP": 0,
+          "FN": 39,
+          "errors": 39,
+          "sensitivity": 0.5411764705882353,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 4
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 271,
+          "groups": 229,
+          "TP": 264,
+          "TN": 0,
+          "FP": 0,
+          "FN": 7,
+          "errors": 7,
+          "sensitivity": 0.974169741697417,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 271,
+          "groups": 229,
+          "TP": 256,
+          "TN": 0,
+          "FP": 0,
+          "FN": 15,
+          "errors": 15,
+          "sensitivity": 0.9446494464944649,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 8
+      },
+      "fusion": {
+        "A": {
+          "n": 271,
+          "groups": 229,
+          "TP": 267,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.985239852398524,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 271,
+          "groups": 229,
+          "TP": 258,
+          "TN": 0,
+          "FP": 0,
+          "FN": 13,
+          "errors": 13,
+          "sensitivity": 0.9520295202952029,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 9
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 838,
+          "groups": 683,
+          "TP": 0,
+          "TN": 818,
+          "FP": 20,
+          "FN": 0,
+          "errors": 20,
+          "sensitivity": null,
+          "specificity": 0.9761336515513126,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 838,
+          "groups": 683,
+          "TP": 0,
+          "TN": 817,
+          "FP": 21,
+          "FN": 0,
+          "errors": 21,
+          "sensitivity": null,
+          "specificity": 0.9749403341288783,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 6,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 838,
+          "groups": 683,
+          "TP": 0,
+          "TN": 821,
+          "FP": 17,
+          "FN": 0,
+          "errors": 17,
+          "sensitivity": null,
+          "specificity": 0.9797136038186157,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 838,
+          "groups": 683,
+          "TP": 0,
+          "TN": 819,
+          "FP": 19,
+          "FN": 0,
+          "errors": 19,
+          "sensitivity": null,
+          "specificity": 0.977326968973747,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 3,
+        "harmed": 5
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 79,
+          "groups": 67,
+          "TP": 0,
+          "TN": 62,
+          "FP": 17,
+          "FN": 0,
+          "errors": 17,
+          "sensitivity": null,
+          "specificity": 0.7848101265822784,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 79,
+          "groups": 67,
+          "TP": 0,
+          "TN": 65,
+          "FP": 14,
+          "FN": 0,
+          "errors": 14,
+          "sensitivity": null,
+          "specificity": 0.8227848101265823,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 3,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 79,
+          "groups": 67,
+          "TP": 0,
+          "TN": 61,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.7721518987341772,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 79,
+          "groups": 67,
+          "TP": 0,
+          "TN": 63,
+          "FP": 16,
+          "FN": 0,
+          "errors": 16,
+          "sensitivity": null,
+          "specificity": 0.7974683544303798,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 0
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 379,
+          "groups": 357,
+          "TP": 47,
+          "TN": 288,
+          "FP": 23,
+          "FN": 21,
+          "errors": 44,
+          "sensitivity": 0.6911764705882353,
+          "specificity": 0.9260450160771704,
+          "MCC": 0.6103057018576815,
+          "AUPRC": 0.7769099034407475,
+          "AUROC": 0.9049319084547002
+        },
+        "B": {
+          "n": 379,
+          "groups": 357,
+          "TP": 43,
+          "TN": 287,
+          "FP": 24,
+          "FN": 25,
+          "errors": 49,
+          "sensitivity": 0.6323529411764706,
+          "specificity": 0.9228295819935691,
+          "MCC": 0.5584132810800424,
+          "AUPRC": 0.7525850293139913,
+          "AUROC": 0.8874834499716285
+        },
+        "delta_MCC": -0.051892420777639114,
+        "delta_AUPRC": -0.024324874126756213,
+        "corrected": 4,
+        "harmed": 9
+      },
+      "fusion": {
+        "A": {
+          "n": 379,
+          "groups": 357,
+          "TP": 50,
+          "TN": 290,
+          "FP": 21,
+          "FN": 18,
+          "errors": 39,
+          "sensitivity": 0.7352941176470589,
+          "specificity": 0.932475884244373,
+          "MCC": 0.6566848902793624,
+          "AUPRC": 0.8052142774007092,
+          "AUROC": 0.9257613013050879
+        },
+        "B": {
+          "n": 379,
+          "groups": 357,
+          "TP": 49,
+          "TN": 289,
+          "FP": 22,
+          "FN": 19,
+          "errors": 41,
+          "sensitivity": 0.7205882352941176,
+          "specificity": 0.9292604501607717,
+          "MCC": 0.6390610711732954,
+          "AUPRC": 0.7887375305499864,
+          "AUROC": 0.9133251371288065
+        },
+        "delta_MCC": -0.01762381910606703,
+        "delta_AUPRC": -0.016476746850722757,
+        "corrected": 2,
+        "harmed": 4
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 894,
+          "groups": 707,
+          "TP": 259,
+          "TN": 592,
+          "FP": 14,
+          "FN": 29,
+          "errors": 43,
+          "sensitivity": 0.8993055555555556,
+          "specificity": 0.976897689768977,
+          "MCC": 0.8890174585891769,
+          "AUPRC": 0.9786709584443433,
+          "AUROC": 0.9880162495416208
+        },
+        "B": {
+          "n": 894,
+          "groups": 707,
+          "TP": 252,
+          "TN": 595,
+          "FP": 11,
+          "FN": 36,
+          "errors": 47,
+          "sensitivity": 0.875,
+          "specificity": 0.9818481848184818,
+          "MCC": 0.8787065893172644,
+          "AUPRC": 0.9715718797942812,
+          "AUROC": 0.9835212687935462
+        },
+        "delta_MCC": -0.010310869271912493,
+        "delta_AUPRC": -0.007099078650062096,
+        "corrected": 9,
+        "harmed": 13
+      },
+      "fusion": {
+        "A": {
+          "n": 894,
+          "groups": 707,
+          "TP": 267,
+          "TN": 592,
+          "FP": 14,
+          "FN": 21,
+          "errors": 35,
+          "sensitivity": 0.9270833333333334,
+          "specificity": 0.976897689768977,
+          "MCC": 0.9099310236907403,
+          "AUPRC": 0.9802414029793975,
+          "AUROC": 0.9891134946828015
+        },
+        "B": {
+          "n": 894,
+          "groups": 707,
+          "TP": 255,
+          "TN": 593,
+          "FP": 13,
+          "FN": 33,
+          "errors": 46,
+          "sensitivity": 0.8854166666666666,
+          "specificity": 0.9785478547854786,
+          "MCC": 0.8811988079097588,
+          "AUPRC": 0.9763257584478731,
+          "AUROC": 0.9866840850751742
+        },
+        "delta_MCC": -0.028732215780981507,
+        "delta_AUPRC": -0.003915644531524487,
+        "corrected": 3,
+        "harmed": 14
+      }
+    }
+  },
+  "fold3": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 309,
+          "TN": 878,
+          "FP": 52,
+          "FN": 52,
+          "errors": 104,
+          "sensitivity": 0.8559556786703602,
+          "specificity": 0.9440860215053763,
+          "MCC": 0.8000417001757365,
+          "AUPRC": 0.9310491179985404,
+          "AUROC": 0.9589983022071308
+        },
+        "B": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 303,
+          "TN": 898,
+          "FP": 32,
+          "FN": 58,
+          "errors": 90,
+          "sensitivity": 0.8393351800554016,
+          "specificity": 0.9655913978494624,
+          "MCC": 0.8241381020892992,
+          "AUPRC": 0.9259364142293794,
+          "AUROC": 0.9578723974622465
+        },
+        "delta_MCC": 0.02409640191356266,
+        "delta_AUPRC": -0.005112703769160953,
+        "corrected": 37,
+        "harmed": 23
+      },
+      "fusion": {
+        "A": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 317,
+          "TN": 886,
+          "FP": 44,
+          "FN": 44,
+          "errors": 88,
+          "sensitivity": 0.8781163434903048,
+          "specificity": 0.9526881720430107,
+          "MCC": 0.8308045155333155,
+          "AUPRC": 0.9449691708938003,
+          "AUROC": 0.9664641229559467
+        },
+        "B": {
+          "n": 1291,
+          "groups": 1052,
+          "TP": 311,
+          "TN": 905,
+          "FP": 25,
+          "FN": 50,
+          "errors": 75,
+          "sensitivity": 0.8614958448753463,
+          "specificity": 0.9731182795698925,
+          "MCC": 0.8537082550000642,
+          "AUPRC": 0.9409792032692524,
+          "AUROC": 0.968251273344652
+        },
+        "delta_MCC": 0.02290373946674873,
+        "delta_AUPRC": -0.003989967624547841,
+        "corrected": 37,
+        "harmed": 24
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 93,
+          "groups": 79,
+          "TP": 49,
+          "TN": 0,
+          "FP": 0,
+          "FN": 44,
+          "errors": 44,
+          "sensitivity": 0.5268817204301075,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 93,
+          "groups": 79,
+          "TP": 46,
+          "TN": 0,
+          "FP": 0,
+          "FN": 47,
+          "errors": 47,
+          "sensitivity": 0.4946236559139785,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 8
+      },
+      "fusion": {
+        "A": {
+          "n": 93,
+          "groups": 79,
+          "TP": 55,
+          "TN": 0,
+          "FP": 0,
+          "FN": 38,
+          "errors": 38,
+          "sensitivity": 0.5913978494623656,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 93,
+          "groups": 79,
+          "TP": 51,
+          "TN": 0,
+          "FP": 0,
+          "FN": 42,
+          "errors": 42,
+          "sensitivity": 0.5483870967741935,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 9
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 268,
+          "groups": 223,
+          "TP": 260,
+          "TN": 0,
+          "FP": 0,
+          "FN": 8,
+          "errors": 8,
+          "sensitivity": 0.9701492537313433,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 268,
+          "groups": 223,
+          "TP": 257,
+          "TN": 0,
+          "FP": 0,
+          "FN": 11,
+          "errors": 11,
+          "sensitivity": 0.9589552238805971,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 4,
+        "harmed": 7
+      },
+      "fusion": {
+        "A": {
+          "n": 268,
+          "groups": 223,
+          "TP": 262,
+          "TN": 0,
+          "FP": 0,
+          "FN": 6,
+          "errors": 6,
+          "sensitivity": 0.9776119402985075,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 268,
+          "groups": 223,
+          "TP": 260,
+          "TN": 0,
+          "FP": 0,
+          "FN": 8,
+          "errors": 8,
+          "sensitivity": 0.9701492537313433,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 5,
+        "harmed": 7
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 821,
+          "FP": 33,
+          "FN": 0,
+          "errors": 33,
+          "sensitivity": null,
+          "specificity": 0.9613583138173302,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 836,
+          "FP": 18,
+          "FN": 0,
+          "errors": 18,
+          "sensitivity": null,
+          "specificity": 0.9789227166276346,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 20,
+        "harmed": 5
+      },
+      "fusion": {
+        "A": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 830,
+          "FP": 24,
+          "FN": 0,
+          "errors": 24,
+          "sensitivity": null,
+          "specificity": 0.9718969555035128,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 854,
+          "groups": 695,
+          "TP": 0,
+          "TN": 841,
+          "FP": 13,
+          "FN": 0,
+          "errors": 13,
+          "sensitivity": null,
+          "specificity": 0.9847775175644028,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 16,
+        "harmed": 5
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 57,
+          "FP": 19,
+          "FN": 0,
+          "errors": 19,
+          "sensitivity": null,
+          "specificity": 0.75,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 62,
+          "FP": 14,
+          "FN": 0,
+          "errors": 14,
+          "sensitivity": null,
+          "specificity": 0.8157894736842105,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 8,
+        "harmed": 3
+      },
+      "fusion": {
+        "A": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 56,
+          "FP": 20,
+          "FN": 0,
+          "errors": 20,
+          "sensitivity": null,
+          "specificity": 0.7368421052631579,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 76,
+          "groups": 58,
+          "TP": 0,
+          "TN": 64,
+          "FP": 12,
+          "FN": 0,
+          "errors": 12,
+          "sensitivity": null,
+          "specificity": 0.8421052631578947,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 11,
+        "harmed": 3
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 375,
+          "groups": 355,
+          "TP": 40,
+          "TN": 292,
+          "FP": 28,
+          "FN": 15,
+          "errors": 43,
+          "sensitivity": 0.7272727272727273,
+          "specificity": 0.9125,
+          "MCC": 0.5874330979951516,
+          "AUPRC": 0.7011093283056783,
+          "AUROC": 0.8986079545454546
+        },
+        "B": {
+          "n": 375,
+          "groups": 355,
+          "TP": 39,
+          "TN": 303,
+          "FP": 17,
+          "FN": 16,
+          "errors": 33,
+          "sensitivity": 0.7090909090909091,
+          "specificity": 0.946875,
+          "MCC": 0.6511008290167266,
+          "AUPRC": 0.6996634389211518,
+          "AUROC": 0.896875
+        },
+        "delta_MCC": 0.06366773102157497,
+        "delta_AUPRC": -0.0014458893845264997,
+        "corrected": 14,
+        "harmed": 4
+      },
+      "fusion": {
+        "A": {
+          "n": 375,
+          "groups": 355,
+          "TP": 44,
+          "TN": 298,
+          "FP": 22,
+          "FN": 11,
+          "errors": 33,
+          "sensitivity": 0.8,
+          "specificity": 0.93125,
+          "MCC": 0.6793146889343272,
+          "AUPRC": 0.7607079826513308,
+          "AUROC": 0.9191477272727273
+        },
+        "B": {
+          "n": 375,
+          "groups": 355,
+          "TP": 41,
+          "TN": 307,
+          "FP": 13,
+          "FN": 14,
+          "errors": 27,
+          "sensitivity": 0.7454545454545455,
+          "specificity": 0.959375,
+          "MCC": 0.7102169592378705,
+          "AUPRC": 0.7263974177030723,
+          "AUROC": 0.9230681818181818
+        },
+        "delta_MCC": 0.03090227030354331,
+        "delta_AUPRC": -0.03431056494825846,
+        "corrected": 14,
+        "harmed": 8
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 916,
+          "groups": 709,
+          "TP": 269,
+          "TN": 586,
+          "FP": 24,
+          "FN": 37,
+          "errors": 61,
+          "sensitivity": 0.8790849673202614,
+          "specificity": 0.9606557377049181,
+          "MCC": 0.8491667931241504,
+          "AUPRC": 0.9612548279233573,
+          "AUROC": 0.9724124075859852
+        },
+        "B": {
+          "n": 916,
+          "groups": 709,
+          "TP": 264,
+          "TN": 595,
+          "FP": 15,
+          "FN": 42,
+          "errors": 57,
+          "sensitivity": 0.8627450980392157,
+          "specificity": 0.9754098360655737,
+          "MCC": 0.8589702428985077,
+          "AUPRC": 0.9647465810066588,
+          "AUROC": 0.9729320690024644
+        },
+        "delta_MCC": 0.009803449774357209,
+        "delta_AUPRC": 0.0034917530833015187,
+        "corrected": 23,
+        "harmed": 19
+      },
+      "fusion": {
+        "A": {
+          "n": 916,
+          "groups": 709,
+          "TP": 273,
+          "TN": 588,
+          "FP": 22,
+          "FN": 33,
+          "errors": 55,
+          "sensitivity": 0.8921568627450981,
+          "specificity": 0.9639344262295082,
+          "MCC": 0.864149535113826,
+          "AUPRC": 0.9688220681439415,
+          "AUROC": 0.9771295403407266
+        },
+        "B": {
+          "n": 916,
+          "groups": 709,
+          "TP": 270,
+          "TN": 598,
+          "FP": 12,
+          "FN": 36,
+          "errors": 48,
+          "sensitivity": 0.8823529411764706,
+          "specificity": 0.980327868852459,
+          "MCC": 0.8814680698148447,
+          "AUPRC": 0.9738781930450422,
+          "AUROC": 0.9798885674488375
+        },
+        "delta_MCC": 0.01731853470101874,
+        "delta_AUPRC": 0.005056124901100745,
+        "corrected": 23,
+        "harmed": 16
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 4,
+          "groups": 4,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 4,
+          "errors": 4,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      }
+    }
+  },
+  "fold4": {
+    "all": {
+      "sequence": {
+        "A": {
+          "n": 1323,
+          "groups": 1051,
+          "TP": 313,
+          "TN": 911,
+          "FP": 36,
+          "FN": 63,
+          "errors": 99,
+          "sensitivity": 0.8324468085106383,
+          "specificity": 0.9619852164730729,
+          "MCC": 0.81308034557269,
+          "AUPRC": 0.9248482735992097,
+          "AUROC": 0.9640971488912354
+        },
+        "B": {
+          "n": 1323,
+          "groups": 1051,
+          "TP": 306,
+          "TN": 901,
+          "FP": 46,
+          "FN": 70,
+          "errors": 116,
+          "sensitivity": 0.8138297872340425,
+          "specificity": 0.9514255543822597,
+          "MCC": 0.7810778731189243,
+          "AUPRC": 0.9172040143787735,
+          "AUROC": 0.9582738884270597
+        },
+        "delta_MCC": -0.03200247245376575,
+        "delta_AUPRC": -0.007644259220436211,
+        "corrected": 22,
+        "harmed": 39
+      },
+      "fusion": {
+        "A": {
+          "n": 1323,
+          "groups": 1051,
+          "TP": 317,
+          "TN": 908,
+          "FP": 39,
+          "FN": 59,
+          "errors": 98,
+          "sensitivity": 0.8430851063829787,
+          "specificity": 0.9588173178458289,
+          "MCC": 0.8155530238936023,
+          "AUPRC": 0.9355708622414809,
+          "AUROC": 0.9690287357613068
+        },
+        "B": {
+          "n": 1323,
+          "groups": 1051,
+          "TP": 315,
+          "TN": 898,
+          "FP": 49,
+          "FN": 61,
+          "errors": 110,
+          "sensitivity": 0.8377659574468085,
+          "specificity": 0.9482576557550159,
+          "MCC": 0.7938610780348082,
+          "AUPRC": 0.9349922003585818,
+          "AUROC": 0.9689753757666989
+        },
+        "delta_MCC": -0.02169194585879408,
+        "delta_AUPRC": -0.000578661882899123,
+        "corrected": 22,
+        "harmed": 34
+      }
+    },
+    "lowcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 83,
+          "groups": 77,
+          "TP": 27,
+          "TN": 0,
+          "FP": 0,
+          "FN": 56,
+          "errors": 56,
+          "sensitivity": 0.3253012048192771,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 83,
+          "groups": 77,
+          "TP": 37,
+          "TN": 0,
+          "FP": 0,
+          "FN": 46,
+          "errors": 46,
+          "sensitivity": 0.4457831325301205,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 13,
+        "harmed": 3
+      },
+      "fusion": {
+        "A": {
+          "n": 83,
+          "groups": 77,
+          "TP": 29,
+          "TN": 0,
+          "FP": 0,
+          "FN": 54,
+          "errors": 54,
+          "sensitivity": 0.3493975903614458,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 83,
+          "groups": 77,
+          "TP": 40,
+          "TN": 0,
+          "FP": 0,
+          "FN": 43,
+          "errors": 43,
+          "sensitivity": 0.4819277108433735,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 15,
+        "harmed": 4
+      }
+    },
+    "highcys_positive": {
+      "sequence": {
+        "A": {
+          "n": 293,
+          "groups": 224,
+          "TP": 286,
+          "TN": 0,
+          "FP": 0,
+          "FN": 7,
+          "errors": 7,
+          "sensitivity": 0.9761092150170648,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 293,
+          "groups": 224,
+          "TP": 269,
+          "TN": 0,
+          "FP": 0,
+          "FN": 24,
+          "errors": 24,
+          "sensitivity": 0.9180887372013652,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 19
+      },
+      "fusion": {
+        "A": {
+          "n": 293,
+          "groups": 224,
+          "TP": 288,
+          "TN": 0,
+          "FP": 0,
+          "FN": 5,
+          "errors": 5,
+          "sensitivity": 0.9829351535836177,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 293,
+          "groups": 224,
+          "TP": 275,
+          "TN": 0,
+          "FP": 0,
+          "FN": 18,
+          "errors": 18,
+          "sensitivity": 0.9385665529010239,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 2,
+        "harmed": 15
+      }
+    },
+    "lowcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 827,
+          "groups": 671,
+          "TP": 0,
+          "TN": 817,
+          "FP": 10,
+          "FN": 0,
+          "errors": 10,
+          "sensitivity": null,
+          "specificity": 0.9879081015719468,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 827,
+          "groups": 671,
+          "TP": 0,
+          "TN": 803,
+          "FP": 24,
+          "FN": 0,
+          "errors": 24,
+          "sensitivity": null,
+          "specificity": 0.9709794437726723,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 3,
+        "harmed": 17
+      },
+      "fusion": {
+        "A": {
+          "n": 827,
+          "groups": 671,
+          "TP": 0,
+          "TN": 812,
+          "FP": 15,
+          "FN": 0,
+          "errors": 15,
+          "sensitivity": null,
+          "specificity": 0.9818621523579202,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 827,
+          "groups": 671,
+          "TP": 0,
+          "TN": 801,
+          "FP": 26,
+          "FN": 0,
+          "errors": 26,
+          "sensitivity": null,
+          "specificity": 0.9685610640870617,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 4,
+        "harmed": 15
+      }
+    },
+    "highcys_negative": {
+      "sequence": {
+        "A": {
+          "n": 120,
+          "groups": 80,
+          "TP": 0,
+          "TN": 94,
+          "FP": 26,
+          "FN": 0,
+          "errors": 26,
+          "sensitivity": null,
+          "specificity": 0.7833333333333333,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 120,
+          "groups": 80,
+          "TP": 0,
+          "TN": 98,
+          "FP": 22,
+          "FN": 0,
+          "errors": 22,
+          "sensitivity": null,
+          "specificity": 0.8166666666666667,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 4,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 120,
+          "groups": 80,
+          "TP": 0,
+          "TN": 96,
+          "FP": 24,
+          "FN": 0,
+          "errors": 24,
+          "sensitivity": null,
+          "specificity": 0.8,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 120,
+          "groups": 80,
+          "TP": 0,
+          "TN": 97,
+          "FP": 23,
+          "FN": 0,
+          "errors": 23,
+          "sensitivity": null,
+          "specificity": 0.8083333333333333,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 0
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "A": {
+          "n": 377,
+          "groups": 355,
+          "TP": 36,
+          "TN": 291,
+          "FP": 18,
+          "FN": 32,
+          "errors": 50,
+          "sensitivity": 0.5294117647058824,
+          "specificity": 0.941747572815534,
+          "MCC": 0.517134315776812,
+          "AUPRC": 0.647369135205071,
+          "AUROC": 0.8603655054254712
+        },
+        "B": {
+          "n": 377,
+          "groups": 355,
+          "TP": 38,
+          "TN": 286,
+          "FP": 23,
+          "FN": 30,
+          "errors": 53,
+          "sensitivity": 0.5588235294117647,
+          "specificity": 0.9255663430420712,
+          "MCC": 0.50573183387023,
+          "AUPRC": 0.6434423036462752,
+          "AUROC": 0.8278364743955835
+        },
+        "delta_MCC": -0.011402481906581996,
+        "delta_AUPRC": -0.003926831558795807,
+        "corrected": 13,
+        "harmed": 16
+      },
+      "fusion": {
+        "A": {
+          "n": 377,
+          "groups": 355,
+          "TP": 40,
+          "TN": 288,
+          "FP": 21,
+          "FN": 28,
+          "errors": 49,
+          "sensitivity": 0.5882352941176471,
+          "specificity": 0.9320388349514563,
+          "MCC": 0.5431971318401803,
+          "AUPRC": 0.7090867018198692,
+          "AUROC": 0.8929659242337712
+        },
+        "B": {
+          "n": 377,
+          "groups": 355,
+          "TP": 42,
+          "TN": 284,
+          "FP": 25,
+          "FN": 26,
+          "errors": 51,
+          "sensitivity": 0.6176470588235294,
+          "specificity": 0.919093851132686,
+          "MCC": 0.5398587514087497,
+          "AUPRC": 0.7155940499326928,
+          "AUROC": 0.8814011041309728
+        },
+        "delta_MCC": -0.003338380431430532,
+        "delta_AUPRC": 0.006507348112823608,
+        "corrected": 13,
+        "harmed": 15
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "A": {
+          "n": 946,
+          "groups": 714,
+          "TP": 277,
+          "TN": 620,
+          "FP": 18,
+          "FN": 31,
+          "errors": 49,
+          "sensitivity": 0.8993506493506493,
+          "specificity": 0.9717868338557993,
+          "MCC": 0.8811927112687792,
+          "AUPRC": 0.9596250491769386,
+          "AUROC": 0.9803133778447258
+        },
+        "B": {
+          "n": 946,
+          "groups": 714,
+          "TP": 268,
+          "TN": 615,
+          "FP": 23,
+          "FN": 40,
+          "errors": 63,
+          "sensitivity": 0.8701298701298701,
+          "specificity": 0.9639498432601881,
+          "MCC": 0.8468882580025638,
+          "AUPRC": 0.9582591377142953,
+          "AUROC": 0.980104730692505
+        },
+        "delta_MCC": -0.03430445326621534,
+        "delta_AUPRC": -0.00136591146264331,
+        "corrected": 9,
+        "harmed": 23
+      },
+      "fusion": {
+        "A": {
+          "n": 946,
+          "groups": 714,
+          "TP": 277,
+          "TN": 620,
+          "FP": 18,
+          "FN": 31,
+          "errors": 49,
+          "sensitivity": 0.8993506493506493,
+          "specificity": 0.9717868338557993,
+          "MCC": 0.8811927112687792,
+          "AUPRC": 0.9633265438761277,
+          "AUROC": 0.9815779831453812
+        },
+        "B": {
+          "n": 946,
+          "groups": 714,
+          "TP": 273,
+          "TN": 614,
+          "FP": 24,
+          "FN": 35,
+          "errors": 59,
+          "sensitivity": 0.8863636363636364,
+          "specificity": 0.9623824451410659,
+          "MCC": 0.8569646485247937,
+          "AUPRC": 0.9654402441728701,
+          "AUROC": 0.9836593657126573
+        },
+        "delta_MCC": -0.02422806274398548,
+        "delta_AUPRC": 0.0021137002967424046,
+        "corrected": 9,
+        "harmed": 19
+      }
+    },
+    "MCD_NDBP": {
+      "sequence": {
+        "A": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "A": {
+          "n": 2,
+          "groups": 2,
+          "TP": 0,
+          "TN": 0,
+          "FP": 0,
+          "FN": 2,
+          "errors": 2,
+          "sensitivity": 0.0,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "B": {
+          "n": 2,
+          "groups": 2,
+          "TP": 1,
+          "TN": 0,
+          "FP": 0,
+          "FN": 1,
+          "errors": 1,
+          "sensitivity": 0.5,
+          "specificity": null,
+          "MCC": null,
+          "AUPRC": null,
+          "AUROC": null
+        },
+        "delta_MCC": null,
+        "delta_AUPRC": null,
+        "corrected": 1,
+        "harmed": 0
+      }
+    }
+  }
+}

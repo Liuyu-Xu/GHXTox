@@ -1,0 +1,60 @@
+{
+  "purpose": "Define required capabilities before searching candidate models; no model chosen or trained in this registry",
+  "priorities": [
+    {
+      "priority": 1,
+      "target_category": "physical_0",
+      "target": "低Cys原有毒样本的共同漏判",
+      "capability": "识别不依赖富Cys毒素典型模式的宿主效应；分别研究膜作用、受体/通道或酶相关终点，不把低Cys自动等同溶血",
+      "inputs_allowed": "新样本可获取的序列、结构或明确化学形式；若环境/测量条件不可获取，只能作训练辅助，不能在推理时假装已知",
+      "minimum_evidence": [
+        "候选训练数据、标签定义、论文/序列家族与目标样本重叠可追溯",
+        "与同类正确池、同标签家族/序列背景对照及全体负类同时比较",
+        "在选择与评价分离后减少本类漏判，不以误报大增交换表面敏感性",
+        "保留简单组成/分数控制，证明不是只重学Cys/长度或多训练步骤"
+      ],
+      "known_limits": "当前空间代理与真实溶血辅助小头未过各自门槛；不能直接换名重做。只有膜/通道等注释不等于统一终点实验证明。"
+    },
+    {
+      "priority": 2,
+      "target_category": "physical_1",
+      "target": "富Cys原无毒样本的共同误报",
+      "capability": "区分二硫键/骨架/家族身份与宿主毒性，不把Cys多当成毒性充分条件",
+      "inputs_allowed": "可推理的序列/结构表征；不能把原标签或数据库来源ID作为路由捷径",
+      "minimum_evidence": [
+        "先区分明确指定终点阴性、数据库操作性负类和未知；无文献缓存不是安全证明",
+        "同家族或近背景正确对照可以跨Cys分层，但必须保留原标签和样本群来源",
+        "少误报同时不损害富Cys真正原正类及低Cys漏判问题",
+        "真实键连或分子状态能力应超出已失败的普通matching/拓扑小模块"
+      ],
+      "known_limits": "现有该类直接测量缓存不足，不能将全部原FP认定为生物学假阳性；先证据分级，不重标或统一加权。"
+    },
+    {
+      "priority": 3,
+      "target_category": "membrane_semantic_affirmative_annotation_not_gold",
+      "target": "低Cys内部的膜作用肯定文字候选子类",
+      "capability": "学习宿主膜效应/选择性或相关活性状态表征，而非仅预测抗菌活性或拟合溶血曲线",
+      "minimum_evidence": [
+        "同一具体分子、化学形式和终点，区别弱/否定/间接效应",
+        "多个来源和序列骨架，正确对照和添错全部保留",
+        "在完整GHXTox分类上有增量，不能用辅助曲线更准代替分类收益",
+        "抗菌阳性不自动作为宿主毒性阳性"
+      ],
+      "known_limits": "该38条仍为注释语义子集而非金标准，且不同于此前去片段/冲突后的另一个38条集合。当前不以此子类训练新模型。"
+    },
+    {
+      "priority": 4,
+      "target": "分子完整性、二硫键和化学状态",
+      "capability": "在输入中区分真正实验分子、单链/复合物、末端修饰和氧化状态",
+      "minimum_evidence": [
+        "多骨架的实际化学形式/键连证据，未知状态单列",
+        "同背景对照可区分新增信息与普通序列组成",
+        "不将完整毒素实验自动赋给亚基或短片段",
+        "Conantokin等已知反例保留，不能只用Gla有无或Cys计数解释"
+      ],
+      "known_limits": "对象/标签不一致不一定能靠神经网络解决；资料不足时保持候选，不直接造模块。"
+    }
+  ],
+  "entry_to_integration": "只有候选在明确短板类别和全体背景上产生可复核、选择评价分离的稳定纠错，再另行冻结自适应融合、门控或蒸馏；不固定SaProt为答案。",
+  "not_done_here": ["candidate model literature/web search", "new matching", "new training", "new independent evaluation", "default model replacement"]
+}

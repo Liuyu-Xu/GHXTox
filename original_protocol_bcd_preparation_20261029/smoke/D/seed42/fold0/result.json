@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "arm": "D",
+  "seed": 42,
+  "fold": "0",
+  "smoke": true,
+  "n_train": 5116,
+  "n_eval": 1271,
+  "history": [
+    {
+      "epoch": 1,
+      "steps": 2,
+      "mean_loss": 1.5593317747116089,
+      "anchor_counts": {
+        "ordinary": 28,
+        "low": 3,
+        "high": 12
+      }
+    }
+  ],
+  "initial_head_sha256": "9856f2bb7ffbb7fdb5c4eeb509ab493063c57986445e09b163a1cf73c77efadc",
+  "pos_weight": 2.520991086959839,
+  "fixed_epochs": 15,
+  "lora_frozen_zero_B": true,
+  "sampling": "cys_stratified",
+  "training_evidence": "exploratory reproduction, not proven identical to historical training"
+}

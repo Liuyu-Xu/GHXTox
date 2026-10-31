@@ -1,0 +1,9 @@
+{
+ "stage":"after descriptive discovery, before follow-up computation; not independent confirmation",
+ "purpose":"qualify Cys/length descriptive signals and spatial confounding; do not tune model or route by true labels",
+ "net_change_CI":"2000 original-group bootstrap of corrected minus harmed counts, for label, fixed Cys bins, old membrane76 and non-conflict samples; normalized population counts; report fold and original paired-seed net for same strata",
+ "seed_overlap":"count ensemble rescues/harm repeated by both paired original seeds",
+ "spatial_adjustment":"cross-fold linear Ridge(alpha1) nuisance fit of hydrophobic_contact_excess, ca_radius_gyration, charge_hydrophobic_separation; train nuisance only other folds, inputs sequence_length,cys_count,cys_span_fraction,net_charge_proxy,mean_hydropathy,mean_plddt,baseline4_probability; complete cases; compare residual corrected vs persistentwrong by label, groupCI and BH6; not classifier retraining and no causal interpretation",
+ "threshold_diagnostics":"absolute probability distance to0.5<=0.1 and<=0.2, fixed descriptive bins only; median probability change by label; no threshold search",
+ "matched_check":"print all available matched feature contrasts including n and fold directions; no new matching relaxed to increase coverage"
+}

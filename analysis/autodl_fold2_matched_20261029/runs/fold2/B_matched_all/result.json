@@ -1,0 +1,89 @@
+{
+  "success": true,
+  "smoke": false,
+  "fold": 2,
+  "seed": 42,
+  "arm": "B",
+  "initial_head_sha256": "c6f332be2aead421ca70ae0e5812a06e5a9d4d7de3d3d6f2fa22d5f23506571f",
+  "selected_validation_bce": 0.35810685202586123,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 0.589596871036191,
+      "validation_bce": 0.37048166012992173,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 40.12349247932434
+    },
+    {
+      "epoch": 2,
+      "train_loss_mean": 0.34693800296806615,
+      "validation_bce": 0.45567174962176993,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 70.72311878204346
+    },
+    {
+      "epoch": 3,
+      "train_loss_mean": 0.2652752893877083,
+      "validation_bce": 0.35810685202586123,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 100.53552198410034
+    },
+    {
+      "epoch": 4,
+      "train_loss_mean": 0.19711842152442657,
+      "validation_bce": 0.3617848063883688,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 130.7969696521759
+    },
+    {
+      "epoch": 5,
+      "train_loss_mean": 0.11052733293867537,
+      "validation_bce": 0.4729753105543742,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 160.61439776420593
+    }
+  ],
+  "metrics": {
+    "sequence": {
+      "MCC": 0.7358331870763021,
+      "AUPRC": 0.9078320229434018,
+      "FN": 74,
+      "FP": 60,
+      "low_positive_FN": 30,
+      "low_positive_n": 51,
+      "high_negative_FP": 5,
+      "high_negative_n": 38
+    },
+    "fusion": {
+      "MCC": 0.7874531995295461,
+      "AUPRC": 0.9362846752176616,
+      "FN": 60,
+      "FP": 48,
+      "low_positive_FN": 30,
+      "low_positive_n": 51,
+      "high_negative_FP": 3,
+      "high_negative_n": 38
+    }
+  },
+  "note": "historical 3D OOF and threshold; conditional exploratory fusion, not full nested or external validation"
+}

@@ -1,0 +1,18 @@
+{
+ "purpose":"Local exploratory matched A/B/C retraining of the actual GHXTox structural expert; frozen historical 1D expert scores for conditional whole-fusion comparison, not a substitute lightweight classifier",
+ "arms":{"A":"all extra sample weights=1","B":"original label1 AND Cys<4 ->1.5, otherwise1","C":"B plus unambiguous MCD parent family or NDBP superfamily, label1,Cys<4 ->total2.0 (not multiplied to3.0)"},
+ "hypothesis_status":"MCD/NDBP and lowCys were selected after observing current historical errors; exploratory, not blind confirmation or proof of a biological/Cys cause",
+ "unknown_labels":"original labels kept; no numerical reliability score, no automatic unflagged=gold; B deliberately includes flagged lowCys as requested, report flag-specific changes; C extra group has11 records with no primary flag, which still does not certify labels",
+ "initialization":"same seeded random initialization for all arms, no all-data-trained checkpoint initialization; model architecture from local canonical source-aware full2795 checkpoint config, all used parameters trainable; never freeze a randomly initialized backbone",
+ "structural_mode":"actual original 2-inner-Transformer GHXTox architecture, ESM2 residue cache+EGNN+chemical sites, public single-structure base_logits. Conformer fields masked unavailable for all arms, unused residual parameters remain in architecture",
+ "cache":"D:/dachuang2026/GHXTox-ziliao/train_chemical_sites_final_esm2_multisource_1_30_full2795.pt; 6387 exact IDs/sequences/labels; ESM2 embeddings frozen unsupervised features",
+ "roles":"reuse archived five outer folds and within-outer train/validation/calibration/test roles, verify sequence-group isolation; only train role gets weighted loss",
+ "training":{"seeds":[42],"epochs":6,"batch_size":32,"optimizer":"AdamW","learning_rate":0.0005,"weight_decay":0.0001,"pos_weight":"none in all arms; A has no hidden class correction","loss":"sum(extra_weight*unreduced_BCE)/sum(extra_weight)","gradient_clip_norm":1.0,"coord_noise":0,"validation":"same unweighted BCE for checkpoint selection; all6 epochs executed, no arm-specific training budget"},
+ "calibration":"separate per-arm scalar logistic Platt on own outer calibration role logits, C1 no class balancing; structure decision threshold0.5 fixed",
+ "full_fusion":"same archived calibrated 3-seed 1D OOF probability in all arms, 0.72 sequence+0.28 new calibrated3D, fixed historical threshold0.47022256531284556; no full-fit sequence checkpoint used for OOF",
+ "fusion_limit":"historical 1D Platt/calibration and research choices used all historicalOOF; complete fusion is a conditional retrospective comparison, NOT fully nested blind validation. New structural updates/selection/calibration roles do not include outer test",
+ "evaluations":"all6387 once per arm, full fusion and standalone structure, four physical strata, uniform flagged/unflagged-not-gold, all family backgrounds, MCD/NDBP11, corrected/harmed IDs and per-fold changes",
+ "tests_not_used":true,
+ "no_weight_search":true,
+ "promotion_gate":"one-seed exploratory result cannot justify deployment or stable-gain claims; overall and background harms considered, no test-set retuning"
+}

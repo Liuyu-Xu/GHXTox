@@ -1,0 +1,135 @@
+{
+  "arm": "low_cys",
+  "smoke_only": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.5732884473146642,
+      "validation_unweighted_BCE": 0.328612278915139,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "b0625adf3925f2fb28dfbdb61c5f7caa89f1c8dd9a25ee45ea7fb2581bd3cd37",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 84.51204705238342
+    },
+    {
+      "epoch": 2,
+      "train_weighted_BCE": 0.4268688253106321,
+      "validation_unweighted_BCE": 0.28438329248942085,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "dcbda8e6d252c0db63ea496f9806141b3c11576fb314b3a8725158b6650fdf25",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 167.37287259101868
+    },
+    {
+      "epoch": 3,
+      "train_weighted_BCE": 0.361637688290561,
+      "validation_unweighted_BCE": 0.2644964107432387,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "f02795cc387472b4e6599571e4c71ba3f769dc66a576ecca7ce5ba2a141a0ab4",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 249.70850944519043
+    },
+    {
+      "epoch": 4,
+      "train_weighted_BCE": 0.30546805040551417,
+      "validation_unweighted_BCE": 0.20108335785149442,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "c97254e0f727ebba93bca233c4999cf49b4395d491dbcc6d4d9473d2e7219373",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 332.2567231655121
+    },
+    {
+      "epoch": 5,
+      "train_weighted_BCE": 0.24338906392285506,
+      "validation_unweighted_BCE": 0.26821839151415006,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "dd9ac313e2139a1621c1312ef4d3d73a85e5cf505be90de35bde126bca2143e9",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 415.4205460548401
+    },
+    {
+      "epoch": 6,
+      "train_weighted_BCE": 0.22668148277773567,
+      "validation_unweighted_BCE": 0.2675811050513445,
+      "successful_optimizer_steps": 242,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "865f9687d3c9364eab7c18ad3d4b64779dd9f8d42dc17a323d5ece7dc9dbfbc8",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 499.00168561935425
+    }
+  ],
+  "selected_epoch": 4,
+  "validation_BCE": 0.20108335785149442,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 0,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 0.0003
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5"
+}

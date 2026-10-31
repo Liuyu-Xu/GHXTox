@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "baseline": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\lora_multifold_screen_20261028\\fold3\\predictions_no_lora.json",
+      "sha256": "6e6eeda9898e2463c555d240c4fa86da9a9b0cf715fb1c5dcfd80a5350e5dbec"
+    },
+    "weight": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\family_weight_no_lora_20261028\\predictions_B.json",
+      "sha256": "0be6635cf7124eb168d40ed677715c81e2060e9bdc0d194e138e37b7d08b5f12"
+    },
+    "contrast": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\supcon_pilot_20261028\\predictions_B.json",
+      "sha256": "1312a83bd0aca0a709e6292c9e4e8b62c2672b3220f045d5a926aa228f650dd7"
+    },
+    "contrast_unflagged": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\supcon_pilot_20261028\\predictions_C.json",
+      "sha256": "7d30e02f263ec126c9702e2c7992def8664fc9e4b488fb06b60f5f375b3fb0f1"
+    },
+    "oof": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_weight_multifold_20261028\\all_oof_predictions.json",
+      "sha256": "d35160d7d626b0d86f2e9a3383c411ff12a600f3a12209612f577b36dca6efe1"
+    },
+    "meta": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_background_20261027\\all_samples_with_symmetric_family.json",
+      "sha256": "47fa3b7be5d9741821b62bc4e0ed673408c7b8d7f8202db3cafb781ec915b6e4"
+    }
+  },
+  "n_fold3": 1291,
+  "fold3_thresholds": {
+    "sequence": 0.5,
+    "fusion": 0.47022256531284556
+  },
+  "contrast_only_fold3": true,
+  "no_training": true,
+  "no_Test1_Test2": true
+}

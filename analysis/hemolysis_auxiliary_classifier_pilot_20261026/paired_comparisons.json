@@ -1,0 +1,34 @@
+[
+  {
+    "candidate": "real_hemolysis_aux",
+    "reference": "toxicity_only",
+    "delta_MCC": 0.001309967453182237,
+    "delta_AUPRC": 0.0026297136605242244,
+    "delta_sensitivity": -0.0011001100110010764,
+    "delta_specificity": 0.0013131976362442677,
+    "delta_FN": 2,
+    "delta_FP": -6,
+    "MCC_paired_joint_component_bootstrap_ci95": [
+      -0.00665316800518162,
+      0.008954031345323507
+    ],
+    "n_components": 5220,
+    "scope": "conditional on saved two-seed predictions, no retraining uncertainty, not a blind external test"
+  },
+  {
+    "candidate": "real_hemolysis_aux",
+    "reference": "permuted_hemolysis_aux",
+    "delta_MCC": -0.0034269568426867902,
+    "delta_AUPRC": 0.0011601045377781505,
+    "delta_sensitivity": 0.0016501650165016146,
+    "delta_specificity": -0.0028452615451959318,
+    "delta_FN": -3,
+    "delta_FP": 13,
+    "MCC_paired_joint_component_bootstrap_ci95": [
+      -0.011589735902353862,
+      0.0038502789807466683
+    ],
+    "n_components": 5220,
+    "scope": "conditional on saved two-seed predictions, no retraining uncertainty, not a blind external test"
+  }
+]

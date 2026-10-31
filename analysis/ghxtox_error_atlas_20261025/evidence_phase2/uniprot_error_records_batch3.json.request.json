@@ -1,0 +1,25 @@
+{
+  "retrieved_utc": "2026-10-25T05:44:16.476735+00:00",
+  "url": "https://rest.uniprot.org/uniprotkb/stream?query=accession%3AP83048+OR+accession%3AP86388+OR+accession%3AA9JX07+OR+accession%3AP0C804+OR+accession%3AP0C802+OR+accession%3AP0C803+OR+accession%3AP0C805+OR+accession%3AP0C806+OR+accession%3AP0C807+OR+accession%3AP0C808+OR+accession%3AP0C809+OR+accession%3AP0C810+OR+accession%3AP0C811+OR+accession%3AP0C813+OR+accession%3AP0C814+OR+accession%3AP01154+OR+accession%3AP85981+OR+accession%3AP84778+OR+accession%3AP84702+OR+accession%3AP81614+OR+accession%3AP85148+OR+accession%3AP01069+OR+accession%3AP83604+OR+accession%3AC0HK45+OR+accession%3AP0DMA4+OR+accession%3AP83477+OR+accession%3AP83481+OR+accession%3AQ9TWD3+OR+accession%3AP84016+OR+accession%3AQ9U5V6+OR+accession%3AP04567+OR+accession%3AQ86HC2+OR+accession%3AP81613+OR+accession%3AP0C8X0+OR+accession%3AP0DPF1+OR+accession%3AP81765+OR+accession%3AP25509+OR+accession%3AP0DJ30+OR+accession%3AP80779+OR+accession%3AP84818+OR+accession%3AB3EWQ1+OR+accession%3AP36962+OR+accession%3AP17350+OR+accession%3AP81499+OR+accession%3AP85036+OR+accession%3AQ7M463+OR+accession%3AP83653+OR+accession%3AP84813+OR+accession%3AP0C8X7+OR+accession%3AP0C1R2+OR+accession%3AP81532+OR+accession%3AQ10996+OR+accession%3AP0CAY3+OR+accession%3AP85078+OR+accession%3AP28580+OR+accession%3AP0C200+OR+accession%3AP0DQD1+OR+accession%3AP86529+OR+accession%3AP85032+OR+accession%3AP26888&format=json",
+  "headers": {
+    "Vary": "accept,accept-encoding,x-uniprot-release,x-api-deployment-date, User-Agent, Accept-Encoding",
+    "Cache-Control": "public, max-age=43200",
+    "Content-Type": "application/json",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date",
+    "X-API-Deployment-Date": "15-October-2026",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Date": "Sun, 25 Oct 2026 05:44:15 GMT",
+    "Access-Control-Max-Age": "1728000",
+    "X-UniProt-Release": "2026_03",
+    "Transfer-Encoding": "chunked",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "keep-alive",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "X-UniProt-Release-Date": "02-September-2026"
+  },
+  "sha256": "48a7ae99cef4eaa0c0bcee07aac8fd82117b2ff06cffe9e5e9d82511f550e1a1",
+  "purpose": "sequence identity and annotation recovery, not gold toxicity labeling"
+}

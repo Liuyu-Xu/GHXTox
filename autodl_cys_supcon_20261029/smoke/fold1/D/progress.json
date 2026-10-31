@@ -1,0 +1,17 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 1.81388658285141,
+      "validation_bce": 0.1280251427738357,
+      "anchor_counts": {
+        "ordinary": 25,
+        "low": 5,
+        "high": 10
+      },
+      "seconds": 2.5793635845184326
+    }
+  ],
+  "arm": "D",
+  "smoke": true
+}
