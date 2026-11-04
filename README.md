@@ -1,5 +1,11 @@
 # GHXTox
 
+## RTX 4080 Super training and reviewer experiments
+
+The [training package](research/rtx4080_training/README.md) includes the six-seed grouped OOF scripts, fold manifest, historical structural predictions, and pLDDT ablation switches. Its six-seed pipeline has passed a small GPU smoke test on an RTX 4060. The 4080 Super environment and complete training have not yet been tested. The pLDDT experiment still requires verification of the baseline and upstream training provenance before matched retraining.
+
+The StrucToxNet author checkpoint reproduced the two supplied examples. The full comparison awaits validated all-atom structures and DSSP inputs for the test set.
+
 GHXTox is a peptide toxicity prediction framework that combines a sequence
 submodel with a structural submodel. The sequence submodel uses a
 LoRA-adapted ProtT5 encoder and a bidirectional Mamba classifier. The
