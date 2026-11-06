@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from ghxtox.multidimensional_default import (
     DEFAULT_STRUCTURE_CHECKPOINT,
@@ -39,8 +40,10 @@ def test_public_configuration_matches_the_frozen_model() -> None:
     validate_public_default_config(config)
 
     assert config["public_model_name"] == DEFAULT_PUBLIC_MODEL_NAME
+    assert config["model_status"] == "primary"
+    assert config["architecture_version"] == "no_inner_transformer_20261023"
     assert config["fusion"]["weight_sequence"] == DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D
-    assert config["fusion"]["weight_structure"] == 0.28
+    assert config["fusion"]["weight_structure"] == 0.24
     assert config["fusion"]["threshold"] == DEFAULT_MULTIDIMENSIONAL_THRESHOLD
     assert config["composition"]["sequence_submodel"]["seeds"] == [42, 123, 2025]
     assert (
@@ -49,6 +52,11 @@ def test_public_configuration_matches_the_frozen_model() -> None:
     )
     assert config["inference"]["structures_per_peptide"] == 1
     assert config["inference"]["multi_conformer_residual"] == "disabled"
+    assert config["composition"]["structural_submodel"]["architecture"] == "no_inner_transformer"
+    architecture = json.loads((ROOT / "configs/default.json").read_text(encoding="utf-8"))
+    assert architecture["model"]["num_sequence_layers"] == 0
+    assert architecture["model"]["num_egnn_layers"] == 3
+    assert architecture["model"]["chemical_site_branch"] is True
 
 
 def test_public_parser_exposes_only_supported_inference_inputs() -> None:
@@ -67,6 +75,46 @@ def test_public_parser_exposes_only_supported_inference_inputs() -> None:
     assert args.command == "predict"
     assert not hasattr(args, "conformer_cache")
     assert not hasattr(args, "conformer_manifest")
+
+
+def test_all_default_entrypoints_select_no_inner_transformer() -> None:
+    from ghxtox.evaluate import build_arg_parser as evaluate_parser
+    from ghxtox.predict import build_arg_parser as structure_parser
+    from ghxtox.train import build_arg_parser as train_parser
+
+    predict_args = build_parser().parse_args([
+        "predict", "--processed", "structure.pt", "--sequence-records", "sequence.pt",
+        "--output-csv", "predictions.csv",
+    ])
+    assert predict_args.structure_checkpoint == DEFAULT_STRUCTURE_CHECKPOINT
+    assert structure_parser().parse_args([]).checkpoint == DEFAULT_STRUCTURE_CHECKPOINT
+    assert evaluate_parser().parse_args([]).checkpoint == DEFAULT_STRUCTURE_CHECKPOINT
+    assert train_parser().parse_args([]).config == "configs/default.json"
+    training_config = json.loads((ROOT / "configs/default.json").read_text(encoding="utf-8"))
+    assert training_config["model"]["num_sequence_layers"] == 0
+    assert training_config["inference"]["default_checkpoint"] == DEFAULT_STRUCTURE_CHECKPOINT
+    assert training_config["inference"]["fallback_checkpoint"] is None
+
+
+def test_public_default_rejects_stale_structural_config() -> None:
+    config = _load_config()
+    config["composition"]["structural_submodel"]["config"] = "configs/default_3d_v1.json"
+    with pytest.raises(ValueError, match="configs/default.json"):
+        validate_public_default_config(config)
+
+
+@pytest.mark.parametrize("seed", [42, 123, 2025])
+def test_installed_public_sequence_weights_match_declared_config(seed) -> None:
+    """When local weights exist, protect the real strict inference contract."""
+    import torch
+    from ghxtox.lora_mamba_1d import validate_public_checkpoint_payload
+
+    checkpoint = ROOT / f"runs/lora_mamba_full/full_seed{seed}.pt"
+    if not checkpoint.is_file():
+        pytest.skip("Local deployment weights are not distributed with the source package")
+    config = json.loads((ROOT / "configs/lora_mamba_1d_autodl.json").read_text(encoding="utf-8"))
+    payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
+    validate_public_checkpoint_payload(payload, config, expected_seed=seed, checkpoint_path=checkpoint)
 
 
 def test_fixed_probability_fusion(tmp_path: Path) -> None:
@@ -102,7 +150,7 @@ def test_fixed_probability_fusion(tmp_path: Path) -> None:
     with output_path.open(encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
     observed = np.asarray([float(row["toxicity_probability"]) for row in rows])
-    expected = np.asarray([0.72 * 0.8 + 0.28 * 0.5, 0.72 * 0.2 + 0.28 * 0.4])
+    expected = np.asarray([0.76 * 0.8 + 0.24 * 0.5, 0.76 * 0.2 + 0.24 * 0.4])
 
     assert np.allclose(observed, expected)
     assert summary["n"] == 2

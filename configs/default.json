@@ -9,7 +9,7 @@
     "aa_embedding_dim": 32,
     "group_embedding_dim": 12,
     "hidden_dim": 128,
-    "num_sequence_layers": 2,
+    "num_sequence_layers": 0,
     "num_egnn_layers": 3,
     "num_attention_heads": 4,
     "dropout": 0.22,
@@ -43,31 +43,41 @@
     "chemical_site_use_hydrophobic_sites": true,
     "chemical_site_max_site_slots": 2,
     "chemical_site_exclude_same_residue_edges": false,
-    "chemical_site_zero_init_residual": true
+    "chemical_site_zero_init_residual": true,
+    "conformer_ensemble_branch": false,
+    "chemical_site_use_plddt_weighting": true
   },
   "train": {
     "epochs": 30,
     "batch_size": 32,
     "learning_rate": 0.0005,
     "weight_decay": 0.0001,
-    "val_fraction": 0.15,
     "early_stop_patience": 8,
     "pos_weight": "auto",
     "coord_noise_std": 0.12,
     "coord_noise_plddt_scale": 2.0,
-    "monitor": "mcc",
-    "initial_checkpoint": "runs/plm_fusion_esm2_geometry_confidence/best_model.pt",
-    "allowed_missing_prefixes": ["chemical_site_branch."],
-    "trainable_prefixes": ["chemical_site_branch."]
+    "monitor": "loss"
+  },
+  "experiment": {
+    "name": "default_no_inner_transformer_full_refit",
+    "architecture": "no_inner_transformer",
+    "epoch_source": "median of fixed five-fold validation-selected epochs",
+    "cv_selected_epochs": [
+      4,
+      6,
+      7,
+      8,
+      5
+    ],
+    "fixed_epochs": 6,
+    "all_parameters_trainable": true
   },
   "inference": {
-    "default_checkpoint": "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt",
+    "default_checkpoint": "runs/default_no_inner_transformer_20261023/best_model.pt",
     "structural_probability_source": "base_logits",
     "multi_conformer_residual": "disabled",
-    "default_threshold": 0.677819,
-    "threshold_source": "five-fold group-aware OOF MCC optimization",
-    "fallback_checkpoint": "runs/plm_fusion_esm2_geometry_confidence/best_model.pt",
-    "fallback_threshold": 0.85,
-    "fallback_condition": "chemical-site tensors are unavailable"
+    "default_threshold": 0.765539288520813,
+    "threshold_source": "fixed training OOF; deployment selection only",
+    "fallback_checkpoint": null
   }
 }

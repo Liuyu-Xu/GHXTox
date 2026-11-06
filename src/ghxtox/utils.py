@@ -15,18 +15,18 @@ DEFAULT_TRAIN_FASTA = "dataset/training_set.fasta"
 DEFAULT_TEST_FASTA = "dataset/test_set_1.fasta"
 DEFAULT_TRAIN_PROCESSED = "data/processed/train_chemical_sites_final_esm2.pt"
 DEFAULT_TEST_PROCESSED = "data/processed/test1_chemical_sites_final_esm2.pt"
-DEFAULT_CHECKPOINT = "runs/multisource_1_30_full2795_rank_stable_candidate/best_model.pt"
+DEFAULT_CHECKPOINT = "runs/default_no_inner_transformer_20261023/best_model.pt"
 DEFAULT_FALLBACK_CHECKPOINT = "runs/plm_fusion_esm2_geometry_confidence/best_model.pt"
 DEFAULT_PUBLIC_CONFIG = "configs/default_multidimensional_fusion.json"
 DEFAULT_PUBLIC_MODEL_NAME = "GHXTox"
 DEFAULT_MULTIDIMENSIONAL_CONFIG = DEFAULT_PUBLIC_CONFIG
 DEFAULT_MULTIDIMENSIONAL_MODEL_NAME = DEFAULT_PUBLIC_MODEL_NAME
-DEFAULT_MULTIDIMENSIONAL_THRESHOLD = 0.47022256531284556
-DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D = 0.72
+DEFAULT_MULTIDIMENSIONAL_THRESHOLD = 0.5063534554819765
+DEFAULT_MULTIDIMENSIONAL_WEIGHT_1D = 0.76
 DEFAULT_LEGACY_HYBRID_CONFIG = "configs/default_3d_hybrid.json"
 DEFAULT_LEGACY_HYBRID_MODEL_NAME = "GHXTox-3D-Chemical-Adapter-Residual"
 DEFAULT_STRUCTURE_CACHE_DIR = "data/structures"
-DEFAULT_THRESHOLD = 0.677819
+DEFAULT_THRESHOLD = 0.765539288520813
 
 
 def load_json(path: str | Path) -> dict[str, Any]:
@@ -82,9 +82,13 @@ def resolve_inference_checkpoint(
     requires_sites = bool(config.get("model", {}).get("chemical_site_branch", False))
     fallback_used = requires_sites and not records_have_chemical_sites(records)
     if fallback_used:
-        selected_path = str(
-            inference_cfg.get("fallback_checkpoint", DEFAULT_FALLBACK_CHECKPOINT)
-        )
+        fallback_path = inference_cfg.get("fallback_checkpoint", DEFAULT_FALLBACK_CHECKPOINT)
+        if fallback_path is None:
+            raise ValueError(
+                "This checkpoint requires chemical-site features for every record; "
+                "its configuration disables fallback to a different architecture."
+            )
+        selected_path = str(fallback_path)
         checkpoint = torch.load(selected_path, map_location=device, weights_only=False)
         default_threshold = float(inference_cfg.get("fallback_threshold", 0.85))
     else:

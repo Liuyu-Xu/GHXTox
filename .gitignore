@@ -19,6 +19,7 @@ venv/
 Thumbs.db
 
 # Local review and temporary directories
+.cache/
 .codex*
 .public_release_check*/
 _docx_review_render/
@@ -73,9 +74,16 @@ experiments/
 /references.bib
 /GHXTox_references_standardized.csv
 
-# Generated dataset illustrations
-dataset/*.jpg
-dataset/*.png
+# Datasets are local inputs and are not distributed with the source release
+dataset/
+
+# Machine-local backup inventories
+docs/
+
+# Internal experiment and review workspaces
+configs/history/
+research/esm2_coupling_pilot/
+research/reviewer_revision_20261021/
 
 # Internal publication-audit tests
 tests/test_expert_disagreement_analysis.py
@@ -139,3 +147,4 @@ tests/*.py
 !research/legacy_hypeptox/**/
 !research/legacy_hypeptox/**/*.csv
 !research/legacy_hypeptox/**/*.tsv
+!tests/test_no_inner_transformer_default.py
