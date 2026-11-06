@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "original_training_identities_labels_probabilities_unchanged": true,
+  "no_direct_Test1_Test2_inputs": true,
+  "all_expert_and_fusion_counts_reconciled": true,
+  "group_calipers_and_matching_verified": true,
+  "BH_values_recomputed": true,
+  "primary_pairs": 52,
+  "primary_tests": 42,
+  "strict_pairs": 1,
+  "strict_tests": 0,
+  "exact_case_annotations_sequence_verified": true,
+  "requested_33_paper_ids_recovered": true,
+  "inspected_model_source_files_unchanged": true,
+  "model_training": false,
+  "labels_or_weights_changed": false
+}

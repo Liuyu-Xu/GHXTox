@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "n": 6387,
+  "folds": 5,
+  "checks": [
+    "group isolation",
+    "one-to-one identity",
+    "formula and routing consistency",
+    "reported MCC and error count"
+  ],
+  "predictions_sha256": "165826fb6e00f6507b4b45b3925d6d7c026ae9ae0903313cf8cc4371acc12dbe",
+  "note": "checks inputs and outputs, not complete historical 3D training lineage"
+}

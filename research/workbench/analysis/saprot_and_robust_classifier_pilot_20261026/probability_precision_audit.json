@@ -1,0 +1,26 @@
+[
+  {
+    "arm": "baseline_BCE",
+    "n": 12774,
+    "exactly_zero": 0,
+    "exactly_one": 655
+  },
+  {
+    "arm": "baseline_GCE_q07",
+    "n": 12774,
+    "exactly_zero": 0,
+    "exactly_one": 2742
+  },
+  {
+    "arm": "plus_SaProt_3Di_BCE",
+    "n": 12774,
+    "exactly_zero": 0,
+    "exactly_one": 720
+  },
+  {
+    "arm": "plus_SaProt_masked_BCE",
+    "n": 12774,
+    "exactly_zero": 0,
+    "exactly_one": 705
+  }
+]

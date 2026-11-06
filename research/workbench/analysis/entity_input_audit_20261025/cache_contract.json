@@ -1,0 +1,81 @@
+{
+  "cache": "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+  "sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+  "payload_metadata": {
+    "source": "dataset\\train_data or benchmark_data.fasta",
+    "plm_model": "esm2_t33_650M_UR50D",
+    "plm_embedding_dim": 1280,
+    "chemical_site_schema": {
+      "type_names": [
+        "positive",
+        "negative",
+        "donor",
+        "acceptor",
+        "aromatic",
+        "hydrophobic",
+        "sulfur",
+        "conformational"
+      ],
+      "max_sites_per_residue": 2,
+      "source": "full-atom ESMFold PDB"
+    },
+    "metadata": {
+      "conformer_ensemble": {
+        "source": [
+          "colabfold_af2_shallow_msa_multiseed",
+          "pepflow"
+        ],
+        "manifest": [
+          "data\\pepflow_pilot\\full761_conformer_manifest.csv",
+          "data\\af2_ensemble_16_30\\cache_full\\conformer_manifest.csv"
+        ],
+        "cache_root": [
+          "data\\pepflow_pilot\\cache_le15",
+          "data\\af2_ensemble_16_30\\cache_full"
+        ],
+        "covered_records": 2795,
+        "residue_feature_dim": 8,
+        "global_feature_dim": 12,
+        "source_feature_dim": 3,
+        "source_feature_names": [
+          "pepflow",
+          "colabfold_af2",
+          "other"
+        ],
+        "missing_policy": "zero features with hard availability mask"
+      }
+    }
+  },
+  "record_keys": [
+    "sample_id",
+    "original_id",
+    "header",
+    "sequence",
+    "label",
+    "aa_ids",
+    "group_ids",
+    "residue_features",
+    "coords",
+    "plddt",
+    "global_features",
+    "structure_source",
+    "plm_features",
+    "plm_model",
+    "backbone_coords",
+    "backbone_mask",
+    "functional_group_coords",
+    "functional_group_mask",
+    "structure_features",
+    "chemical_site_coords",
+    "chemical_site_types",
+    "chemical_site_orientations",
+    "chemical_site_orientation_mask",
+    "chemical_site_mask",
+    "conformer_residue_features",
+    "conformer_global_features",
+    "conformer_available",
+    "conformer_source_features",
+    "conformer_source"
+  ],
+  "caveat": "辅助输入核查缓存来自full2795，不是重跑旧OOF；旧概率独立保留。原始PDB未在已检索资料目录恢复，无法核实其链/SSBOND记录。"
+}

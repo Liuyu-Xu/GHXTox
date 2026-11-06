@@ -1,0 +1,258 @@
+[
+  {
+    "group": "low_pos",
+    "feature": "mean_plddt",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": -0.02077060900000005,
+    "wrong_greater": 29,
+    "wrong_less": 34,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.03116279799999999,
+      "1": 0.013448120000000063,
+      "2": -0.016133397499999924,
+      "3": 0.00022757000000006578,
+      "4": -0.021801442000000004
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "local_positive_excess",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": 0.0,
+    "wrong_greater": 31,
+    "wrong_less": 27,
+    "ties": 5,
+    "fold_median": {
+      "0": 0.0,
+      "1": 0.043290043290043295,
+      "2": -0.04326086956521739,
+      "3": 0.07142857142857142,
+      "4": -0.015625
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": -0.006683375104427847,
+    "wrong_greater": 30,
+    "wrong_less": 32,
+    "ties": 1,
+    "fold_median": {
+      "0": 0.007407407407407363,
+      "1": 0.011528822055137833,
+      "2": 0.017857142857142835,
+      "3": -0.006683375104427847,
+      "4": -0.04831279831279839
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": -0.007164404223227762,
+    "wrong_greater": 30,
+    "wrong_less": 32,
+    "ties": 1,
+    "fold_median": {
+      "0": -0.044770910728357566,
+      "1": 0.009557109557109589,
+      "2": 0.013888888888888888,
+      "3": 0.008080808080808084,
+      "4": -0.03111630693971744
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": -0.016624895572264,
+    "wrong_greater": 20,
+    "wrong_less": 38,
+    "ties": 5,
+    "fold_median": {
+      "0": -0.02175391196667792,
+      "1": -0.016624895572264,
+      "2": 0.0,
+      "3": -0.03508771929824561,
+      "4": -0.009904541796380388
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 54,
+    "median_wrong_minus_correct": 0.11304124802469778,
+    "wrong_greater": 33,
+    "wrong_less": 21,
+    "ties": 0,
+    "fold_median": {
+      "0": 0.448147963179201,
+      "1": -0.19073447239057256,
+      "2": 0.010723291041947913,
+      "3": 0.1569333449569331,
+      "4": -0.04225977158848526
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": 0.0,
+    "wrong_greater": 29,
+    "wrong_less": 31,
+    "ties": 3,
+    "fold_median": {
+      "0": 0.00787753697970417,
+      "1": 0.007936507936507936,
+      "2": 0.007109503880603621,
+      "3": 0.0,
+      "4": -0.06398584512174776
+    }
+  },
+  {
+    "group": "low_pos",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 63,
+    "median_wrong_minus_correct": 0.2534188821504557,
+    "wrong_greater": 35,
+    "wrong_less": 28,
+    "ties": 0,
+    "fold_median": {
+      "0": 0.32092981853052116,
+      "1": -1.7328932271729744,
+      "2": -0.7858033717593438,
+      "3": 1.016600241699484,
+      "4": 1.6966457639482764
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "mean_plddt",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": -0.03660708700000004,
+    "wrong_greater": 7,
+    "wrong_less": 11,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.20150964000000002,
+      "1": 0.11273440750000002,
+      "2": -0.420394332,
+      "3": -0.190022409,
+      "4": -0.03660708700000004
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "local_positive_excess",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": -0.025726010101010097,
+    "wrong_greater": 7,
+    "wrong_less": 11,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.11654135338345864,
+      "1": -0.04586693548387097,
+      "2": -0.18116236537289165,
+      "3": 0.06866696521868934,
+      "4": 0.03516531842022298
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": 0.036801201671891354,
+    "wrong_greater": 11,
+    "wrong_less": 7,
+    "ties": 0,
+    "fold_median": {
+      "0": 0.15726817042606508,
+      "1": 0.08545506912442397,
+      "2": -0.02827050997782704,
+      "3": 0.007314524555903867,
+      "4": 0.03067812974692613
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": 0.018309496865472896,
+    "wrong_greater": 10,
+    "wrong_less": 8,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.053592353426964376,
+      "1": 0.011635930266722973,
+      "2": 0.015422000759759247,
+      "3": -0.06429785865269737,
+      "4": 0.05831141226067714
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": -0.027586354988151963,
+    "wrong_greater": 8,
+    "wrong_less": 10,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.06633216227225468,
+      "1": -0.02024442314647268,
+      "2": -0.039274814768063895,
+      "3": 0.01302210334468401,
+      "4": -0.00011090817378849732
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 17,
+    "median_wrong_minus_correct": -0.09334031021634032,
+    "wrong_greater": 7,
+    "wrong_less": 10,
+    "ties": 0,
+    "fold_median": {
+      "0": 0.01725126584387851,
+      "1": -0.18498718232892153,
+      "2": -0.17157786530905617,
+      "3": 0.29249718241057354,
+      "4": -0.09334031021634032
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": -0.0193397808429302,
+    "wrong_greater": 5,
+    "wrong_less": 13,
+    "ties": 0,
+    "fold_median": {
+      "0": -0.07454212454212455,
+      "1": 0.015353037766830863,
+      "2": -0.07205161120437117,
+      "3": -0.03383880158073707,
+      "4": -0.017216199771980703
+    }
+  },
+  {
+    "group": "high_neg",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 18,
+    "median_wrong_minus_correct": 0.5267948142474159,
+    "wrong_greater": 13,
+    "wrong_less": 5,
+    "ties": 0,
+    "fold_median": {
+      "0": 1.5973829747064219,
+      "1": -0.11860656107974954,
+      "2": 1.111802524051427,
+      "3": 0.7335249170018061,
+      "4": 0.41022377951085875
+    }
+  }
+]

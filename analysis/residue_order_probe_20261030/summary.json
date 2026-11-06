@@ -1,0 +1,97 @@
+{
+  "all": {
+    "composition": {
+      "n": 6387,
+      "errors": 807,
+      "MCC": 0.6811729036585904,
+      "AUROC": 0.899495475920978,
+      "AUPRC": 0.8073126894154001
+    },
+    "order": {
+      "n": 6387,
+      "errors": 685,
+      "MCC": 0.7343910888642422,
+      "AUROC": 0.9362245592035675,
+      "AUPRC": 0.8745951941118854
+    },
+    "corrected": 377,
+    "harmed": 255
+  },
+  "low_positive": {
+    "composition": {
+      "n": 262,
+      "errors": 252,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "order": {
+      "n": 262,
+      "errors": 192,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "corrected": 62,
+    "harmed": 2
+  },
+  "low_negative": {
+    "composition": {
+      "n": 3537,
+      "errors": 16,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "order": {
+      "n": 3537,
+      "errors": 112,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "corrected": 10,
+    "harmed": 106
+  },
+  "high_negative": {
+    "composition": {
+      "n": 240,
+      "errors": 217,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "order": {
+      "n": 240,
+      "errors": 105,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "corrected": 120,
+    "harmed": 8
+  },
+  "high_positive": {
+    "composition": {
+      "n": 1063,
+      "errors": 25,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "order": {
+      "n": 1063,
+      "errors": 64,
+      "MCC": null,
+      "AUROC": null,
+      "AUPRC": null
+    },
+    "corrected": 19,
+    "harmed": 58
+  },
+  "previous_perturbation_coverage": {
+    "cohort_total": 763,
+    "both_wrong_total": 229,
+    "intersection": 218
+  }
+}

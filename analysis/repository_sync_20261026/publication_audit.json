@@ -1,0 +1,9 @@
+{
+  "public_code_configs_tests_data_unchanged": true,
+  "python_syntax_errors": [],
+  "files_over50MiB": [],
+  "critical_entry_missing_links": [],
+  "selected_assets": 1811,
+  "asset_verify_command": "python research/workbench/restore_assets.py --verify-only",
+  "secret_scan_note": "No high-confidence tokens or private keys; initial AWS-shaped matches were amino-acid sequences and pattern was refined to require digits and boundaries."
+}

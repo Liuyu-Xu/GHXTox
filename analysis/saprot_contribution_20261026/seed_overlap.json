@@ -1,0 +1,16 @@
+[
+  {
+    "arm": "fusion_3Di4",
+    "ensemble_rescues": 101,
+    "both_paired_seeds_reproduce_rescue": 48,
+    "ensemble_harms": 63,
+    "both_paired_seeds_reproduce_harm": 26
+  },
+  {
+    "arm": "fusion_masked4",
+    "ensemble_rescues": 96,
+    "both_paired_seeds_reproduce_rescue": 45,
+    "ensemble_harms": 62,
+    "both_paired_seeds_reproduce_harm": 18
+  }
+]

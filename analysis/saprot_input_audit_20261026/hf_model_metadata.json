@@ -1,0 +1,79 @@
+{
+  "_id": "653f65b6c2307cc448ae3d05",
+  "id": "westlake-repl/SaProt_35M_AF2",
+  "private": false,
+  "pipeline_tag": "fill-mask",
+  "library_name": "transformers",
+  "tags": [
+    "transformers",
+    "pytorch",
+    "esm",
+    "fill-mask",
+    "license:mit",
+    "endpoints_compatible",
+    "deploy:azure",
+    "region:us"
+  ],
+  "downloads": 1056,
+  "likes": 4,
+  "modelId": "westlake-repl/SaProt_35M_AF2",
+  "author": "westlake-repl",
+  "sha": "316cd4017d29f4657b959365f24b57f1ee278912",
+  "lastModified": "2024-12-11T11:41:28.000Z",
+  "gated": false,
+  "disabled": false,
+  "widgetData": [
+    {
+      "text": "Paris is the <mask> of France."
+    },
+    {
+      "text": "The goal of life is <mask>."
+    }
+  ],
+  "model-index": null,
+  "config": {
+    "architectures": [
+      "EsmForMaskedLM"
+    ],
+    "model_type": "esm",
+    "tokenizer_config": {}
+  },
+  "cardData": {
+    "license": "mit"
+  },
+  "transformersInfo": {
+    "auto_model": "AutoModelForMaskedLM",
+    "pipeline_tag": "fill-mask",
+    "processor": "AutoTokenizer"
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "SaProt_35M_AF2.pt"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "pytorch_model.bin"
+    },
+    {
+      "rfilename": "special_tokens_map.json"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    },
+    {
+      "rfilename": "vocab.txt"
+    }
+  ],
+  "spaces": [],
+  "createdAt": "2023-10-30T08:13:42.000Z",
+  "inference": "warm",
+  "usedStorage": 680203783
+}

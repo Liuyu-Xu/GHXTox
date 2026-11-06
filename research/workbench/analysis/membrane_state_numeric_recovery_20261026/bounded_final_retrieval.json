@@ -1,0 +1,22 @@
+[
+  {
+    "file": "PMAP_article.pdf",
+    "url": "https://www.nature.com/articles/srep27258.pdf",
+    "status": 200,
+    "bytes": 2131442,
+    "type": "application/pdf",
+    "sha256": "56583897a96a1ae01fc693068df5cc439ceb7123a76782a071a1a3a75f7203d0",
+    "valid_pdf": true,
+    "valid_zip": false
+  },
+  {
+    "file": "PMAP_supplementary.zip",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4890124/supplementaryFiles",
+    "error": "The operation did not complete (read) (_ssl.c:2588)"
+  },
+  {
+    "file": "PG1_supplementary.zip",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10543523/supplementaryFiles",
+    "error": "HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Read timed out. (read timeout=25)"
+  }
+]

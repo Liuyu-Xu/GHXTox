@@ -1,0 +1,72 @@
+{
+  "comparison": "ProtTox-TSK TriStat-KAN versus TriStat-MLP",
+  "decision": "retain_mlp_default_keep_kan_ablation",
+  "delta_summary_kan_minus_mlp": {
+    "auprc": {
+      "mean": 0.0015258438804273688,
+      "n": 2,
+      "std_population": 0.0012836505553893152
+    },
+    "auroc": {
+      "mean": 0.0011110954606076695,
+      "n": 2,
+      "std_population": 0.0003936402613778367
+    },
+    "brier": {
+      "mean": -0.0012767166981951864,
+      "n": 2,
+      "std_population": 0.0006653493447424247
+    },
+    "mcc": {
+      "mean": -0.006364084151903648,
+      "n": 2,
+      "std_population": 0.00550051815312308
+    }
+  },
+  "deployment": {
+    "kan_elapsed_seconds": [
+      3.737111500056926,
+      3.682846800016705
+    ],
+    "kan_parameter_counts": [
+      475027,
+      475027
+    ],
+    "mlp_elapsed_seconds": [
+      3.479246700007934,
+      3.3440081999870017
+    ],
+    "mlp_parameter_counts": [
+      598099,
+      598099
+    ]
+  },
+  "paired_runs": [
+    {
+      "deltas_kan_minus_mlp": {
+        "auprc": 0.002809494435816684,
+        "auroc": 0.0015047357219855062,
+        "brier": -0.001942066042937611,
+        "mcc": -0.0008635659987805688
+      },
+      "kan_run": "runs\\prottox_tsk_v1\\kan_fivefold_20epochs_v1",
+      "kan_seed": 20260905,
+      "mlp_run": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1",
+      "mlp_seed": 20260905
+    },
+    {
+      "deltas_kan_minus_mlp": {
+        "auprc": 0.00024219332503805369,
+        "auroc": 0.0007174551992298328,
+        "brier": -0.0006113673534527617,
+        "mcc": -0.011864602305026728
+      },
+      "kan_run": "runs\\prottox_tsk_v1\\kan_fivefold_20epochs_seed20260906_v1",
+      "kan_seed": 20260906,
+      "mlp_run": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_seed20260906_v1",
+      "mlp_seed": 20260906
+    }
+  ],
+  "reason": "KAN did not improve the primary MCC metric in every paired same-protocol run; it remains an ablation candidate despite any ranking/calibration gains.",
+  "scope": "training OOF comparison only; no held-out Test1/Test2 result is claimed"
+}

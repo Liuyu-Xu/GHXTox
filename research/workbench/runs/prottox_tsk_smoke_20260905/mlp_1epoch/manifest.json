@@ -1,0 +1,101 @@
+{
+  "cache": {
+    "path": "runs\\prottox_tsk_smoke_20260905\\features_128.pt",
+    "records": 128,
+    "sha256": "3d9cef38006a22af777adbc7de051431b665c142fe23b682cbde6a7c0ee1a389"
+  },
+  "device": "cuda",
+  "elapsed_seconds": 2.380438900028821,
+  "epochs": 1,
+  "final_checkpoint": "runs\\prottox_tsk_smoke_20260905\\mlp_1epoch\\final_model.pt",
+  "fold_manifest": null,
+  "folds": [
+    {
+      "auprc": 1.0,
+      "auroc": NaN,
+      "brier": 0.11342618849415491,
+      "fn": 2,
+      "fold": 0,
+      "fp": 0,
+      "mcc": 0.0,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 0,
+      "tp": 24
+    },
+    {
+      "auprc": 1.0,
+      "auroc": NaN,
+      "brier": 0.11883697841352368,
+      "fn": 0,
+      "fold": 1,
+      "fp": 0,
+      "mcc": 0.0,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 0,
+      "tp": 26
+    },
+    {
+      "auprc": 1.0,
+      "auroc": NaN,
+      "brier": 0.14527872206391676,
+      "fn": 5,
+      "fold": 2,
+      "fp": 0,
+      "mcc": 0.0,
+      "n_test": 26,
+      "n_train": 102,
+      "threshold": 0.5,
+      "tn": 0,
+      "tp": 21
+    },
+    {
+      "auprc": 1.0,
+      "auroc": NaN,
+      "brier": 0.10195842031838723,
+      "fn": 0,
+      "fold": 3,
+      "fp": 0,
+      "mcc": 0.0,
+      "n_test": 25,
+      "n_train": 103,
+      "threshold": 0.5,
+      "tn": 0,
+      "tp": 25
+    },
+    {
+      "auprc": 1.0,
+      "auroc": NaN,
+      "brier": 0.1516153325909959,
+      "fn": 4,
+      "fold": 4,
+      "fp": 0,
+      "mcc": 0.0,
+      "n_test": 25,
+      "n_train": 103,
+      "threshold": 0.5,
+      "tn": 0,
+      "tp": 21
+    }
+  ],
+  "head_kind": "mlp",
+  "learning_rate": 0.001,
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "oof_metrics": {
+    "auprc": 1.0,
+    "auroc": NaN,
+    "brier": 0.12621431981246922,
+    "fn": 11,
+    "fp": 0,
+    "mcc": 0.0,
+    "threshold": 0.5,
+    "tn": 0,
+    "tp": 117
+  },
+  "parameter_count": 598099,
+  "warning": "KAN is a candidate only. Compare this OOF summary against a same-protocol MLP run before promotion."
+}

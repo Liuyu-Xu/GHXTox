@@ -1,0 +1,2890 @@
+[
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "sequence_length",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.25,
+    "median_case_minus_control": -1.0,
+    "positive": 1,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.3333333333333333,
+      null,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "cys_count",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.25,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      0.3333333333333333,
+      null,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "cys_span_fraction",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.00694444444444442,
+    "median_case_minus_control": 0.0,
+    "positive": 0,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.0,
+      null,
+      -0.02777777777777768
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "net_charge_proxy",
+    "n_pairs": 4,
+    "mean_case_minus_control": 1.0,
+    "median_case_minus_control": 1.5,
+    "positive": 3,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      1.6666666666666667,
+      null,
+      -1.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "mean_hydropathy",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.31552444306314276,
+    "median_case_minus_control": -0.19405935347111813,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.24322177994004623,
+      null,
+      -0.5324324324324324
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "aromatic_fraction",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.011429308565531475,
+    "median_case_minus_control": 0.005012531328320802,
+    "positive": 2,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.0152390780873753,
+      null,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "proline_fraction",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.016666666666666666,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      0.022222222222222223,
+      null,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "glycine_fraction",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.06097865888887561,
+    "median_case_minus_control": -0.05683126735758315,
+    "positive": 0,
+    "negative": 4,
+    "fold_differences": [
+      null,
+      null,
+      -0.05427785149147377,
+      null,
+      -0.08108108108108109
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "local_positive_excess",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.015128839587043915,
+    "median_case_minus_control": 0.018280996609169972,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.018438252493980054,
+      null,
+      0.11583011583011582
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.004528810101565514,
+    "median_case_minus_control": 0.019395866454689964,
+    "positive": 3,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.015047422477763028,
+      null,
+      0.02702702702702703
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.016176067088990477,
+    "median_case_minus_control": 0.01712005731494902,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      0.003320298466829371,
+      null,
+      0.054743372955473796
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "mean_plddt",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.028007060000000028,
+    "median_case_minus_control": -0.02281150200000004,
+    "positive": 1,
+    "negative": 3,
+    "fold_differences": [
+      null,
+      null,
+      -0.024318416666666714,
+      null,
+      -0.039072989999999974
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.026845255447423444,
+    "median_case_minus_control": 0.03047517976262669,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      0.006746728691321396,
+      null,
+      0.08714083571572959
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.05193668527953784,
+    "median_case_minus_control": 0.029936316406904643,
+    "positive": 3,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.06362592376933503,
+      null,
+      0.016868969810146274
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.13378488786755727,
+    "median_case_minus_control": -0.222606632609669,
+    "positive": 1,
+    "negative": 3,
+    "fold_differences": [
+      null,
+      null,
+      -0.29436411518692324,
+      null,
+      0.34795279409054075
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.012938551386693815,
+    "median_case_minus_control": -0.012090888987173823,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.008287816414751412,
+      null,
+      -0.026890756302521024
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.30661953528245856,
+    "median_case_minus_control": 0.14888027963494554,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      0.2518867118012092,
+      null,
+      0.4708180057262066
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 4,
+    "mean_case_minus_control": -0.03537045791745186,
+    "median_case_minus_control": -0.018827028572559357,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.028445566693941753,
+      null,
+      -0.05614513158798218
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "unmasked_fraction",
+    "n_pairs": 4,
+    "mean_case_minus_control": 0.0041630307884177875,
+    "median_case_minus_control": -0.014421985010220295,
+    "positive": 2,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      0.023568725735908402,
+      null,
+      -0.05405405405405406
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "sequence_length",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.6,
+    "median_case_minus_control": -1.0,
+    "positive": 4,
+    "negative": 8,
+    "fold_differences": [
+      0.0,
+      -0.6666666666666666,
+      -0.5714285714285714,
+      -0.5,
+      -1.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "cys_count",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.3333333333333333,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 0,
+    "fold_differences": [
+      2.0,
+      0.0,
+      0.2857142857142857,
+      0.5,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "cys_span_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.05147371328998258,
+    "median_case_minus_control": 0.0,
+    "positive": 3,
+    "negative": 0,
+    "fold_differences": [
+      0.5217391304347826,
+      0.014011078527207557,
+      0.029761904761904767,
+      0.0,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "net_charge_proxy",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.26666666666666666,
+    "median_case_minus_control": 1.0,
+    "positive": 8,
+    "negative": 5,
+    "fold_differences": [
+      -3.0,
+      2.6666666666666665,
+      0.7142857142857143,
+      -3.0,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "mean_hydropathy",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.09120665290498375,
+    "median_case_minus_control": -0.16157894736842088,
+    "positive": 5,
+    "negative": 10,
+    "fold_differences": [
+      0.8125000000000002,
+      0.7955693407899288,
+      -0.3189665273432027,
+      -0.9922710622710622,
+      -0.175
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "aromatic_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.00756294950792864,
+    "median_case_minus_control": 0.003676470588235295,
+    "positive": 8,
+    "negative": 6,
+    "fold_differences": [
+      0.08333333333333334,
+      -0.0016766321913380677,
+      0.0005913952155995883,
+      -0.10476190476190476,
+      0.006818181818181827
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "proline_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.004712102097012583,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 5,
+    "fold_differences": [
+      0.041666666666666664,
+      -0.009299932094049742,
+      -0.0070048309178743955,
+      0.0027472527472527514,
+      -0.020454545454545454
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "glycine_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.01184696471050624,
+    "median_case_minus_control": 0.015037593984962405,
+    "positive": 8,
+    "negative": 5,
+    "fold_differences": [
+      0.08333333333333334,
+      0.01767533936651584,
+      0.0019817988217407457,
+      0.013736263736263743,
+      6.938893903907228e-18
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "local_positive_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.034136397511145125,
+    "median_case_minus_control": -0.005494505494505503,
+    "positive": 5,
+    "negative": 8,
+    "fold_differences": [
+      -0.11904761904761901,
+      -0.04919712640300875,
+      -0.006443894872975892,
+      -0.0027472527472527514,
+      -0.0974025974025974
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.020264553767077646,
+    "median_case_minus_control": 0.007518796992481203,
+    "positive": 8,
+    "negative": 7,
+    "fold_differences": [
+      -0.08333333333333337,
+      -0.01497052783817493,
+      -0.023502561207549344,
+      -0.07930402930402926,
+      0.07370129870129868
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.010118225512610584,
+    "median_case_minus_control": -0.021867210911160617,
+    "positive": 7,
+    "negative": 8,
+    "fold_differences": [
+      -0.13098332223968234,
+      0.1051831066988006,
+      -0.021573168915771747,
+      -0.07849378809801533,
+      -0.014169810969722668
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "mean_plddt",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.008039625533333336,
+    "median_case_minus_control": -0.0010099409999999587,
+    "positive": 7,
+    "negative": 8,
+    "fold_differences": [
+      0.011083245999999991,
+      0.04413801433333334,
+      -0.05060861814285716,
+      0.0709106625,
+      -0.025826334999999978
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.005339378728531336,
+    "median_case_minus_control": -0.022681282677977116,
+    "positive": 7,
+    "negative": 8,
+    "fold_differences": [
+      0.031042128603104208,
+      -0.006880600563709233,
+      0.010147875810052538,
+      0.0506993006993007,
+      -0.05137168902648779
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.036149051121066075,
+    "median_case_minus_control": 0.017202096149464552,
+    "positive": 9,
+    "negative": 5,
+    "fold_differences": [
+      0.022489705416534687,
+      -0.0202985615386352,
+      0.0891392678392581,
+      0.00135975135975136,
+      -0.023026315789473686
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 12,
+    "mean_case_minus_control": 0.11070333711985951,
+    "median_case_minus_control": -0.0720406429345018,
+    "positive": 5,
+    "negative": 7,
+    "fold_differences": [
+      0.5803482979538609,
+      -0.18443691970113008,
+      -0.1355808642034766,
+      1.0330158181555247,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.04070341145699956,
+    "median_case_minus_control": -0.030303030303030304,
+    "positive": 6,
+    "negative": 8,
+    "fold_differences": [
+      0.0,
+      -0.0016983152367497506,
+      -0.050437233445809894,
+      -0.07284382284382285,
+      -0.05335397316821465
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.8767269450819268,
+    "median_case_minus_control": 0.28948179931100526,
+    "positive": 8,
+    "negative": 7,
+    "fold_differences": [
+      0.28948179931100526,
+      -0.14058992870062248,
+      1.8293182872790152,
+      0.3408212406130122,
+      -0.10183916457968323
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.08445208817720413,
+    "median_case_minus_control": -0.04120489954948425,
+    "positive": 4,
+    "negative": 11,
+    "fold_differences": [
+      -0.25248149037361145,
+      -0.1276726027329763,
+      -0.07538123748132161,
+      -0.11009097844362259,
+      0.058284297585487366
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "unmasked_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.04056011655469861,
+    "median_case_minus_control": -0.01098901098901095,
+    "positive": 4,
+    "negative": 9,
+    "fold_differences": [
+      0.0,
+      0.08876070824600239,
+      -0.14877863426072185,
+      0.2652014652014652,
+      -0.18181818181818182
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "sequence_length",
+    "n_pairs": 8,
+    "mean_case_minus_control": -0.25,
+    "median_case_minus_control": 0.0,
+    "positive": 2,
+    "negative": 3,
+    "fold_differences": [
+      -1.0,
+      null,
+      0.0,
+      -1.6666666666666667,
+      2.5
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "cys_count",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.375,
+    "median_case_minus_control": 0.0,
+    "positive": 3,
+    "negative": 1,
+    "fold_differences": [
+      0.0,
+      null,
+      2.0,
+      0.3333333333333333,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "cys_span_fraction",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.03163972159376571,
+    "median_case_minus_control": 0.01709401709401709,
+    "positive": 4,
+    "negative": 2,
+    "fold_differences": [
+      -0.002757352941176461,
+      null,
+      0.48,
+      0.033618233618233614,
+      -0.16111111111111112
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "net_charge_proxy",
+    "n_pairs": 8,
+    "mean_case_minus_control": 1.125,
+    "median_case_minus_control": 1.5,
+    "positive": 5,
+    "negative": 2,
+    "fold_differences": [
+      1.5,
+      null,
+      3.0,
+      1.6666666666666667,
+      -1.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "mean_hydropathy",
+    "n_pairs": 8,
+    "mean_case_minus_control": -0.4505661431924165,
+    "median_case_minus_control": -0.6456876061120542,
+    "positive": 2,
+    "negative": 6,
+    "fold_differences": [
+      -0.5542424242424242,
+      null,
+      0.5884615384615386,
+      -0.5707886625628561,
+      -0.6860699239137269
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "aromatic_fraction",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.014568291218333668,
+    "median_case_minus_control": 0.0009775171065493637,
+    "positive": 4,
+    "negative": 3,
+    "fold_differences": [
+      -0.02857142857142857,
+      null,
+      -0.038461538461538464,
+      0.060841413260768105,
+      0.014813242784380308
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "proline_fraction",
+    "n_pairs": 8,
+    "mean_case_minus_control": -0.001717749399201011,
+    "median_case_minus_control": -0.007168458781362005,
+    "positive": 2,
+    "negative": 4,
+    "fold_differences": [
+      -0.013419913419913419,
+      null,
+      0.038461538461538464,
+      -0.003675596417531901,
+      -0.007168458781362005
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "glycine_fraction",
+    "n_pairs": 8,
+    "mean_case_minus_control": -0.02014819110532183,
+    "median_case_minus_control": -0.0390587906716939,
+    "positive": 3,
+    "negative": 5,
+    "fold_differences": [
+      -0.05714285714285714,
+      null,
+      0.038461538461538464,
+      -0.01831523605717154,
+      -0.01520782242344211
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "local_positive_excess",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.0400927202603773,
+    "median_case_minus_control": 0.019227486969422447,
+    "positive": 4,
+    "negative": 4,
+    "fold_differences": [
+      0.13506493506493505,
+      null,
+      0.06593406593406592,
+      0.03325030099223648,
+      -0.05753653847881352
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.07753217080997216,
+    "median_case_minus_control": 0.1004127294449875,
+    "positive": 6,
+    "negative": 2,
+    "fold_differences": [
+      0.19047619047619044,
+      null,
+      0.20879120879120877,
+      -0.048321897515445876,
+      0.08773973464126261
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.0240803995971815,
+    "median_case_minus_control": 0.0095054184655902,
+    "positive": 4,
+    "negative": 4,
+    "fold_differences": [
+      0.04123471441657868,
+      null,
+      -0.030807838007008842,
+      0.02435140713612735,
+      0.03396369227146072
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "mean_plddt",
+    "n_pairs": 8,
+    "mean_case_minus_control": -0.02496451137499999,
+    "median_case_minus_control": -0.02046501649999999,
+    "positive": 3,
+    "negative": 5,
+    "fold_differences": [
+      -0.02046501649999999,
+      null,
+      -0.04878848800000002,
+      -0.010596076333333352,
+      -0.03910467049999994
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.0950193957372078,
+    "median_case_minus_control": 0.03333498206908276,
+    "positive": 6,
+    "negative": 2,
+    "fold_differences": [
+      0.011840235826753857,
+      null,
+      0.03405797101449276,
+      0.1439973492040962,
+      0.13521233780868666
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.011623985676371207,
+    "median_case_minus_control": 0.00020205190135408856,
+    "positive": 4,
+    "negative": 4,
+    "fold_differences": [
+      -0.016674091977014485,
+      null,
+      0.1384057971014493,
+      0.0022284529683675113,
+      -0.009375543320776596
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.054909799017192396,
+    "median_case_minus_control": 0.30057965184248675,
+    "positive": 5,
+    "negative": 3,
+    "fold_differences": [
+      0.30057965184248675,
+      null,
+      -0.4897713960193004,
+      0.18934255921818036,
+      -0.1200685965913375
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.00209056534757126,
+    "median_case_minus_control": 0.0037158129438165377,
+    "positive": 5,
+    "negative": 3,
+    "fold_differences": [
+      0.016281769305962854,
+      null,
+      -0.03623188405797101,
+      0.002501927452595034,
+      0.006443542934415139
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 8,
+    "mean_case_minus_control": -1.681767036651829,
+    "median_case_minus_control": -0.03786148270580458,
+    "positive": 3,
+    "negative": 5,
+    "fold_differences": [
+      -0.03786148270580458,
+      null,
+      -2.7225688612208554,
+      -2.5279158909297545,
+      -1.5360483968964518
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.08531212341040373,
+    "median_case_minus_control": 0.03694747015833855,
+    "positive": 4,
+    "negative": 4,
+    "fold_differences": [
+      -0.019245509058237076,
+      null,
+      0.08977571129798889,
+      -0.011431410908699036,
+      0.3327532634139061
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "unmasked_fraction",
+    "n_pairs": 8,
+    "mean_case_minus_control": 0.004253215108478276,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 3,
+    "fold_differences": [
+      -0.0017316017316016952,
+      null,
+      0.0,
+      -0.0707070707070707,
+      0.12480506822612086
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "sequence_length",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.6923076923076923,
+    "median_case_minus_control": -1.0,
+    "positive": 4,
+    "negative": 8,
+    "fold_differences": [
+      -2.6666666666666665,
+      -2.0,
+      -1.0,
+      0.4,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "cys_count",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.46153846153846156,
+    "median_case_minus_control": 0.0,
+    "positive": 2,
+    "negative": 4,
+    "fold_differences": [
+      0.3333333333333333,
+      -2.0,
+      -4.0,
+      -0.4,
+      0.3333333333333333
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "cys_span_fraction",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.14183378266006974,
+    "median_case_minus_control": -0.05555555555555558,
+    "positive": 2,
+    "negative": 9,
+    "fold_differences": [
+      0.03186615555313036,
+      -0.19047619047619047,
+      -0.4841269841269842,
+      -0.2355678814122837,
+      -0.028998353191901565
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "net_charge_proxy",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.5384615384615384,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 6,
+    "fold_differences": [
+      0.6666666666666666,
+      -2.0,
+      2.0,
+      -1.0,
+      -1.3333333333333333
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "mean_hydropathy",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.2695282349101446,
+    "median_case_minus_control": -0.3701612903225806,
+    "positive": 5,
+    "negative": 8,
+    "fold_differences": [
+      -0.05233494609965198,
+      -0.49054505005561744,
+      -1.2604679802955667,
+      -0.3557044616439778,
+      0.06089104101271622
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "aromatic_fraction",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.003250587619105498,
+    "median_case_minus_control": -0.0028490028490028574,
+    "positive": 4,
+    "negative": 7,
+    "fold_differences": [
+      -0.0049735449735449746,
+      -0.06229143492769744,
+      -0.0332512315270936,
+      0.00362444132605423,
+      0.01669448523226112
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "proline_fraction",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.011708776676131781,
+    "median_case_minus_control": 0.0,
+    "positive": 5,
+    "negative": 6,
+    "fold_differences": [
+      -0.056217072687660914,
+      0.0022246941045606233,
+      0.0,
+      0.007785299640138349,
+      -0.008238023677327585
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "glycine_fraction",
+    "n_pairs": 13,
+    "mean_case_minus_control": 0.0012722555465401522,
+    "median_case_minus_control": -0.026050420168067218,
+    "positive": 6,
+    "negative": 7,
+    "fold_differences": [
+      -0.03546558017146252,
+      0.07119021134593993,
+      0.07389162561576354,
+      0.0059590028138415225,
+      -0.01731359613716717
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "local_positive_excess",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.009937985992763325,
+    "median_case_minus_control": -0.0025210084033613633,
+    "positive": 5,
+    "negative": 7,
+    "fold_differences": [
+      -0.0070837223778400515,
+      -0.15175591927538534,
+      0.21305418719211822,
+      0.008184030079191367,
+      -0.07005368969503094
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.002342915211509627,
+    "median_case_minus_control": 0.004563004563004569,
+    "positive": 7,
+    "negative": 6,
+    "fold_differences": [
+      0.061847041847041796,
+      -0.03607182583823293,
+      -0.1305418719211821,
+      0.019880672864543848,
+      -0.04959622995135158
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.00016065024383730015,
+    "median_case_minus_control": -0.008275724095002893,
+    "positive": 6,
+    "negative": 7,
+    "fold_differences": [
+      0.003991763250223601,
+      -0.06284325066507342,
+      0.08788481393245881,
+      -0.006066895312273307,
+      -0.0029236098755248386
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "mean_plddt",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.05963444938461539,
+    "median_case_minus_control": -0.033273459000000005,
+    "positive": 4,
+    "negative": 9,
+    "fold_differences": [
+      -0.12973400966666668,
+      -0.173060239,
+      -0.26488524700000005,
+      -0.024946665600000008,
+      0.05887766700000002
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.020690581038793107,
+    "median_case_minus_control": -0.010459051674165831,
+    "positive": 6,
+    "negative": 7,
+    "fold_differences": [
+      -0.01596501803667892,
+      -0.017987069947068043,
+      -0.24380212380212374,
+      0.03857096731321404,
+      -0.05071604740371735
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.010787645139506375,
+    "median_case_minus_control": -0.016192796766800563,
+    "positive": 5,
+    "negative": 8,
+    "fold_differences": [
+      0.026665812384144675,
+      -0.018744001620552397,
+      -0.09034817034817036,
+      -0.033908567956500615,
+      0.01946606259506964
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 12,
+    "mean_case_minus_control": 0.04432721803554387,
+    "median_case_minus_control": 0.05981357037438978,
+    "positive": 6,
+    "negative": 6,
+    "fold_differences": [
+      -0.05896240429077151,
+      -0.6444624011297801,
+      -0.20912160329108587,
+      0.43925410803686815,
+      -0.06487286614258854
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.020402695215383623,
+    "median_case_minus_control": -0.008260869565217377,
+    "positive": 5,
+    "negative": 7,
+    "fold_differences": [
+      0.01421311364269178,
+      -0.04498056222194152,
+      -0.21321937321937323,
+      -0.019070404932825236,
+      0.015225860459126175
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 13,
+    "mean_case_minus_control": 0.7907345846315452,
+    "median_case_minus_control": 0.27733366331718834,
+    "positive": 8,
+    "negative": 5,
+    "fold_differences": [
+      -2.015080956148571,
+      2.102561196172134,
+      7.080708881587619,
+      1.673400218906289,
+      -0.40849290121179926
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.027042333896343525,
+    "median_case_minus_control": -0.008977711200714111,
+    "positive": 6,
+    "negative": 7,
+    "fold_differences": [
+      -0.1248332013686498,
+      0.2032318413257599,
+      0.018455788493156433,
+      -0.08697941899299622,
+      0.07871957619984944
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_3Di4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "unmasked_fraction",
+    "n_pairs": 13,
+    "mean_case_minus_control": -0.17628315820035254,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 6,
+    "fold_differences": [
+      -0.15448773448773448,
+      -0.3837597330367074,
+      -0.7241379310344828,
+      -0.14406403781403782,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "sequence_length",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.5,
+    "median_case_minus_control": 0.5,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.5,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "cys_count",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.0,
+    "median_case_minus_control": 0.0,
+    "positive": 0,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      0.0,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "cys_span_fraction",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.0,
+    "median_case_minus_control": 0.0,
+    "positive": 0,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      0.0,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "net_charge_proxy",
+    "n_pairs": 2,
+    "mean_case_minus_control": 1.5,
+    "median_case_minus_control": 1.5,
+    "positive": 2,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      1.5,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "mean_hydropathy",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.43698953265516743,
+    "median_case_minus_control": -0.43698953265516743,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.43698953265516743,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "aromatic_fraction",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.03070175438596491,
+    "median_case_minus_control": -0.03070175438596491,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.03070175438596491,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "proline_fraction",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.0,
+    "median_case_minus_control": 0.0,
+    "positive": 0,
+    "negative": 0,
+    "fold_differences": [
+      null,
+      null,
+      0.0,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "glycine_fraction",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.022593247825445965,
+    "median_case_minus_control": -0.022593247825445965,
+    "positive": 0,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.022593247825445965,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "local_positive_excess",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.018280996609169972,
+    "median_case_minus_control": 0.018280996609169972,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.018280996609169972,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.028453486657820992,
+    "median_case_minus_control": -0.028453486657820992,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.028453486657820992,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.024529223235876918,
+    "median_case_minus_control": 0.024529223235876918,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.024529223235876918,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "mean_plddt",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.062299817500000076,
+    "median_case_minus_control": -0.062299817500000076,
+    "positive": 0,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.062299817500000076,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.05414730623041718,
+    "median_case_minus_control": -0.05414730623041718,
+    "positive": 0,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.05414730623041718,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.07393705415217104,
+    "median_case_minus_control": 0.07393705415217104,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.07393705415217104,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.222606632609669,
+    "median_case_minus_control": -0.222606632609669,
+    "positive": 0,
+    "negative": 2,
+    "fold_differences": [
+      null,
+      null,
+      -0.222606632609669,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.02158923377963627,
+    "median_case_minus_control": -0.02158923377963627,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.02158923377963627,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 2,
+    "mean_case_minus_control": 0.46435879092997157,
+    "median_case_minus_control": 0.46435879092997157,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      0.46435879092997157,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.15272008627653122,
+    "median_case_minus_control": -0.15272008627653122,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.15272008627653122,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_wrong",
+    "feature": "unmasked_fraction",
+    "n_pairs": 2,
+    "mean_case_minus_control": -0.045039068258882486,
+    "median_case_minus_control": -0.045039068258882486,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      null,
+      null,
+      -0.045039068258882486,
+      null,
+      null
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "sequence_length",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.06666666666666667,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 6,
+    "fold_differences": [
+      0.0,
+      -1.0,
+      -0.4,
+      0.0,
+      1.3333333333333333
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "cys_count",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.13333333333333333,
+    "median_case_minus_control": 0.0,
+    "positive": 2,
+    "negative": 1,
+    "fold_differences": [
+      1.0,
+      -0.3333333333333333,
+      0.2,
+      0.0,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "cys_span_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.02301790281329923,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 1,
+    "fold_differences": [
+      0.2608695652173913,
+      -0.05882352941176471,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "net_charge_proxy",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.8,
+    "median_case_minus_control": 1.0,
+    "positive": 8,
+    "negative": 5,
+    "fold_differences": [
+      -1.5,
+      3.3333333333333335,
+      0.8,
+      -1.5,
+      1.3333333333333333
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "mean_hydropathy",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.01371639991415532,
+    "median_case_minus_control": -0.16157894736842088,
+    "positive": 5,
+    "negative": 9,
+    "fold_differences": [
+      0.7520833333333334,
+      0.8998498029748028,
+      -0.36463471177944856,
+      -0.2966666666666665,
+      -0.6643183940242765
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "aromatic_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.01636283393249337,
+    "median_case_minus_control": 0.005357142857142859,
+    "positive": 9,
+    "negative": 5,
+    "fold_differences": [
+      6.938893903907228e-18,
+      -0.04217032967032966,
+      0.009724433633102362,
+      -0.005555555555555564,
+      -0.05214752567693743
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "proline_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.00864025408143055,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 5,
+    "fold_differences": [
+      -0.02083333333333334,
+      0.0010642135642135661,
+      -0.00111111111111111,
+      0.0,
+      -0.02852474323062558
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "glycine_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.01546350006489325,
+    "median_case_minus_control": 0.0,
+    "positive": 6,
+    "negative": 4,
+    "fold_differences": [
+      0.04166666666666667,
+      0.07772435897435898,
+      0.0073749324291119914,
+      0.0,
+      -0.04047619047619047
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "local_positive_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.002105527627973451,
+    "median_case_minus_control": 0.0,
+    "positive": 7,
+    "negative": 5,
+    "fold_differences": [
+      -0.05952380952380951,
+      0.04430777555777554,
+      -0.0024810801513587945,
+      -0.07142857142857142,
+      0.036601307189542485
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.005985389739259707,
+    "median_case_minus_control": 0.007518796992481203,
+    "positive": 8,
+    "negative": 6,
+    "fold_differences": [
+      0.017857142857142794,
+      0.010187035187035157,
+      -0.020116836208167444,
+      0.03333333333333334,
+      0.019140989729225028
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.02475626305562496,
+    "median_case_minus_control": -0.021867210911160617,
+    "positive": 6,
+    "negative": 9,
+    "fold_differences": [
+      -0.0758791366243496,
+      0.04505907491603533,
+      -0.07674556924307342,
+      0.011060149116096107,
+      0.0022815502164645666
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "mean_plddt",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.021450382600000005,
+    "median_case_minus_control": -0.0010099409999999587,
+    "positive": 7,
+    "negative": 8,
+    "fold_differences": [
+      -0.028979211999999976,
+      -0.05717993766666666,
+      -0.06310095800000001,
+      0.12964442349999994,
+      -0.012013852999999982
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.005282313821649922,
+    "median_case_minus_control": -0.026143790849673207,
+    "positive": 7,
+    "negative": 8,
+    "fold_differences": [
+      0.3127432865237743,
+      -0.012821566247156089,
+      -0.043661590226589476,
+      -0.15097259062776303,
+      0.004155321802380625
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.03360341249214004,
+    "median_case_minus_control": 0.017816091954022978,
+    "positive": 9,
+    "negative": 5,
+    "fold_differences": [
+      -0.04222736951395488,
+      0.0005367552894776084,
+      0.088620782051791,
+      -0.012459475390509879,
+      0.056236900354547405
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 13,
+    "mean_case_minus_control": 0.03996906539923128,
+    "median_case_minus_control": -0.053034213681217496,
+    "positive": 6,
+    "negative": 7,
+    "fold_differences": [
+      0.16237144637076478,
+      0.16360537349041626,
+      -0.1432617194321295,
+      0.8157417540056684,
+      -0.5237653501915223
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.048439819574120864,
+    "median_case_minus_control": -0.03628526645768025,
+    "positive": 5,
+    "negative": 9,
+    "fold_differences": [
+      -0.14444444444444446,
+      -0.02483653840278159,
+      -0.08353752027126642,
+      0.05480769230769231,
+      -0.018375524257877196
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 15,
+    "mean_case_minus_control": 0.745247098051653,
+    "median_case_minus_control": 0.3824438951214759,
+    "positive": 9,
+    "negative": 6,
+    "fold_differences": [
+      0.3359628472162406,
+      0.09172279274693196,
+      2.4383422327920696,
+      -2.4274185117377503,
+      0.9649127525388911
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.11254419485727946,
+    "median_case_minus_control": -0.04364100098609924,
+    "positive": 3,
+    "negative": 12,
+    "fold_differences": [
+      -0.17539457976818085,
+      -0.1587387224038442,
+      -0.10069513469934463,
+      -0.020512308925390244,
+      -0.10555243492126465
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 0,
+    "control_role": "persistent_correct",
+    "feature": "unmasked_fraction",
+    "n_pairs": 15,
+    "mean_case_minus_control": -0.10190781297592443,
+    "median_case_minus_control": -0.01098901098901095,
+    "positive": 5,
+    "negative": 9,
+    "fold_differences": [
+      -0.2916666666666667,
+      -0.18447108447108443,
+      -0.20590913558405818,
+      0.3833333333333333,
+      -0.042997198879551786
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "sequence_length",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.1111111111111111,
+    "median_case_minus_control": 0.0,
+    "positive": 2,
+    "negative": 4,
+    "fold_differences": [
+      -1.0,
+      null,
+      0.0,
+      -1.6666666666666667,
+      2.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "cys_count",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.0,
+    "median_case_minus_control": 0.0,
+    "positive": 3,
+    "negative": 3,
+    "fold_differences": [
+      -1.0,
+      null,
+      2.0,
+      0.3333333333333333,
+      -0.3333333333333333
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "cys_span_fraction",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.07938517274301587,
+    "median_case_minus_control": 0.03418803418803418,
+    "positive": 6,
+    "negative": 0,
+    "fold_differences": [
+      0.0266544117647059,
+      null,
+      0.48,
+      0.033618233618233614,
+      0.026767676767676777
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "net_charge_proxy",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.2222222222222222,
+    "median_case_minus_control": 1.0,
+    "positive": 5,
+    "negative": 3,
+    "fold_differences": [
+      1.0,
+      null,
+      3.0,
+      1.6666666666666667,
+      -2.6666666666666665
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "mean_hydropathy",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.31725687477728276,
+    "median_case_minus_control": -0.3741687979539642,
+    "positive": 3,
+    "negative": 6,
+    "fold_differences": [
+      -0.46844155844155855,
+      null,
+      0.5884615384615386,
+      -0.5707886625628561,
+      -0.2648414356284659
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "aromatic_fraction",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.03488246883427793,
+    "median_case_minus_control": 0.029054054054054056,
+    "positive": 6,
+    "negative": 2,
+    "fold_differences": [
+      -0.02857142857142857,
+      null,
+      -0.038461538461538464,
+      0.060841413260768105,
+      0.07567412511019755
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "proline_fraction",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.005304100589964739,
+    "median_case_minus_control": 0.0,
+    "positive": 4,
+    "negative": 3,
+    "fold_differences": [
+      0.015151515151515152,
+      null,
+      0.038461538461538464,
+      -0.003675596417531901,
+      -0.0033336247340968023
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "glycine_fraction",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.009899269517819956,
+    "median_case_minus_control": -0.02337662337662337,
+    "positive": 3,
+    "negative": 6,
+    "fold_differences": [
+      -0.026839826839826837,
+      null,
+      0.038461538461538464,
+      -0.01831523605717154,
+      -0.006309867423583258
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "local_positive_excess",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.015290734952327002,
+    "median_case_minus_control": 0.06593406593406592,
+    "positive": 5,
+    "negative": 4,
+    "fold_differences": [
+      0.03506493506493508,
+      null,
+      0.06593406593406592,
+      0.03325030099223648,
+      -0.03273274148990084
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.0013290197686905425,
+    "median_case_minus_control": -0.020094994519546883,
+    "positive": 4,
+    "negative": 5,
+    "fold_differences": [
+      0.033333333333333326,
+      null,
+      0.20879120879120877,
+      -0.048321897515445876,
+      -0.03951033499777431
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.03404910683575051,
+    "median_case_minus_control": 0.02698541071420936,
+    "positive": 5,
+    "negative": 4,
+    "fold_differences": [
+      0.052065990699822165,
+      null,
+      -0.030807838007008842,
+      0.02435140713612735,
+      0.05335453224024569
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "mean_plddt",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.030060450222222215,
+    "median_case_minus_control": -0.03193747999999996,
+    "positive": 3,
+    "negative": 6,
+    "fold_differences": [
+      0.0031149684999999816,
+      null,
+      -0.04878848800000002,
+      -0.010596076333333352,
+      -0.0653990906666666
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.048727713717507254,
+    "median_case_minus_control": 0.03405797101449276,
+    "positive": 5,
+    "negative": 4,
+    "fold_differences": [
+      -0.034205611595829806,
+      null,
+      0.03405797101449276,
+      0.1439973492040962,
+      0.013636876007481183
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.03856313715371403,
+    "median_case_minus_control": 0.015531660692951012,
+    "positive": 6,
+    "negative": 3,
+    "fold_differences": [
+      -0.0241659977245553,
+      null,
+      0.1384057971014493,
+      0.0022284529683675113,
+      0.08343635794199501
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.2743184110455326,
+    "median_case_minus_control": -0.3451681336750846,
+    "positive": 3,
+    "negative": 6,
+    "fold_differences": [
+      0.10619639289969571,
+      null,
+      -0.4897713960193004,
+      0.18934255921818036,
+      -0.9198382556148085
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.0008004098294735535,
+    "median_case_minus_control": 0.005281088253224486,
+    "positive": 5,
+    "negative": 4,
+    "fold_differences": [
+      0.01671554252199413,
+      null,
+      -0.03623188405797101,
+      0.002501927452595034,
+      -0.003969557269688108
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 9,
+    "mean_case_minus_control": -1.4730276952643593,
+    "median_case_minus_control": -0.001628004310939346,
+    "positive": 4,
+    "negative": 5,
+    "fold_differences": [
+      -0.0959566727853538,
+      null,
+      -2.7225688612208554,
+      -2.5279158909297545,
+      -0.9196731259328027
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 9,
+    "mean_case_minus_control": 0.02262020193868213,
+    "median_case_minus_control": -0.00572630763053894,
+    "positive": 4,
+    "negative": 5,
+    "fold_differences": [
+      -0.03837099298834801,
+      null,
+      0.08977571129798889,
+      -0.011431410908699036,
+      0.07494744161764781
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_wrong",
+    "feature": "unmasked_fraction",
+    "n_pairs": 9,
+    "mean_case_minus_control": -0.10130236650243025,
+    "median_case_minus_control": -0.0034632034632033903,
+    "positive": 0,
+    "negative": 5,
+    "fold_differences": [
+      -0.0017316017316016952,
+      null,
+      0.0,
+      -0.0707070707070707,
+      -0.23204562764581893
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "sequence_length",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.8,
+    "median_case_minus_control": -1.0,
+    "positive": 5,
+    "negative": 12,
+    "fold_differences": [
+      -2.4,
+      1.5,
+      0.25,
+      -0.8,
+      -1.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "cys_count",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.85,
+    "median_case_minus_control": 0.0,
+    "positive": 1,
+    "negative": 8,
+    "fold_differences": [
+      0.0,
+      -1.0,
+      -3.0,
+      -0.4,
+      -0.25
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "cys_span_fraction",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.09863628673034927,
+    "median_case_minus_control": -0.00560365275142314,
+    "positive": 5,
+    "negative": 11,
+    "fold_differences": [
+      0.02450293753865184,
+      -0.09523809523809523,
+      -0.1547192834019959,
+      -0.21977840772807317,
+      -0.04674876489392617
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "net_charge_proxy",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.05,
+    "median_case_minus_control": 0.0,
+    "positive": 8,
+    "negative": 9,
+    "fold_differences": [
+      1.8,
+      -0.5,
+      0.0,
+      -1.0,
+      -1.0
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "mean_hydropathy",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.2537186766337758,
+    "median_case_minus_control": -0.2070732689210949,
+    "positive": 7,
+    "negative": 13,
+    "fold_differences": [
+      0.012964641350979056,
+      -0.043272525027808706,
+      -0.5330840197460793,
+      -0.30409607003558614,
+      -0.34995881505313653
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "aromatic_fraction",
+    "n_pairs": 20,
+    "mean_case_minus_control": 0.004404847211256524,
+    "median_case_minus_control": 0.0,
+    "positive": 9,
+    "negative": 9,
+    "fold_differences": [
+      0.0013069844037585988,
+      -0.01614571746384872,
+      -0.004071736453201972,
+      0.010617448319061222,
+      0.01926329033788418
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "proline_fraction",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.012126248854001298,
+    "median_case_minus_control": 0.0,
+    "positive": 7,
+    "negative": 9,
+    "fold_differences": [
+      -0.035720252054217895,
+      0.0011123470522803117,
+      0.0039197291235334684,
+      -0.007599315744477036,
+      -0.010957687171311441
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "glycine_fraction",
+    "n_pairs": 20,
+    "mean_case_minus_control": 0.0039964235454577795,
+    "median_case_minus_control": -0.012373271889400923,
+    "positive": 8,
+    "negative": 12,
+    "fold_differences": [
+      -0.021651534281515304,
+      0.030595105672969965,
+      0.026589495430855998,
+      -0.01408761723277852,
+      0.0227690088528152
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "local_positive_excess",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.020262424609121362,
+    "median_case_minus_control": -0.03225806451612903,
+    "positive": 7,
+    "negative": 12,
+    "fold_differences": [
+      -0.02336815318978509,
+      -0.1223065310662641,
+      0.04181060511410961,
+      0.0035220254171867025,
+      -0.057161802910836425
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "local_hydrophobic_excess",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.03940861528829161,
+    "median_case_minus_control": -0.04294372294372295,
+    "positive": 7,
+    "negative": 13,
+    "fold_differences": [
+      -0.008251789284047373,
+      0.03839265850945495,
+      -0.0677696122177006,
+      -0.001564548580677605,
+      -0.13619937114757869
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "ideal_alpha_hydrophobic_moment",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.004303236444282571,
+    "median_case_minus_control": -0.010464816921438178,
+    "positive": 8,
+    "negative": 12,
+    "fold_differences": [
+      -0.012422964329505284,
+      -0.067396736601018,
+      0.051916501044592674,
+      -0.01704614426344374,
+      -0.002897929224310248
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "mean_plddt",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.06230604650000001,
+    "median_case_minus_control": -0.014092982000000032,
+    "positive": 8,
+    "negative": 12,
+    "fold_differences": [
+      0.012042051399999976,
+      -0.08497607750000002,
+      -0.17031592150000002,
+      -0.01879323100000001,
+      -0.09028729774999997
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "hydrophobic_contact_excess",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.0124869276705319,
+    "median_case_minus_control": -0.004855483316086359,
+    "positive": 9,
+    "negative": 11,
+    "fold_differences": [
+      -0.005731885954128449,
+      -0.0024407652613043715,
+      -0.07571286298787375,
+      0.03202481705738637,
+      -0.018367556613205955
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.003932490792164387,
+    "median_case_minus_control": 0.00033546799973582786,
+    "positive": 10,
+    "negative": 10,
+    "fold_differences": [
+      0.024129757622877522,
+      -0.023915821218606227,
+      -0.009436528825305098,
+      -0.03002518310537382,
+      0.009101267326906656
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "charge_hydrophobic_separation",
+    "n_pairs": 19,
+    "mean_case_minus_control": -0.10340843663101255,
+    "median_case_minus_control": -0.11203684010894727,
+    "positive": 8,
+    "negative": 11,
+    "fold_differences": [
+      -0.09814973196346197,
+      -0.19237941435995048,
+      -0.4942793385750166,
+      0.40451863292509604,
+      -0.18255249621308628
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "nonlocal_contact_density",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.028824978330746258,
+    "median_case_minus_control": -0.02014896867838044,
+    "positive": 7,
+    "negative": 12,
+    "fold_differences": [
+      0.005914414036402993,
+      -0.045353181211722535,
+      -0.11386791388312686,
+      -0.012157685762041551,
+      0.0002237024923050293
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "ca_radius_gyration",
+    "n_pairs": 20,
+    "mean_case_minus_control": 0.8569164267931978,
+    "median_case_minus_control": 0.6323589046967149,
+    "positive": 14,
+    "negative": 6,
+    "fold_differences": [
+      -0.3857155730183511,
+      2.12627352909782,
+      2.5732081352131786,
+      1.2216258700085316,
+      -0.3966506370338254
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "max_otherfold_kmer_cosine",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.028904744237661362,
+    "median_case_minus_control": -0.003736063838005066,
+    "positive": 10,
+    "negative": 10,
+    "fold_differences": [
+      -0.025202630460262297,
+      0.10317832231521606,
+      0.013386698439717293,
+      -0.10884802341461182,
+      -0.04193626344203949
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  },
+  {
+    "arm": "fusion_masked4",
+    "label": 1,
+    "control_role": "persistent_correct",
+    "feature": "unmasked_fraction",
+    "n_pairs": 20,
+    "mean_case_minus_control": -0.18483934745357097,
+    "median_case_minus_control": -0.0007936507936507908,
+    "positive": 4,
+    "negative": 10,
+    "fold_differences": [
+      0.11296684367652113,
+      -0.1818798665183537,
+      -0.41580630815544606,
+      -0.14406403781403782,
+      -0.3785790031813362
+    ],
+    "scope": "descriptive matching check, not additional significance test"
+  }
+]

@@ -1,0 +1,7 @@
+{
+ "latest_user_instruction":"C先不训练，等B完成就汇报",
+ "expected_completed_arms":["A","B"],
+ "C_status":"deferred_by_user_not_trained",
+ "scope":"finish B and report A versus B only; no automatic C continuation",
+ "stop_mechanism":"watch COMPLETE ARM B flushed after result and checkpoint saved, stop only verified owned PythonPID8180 before next arm"
+}

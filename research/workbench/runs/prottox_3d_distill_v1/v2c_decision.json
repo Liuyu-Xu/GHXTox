@@ -1,0 +1,14 @@
+{
+  "artifact_type": "prottox_3dkd_v2c_decision",
+  "version": "v2c-1",
+  "date": "2026-09-05",
+  "decision": "stop_v2c_component_line",
+  "evidence": {
+    "effects_exist": true,
+    "effects_larger_on_v1_errors": false,
+    "effects_predictable_from_sequence": false
+  },
+  "frozen_v1_modified": false,
+  "training_authorized": false,
+  "report": "v2c_report.md"
+}

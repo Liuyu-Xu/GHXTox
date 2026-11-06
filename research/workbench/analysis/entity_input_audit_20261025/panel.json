@@ -1,0 +1,1294 @@
+[
+  {
+    "sample_id": "peptide_201",
+    "accession": "P49343",
+    "sequence": "GVIPKKIWETVCPTVEPWAKKCSGDIATYIKRECGKL",
+    "length": 37,
+    "cys_count": 3,
+    "label": 1,
+    "fold": 0,
+    "group_id": "reference_000196",
+    "p_seq": 0.4103362499412992,
+    "p_struct": 0.0330508128,
+    "p_fusion": 0.3046963275417354,
+    "sequence_result": "TP",
+    "structure_result": "FN",
+    "fusion_result": "FN",
+    "fusion_margin_signed": -0.16552623777111014,
+    "struct_probability_needed_at_fixed_seq": 0.624215947696822,
+    "seq_probability_needed_at_fixed_struct": 0.6402338024011744,
+    "cached_mean_plddt": 0.8850702740050651,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000201_201.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        37
+      ],
+      "group_ids": [
+        37
+      ],
+      "residue_features": [
+        37,
+        42
+      ],
+      "coords": [
+        37,
+        3
+      ],
+      "plddt": [
+        37
+      ],
+      "plm_features": [
+        37,
+        1280
+      ],
+      "backbone_coords": [
+        37,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        37,
+        5
+      ],
+      "functional_group_coords": [
+        37,
+        3
+      ],
+      "functional_group_mask": [
+        37
+      ],
+      "structure_features": [
+        37,
+        16
+      ],
+      "chemical_site_coords": [
+        37,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        37,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        37,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        37,
+        2
+      ],
+      "chemical_site_mask": [
+        37,
+        2
+      ],
+      "conformer_residue_features": [
+        37,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 3,
+    "subunit_candidate": true,
+    "evidence": [
+      {
+        "accession": "P49343",
+        "protein_name": "Omega/M-ectatotoxin-Et1a subunit A",
+        "chain_boundary_features": "[{\"type\": \"Peptide\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 37, \"modifier\": \"EXACT\"}}, \"description\": \"Omega/M-ectatotoxin-Et1a subunit A\", \"evidences\": [{\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"7826413\"}], \"featureId\": \"PRO_0000044887\"}]",
+        "documented_ptm_features": "[{\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 12, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 34, \"modifier\": \"EXACT\"}}, \"description\": \"\", \"evidences\": [{\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"7826413\"}, {\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"7881269\"}, {\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"8033986\"}, {\"evidenceCode\": \"ECO:0000312\", \"source\": \"PDB\", \"id\": \"1ECI\"}]}, {\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 22, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 22, \"modifier\": \"EXACT\"}}, \"description\": \"Interchain (with C-20 in subunit B)\", \"evidences\": [{\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"7826413\"}, {\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"7881269\"}, {\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"8033986\"}, {\"evidenceCode\": \"ECO:0000312\", \"source\": \"PDB\", \"id\": \"1ECI\"}]}]",
+        "source_url": "https://www.uniprot.org/uniprotkb/P49343/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_74",
+    "accession": "P49344",
+    "sequence": "WSTIVKLTICPTLKSMAKKCEGSIATMIKKKCDK",
+    "length": 34,
+    "cys_count": 3,
+    "label": 1,
+    "fold": 3,
+    "group_id": "reference_000071",
+    "p_seq": 0.9278581484840472,
+    "p_struct": 0.0269564819,
+    "p_fusion": 0.675605681840514,
+    "sequence_result": "TP",
+    "structure_result": "FN",
+    "fusion_result": "TP",
+    "fusion_margin_signed": 0.20538311652766839,
+    "struct_probability_needed_at_fixed_seq": -0.7065546485559586,
+    "seq_probability_needed_at_fixed_struct": 0.6426038199733967,
+    "cached_mean_plddt": 0.6744911802165648,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000074_74.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        34
+      ],
+      "group_ids": [
+        34
+      ],
+      "residue_features": [
+        34,
+        42
+      ],
+      "coords": [
+        34,
+        3
+      ],
+      "plddt": [
+        34
+      ],
+      "plm_features": [
+        34,
+        1280
+      ],
+      "backbone_coords": [
+        34,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        34,
+        5
+      ],
+      "functional_group_coords": [
+        34,
+        3
+      ],
+      "functional_group_mask": [
+        34
+      ],
+      "structure_features": [
+        34,
+        16
+      ],
+      "chemical_site_coords": [
+        34,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        34,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        34,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        34,
+        2
+      ],
+      "chemical_site_mask": [
+        34,
+        2
+      ],
+      "conformer_residue_features": [
+        34,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 5,
+    "subunit_candidate": true,
+    "evidence": []
+  },
+  {
+    "sample_id": "peptide_2707",
+    "accession": "C0HK45",
+    "sequence": "FWGAVWKILSKVLPHIPGTVKWLQEKV",
+    "length": 27,
+    "cys_count": 0,
+    "label": 0,
+    "fold": 4,
+    "group_id": "reference_002349",
+    "p_seq": 0.39829422085163346,
+    "p_struct": 0.980383456,
+    "p_fusion": 0.5612792066931761,
+    "sequence_result": "FP",
+    "structure_result": "FP",
+    "fusion_result": "FP",
+    "fusion_margin_signed": 0.09105664138033054,
+    "struct_probability_needed_at_fixed_seq": 0.6551811653559623,
+    "seq_probability_needed_at_fixed_struct": 0.27182666337895217,
+    "cached_mean_plddt": 0.7960629728105333,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_002707_2707.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        27
+      ],
+      "group_ids": [
+        27
+      ],
+      "residue_features": [
+        27,
+        42
+      ],
+      "coords": [
+        27,
+        3
+      ],
+      "plddt": [
+        27
+      ],
+      "plm_features": [
+        27,
+        1280
+      ],
+      "backbone_coords": [
+        27,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        27,
+        5
+      ],
+      "functional_group_coords": [
+        27,
+        3
+      ],
+      "functional_group_mask": [
+        27
+      ],
+      "structure_features": [
+        27,
+        16
+      ],
+      "chemical_site_coords": [
+        27,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        27,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        27,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        27,
+        2
+      ],
+      "chemical_site_mask": [
+        27,
+        2
+      ],
+      "conformer_residue_features": [
+        27,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 0,
+    "subunit_candidate": false,
+    "evidence": [
+      {
+        "accession": "C0HK45",
+        "protein_name": "M-ectatotoxin-Eb2a",
+        "chain_boundary_features": "[{\"type\": \"Peptide\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 27, \"modifier\": \"EXACT\"}}, \"description\": \"M-ectatotoxin-Eb2a\", \"evidences\": [{\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"25220871\"}], \"featureId\": \"PRO_0000437654\"}]",
+        "documented_ptm_features": "[]",
+        "source_url": "https://www.uniprot.org/uniprotkb/C0HK45/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_2393",
+    "accession": "C0HK46",
+    "sequence": "FWGALVAGLAPKVAIGIKAINKKG",
+    "length": 24,
+    "cys_count": 0,
+    "label": 0,
+    "fold": 1,
+    "group_id": "reference_002035",
+    "p_seq": 0.29452334803481933,
+    "p_struct": 0.238578171,
+    "p_fusion": 0.27885869846506994,
+    "sequence_result": "TN",
+    "structure_result": "TN",
+    "fusion_result": "TN",
+    "fusion_margin_signed": -0.19136386684777562,
+    "struct_probability_needed_at_fixed_seq": 0.9220205525991987,
+    "seq_probability_needed_at_fixed_struct": 0.5603064964345077,
+    "cached_mean_plddt": 0.5789583325386047,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_002393_2393.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        24
+      ],
+      "group_ids": [
+        24
+      ],
+      "residue_features": [
+        24,
+        42
+      ],
+      "coords": [
+        24,
+        3
+      ],
+      "plddt": [
+        24
+      ],
+      "plm_features": [
+        24,
+        1280
+      ],
+      "backbone_coords": [
+        24,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        24,
+        5
+      ],
+      "functional_group_coords": [
+        24,
+        3
+      ],
+      "functional_group_mask": [
+        24
+      ],
+      "structure_features": [
+        24,
+        16
+      ],
+      "chemical_site_coords": [
+        24,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        24,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        24,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        24,
+        2
+      ],
+      "chemical_site_mask": [
+        24,
+        2
+      ],
+      "conformer_residue_features": [
+        24,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 0,
+    "subunit_candidate": false,
+    "evidence": []
+  },
+  {
+    "sample_id": "peptide_2283",
+    "accession": "C0HK47",
+    "sequence": "FWGALFKTVAKVVAPFVPDIVKWVQEKV",
+    "length": 28,
+    "cys_count": 0,
+    "label": 0,
+    "fold": 4,
+    "group_id": "reference_001925",
+    "p_seq": 0.5637008536890774,
+    "p_struct": 9.06684591e-07,
+    "p_fusion": 0.4058648685278212,
+    "sequence_result": "FP",
+    "structure_result": "TN",
+    "fusion_result": "TN",
+    "fusion_margin_signed": -0.06435769678502434,
+    "struct_probability_needed_at_fixed_seq": 0.22984982377396374,
+    "seq_probability_needed_at_fixed_struct": 0.6530865436682779,
+    "cached_mean_plddt": 0.9324714200837272,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_002283_2283.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        28
+      ],
+      "group_ids": [
+        28
+      ],
+      "residue_features": [
+        28,
+        42
+      ],
+      "coords": [
+        28,
+        3
+      ],
+      "plddt": [
+        28
+      ],
+      "plm_features": [
+        28,
+        1280
+      ],
+      "backbone_coords": [
+        28,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        28,
+        5
+      ],
+      "functional_group_coords": [
+        28,
+        3
+      ],
+      "functional_group_mask": [
+        28
+      ],
+      "structure_features": [
+        28,
+        16
+      ],
+      "chemical_site_coords": [
+        28,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        28,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        28,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        28,
+        2
+      ],
+      "chemical_site_mask": [
+        28,
+        2
+      ],
+      "conformer_residue_features": [
+        28,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 0,
+    "subunit_candidate": false,
+    "evidence": []
+  },
+  {
+    "sample_id": "peptide_569",
+    "accession": "P0DSK9",
+    "sequence": "FAIGAIIKKFGKKLVEYAVKHKDLYAPYIKKHLCEKL",
+    "length": 37,
+    "cys_count": 1,
+    "label": 1,
+    "fold": 0,
+    "group_id": "reference_000528",
+    "p_seq": 0.4190594751058503,
+    "p_struct": 0.98703301,
+    "p_fusion": 0.5780920648762122,
+    "sequence_result": "TP",
+    "structure_result": "TP",
+    "fusion_result": "TP",
+    "fusion_margin_signed": 0.10786949956336667,
+    "struct_probability_needed_at_fixed_seq": 0.6017847972736905,
+    "seq_probability_needed_at_fixed_struct": 0.26924072571228547,
+    "cached_mean_plddt": 0.8868702714507645,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000569_569.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        37
+      ],
+      "group_ids": [
+        37
+      ],
+      "residue_features": [
+        37,
+        42
+      ],
+      "coords": [
+        37,
+        3
+      ],
+      "plddt": [
+        37
+      ],
+      "plm_features": [
+        37,
+        1280
+      ],
+      "backbone_coords": [
+        37,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        37,
+        5
+      ],
+      "functional_group_coords": [
+        37,
+        3
+      ],
+      "functional_group_mask": [
+        37
+      ],
+      "structure_features": [
+        37,
+        16
+      ],
+      "chemical_site_coords": [
+        37,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        37,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        37,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        37,
+        2
+      ],
+      "chemical_site_mask": [
+        37,
+        2
+      ],
+      "conformer_residue_features": [
+        37,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 1,
+    "subunit_candidate": true,
+    "evidence": []
+  },
+  {
+    "sample_id": "peptide_255",
+    "accession": "P0DSL1",
+    "sequence": "GVKEKLLAVLRKACPVIEKLAKKCHGTVATLKKACSLIH",
+    "length": 39,
+    "cys_count": 3,
+    "label": 1,
+    "fold": 0,
+    "group_id": "reference_000248",
+    "p_seq": 0.38321423328108056,
+    "p_struct": 0.000403670245,
+    "p_fusion": 0.276027275630978,
+    "sequence_result": "FN",
+    "structure_result": "FN",
+    "fusion_result": "FN",
+    "fusion_margin_signed": -0.19419528968186756,
+    "struct_probability_needed_at_fixed_seq": 0.6939582762516697,
+    "seq_probability_needed_at_fixed_struct": 0.6529299133947856,
+    "cached_mean_plddt": 0.7589538448896164,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000255_255.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        39
+      ],
+      "group_ids": [
+        39
+      ],
+      "residue_features": [
+        39,
+        42
+      ],
+      "coords": [
+        39,
+        3
+      ],
+      "plddt": [
+        39
+      ],
+      "plm_features": [
+        39,
+        1280
+      ],
+      "backbone_coords": [
+        39,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        39,
+        5
+      ],
+      "functional_group_coords": [
+        39,
+        3
+      ],
+      "functional_group_mask": [
+        39
+      ],
+      "structure_features": [
+        39,
+        16
+      ],
+      "chemical_site_coords": [
+        39,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        39,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        39,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        39,
+        2
+      ],
+      "chemical_site_mask": [
+        39,
+        2
+      ],
+      "conformer_residue_features": [
+        39,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 3,
+    "subunit_candidate": true,
+    "evidence": [
+      {
+        "accession": "P0DSL1",
+        "protein_name": "U1-ectatotoxin-Et1b subunit A",
+        "chain_boundary_features": "[{\"type\": \"Chain\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 39, \"modifier\": \"EXACT\"}}, \"description\": \"U1-ectatotoxin-Et1b subunit A\", \"evidences\": [{\"evidenceCode\": \"ECO:0000305\", \"source\": \"PubMed\", \"id\": \"25448389\"}], \"featureId\": \"PRO_0000447105\"}]",
+        "documented_ptm_features": "[{\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 14, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 35, \"modifier\": \"EXACT\"}}, \"description\": \"\", \"evidences\": [{\"evidenceCode\": \"ECO:0000250\", \"source\": \"UniProtKB\", \"id\": \"P49343\"}]}, {\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 24, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 24, \"modifier\": \"EXACT\"}}, \"description\": \"Interchain (with C-21 in subunit B)\", \"evidences\": [{\"evidenceCode\": \"ECO:0000250\", \"source\": \"UniProtKB\", \"id\": \"P49343\"}]}]",
+        "source_url": "https://www.uniprot.org/uniprotkb/P0DSL1/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_212",
+    "accession": "P0DSL2",
+    "sequence": "GLKEWAMKKMCPIAVRLAKKCDGTLATKIKEICDNL",
+    "length": 36,
+    "cys_count": 3,
+    "label": 1,
+    "fold": 4,
+    "group_id": "reference_000206",
+    "p_seq": 0.9453304513201684,
+    "p_struct": 0.990195096,
+    "p_fusion": 0.9578925518305212,
+    "sequence_result": "TP",
+    "structure_result": "TP",
+    "fusion_result": "TP",
+    "fusion_margin_signed": 0.4876699865176757,
+    "struct_probability_needed_at_fixed_seq": -0.751483427277413,
+    "seq_probability_needed_at_fixed_struct": 0.2680110256011744,
+    "cached_mean_plddt": 0.8622444421052933,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000212_212.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        36
+      ],
+      "group_ids": [
+        36
+      ],
+      "residue_features": [
+        36,
+        42
+      ],
+      "coords": [
+        36,
+        3
+      ],
+      "plddt": [
+        36
+      ],
+      "plm_features": [
+        36,
+        1280
+      ],
+      "backbone_coords": [
+        36,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        36,
+        5
+      ],
+      "functional_group_coords": [
+        36,
+        3
+      ],
+      "functional_group_mask": [
+        36
+      ],
+      "structure_features": [
+        36,
+        16
+      ],
+      "chemical_site_coords": [
+        36,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        36,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        36,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        36,
+        2
+      ],
+      "chemical_site_mask": [
+        36,
+        2
+      ],
+      "conformer_residue_features": [
+        36,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 5,
+    "subunit_candidate": true,
+    "evidence": []
+  },
+  {
+    "sample_id": "peptide_3404",
+    "accession": "P0DQD1",
+    "sequence": "NLYQFKNMVQCVGTQLCVAYVKYGCYCGPG",
+    "length": 30,
+    "cys_count": 4,
+    "label": 0,
+    "fold": 1,
+    "group_id": "reference_003040",
+    "p_seq": 0.8226173156832574,
+    "p_struct": 0.974158704,
+    "p_fusion": 0.8650489044119454,
+    "sequence_result": "FP",
+    "structure_result": "FP",
+    "fusion_result": "FP",
+    "fusion_margin_signed": 0.3948263390990998,
+    "struct_probability_needed_at_fixed_seq": -0.4359353642110704,
+    "seq_probability_needed_at_fixed_struct": 0.274247400267841,
+    "cached_mean_plddt": 0.479886664946874,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_003404_3404.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        30
+      ],
+      "group_ids": [
+        30
+      ],
+      "residue_features": [
+        30,
+        42
+      ],
+      "coords": [
+        30,
+        3
+      ],
+      "plddt": [
+        30
+      ],
+      "plm_features": [
+        30,
+        1280
+      ],
+      "backbone_coords": [
+        30,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        30,
+        5
+      ],
+      "functional_group_coords": [
+        30,
+        3
+      ],
+      "functional_group_mask": [
+        30
+      ],
+      "structure_features": [
+        30,
+        16
+      ],
+      "chemical_site_coords": [
+        30,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        30,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        30,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        30,
+        2
+      ],
+      "chemical_site_mask": [
+        30,
+        2
+      ],
+      "conformer_residue_features": [
+        30,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 5,
+    "subunit_candidate": false,
+    "evidence": [
+      {
+        "accession": "P0DQD1",
+        "protein_name": "Non-toxic phospholipase A2",
+        "chain_boundary_features": "[{\"type\": \"Chain\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 30, \"modifier\": \"OUTSIDE\"}}, \"description\": \"Non-toxic phospholipase A2\", \"evidences\": [{\"evidenceCode\": \"ECO:0000269\", \"source\": \"PubMed\", \"id\": \"29885399\"}], \"featureId\": \"PRO_0000446236\"}, {\"type\": \"Non-terminal residue\", \"location\": {\"start\": {\"value\": 30, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 30, \"modifier\": \"EXACT\"}}, \"description\": \"\"}]",
+        "documented_ptm_features": "[{\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 17, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 17, \"modifier\": \"EXACT\"}}, \"description\": \"Interchain\", \"evidences\": [{\"evidenceCode\": \"ECO:0000250\", \"source\": \"UniProtKB\", \"id\": \"A6MEY4\"}]}]",
+        "source_url": "https://www.uniprot.org/uniprotkb/P0DQD1/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_4096",
+    "accession": "P0DSM1",
+    "sequence": "LFGNIIDKLREKIKKYCNKENLDKACSKL",
+    "length": 29,
+    "cys_count": 2,
+    "label": 0,
+    "fold": 4,
+    "group_id": "reference_002838",
+    "p_seq": 0.9674183196407911,
+    "p_struct": 0.997148931,
+    "p_fusion": 0.9757428908213696,
+    "sequence_result": "FP",
+    "structure_result": "FP",
+    "fusion_result": "FP",
+    "fusion_margin_signed": 0.505520325508524,
+    "struct_probability_needed_at_fixed_seq": -0.8082808029590139,
+    "seq_probability_needed_at_fixed_struct": 0.2653067564345077,
+    "cached_mean_plddt": 0.8049965541938255,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_004096_4096.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        29
+      ],
+      "group_ids": [
+        29
+      ],
+      "residue_features": [
+        29,
+        42
+      ],
+      "coords": [
+        29,
+        3
+      ],
+      "plddt": [
+        29
+      ],
+      "plm_features": [
+        29,
+        1280
+      ],
+      "backbone_coords": [
+        29,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        29,
+        5
+      ],
+      "functional_group_coords": [
+        29,
+        3
+      ],
+      "functional_group_mask": [
+        29
+      ],
+      "structure_features": [
+        29,
+        16
+      ],
+      "chemical_site_coords": [
+        29,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        29,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        29,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        29,
+        2
+      ],
+      "chemical_site_mask": [
+        29,
+        2
+      ],
+      "conformer_residue_features": [
+        29,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 2,
+    "subunit_candidate": true,
+    "evidence": [
+      {
+        "accession": "P0DSM1",
+        "protein_name": "U1-pseudomyrmecitoxin-Pt1 subunit SS3",
+        "chain_boundary_features": "[{\"type\": \"Chain\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 29, \"modifier\": \"EXACT\"}}, \"description\": \"U1-pseudomyrmecitoxin-Pt1 subunit SS3\", \"featureId\": \"PRO_0000447116\"}]",
+        "documented_ptm_features": "[{\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 17, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 17, \"modifier\": \"EXACT\"}}, \"description\": \"Interchain (with C-21 in LS1 or LS2)\", \"evidences\": [{\"evidenceCode\": \"ECO:0000305\"}]}, {\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 26, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 26, \"modifier\": \"EXACT\"}}, \"description\": \"Interchain (with C-31 in LS1 or LS2)\", \"evidences\": [{\"evidenceCode\": \"ECO:0000305\"}]}]",
+        "source_url": "https://www.uniprot.org/uniprotkb/P0DSM1/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_4292",
+    "accession": "C0HLM9",
+    "sequence": "GLEETYCSMRIKENI",
+    "length": 15,
+    "cys_count": 1,
+    "label": 0,
+    "fold": 4,
+    "group_id": "reference_003829",
+    "p_seq": 0.5156897441571439,
+    "p_struct": 0.999839902,
+    "p_fusion": 0.6512517883531436,
+    "sequence_result": "FP",
+    "structure_result": "FP",
+    "fusion_result": "FP",
+    "fusion_margin_signed": 0.181029223040298,
+    "struct_probability_needed_at_fixed_seq": 0.3533069625703643,
+    "seq_probability_needed_at_fixed_struct": 0.2642602677122855,
+    "cached_mean_plddt": 0.6173666596412659,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_004292_4292.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        15
+      ],
+      "group_ids": [
+        15
+      ],
+      "residue_features": [
+        15,
+        42
+      ],
+      "coords": [
+        15,
+        3
+      ],
+      "plddt": [
+        15
+      ],
+      "plm_features": [
+        15,
+        1280
+      ],
+      "backbone_coords": [
+        15,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        15,
+        5
+      ],
+      "functional_group_coords": [
+        15,
+        3
+      ],
+      "functional_group_mask": [
+        15
+      ],
+      "structure_features": [
+        15,
+        16
+      ],
+      "chemical_site_coords": [
+        15,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        15,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        15,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        15,
+        2
+      ],
+      "chemical_site_mask": [
+        15,
+        2
+      ],
+      "conformer_residue_features": [
+        15,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 2,
+    "subunit_candidate": false,
+    "evidence": [
+      {
+        "accession": "C0HLM9",
+        "protein_name": "Globulin 2",
+        "chain_boundary_features": "[{\"type\": \"Chain\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 15, \"modifier\": \"OUTSIDE\"}}, \"description\": \"Globulin 2 basic chain\", \"featureId\": \"PRO_0000448942\"}, {\"type\": \"Non-terminal residue\", \"location\": {\"start\": {\"value\": 15, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 15, \"modifier\": \"EXACT\"}}, \"description\": \"\", \"evidences\": [{\"evidenceCode\": \"ECO:0000305\"}]}]",
+        "documented_ptm_features": "[{\"type\": \"Disulfide bond\", \"location\": {\"start\": {\"value\": 7, \"modifier\": \"EXACT\"}, \"end\": {\"value\": null, \"modifier\": \"UNKNOWN\"}}, \"description\": \"Interchain (between acidic and basic chains)\", \"evidences\": [{\"evidenceCode\": \"ECO:0000250\", \"source\": \"UniProtKB\", \"id\": \"A0A222NNM9\"}]}]",
+        "source_url": "https://www.uniprot.org/uniprotkb/C0HLM9/entry"
+      }
+    ]
+  },
+  {
+    "sample_id": "peptide_309",
+    "accession": "P83245",
+    "sequence": "ARTQPGNIAPVGDFTLYPNAPRQGHIVA",
+    "length": 28,
+    "cys_count": 0,
+    "label": 1,
+    "fold": 3,
+    "group_id": "reference_000302",
+    "p_seq": 0.0143004545954787,
+    "p_struct": 0.000327397283,
+    "p_fusion": 0.010387998547984665,
+    "sequence_result": "FN",
+    "structure_result": "FN",
+    "fusion_result": "FN",
+    "fusion_margin_signed": -0.4598345667648609,
+    "struct_probability_needed_at_fixed_seq": 1.642593707157503,
+    "seq_probability_needed_at_fixed_struct": 0.65295957510223,
+    "cached_mean_plddt": 0.5551892848951476,
+    "cached_structure_source": "data\\esmfold_fullatom\\pdb\\train\\train_000309_309.pdb",
+    "tensor_shapes": {
+      "aa_ids": [
+        28
+      ],
+      "group_ids": [
+        28
+      ],
+      "residue_features": [
+        28,
+        42
+      ],
+      "coords": [
+        28,
+        3
+      ],
+      "plddt": [
+        28
+      ],
+      "plm_features": [
+        28,
+        1280
+      ],
+      "backbone_coords": [
+        28,
+        5,
+        3
+      ],
+      "backbone_mask": [
+        28,
+        5
+      ],
+      "functional_group_coords": [
+        28,
+        3
+      ],
+      "functional_group_mask": [
+        28
+      ],
+      "structure_features": [
+        28,
+        16
+      ],
+      "chemical_site_coords": [
+        28,
+        2,
+        3
+      ],
+      "chemical_site_types": [
+        28,
+        2,
+        8
+      ],
+      "chemical_site_orientations": [
+        28,
+        2,
+        3
+      ],
+      "chemical_site_orientation_mask": [
+        28,
+        2
+      ],
+      "chemical_site_mask": [
+        28,
+        2
+      ],
+      "conformer_residue_features": [
+        28,
+        8
+      ],
+      "conformer_global_features": [
+        12
+      ],
+      "conformer_source_features": [
+        3
+      ]
+    },
+    "explicit_chain_id_field": false,
+    "explicit_covalent_connectivity_field": false,
+    "explicit_terminal_chemistry_field": false,
+    "sulfur_site_count": 0,
+    "subunit_candidate": false,
+    "evidence": [
+      {
+        "accession": "P83245",
+        "protein_name": "Ribosome-inactivating protein pleuturegin",
+        "chain_boundary_features": "[{\"type\": \"Chain\", \"location\": {\"start\": {\"value\": 1, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 28, \"modifier\": \"OUTSIDE\"}}, \"description\": \"Ribosome-inactivating protein pleuturegin\", \"featureId\": \"PRO_0000221421\"}, {\"type\": \"Non-terminal residue\", \"location\": {\"start\": {\"value\": 28, \"modifier\": \"EXACT\"}, \"end\": {\"value\": 28, \"modifier\": \"EXACT\"}}, \"description\": \"\"}]",
+        "documented_ptm_features": "[]",
+        "source_url": "https://www.uniprot.org/uniprotkb/P83245/entry"
+      }
+    ]
+  }
+]

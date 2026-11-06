@@ -1,0 +1,28 @@
+{
+  "encoder": "Rostlab/prot_t5_xl_half_uniref50-enc",
+  "parameters_frozen": true,
+  "pooling": "residue mean excluding padding/EOS",
+  "main_cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+  "aux_old_cache_sha256": "a1ed5fdf1db941219f7dce0e8d790b270ca041e334833cc8fe990d0b457d92f4",
+  "main_cache_overlap_checks": 68,
+  "old_cache_min_cosine": 0.9999980926513672,
+  "new_aux_sequences_encoded": 382,
+  "aux_sequences": 498,
+  "reencoded_checks": [
+    {
+      "sequence": "ALWKDILKNAGKAALNEINQIVQ",
+      "cosine_reencoded_vs_main": 0.999999463558197
+    },
+    {
+      "sequence": "ALWKNMLKGIGKLAGKAALGAVKKLVGAES",
+      "cosine_reencoded_vs_main": 0.9999997019767761
+    },
+    {
+      "sequence": "FDIMGLIKKVAGAL",
+      "cosine_reencoded_vs_main": 0.9999997019767761
+    }
+  ],
+  "elapsed_seconds": 23.761531352996826,
+  "output_sha256": "1499dd556f7e16cedd04706ba0d1ee442bfaf45d099aa5bd135a35bed09fbf4b",
+  "no_encoder_training": true
+}

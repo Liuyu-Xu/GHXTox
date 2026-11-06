@@ -1,0 +1,33 @@
+{
+  "goal": "out-of-fold error-risk detection, no change of GHXTox predictions",
+  "base_features": [
+    "p_fusion",
+    "distance_to_fixed_threshold",
+    "predicted_class"
+  ],
+  "additional_features": [
+    "p_seq",
+    "p_struct",
+    "sequence_length",
+    "cys_count",
+    "charge_density",
+    "mean_hydropathy",
+    "aromatic_fraction",
+    "proline_fraction",
+    "glycine_fraction",
+    "mean_plddt",
+    "low_plddt_fraction",
+    "ca_radius_gyration",
+    "nonlocal_contact_density",
+    "sequence_seed_std"
+  ],
+  "selection": "fixed top 10% within each held-out fold",
+  "training": "one logistic regression per fold, median imputation and standardization fitted on four development folds, fixed C=1",
+  "reference_similarity": "excluded: historical similarity uses other folds and is not appropriate for independent validation",
+  "test1_test2_used": false,
+  "upstream_fully_nested": false,
+  "inputs_sha256": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\error_evidence_linkage_20261025\\all_training_linked.json": "963268735f3608dbb15755327b045464b7fa8592b5df2cf3f74e6c95342ef106",
+    "D:\\dachuang2026\\GHXTox\\analysis\\cys_probability_adjustment_20261028\\predictions.json": "6e1e0e7a322c038d97663c1449f08fe5508ce03a40012ad3a3dcde45076a4cc5"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "all": {
+    "ghxtox": {
+      "n": 6387,
+      "errors": 327,
+      "FN": 192,
+      "FP": 135,
+      "agreement_with_ghxtox": 1.0,
+      "MCC": 0.8732971560275273,
+      "AUPRC": 0.9577424717702984
+    },
+    "cys_length": {
+      "n": 6387,
+      "errors": 771,
+      "FN": 422,
+      "FP": 349,
+      "agreement_with_ghxtox": 0.909503679348677,
+      "MCC": 0.7002364001035891,
+      "AUPRC": 0.8290009644524237
+    },
+    "composition": {
+      "n": 6387,
+      "errors": 615,
+      "FN": 338,
+      "FP": 277,
+      "agreement_with_ghxtox": 0.9326757476123375,
+      "MCC": 0.761357659416311,
+      "AUPRC": 0.8993298694711731
+    }
+  },
+  "low_positive": {
+    "ghxtox": {
+      "n": 262,
+      "errors": 140,
+      "FN": 140,
+      "FP": 0,
+      "agreement_with_ghxtox": 1.0,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "cys_length": {
+      "n": 262,
+      "errors": 262,
+      "FN": 262,
+      "FP": 0,
+      "agreement_with_ghxtox": 0.5343511450381679,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "composition": {
+      "n": 262,
+      "errors": 232,
+      "FN": 232,
+      "FP": 0,
+      "agreement_with_ghxtox": 0.6259541984732825,
+      "MCC": null,
+      "AUPRC": null
+    }
+  },
+  "low_negative": {
+    "ghxtox": {
+      "n": 3537,
+      "errors": 24,
+      "FN": 0,
+      "FP": 24,
+      "agreement_with_ghxtox": 1.0,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "cys_length": {
+      "n": 3537,
+      "errors": 0,
+      "FN": 0,
+      "FP": 0,
+      "agreement_with_ghxtox": 0.993214588634436,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "composition": {
+      "n": 3537,
+      "errors": 12,
+      "FN": 0,
+      "FP": 12,
+      "agreement_with_ghxtox": 0.9903873338987843,
+      "MCC": null,
+      "AUPRC": null
+    }
+  },
+  "high_positive": {
+    "ghxtox": {
+      "n": 1063,
+      "errors": 6,
+      "FN": 6,
+      "FP": 0,
+      "agreement_with_ghxtox": 1.0,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "cys_length": {
+      "n": 1063,
+      "errors": 24,
+      "FN": 24,
+      "FP": 0,
+      "agreement_with_ghxtox": 0.9717779868297272,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "composition": {
+      "n": 1063,
+      "errors": 11,
+      "FN": 11,
+      "FP": 0,
+      "agreement_with_ghxtox": 0.9840075258701787,
+      "MCC": null,
+      "AUPRC": null
+    }
+  },
+  "high_negative": {
+    "ghxtox": {
+      "n": 240,
+      "errors": 50,
+      "FN": 0,
+      "FP": 50,
+      "agreement_with_ghxtox": 1.0,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "cys_length": {
+      "n": 240,
+      "errors": 228,
+      "FN": 0,
+      "FP": 228,
+      "agreement_with_ghxtox": 0.25,
+      "MCC": null,
+      "AUPRC": null
+    },
+    "composition": {
+      "n": 240,
+      "errors": 165,
+      "FN": 0,
+      "FP": 165,
+      "agreement_with_ghxtox": 0.5208333333333334,
+      "MCC": null,
+      "AUPRC": null
+    }
+  }
+}

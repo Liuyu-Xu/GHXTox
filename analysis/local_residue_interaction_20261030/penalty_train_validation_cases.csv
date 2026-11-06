@@ -1,0 +1,70 @@
+﻿split,method,penalty,sample_id,group_id,label,cys_count,base_logit,delta_logit,change,flag,family,name
+train,B,0.01,peptide_2355,reference_001997,0,2,0.12716205418109894,-0.23524042963981628,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,B,0.01,peptide_3699,reference_003333,0,4,0.2281617671251297,-0.24554216861724854,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,B,0.01,peptide_4528,reference_003979,0,1,0.03439229726791382,-0.22476941347122192,corrected,0,,Mating hormone A-factor 1
+train,B,0.001,peptide_2021,reference_001664,0,0,0.1825559288263321,-0.3539583384990692,corrected,1,belongs to the mcd family,Mastoparan-V1 (MP-V1)
+train,B,0.001,peptide_2355,reference_001997,0,2,0.12716205418109894,-0.7949865460395813,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,B,0.001,peptide_3283,singleton_003282,0,4,0.41029608249664307,-1.5803080797195435,corrected,1,belongs to the short scorpion toxin superfamily,Peptide 2900 (Potassium channel toxin alpha-KTx)
+train,B,0.001,peptide_3404,reference_003040,0,4,0.746375560760498,-1.2467814683914185,corrected,1,belongs to the phospholipase a2 family,Non-toxic phospholipase A2 (WaPLA2) (svPLA2) (Phosphatidylcholine 2-acylhydrolase) (EC 3.1.1.4)
+train,B,0.001,peptide_3699,reference_003333,0,4,0.2281617671251297,-0.7437826991081238,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,B,0.001,peptide_4528,reference_003979,0,1,0.03439229726791382,-0.6656901240348816,corrected,0,,Mating hormone A-factor 1
+train,B,0.001,peptide_5046,singleton_005045,0,1,0.5327112674713135,-0.8052378296852112,corrected,1,belongs to the phospholipase a2 family,Phospholipase A2 D5 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+train,B,0.0,peptide_1796,reference_001443,1,6,1.5515493154525757,-1.5685980319976807,harmed,0,,
+train,B,0.0,peptide_2021,reference_001664,0,0,0.1825559288263321,-0.46115243434906006,corrected,1,belongs to the mcd family,Mastoparan-V1 (MP-V1)
+train,B,0.0,peptide_2355,reference_001997,0,2,0.12716205418109894,-1.086718201637268,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,B,0.0,peptide_3283,singleton_003282,0,4,0.41029608249664307,-2.2238104343414307,corrected,1,belongs to the short scorpion toxin superfamily,Peptide 2900 (Potassium channel toxin alpha-KTx)
+train,B,0.0,peptide_3404,reference_003040,0,4,0.746375560760498,-1.7067418098449707,corrected,1,belongs to the phospholipase a2 family,Non-toxic phospholipase A2 (WaPLA2) (svPLA2) (Phosphatidylcholine 2-acylhydrolase) (EC 3.1.1.4)
+train,B,0.0,peptide_3699,reference_003333,0,4,0.2281617671251297,-1.0662420988082886,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,B,0.0,peptide_3897,reference_003531,0,0,0.565718412399292,-0.6442577838897705,corrected,1,belongs to the mcd family,Communis-AAAA [Cleaved into: Communis]
+train,B,0.0,peptide_4528,reference_003979,0,1,0.03439229726791382,-0.9809108972549438,corrected,0,,Mating hormone A-factor 1
+train,B,0.0,peptide_4984,reference_004266,0,0,0.5333085656166077,-0.5786557197570801,corrected,0,belongs to the frog skin active peptide (fsap) family,Brevinin-1OKb
+train,B,0.0,peptide_5046,singleton_005045,0,1,0.5327112674713135,-1.0977647304534912,corrected,1,belongs to the phospholipase a2 family,Phospholipase A2 D5 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+train,C,0.01,peptide_2355,reference_001997,0,2,0.12716205418109894,-0.47283726930618286,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,C,0.01,peptide_3699,reference_003333,0,4,0.2281617671251297,-0.4764537513256073,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,C,0.01,peptide_4528,reference_003979,0,1,0.03439229726791382,-0.4211142063140869,corrected,0,,Mating hormone A-factor 1
+train,C,0.001,peptide_2021,reference_001664,0,0,0.1825559288263321,-0.20655931532382965,corrected,1,belongs to the mcd family,Mastoparan-V1 (MP-V1)
+train,C,0.001,peptide_2355,reference_001997,0,2,0.12716205418109894,-1.1729087829589844,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,C,0.001,peptide_3283,singleton_003282,0,4,0.41029608249664307,-1.5155214071273804,corrected,1,belongs to the short scorpion toxin superfamily,Peptide 2900 (Potassium channel toxin alpha-KTx)
+train,C,0.001,peptide_3404,reference_003040,0,4,0.746375560760498,-1.4013171195983887,corrected,1,belongs to the phospholipase a2 family,Non-toxic phospholipase A2 (WaPLA2) (svPLA2) (Phosphatidylcholine 2-acylhydrolase) (EC 3.1.1.4)
+train,C,0.001,peptide_3699,reference_003333,0,4,0.2281617671251297,-1.2160558700561523,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,C,0.001,peptide_4528,reference_003979,0,1,0.03439229726791382,-1.1488990783691406,corrected,0,,Mating hormone A-factor 1
+train,C,0.001,peptide_5046,singleton_005045,0,1,0.5327112674713135,-1.2041211128234863,corrected,1,belongs to the phospholipase a2 family,Phospholipase A2 D5 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+train,C,0.0,peptide_1796,reference_001443,1,6,1.5515493154525757,-1.7516885995864868,harmed,0,,
+train,C,0.0,peptide_2021,reference_001664,0,0,0.1825559288263321,-0.2480621188879013,corrected,1,belongs to the mcd family,Mastoparan-V1 (MP-V1)
+train,C,0.0,peptide_2355,reference_001997,0,2,0.12716205418109894,-1.4936505556106567,corrected,1,belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family,Alpha-amylase inhibitor
+train,C,0.0,peptide_3283,singleton_003282,0,4,0.41029608249664307,-2.2649407386779785,corrected,1,belongs to the short scorpion toxin superfamily,Peptide 2900 (Potassium channel toxin alpha-KTx)
+train,C,0.0,peptide_3404,reference_003040,0,4,0.746375560760498,-1.8370335102081299,corrected,1,belongs to the phospholipase a2 family,Non-toxic phospholipase A2 (WaPLA2) (svPLA2) (Phosphatidylcholine 2-acylhydrolase) (EC 3.1.1.4)
+train,C,0.0,peptide_3699,reference_003333,0,4,0.2281617671251297,-1.7208912372589111,corrected,0,,Methanobactin mb-OB3b (Copper-binding compound) (CBC) (Hydrogen peroxide reductase) (EC 1.11.1.-) (Superoxide dismutase) (EC 1.15.1.1)
+train,C,0.0,peptide_4364,reference_003879,0,8,2.411471128463745,-2.4140584468841553,corrected,1,,
+train,C,0.0,peptide_4528,reference_003979,0,1,0.03439229726791382,-1.783858060836792,corrected,0,,Mating hormone A-factor 1
+train,C,0.0,peptide_5046,singleton_005045,0,1,0.5327112674713135,-1.5495634078979492,corrected,1,belongs to the phospholipase a2 family,Phospholipase A2 D5 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+validation,B,0.01,peptide_6231,reference_001717,0,1,0.33345645666122437,-0.4487232267856598,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)
+validation,B,0.001,peptide_26,reference_000025,1,4,0.866491436958313,-1.0154448747634888,harmed,0,belongs to the conotoxin r superfamily,Conotoxin flf14a
+validation,B,0.001,peptide_746,reference_000647,1,1,0.536978006362915,-1.0123600959777832,harmed,0,,
+validation,B,0.001,peptide_786,reference_000678,1,2,0.4938199520111084,-0.8168575763702393,harmed,1,belongs to the phospholipase a2 family,Acidic phospholipase A2 Omo-E6 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+validation,B,0.001,peptide_1304,reference_001083,1,10,0.970573902130127,-1.6686214208602905,harmed,0,,
+validation,B,0.001,peptide_6231,reference_001717,0,1,0.33345645666122437,-1.337943196296692,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)
+validation,B,0.0,peptide_26,reference_000025,1,4,0.866491436958313,-1.3719449043273926,harmed,0,belongs to the conotoxin r superfamily,Conotoxin flf14a
+validation,B,0.0,peptide_746,reference_000647,1,1,0.536978006362915,-1.4033210277557373,harmed,0,,
+validation,B,0.0,peptide_786,reference_000678,1,2,0.4938199520111084,-1.1238999366760254,harmed,1,belongs to the phospholipase a2 family,Acidic phospholipase A2 Omo-E6 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+validation,B,0.0,peptide_1304,reference_001083,1,10,0.970573902130127,-2.3288984298706055,harmed,0,,
+validation,B,0.0,peptide_1321,reference_001095,1,6,1.956960678100586,-2.1230030059814453,harmed,0,,
+validation,B,0.0,peptide_4152,reference_003195,0,1,0.4673319458961487,-0.5724338889122009,corrected,0,,Fungus-induced-related protein 16
+validation,B,0.0,peptide_6231,reference_001717,0,1,0.33345645666122437,-1.8265877962112427,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)
+validation,C,0.01,peptide_6231,reference_001717,0,1,0.33345645666122437,-0.5868799686431885,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)
+validation,C,0.001,peptide_26,reference_000025,1,4,0.866491436958313,-1.2807285785675049,harmed,0,belongs to the conotoxin r superfamily,Conotoxin flf14a
+validation,C,0.001,peptide_746,reference_000647,1,1,0.536978006362915,-1.2155730724334717,harmed,0,,
+validation,C,0.001,peptide_786,reference_000678,1,2,0.4938199520111084,-1.2565451860427856,harmed,1,belongs to the phospholipase a2 family,Acidic phospholipase A2 Omo-E6 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+validation,C,0.001,peptide_1304,reference_001083,1,10,0.970573902130127,-1.5194036960601807,harmed,0,,
+validation,C,0.001,peptide_4152,reference_003195,0,1,0.4673319458961487,-0.799728274345398,corrected,0,,Fungus-induced-related protein 16
+validation,C,0.001,peptide_6231,reference_001717,0,1,0.33345645666122437,-1.5236575603485107,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)
+validation,C,0.0,peptide_26,reference_000025,1,4,0.866491436958313,-1.5996160507202148,harmed,0,belongs to the conotoxin r superfamily,Conotoxin flf14a
+validation,C,0.0,peptide_333,reference_000325,1,2,0.9693140983581543,-1.2738627195358276,harmed,0,belongs to the natriuretic peptide family,Natriuretic peptide NP2 (NP2_Casca)
+validation,C,0.0,peptide_612,reference_000555,1,3,1.020581603050232,-1.189143180847168,harmed,0,belongs to the neurotoxin 10 (hwtx-1) family,U37-theraphotoxin-Cg1a (U37-TRTX-Cg1a) (Jingzhaotoxin-like peptide JZTX-67.2) (JZTX-67.2)
+validation,C,0.0,peptide_746,reference_000647,1,1,0.536978006362915,-1.6124448776245117,harmed,0,,
+validation,C,0.0,peptide_786,reference_000678,1,2,0.4938199520111084,-1.6946831941604614,harmed,1,belongs to the phospholipase a2 family,Acidic phospholipase A2 Omo-E6 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)
+validation,C,0.0,peptide_1304,reference_001083,1,10,0.970573902130127,-2.42598819732666,harmed,0,,
+validation,C,0.0,peptide_1321,reference_001095,1,6,1.956960678100586,-2.1572091579437256,harmed,0,,
+validation,C,0.0,peptide_3374,reference_003011,0,2,1.8268429040908813,-2.0263304710388184,corrected,0,belongs to the frog skin active peptide (fsap) family,Rugosin A-like peptide
+validation,C,0.0,peptide_4152,reference_003195,0,1,0.4673319458961487,-1.4550784826278687,corrected,0,,Fungus-induced-related protein 16
+validation,C,0.0,peptide_6231,reference_001717,0,1,0.33345645666122437,-2.0881240367889404,corrected,0,belongs to the coronaviruses ns4/ns4,Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)

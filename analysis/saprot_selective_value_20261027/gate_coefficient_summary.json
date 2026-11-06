@@ -1,0 +1,418 @@
+{
+  "old_masked": {
+    "G_probability": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.028588638359471962
+    },
+    "S_probability": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.06288447185364335
+    },
+    "G_margin": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.02858863835947198
+    },
+    "S_margin": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.06288447185364338
+    },
+    "absolute_probability_disagreement": {
+      "fits": 10,
+      "positive_coefficients": 2,
+      "negative_coefficients": 8,
+      "median_standardized_coefficient": -0.09365111049583588
+    },
+    "log_length": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.018770416609326556
+    },
+    "cys_fraction": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.011695167446787471
+    },
+    "charge_density": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.03574488133428031
+    },
+    "hydropathy": {
+      "fits": 10,
+      "positive_coefficients": 9,
+      "negative_coefficients": 1,
+      "median_standardized_coefficient": 0.10573269632944286
+    },
+    "aromatic_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.03508513655241601
+    },
+    "proline_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.026401704121689892
+    },
+    "mean_plddt": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.09405439810748473
+    },
+    "unmasked_fraction": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.15377902153696138
+    },
+    "hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.030631876886944256
+    },
+    "positive_hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.025625048367171967
+    },
+    "charge_hydrophobic_separation": {
+      "fits": 10,
+      "positive_coefficients": 8,
+      "negative_coefficients": 2,
+      "median_standardized_coefficient": 0.09690641224894735
+    },
+    "nonlocal_contact_density": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.056920082801180286
+    }
+  },
+  "old_3Di": {
+    "G_probability": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.022507140576172258
+    },
+    "S_probability": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.008182709241055092
+    },
+    "G_margin": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.022507140576172226
+    },
+    "S_margin": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.008182709241055111
+    },
+    "absolute_probability_disagreement": {
+      "fits": 10,
+      "positive_coefficients": 1,
+      "negative_coefficients": 9,
+      "median_standardized_coefficient": -0.2453505146199851
+    },
+    "log_length": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.004073840358739158
+    },
+    "cys_fraction": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.031657607457264654
+    },
+    "charge_density": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.03731912603450794
+    },
+    "hydropathy": {
+      "fits": 10,
+      "positive_coefficients": 7,
+      "negative_coefficients": 3,
+      "median_standardized_coefficient": 0.10361065952304185
+    },
+    "aromatic_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.010561439150084208
+    },
+    "proline_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.08024155842441803
+    },
+    "mean_plddt": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.020060741397573762
+    },
+    "unmasked_fraction": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.12198143916276867
+    },
+    "hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 7,
+      "negative_coefficients": 3,
+      "median_standardized_coefficient": 0.07403314490779239
+    },
+    "positive_hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.05051723842977377
+    },
+    "charge_hydrophobic_separation": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.0843726984684747
+    },
+    "nonlocal_contact_density": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.041540973879765755
+    }
+  },
+  "new_masked": {
+    "G_probability": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.005697525947544418
+    },
+    "S_probability": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.019339817000217707
+    },
+    "G_margin": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.005697525947544427
+    },
+    "S_margin": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.01933981700021773
+    },
+    "absolute_probability_disagreement": {
+      "fits": 10,
+      "positive_coefficients": 2,
+      "negative_coefficients": 8,
+      "median_standardized_coefficient": -0.08959586435561939
+    },
+    "log_length": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.07441030350462968
+    },
+    "cys_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.0953931606165685
+    },
+    "charge_density": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.007325072095330084
+    },
+    "hydropathy": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.012376834793379823
+    },
+    "aromatic_fraction": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.02459346465043963
+    },
+    "proline_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.0031551932002555757
+    },
+    "mean_plddt": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.020843046163021954
+    },
+    "unmasked_fraction": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.0005867313914672094
+    },
+    "hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 2,
+      "negative_coefficients": 8,
+      "median_standardized_coefficient": -0.07806434801776539
+    },
+    "positive_hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.03342328279156873
+    },
+    "charge_hydrophobic_separation": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.024844993945067333
+    },
+    "nonlocal_contact_density": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.013346339574488707
+    }
+  },
+  "new_3Di": {
+    "G_probability": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.03467919319781148
+    },
+    "S_probability": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.013212675819174817
+    },
+    "G_margin": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.03467919319781147
+    },
+    "S_margin": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.013212675819174811
+    },
+    "absolute_probability_disagreement": {
+      "fits": 10,
+      "positive_coefficients": 1,
+      "negative_coefficients": 9,
+      "median_standardized_coefficient": -0.1426918755281985
+    },
+    "log_length": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.01685314648969488
+    },
+    "cys_fraction": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.08122124073085052
+    },
+    "charge_density": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.016285943201315187
+    },
+    "hydropathy": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.032028750661820135
+    },
+    "aromatic_fraction": {
+      "fits": 10,
+      "positive_coefficients": 6,
+      "negative_coefficients": 4,
+      "median_standardized_coefficient": 0.0393753491107433
+    },
+    "proline_fraction": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.004312370304520967
+    },
+    "mean_plddt": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": 0.0201596883672465
+    },
+    "unmasked_fraction": {
+      "fits": 10,
+      "positive_coefficients": 4,
+      "negative_coefficients": 6,
+      "median_standardized_coefficient": -0.025734158880107515
+    },
+    "hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 5,
+      "negative_coefficients": 5,
+      "median_standardized_coefficient": -0.030331260833709545
+    },
+    "positive_hydrophobic_contact_excess": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.0333408849402839
+    },
+    "charge_hydrophobic_separation": {
+      "fits": 10,
+      "positive_coefficients": 2,
+      "negative_coefficients": 8,
+      "median_standardized_coefficient": -0.04574415940813262
+    },
+    "nonlocal_contact_density": {
+      "fits": 10,
+      "positive_coefficients": 3,
+      "negative_coefficients": 7,
+      "median_standardized_coefficient": -0.03736669108828559
+    }
+  }
+}

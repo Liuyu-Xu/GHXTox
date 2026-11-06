@@ -1,0 +1,62 @@
+[
+  {
+    "type": "file",
+    "oid": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+    "size": 1519,
+    "path": ".gitattributes"
+  },
+  {
+    "type": "file",
+    "oid": "e92745eb05a14002cbc8e762fa64fced193855e4",
+    "size": 1521,
+    "path": "README.md"
+  },
+  {
+    "type": "file",
+    "oid": "0e8c663908be94a1b9cb90217058e40be5d30a07",
+    "size": 134867957,
+    "lfs": {
+      "oid": "7adb9d736184d14c83eab30d03e6cc3183c01b71a99776d2c52de7ef0278883a",
+      "size": 134867957,
+      "pointerSize": 134
+    },
+    "xetHash": "bec7f49c41a37f94b5dfd9d96cc65b612c1ac7271f322ad18b8bb17185980f75",
+    "path": "SaProt_35M_AF2.pt"
+  },
+  {
+    "type": "file",
+    "oid": "e69aa6a15761d35ddec93b33411a7b1ac37209d0",
+    "size": 645,
+    "path": "config.json"
+  },
+  {
+    "type": "file",
+    "oid": "1f10df043f24a0dc92051723508dee77e9230bc3",
+    "size": 136862061,
+    "lfs": {
+      "oid": "612d676d22c52953e27e923f8d402cd412548965539516d0c3ec98248e612f7f",
+      "size": 136862061,
+      "pointerSize": 134
+    },
+    "xetHash": "0d059374fedf75085a0cb9ddfa3437e4cb71ebe04dfae27b6b539f1e4a558c7d",
+    "path": "pytorch_model.bin"
+  },
+  {
+    "type": "file",
+    "oid": "ba0f9b53dbbf27934f7555e5d31e37bdea9317f1",
+    "size": 125,
+    "path": "special_tokens_map.json"
+  },
+  {
+    "type": "file",
+    "oid": "aad24fba9f1bad2d74ed79d414ddcd60e6b0f812",
+    "size": 40,
+    "path": "tokenizer_config.json"
+  },
+  {
+    "type": "file",
+    "oid": "1e8f43a0d265641e3d16f0a6931f27aae233f77f",
+    "size": 1354,
+    "path": "vocab.txt"
+  }
+]

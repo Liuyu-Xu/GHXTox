@@ -1,0 +1,226 @@
+{
+  "artifact_type": "prottox_3dkd_v2b_feasibility_diagnostic",
+  "version": "diagnostic-v1",
+  "pooled_dimension": 256,
+  "definition": "teacher result['embedding'] pre-classifier pooled representation",
+  "probe": "logistic regression, class_weight=balanced, per-fold StandardScaler",
+  "folds": {
+    "0": {
+      "fold": 0,
+      "probes": {
+        "tri_physchem": {
+          "mcc": 0.8048602160280197,
+          "balanced_accuracy": 0.9000892074147994,
+          "auroc": 0.9518854516314372,
+          "auprc": 0.9195786260251757,
+          "brier": 0.07005412177846412,
+          "n": 1271,
+          "n_positive": 365
+        },
+        "teacher_pooled": {
+          "mcc": 0.8223831865251787,
+          "balanced_accuracy": 0.9091460280020562,
+          "auroc": 0.9703649944056367,
+          "auprc": 0.9436244876372593,
+          "brier": 0.05666083266160917,
+          "n": 1271,
+          "n_positive": 365
+        },
+        "concat": {
+          "mcc": 0.8326733406299759,
+          "balanced_accuracy": 0.9159953430705494,
+          "auroc": 0.9605098430554295,
+          "auprc": 0.9395309775615025,
+          "brier": 0.059929084035261315,
+          "n": 1271,
+          "n_positive": 365
+        }
+      },
+      "v1_error_subset": {
+        "n": 81,
+        "tri_physchem_accuracy": 0.2716049382716049,
+        "tri_physchem_corrected": 22,
+        "teacher_pooled_accuracy": 0.38271604938271603,
+        "teacher_pooled_corrected": 31,
+        "concat_accuracy": 0.4074074074074074,
+        "concat_corrected": 33
+      },
+      "redundancy_ridge_r2": 0.7641771174424401,
+      "first_canonical_correlation": 0.9662228278870505
+    },
+    "1": {
+      "fold": 1,
+      "probes": {
+        "tri_physchem": {
+          "mcc": 0.7563682639901647,
+          "balanced_accuracy": 0.8808943869070451,
+          "auroc": 0.9558911903848613,
+          "auprc": 0.9147752483797075,
+          "brier": 0.08247100606849604,
+          "n": 1229,
+          "n_positive": 360
+        },
+        "teacher_pooled": {
+          "mcc": 0.7821455555976254,
+          "balanced_accuracy": 0.8913901674977625,
+          "auroc": 0.9606827771384733,
+          "auprc": 0.9219653434472279,
+          "brier": 0.07152327109546457,
+          "n": 1229,
+          "n_positive": 360
+        },
+        "concat": {
+          "mcc": 0.8138633973136207,
+          "balanced_accuracy": 0.907917785449431,
+          "auroc": 0.9505050505050505,
+          "auprc": 0.9220762768259354,
+          "brier": 0.07134270844619678,
+          "n": 1229,
+          "n_positive": 360
+        }
+      },
+      "v1_error_subset": {
+        "n": 86,
+        "tri_physchem_accuracy": 0.12790697674418605,
+        "tri_physchem_corrected": 11,
+        "teacher_pooled_accuracy": 0.36046511627906974,
+        "teacher_pooled_corrected": 31,
+        "concat_accuracy": 0.4069767441860465,
+        "concat_corrected": 35
+      },
+      "redundancy_ridge_r2": 0.7318092999512724,
+      "first_canonical_correlation": 0.9660983957512141
+    },
+    "2": {
+      "fold": 2,
+      "probes": {
+        "tri_physchem": {
+          "mcc": 0.7712536009601155,
+          "balanced_accuracy": 0.890434122014875,
+          "auroc": 0.9466261502456718,
+          "auprc": 0.9121725170454977,
+          "brier": 0.0779770601761286,
+          "n": 1273,
+          "n_positive": 356
+        },
+        "teacher_pooled": {
+          "mcc": 0.8201890117083943,
+          "balanced_accuracy": 0.9132031661622536,
+          "auroc": 0.9687090291987797,
+          "auprc": 0.9334901216864145,
+          "brier": 0.05800778274389551,
+          "n": 1273,
+          "n_positive": 356
+        },
+        "concat": {
+          "mcc": 0.8145762633201198,
+          "balanced_accuracy": 0.9014878144413268,
+          "auroc": 0.9564468895886684,
+          "auprc": 0.932109329241268,
+          "brier": 0.06408193922044514,
+          "n": 1273,
+          "n_positive": 356
+        }
+      },
+      "v1_error_subset": {
+        "n": 84,
+        "tri_physchem_accuracy": 0.25,
+        "tri_physchem_corrected": 21,
+        "teacher_pooled_accuracy": 0.39285714285714285,
+        "teacher_pooled_corrected": 33,
+        "concat_accuracy": 0.3333333333333333,
+        "concat_corrected": 28
+      },
+      "redundancy_ridge_r2": 0.7298236591316922,
+      "first_canonical_correlation": 0.9678122512772306
+    },
+    "3": {
+      "fold": 3,
+      "probes": {
+        "tri_physchem": {
+          "mcc": 0.7434942375993778,
+          "balanced_accuracy": 0.8757275191374021,
+          "auroc": 0.9490185565782027,
+          "auprc": 0.9056367797187557,
+          "brier": 0.08802838214758395,
+          "n": 1291,
+          "n_positive": 361
+        },
+        "teacher_pooled": {
+          "mcc": 0.8171226006625741,
+          "balanced_accuracy": 0.9119485896404849,
+          "auroc": 0.9672117475352218,
+          "auprc": 0.932798270087352,
+          "brier": 0.05896772698558841,
+          "n": 1291,
+          "n_positive": 361
+        },
+        "concat": {
+          "mcc": 0.8272580350588199,
+          "balanced_accuracy": 0.9143269889494534,
+          "auroc": 0.9545736157030948,
+          "auprc": 0.9301534984048916,
+          "brier": 0.06410233425032225,
+          "n": 1291,
+          "n_positive": 361
+        }
+      },
+      "v1_error_subset": {
+        "n": 89,
+        "tri_physchem_accuracy": 0.21348314606741572,
+        "tri_physchem_corrected": 19,
+        "teacher_pooled_accuracy": 0.3707865168539326,
+        "teacher_pooled_corrected": 33,
+        "concat_accuracy": 0.3258426966292135,
+        "concat_corrected": 29
+      },
+      "redundancy_ridge_r2": 0.8247759641994897,
+      "first_canonical_correlation": 0.9689423035143291
+    },
+    "4": {
+      "fold": 4,
+      "probes": {
+        "tri_physchem": {
+          "mcc": 0.7587132739992377,
+          "balanced_accuracy": 0.8765656945786247,
+          "auroc": 0.9539166236042149,
+          "auprc": 0.9053427976600253,
+          "brier": 0.08416552282427936,
+          "n": 1323,
+          "n_positive": 376
+        },
+        "teacher_pooled": {
+          "mcc": 0.7937019275945191,
+          "balanced_accuracy": 0.9026531151003168,
+          "auroc": 0.9599041766833675,
+          "auprc": 0.9196122208251964,
+          "brier": 0.06934818708898147,
+          "n": 1323,
+          "n_positive": 376
+        },
+        "concat": {
+          "mcc": 0.804779415044777,
+          "balanced_accuracy": 0.9055471927025995,
+          "auroc": 0.957927048462109,
+          "auprc": 0.9213597499434244,
+          "brier": 0.07171976199958867,
+          "n": 1323,
+          "n_positive": 376
+        }
+      },
+      "v1_error_subset": {
+        "n": 106,
+        "tri_physchem_accuracy": 0.16037735849056603,
+        "tri_physchem_corrected": 17,
+        "teacher_pooled_accuracy": 0.36792452830188677,
+        "teacher_pooled_corrected": 39,
+        "concat_accuracy": 0.36792452830188677,
+        "concat_corrected": 39
+      },
+      "redundancy_ridge_r2": 0.774918981833748,
+      "first_canonical_correlation": 0.9928167511953037
+    }
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "caveat": "Descriptive feasibility only; does not authorize V2-B training by itself."
+}

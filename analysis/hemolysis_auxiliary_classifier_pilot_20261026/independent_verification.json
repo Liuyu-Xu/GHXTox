@@ -1,0 +1,250 @@
+{
+  "checks": [
+    {
+      "seed": 20261026,
+      "fold": 0,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 0,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 0,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 1,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 1,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 1,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 2,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 2,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 2,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 3,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 3,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 3,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 4,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 4,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261026,
+      "fold": 4,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 0,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 0,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 0,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 1,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 1,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 1,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 2,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 2,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 2,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 3,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 3,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 3,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 4,
+      "arm": "toxicity_only",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 4,
+      "arm": "real_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    },
+    {
+      "seed": 20261027,
+      "fold": 4,
+      "arm": "permuted_hemolysis_aux",
+      "max_prediction_difference": 0.0,
+      "main_and_aux_components_disjoint_from_eval": true,
+      "aux_disjoint_from_reserved": true
+    }
+  ],
+  "max_prediction_difference": 0.0,
+  "all30_checkpoints_reproduced": true,
+  "all_source_and_frozen_inputs_unchanged": true,
+  "all_arm_initialization_and_batch_steps_matched": true,
+  "paper_disjointness_certified": false,
+  "no_new_fits_in_verification": true
+}

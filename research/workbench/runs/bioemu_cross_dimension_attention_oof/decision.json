@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "decision": "promote_cross_dimension_attention_default",
+  "promotion_authorized": true,
+  "production_unseen_inference_ready": false,
+  "retention_gate": {
+    "mcc_not_lower": true,
+    "balanced_accuracy_not_lower": true,
+    "f1_not_lower": true,
+    "auprc_not_lower": true,
+    "brier_not_higher": true,
+    "at_least_three_fold_mcc_non_decreases": true,
+    "nonnegative_net_decision_corrections": true,
+    "continuous_probability_metric_improved": true,
+    "all_conditions_passed": true
+  },
+  "selected_config": {
+    "name": "compact_h2",
+    "hidden_dim": 16,
+    "num_heads": 2,
+    "residual_bound": 0.1,
+    "delta_l1": 0.03
+  },
+  "metrics": {
+    "accuracy": 0.9483325504931893,
+    "balanced_accuracy": 0.9276218987624305,
+    "precision": 0.9350877192982456,
+    "sensitivity": 0.8795379537953796,
+    "sn": 0.8795379537953796,
+    "recall": 0.8795379537953796,
+    "specificity": 0.9757058437294813,
+    "sp": 0.9757058437294813,
+    "f1": 0.9064625850340137,
+    "mcc": 0.8715969695075481,
+    "auroc": 0.9773171834583327,
+    "auprc": 0.9536923695587666,
+    "brier": 0.044328639317288254,
+    "ece_10": 0.02561798398286232,
+    "tp": 1599.0,
+    "tn": 4458.0,
+    "fp": 111.0,
+    "fn": 219.0,
+    "threshold": 0.6
+  }
+}

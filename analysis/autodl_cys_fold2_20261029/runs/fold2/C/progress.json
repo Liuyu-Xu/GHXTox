@@ -1,0 +1,72 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 0.804709228773077,
+      "validation_bce": 0.4106076323532607,
+      "anchor_counts": {
+        "ordinary": 2893,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 40.34675931930542
+    },
+    {
+      "epoch": 2,
+      "train_loss_mean": 0.5489453019715157,
+      "validation_bce": 0.32598916508666015,
+      "anchor_counts": {
+        "ordinary": 2926,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 71.98225665092468
+    },
+    {
+      "epoch": 3,
+      "train_loss_mean": 0.4460591510439119,
+      "validation_bce": 0.27372587803777676,
+      "anchor_counts": {
+        "ordinary": 2888,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 102.61440134048462
+    },
+    {
+      "epoch": 4,
+      "train_loss_mean": 0.36368568780041544,
+      "validation_bce": 0.2637627587457613,
+      "anchor_counts": {
+        "ordinary": 2885,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 132.0453052520752
+    },
+    {
+      "epoch": 5,
+      "train_loss_mean": 0.3270631327974696,
+      "validation_bce": 0.3289562861832084,
+      "anchor_counts": {
+        "ordinary": 2900,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 161.404456615448
+    },
+    {
+      "epoch": 6,
+      "train_loss_mean": 0.2954488234797947,
+      "validation_bce": 0.3376124811123367,
+      "anchor_counts": {
+        "ordinary": 2895,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 190.92350125312805
+    }
+  ],
+  "arm": "C",
+  "smoke": false
+}

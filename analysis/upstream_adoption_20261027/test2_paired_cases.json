@@ -1,0 +1,5822 @@
+[
+  {
+    "sample_id": "sequence_1_1",
+    "sequence": "MLKFILALALFLHLTMEASAACKGKKCPPTGFVGMRG",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.5890868078,
+    "new_p": 0.5807860595,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_2_2",
+    "sequence": "RPPGFTPFRKA",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9795165613,
+    "new_p": 0.9229371811,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_3_3",
+    "sequence": "GDCHKFLGWCRGEPDPCCEHLSCSRKHGWCVWDWTV",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869907948,
+    "new_p": 0.9858840881,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_4_4",
+    "sequence": "KAKCADIDQPCKTSCDCCETKGACTCYKSGCVCRMGSFATCKK",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9779671605,
+    "new_p": 0.7599169584,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_5_5",
+    "sequence": "SQCCYQICSPC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9828685677,
+    "new_p": 0.9773693163,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_6_6",
+    "sequence": "EQLIRKDVHEFAS",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.2279303771,
+    "new_p": 0.2739925627,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_7_7",
+    "sequence": "DQCSYCGIYCCPPKFCTSAGCRSP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.98698729,
+    "new_p": 0.9847364155,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_8_8",
+    "sequence": "MKKTFLPIFLVILLASYALANPQVTFSRDWGPGKK",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.2533012799,
+    "new_p": 0.4215957015,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_9_9",
+    "sequence": "NLINFMEMIRYTIP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.580866025,
+    "new_p": 0.6786208784,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_10_10",
+    "sequence": "GICSEPIVVGPCKAG",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.1430322205,
+    "new_p": 0.264497526,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_11_11",
+    "sequence": "CCAPSACRLGCRPCCR",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.984807276,
+    "new_p": 0.9836523976,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_12_12",
+    "sequence": "FPPHKGKFDKKFIELVIIVDHSTYK",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.8915325052,
+    "new_p": 0.8870170739,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_13_13",
+    "sequence": "VRDAYIAQNYNCVYTCFKNDYCNDICTKNGAGYC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9640213558,
+    "new_p": 0.9521216659,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_14_14",
+    "sequence": "VGKNVICIHSGQCLIPCIDAGMRFGICKNGICDCTPKG",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9726159125,
+    "new_p": 0.9177140079,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_15_15",
+    "sequence": "YCCHPACGKNFDC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9848073427,
+    "new_p": 0.9834944602,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_16_16",
+    "sequence": "PKVSPRWPPIPP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9601447538,
+    "new_p": 0.903755805,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_17_17",
+    "sequence": "MISMLRCTFFFLSVILITSYFVTPTMSIKCNCKRHVIKPHICRKICGKNG",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9644787596,
+    "new_p": 0.9581374868,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_18_18",
+    "sequence": "CGGAGAKCSTKSDCCSGLWCSGSGHCYHRRYT",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9810940173,
+    "new_p": 0.9792496528,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_19_19",
+    "sequence": "SNKKDYRKEIVDKHNALRRSVKPTARNMLSMEVNSKAAQNAQRRD",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.976514986,
+    "new_p": 0.7359863847,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_20_20",
+    "sequence": "ITFQGCSPARQTVITNAITRARADVRAAVSALPTKAPVSTFSTWFGVYND",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.03571921157,
+    "new_p": 0.04015376162,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_21_21",
+    "sequence": "QTCCGSKVFCC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869840189,
+    "new_p": 0.9819512246,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_22_22",
+    "sequence": "FLWGALIKGAGKLISRVVGSLKKKKQ",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.171208746,
+    "new_p": 0.341632968,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_23_23",
+    "sequence": "ACLDIGNSCRED",
+    "label": 1,
+    "role": "harmed",
+    "old_p": 0.4804820556,
+    "new_p": 0.4008945401,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_24_24",
+    "sequence": "QGGAGWPPIPP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9802609042,
+    "new_p": 0.9231559451,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_25_25",
+    "sequence": "LIGLVSKGTCVLVKTVCKKVLKQ",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.04042197406,
+    "new_p": 0.09891705018,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_26_26",
+    "sequence": "ADCVGDGQKCADWFGPYCCSGYYCSCRSMPYCRCRSDS",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9794830266,
+    "new_p": 0.9766414503,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_27_27",
+    "sequence": "FHGGSWYRFPWGY",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.01587263296,
+    "new_p": 0.1140983077,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_28_28",
+    "sequence": "MICYNHQSSEPPTTTCSEGQ",
+    "label": 1,
+    "role": "harmed",
+    "old_p": 0.6762062444,
+    "new_p": 0.5044404252,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_29_29",
+    "sequence": "DYCCRRPTCIPIC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9779627212,
+    "new_p": 0.9667210495,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_30_30",
+    "sequence": "FCCPVIRYCCW",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.979472479,
+    "new_p": 0.976856936,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_31_31",
+    "sequence": "DCLGWFKSCDPKNDKCCKNYTCSRRDRWCKYDL",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869896599,
+    "new_p": 0.9858333645,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_32_32",
+    "sequence": "QGRPPRPHIPP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9823661697,
+    "new_p": 0.9703376967,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_33_33",
+    "sequence": "KCRECGNTSPSCYFSGNCVNGKCVCPA",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9657659215,
+    "new_p": 0.9456290254,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_34_34",
+    "sequence": "VIGGDEDINEHRSLALMYSWSHRFIGLI",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.3922255352,
+    "new_p": 0.4870803743,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_35_35",
+    "sequence": "KCCMRPICMCPCC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869911285,
+    "new_p": 0.9854991017,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_36_36",
+    "sequence": "RCCGYKMCHPC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869915625,
+    "new_p": 0.9861892638,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_37_37",
+    "sequence": "CCNWPCSFGCIPCCY",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9828244078,
+    "new_p": 0.9776932973,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_38_38",
+    "sequence": "MRLFLIFTFIVASLASVYGCIPAANPCRGNAKCCGNYVCKNGRCLPRS",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.979474949,
+    "new_p": 0.9773139397,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_39_39",
+    "sequence": "EQLIKKDVHKDFAGSE",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.208696667,
+    "new_p": 0.235503883,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_40_40",
+    "sequence": "GFGALFKFLAKKVAKTVAKQAAKQGAKYVVNKQME",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9639226717,
+    "new_p": 0.955430741,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_41_41",
+    "sequence": "FIGGIISFFKRLF",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.006827038334,
+    "new_p": 0.009938181022,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_42_42",
+    "sequence": "QQWPPGHHIPP",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9772360519,
+    "new_p": 0.8906570192,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_43_43",
+    "sequence": "DMCCHPACMNHFNC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9869917294,
+    "new_p": 0.986081901,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_44_44",
+    "sequence": "QMDMRCSASVECKQKCLKAIGSIFGKCMNKKCKC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9828246081,
+    "new_p": 0.9813431281,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_45_45",
+    "sequence": "SADIVKKLWDNPAL",
+    "label": 1,
+    "role": "both_wrong",
+    "old_p": 0.05186677644,
+    "new_p": 0.0947839874,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_46_46",
+    "sequence": "CCRLACGLGCHPCC",
+    "label": 1,
+    "role": "both_correct",
+    "old_p": 0.9811075357,
+    "new_p": 0.9797440733,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_47_47",
+    "sequence": "DGSGGASDAQKQHDVNYLLFKVYEDVNDENSP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2569742664,
+    "new_p": 0.2843653792,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_48_48",
+    "sequence": "MPKIIEAVYENGVFKPLQKVDLREGERE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005462558344,
+    "new_p": 0.005765950076,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_49_49",
+    "sequence": "GKITFYEDRNFQGRCYECSTDCPDLSPYFS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01503883486,
+    "new_p": 0.01587714122,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_50_50",
+    "sequence": "MSGELLNAALLSFGLIFVGWALGALLLKIQGAEE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0062360467,
+    "new_p": 0.006575249708,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_51_51",
+    "sequence": "FRLDEEFQGPIASQVRRQFLFRPRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02093884273,
+    "new_p": 0.05773162186,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_52_52",
+    "sequence": "MYMLTIGLLTALGLAVGASFGKALGVAVGSYFTACIIIGIIKGALRK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006005498112,
+    "new_p": 0.01423424376,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_53_53",
+    "sequence": "LTPNTLSDLNSK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01259009188,
+    "new_p": 0.0294179607,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_54_54",
+    "sequence": "MLRKKVTLSCEECHSMNYSTNKSLMSVDRITVKKFCRKCNKHTMHKEEK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005322764878,
+    "new_p": 0.005618397965,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_55_55",
+    "sequence": "DLHIPPPDNKINWPQLSGGGGGSPKTGYDININAQQK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02598263583,
+    "new_p": 0.06491687119,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_56_56",
+    "sequence": "MMKKEPERYIYDEQESQETTRLISEAYQSGYVDMPDQESSSPAE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006065844242,
+    "new_p": 0.006407944151,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_57_57",
+    "sequence": "MFDISSILIRGGGVLIVVILLLWIVEHNEDFIDAKSMNYNNQTV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006821594877,
+    "new_p": 0.007468110415,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_58_58",
+    "sequence": "MVTEGLKPHISIKKKKRKSGFLARMRTKSGRKIIARRRRKGRKRLAP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005488871416,
+    "new_p": 0.005793684396,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_59_59",
+    "sequence": "MKVRASVKAMCKDCKNIKRKGIRRIICIQPKHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005094064022,
+    "new_p": 0.005376960607,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_60_60",
+    "sequence": "SDIGGSMDYDVVIVGAGGAGLSAAILKQVNP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0429888087,
+    "new_p": 0.04628238899,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_61_61",
+    "sequence": "LVAHEENVRVGKDEGFAKAGGLSRLPLEAGESGTATFNVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2005213192,
+    "new_p": 0.2121423829,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_62_62",
+    "sequence": "MKVMASVKRICRNCKIIKRKGVVRVICSSDPRHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004941795192,
+    "new_p": 0.005208824105,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_63_63",
+    "sequence": "WLRMASGLTDYR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06543085957,
+    "new_p": 0.0796704154,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_64_64",
+    "sequence": "DVPKSDQFVGLM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01422861338,
+    "new_p": 0.02311488363,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_65_65",
+    "sequence": "MANQKTYTYPIFTVRWLAIHALAVPTVFFLGSITAMQFIER",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00548595229,
+    "new_p": 0.005814149033,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_66_66",
+    "sequence": "MGRIGVLTGNAGEIR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006894670991,
+    "new_p": 0.009215245845,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_67_67",
+    "sequence": "TDVKESEFIAEGAVGR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03521522461,
+    "new_p": 0.07878692179,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_68_68",
+    "sequence": "MAIDNTQIFIALLTALIPAFFALKLGKELSK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009775901452,
+    "new_p": 0.01617214025,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_69_69",
+    "sequence": "MKRTYQPHTTPKKRTHGFRERMKTKNGRRVVNARRAKGRKRLAA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005366331257,
+    "new_p": 0.005664337141,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_70_70",
+    "sequence": "MSATDFDSLYQLIFNAGLVICFGLGVISGGQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006891275039,
+    "new_p": 0.007281990214,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_71_71",
+    "sequence": "AEDRKSLSGLTEQEAQEFGTLYTQGVAFVAVIAVVAHALVWAWRPWLQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006503803751,
+    "new_p": 0.006865605895,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_72_72",
+    "sequence": "MSYRNRLDQHSELFHHNWTRPKRSKSQVNGHTEMSQTNIILRSNAKAHRW",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006013580423,
+    "new_p": 0.006467614596,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_73_73",
+    "sequence": "MLMSLFLAKLPAAYALFDPIVDILPIIPLFFLLLAFVWQAAIGFK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005848437031,
+    "new_p": 0.01382041347,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_74_74",
+    "sequence": "PYDRISGSAFSDF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03013738409,
+    "new_p": 0.08626719588,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_75_75",
+    "sequence": "GLGSLVGNALRIGAKLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005965853074,
+    "new_p": 0.00634469228,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_76_76",
+    "sequence": "MLADGQIFTALAVALVPGILALRLALELYKF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005905195046,
+    "new_p": 0.006340455598,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_77_77",
+    "sequence": "ITFSKIYRSCKSDSDCGNQKCARGRCV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2567837445,
+    "new_p": 0.1886420688,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_78_78",
+    "sequence": "GFCAEAGIKCNDIHCCGNLKCKAVGSNRV",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6806743316,
+    "new_p": 0.6596889567,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_79_79",
+    "sequence": "MLITLGWASLAALFSFSIAMVVWGRNGDGSMNF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006287245937,
+    "new_p": 0.006638063953,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_80_80",
+    "sequence": "MDILSLGWAALMTMFTFSLALTVWARNGF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006335501093,
+    "new_p": 0.006687419207,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_81_81",
+    "sequence": "AKELLDSDGIILRNGANYYI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.215757422,
+    "new_p": 0.2738349563,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_82_82",
+    "sequence": "VATFTLPDLPYDYGALEPAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2353454657,
+    "new_p": 0.2891388988,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_83_83",
+    "sequence": "DFGHIQYVAAYR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02360942295,
+    "new_p": 0.07736076858,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_84_84",
+    "sequence": "FRPALIVRTKGTRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.08650295382,
+    "new_p": 0.1507353982,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_85_85",
+    "sequence": "MTNLPSIFVPLVGLVFPAMAMASLFLYLQKNKIF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005350254051,
+    "new_p": 0.005650915227,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_86_86",
+    "sequence": "MKIRASVRKICENCRLIRRRKRVMVVCSNPKHKQKQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005187170341,
+    "new_p": 0.005475230991,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_87_87",
+    "sequence": "FREIKGYEYQLYVYASDKLFRADISEDYKTRGRKLLRFNGPVPPP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0557697627,
+    "new_p": 0.06693256848,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_88_88",
+    "sequence": "NAEEERRDEPDETDVEVEKRFFPNVASVPGQVLKKIFCAISKKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00815774143,
+    "new_p": 0.008929951542,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_89_89",
+    "sequence": "SPTVIALRVVEALSPR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2747851767,
+    "new_p": 0.3716964814,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_90_90",
+    "sequence": "MAMRQCAIYGKGGIGKSTTTQNLVAALAEMNKKVMI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00576829963,
+    "new_p": 0.006082751523,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_91_91",
+    "sequence": "GWTLNSAGYLLGPHAVDNHRSLNDKHGLA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1743486603,
+    "new_p": 0.1968280809,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_92_92",
+    "sequence": "GSLTGLISMPRT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02269290943,
+    "new_p": 0.04218105877,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_93_93",
+    "sequence": "ARAVGIDLGTTNAVVAVLEG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006009795075,
+    "new_p": 0.006356301209,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_94_94",
+    "sequence": "GASGLIPVMRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007181510545,
+    "new_p": 0.03152678221,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_95_95",
+    "sequence": "SKITDILAKLGKVLAHV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01137632003,
+    "new_p": 0.02876377095,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_96_96",
+    "sequence": "FLPIVGKLLSGLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009210547885,
+    "new_p": 0.009781677391,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_97_97",
+    "sequence": "DSGSSRDPGASSGGC",
+    "label": 0,
+    "role": "corrected",
+    "old_p": 0.5808594701,
+    "new_p": 0.3744369089,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_98_98",
+    "sequence": "FFGWLIKGAIHAGKAIHGLIHRRRH",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01952664618,
+    "new_p": 0.02354639997,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_99_99",
+    "sequence": "SFLNFFKGAAKNLLAAGLDKLKCKISGTQC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01001818146,
+    "new_p": 0.01425685746,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_100_100",
+    "sequence": "MKKQRNPHLISKNYKGIPIGFNLNLNRTAIKRIQDTREK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02005292252,
+    "new_p": 0.02124898316,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_101_101",
+    "sequence": "MDGEGHDINIWGARMSPSPAAAPVSATRGAPWSGCEGCPSRAADRRCVCH",
+    "label": 0,
+    "role": "corrected",
+    "old_p": 0.4959692132,
+    "new_p": 0.2793596819,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_102_102",
+    "sequence": "MKPTFNPNNRKRKKVHGFRARMATKSGRRILAARRLKGRKALTV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005244429569,
+    "new_p": 0.005535665488,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_103_103",
+    "sequence": "GGSIPCIETCVWTGCFLVPGCSCKSDKKCYLN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01896828868,
+    "new_p": 0.03721954225,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_104_104",
+    "sequence": "MMCMIIRRNRFTGVHDQNLIFNVKSTDVNCLV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007157342967,
+    "new_p": 0.01228609701,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_105_105",
+    "sequence": "MLFEIFEELEINREIRNLAYEFVKKMVYCQMTL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007747964641,
+    "new_p": 0.02481777929,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_106_106",
+    "sequence": "LPRHTLHCVAYHGYCFHSKV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3450644939,
+    "new_p": 0.1919943424,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_107_107",
+    "sequence": "PDKDFIVNPSDLVLDNKAALRDYLRQINEYFAIIGRPRF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.05536773314,
+    "new_p": 0.1245504368,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_108_108",
+    "sequence": "MQVNNLGFIASILFVLVPTVFLLILFIQTGKQSES",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005302996492,
+    "new_p": 0.005624256109,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_109_109",
+    "sequence": "MTDTTGRIPLWMIGTLAGILVISLIGIFFYGSYSGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005550445343,
+    "new_p": 0.005933273422,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_110_110",
+    "sequence": "LAKTVPLNDGTNFPIFGG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06549253653,
+    "new_p": 0.1358265173,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_111_111",
+    "sequence": "TQSTGTSQTVEVGLWGGPDN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01282070503,
+    "new_p": 0.02366893802,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_112_112",
+    "sequence": "EAEPKPFNPVCYEPKEVGPCKAYVP",
+    "label": 0,
+    "role": "corrected",
+    "old_p": 0.4924096925,
+    "new_p": 0.4291136493,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_113_113",
+    "sequence": "MIASHLAFEKLSKLGSKHTML",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02881457863,
+    "new_p": 0.03121484212,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_114_114",
+    "sequence": "MTRVQFKHHHHHHHPD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006132092983,
+    "new_p": 0.006495462524,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_115_115",
+    "sequence": "MNKSQDKEKKYFLEYLSLAPVLAVISISVAFSTWAIFNYIFPDLLFHPLP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005593090988,
+    "new_p": 0.005910541943,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_116_116",
+    "sequence": "MLIQLKIKLLLLLLLYLLYIFYVFLWKQSEF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009012867753,
+    "new_p": 0.01351259615,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_117_117",
+    "sequence": "MRVKLFQLRGMLSGSRIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2336394091,
+    "new_p": 0.2465864597,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_118_118",
+    "sequence": "MAEAFYILIGFLIMAAIIVMAVLYLENHS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005906303903,
+    "new_p": 0.006236543474,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_119_119",
+    "sequence": "MFKIFNTKFMRSAPIVAAIWISLTAGIIIEFNRFFPDLLFHPMS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005414334597,
+    "new_p": 0.0058182875,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_120_120",
+    "sequence": "MEKALILSIFIFSLLLGITSYSIYISFGPLSKTLRDPFEEHEE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005192680655,
+    "new_p": 0.005499498671,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_121_121",
+    "sequence": "LSCKRGTCHFGRCPSHLIKGSCSGG",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6577030606,
+    "new_p": 0.6168456621,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_122_122",
+    "sequence": "MARYRCCRSRSRSRCRPRRRRCRRRRRRCCRRRRRVCCRRYSARCRRRR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006474399288,
+    "new_p": 0.006834017643,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_123_123",
+    "sequence": "VAGKSFVPIALGRQSKQTPF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04816404111,
+    "new_p": 0.1244578532,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_124_124",
+    "sequence": "FLIGMTHGLICLISRKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007848714926,
+    "new_p": 0.0338376428,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_125_125",
+    "sequence": "KTGVNKPELLPKEETTVIDV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01023062789,
+    "new_p": 0.04885162337,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_126_126",
+    "sequence": "MYWIEWIENGEKKNIVAEGWIEWAAILEDLYQKRFEYVEWKRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007268531282,
+    "new_p": 0.007673472387,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_127_127",
+    "sequence": "MHQSQPQQQIEEYKQIKKLLFLVGLTIGKMATSRILSFLGFINCEIKLK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006485017087,
+    "new_p": 0.08531655909,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_128_128",
+    "sequence": "MINKTTIKTVLITLGVLAAVNKVSALRSVKRLIS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006615320787,
+    "new_p": 0.009382045998,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_129_129",
+    "sequence": "MARREFGKGARRCRRCGDTHGVIQKYGIMLCRQCFREVAEKMGFKKYN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006556311909,
+    "new_p": 0.006922198416,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_130_130",
+    "sequence": "MPFKLFDVSKPIPERKEHTYVKHCGDP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.08065684699,
+    "new_p": 0.1361845321,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_131_131",
+    "sequence": "MNVKHSKLLILGSGPAGYTAAVYAARANLNPVMITGMQQGGQLTN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006127256285,
+    "new_p": 0.006470135662,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_132_132",
+    "sequence": "LCLSCRGGDYDCRVKGTCENGKCVCGS",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.8707595223,
+    "new_p": 0.8477739365,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_133_133",
+    "sequence": "MVRYRCCRSQSRSRCRRRRRRCRRRRRRCCQRRRVRKCCRRTYTLRCRRY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005919996348,
+    "new_p": 0.006249004688,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_134_134",
+    "sequence": "MATGGFGCLLLLIREIDLSVKRQI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009441021569,
+    "new_p": 0.01104736062,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_135_135",
+    "sequence": "NTESTKGESLLGK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01060833256,
+    "new_p": 0.03119565125,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_136_136",
+    "sequence": "MKALYMVFVLWVLIGCFLRCKERMGSEEKQAQEDPGDQDL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008537224946,
+    "new_p": 0.009151126497,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_137_137",
+    "sequence": "AVAGEKLWLLPHLLKMLLTPTP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04541675509,
+    "new_p": 0.08309003233,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_138_138",
+    "sequence": "MQMQEKGWKIIIEEQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2846118111,
+    "new_p": 0.3039172649,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_139_139",
+    "sequence": "MADTTGRIPLWVIGTVAGILVIGIIGIFFYGSYSGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005620037323,
+    "new_p": 0.006324208208,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_140_140",
+    "sequence": "MTIDKNWLNRSNKDPGRSLRFTHQPV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007233454498,
+    "new_p": 0.008408672918,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_141_141",
+    "sequence": "FLSLIPHAINAVSAIAKHN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02024499903,
+    "new_p": 0.02144553418,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_142_142",
+    "sequence": "MVDTTGRIPLWLVGTVAGILVIGLIGIFFYGSYSGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005643453971,
+    "new_p": 0.006059880858,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_143_143",
+    "sequence": "ITFSKIYRSCKSNSVCGNQKCVRGRCV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3702195318,
+    "new_p": 0.2968259275,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_144_144",
+    "sequence": "MSDKPDLSEVEKFDRSKLKKTNTEEKNTLPSKETIQQEKECVQTS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006301713601,
+    "new_p": 0.006829526782,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_145_145",
+    "sequence": "FDVMGIIKKIAGAL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02220227531,
+    "new_p": 0.02489267399,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_146_146",
+    "sequence": "MPREHDKQSKFAPSHLGTKPVEYKRNKGKKMHDKSGETPIIMQTKGE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005301782094,
+    "new_p": 0.005638882723,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_147_147",
+    "sequence": "AFQTSFVFQRFYETN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1254543435,
+    "new_p": 0.2379443805,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_148_148",
+    "sequence": "AGEDVSHELEEKEKALANHSE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.07910763695,
+    "new_p": 0.09958196082,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_149_149",
+    "sequence": "MINWQVIGQLTSLAMIVLVGPAVIVVLSLRKGDL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005376435934,
+    "new_p": 0.005675033184,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_150_150",
+    "sequence": "GDLPICGETCFEGGNCRIPGCTCVWPFCSKN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0282884732,
+    "new_p": 0.03015584249,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_151_151",
+    "sequence": "HLRNHFGSKPFKCGKCNYSCANKSMLNSHMKSHSNIYQYRCANCCYATKY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009265753999,
+    "new_p": 0.009788703952,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_152_152",
+    "sequence": "YYEEYVDGQGMVVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01469606682,
+    "new_p": 0.03785004516,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_153_153",
+    "sequence": "MSNTGTTGRIPLWLVGTVAGTAALTLVAVFFYGSYVGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00549820237,
+    "new_p": 0.005807194689,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_154_154",
+    "sequence": "AVVNGVNYVGETTAA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2640729688,
+    "new_p": 0.3263431171,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_155_155",
+    "sequence": "TIFLQQQQQQQQQQQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005956595956,
+    "new_p": 0.00628918162,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_156_156",
+    "sequence": "MNDFEKNVQSKRNDAVDSAVGFVVSFGFFAFLFVMATVIHLVGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005688911447,
+    "new_p": 0.006005588475,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_157_157",
+    "sequence": "NSGGGEGSGMWFGPRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008193204923,
+    "new_p": 0.008656001185,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_158_158",
+    "sequence": "APNQPSDNMIRF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0136402084,
+    "new_p": 0.01716443266,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_159_159",
+    "sequence": "MKKKPVAQLERQHSLLENPCAYGLLSQFQAAIVVNCFTLNKII",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006039515303,
+    "new_p": 0.006394499111,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_160_160",
+    "sequence": "VTCFCRRRGCASRERHIGYCRFGNTIYRLCCRR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01160638077,
+    "new_p": 0.01225789778,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_161_161",
+    "sequence": "MADEALQHTFFA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01032864091,
+    "new_p": 0.01209736019,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_162_162",
+    "sequence": "NQDCLSDWSFYEQYCYKVF",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6731493311,
+    "new_p": 0.6091228609,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_163_163",
+    "sequence": "MVIKCIDKQQNLGNIILFLLLKQQYSKEDSKKFTIYKFYLQTVNYTIQLS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006497258562,
+    "new_p": 0.006875630165,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_164_164",
+    "sequence": "MKQMMIEASISKDTLRLLICFFEIKQCHISLQPTCYYQNWVRYSSIYYQL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02127658126,
+    "new_p": 0.02412396937,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_165_165",
+    "sequence": "MADFTKFLTTAPVAFILFSSFVFALFIEINRFFPDILTF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005840133621,
+    "new_p": 0.006383415787,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_166_166",
+    "sequence": "GFSSIFRGVAKFASKGLGKDLARLGVNLVACKISKQC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01431704585,
+    "new_p": 0.01541206497,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_167_167",
+    "sequence": "MPRLTAKDFPQELLDYYDYYAHGKISKREFLNLAAKCGRRDDGISVV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006885015132,
+    "new_p": 0.007285667845,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_168_168",
+    "sequence": "MIIIFIELCRIADSLLWIPKSSRRTSSISTYLIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2224787208,
+    "new_p": 0.240531923,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_169_169",
+    "sequence": "MKILSSLKSAKTRHKDCQVVRRRGKVYVINKTNPRFKARQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004938608003,
+    "new_p": 0.005212860358,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_170_170",
+    "sequence": "MDTKLGLVEEEAAN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.010061953,
+    "new_p": 0.0133747669,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_171_171",
+    "sequence": "MLPSKRVPFLFTIILFLAGLGQHTTESVLPDCVLYPRCLITKDPCCM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.298435496,
+    "new_p": 0.2470703939,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_172_172",
+    "sequence": "MRVKLTLACTECRQRNYNTMKNKKNDPDRLEMKKYCPFCHKHTLHKETK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005403102407,
+    "new_p": 0.005703160933,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_173_173",
+    "sequence": "GLIGSIGKALGGLLVDVLKPKLQAAS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01742866272,
+    "new_p": 0.02345152052,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_174_174",
+    "sequence": "TPNSYILQQFENPANPKLIVAIFPSFGER",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2791919255,
+    "new_p": 0.3654320473,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_175_175",
+    "sequence": "DTTPCGESCVWIPCVSSIVGCSCQNKVCYQN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01145464263,
+    "new_p": 0.01269469568,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_176_176",
+    "sequence": "NLVQFGFMIECAIRNRQPALDFMNYGCYCGTVGRGTPVDD",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.7992385392,
+    "new_p": 0.7645333773,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_177_177",
+    "sequence": "GLPVCGETCVTGSCYTPGCTCSWPVCTRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0165615302,
+    "new_p": 0.01510155936,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_178_178",
+    "sequence": "MPQLVPFYFLNQLVYGFALVTILLVLFAQYFLPQILRLYVSRLFISKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005715475686,
+    "new_p": 0.006033122229,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_179_179",
+    "sequence": "EMVALSGSHTIGQAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01033974848,
+    "new_p": 0.01101980771,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_180_180",
+    "sequence": "MVFLLFLSFVLSSIFLVPLVYMLNKVFLFNRNRVVNYDSIRKLALTRME",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1088612123,
+    "new_p": 0.1151158978,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_181_181",
+    "sequence": "ANAKVPSHTISNPF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1639975771,
+    "new_p": 0.2479034097,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_182_182",
+    "sequence": "MKLRASVRKICSKCRLIRRGKRLYVFCVNARHKQKQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005053543049,
+    "new_p": 0.005334190268,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_183_183",
+    "sequence": "MKRTYQPSVVRRKRTHGFLVRMRTKGGRAVIAARRAKGRTRLAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005254123492,
+    "new_p": 0.00554589808,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_184_184",
+    "sequence": "RMPSLSIDLPMSVLRQKLSLEKERKVQALRAAANRNFLNDI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02199645464,
+    "new_p": 0.02693991531,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_185_185",
+    "sequence": "GEAANVMGAPK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02137346304,
+    "new_p": 0.03925760956,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_186_186",
+    "sequence": "MKRTYQPSTVRRKRTHGFRARMKTKAGRAVINARRAKGRARLAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005300567884,
+    "new_p": 0.005594921483,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_187_187",
+    "sequence": "RPKPQQFFGLM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2241078067,
+    "new_p": 0.2571935793,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_188_188",
+    "sequence": "MYAFSYSTPRTLDEVSAAS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007528134953,
+    "new_p": 0.009781762441,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_189_189",
+    "sequence": "MKVRPSVKPICEKCKVIRRKGKIRIICENPKHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004907920086,
+    "new_p": 0.005180471286,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_190_190",
+    "sequence": "MNFFLRWCYAVAI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01544887986,
+    "new_p": 0.03466302563,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_191_191",
+    "sequence": "MFMMNNNMFIMFMIMYNVMRVNITRCSRVMFTTFYMITNKYIYIFM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06633398641,
+    "new_p": 0.06050827956,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_192_192",
+    "sequence": "MTLHHKLVLSMLLGLSITPEGDLPLSGQDIFYQYSFSSFYNIHDERIREQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01066896229,
+    "new_p": 0.01426630833,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_193_193",
+    "sequence": "MAVPKKRTSISKKLIRKNFWKKRGYWTALKAFSLAQSIFTGNSKSFFCNK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005691175165,
+    "new_p": 0.006007430021,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_194_194",
+    "sequence": "CCIARQICEGCICCI",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.758780641,
+    "new_p": 0.9495250511,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_195_195",
+    "sequence": "IDASTATGDSPVFTATIK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3323761431,
+    "new_p": 0.390946581,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_196_196",
+    "sequence": "GFFSLIKGVAKIATKGLAKNLGKMGLDLVGCKISKEC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1109297815,
+    "new_p": 0.1222012603,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_197_197",
+    "sequence": "MMKRLLGLVMLLLFTCTLLTGCNTARGFGEDIKHLGNSISHAAS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005349062811,
+    "new_p": 0.005660844182,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_198_198",
+    "sequence": "MSAGVITGVLLVFLLLGYLVYALINAEAF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005509266591,
+    "new_p": 0.005815263149,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_199_199",
+    "sequence": "MLYPLSYMLLWTDSIVEQYKKFYLFRFDL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0400819281,
+    "new_p": 0.04719951342,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_200_200",
+    "sequence": "MNHGSFFKATRPGLDHWFYWSKKNRWQTILL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008096315315,
+    "new_p": 0.009929343595,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_201_201",
+    "sequence": "AEELVKPYNGDPFVGHLSTP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04826621395,
+    "new_p": 0.09361984344,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_202_202",
+    "sequence": "PAASESGFRRDP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0504076859,
+    "new_p": 0.0655561099,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_203_203",
+    "sequence": "DRVYIHPFHLLVYS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3307555001,
+    "new_p": 0.3031933929,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_204_204",
+    "sequence": "RIIEPIAGGPFIVMTWNYPGTIGIIAVDANGHIAVGTSTN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01095510213,
+    "new_p": 0.03771911758,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_205_205",
+    "sequence": "MTPTLSAFIWSLVLGGVIVVIPLTVALIFISQTDKVRRS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005452591426,
+    "new_p": 0.005777100772,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_206_206",
+    "sequence": "GLMDVLKGAAKNLFASALDKLKCKVTGC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007566461776,
+    "new_p": 0.0085389871,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_207_207",
+    "sequence": "HPIQNLFQPSLVLDM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01790934749,
+    "new_p": 0.0487202591,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_208_208",
+    "sequence": "GFFSTVKNLATNVAGTVIDTLKCKVTGGCRS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008609561247,
+    "new_p": 0.00934742156,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_209_209",
+    "sequence": "FIGGIISLIKKLF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006673743352,
+    "new_p": 0.01421823248,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_210_210",
+    "sequence": "ILIIGGTGYIGRKVDVVISAVKFLPSEFGNDVDRVVFVKEEDIGTFTIK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006723411715,
+    "new_p": 0.008771403729,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_211_211",
+    "sequence": "MKVRASVKRVCRNCKIVKRRGTVRVICTEARHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00500140195,
+    "new_p": 0.00527914525,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_212_212",
+    "sequence": "SIPCGESCVYIPCITTIVGCSCKDKVCYKN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00797427991,
+    "new_p": 0.009009840622,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_213_213",
+    "sequence": "METTNFGFVASLLFVGVPTIFLIGLFLSTQEGEKSSFYSDSGKGKLDPKR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005633184622,
+    "new_p": 0.005951566955,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_214_214",
+    "sequence": "EDDHDHHHHHHHHHHHHGVGGGGGGGGGGA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008715501425,
+    "new_p": 0.009200005927,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_215_215",
+    "sequence": "SYIITTPRMWVAGSPAQVRTYVMPYGCGEQNMVNFAPN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04686874854,
+    "new_p": 0.1193438099,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_216_216",
+    "sequence": "MEFGNLTNLDVA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01663457891,
+    "new_p": 0.02129552736,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_217_217",
+    "sequence": "FLPIIAGVAAKVFPKIFCAISKKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02072284256,
+    "new_p": 0.04881015362,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_218_218",
+    "sequence": "DGGEPAAPLWFGPRV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01412916242,
+    "new_p": 0.0150799139,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_219_219",
+    "sequence": "ADSLTQFDGIKGRYSHEAFYEEKACDSCHLNK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3850364847,
+    "new_p": 0.4981926898,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_220_220",
+    "sequence": "FPLPCAYKGTYC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.08786375278,
+    "new_p": 0.1954946988,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_221_221",
+    "sequence": "MLLPATMSDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006067973854,
+    "new_p": 0.006515978842,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_222_222",
+    "sequence": "DHAGTVSKAHKQHDVNSVLYKVYEDI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01374269004,
+    "new_p": 0.03352115711,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_223_223",
+    "sequence": "MTSDYRVSPIKKSRPAMSK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0851120763,
+    "new_p": 0.09348712927,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_224_224",
+    "sequence": "MGGKWSKRSVVGWPAVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005449205713,
+    "new_p": 0.005849140421,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_225_225",
+    "sequence": "MKQGINGFARRGRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006765523964,
+    "new_p": 0.008262909532,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_226_226",
+    "sequence": "MYYAMHELHYSPSQLLELYEAPKHFKALLFGLIGYKLDLLEKESRRGGN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007096390142,
+    "new_p": 0.007509647462,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_227_227",
+    "sequence": "NFLGTLVNLAKKIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008502449036,
+    "new_p": 0.009367974834,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_228_228",
+    "sequence": "MEQNPNPNNLPAELNRTSLYLGLLLVFVTSVLFTSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005585618464,
+    "new_p": 0.005908195625,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_229_229",
+    "sequence": "VNWKKILGKIIKVVK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.08568954953,
+    "new_p": 0.1998120961,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_230_230",
+    "sequence": "SALAINQPNYSVLKELGLNED",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01075010819,
+    "new_p": 0.02636803761,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_231_231",
+    "sequence": "MVSEAITALKERTGSMLTQIKKLVAAGKLTK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005650523026,
+    "new_p": 0.04634954679,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_232_232",
+    "sequence": "AGRGKQGGKVRAKAKTRSSRAGLQFPVGRVHRLLRKGNY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00558563828,
+    "new_p": 0.005928323346,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_233_233",
+    "sequence": "ECTIGDSCVVHRHCRECRCPRGRAMCDREHHKPPHCSCHIH",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.8846326337,
+    "new_p": 0.8788595769,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_234_234",
+    "sequence": "ILGAILPLVSGLLSNKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01299156337,
+    "new_p": 0.0150969825,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_235_235",
+    "sequence": "MSIFRIHLDGNKKA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0207113657,
+    "new_p": 0.02481351196,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_236_236",
+    "sequence": "ADGSDPASSEFLAEGGGVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01252049262,
+    "new_p": 0.0147622568,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_237_237",
+    "sequence": "MDSVAYIIVLAMALSVLFFAIAFREPPRIEK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005486562054,
+    "new_p": 0.00585898492,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_238_238",
+    "sequence": "AFNLRNRNFLKLLDFTPREIQYMIDLAIDL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006019552015,
+    "new_p": 0.01345402341,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_239_239",
+    "sequence": "GIPCAESCVYIPCTITALLGCKCQDKVCYD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01577543761,
+    "new_p": 0.02710060868,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_240_240",
+    "sequence": "FLGAIAQALTSLLGKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006923494541,
+    "new_p": 0.007576020108,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_241_241",
+    "sequence": "MLVFQMRNVDKTSTVLKQTKNSDYADK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006805009116,
+    "new_p": 0.007512288023,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_242_242",
+    "sequence": "GIFLDKLKNFGKDVAGILLKKASCALSGQC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01109416957,
+    "new_p": 0.01326331124,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_243_243",
+    "sequence": "PRRRRRSSRPVRRRRRYRRSTVARRRRRVVRRRR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005644021975,
+    "new_p": 0.005963515272,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_244_244",
+    "sequence": "RGCPRILMRCKRDSDCLAGCVCQKNGYCG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01347604016,
+    "new_p": 0.01044836276,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_245_245",
+    "sequence": "QPRSHVDCPALHGQCQSLPCTYPLVFVGPDPFHCGPYPQFGCCA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2932937885,
+    "new_p": 0.2178182665,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_246_246",
+    "sequence": "GRPNPVNTKPTPYPRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2738366248,
+    "new_p": 0.4127445525,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_247_247",
+    "sequence": "TDPDADEGEFLAEGGGVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01195731215,
+    "new_p": 0.0129697845,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_248_248",
+    "sequence": "MRVNITLACTECKQRNYNTSKNKKSNPDRMELKKYCKFCKTHTAHRETK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005406058551,
+    "new_p": 0.005706285097,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_249_249",
+    "sequence": "MKAIMVLFYVMMLTIIASVSMVNGSPGKDDYVNPKEQLGYDILEKLRQKP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.07215955364,
+    "new_p": 0.2815017746,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_250_250",
+    "sequence": "MKIRASVRKICTKCQLIRRKGRIRVICSNPRHKQRQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004879647666,
+    "new_p": 0.005150630493,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_251_251",
+    "sequence": "GPAAVVRLLGK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2553370456,
+    "new_p": 0.286748254,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_252_252",
+    "sequence": "MGYKCTRCKQKVEIDYEYTGIRCPYCGHRILVKERPTTIKRIKAE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005232899748,
+    "new_p": 0.005523601375,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_253_253",
+    "sequence": "LHYQEVKWRKLGSYEHRLHLKPGRLAKHELEVFNGYFVHFPAPENMIPIG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01153738094,
+    "new_p": 0.02137368274,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_254_254",
+    "sequence": "MSHDLDPTGTY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009008514107,
+    "new_p": 0.01026964194,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_255_255",
+    "sequence": "MKMTFQPKKRQRAKVHGFRQRMKTAGGRKVIAARRLKGRKKLSA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005437898433,
+    "new_p": 0.005739879199,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_256_256",
+    "sequence": "VNIGVNYGMLGNSYPTGPETERHFGLNPDTLHVVRHAQGFHNLA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01554952159,
+    "new_p": 0.01704190779,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_257_257",
+    "sequence": "VSYNSKFLAATVQAEPVVLDA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.05766237827,
+    "new_p": 0.130157104,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_258_258",
+    "sequence": "AVWKDFLKNIGKAAGKAVLNSVTDMVNE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01315713573,
+    "new_p": 0.01770885031,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_259_259",
+    "sequence": "CVTGAPGCVGGGRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2409174191,
+    "new_p": 0.2000763353,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_260_260",
+    "sequence": "MKGSKLFQMQKCMPVWCRTGTCIILPVACHMAKPLKLPT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04639023889,
+    "new_p": 0.04882135197,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_261_261",
+    "sequence": "LLGMLPVALSALSALSKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1452924815,
+    "new_p": 0.1670667043,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_262_262",
+    "sequence": "GGGGRYPGGGGGGRGGGRYSGGGGRGGGGGRGGRGGGGRKCCS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006889828372,
+    "new_p": 0.007279643693,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_263_263",
+    "sequence": "ANCSCSTASDYCPILTFCTTGTACSYTPTGCGTGWVYCACNGNFY",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.9308779829,
+    "new_p": 0.9186584966,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_264_264",
+    "sequence": "MKSNRQARHILGLDYRISNQRKVVTEGDTSSVVNNPTGRKRRADSQK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005359200539,
+    "new_p": 0.005687419935,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_265_265",
+    "sequence": "NPVDDHHDDHHDAPIVEHHD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006923502592,
+    "new_p": 0.007313163715,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_266_266",
+    "sequence": "YGLAGDHVLDAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00761269124,
+    "new_p": 0.009405109169,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_267_267",
+    "sequence": "MAPGLWEQEQSLSCGTCTYGRTEVNSRILRKLRVGIGYEREL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009952754261,
+    "new_p": 0.0125114577,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_268_268",
+    "sequence": "FKVDEEFQGPIVSQNRRYFLFRPRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01448075975,
+    "new_p": 0.1129493927,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_269_269",
+    "sequence": "GGETGGEGKGMWFGPRL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008359479369,
+    "new_p": 0.008816497617,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_270_270",
+    "sequence": "FWGSGPFGMFPGGWGGPWNSPWYGPYGGYPYGGYGYPYGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006211962571,
+    "new_p": 0.007110235634,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_271_271",
+    "sequence": "FIQYLAPLIPHAVKAISDLI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04698345156,
+    "new_p": 0.03791983986,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_272_272",
+    "sequence": "MTASYLPSIFVPLVGLIFPAITMASLFIYIEQDEIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00518748215,
+    "new_p": 0.005477496978,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_273_273",
+    "sequence": "MKVRPSVKKICDKCKVVRRRGVVRIICENPRHKQRQGN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004976110627,
+    "new_p": 0.00525244756,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_274_274",
+    "sequence": "MKVRKSLRSLKNKPGAQVVRRHGKVYVINKKDPRFKARQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005051666815,
+    "new_p": 0.005332200965,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_275_275",
+    "sequence": "GIKDWIKGAAKKLIKTVASHIANQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0202333746,
+    "new_p": 0.03224549486,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_276_276",
+    "sequence": "MAVPKQKKSKSKSRFKKKNFLLKNKIIAKNQYNNYFIKHRCLV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005662809059,
+    "new_p": 0.005977330695,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_277_277",
+    "sequence": "PAQPFRIKKRQGPFERP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1572521287,
+    "new_p": 0.2252239652,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_278_278",
+    "sequence": "RNGLPGPIGPAG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01065740228,
+    "new_p": 0.02269918984,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_279_279",
+    "sequence": "MQKPSGKGLKYFAYGVAISAAGAILAEYVRDWMRKPKAKS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006525302465,
+    "new_p": 0.009640131359,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_280_280",
+    "sequence": "VLADVYNVEPETLR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01476802168,
+    "new_p": 0.0491448655,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_281_281",
+    "sequence": "MKMGGSKRRVSSKGLGAVLKEQRAKLYIIRRCVVMLLCWHD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00580641908,
+    "new_p": 0.006260672935,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_282_282",
+    "sequence": "VRYADENVRTKEAKKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2589541522,
+    "new_p": 0.128173058,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_283_283",
+    "sequence": "RTCIPIPLVMC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1974449049,
+    "new_p": 0.332749681,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_284_284",
+    "sequence": "ADTGEGEFLAEGGGVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01194643929,
+    "new_p": 0.01274189575,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_285_285",
+    "sequence": "MSGKSWVLISTTSPQSLEDEILGRLLKILFVLFVDLMSIMYVVITS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006722820223,
+    "new_p": 0.007450362127,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_286_286",
+    "sequence": "AVDCNTVKSDLVGCVGYLPSGTGNPTPQCCDGVVKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009637625179,
+    "new_p": 0.01180893794,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_287_287",
+    "sequence": "MNLEIITQLVVLTLVAASGPLVIALLAIRKGNL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005435545435,
+    "new_p": 0.005737461943,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_288_288",
+    "sequence": "MTWINHNTVKIGNQTLHLDTDETYDWRKDDHWIREEPPQASVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009366117397,
+    "new_p": 0.009921824615,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_289_289",
+    "sequence": "MVPLCEGDLWQELSLLAAGCRFPHLDEMVNIASINGRKVLGLELI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01214310455,
+    "new_p": 0.02587900953,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_290_290",
+    "sequence": "MSGCGCASTGTCHCGKDCTCAGCPHK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005194510734,
+    "new_p": 0.005484127221,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_291_291",
+    "sequence": "FFGSVLKLIPKIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02139638391,
+    "new_p": 0.01670146206,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_292_292",
+    "sequence": "GSVLNCGETCLLGTCYTTGCTCNKYRVCTKD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01571562233,
+    "new_p": 0.01185425861,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_293_293",
+    "sequence": "MKRTFQPSELKRKRVHGFRARMATKAGRQVLARRRAKGRHSLTV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005353828666,
+    "new_p": 0.00565114021,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_294_294",
+    "sequence": "HSDAVFTDSYTRLLKQMAMRKYLDSILN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3129136646,
+    "new_p": 0.07058822968,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_295_295",
+    "sequence": "MDLTLVGQLISLFAVVAAGPLVIVFLSARRGAL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005549287084,
+    "new_p": 0.00585750453,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_296_296",
+    "sequence": "PVAPEYLFKKEEDKGANKEEEEVAPELGIRA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009699987624,
+    "new_p": 0.03150631771,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_297_297",
+    "sequence": "GLFGVLAKVASHVVPAIAEHFQA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02465679398,
+    "new_p": 0.02620064029,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_298_298",
+    "sequence": "KNWAVLVAGSNGWPNYRHHA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008291408269,
+    "new_p": 0.06777959017,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_299_299",
+    "sequence": "YSPSLTDLQSYNAMNGPALKAGDILAVPLPA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2413917304,
+    "new_p": 0.256381782,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_300_300",
+    "sequence": "MPLIKVKSSAESLRNGGVGYYPTSNFIHVDTGPVRTWKGV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006828194273,
+    "new_p": 0.009439147026,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_301_301",
+    "sequence": "EWCGTNSDCGEGECCTGGSFNRH",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6748496238,
+    "new_p": 0.6293931089,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_302_302",
+    "sequence": "GVGDLIRKAVAAIKNIV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006828882703,
+    "new_p": 0.007258002802,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_303_303",
+    "sequence": "MGTHGSLTKAGKVRKQTPRLPAKQKKNYPPRLKNRLKYQVRIEKVASARA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005720586423,
+    "new_p": 0.006077229763,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_304_304",
+    "sequence": "QAVMNPENTFYSVKRIINEPTAASLAYGFDKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01005913147,
+    "new_p": 0.03742888333,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_305_305",
+    "sequence": "VLPIIGNLLNSLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007982411505,
+    "new_p": 0.008509733376,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_306_306",
+    "sequence": "DQAAGVAAIIEIDNIFSESEVISK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03398893449,
+    "new_p": 0.08423359049,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_307_307",
+    "sequence": "MKMFLFLNESYIFDRLRMWSIVLWHSCVFVCAECENANYRGAEVP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01130465289,
+    "new_p": 0.05848808339,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_308_308",
+    "sequence": "MESIMSLKRKEKKSQSRRLGKYLKEQKGRIYIIRRCVMMLLCSHD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006269514697,
+    "new_p": 0.006664631738,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_309_309",
+    "sequence": "STRTPEFLGLDNQCGVWA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04116928355,
+    "new_p": 0.1375141561,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_310_310",
+    "sequence": "AIEVQTVTLIPGD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04328682581,
+    "new_p": 0.09405097085,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_311_311",
+    "sequence": "MANTTGRIPLWIIGTVAGIVVIGLIGLFFYGSYSGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005632611434,
+    "new_p": 0.006168500191,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_312_312",
+    "sequence": "DDPTSTFTCPGGSDYK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.056490119,
+    "new_p": 0.1407908285,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_313_313",
+    "sequence": "KHFGKDSNFPFGT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03203177049,
+    "new_p": 0.05989076689,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_314_314",
+    "sequence": "MQWNAFSFVSYVYLRYFISFRPNIVLASVRLSWYSII",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008982112905,
+    "new_p": 0.009957061731,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_315_315",
+    "sequence": "GVIAWELQHNEPGRKDSTAG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01716689234,
+    "new_p": 0.04564231409,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_316_316",
+    "sequence": "MWTKPAFEDIRLGFEITMYAAVE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01533532204,
+    "new_p": 0.01618713226,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_317_317",
+    "sequence": "MKRTFQPSLLKRKKNHGFRLRMATKSGRKILSHRRRKNRCKLTVSDK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005472509681,
+    "new_p": 0.00577641348,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_318_318",
+    "sequence": "LVSVEHQAARLKVAKAQQLAAQLPAMCRLEGGDALSASQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04506391281,
+    "new_p": 0.04950286106,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_319_319",
+    "sequence": "MPFEEAMKRLFMKKICMRCNARNPWRATKCRKCGYKGLRPKAKEPRG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0328137914,
+    "new_p": 0.03464055227,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_320_320",
+    "sequence": "QQDYTGSHFDF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008629767397,
+    "new_p": 0.01204696118,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_321_321",
+    "sequence": "MAILISYFCFLLIFFLFTLILFFGLNKIRLI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005487119422,
+    "new_p": 0.005791864086,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_322_322",
+    "sequence": "MPPARIELATFALQVQRSTTKLRRLKIQLCCISK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006770325069,
+    "new_p": 0.01010516281,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_323_323",
+    "sequence": "FQFVNPSDIVFGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1199778461,
+    "new_p": 0.08663337468,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_324_324",
+    "sequence": "NEDANVIKSYSDVGVDQFKYGLELDNSIKADQEGHLEGD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009314885436,
+    "new_p": 0.01095634355,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_325_325",
+    "sequence": "MPSQEDAVAWSTGCCGLVIVWFVLGRLAGSVAGMFNDR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00949047697,
+    "new_p": 0.01006673088,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_326_326",
+    "sequence": "DSSVLTSEYPR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.07106342054,
+    "new_p": 0.1345244059,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_327_327",
+    "sequence": "MRPMSRRSLDWTYSLLLLAIVLLSWGFVIYASTVAARRQLQKEFPDKFF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005932587322,
+    "new_p": 0.0068273411,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_328_328",
+    "sequence": "MLAEGEPAIVQIGWAATCVMFSFSLSLVVWGRSGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006533093428,
+    "new_p": 0.006902369716,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_329_329",
+    "sequence": "KRTKAPFSRVVKFSIDEIRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06400816634,
+    "new_p": 0.150302293,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_330_330",
+    "sequence": "MELCWLTTIHGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01154016217,
+    "new_p": 0.01471671536,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_331_331",
+    "sequence": "ALWKDMLSGIGKLAGQAALGAVKTLV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008398672844,
+    "new_p": 0.01062607499,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_332_332",
+    "sequence": "MIINQLPETYNIFAPIIDIMPVIPILFLLLAFVWQAAVGFR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005984328369,
+    "new_p": 0.007439140622,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_333_333",
+    "sequence": "MDWRVLIVLTPLLIAGGWAVFNIGAAALRQAQQFLSKQS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006187130339,
+    "new_p": 0.006531136012,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_334_334",
+    "sequence": "PEDPQRRYQEEQRRE",
+    "label": 0,
+    "role": "harmed",
+    "old_p": 0.3768504278,
+    "new_p": 0.5098494735,
+    "old_prediction": 0,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_335_335",
+    "sequence": "MKVRSSVKQICDKCRVIRRKGRVMIICVTPKHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005107097589,
+    "new_p": 0.005397251464,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_336_336",
+    "sequence": "KALYAPFDATFPNQNQTRNKAVDTAPCEWYRRVY",
+    "label": 0,
+    "role": "corrected",
+    "old_p": 0.4994325004,
+    "new_p": 0.4847061458,
+    "old_prediction": 1,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_337_337",
+    "sequence": "AGTAPADLTVAQLESLKEVCEANLACEHMMDVSGIIAAYTAYYGPIPY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01243128214,
+    "new_p": 0.03470908894,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_338_338",
+    "sequence": "MYKLATLEFIKKAKTLKLLSQKTQTTSKIQTFSSIKLLI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007258391182,
+    "new_p": 0.007673405818,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_339_339",
+    "sequence": "MLFLLKSRKEGKEKVSIYSVYCFFLRKENGKDE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02343184145,
+    "new_p": 0.02501516745,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_340_340",
+    "sequence": "MKRGYEVVRDPHLNK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02783172007,
+    "new_p": 0.03568757438,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_341_341",
+    "sequence": "MKYNPRVSSNRRKS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.257921985,
+    "new_p": 0.2864467391,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_342_342",
+    "sequence": "NVNQSLLELHGAPKYGMAEYLFDKHTLGESDN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03728327134,
+    "new_p": 0.05410131435,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_343_343",
+    "sequence": "MLTLKIFVYTVVTFFVSLFIFGFLSNDPGRNPGTKDF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005853989385,
+    "new_p": 0.00622083694,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_344_344",
+    "sequence": "PAKQVAFAEHAREKMLRGVNVLA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.08657122102,
+    "new_p": 0.1416122804,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_345_345",
+    "sequence": "SALYALYDFSPPARKMRAYTVRAYVHGSYSRRGPWYDFEPVPGASMDGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2796728204,
+    "new_p": 0.311379562,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_346_346",
+    "sequence": "MMCPRILMKCKHDSDCLPGCVCLEHIEYCG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009940703263,
+    "new_p": 0.05834577462,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_347_347",
+    "sequence": "TQSTGTSQTIAVGLWGGPDN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01712817183,
+    "new_p": 0.04258759541,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_348_348",
+    "sequence": "FGNQQQLKSVADIVINHR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.05047760483,
+    "new_p": 0.07927984548,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_349_349",
+    "sequence": "YDKKVDSIILFGVNG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01175912943,
+    "new_p": 0.08480505646,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_350_350",
+    "sequence": "DDAVADGVHAISGVVDS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03046458812,
+    "new_p": 0.03583453504,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_351_351",
+    "sequence": "GNALGKEGLKAI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.177502918,
+    "new_p": 0.2029928217,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_352_352",
+    "sequence": "IPCGESCVWIPCISGMFGCSCKDKVCYS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01486009621,
+    "new_p": 0.02394015481,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_353_353",
+    "sequence": "MKRTFQPSTLKRNRSHGFRARMSTKNGRHILSRRRSKFRTRLTVSSN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005456106745,
+    "new_p": 0.005759099385,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_354_354",
+    "sequence": "MERNPNPNNLPVELNRTSLYLGLLVVFTTGILFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005567766606,
+    "new_p": 0.005878835213,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_355_355",
+    "sequence": "NPNPVPIPLVDIDYL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3802784516,
+    "new_p": 0.4849836683,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_356_356",
+    "sequence": "ALIFATLSAAYIGEALE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2602432643,
+    "new_p": 0.3740283894,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_357_357",
+    "sequence": "KADAVFAFQLR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01573535199,
+    "new_p": 0.06080191202,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_358_358",
+    "sequence": "MKRTFQPSNTSRKRTHGFRVRMSTKNGRLVIKRRRARGRKRLAVTIAGK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005375246552,
+    "new_p": 0.005673749406,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_359_359",
+    "sequence": "MSAEDLFTIQILCDQIELKLASIVINSNIKLQLKRKKKTQQL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02663292279,
+    "new_p": 0.02978560963,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_360_360",
+    "sequence": "MTKRTLGGTSRKRKRVSGFRVRMRTHTGRRVIRARRKKGRSQLAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005317372609,
+    "new_p": 0.005602530413,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_361_361",
+    "sequence": "QPPTPPEHRFPGLM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02602380513,
+    "new_p": 0.2054659878,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_362_362",
+    "sequence": "SLGGFLKGVGKALAGVGKVVADQFGNLLQAGQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007289136135,
+    "new_p": 0.01430783175,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_363_363",
+    "sequence": "MLDIFILMFFAIIGLVILSYIIYLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006084060948,
+    "new_p": 0.03685485194,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_364_364",
+    "sequence": "MKRTFQPSNTSRKRTHGFLVRMATKNGRLVIKRRRAKGRKNLAVRIATK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005259569965,
+    "new_p": 0.00555164817,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_365_365",
+    "sequence": "LGYLGTCPTNIGTGLR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006160844653,
+    "new_p": 0.06545079679,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_366_366",
+    "sequence": "MTKDEPLEGNVGVLT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01254789983,
+    "new_p": 0.01669228602,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_367_367",
+    "sequence": "EADEPLWLYKGDNIERAPTTADHPILPSIIDDVKLDPNRRYA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02514170009,
+    "new_p": 0.02816630573,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_368_368",
+    "sequence": "QNQPPDFANPFIIPQNAA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2938761454,
+    "new_p": 0.3984421228,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_369_369",
+    "sequence": "DVNGGWSCATTVDAKFRPNGCTD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09000982153,
+    "new_p": 0.1352030102,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_370_370",
+    "sequence": "MKVNPSVKPICDKCRLIRRHGRVMVICSDPRHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005115152292,
+    "new_p": 0.005399212233,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_371_371",
+    "sequence": "MEQVADFDTIYQAMIQISVVLCFALGIIAGGQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006533097184,
+    "new_p": 0.006913338141,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_372_372",
+    "sequence": "MTQAPPVATTPRNYPIFTVRWLALHTLGIPTVFFLGALAAMQFIRR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005617173621,
+    "new_p": 0.005930967709,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_373_373",
+    "sequence": "LSAGPNGGSIAKLSVK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02674975593,
+    "new_p": 0.07833144468,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_374_374",
+    "sequence": "FITLLLRKFICSITKKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03939706337,
+    "new_p": 0.07039505302,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_375_375",
+    "sequence": "MTIDRTYPIFTVRWLAVHGLAVPTVSFLGSISAMQFIQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005934221389,
+    "new_p": 0.00638861471,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_376_376",
+    "sequence": "MVIFQLEYPLHHLVLFEVDADQPHEHEHDLILMGPFYLQQHRQTN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005492374677,
+    "new_p": 0.005811401549,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_377_377",
+    "sequence": "LWTRDYAGVYEAIRGFDWSQDAK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005337289378,
+    "new_p": 0.01333970942,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_378_378",
+    "sequence": "FTAASQTLEAGR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01496771788,
+    "new_p": 0.04071082791,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_379_379",
+    "sequence": "DGIFPTVGAGDVWYGCGDGAVGIVAETPFASTTTNPA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03348502334,
+    "new_p": 0.06750696131,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_380_380",
+    "sequence": "MKLLCWEKSIHGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09033579803,
+    "new_p": 0.09687532377,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_381_381",
+    "sequence": "MSKGYVWVVDDDSSIRWVMEKTSPLPT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00591178116,
+    "new_p": 0.006248580847,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_382_382",
+    "sequence": "MKRTYQPHNKRRKRTHGFLVRMRTRGGRKVLKRRRLKGRKRLAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005443189755,
+    "new_p": 0.005745464876,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_383_383",
+    "sequence": "LDTDLQGTMPEVYASERAAFL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2467748911,
+    "new_p": 0.300422766,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_384_384",
+    "sequence": "GTATCETQRLANFLAPSSNKLGAIFSPTKMGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09747674224,
+    "new_p": 0.1055857817,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_385_385",
+    "sequence": "SNRSPSLRLRF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2606189103,
+    "new_p": 0.290150042,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_386_386",
+    "sequence": "ATTDSPATLTGVI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01683149478,
+    "new_p": 0.03141953433,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_387_387",
+    "sequence": "MKVRASVKKICQKCKVIKRNGVLRVVCDVKKHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005030041555,
+    "new_p": 0.005309377774,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_388_388",
+    "sequence": "TSSGCPNFESLVR",
+    "label": 0,
+    "role": "harmed",
+    "old_p": 0.4422787644,
+    "new_p": 0.525518222,
+    "old_prediction": 0,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_389_389",
+    "sequence": "MFPSTNQEVLALLPEAYAPFDPIVDVLPIIPLLFLLLAFVWQASVKFR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006124596833,
+    "new_p": 0.006862642781,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_390_390",
+    "sequence": "GLKDWWNKHKDKIIDVVKEMGKAGLQAA",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6050357849,
+    "new_p": 0.5388703695,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_391_391",
+    "sequence": "FLGTINLSLCEQERDADEEERRDEPDGSNVEVEKRFLSHIAGFLSNLFGK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01405196521,
+    "new_p": 0.01568511902,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_392_392",
+    "sequence": "YPVKPENPGEDAPTEELAKYYTALRHYINLITRQRY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009294141385,
+    "new_p": 0.01776396611,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_393_393",
+    "sequence": "IVGGFTIGIDTVPY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06778227329,
+    "new_p": 0.1463623067,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_394_394",
+    "sequence": "GLLGPLLKIAAKVGSNLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02335503235,
+    "new_p": 0.02504096946,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_395_395",
+    "sequence": "IRRYCDPRVCDRECLEKGKYFGRCIRDICKCN",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.924965811,
+    "new_p": 0.8182992313,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_396_396",
+    "sequence": "MTIISDSQIVVALISALVTGILALRLGRELYR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008361111951,
+    "new_p": 0.008840703151,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_397_397",
+    "sequence": "YDDGSYKPHIYGF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04686844635,
+    "new_p": 0.0760786077,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_398_398",
+    "sequence": "QLGPQDLPYLTADLSKKQGPWLEEEEAYGWMDF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01127469003,
+    "new_p": 0.01415961125,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_399_399",
+    "sequence": "FLPIIASVAAKLIPSIVCRITKKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007775921987,
+    "new_p": 0.02349407446,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_400_400",
+    "sequence": "MNKNELVSAVAERAGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005308378433,
+    "new_p": 0.005604162591,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_401_401",
+    "sequence": "MESVAYILIFTLCIGTIFFAIAFREPPRFEKPKDK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005403121417,
+    "new_p": 0.005724102998,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_402_402",
+    "sequence": "SHGKQETDEEFDARWVTYFNKSDI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007558101648,
+    "new_p": 0.02278803076,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_403_403",
+    "sequence": "MNNSCLSQSTQWWWRAN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01308587817,
+    "new_p": 0.01942136335,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_404_404",
+    "sequence": "MAITAAASRLGTEPF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008630262751,
+    "new_p": 0.009841698403,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_405_405",
+    "sequence": "VEAEHMCMTMRGVKKPGAKTVTSAVRGTFANVAAARAEVLSFIKND",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005895048355,
+    "new_p": 0.01563585326,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_406_406",
+    "sequence": "YGLAADHVLDAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007351841636,
+    "new_p": 0.009372439036,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_407_407",
+    "sequence": "AAPKATVRWCTISS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02344940575,
+    "new_p": 0.1067608229,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_408_408",
+    "sequence": "MFILKLFVYTVVIFFVSLFIFGFLSNDPRRNPEPEED",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005289151255,
+    "new_p": 0.005585023194,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_409_409",
+    "sequence": "MAVPKRRVSHSRSAKRRTHYKITLAKPVKDKDGTYKLPHHINPTTGEYK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005756531554,
+    "new_p": 0.006076216929,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_410_410",
+    "sequence": "AQTPVKVTVTGAAGQIGYALLFRI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005437313486,
+    "new_p": 0.006190086315,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_411_411",
+    "sequence": "MQLFHLCLIISCSCPTVQASKLCLGWL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3503716539,
+    "new_p": 0.2477039391,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_412_412",
+    "sequence": "METATVLIIFIASLLLGLTGYSIYTAFGPNSKELRDPFDDHED",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005133088997,
+    "new_p": 0.005419741649,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_413_413",
+    "sequence": "YPGSVDWRQKGAVTPVKDQNPCGSCWAFSTVATVEGINKIVTG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03448243111,
+    "new_p": 0.03639361197,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_414_414",
+    "sequence": "SIEIEIDGVTVTTEESRTLVDVAAEAGVYIPTL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006394759635,
+    "new_p": 0.006752213339,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_415_415",
+    "sequence": "MLLLQILFALLQRYRYKPHSLSDGLLLALHFLLFFRALPKS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00586722735,
+    "new_p": 0.006486166946,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_416_416",
+    "sequence": "NTEAFFGQGTRLTVV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00979693446,
+    "new_p": 0.01034180207,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_417_417",
+    "sequence": "ALWFTMLKKLGTMALHAGKAALGAAANTISQGTQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03239261277,
+    "new_p": 0.03696519185,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_418_418",
+    "sequence": "MIFDGKVAIITGGGKAKSIGYGIAVAYAK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007468865779,
+    "new_p": 0.007916883854,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_419_419",
+    "sequence": "AFQLDTNLVESLQK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01004439481,
+    "new_p": 0.04362714868,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_420_420",
+    "sequence": "MSAPNPNKQPVELNRTSLYWGLLLMFVLAVLFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005752610017,
+    "new_p": 0.006081424169,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_421_421",
+    "sequence": "METTNESLGYTDQIIGPVLD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005640625326,
+    "new_p": 0.007750184689,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_422_422",
+    "sequence": "MKVIGSLKSAKVRDKDCRVVRRKGRIYVINKKNPRFKARQGY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005105858271,
+    "new_p": 0.005389400894,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_423_423",
+    "sequence": "MTLAGYRVDSCNGCGKAYLVGESHDRKKCAECASK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009048639575,
+    "new_p": 0.009611047705,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_424_424",
+    "sequence": "EQSAGFREYIDFFDGYSLTY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3230783689,
+    "new_p": 0.4381048407,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_425_425",
+    "sequence": "GLNTLKKVIQGLHEVIKLVNNHA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2355301584,
+    "new_p": 0.2866137375,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_426_426",
+    "sequence": "ALVEDPQMQKYHKH",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2074517712,
+    "new_p": 0.2046970993,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_427_427",
+    "sequence": "HSQGMFTNDYSKYLEEKRAKEFVEWLKNGESKRQGMS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.152114822,
+    "new_p": 0.1785666424,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_428_428",
+    "sequence": "FSPNSPSDVARCLNGALDVGCGTFACLENSTCDTDGMHDI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3115616848,
+    "new_p": 0.298809051,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_429_429",
+    "sequence": "GLLGTLGNLLNGLGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005791769048,
+    "new_p": 0.006177736949,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_430_430",
+    "sequence": "ALVSADGDSWFAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009655873378,
+    "new_p": 0.02793357965,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_431_431",
+    "sequence": "FIGPIISALASLFG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00777425983,
+    "new_p": 0.01052113695,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_432_432",
+    "sequence": "ILGPVLGLVGNALGGLIKNE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006759639765,
+    "new_p": 0.007483796567,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_433_433",
+    "sequence": "SEKPQQELEECQNVCRMKRWSTEMVHRCEKKCEEKFERQQR",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.6706255722,
+    "new_p": 0.5955622737,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_434_434",
+    "sequence": "MPRDIITLGCTECKQRNYTTTKNKKNTPQKLEFNKYCRFCQKHTLHKETK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005140486161,
+    "new_p": 0.005425961849,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_435_435",
+    "sequence": "METNDLGFVASLLFILVPAIFLIVLYIGTNRSES",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005267431928,
+    "new_p": 0.00556612317,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_436_436",
+    "sequence": "ALGGVLKALAKGLPSVISWINQK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04939797223,
+    "new_p": 0.06119106864,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_437_437",
+    "sequence": "VIGGTNASPGEIPWQLSQQRQSGSW",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01118666968,
+    "new_p": 0.04529609386,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_438_438",
+    "sequence": "GINTLKKVIQGLHEVIKLVSNHE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1587559074,
+    "new_p": 0.231854285,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_439_439",
+    "sequence": "MKVRTSVKKLCRYCEIVKRHNVIRVVCRADPKHKQRQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.004977377923,
+    "new_p": 0.005244420305,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_440_440",
+    "sequence": "ADPGPLQDFCLADLNSPLFINGYPCRNPALAISDDF",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.7729433029,
+    "new_p": 0.7327329645,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_441_441",
+    "sequence": "MPSQKSPTKRSPTKRSPQKGGKGAKR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009030531734,
+    "new_p": 0.009569866556,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_442_442",
+    "sequence": "QTLLQELPIPP",
+    "label": 0,
+    "role": "harmed",
+    "old_p": 0.4408524165,
+    "new_p": 0.525814203,
+    "old_prediction": 0,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_443_443",
+    "sequence": "MKVRNSLKSLRGRHRANRLVRRKGRVYVINKVQRRFKARQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005014007804,
+    "new_p": 0.005292448031,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_444_444",
+    "sequence": "FLPILAGLAAKIVPKLFCLATKKC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008811400294,
+    "new_p": 0.02746380502,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_445_445",
+    "sequence": "GAYGQGQNIGQLFVNILIFLFY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1712140931,
+    "new_p": 0.3294154804,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_446_446",
+    "sequence": "MSKLMKGRKIRLAKACEQNRRVPAWVMIKTNRAVASHPKRRNWRRSSLKV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005418461988,
+    "new_p": 0.005750419317,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_447_447",
+    "sequence": "GILSLFTGGIKALGKTLFKMAGKAGAEHLACKATNQC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04822143797,
+    "new_p": 0.05446888326,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_448_448",
+    "sequence": "QSEFCGHDVGECVPPKLVCRPPTHECLHFPCPGYLKCCCYP",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3363293218,
+    "new_p": 0.3340998209,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_449_449",
+    "sequence": "MAREGFTLACKECKMENYISKKNKKKHVEKLEINKFCSKCNSKTMHREKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005355023147,
+    "new_p": 0.005652433097,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_450_450",
+    "sequence": "LEIADLAQYVVDLTAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09226800905,
+    "new_p": 0.1482705596,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_451_451",
+    "sequence": "GYIAYVHQNELVKR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1247545049,
+    "new_p": 0.2090875182,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_452_452",
+    "sequence": "MVEPLLSGIVLGLVPITITGLLVTAYLQYRRGDSLNF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005791767041,
+    "new_p": 0.006125261565,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_453_453",
+    "sequence": "MAVAALAMYGGTCGACAVLACNWNVRECGIIWKNLFEVKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2338155892,
+    "new_p": 0.3071377807,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_454_454",
+    "sequence": "DINGGGATLPQKLYQTSGVLT",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.9312999618,
+    "new_p": 0.7505629553,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_455_455",
+    "sequence": "SVALQVTVDAVSGSAKEKITAAGTVTELV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01551919169,
+    "new_p": 0.0163534637,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_456_456",
+    "sequence": "GVQISQISSFPTTADVSYDFNITNALGGIQPVGSLK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1114513242,
+    "new_p": 0.1466582276,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_457_457",
+    "sequence": "DPPDPDRFYGMM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.04301252071,
+    "new_p": 0.08935109837,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_458_458",
+    "sequence": "VTAKAVAAAEAASSAR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09140917858,
+    "new_p": 0.1049300103,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_459_459",
+    "sequence": "VTVYENEGTKVDFDGNLRLLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01681112325,
+    "new_p": 0.04042034279,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_460_460",
+    "sequence": "GIFLNALKNFAKTAGKGVLQSVLNTASCKLSKQC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01460703315,
+    "new_p": 0.01570811801,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_461_461",
+    "sequence": "DVIGPQAQVTLANQD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1012465824,
+    "new_p": 0.05174248537,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_462_462",
+    "sequence": "ILGKFCDEIKRIV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2680457901,
+    "new_p": 0.3891409474,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_463_463",
+    "sequence": "MVIIKYTTKTQPTPVKEMFISPQHYAKWRSHMGSKLTSVKPIKGGR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006065817348,
+    "new_p": 0.006405792063,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_464_464",
+    "sequence": "SANAKNDFMRF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009968969306,
+    "new_p": 0.01076968724,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_465_465",
+    "sequence": "QKKCPGRCTLKCGKHERPTLPYNCGKYICCVPVKVK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1361905057,
+    "new_p": 0.06013287301,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_466_466",
+    "sequence": "TTCCPSIVARSNFNVCRLPGTPEALCATYTGCIIIPGATCPGDYAN",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.9612069979,
+    "new_p": 0.9289812383,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_467_467",
+    "sequence": "SVINTQIKPFKTQAFKNGKFIEVTE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2501516547,
+    "new_p": 0.2666034801,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_468_468",
+    "sequence": "MDILTLGWVGLLGLFTYSIAMVVWGRHGM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006478970143,
+    "new_p": 0.006839207604,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_469_469",
+    "sequence": "MSYKCSRCKRDVELEEYGGVRCPFCGHRVLLKERAPEIKEVPVE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006029771875,
+    "new_p": 0.006364672423,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_470_470",
+    "sequence": "MTTPNPNKQGAELSRTGLYWGLLLIFVLAVLFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005583894074,
+    "new_p": 0.005900489087,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_471_471",
+    "sequence": "AAAQHLCGSHLVDALYLVCGEKGFFYNPKGIVEQCCHKPCNIFDLQNYCN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01067957095,
+    "new_p": 0.01128265312,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_472_472",
+    "sequence": "MSRSIFFFSSLFLSPLNKIRNIGGKVENPWKSQIRDWKN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01579599447,
+    "new_p": 0.01681227233,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_473_473",
+    "sequence": "MSNTFVAVEFSWLYAISLILPCETIRVAWAPKRAYHGTSEEKRRLAPADI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008370310043,
+    "new_p": 0.01006683609,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_474_474",
+    "sequence": "MEALVYTFLLVGTLGIIFFAIFFREPPKITSNKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005486539834,
+    "new_p": 0.005799185888,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_475_475",
+    "sequence": "MDWRLIVVLAPILLAGGWAVFNIGKAALEQINRALKGDQA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005919451588,
+    "new_p": 0.006255984904,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_476_476",
+    "sequence": "MTNKNTGKDIRQNSPKEHQSGQPEPLSGSKKVKNRNHTRQKHNSHHDM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005353234372,
+    "new_p": 0.005650547554,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_477_477",
+    "sequence": "MADIGTTGRIPLWLVGTVAGTAAIGLLGIFFYGSYVGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005602849604,
+    "new_p": 0.005931679014,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_478_478",
+    "sequence": "MEEQKMKKIIKAIWNVVIILIVLSIFPIVLMIDVLNVYFGFM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006290900918,
+    "new_p": 0.006650743124,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_479_479",
+    "sequence": "MEGLTKFLSSAPVLIMALLTFTAGILIEFNRFYPDLLFHPLG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005801801044,
+    "new_p": 0.006333778404,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_480_480",
+    "sequence": "NYIYSGHNYHQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1573783244,
+    "new_p": 0.2181206327,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_481_481",
+    "sequence": "MFTLKIFVYTTVIFFISLFVFGFLSNDPSRNPNRKDLE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005658273342,
+    "new_p": 0.005988633141,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_482_482",
+    "sequence": "MKVLSSLKSAKNRHPDCQIVKRRGRLYVICKSNPRFKAVQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005024387568,
+    "new_p": 0.005292782427,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_483_483",
+    "sequence": "TNSKEGEFIAEGGGVR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09444928165,
+    "new_p": 0.1056527722,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_484_484",
+    "sequence": "FFPIGVFCKIFKTC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.269539054,
+    "new_p": 0.3062296002,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_485_485",
+    "sequence": "MKAIMVLFYVMTLTIIGSFSMVSGSPGQNDYVNPKLQFACDLLQKAKERQ",
+    "label": 0,
+    "role": "harmed",
+    "old_p": 0.2947447845,
+    "new_p": 0.5251183068,
+    "old_prediction": 0,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_486_486",
+    "sequence": "MKILSSLKTAKHRHPDCRIVRRRGRLYVICKSDPRFKARQR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005117937985,
+    "new_p": 0.005402152855,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_487_487",
+    "sequence": "FEDGKKVRFFKSNKETIK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0372482438,
+    "new_p": 0.1061876376,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_488_488",
+    "sequence": "MVPYRNPRHQHVASVLRSGG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007875558434,
+    "new_p": 0.0090335301,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_489_489",
+    "sequence": "MRGNPEVIDYLNMLIGGELAARDQYLIHSRMYEDWGLTKY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005459764675,
+    "new_p": 0.005828038604,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_490_490",
+    "sequence": "AEAAAAPAPAAAPA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01021932884,
+    "new_p": 0.0120971314,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_491_491",
+    "sequence": "MAKMKHGSAQFRPDHLGTQPRKSDANKGKKMNTKGNENPQYIPPKG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0054208281,
+    "new_p": 0.005738789682,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_492_492",
+    "sequence": "HSDAVFTDNYSRIRKQMAVKKYINSLLA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.05835402603,
+    "new_p": 0.0701320307,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_493_493",
+    "sequence": "SNTSHQDFHSFYGTNLMIGG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01778165398,
+    "new_p": 0.02085521015,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_494_494",
+    "sequence": "GSTTAESAALR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03111677288,
+    "new_p": 0.04797653117,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_495_495",
+    "sequence": "ELEALLITDNQIQARIDSHNKILYARHADQRNATFQK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005447901433,
+    "new_p": 0.005761926031,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_496_496",
+    "sequence": "METNDLGFVASLMFILVPAIFLIVLYIGTQNNEA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005298769248,
+    "new_p": 0.005601142524,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_497_497",
+    "sequence": "ALWKDVLKKIGTVALHAGKAAFGAAADTISQGGS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0139355131,
+    "new_p": 0.01577043497,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_498_498",
+    "sequence": "MRDLKTYLSTAPVLSTIWFGSLAGLLIEINRLFPDALTFPFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005489455773,
+    "new_p": 0.005849366115,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_499_499",
+    "sequence": "GSTGLISFGRT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02340160574,
+    "new_p": 0.02665998112,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_500_500",
+    "sequence": "MTDDKAGPSGLSLKEAEEIHSYLIDGTRVFGAMALVAHILSAIATPWLG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005811820097,
+    "new_p": 0.006135485707,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_501_501",
+    "sequence": "MVKKVALECSECGRRNYSVPARPNHEERLELKKFCKHCGKVTVHRETR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005201840361,
+    "new_p": 0.005490749983,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_502_502",
+    "sequence": "FLPILGKILGGLL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008640213939,
+    "new_p": 0.00926161693,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_503_503",
+    "sequence": "MLNIALHGYSLSKSAMDSRLTRKQSKSCT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01439521225,
+    "new_p": 0.01592501983,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_504_504",
+    "sequence": "YLYQTLGFPAPYPDPQENKREVCELNPDCDELADHIGFQEAYRRFYGTA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00789747099,
+    "new_p": 0.009364376025,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_505_505",
+    "sequence": "MPLDRNNNPNQQPVELNRTSLYLGLLLVFVVGILFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005513338059,
+    "new_p": 0.005821984573,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_506_506",
+    "sequence": "GPKTKAACKMACKLATCGKKPGGWKCKLCELGCDAV",
+    "label": 0,
+    "role": "harmed",
+    "old_p": 0.3913727677,
+    "new_p": 0.6427402961,
+    "old_prediction": 0,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_507_507",
+    "sequence": "GVSKILHSAGKFGKAFLGEIMKS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01290503745,
+    "new_p": 0.02181766574,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_508_508",
+    "sequence": "LDVKKIICVACKIKPNPACKKICPK",
+    "label": 0,
+    "role": "both_wrong",
+    "old_p": 0.622224355,
+    "new_p": 0.7776905722,
+    "old_prediction": 1,
+    "new_prediction": 1
+  },
+  {
+    "sample_id": "sequence_509_509",
+    "sequence": "MGDKSKAQKKRLAKAERQNTRVPAWVMMKTDMNVTRNPKRRNWRRNDLDE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00547895387,
+    "new_p": 0.005786410193,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_510_510",
+    "sequence": "AIKLVQSPNGNFAASFVLDGTKWIFKSKYYDSSKGYWVGIYEVWDRK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2014082589,
+    "new_p": 0.217701748,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_511_511",
+    "sequence": "AILEADDDVELLEGYLKDWEAFVSSAAAFEK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01101666078,
+    "new_p": 0.02098549414,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_512_512",
+    "sequence": "ENFFKEIERAGQRIRDAIISAAPAVETLAQAQKIIKGGD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.09590644862,
+    "new_p": 0.1281432369,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_513_513",
+    "sequence": "MSLYLLLGLKILRYLKMVIVLRCHSAFLLSVKFLREKRRLKMYLGIMLGF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006669011307,
+    "new_p": 0.00704660455,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_514_514",
+    "sequence": "KNYGNGVHCTKKGCSVDWGYAWTNIANNSVMNGLTGGNAGWHN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02638321719,
+    "new_p": 0.03954114504,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_515_515",
+    "sequence": "DEPKPDQFVGLM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01692939645,
+    "new_p": 0.02485076305,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_516_516",
+    "sequence": "METATIFSIFFSCLLIGLTGYSLYTSFGNASSELRDPFEEHED",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005225687073,
+    "new_p": 0.005517267529,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_517_517",
+    "sequence": "MIIGAVEAGGTKFVDGVGNEKGEIFER",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00578619108,
+    "new_p": 0.006107587604,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_518_518",
+    "sequence": "YKDQGLEILAFPCNQFG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02444267255,
+    "new_p": 0.026031841,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_519_519",
+    "sequence": "MEVNILGVIAVALFILIPTSFLLILYVKTSAENKDN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005196957295,
+    "new_p": 0.005487434465,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_520_520",
+    "sequence": "YYTVLFGVSRALGLPLERPK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.02661343875,
+    "new_p": 0.09327939875,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_521_521",
+    "sequence": "MFAEGRIPLWVVAVIAGLGVIAVVGLFFYGAYAGLGSSL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005802914926,
+    "new_p": 0.006152278828,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_522_522",
+    "sequence": "MERTPNPNNQPVELNRTSLYLGLLLVFVLGILFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005498785971,
+    "new_p": 0.005805380051,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_523_523",
+    "sequence": "MGNPKSNQQPFVPQHIGTKPREAGGNKGKQMQDQSGQHPQVIQTKGE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005276487322,
+    "new_p": 0.005577304102,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_524_524",
+    "sequence": "NSDEQFDDYGYMRF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01784286565,
+    "new_p": 0.01967820311,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_525_525",
+    "sequence": "FRGHDKKDKKIQKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01644167481,
+    "new_p": 0.03568696442,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_526_526",
+    "sequence": "MSLKEKILDKVEDFLKTIIIKYWYIDLTITIFAFLILYLIEKFRKNKV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007600680194,
+    "new_p": 0.00989385715,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_527_527",
+    "sequence": "MTSISDGQIVVALISAFIIVILASRLGKELYQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006565286513,
+    "new_p": 0.007041162439,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_528_528",
+    "sequence": "GTLGNLPAPFPG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03366204649,
+    "new_p": 0.09124706928,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_529_529",
+    "sequence": "MKGTKKKTPCNKKLGGYLKEQKGRLYIIRRCVVMLICWHD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007774207724,
+    "new_p": 0.00834739236,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_530_530",
+    "sequence": "GILDAIKAIAKAAG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.03359409355,
+    "new_p": 0.03552345223,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_531_531",
+    "sequence": "MLVVIMFFIAFAFCSWLSYSYLRPYISTKELNKSRMFYIT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006806376503,
+    "new_p": 0.008357306794,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_532_532",
+    "sequence": "MKKITGIILLLLAAIILAACQANYIRDVQGGTVSPSSTAELTGVETQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008549147489,
+    "new_p": 0.009618119091,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_533_533",
+    "sequence": "APSDTTIAETLTITEEFFPD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2151066468,
+    "new_p": 0.2594397283,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_534_534",
+    "sequence": "MVEPLLSGIVLGLIPVTLAGLFVTAYLQYRRGDKLNR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005763261477,
+    "new_p": 0.006090276749,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_535_535",
+    "sequence": "VLLLSQDYGKYKEVAELTRTQILAASYELHK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1951843077,
+    "new_p": 0.2467398129,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_536_536",
+    "sequence": "MDTLTQKLTVLIAVLELLVALLRLIDLLK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1357652239,
+    "new_p": 0.1441969665,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_537_537",
+    "sequence": "MASKEYSMLPLCSPSIVSHTSGGSIVLKGSS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01166065164,
+    "new_p": 0.01330100935,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_538_538",
+    "sequence": "MMRMSLKQMQSQRFSATSRVRMLLIGASGLRSSSSKLECPRFSNKHGRN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008357048701,
+    "new_p": 0.008827581121,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_539_539",
+    "sequence": "SQISLRGSNLTI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.1396382437,
+    "new_p": 0.1933466035,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_540_540",
+    "sequence": "MKKVPLTCDVCGSRNYNVPKQSNLTSRLTLKKFCSRCNAHTMHKESK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005275880759,
+    "new_p": 0.005568930846,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_541_541",
+    "sequence": "GWFDVVKHIASAV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006581461223,
+    "new_p": 0.006960585461,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_542_542",
+    "sequence": "DTLKSEKNADFKDLY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2409746743,
+    "new_p": 0.2801936659,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_543_543",
+    "sequence": "MLAFCYSLPNAGDVIKGRVYENDYTLYIYLFDYPHSEAILAEC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.06728087507,
+    "new_p": 0.08459475814,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_544_544",
+    "sequence": "VLLSVGGDADTESPEKKNLGGVSIVDLSMDDFRGLLT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009626960557,
+    "new_p": 0.01628916644,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_545_545",
+    "sequence": "MTLRHYFFLQDYKRNVENLPFYKNQATLQ",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006346956859,
+    "new_p": 0.006933765045,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_546_546",
+    "sequence": "MTWTTPAYTELRLGFEITMYIANR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008348833327,
+    "new_p": 0.008830642818,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_547_547",
+    "sequence": "MPQLIPFYFLNQLTYGFLLMTILLVLFSQFFLPMILRLYLTRLFISKL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005832369993,
+    "new_p": 0.006156550603,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_548_548",
+    "sequence": "MLRTYQPKKRQRKKEHGFRKRMKTANGRKVLRRRRLKGRKVLSA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005379996613,
+    "new_p": 0.005678762135,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_549_549",
+    "sequence": "MTDFSLPSILVPLVGLVLPAIAMASLSLHVQKNKIV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005282515878,
+    "new_p": 0.00557795692,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_550_550",
+    "sequence": "MDILSISWAFLMVVFTFSLSLVVWGRSGL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006530571482,
+    "new_p": 0.006893311369,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_551_551",
+    "sequence": "MITAIIIAKLPEAYTVFRPLVDILPVIPIFFLLLAFVWQAAIGFR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006308555299,
+    "new_p": 0.1062545748,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_552_552",
+    "sequence": "MNIAISFTQAFCTHDEDCLEGQCCVQRICIDCNVLKLHRM",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3672999734,
+    "new_p": 0.283057071,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_553_553",
+    "sequence": "TVKTKDRSLSAQYEHTIVVTDNGCEILTLRKDDTIPAIISHNE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008696201777,
+    "new_p": 0.01198363472,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_554_554",
+    "sequence": "WLGSALKIGAKLLPSVVGLFQKKKK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2221962577,
+    "new_p": 0.3401759731,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_555_555",
+    "sequence": "GLVSSIGKALGGLLADVVKTKEQPA",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.0089737379,
+    "new_p": 0.01212985032,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_556_556",
+    "sequence": "MSGFKGYLSTVPVVFAIWLTFTAGLIIEINRLFPDGLVFSF",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005610309413,
+    "new_p": 0.006068130698,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_557_557",
+    "sequence": "MAASFLPSILVPLVGLVFPAIAIASLFIYIEQDEII",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.00524291901,
+    "new_p": 0.005535904393,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_558_558",
+    "sequence": "MEDVVRIVVEGEKVKMWDILGDYREVRGRVVEMDLVGHKIILEGE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005419054368,
+    "new_p": 0.005720103947,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_559_559",
+    "sequence": "GIPTCGETCTLGTCNTPGCTCSWPICTKN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01077206142,
+    "new_p": 0.01170678618,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_560_560",
+    "sequence": "MTTLNNLPSILVTLVGLVFPAFAMASLFLHVQKNKIL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005273468563,
+    "new_p": 0.005569384791,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_561_561",
+    "sequence": "MRVNVTLACTECGDRNYITTKNKRNNPERIEMKKYCPRLNKYTLHRETK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005337122386,
+    "new_p": 0.005633514217,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_562_562",
+    "sequence": "MEPNPNRQPVELNRTSLYLGLLLILVLALLFSSYFFN",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005639463418,
+    "new_p": 0.005967815657,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_563_563",
+    "sequence": "GLFDVVKGVLKGVGKNVAGSLLEQLKCKLSGGC",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009628832914,
+    "new_p": 0.0109224001,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_564_564",
+    "sequence": "SGISGPLSCGRNGGVCIPIRCPVPMRQIGTCFGRPVKCCRSW",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007626065207,
+    "new_p": 0.008092015334,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_565_565",
+    "sequence": "MLVFQMRYQMRYVDKTSTVLKQTKKSDYADK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01321239245,
+    "new_p": 0.01468242285,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_566_566",
+    "sequence": "MGIDLHLIANFAALALITLAGPAVIFILFYRRGAL",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005408422015,
+    "new_p": 0.005708985413,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_567_567",
+    "sequence": "MRDTAMSQRKDDHLDIVLDERTAPATVAAGRECIRFELSSDGD",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009138674732,
+    "new_p": 0.01113856353,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_568_568",
+    "sequence": "GASGLIAFPRV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009498988081,
+    "new_p": 0.01038716538,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_569_569",
+    "sequence": "RICPRILMECKADSDCLAQCICEESGFCG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01363820324,
+    "new_p": 0.01328511723,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_570_570",
+    "sequence": "MAEHIILECTECGDRSYLSEKNKRKHPERLALKKYCPVERKVTLHRETK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005200011271,
+    "new_p": 0.005488795343,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_571_571",
+    "sequence": "GSSSGLISMPRV",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.009559044987,
+    "new_p": 0.01475962271,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_572_572",
+    "sequence": "QAVLSETGGGDTASCDEYLYQELAYVK",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.3976481123,
+    "new_p": 0.2448525712,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_573_573",
+    "sequence": "AIAVELARDVFEAIQTLSRGSVFQDMPLVSNKELMDLR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01054145958,
+    "new_p": 0.01463007006,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_574_574",
+    "sequence": "METTNFGFIISLLFVGIPTIFLVGLYISTSDGEKSSFFSDSSKGKLGPKS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005584470963,
+    "new_p": 0.005908201244,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_575_575",
+    "sequence": "MPKQLSPDQDKLHKNILRDRFLSSFKQPGRFRAELEKVKLILKRKGHE",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.006417307646,
+    "new_p": 0.006889610613,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_576_576",
+    "sequence": "MARFSEAENRVLNVKICMRCNARNPIRATRCRKCRYKGLRMKSKESRG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.008080180655,
+    "new_p": 0.008529411611,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_577_577",
+    "sequence": "SKDNYKNYIPLIVPFAT",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2587408224,
+    "new_p": 0.286744457,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_578_578",
+    "sequence": "KGKGFWSWASKATSWLTGPQQPGSPLLKKHR",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.007534830014,
+    "new_p": 0.03140521867,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_579_579",
+    "sequence": "MKVRNSLRSAKARDKNCRVVRRHGRVYVINKKNPRMKARQG",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005224996454,
+    "new_p": 0.005515156112,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_580_580",
+    "sequence": "DVPSANANANNQRTAAAKPQANAEASS",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.2254043032,
+    "new_p": 0.2483991052,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_581_581",
+    "sequence": "MKKTDKILKEIGIQRVAIMEGKKYSKGFMEDGDIGVQY",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.01019492595,
+    "new_p": 0.01100342727,
+    "old_prediction": 0,
+    "new_prediction": 0
+  },
+  {
+    "sample_id": "sequence_582_582",
+    "sequence": "MKNTVKLEQFVALKEKDLQKIQGGEMRKSNNNFFHFLRRI",
+    "label": 0,
+    "role": "both_correct",
+    "old_p": 0.005123817814,
+    "new_p": 0.005411810675,
+    "old_prediction": 0,
+    "new_prediction": 0
+  }
+]

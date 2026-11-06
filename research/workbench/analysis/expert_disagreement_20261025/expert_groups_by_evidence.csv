@@ -1,0 +1,13 @@
+﻿evidence_tier,expert_group,n,positive,fusion_errors,fusion_corrects,fusion_harms,median_plddt,median_seed_std
+fragment_or_label_review,both_correct,1591,204,0,0,0,0.70294612599999995,0.0011380722262201233
+fragment_or_label_review,both_wrong,108,56,108,0,0,0.63700032250000005,0.02507495748725147
+fragment_or_label_review,sequence_only_correct,80,40,21,0,21,0.64795938149999999,0.062362488732903468
+fragment_or_label_review,structure_only_correct,96,18,29,67,0,0.67753073600000002,0.38624424708361682
+identity_unresolved,both_correct,855,830,0,0,0,0.74931317600000003,0.00048828125
+identity_unresolved,both_wrong,31,29,31,0,0,0.65876072600000002,0.0065583527723381387
+identity_unresolved,sequence_only_correct,21,20,5,0,5,0.58346521900000003,0.0082804907758330364
+identity_unresolved,structure_only_correct,13,11,5,8,0,0.72782105200000002,0.23640226351950092
+recovered_no_selected_flag_not_gold,both_correct,3378,506,0,0,0,0.75179061300000005,0.00016036529072966553
+recovered_no_selected_flag_not_gold,both_wrong,90,51,90,0,0,0.7591405805,0.013651501117386465
+recovered_no_selected_flag_not_gold,sequence_only_correct,85,43,22,0,22,0.76417148099999999,0.069103766613164086
+recovered_no_selected_flag_not_gold,structure_only_correct,39,10,16,23,0,0.72342997799999997,0.33056496376162375

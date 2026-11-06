@@ -1,0 +1,758 @@
+{
+  "low_positive": {
+    "n": 262,
+    "wrong": 140,
+    "correct": 122,
+    "flag_wrong": 62,
+    "flag_correct": 41,
+    "fold_counts": [
+      {
+        "fold": 0,
+        "wrong": 22,
+        "correct": 26
+      },
+      {
+        "fold": 1,
+        "wrong": 31,
+        "correct": 24
+      },
+      {
+        "fold": 2,
+        "wrong": 33,
+        "correct": 18
+      },
+      {
+        "fold": 3,
+        "wrong": 25,
+        "correct": 23
+      },
+      {
+        "fold": 4,
+        "wrong": 29,
+        "correct": 31
+      }
+    ],
+    "features": {
+      "sequence_length": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 21.0,
+          "median_correct": 23.0,
+          "auc_error": 0.4896955503512881
+        },
+        "fold_auc": [
+          0.6118881118881119,
+          0.5873655913978495,
+          0.34595959595959597,
+          0.431304347826087,
+          0.44883203559510565
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "net_charge_proxy": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 1.0,
+          "median_correct": 0.0,
+          "auc_error": 0.5216627634660421
+        },
+        "fold_auc": [
+          0.5297202797202798,
+          0.6229838709677419,
+          0.44191919191919193,
+          0.5043478260869565,
+          0.5105672969966629
+        ],
+        "positive_folds": 4,
+        "negative_folds": 1
+      },
+      "charge_density": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.030776515151515152,
+          "median_correct": 0.0,
+          "auc_error": 0.49836065573770494
+        },
+        "fold_auc": [
+          0.48426573426573427,
+          0.6068548387096775,
+          0.4250841750841751,
+          0.4878260869565217,
+          0.47052280311457173
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "mean_hydropathy": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": -0.23237327188940093,
+          "median_correct": -0.45772727272727276,
+          "auc_error": 0.592096018735363
+        },
+        "fold_auc": [
+          0.6433566433566433,
+          0.6155913978494624,
+          0.494949494949495,
+          0.6208695652173913,
+          0.5806451612903226
+        ],
+        "positive_folds": 4,
+        "negative_folds": 1
+      },
+      "aromatic_fraction": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.08452380952380953,
+          "median_correct": 0.09090909090909091,
+          "auc_error": 0.5042447306791569
+        },
+        "fold_auc": [
+          0.6241258741258742,
+          0.4932795698924731,
+          0.5,
+          0.40956521739130436,
+          0.4738598442714127
+        ],
+        "positive_folds": 1,
+        "negative_folds": 3
+      },
+      "proline_fraction": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.04040816326530612,
+          "median_correct": 0.04880952380952381,
+          "auc_error": 0.4429742388758783
+        },
+        "fold_auc": [
+          0.36101398601398604,
+          0.4059139784946237,
+          0.5286195286195285,
+          0.4608695652173913,
+          0.46885428253615125
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "glycine_fraction": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.06666666666666667,
+          "median_correct": 0.0754985754985755,
+          "auc_error": 0.4971896955503513
+        },
+        "fold_auc": [
+          0.583041958041958,
+          0.4106182795698925,
+          0.4806397306397306,
+          0.5269565217391304,
+          0.5266963292547275
+        ],
+        "positive_folds": 3,
+        "negative_folds": 2
+      },
+      "mean_plddt": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.7185055014999999,
+          "median_correct": 0.765339583,
+          "auc_error": 0.4233606557377049
+        },
+        "fold_auc": [
+          0.30069930069930073,
+          0.47580645161290325,
+          0.35858585858585856,
+          0.5252173913043479,
+          0.47163515016685204
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "low_plddt_fraction": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.0,
+          "median_correct": 0.0,
+          "auc_error": 0.5223360655737705
+        },
+        "fold_auc": [
+          0.5576923076923077,
+          0.5557795698924731,
+          0.4882154882154882,
+          0.44,
+          0.5350389321468297
+        ],
+        "positive_folds": 3,
+        "negative_folds": 2
+      },
+      "hydrophobic_contact_excess": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.0265984015984016,
+          "median_correct": 0.040747779772170006,
+          "auc_error": 0.48960772833723654
+        },
+        "fold_auc": [
+          0.4606643356643357,
+          0.502016129032258,
+          0.5521885521885521,
+          0.4469565217391304,
+          0.4421579532814238
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "charge_hydrophobic_separation": {
+        "overall": {
+          "n_wrong": 128,
+          "n_correct": 111,
+          "median_wrong": 0.5836974559362413,
+          "median_correct": 0.555106672971785,
+          "auc_error": 0.5779842342342342
+        },
+        "fold_auc": [
+          0.6567460317460317,
+          0.49753694581280794,
+          0.5549019607843138,
+          0.577922077922078,
+          0.5288461538461539
+        ],
+        "positive_folds": 4,
+        "negative_folds": 1
+      },
+      "nonlocal_contact_density": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.10317460317460317,
+          "median_correct": 0.09732889571599249,
+          "auc_error": 0.5266100702576112
+        },
+        "fold_auc": [
+          0.576048951048951,
+          0.6612903225806452,
+          0.47811447811447816,
+          0.5434782608695652,
+          0.39877641824249166
+        ],
+        "positive_folds": 3,
+        "negative_folds": 2
+      },
+      "ca_radius_gyration": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 11.14266494610747,
+          "median_correct": 10.710866360535816,
+          "auc_error": 0.5382318501170961
+        },
+        "fold_auc": [
+          0.5996503496503497,
+          0.5537634408602151,
+          0.4882154882154882,
+          0.4852173913043478,
+          0.528364849833148
+        ],
+        "positive_folds": 3,
+        "negative_folds": 2
+      },
+      "max_otherfold_kmer_cosine": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.12958285957574844,
+          "median_correct": 0.3201495260000229,
+          "auc_error": 0.2190573770491803
+        },
+        "fold_auc": [
+          0.2832167832167832,
+          0.2123655913978495,
+          0.15824915824915828,
+          0.2921739130434783,
+          0.18131256952169078
+        ],
+        "positive_folds": 0,
+        "negative_folds": 5
+      },
+      "p_seq": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.0814912526912562,
+          "median_correct": 0.8890889944090042,
+          "auc_error": 0.014168618266978924
+        },
+        "fold_auc": [
+          0.03671328671328671,
+          0.005376344086021504,
+          0.0016835016835016843,
+          0.010434782608695655,
+          0.020022246941045613
+        ],
+        "positive_folds": 0,
+        "negative_folds": 5
+      },
+      "p_struct": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.006085803035,
+          "median_correct": 0.9618240895,
+          "auc_error": 0.07242388758782203
+        },
+        "fold_auc": [
+          0.0,
+          0.15322580645161293,
+          0.04040404040404041,
+          0.08347826086956522,
+          0.06896551724137931
+        ],
+        "positive_folds": 0,
+        "negative_folds": 5
+      },
+      "sequence_seed_std": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.020286165691314577,
+          "median_correct": 0.016487059123254273,
+          "auc_error": 0.4991803278688524
+        },
+        "fold_auc": [
+          0.513986013986014,
+          0.6196236559139785,
+          0.4848484848484848,
+          0.4573913043478261,
+          0.43270300333704115
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "branch_abs_gap": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.11255443003242806,
+          "median_correct": 0.1453522304528192,
+          "auc_error": 0.41920374707259955
+        },
+        "fold_auc": [
+          0.42832167832167833,
+          0.5470430107526881,
+          0.398989898989899,
+          0.4278260869565218,
+          0.28921023359288095
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "branch_disagreement": {
+        "overall": {
+          "n_wrong": 140,
+          "n_correct": 122,
+          "median_wrong": 0.0,
+          "median_correct": 0.0,
+          "auc_error": 0.45362997658079623
+        },
+        "fold_auc": [
+          0.4947552447552448,
+          0.4717741935483871,
+          0.5176767676767676,
+          0.431304347826087,
+          0.39043381535038935
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      }
+    }
+  },
+  "high_negative": {
+    "n": 240,
+    "wrong": 50,
+    "correct": 190,
+    "flag_wrong": 18,
+    "flag_correct": 38,
+    "fold_counts": [
+      {
+        "fold": 0,
+        "wrong": 3,
+        "correct": 37
+      },
+      {
+        "fold": 1,
+        "wrong": 16,
+        "correct": 26
+      },
+      {
+        "fold": 2,
+        "wrong": 10,
+        "correct": 28
+      },
+      {
+        "fold": 3,
+        "wrong": 4,
+        "correct": 39
+      },
+      {
+        "fold": 4,
+        "wrong": 17,
+        "correct": 60
+      }
+    ],
+    "features": {
+      "sequence_length": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 37.0,
+          "median_correct": 31.0,
+          "auc_error": 0.5924210526315788
+        },
+        "fold_auc": [
+          0.7117117117117117,
+          0.6117788461538463,
+          0.6303571428571428,
+          0.5192307692307693,
+          0.6264705882352941
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "net_charge_proxy": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 1.0,
+          "median_correct": 1.0,
+          "auc_error": 0.4360526315789474
+        },
+        "fold_auc": [
+          0.3603603603603603,
+          0.5853365384615385,
+          0.32857142857142857,
+          0.5608974358974358,
+          0.428921568627451
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "charge_density": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.027046783625730993,
+          "median_correct": 0.034482758620689655,
+          "auc_error": 0.4311578947368421
+        },
+        "fold_auc": [
+          0.3063063063063063,
+          0.5625,
+          0.33571428571428574,
+          0.5897435897435896,
+          0.4431372549019608
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "mean_hydropathy": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": -0.36184210526315796,
+          "median_correct": -0.01978260869565219,
+          "auc_error": 0.3445263157894736
+        },
+        "fold_auc": [
+          0.6126126126126126,
+          0.27403846153846156,
+          0.40714285714285714,
+          0.34615384615384615,
+          0.25
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "aromatic_fraction": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.05405405405405406,
+          "median_correct": 0.06666666666666667,
+          "auc_error": 0.4516842105263158
+        },
+        "fold_auc": [
+          0.3468468468468468,
+          0.3786057692307692,
+          0.26249999999999996,
+          0.6698717948717948,
+          0.6558823529411766
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "proline_fraction": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.05634920634920634,
+          "median_correct": 0.06451612903225806,
+          "auc_error": 0.5290526315789473
+        },
+        "fold_auc": [
+          0.49099099099099097,
+          0.6069711538461537,
+          0.7374999999999999,
+          0.33974358974358976,
+          0.4637254901960784
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "glycine_fraction": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.09449404761904762,
+          "median_correct": 0.1,
+          "auc_error": 0.4562105263157895
+        },
+        "fold_auc": [
+          0.7072072072072072,
+          0.47956730769230765,
+          0.24464285714285716,
+          0.5737179487179487,
+          0.4759803921568628
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "mean_plddt": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.7123469115000001,
+          "median_correct": 0.8251885475,
+          "auc_error": 0.41
+        },
+        "fold_auc": [
+          0.17117117117117114,
+          0.4471153846153846,
+          0.1928571428571429,
+          0.5064102564102564,
+          0.5147058823529411
+        ],
+        "positive_folds": 2,
+        "negative_folds": 3
+      },
+      "low_plddt_fraction": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.09449760965000001,
+          "median_correct": 0.0,
+          "auc_error": 0.6307894736842106
+        },
+        "fold_auc": [
+          0.8603603603603603,
+          0.5252403846153846,
+          0.8339285714285714,
+          0.5705128205128205,
+          0.5794117647058823
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "hydrophobic_contact_excess": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.11169644729405262,
+          "median_correct": 0.09321945506877848,
+          "auc_error": 0.5933684210526314
+        },
+        "fold_auc": [
+          0.45945945945945943,
+          0.596153846153846,
+          0.625,
+          0.5512820512820512,
+          0.5872549019607844
+        ],
+        "positive_folds": 4,
+        "negative_folds": 1
+      },
+      "charge_hydrophobic_separation": {
+        "overall": {
+          "n_wrong": 46,
+          "n_correct": 186,
+          "median_wrong": 0.48948258722546,
+          "median_correct": 0.5944279159029444,
+          "auc_error": 0.38172043010752693
+        },
+        "fold_auc": [
+          0.3153153153153153,
+          0.28571428571428564,
+          0.4126984126984127,
+          0.506578947368421,
+          0.3519736842105263
+        ],
+        "positive_folds": 1,
+        "negative_folds": 4
+      },
+      "nonlocal_contact_density": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.14047619047619048,
+          "median_correct": 0.17294985716038347,
+          "auc_error": 0.34205263157894733
+        },
+        "fold_auc": [
+          0.19819819819819817,
+          0.43028846153846156,
+          0.15357142857142858,
+          0.40384615384615385,
+          0.32401960784313727
+        ],
+        "positive_folds": 0,
+        "negative_folds": 5
+      },
+      "ca_radius_gyration": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 9.010738063292228,
+          "median_correct": 7.978569331485268,
+          "auc_error": 0.6718947368421053
+        },
+        "fold_auc": [
+          0.7477477477477478,
+          0.6225961538461539,
+          0.8428571428571427,
+          0.5961538461538461,
+          0.7264705882352941
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "max_otherfold_kmer_cosine": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.09767162799835205,
+          "median_correct": 0.3422542065382004,
+          "auc_error": 0.1716842105263158
+        },
+        "fold_auc": [
+          0.1171171171171171,
+          0.21875,
+          0.12142857142857141,
+          0.1730769230769231,
+          0.1431372549019608
+        ],
+        "positive_folds": 0,
+        "negative_folds": 5
+      },
+      "p_seq": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.902104361586427,
+          "median_correct": 0.022152614016229213,
+          "auc_error": 0.9928421052631579
+        },
+        "fold_auc": [
+          0.981981981981982,
+          1.0,
+          1.0,
+          1.0,
+          0.9970588235294118
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "p_struct": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.995931923,
+          "median_correct": 2.56139474e-05,
+          "auc_error": 0.948421052631579
+        },
+        "fold_auc": [
+          0.9819819819819819,
+          0.9038461538461539,
+          0.9214285714285715,
+          0.9615384615384616,
+          0.996078431372549
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "sequence_seed_std": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.013372726670767311,
+          "median_correct": 0.0010256243379850052,
+          "auc_error": 0.722
+        },
+        "fold_auc": [
+          0.8378378378378377,
+          0.548076923076923,
+          0.942857142857143,
+          0.608974358974359,
+          0.6598039215686275
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "branch_abs_gap": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.14811481740568178,
+          "median_correct": 0.02268011234587867,
+          "auc_error": 0.7510526315789473
+        },
+        "fold_auc": [
+          0.8558558558558558,
+          0.5336538461538461,
+          0.8607142857142858,
+          0.5192307692307692,
+          0.8519607843137256
+        ],
+        "positive_folds": 5,
+        "negative_folds": 0
+      },
+      "branch_disagreement": {
+        "overall": {
+          "n_wrong": 50,
+          "n_correct": 190,
+          "median_wrong": 0.0,
+          "median_correct": 0.0,
+          "auc_error": 0.6094736842105263
+        },
+        "fold_auc": [
+          0.6261261261261261,
+          0.4783653846153845,
+          0.8285714285714286,
+          0.5352564102564102,
+          0.5926470588235294
+        ],
+        "positive_folds": 4,
+        "negative_folds": 1
+      }
+    }
+  }
+}

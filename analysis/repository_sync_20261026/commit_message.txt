@@ -1,0 +1,13 @@
+Sync upstream public implementation and archive toxicity research
+
+Keep the public implementation at upstream a03f846 and publish the research
+workbench separately, including fixed protocols, positive and negative results,
+SaProt equal-size ensemble controls and full contribution diagnostics.
+
+Preserve legacy fork-specific HyPepTox tools in a non-runtime archive. Exclude
+weights, feature caches, downloaded manuscripts and private local backups.
+Include lossless text compression, asset checksums and restoration tooling.
+
+Validation: 1811 staged asset hashes verified, Python syntax and main entry
+links checked, public source/configuration unchanged, 34 public tests passed
+with isolated validation-only NumPy 1.26.4 (existing environment unchanged).

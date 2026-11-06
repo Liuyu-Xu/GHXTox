@@ -1,0 +1,119 @@
+{
+  "artifact_type": "ghxtox_structure_utility_router_oof",
+  "version": 1,
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\structure_utility_router_v1.json",
+  "protocol_sha256": "cc58f64acb642d408a1c5c1073d9ae5e1304807f1283b5e524475ce629a94972",
+  "contract": "D:\\dachuang2026\\GHXTox\\runs\\unified_inference_oof_v1\\contract.csv",
+  "contract_sha256": "619aa5e930cafadb7edc41f24cbd5734209623a35de90099b6abf8446aabd2a0",
+  "external_test_labels_used": false,
+  "cross_fitted": true,
+  "target": {
+    "loss": "brier",
+    "definition": "(p_seq-label)^2 - (p_struct-label)^2"
+  },
+  "feature_columns": [
+    "sequence_length",
+    "cys_count",
+    "cys_fraction",
+    "cys_span_fraction",
+    "cys_min_gap_fraction",
+    "cys_adjacent_pairs",
+    "cys_terminal_count",
+    "sequence_seed_dispersion",
+    "sequence_seed_dispersion_available"
+  ],
+  "post_structure_features_used_by_router": false,
+  "route_policy": {
+    "structure_cost": 0.0025,
+    "trigger": "predicted_brier_gain_gt_structure_cost"
+  },
+  "classification_threshold": 0.47022256531284556,
+  "structure_rate": 0.04587443244089557,
+  "mean_realized_brier_gain": -0.014027682800177714,
+  "mean_realized_brier_gain_when_selected": -0.012378197599019156,
+  "metrics": {
+    "fast_sequence_only": {
+      "mcc": 0.8628307951998377,
+      "balanced_accuracy": 0.9273138246194941,
+      "auroc": 0.976130935483568,
+      "auprc": 0.9532682028993572,
+      "brier": 0.045371807241507627
+    },
+    "always_structure": {
+      "mcc": 0.8310066624689183,
+      "balanced_accuracy": 0.9167995755583438,
+      "auroc": 0.960692676840457,
+      "auprc": 0.9281708597568626,
+      "brier": 0.05939949004168534
+    },
+    "cross_fitted_router": {
+      "mcc": 0.859791254072042,
+      "balanced_accuracy": 0.9261071707958715,
+      "auroc": 0.9751271964578816,
+      "auprc": 0.9494442299595027,
+      "brier": 0.045939650031003885
+    }
+  },
+  "utility_brier_plus_structure_cost": {
+    "fast_sequence_only": 0.045371807241507627,
+    "always_structure": 0.061899490041685344,
+    "cross_fitted_router": 0.046054336112106124
+  },
+  "folds": {
+    "0": {
+      "samples": 1271,
+      "structure_rate": 0.0959874114870181,
+      "metrics": {
+        "mcc": 0.875515211446689,
+        "balanced_accuracy": 0.9286884998034413,
+        "auroc": 0.9802851613293417,
+        "auprc": 0.9594604693943557,
+        "brier": 0.04037017328599508
+      }
+    },
+    "1": {
+      "samples": 1229,
+      "structure_rate": 0.030919446704637917,
+      "metrics": {
+        "mcc": 0.8428288546700524,
+        "balanced_accuracy": 0.9257352001022887,
+        "auroc": 0.9779455951924306,
+        "auprc": 0.9573925714745791,
+        "brier": 0.049726775661344334
+      }
+    },
+    "2": {
+      "samples": 1273,
+      "structure_rate": 0.031421838177533384,
+      "metrics": {
+        "mcc": 0.8494306065730763,
+        "balanced_accuracy": 0.9130209035325254,
+        "auroc": 0.9725901510788721,
+        "auprc": 0.9414473102240247,
+        "brier": 0.051153006963477785
+      }
+    },
+    "3": {
+      "samples": 1291,
+      "structure_rate": 0.026336173508907823,
+      "metrics": {
+        "mcc": 0.8794909440505255,
+        "balanced_accuracy": 0.9327703809608912,
+        "auroc": 0.9768236380424746,
+        "auprc": 0.9580786720462177,
+        "brier": 0.040691570922556236
+      }
+    },
+    "4": {
+      "samples": 1323,
+      "structure_rate": 0.044595616024187455,
+      "metrics": {
+        "mcc": 0.8541266983542963,
+        "balanced_accuracy": 0.92942438607922,
+        "auroc": 0.9734632321552944,
+        "auprc": 0.9415285580768435,
+        "brier": 0.0478769851006822
+      }
+    }
+  }
+}

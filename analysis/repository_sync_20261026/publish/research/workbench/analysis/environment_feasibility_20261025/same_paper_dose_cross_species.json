@@ -1,0 +1,3403 @@
+[
+  {
+    "chemical_key": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS|acid|free|linear|L",
+    "pmid": "17462733",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "1134",
+        "pmid": "17462733",
+        "sequence": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "name": "K9CATH",
+        "MAP": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "chemical_key": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "chicken",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 20.0,
+        "raw_activity": "20% Hemolysis at 100 µM",
+        "origin": "K9CATH canine cathelicidin present in neutorphil granule content",
+        "supporting_database_ids": [
+          "1134"
+        ]
+      },
+      {
+        "id": "1135",
+        "pmid": "17462733",
+        "sequence": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "name": "K9CATH",
+        "MAP": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "chemical_key": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "dog",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 25.0,
+        "raw_activity": "25% Hemolysis at 100 µM",
+        "origin": "K9CATH canine cathelicidin present in neutorphil granule content",
+        "supporting_database_ids": [
+          "1135"
+        ]
+      },
+      {
+        "id": "1136",
+        "pmid": "17462733",
+        "sequence": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "name": "K9CATH",
+        "MAP": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS",
+        "chemical_key": "RLKELITTGGQKIGEKIRRIGQRIKDFFKNLQPREEKS|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 30.0,
+        "raw_activity": "30% Hemolysis at 100 µM",
+        "origin": "K9CATH canine cathelicidin present in neutorphil granule content",
+        "supporting_database_ids": [
+          "1136"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "GWGSFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+    "pmid": "11168895",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2100",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAHVGKHVGKAALTHYL",
+        "name": "Pleurocidin",
+        "MAP": "GWGSFFKKAAHVGKHVGKAALTHYL",
+        "chemical_key": "GWGSFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 6.0,
+        "raw_activity": "6% Hemolysis at 100 µM",
+        "origin": "Pleurocidin isolated from the skin mucous secretions of the winter flounder(Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2100"
+        ]
+      },
+      {
+        "id": "2101",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAHVGKHVGKAALTHYL",
+        "name": "Pleurocidin",
+        "MAP": "GWGSFFKKAAHVGKHVGKAALTHYL",
+        "chemical_key": "GWGSFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 15.0,
+        "raw_activity": "15% Hemolysis at 100 µM",
+        "origin": "Pleurocidin isolated from the skin mucous secretions of the winter flounder(Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2101"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "AWASFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+    "pmid": "11168895",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2102",
+        "pmid": "11168895",
+        "sequence": "AWASFFKKAAHVGKHVGKAALTHYL",
+        "name": "[A1,3]Ple",
+        "MAP": "AWASFFKKAAHVGKHVGKAALTHYL",
+        "chemical_key": "AWASFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 4.0,
+        "raw_activity": "4% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2102"
+        ]
+      },
+      {
+        "id": "2103",
+        "pmid": "11168895",
+        "sequence": "AWASFFKKAAHVGKHVGKAALTHYL",
+        "name": "[A1,3]Ple",
+        "MAP": "AWASFFKKAAHVGKHVGKAALTHYL",
+        "chemical_key": "AWASFFKKAAHVGKHVGKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 8.0,
+        "raw_activity": "8% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2103"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "GWGSFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+    "pmid": "11168895",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2104",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAHVAKHVAKAALTHYL",
+        "name": "[A13,17]Ple",
+        "MAP": "GWGSFFKKAAHVAKHVAKAALTHYL",
+        "chemical_key": "GWGSFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2104"
+        ]
+      },
+      {
+        "id": "2105",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAHVAKHVAKAALTHYL",
+        "name": "[A13,17]Ple",
+        "MAP": "GWGSFFKKAAHVAKHVAKAALTHYL",
+        "chemical_key": "GWGSFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 93.0,
+        "raw_activity": "93% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2105"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "AWASFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+    "pmid": "11168895",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2106",
+        "pmid": "11168895",
+        "sequence": "AWASFFKKAAHVAKHVAKAALTHYL",
+        "name": "[A1,3,13,17]Ple",
+        "MAP": "AWASFFKKAAHVAKHVAKAALTHYL",
+        "chemical_key": "AWASFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 45.0,
+        "raw_activity": "45% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2106"
+        ]
+      },
+      {
+        "id": "2107",
+        "pmid": "11168895",
+        "sequence": "AWASFFKKAAHVAKHVAKAALTHYL",
+        "name": "[A1,3,13,17]Ple",
+        "MAP": "AWASFFKKAAHVAKHVAKAALTHYL",
+        "chemical_key": "AWASFFKKAAHVAKHVAKAALTHYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 90.0,
+        "raw_activity": "90% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2107"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "GWGSFFKKAAAVGKAVGKAALTAYL|acid|free|linear|L",
+    "pmid": "11168895",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2108",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAAVGKAVGKAALTAYL",
+        "name": "[A11,15,23]Ple",
+        "MAP": "GWGSFFKKAAAVGKAVGKAALTAYL",
+        "chemical_key": "GWGSFFKKAAAVGKAVGKAALTAYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 15.0,
+        "raw_activity": "15% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2108"
+        ]
+      },
+      {
+        "id": "2109",
+        "pmid": "11168895",
+        "sequence": "GWGSFFKKAAAVGKAVGKAALTAYL",
+        "name": "[A11,15,23]Ple",
+        "MAP": "GWGSFFKKAAAVGKAVGKAALTAYL",
+        "chemical_key": "GWGSFFKKAAAVGKAVGKAALTAYL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 45.0,
+        "raw_activity": "45% Hemolysis at 100 µM",
+        "origin": "Pleurocidin analogs (Pleuronectes americanus)",
+        "supporting_database_ids": [
+          "2109"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2222",
+        "pmid": "12384369",
+        "sequence": "KKAAAFAAAAAFAAWAAFAAAKKKK",
+        "name": "F25",
+        "MAP": "KKAAAFAAAAAFAAWAAFAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 4.0,
+        "raw_activity": "4% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2222"
+        ]
+      },
+      {
+        "id": "2224",
+        "pmid": "12384369",
+        "sequence": "KKAAAFAAAAAFAAWAAFAAAKKKK",
+        "name": "F25",
+        "MAP": "KKAAAFAAAAAFAAWAAFAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 1.0,
+        "raw_activity": "1% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2224"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2223",
+        "pmid": "12384369",
+        "sequence": "KKAAAFAAAAAFAAWAAFAAAKKKK",
+        "name": "F25",
+        "MAP": "KKAAAFAAAAAFAAWAAFAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2223"
+        ]
+      },
+      {
+        "id": "2225",
+        "pmid": "12384369",
+        "sequence": "KKAAAFAAAAAFAAWAAFAAAKKKK",
+        "name": "F25",
+        "MAP": "KKAAAFAAAAAFAAWAAFAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAFAAAAAFAAWAAFAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2225"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKAAAAFAAFAAWFAAFAAAAKKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2231",
+        "pmid": "12384369",
+        "sequence": "KKAAAAFAAFAAWFAAFAAAAKKKK",
+        "name": "4F",
+        "MAP": "KKAAAAFAAFAAWFAAFAAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAAFAAFAAWFAAFAAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 14.0,
+        "raw_activity": "14% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2231"
+        ]
+      },
+      {
+        "id": "2233",
+        "pmid": "12384369",
+        "sequence": "KKAAAAFAAFAAWFAAFAAAAKKKK",
+        "name": "4F",
+        "MAP": "KKAAAAFAAFAAWFAAFAAAAKKKK{ct:Amid}",
+        "chemical_key": "KKAAAAFAAFAAWFAAFAAAAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 17.0,
+        "raw_activity": "17% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2233"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2234",
+        "pmid": "12384369",
+        "sequence": "KKAFAAAAAFAAWAAFAKKKK",
+        "name": "F21",
+        "MAP": "KKAFAAAAAFAAWAAFAKKKK{ct:Amid}",
+        "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 3.0,
+        "raw_activity": "3% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2234"
+        ]
+      },
+      {
+        "id": "2236",
+        "pmid": "12384369",
+        "sequence": "KKAFAAAAAFAAWAAFAKKKK",
+        "name": "F21",
+        "MAP": "KKAFAAAAAFAAWAAFAKKKK{ct:Amid}",
+        "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2236"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2235",
+        "pmid": "12384369",
+        "sequence": "KKAFAAAAAFAAWAAFAKKKK",
+        "name": "F21",
+        "MAP": "KKAFAAAAAFAAWAAFAKKKK{ct:Amid}",
+        "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 1.0,
+        "raw_activity": "1% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2235"
+        ]
+      },
+      {
+        "id": "2237",
+        "pmid": "12384369",
+        "sequence": "KKAFAAAAAFAAWAAFAKKKK",
+        "name": "F21",
+        "MAP": "KKAFAAAAAFAAWAAFAKKKK{ct:Amid}",
+        "chemical_key": "KKAFAAAAAFAAWAAFAKKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2237"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2238",
+        "pmid": "12384369",
+        "sequence": "KKKAAAFAAWAAFAKKK",
+        "name": "F17",
+        "MAP": "KKKAAAFAAWAAFAKKK{ct:Amid}",
+        "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2238"
+        ]
+      },
+      {
+        "id": "2240",
+        "pmid": "12384369",
+        "sequence": "KKKAAAFAAWAAFAKKK",
+        "name": "F17",
+        "MAP": "KKKAAAFAAWAAFAKKK{ct:Amid}",
+        "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2240"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2239",
+        "pmid": "12384369",
+        "sequence": "KKKAAAFAAWAAFAKKK",
+        "name": "F17",
+        "MAP": "KKKAAAFAAWAAFAKKK{ct:Amid}",
+        "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2239"
+        ]
+      },
+      {
+        "id": "2241",
+        "pmid": "12384369",
+        "sequence": "KKKAAAFAAWAAFAKKK",
+        "name": "F17",
+        "MAP": "KKKAAAFAAWAAFAKKK{ct:Amid}",
+        "chemical_key": "KKKAAAFAAWAAFAKKK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2241"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "RRRAAFAAWAAFAARRR|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2243",
+        "pmid": "12384369",
+        "sequence": "RRRAAFAAWAAFAARRR",
+        "name": "F17-R",
+        "MAP": "RRRAAFAAWAAFAARRR{ct:Amid}",
+        "chemical_key": "RRRAAFAAWAAFAARRR|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2243"
+        ]
+      },
+      {
+        "id": "2245",
+        "pmid": "12384369",
+        "sequence": "RRRAAFAAWAAFAARRR",
+        "name": "F17-R",
+        "MAP": "RRRAAFAAWAAFAARRR{ct:Amid}",
+        "chemical_key": "RRRAAFAAWAAFAARRR|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2245"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2246",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAWAAFAA",
+        "name": "F17-6K",
+        "MAP": "KKKKKKAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 1.0,
+        "raw_activity": "1% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2246"
+        ]
+      },
+      {
+        "id": "2248",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAWAAFAA",
+        "name": "F17-6K",
+        "MAP": "KKKKKKAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2248"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2247",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAWAAFAA",
+        "name": "F17-6K",
+        "MAP": "KKKKKKAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2247"
+        ]
+      },
+      {
+        "id": "2249",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAWAAFAA",
+        "name": "F17-6K",
+        "MAP": "KKKKKKAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2249"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2254",
+        "pmid": "12384369",
+        "sequence": "RRRRRRAAFAAWAAFAA",
+        "name": "F17-6R",
+        "MAP": "RRRRRRAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 3.0,
+        "raw_activity": "3% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2254"
+        ]
+      },
+      {
+        "id": "2256",
+        "pmid": "12384369",
+        "sequence": "RRRRRRAAFAAWAAFAA",
+        "name": "F17-6R",
+        "MAP": "RRRRRRAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 26.0,
+        "raw_activity": "26% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2256"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2255",
+        "pmid": "12384369",
+        "sequence": "RRRRRRAAFAAWAAFAA",
+        "name": "F17-6R",
+        "MAP": "RRRRRRAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 1.0,
+        "raw_activity": "1% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2255"
+        ]
+      },
+      {
+        "id": "2257",
+        "pmid": "12384369",
+        "sequence": "RRRRRRAAFAAWAAFAA",
+        "name": "F17-6R",
+        "MAP": "RRRRRRAAFAAWAAFAA{ct:Amid}",
+        "chemical_key": "RRRRRRAAFAAWAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 14.0,
+        "raw_activity": "14% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2257"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2258",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAAAFWAAAAF",
+        "name": "KAFW",
+        "MAP": "KKKKKKAAAAFWAAAAF{ct:Amid}",
+        "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 1.0,
+        "raw_activity": "1% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2258"
+        ]
+      },
+      {
+        "id": "2260",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAAAFWAAAAF",
+        "name": "KAFW",
+        "MAP": "KKKKKKAAAAFWAAAAF{ct:Amid}",
+        "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2260"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2259",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAAAFWAAAAF",
+        "name": "KAFW",
+        "MAP": "KKKKKKAAAAFWAAAAF{ct:Amid}",
+        "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2259"
+        ]
+      },
+      {
+        "id": "2261",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAAAFWAAAAF",
+        "name": "KAFW",
+        "MAP": "KKKKKKAAAAFWAAAAF{ct:Amid}",
+        "chemical_key": "KKKKKKAAAAFWAAAAF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2261"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2262",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAFAAFAA",
+        "name": "3F17-6K",
+        "MAP": "KKKKKKAAFAAFAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2262"
+        ]
+      },
+      {
+        "id": "2264",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAFAAFAA",
+        "name": "3F17-6K",
+        "MAP": "KKKKKKAAFAAFAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2264"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2263",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAFAAFAA",
+        "name": "3F17-6K",
+        "MAP": "KKKKKKAAFAAFAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2263"
+        ]
+      },
+      {
+        "id": "2265",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAFAAFAAFAA",
+        "name": "3F17-6K",
+        "MAP": "KKKKKKAAFAAFAAFAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAFAAFAAFAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2265"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2267",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAWAAWAAWAA",
+        "name": "W17-6K",
+        "MAP": "KKKKKKAAWAAWAAWAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2267"
+        ]
+      },
+      {
+        "id": "2269",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAWAAWAAWAA",
+        "name": "W17-6K",
+        "MAP": "KKKKKKAAWAAWAAWAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 200 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2269"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+    "pmid": "12384369",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2268",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAWAAWAAWAA",
+        "name": "W17-6K",
+        "MAP": "KKKKKKAAWAAWAAWAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2268"
+        ]
+      },
+      {
+        "id": "2270",
+        "pmid": "12384369",
+        "sequence": "KKKKKKAAWAAWAAWAA",
+        "name": "W17-6K",
+        "MAP": "KKKKKKAAWAAWAAWAA{ct:Amid}",
+        "chemical_key": "KKKKKKAAWAAWAAWAA|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 0.0,
+        "raw_activity": "0% Hemolysis at 50 µM",
+        "origin": "Synthetic peptide",
+        "supporting_database_ids": [
+          "2270"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FWGALAKGALKLIPSLFSSFSKKD|acid|free|linear|L",
+    "pmid": "14637016",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "2343",
+        "pmid": "14637016",
+        "sequence": "FWGALAKGALKLIPSLFSSFSKKD",
+        "name": "Pin2",
+        "MAP": "FWGALAKGALKLIPSLFSSFSKKD",
+        "chemical_key": "FWGALAKGALKLIPSLFSSFSKKD|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "pig",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100% Hemolysis at 50 µM",
+        "origin": "Pandinins analog (Pandinus imperator)",
+        "supporting_database_ids": [
+          "2343"
+        ]
+      },
+      {
+        "id": "2344",
+        "pmid": "14637016",
+        "sequence": "FWGALAKGALKLIPSLFSSFSKKD",
+        "name": "Pin2",
+        "MAP": "FWGALAKGALKLIPSLFSSFSKKD",
+        "chemical_key": "FWGALAKGALKLIPSLFSSFSKKD|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "guinea-pig",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100% Hemolysis at 50 µM",
+        "origin": "Pandinins analog (Pandinus imperator)",
+        "supporting_database_ids": [
+          "2344"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+    "pmid": "11739390",
+    "dose_uM": 10.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "3419",
+        "pmid": "11739390",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "Wb-moronecidin",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 11.0,
+        "raw_activity": "11% Hemolysis at 10 µM",
+        "origin": "White bass (Morone chrysops)",
+        "supporting_database_ids": [
+          "3419"
+        ]
+      },
+      {
+        "id": "3420",
+        "pmid": "11739390",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "Wb-moronecidin",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 55.0,
+        "raw_activity": "55% Hemolysis at 10 µM",
+        "origin": "White bass (Morone chrysops)",
+        "supporting_database_ids": [
+          "3420"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+    "pmid": "11739390",
+    "dose_uM": 80.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "3422",
+        "pmid": "11739390",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "Wb-moronecidin",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 80.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100% Hemolysis at 80 µM",
+        "origin": "White bass (Morone chrysops)",
+        "supporting_database_ids": [
+          "3422"
+        ]
+      },
+      {
+        "id": "3424",
+        "pmid": "11739390",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "Wb-moronecidin",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 80.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100% Hemolysis at 80 µM",
+        "origin": "White bass (Morone chrysops)",
+        "supporting_database_ids": [
+          "3424"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KLAKKLAKLAKLAKAL|amide|free|linear|L",
+    "pmid": "25030320",
+    "dose_uM": 300.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "5096",
+        "pmid": "25030320",
+        "sequence": "KLAKKLAKLAKLAKAL",
+        "name": "Modelin-5-CONH2",
+        "MAP": "KLAKKLAKLAKLAKAL{ct:Amid}",
+        "chemical_key": "KLAKKLAKLAKLAKAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 300.0,
+        "pH": null,
+        "hemolysis_percent": 12.0,
+        "raw_activity": "12 % Hemolysis at 300 µM",
+        "origin": "Synthetic",
+        "supporting_database_ids": [
+          "5096"
+        ]
+      },
+      {
+        "id": "5097",
+        "pmid": "25030320",
+        "sequence": "KLAKKLAKLAKLAKAL",
+        "name": "Modelin-5-CONH2",
+        "MAP": "KLAKKLAKLAKLAKAL{ct:Amid}",
+        "chemical_key": "KLAKKLAKLAKLAKAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 300.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2 % Hemolysis at 300 µM",
+        "origin": "Synthetic",
+        "supporting_database_ids": [
+          "5097"
+        ]
+      },
+      {
+        "id": "5098",
+        "pmid": "25030320",
+        "sequence": "KLAKKLAKLAKLAKAL",
+        "name": "Modelin-5-CONH2",
+        "MAP": "KLAKKLAKLAKLAKAL{ct:Amid}",
+        "chemical_key": "KLAKKLAKLAKLAKAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "pig",
+        "dose_uM": 300.0,
+        "pH": null,
+        "hemolysis_percent": 2.0,
+        "raw_activity": "2 % Hemolysis at 300 µM",
+        "origin": "Synthetic",
+        "supporting_database_ids": [
+          "5098"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6132",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 2.3,
+        "raw_activity": "2.3 % Hemolysis at 25 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6132"
+        ]
+      },
+      {
+        "id": "6140",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 3.1,
+        "raw_activity": "3.1 % Hemolysis at 25 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6140"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6133",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 5.6,
+        "raw_activity": "5.6 % Hemolysis at 50 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6133"
+        ]
+      },
+      {
+        "id": "6141",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 7.3,
+        "raw_activity": "7.3 % Hemolysis at 50 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6141"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6134",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 18.7,
+        "raw_activity": "18.7 % Hemolysis at 100 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6134"
+        ]
+      },
+      {
+        "id": "6142",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 20.5,
+        "raw_activity": "20.5 % Hemolysis at 100 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6142"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6135",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 29.5,
+        "raw_activity": "29.5 % Hemolysis at 200 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6135"
+        ]
+      },
+      {
+        "id": "6143",
+        "pmid": "27114317",
+        "sequence": "FLKGCWTKWYSLKPKCPF",
+        "name": "Megin 1",
+        "MAP": "FLKGCWTKWYSLKPKCPF{ct:Amid}",
+        "chemical_key": "FLKGCWTKWYSLKPKCPF|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 32.9,
+        "raw_activity": "32.9 % Hemolysis at 200 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6143"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6136",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 3.9,
+        "raw_activity": "3.9 % Hemolysis at 25 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6136"
+        ]
+      },
+      {
+        "id": "6144",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 5.6,
+        "raw_activity": "5.6 % Hemolysis at 25 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6144"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6137",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 13.7,
+        "raw_activity": "13.7 % Hemolysis at 50 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6137"
+        ]
+      },
+      {
+        "id": "6145",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 15.2,
+        "raw_activity": "15.2 % Hemolysis at 50 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6145"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6138",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 27.7,
+        "raw_activity": "27.7 % Hemolysis at 100 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6138"
+        ]
+      },
+      {
+        "id": "6146",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 36.2,
+        "raw_activity": "36.2 % Hemolysis at 100 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6146"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+    "pmid": "27114317",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6139",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 45.3,
+        "raw_activity": "45.3 % Hemolysis at 200 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6139"
+        ]
+      },
+      {
+        "id": "6147",
+        "pmid": "27114317",
+        "sequence": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "name": "Megin 2",
+        "MAP": "FFVLKFLLKWAGKVGLEHLACKFKNWC",
+        "chemical_key": "FFVLKFLLKWAGKVGLEHLACKFKNWC|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 50.3,
+        "raw_activity": "50.3 % Hemolysis at 200 µM",
+        "origin": "Skin Venoms Of Spadefoot Toad Megophrys Minor",
+        "supporting_database_ids": [
+          "6147"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+    "pmid": "28122029",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6968",
+        "pmid": "28122029",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "moro-NH2",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 25.0,
+        "raw_activity": "25 % Hemolysis at 25 µM",
+        "origin": "Hybrid Striped Bass",
+        "supporting_database_ids": [
+          "6968"
+        ]
+      },
+      {
+        "id": "6972",
+        "pmid": "28122029",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "moro-NH2",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 60.0,
+        "raw_activity": "60 % Hemolysis at 25 µM",
+        "origin": "Hybrid Striped Bass",
+        "supporting_database_ids": [
+          "6972"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+    "pmid": "28122029",
+    "dose_uM": 6.25,
+    "pH": null,
+    "records": [
+      {
+        "id": "6970",
+        "pmid": "28122029",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "moro-NH2",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 6.25,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 6.25 µM",
+        "origin": "Hybrid Striped Bass",
+        "supporting_database_ids": [
+          "6970"
+        ]
+      },
+      {
+        "id": "6974",
+        "pmid": "28122029",
+        "sequence": "FFHHIFRGIVHVGKTIHKLVTG",
+        "name": "moro-NH2",
+        "MAP": "FFHHIFRGIVHVGKTIHKLVTG{ct:Amid}",
+        "chemical_key": "FFHHIFRGIVHVGKTIHKLVTG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 6.25,
+        "pH": null,
+        "hemolysis_percent": 40.0,
+        "raw_activity": "40 % Hemolysis at 6.25 µM",
+        "origin": "Hybrid Striped Bass",
+        "supporting_database_ids": [
+          "6974"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFGHLFRGIINVGKHIHGLLSG|amide|free|linear|L",
+    "pmid": "28122029",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6979",
+        "pmid": "28122029",
+        "sequence": "FFGHLFRGIINVGKHIHGLLSG",
+        "name": "moroPC-NH2",
+        "MAP": "FFGHLFRGIINVGKHIHGLLSG{ct:Amid}",
+        "chemical_key": "FFGHLFRGIINVGKHIHGLLSG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "sheep",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 50 µM",
+        "origin": "Parachaenichthys Charcoti",
+        "supporting_database_ids": [
+          "6979"
+        ]
+      },
+      {
+        "id": "6981",
+        "pmid": "28122029",
+        "sequence": "FFGHLFRGIINVGKHIHGLLSG",
+        "name": "moroPC-NH2",
+        "MAP": "FFGHLFRGIINVGKHIHGLLSG{ct:Amid}",
+        "chemical_key": "FFGHLFRGIINVGKHIHGLLSG|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 50 µM",
+        "origin": "Parachaenichthys Charcoti",
+        "supporting_database_ids": [
+          "6981"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "GIGAVLKVLTTGLPALISWIKRKRQQ|amide|free|linear|L",
+    "pmid": "28012857",
+    "dose_uM": 5.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "6994",
+        "pmid": "28012857",
+        "sequence": "GIGAVLKVLTTGLPALISWIKRKRQQ",
+        "name": "Melittin",
+        "MAP": "GIGAVLKVLTTGLPALISWIKRKRQQ{ct:Amid}",
+        "chemical_key": "GIGAVLKVLTTGLPALISWIKRKRQQ|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 5.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 5 µM",
+        "origin": "Apis Mellifera",
+        "supporting_database_ids": [
+          "6994"
+        ]
+      },
+      {
+        "id": "6997",
+        "pmid": "28012857",
+        "sequence": "GIGAVLKVLTTGLPALISWIKRKRQQ",
+        "name": "Melittin",
+        "MAP": "GIGAVLKVLTTGLPALISWIKRKRQQ{ct:Amid}",
+        "chemical_key": "GIGAVLKVLTTGLPALISWIKRKRQQ|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 5.0,
+        "pH": null,
+        "hemolysis_percent": 80.0,
+        "raw_activity": "80 % Hemolysis at 5 µM",
+        "origin": "Apis Mellifera",
+        "supporting_database_ids": [
+          "6997"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KWKLWKKIEKWGQGIGAVLKWLTTWL|acid|free|linear|L",
+    "pmid": "28012857",
+    "dose_uM": 10.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "7005",
+        "pmid": "28012857",
+        "sequence": "KWKLWKKIEKWGQGIGAVLKWLTTWL",
+        "name": "CAM-W",
+        "MAP": "KWKLWKKIEKWGQGIGAVLKWLTTWL",
+        "chemical_key": "KWKLWKKIEKWGQGIGAVLKWLTTWL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 10 µM",
+        "origin": "Synthetic, Cecropin A / Melittin Hybrid",
+        "supporting_database_ids": [
+          "7005"
+        ]
+      },
+      {
+        "id": "7008",
+        "pmid": "28012857",
+        "sequence": "KWKLWKKIEKWGQGIGAVLKWLTTWL",
+        "name": "CAM-W",
+        "MAP": "KWKLWKKIEKWGQGIGAVLKWLTTWL",
+        "chemical_key": "KWKLWKKIEKWGQGIGAVLKWLTTWL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "horse",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 10 µM",
+        "origin": "Synthetic, Cecropin A / Melittin Hybrid",
+        "supporting_database_ids": [
+          "7008"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "INLLKIAKGIIKSL|amide|free|linear|L",
+    "pmid": "31554187",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8009",
+        "pmid": "31554187",
+        "sequence": "INLLKIAKGIIKSL",
+        "name": "EMP-AF",
+        "MAP": "INLLKIAKGIIKSL{ct:Amid}",
+        "chemical_key": "INLLKIAKGIIKSL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 50 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8009"
+        ]
+      },
+      {
+        "id": "8019",
+        "pmid": "31554187",
+        "sequence": "INLLKIAKGIIKSL",
+        "name": "EMP-AF",
+        "MAP": "INLLKIAKGIIKSL{ct:Amid}",
+        "chemical_key": "INLLKIAKGIIKSL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 50 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8019"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FDVMGIIKKIASAL|amide|free|linear|L",
+    "pmid": "31554187",
+    "dose_uM": 181.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8010",
+        "pmid": "31554187",
+        "sequence": "FDVMGIIKKIASAL",
+        "name": "EMP-EF",
+        "MAP": "FDVMGIIKKIASAL{ct:Amid}",
+        "chemical_key": "FDVMGIIKKIASAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 181.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 181 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8010"
+        ]
+      },
+      {
+        "id": "8020",
+        "pmid": "31554187",
+        "sequence": "FDVMGIIKKIASAL",
+        "name": "EMP-EF",
+        "MAP": "FDVMGIIKKIASAL{ct:Amid}",
+        "chemical_key": "FDVMGIIKKIASAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 181.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 181 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8020"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FDIMGLIKKVAGAL|amide|free|linear|L",
+    "pmid": "31554187",
+    "dose_uM": 200.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8011",
+        "pmid": "31554187",
+        "sequence": "FDIMGLIKKVAGAL",
+        "name": "EMP-ER",
+        "MAP": "FDIMGLIKKVAGAL{ct:Amid}",
+        "chemical_key": "FDIMGLIKKVAGAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 200 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8011"
+        ]
+      },
+      {
+        "id": "8021",
+        "pmid": "31554187",
+        "sequence": "FDIMGLIKKVAGAL",
+        "name": "EMP-ER",
+        "MAP": "FDIMGLIKKVAGAL{ct:Amid}",
+        "chemical_key": "FDIMGLIKKVAGAL|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 200.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 200 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8021"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "LNLKGLFKKVASLLT|acid|free|linear|L",
+    "pmid": "31554187",
+    "dose_uM": 353.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8015",
+        "pmid": "31554187",
+        "sequence": "LNLKGLFKKVASLLT",
+        "name": "Eumenitin-F",
+        "MAP": "LNLKGLFKKVASLLT",
+        "chemical_key": "LNLKGLFKKVASLLT|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 353.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 353 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8015"
+        ]
+      },
+      {
+        "id": "8025",
+        "pmid": "31554187",
+        "sequence": "LNLKGLFKKVASLLT",
+        "name": "Eumenitin-F",
+        "MAP": "LNLKGLFKKVASLLT",
+        "chemical_key": "LNLKGLFKKVASLLT|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 353.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 353 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8025"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "LNLKGLIKKVASLLN|acid|free|linear|L",
+    "pmid": "31554187",
+    "dose_uM": 530.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8016",
+        "pmid": "31554187",
+        "sequence": "LNLKGLIKKVASLLN",
+        "name": "Eumenitin-R",
+        "MAP": "LNLKGLIKKVASLLN",
+        "chemical_key": "LNLKGLIKKVASLLN|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 530.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 530 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8016"
+        ]
+      },
+      {
+        "id": "8026",
+        "pmid": "31554187",
+        "sequence": "LNLKGLIKKVASLLN",
+        "name": "Eumenitin-R",
+        "MAP": "LNLKGLIKKVASLLN",
+        "chemical_key": "LNLKGLIKKVASLLN|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 530.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 530 µM",
+        "origin": "Solitary Wasp Venoms",
+        "supporting_database_ids": [
+          "8026"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+    "pmid": "38655253",
+    "dose_uM": 10.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8499",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 10 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8499"
+        ]
+      },
+      {
+        "id": "8517",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 10.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 10 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8517"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+    "pmid": "38655253",
+    "dose_uM": 30.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8505",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 30.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 30 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8505"
+        ]
+      },
+      {
+        "id": "8523",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 30.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 30 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8523"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+    "pmid": "38655253",
+    "dose_uM": 40.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8507",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "name": "NK2",
+        "MAP": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 40.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 40 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8507"
+        ]
+      },
+      {
+        "id": "8525",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "name": "NK2",
+        "MAP": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 40.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 40 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8525"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+    "pmid": "38655253",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8510",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "name": "NK2",
+        "MAP": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 50 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8510"
+        ]
+      },
+      {
+        "id": "8528",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "name": "NK2",
+        "MAP": "EIKQKLLSYCGKLPLVKSTCEDLVKKH",
+        "chemical_key": "EIKQKLLSYCGKLPLVKSTCEDLVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 50 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8528"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+    "pmid": "38655253",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8514",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 100 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8514"
+        ]
+      },
+      {
+        "id": "8532",
+        "pmid": "38655253",
+        "sequence": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "name": "NK3",
+        "MAP": "EIKQKLLSVCDKMGLLKSLCKGMVKKH",
+        "chemical_key": "EIKQKLLSVCDKMGLLKSLCKGMVKKH|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 10.0,
+        "raw_activity": "10 % Hemolysis at 100 µM",
+        "origin": "Pig Small Intestine, Nk-Lysin-Derived",
+        "supporting_database_ids": [
+          "8532"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FIHHIIGGLFHVGKSIHDLIR|amide|free|linear|L",
+    "pmid": "29108968",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "8911",
+        "pmid": "29108968",
+        "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+        "name": "Pteroicidin-α-CONH2 or α-Pte-CONH2",
+        "MAP": "FIHHIIGGLFHVGKSIHDLIR{ct:Amid}",
+        "chemical_key": "FIHHIIGGLFHVGKSIHDLIR|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 90.0,
+        "raw_activity": "90 % Hemolysis at 50 µM",
+        "origin": "Lionfish (Pterois Volitans),Piscidin-1",
+        "supporting_database_ids": [
+          "8911"
+        ]
+      },
+      {
+        "id": "8915",
+        "pmid": "29108968",
+        "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+        "name": "α-PteCONH2",
+        "MAP": "FIHHIIGGLFHVGKSIHDLIR{ct:Amid}",
+        "chemical_key": "FIHHIIGGLFHVGKSIHDLIR|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 90.0,
+        "raw_activity": "90 % Hemolysis at 50 µM",
+        "origin": "Lionfish (Pterois Volitans),Piscidin-1",
+        "supporting_database_ids": [
+          "8915",
+          "8917"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLFSLIPSAISGLISAFKGRRKRDLN|amide|free|linear|L",
+    "pmid": "29599756",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "9020",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFKGRRKRDLN",
+        "name": "Marmelittin",
+        "MAP": "FLFSLIPSAISGLISAFKGRRKRDLN{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFKGRRKRDLN|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9020"
+        ]
+      },
+      {
+        "id": "9030",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFKGRRKRDLN",
+        "name": "Marmelittin",
+        "MAP": "FLFSLIPSAISGLISAFKGRRKRDLN{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFKGRRKRDLN|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "lizard",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 99.0,
+        "raw_activity": "99 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9030"
+        ]
+      },
+      {
+        "id": "9034",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFKGRRKRDLN",
+        "name": "Marmelittin",
+        "MAP": "FLFSLIPSAISGLISAFKGRRKRDLN{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFKGRRKRDLN|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "pigeons",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9034"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFGHLFKLATKIIPSFFRRKNQ|acid|free|linear|L",
+    "pmid": "29599756",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "9021",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSFFRRKNQ",
+        "name": "Marcin-22",
+        "MAP": "FFGHLFKLATKIIPSFFRRKNQ",
+        "chemical_key": "FFGHLFKLATKIIPSFFRRKNQ|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9021"
+        ]
+      },
+      {
+        "id": "9028",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSFFRRKNQ",
+        "name": "Marcin-22",
+        "MAP": "FFGHLFKLATKIIPSFFRRKNQ",
+        "chemical_key": "FFGHLFKLATKIIPSFFRRKNQ|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "lizard",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 99.0,
+        "raw_activity": "99 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9028"
+        ]
+      },
+      {
+        "id": "9032",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSFFRRKNQ",
+        "name": "Marcin-22",
+        "MAP": "FFGHLFKLATKIIPSFFRRKNQ",
+        "chemical_key": "FFGHLFKLATKIIPSFFRRKNQ|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "pigeons",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 40.0,
+        "raw_activity": "40 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Martensii Scorpion Species",
+        "supporting_database_ids": [
+          "9032"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FFGHLFKLATKIIPSLFQRKKE|acid|free|linear|L",
+    "pmid": "29599756",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "9022",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSLFQRKKE",
+        "name": "Meucin-22",
+        "MAP": "FFGHLFKLATKIIPSLFQRKKE",
+        "chemical_key": "FFGHLFKLATKIIPSLFQRKKE|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9022"
+        ]
+      },
+      {
+        "id": "9027",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSLFQRKKE",
+        "name": "Meucin-22",
+        "MAP": "FFGHLFKLATKIIPSLFQRKKE",
+        "chemical_key": "FFGHLFKLATKIIPSLFQRKKE|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "lizard",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 50.0,
+        "raw_activity": "50 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9027"
+        ]
+      },
+      {
+        "id": "9031",
+        "pmid": "29599756",
+        "sequence": "FFGHLFKLATKIIPSLFQRKKE",
+        "name": "Meucin-22",
+        "MAP": "FFGHLFKLATKIIPSLFQRKKE",
+        "chemical_key": "FFGHLFKLATKIIPSLFQRKKE|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "pigeons",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 45.0,
+        "raw_activity": "45 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9031"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "FLFSLIPSAISGLISAFK|amide|free|linear|L",
+    "pmid": "29599756",
+    "dose_uM": 25.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "9023",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFK",
+        "name": "MeuFSPL-1",
+        "MAP": "FLFSLIPSAISGLISAFK{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 100.0,
+        "raw_activity": "100 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9023"
+        ]
+      },
+      {
+        "id": "9029",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFK",
+        "name": "MeuFSPL-1",
+        "MAP": "FLFSLIPSAISGLISAFK{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "lizard",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 99.0,
+        "raw_activity": "99 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9029"
+        ]
+      },
+      {
+        "id": "9033",
+        "pmid": "29599756",
+        "sequence": "FLFSLIPSAISGLISAFK",
+        "name": "MeuFSPL-1",
+        "MAP": "FLFSLIPSAISGLISAFK{ct:Amid}",
+        "chemical_key": "FLFSLIPSAISGLISAFK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "pigeons",
+        "dose_uM": 25.0,
+        "pH": null,
+        "hemolysis_percent": 40.0,
+        "raw_activity": "40 % Hemolysis at 25 µM",
+        "origin": "Mesobuthus Eupeus Scorpion Species",
+        "supporting_database_ids": [
+          "9033"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK|amide|free|linear|L",
+    "pmid": "30481557",
+    "dose_uM": 300.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "9819",
+        "pmid": "30481557",
+        "sequence": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK",
+        "name": "PACAP",
+        "MAP": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK{ct:Amid}",
+        "chemical_key": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "fish",
+        "dose_uM": 300.0,
+        "pH": null,
+        "hemolysis_percent": 39.0,
+        "raw_activity": "39 % Hemolysis at 300 µM",
+        "origin": "Catfish Clarias Gariepinus",
+        "supporting_database_ids": [
+          "9819"
+        ]
+      },
+      {
+        "id": "9822",
+        "pmid": "30481557",
+        "sequence": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK",
+        "name": "PACAP",
+        "MAP": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK{ct:Amid}",
+        "chemical_key": "HSDGIFTDSYSRYRKQMAVKKYLAAVLGRRYRQRFRNK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 300.0,
+        "pH": null,
+        "hemolysis_percent": 6.0,
+        "raw_activity": "6 % Hemolysis at 300 µM",
+        "origin": "Catfish Clarias Gariepinus",
+        "supporting_database_ids": [
+          "9822"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "KFFKRLLKSVRRAVKKFRK|amide|free|linear|L",
+    "pmid": "32786271",
+    "dose_uM": 50.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "11538",
+        "pmid": "32786271",
+        "sequence": "KFFKRLLKSVRRAVKKFRK",
+        "name": "HC1",
+        "MAP": "KFFKRLLKSVRRAVKKFRK{ct:Amid}",
+        "chemical_key": "KFFKRLLKSVRRAVKKFRK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 33.0,
+        "raw_activity": "33 % Hemolysis at 50 µM",
+        "origin": "Snake Hydrophis Cyanocinctus",
+        "supporting_database_ids": [
+          "11538"
+        ]
+      },
+      {
+        "id": "11542",
+        "pmid": "32786271",
+        "sequence": "KFFKRLLKSVRRAVKKFRK",
+        "name": "HC1",
+        "MAP": "KFFKRLLKSVRRAVKKFRK{ct:Amid}",
+        "chemical_key": "KFFKRLLKSVRRAVKKFRK|amide|free|linear|L",
+        "c_terminal": "amide",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 50.0,
+        "pH": null,
+        "hemolysis_percent": 13.0,
+        "raw_activity": "13 % Hemolysis at 50 µM",
+        "origin": "Snake Hydrophis Cyanocinctus",
+        "supporting_database_ids": [
+          "11542"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "MNLVDRAILIRKRRRAALQLRDKVLRYLK|acid|free|linear|L",
+    "pmid": "36769243",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12705",
+        "pmid": "36769243",
+        "sequence": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "name": "AMP 1",
+        "MAP": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "chemical_key": "MNLVDRAILIRKRRRAALQLRDKVLRYLK|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 29.2,
+        "raw_activity": "29.2 ± 32 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12705"
+        ]
+      },
+      {
+        "id": "12708",
+        "pmid": "36769243",
+        "sequence": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "name": "AMP 1",
+        "MAP": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "chemical_key": "MNLVDRAILIRKRRRAALQLRDKVLRYLK|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rat",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 12.9,
+        "raw_activity": "12.9 ± 1.7 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12708"
+        ]
+      },
+      {
+        "id": "12711",
+        "pmid": "36769243",
+        "sequence": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "name": "AMP 1",
+        "MAP": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "chemical_key": "MNLVDRAILIRKRRRAALQLRDKVLRYLK|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 7.1,
+        "raw_activity": "7.1 ± 1.1 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12711"
+        ]
+      },
+      {
+        "id": "12714",
+        "pmid": "36769243",
+        "sequence": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "name": "AMP 1",
+        "MAP": "MNLVDRAILIRKRRRAALQLRDKVLRYLK",
+        "chemical_key": "MNLVDRAILIRKRRRAALQLRDKVLRYLK|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 22.3,
+        "raw_activity": "22.3 ± 4 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12714"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "MKRKKKILIKKVLKLKSSAY|acid|free|linear|L",
+    "pmid": "36769243",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12706",
+        "pmid": "36769243",
+        "sequence": "MKRKKKILIKKVLKLKSSAY",
+        "name": "AMP 2",
+        "MAP": "MKRKKKILIKKVLKLKSSAY",
+        "chemical_key": "MKRKKKILIKKVLKLKSSAY|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 14.9,
+        "raw_activity": "14.9 ± 14.9 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12706"
+        ]
+      },
+      {
+        "id": "12709",
+        "pmid": "36769243",
+        "sequence": "MKRKKKILIKKVLKLKSSAY",
+        "name": "AMP 2",
+        "MAP": "MKRKKKILIKKVLKLKSSAY",
+        "chemical_key": "MKRKKKILIKKVLKLKSSAY|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rat",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 5.2,
+        "raw_activity": "5.2 ± 1.9 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12709"
+        ]
+      },
+      {
+        "id": "12712",
+        "pmid": "36769243",
+        "sequence": "MKRKKKILIKKVLKLKSSAY",
+        "name": "AMP 2",
+        "MAP": "MKRKKKILIKKVLKLKSSAY",
+        "chemical_key": "MKRKKKILIKKVLKLKSSAY|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 4.6,
+        "raw_activity": "4.6 ± 0.7 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12712"
+        ]
+      },
+      {
+        "id": "12715",
+        "pmid": "36769243",
+        "sequence": "MKRKKKILIKKVLKLKSSAY",
+        "name": "AMP 2",
+        "MAP": "MKRKKKILIKKVLKLKSSAY",
+        "chemical_key": "MKRKKKILIKKVLKLKSSAY|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 8.5,
+        "raw_activity": "8.5 ± 1.4 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12715"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  },
+  {
+    "chemical_key": "MTDGRYLIKRVKKKKKAVLQLILKFL|acid|free|linear|L",
+    "pmid": "36769243",
+    "dose_uM": 100.0,
+    "pH": null,
+    "records": [
+      {
+        "id": "12707",
+        "pmid": "36769243",
+        "sequence": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "name": "AMP 3",
+        "MAP": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "chemical_key": "MTDGRYLIKRVKKKKKAVLQLILKFL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "mouse",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 50.1,
+        "raw_activity": "50.1 ± 14.4 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12707"
+        ]
+      },
+      {
+        "id": "12710",
+        "pmid": "36769243",
+        "sequence": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "name": "AMP 3",
+        "MAP": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "chemical_key": "MTDGRYLIKRVKKKKKAVLQLILKFL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rat",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 29.5,
+        "raw_activity": "29.5 ± 8.2 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12710"
+        ]
+      },
+      {
+        "id": "12713",
+        "pmid": "36769243",
+        "sequence": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "name": "AMP 3",
+        "MAP": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "chemical_key": "MTDGRYLIKRVKKKKKAVLQLILKFL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "rabbit",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 53.2,
+        "raw_activity": "53.2 ± 7.4 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12713"
+        ]
+      },
+      {
+        "id": "12716",
+        "pmid": "36769243",
+        "sequence": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "name": "AMP 3",
+        "MAP": "MTDGRYLIKRVKKKKKAVLQLILKFL",
+        "chemical_key": "MTDGRYLIKRVKKKKKAVLQLILKFL|acid|free|linear|L",
+        "c_terminal": "acid",
+        "n_terminal": "free",
+        "species": "human",
+        "dose_uM": 100.0,
+        "pH": null,
+        "hemolysis_percent": 37.0,
+        "raw_activity": "37 ± 5.1 % Hemolysis at 100 µM",
+        "origin": "Synthetic Peptide",
+        "supporting_database_ids": [
+          "12716"
+        ]
+      }
+    ],
+    "missing_controls": [
+      "time",
+      "temperature",
+      "RBC_density",
+      "buffer"
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "method": "per-group additive offsets learned using BCE plus 0.01 * sum(offset^2), bounded low [0,0.15] and high [-0.15,0]",
+  "threshold": 0.47022256531284556,
+  "test1_test2_used": false,
+  "training": "4-fold development, 1-fold evaluation; historical upstream predictions are not nested",
+  "n": 6387
+}

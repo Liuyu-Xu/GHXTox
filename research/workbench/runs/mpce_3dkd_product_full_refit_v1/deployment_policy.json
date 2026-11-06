@@ -1,0 +1,17 @@
+{
+  "artifact_type": "mpce_3dkd_deployment_policy",
+  "version": 1,
+  "model_name": "MPCE-3DKD-Product",
+  "model_version": "mpce-3dkd-product-v1",
+  "ensemble": "arithmetic mean of seed 20260905 and seed 20260906 sigmoid probabilities",
+  "decision_threshold": 0.5,
+  "display_calibration": {
+    "selected": "temperature_scaling",
+    "temperature": 2.69177508354187,
+    "fit_scope": "MPCE-3DKD two-seed averaged training OOF only; Test1/Test2 excluded",
+    "purpose": "website display probability only; raw ensemble probability is the audited model output"
+  },
+  "deployment": "sequence-only: Frozen ProtT5 -> TriStat views + PhysChem -> MPCE multi-view/low-rank cross/multi-prototype -> probability",
+  "training_only": ["outer-safe 3D teacher KD", "prototype auxiliary loss"],
+  "not_used_at_deployment": ["ESMFold", "GHXTox 3D expert", "pLDDT", "remote GPU"]
+}

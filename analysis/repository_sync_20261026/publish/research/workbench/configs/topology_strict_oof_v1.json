@@ -1,0 +1,51 @@
+{
+  "artifact_type": "ghxtox_soft_cys_topology_strict_oof_protocol",
+  "version": 1,
+  "status": "frozen_before_base_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "inputs": {
+    "processed_train_sha256": "F8A6DDF7DD81198142AD8C30A0F7926DE1967618B01720BD90CB483A45DFDB5B",
+    "outer_fold_manifest_sha256": "6293C9ECE5B0E5AB956CCF3A0DE60C7F075880667CEC98B5F5C1EF01A8290CB4",
+    "nested_manifest_sha256": "3CA8FB9B462D3B3816724E2C0F12FF303576AFFBBEF14F7C3B936BC1AD1D45BA",
+    "nested_summary_sha256": "5C53A9A8DF391B19A0AB95AF1196D3561EE2F8A0BF560368AF171C3D7EB3EEAC",
+    "sample_count": 6387,
+    "outer_folds": [0, 1, 2, 3, 4],
+    "nested_seed": 2026,
+    "inner_splits": 8
+  },
+  "base_training": {
+    "config": "configs/topology_strict_base_v1.json",
+    "config_sha256": "C0E988484D61EDC55AB309D4F37124DAF4118212C9179A75BC32B2ACE308F8BB",
+    "initialization": "scratch",
+    "epochs": 12,
+    "batch_size": 16,
+    "selection": "fixed_epoch_12; inner validation is diagnostic only",
+    "calibration_role": "excluded from base and topology fitting"
+  },
+  "topology_training": {
+    "epochs": 8,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "seed": 2026,
+    "max_distance_angstrom": 8.0,
+    "max_candidates": 8,
+    "temperature": 1.0,
+    "variants": ["local", "matching", "topology", "null"],
+    "backbone": "freeze all non-topology parameters"
+  },
+  "evaluation": {
+    "threshold": 0.5,
+    "bootstrap_resamples": 5000,
+    "bootstrap_seed": 20260904,
+    "test1_test2_selection_allowed": false,
+    "required_metrics": ["mcc", "balanced_accuracy", "auroc", "auprc", "brier", "label_standardized_error", "topology_stability", "runtime", "memory"]
+  },
+  "promotion_rule": {
+    "primary": "Topology versus baseline paired-bootstrap MCC point delta >= 0.005 and 95% lower confidence bound > 0.",
+    "non_degradation": "Topology versus baseline balanced-accuracy and AUPRC lower confidence bounds each >= -0.005; Brier upper confidence bound <= 0.002.",
+    "mechanism_control": "Topology must exceed both local and matching controls on at least one primary discrimination metric without a worse Cys>=4 label-standardized error point estimate.",
+    "decision": "If any condition fails, retain a negative feasibility result; do not change threshold, seeds, epochs, candidate count, distance limit or regularization after examining OOF."
+  }
+}

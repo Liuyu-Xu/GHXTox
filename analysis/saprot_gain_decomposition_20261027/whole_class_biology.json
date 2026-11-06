@@ -1,0 +1,859 @@
+{
+  "0": {
+    "corrected": {
+      "n": 21,
+      "features": {
+        "sequence_length": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 20.0
+        },
+        "cys_count": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "cys_span_fraction": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "net_charge_proxy": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "mean_hydropathy": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": -0.0640000000000001
+        },
+        "mean_plddt": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 0.696840048
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 0.09150326797385619
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": -0.021328265230704246
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 18,
+          "n_missing": 3,
+          "median": 0.5812551502733742
+        },
+        "nonlocal_contact_density": {
+          "n_available": 21,
+          "n_missing": 0,
+          "median": 0.1452991452991453
+        }
+      },
+      "subtypes": {
+        "threshold_alone_only": 10,
+        "either_alone_sufficient": 3,
+        "score_alone_only": 7,
+        "both_changes_required": 1
+      },
+      "curated_family_records": 5,
+      "curated_family_tokens": {
+        "belongs to the tachykinin family": 1,
+        "belongs to the ornatin family": 1,
+        "belongs to the penaeidin family": 1,
+        "belongs to the ab hydrolase superfamily. lipase family": 1,
+        "belongs to the guanylin family": 1
+      },
+      "name_proxy_tokens": {
+        "ponericin_name_class": 1,
+        "amylase_inhibitor": 1,
+        "PLA2": 1
+      },
+      "explicit_disulfide": 4,
+      "explicit_modification": 1,
+      "full_feature_record_unavailable": 15,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "antimicrobial": 3,
+        "ion_channel": 1,
+        "receptor_or_signaling": 2,
+        "hemostasis_or_proteolysis": 1,
+        "membrane_or_lysis": 1
+      },
+      "fold_counts": [
+        2,
+        3,
+        8,
+        8,
+        0
+      ]
+    },
+    "harmed": {
+      "n": 11,
+      "features": {
+        "sequence_length": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 32.0
+        },
+        "cys_count": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 2.0
+        },
+        "cys_span_fraction": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.5
+        },
+        "net_charge_proxy": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "mean_hydropathy": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.024999999999999974
+        },
+        "mean_plddt": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.645905018
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.10000152954312547
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": -0.0004003660489590444
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 9,
+          "n_missing": 2,
+          "median": 0.8420586555329993
+        },
+        "nonlocal_contact_density": {
+          "n_available": 11,
+          "n_missing": 0,
+          "median": 0.13229018492176386
+        }
+      },
+      "subtypes": {
+        "score_alone_only": 3,
+        "threshold_alone_only": 4,
+        "both_changes_required": 3,
+        "either_alone_sufficient": 1
+      },
+      "curated_family_records": 1,
+      "curated_family_tokens": {
+        "belongs to the transferrin family": 1
+      },
+      "name_proxy_tokens": {
+        "cyclotide": 1,
+        "amylase_inhibitor": 1
+      },
+      "explicit_disulfide": 1,
+      "explicit_modification": 1,
+      "full_feature_record_unavailable": 9,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "antimicrobial": 2,
+        "receptor_or_signaling": 1,
+        "hemostasis_or_proteolysis": 1
+      },
+      "fold_counts": [
+        4,
+        0,
+        4,
+        3,
+        0
+      ]
+    },
+    "both_wrong": {
+      "n": 123,
+      "features": {
+        "sequence_length": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 30.0
+        },
+        "cys_count": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 4.0
+        },
+        "cys_span_fraction": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 0.6666666666666666
+        },
+        "net_charge_proxy": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "mean_hydropathy": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": -0.3441176470588236
+        },
+        "mean_plddt": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 0.639254987
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 0.10056964180675523
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": -0.005921052631578952
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 116,
+          "n_missing": 7,
+          "median": 0.5491013404832674
+        },
+        "nonlocal_contact_density": {
+          "n_available": 123,
+          "n_missing": 0,
+          "median": 0.13174603174603175
+        }
+      },
+      "subtypes": {},
+      "curated_family_records": 62,
+      "curated_family_tokens": {
+        "belongs to the natriuretic peptide family": 3,
+        "belongs to the plant ltp family": 1,
+        "belongs to the protease inhibitor i20 (potato type ii proteinase inhibitor) family": 2,
+        "belongs to the phospholipase a2 family": 1,
+        "belongs to the peptidase c1 family": 1,
+        "belongs to the mirabilis serine proteinase inhibitor family": 2,
+        "belongs to the phenol-soluble modulin alpha peptides family": 1,
+        "belongs to the bacteriocin class iia/ygngv family": 1,
+        "belongs to the neurotoxin 17 (21c2) family": 2,
+        "belongs to the sea anemone type 1 potassium channel toxin family. type 1a subfamily": 1,
+        "belongs to the ornatin family": 2,
+        "belongs to the protease inhibitor i15 (antistasin) family": 1,
+        "belongs to the amp family": 2,
+        "belongs to the short scorpion toxin superfamily. potassium channel inhibitor family": 1,
+        "belongs to the sylv/frat/paul family": 1,
+        "belongs to the alpha-defensin family": 1,
+        "belongs to the defl family": 2,
+        "belongs to the nifq family": 1,
+        "belongs to the phospholipase a2 family. group i subfamily": 3,
+        "belongs to the phospholipase a2 family. group ii subfamily": 2,
+        "belongs to the neurotoxin 33 family": 1,
+        "belongs to the thiocillin family": 1,
+        "belongs to the neurotoxin 02 (plectoxin) family": 1,
+        "belongs to the colipase family": 1,
+        "belongs to the diapausin family": 1,
+        "belongs to the peptidase s8 family": 1,
+        "belongs to the peptidase s1 family": 2,
+        "belongs to the mcd family. mastoparan subfamily": 2,
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily": 2,
+        "belongs to the myrmexin family": 1,
+        "belongs to the phospholipase a2 family. group i subfamily. d49 sub-subfamily": 2,
+        "belongs to the true venom lectin family": 1,
+        "belongs to the phospholipase a2 family. group iii subfamily": 1,
+        "belongs to the type a lantibiotic family": 1,
+        "belongs to the bowman-birk serine protease inhibitor family": 2,
+        "belongs to the vasopressin/oxytocin family": 1,
+        "belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family": 1,
+        "belongs to the bacteriocin class v family": 1,
+        "belongs to the bradykinin-potentiating peptide family": 1,
+        "belongs to the cnf-like-inhibitor family": 1,
+        "belongs to the protease inhibitor i19 family": 1,
+        "belongs to the sea anemone bbh family": 1,
+        "belongs to the long (4 c-c) scorpion toxin superfamily. sodium channel inhibitor family. alpha subfamily": 1,
+        "belongs to the neurotoxin 02 (plectoxin) family. 09 subfamily": 1,
+        "belongs to the neurotoxin 04 (omega-agtx) family. 03 (type ii/iii omega-agtx) subfamily": 1,
+        "belongs to the folate receptor family": 1
+      },
+      "name_proxy_tokens": {
+        "amylase_inhibitor": 3,
+        "natriuretic": 3,
+        "LTP": 1,
+        "PLA2": 11,
+        "bacteriocin": 2,
+        "Kunitz": 1,
+        "conotoxin_broad": 1,
+        "defensin": 2,
+        "colipase": 1,
+        "lycosin": 2,
+        "serine_protease": 1,
+        "lectin": 1,
+        "Bowman_Birk": 2,
+        "cereal_protease_inhibitor": 1
+      },
+      "explicit_disulfide": 54,
+      "explicit_modification": 17,
+      "full_feature_record_unavailable": 15,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "receptor_or_signaling": 9,
+        "antimicrobial": 11,
+        "membrane_or_lysis": 7,
+        "hemostasis_or_proteolysis": 4,
+        "ion_channel": 1
+      },
+      "fold_counts": [
+        19,
+        29,
+        24,
+        24,
+        27
+      ]
+    },
+    "both_correct": {
+      "n": 4414,
+      "features": {
+        "sequence_length": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 33.0
+        },
+        "cys_count": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "cys_span_fraction": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "net_charge_proxy": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "mean_hydropathy": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": -0.0855400696864112
+        },
+        "mean_plddt": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 0.7366327945
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 0.043040706973627454
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": -0.006221844538017121
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 4114,
+          "n_missing": 300,
+          "median": 0.5562189360945254
+        },
+        "nonlocal_contact_density": {
+          "n_available": 4414,
+          "n_missing": 0,
+          "median": 0.09841269841269841
+        }
+      },
+      "subtypes": {},
+      "curated_family_records": 13,
+      "curated_family_tokens": {
+        "belongs to the protease inhibitor i6 (cereal trypsin/alpha-amylase inhibitor) family": 1,
+        "belongs to the ponericin-q family": 1,
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. scorpion bpp (group 1) family": 1,
+        "belongs to the invertebrate defensin family": 1,
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily": 1,
+        "belongs to the 11s seed storage protein (globulins) family": 1,
+        "belongs to the phospholipase a2 family": 1,
+        "belongs to the 14-3-3 family": 1,
+        "belongs to the methanol dehydrogenase subunit 2 family": 1,
+        "belongs to the ponericin-g family": 1,
+        "belongs to the phospholipase a2 family. group ii subfamily": 1,
+        "belongs to the fkbp-type ppiase family": 1,
+        "belongs to the insulin family": 1
+      },
+      "name_proxy_tokens": {
+        "metalloproteinase": 3,
+        "bacteriocin": 20,
+        "defensin": 17,
+        "cyclotide": 64,
+        "lectin": 19,
+        "amylase_inhibitor": 7,
+        "LTP": 7,
+        "Kunitz": 11,
+        "PLA2": 7,
+        "ponericin_name_class": 12,
+        "serine_protease": 5,
+        "cereal_protease_inhibitor": 1,
+        "L_amino_acid_oxidase": 1,
+        "conotoxin_broad": 1
+      },
+      "explicit_disulfide": 7,
+      "explicit_modification": 1,
+      "full_feature_record_unavailable": 4391,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "antimicrobial": 354,
+        "membrane_or_lysis": 134,
+        "receptor_or_signaling": 92,
+        "hemostasis_or_proteolysis": 24,
+        "ion_channel": 8
+      },
+      "fold_counts": [
+        881,
+        837,
+        881,
+        895,
+        920
+      ]
+    }
+  },
+  "1": {
+    "corrected": {
+      "n": 10,
+      "features": {
+        "sequence_length": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 37.0
+        },
+        "cys_count": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "cys_span_fraction": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "net_charge_proxy": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "mean_hydropathy": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": -0.6900000000000001
+        },
+        "mean_plddt": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 0.5892810525000001
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 0.08111398405516053
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": -0.05041277717040899
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 9,
+          "n_missing": 1,
+          "median": 0.5150513493110925
+        },
+        "nonlocal_contact_density": {
+          "n_available": 10,
+          "n_missing": 0,
+          "median": 0.07909582437626214
+        }
+      },
+      "subtypes": {
+        "threshold_alone_only": 4,
+        "either_alone_sufficient": 1,
+        "both_changes_required": 2,
+        "score_alone_only": 3
+      },
+      "curated_family_records": 6,
+      "curated_family_tokens": {
+        "belongs to the arthropod phospholipase d family. class ii subfamily": 1,
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. long chain multifunctional peptide (group 2) family": 1,
+        "belongs to the ectatomin family. ectatomin-et subfamily": 1,
+        "belongs to the natriuretic peptide family": 1,
+        "belongs to the flavin monoamine oxidase family. fig1 subfamily": 1,
+        "belongs to the long (4 c-c) scorpion toxin superfamily. sodium channel inhibitor family. beta subfamily": 1
+      },
+      "name_proxy_tokens": {
+        "tertiapin": 1,
+        "conotoxin_broad": 1,
+        "natriuretic": 1,
+        "L_amino_acid_oxidase": 1
+      },
+      "explicit_disulfide": 4,
+      "explicit_modification": 0,
+      "full_feature_record_unavailable": 2,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "ion_channel": 4,
+        "membrane_or_lysis": 3,
+        "antimicrobial": 2,
+        "receptor_or_signaling": 1,
+        "hemostasis_or_proteolysis": 2
+      },
+      "fold_counts": [
+        7,
+        0,
+        2,
+        1,
+        0
+      ]
+    },
+    "harmed": {
+      "n": 9,
+      "features": {
+        "sequence_length": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 23.0
+        },
+        "cys_count": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 2.0
+        },
+        "cys_span_fraction": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 0.17391304347826086
+        },
+        "net_charge_proxy": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": -1.0
+        },
+        "mean_hydropathy": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": -0.6608695652173914
+        },
+        "mean_plddt": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 0.667645454
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 0.06026552868658133
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 0.009040619566935356
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 7,
+          "n_missing": 2,
+          "median": 0.6078259564126344
+        },
+        "nonlocal_contact_density": {
+          "n_available": 9,
+          "n_missing": 0,
+          "median": 0.1388888888888889
+        }
+      },
+      "subtypes": {
+        "threshold_alone_only": 3,
+        "either_alone_sufficient": 3,
+        "score_alone_only": 3
+      },
+      "curated_family_records": 3,
+      "curated_family_tokens": {
+        "belongs to the short scorpion toxin superfamily. potassium channel inhibitor family. alpha-ktx 13 subfamily": 1,
+        "belongs to the waglerin family": 1,
+        "belongs to the ribosome-inactivating protein family. type 1 rip subfamily": 1
+      },
+      "name_proxy_tokens": {
+        "waglerin": 1,
+        "PLA2": 1,
+        "metalloproteinase": 1,
+        "ribosome_inactivating": 1
+      },
+      "explicit_disulfide": 2,
+      "explicit_modification": 0,
+      "full_feature_record_unavailable": 6,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "ion_channel": 2,
+        "receptor_or_signaling": 1
+      },
+      "fold_counts": [
+        1,
+        2,
+        5,
+        1,
+        0
+      ]
+    },
+    "both_wrong": {
+      "n": 189,
+      "features": {
+        "sequence_length": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 25.0
+        },
+        "cys_count": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "cys_span_fraction": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "net_charge_proxy": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 1.0
+        },
+        "mean_hydropathy": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": -0.10999999999999999
+        },
+        "mean_plddt": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 0.688185215
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 0.045238095238095244
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": -0.02200699488835081
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 176,
+          "n_missing": 13,
+          "median": 0.6109323402089875
+        },
+        "nonlocal_contact_density": {
+          "n_available": 189,
+          "n_missing": 0,
+          "median": 0.10461538461538461
+        }
+      },
+      "subtypes": {},
+      "curated_family_records": 105,
+      "curated_family_tokens": {
+        "belongs to the flavin monoamine oxidase family. fig1 subfamily": 2,
+        "belongs to the flavin monoamine oxidase family": 1,
+        "belongs to the neurotoxin 15 family. 02 (omega-actx) subfamily": 1,
+        "belongs to the ribosome-inactivating protein family. type 2 rip subfamily": 1,
+        "belongs to the mcd family. mastoparan subfamily": 4,
+        "belongs to the farp (fmrfamide related peptide) family": 3,
+        "belongs to the grammistin family. group 1 subfamily": 2,
+        "belongs to the peptidase s8 family": 1,
+        "belongs to the xylopin-like family": 1,
+        "belongs to the scolopendra toxin 7 family": 1,
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily": 4,
+        "belongs to the venom metalloproteinase (m12b) family": 2,
+        "belongs to the sylv/frat/paul family": 1,
+        "belongs to the neutral sphingomyelinase family": 1,
+        "belongs to the ribosome-inactivating protein family. type 1 rip subfamily": 3,
+        "belongs to the crisp family. venom allergen 5-like subfamily": 1,
+        "belongs to the three-finger toxin family. ancestral subfamily. boigatoxin sub-subfamily": 1,
+        "belongs to the phospholipase a2 family. group ii subfamily": 2,
+        "belongs to the venom metalloproteinase (m12b) family. p-i subfamily": 2,
+        "belongs to the poneritoxin-ae1 family": 1,
+        "belongs to the scolopendra toxin 3 family": 1,
+        "belongs to the delta-lysin family": 1,
+        "belongs to the conotoxin b superfamily": 1,
+        "belongs to the cationic peptide 04 (cupiennin) family. 10 (double chain) subfamily": 1,
+        "belongs to the arthropod phospholipase d family. class ii subfamily": 2,
+        "belongs to the crisp family": 3,
+        "belongs to the turripeptide family": 1,
+        "belongs to the mcd family. bombolitin subfamily": 2,
+        "belongs to the formicidae venom precursor-01 superfamily": 1,
+        "belongs to the bradykinin-related peptide family": 3,
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily": 3,
+        "belongs to the staphylococcal hemolytic protein family": 1,
+        "belongs to the cationic peptide 04 (cupiennin) family. 07 subfamily": 1,
+        "belongs to the ectatomin family. ectatomin-et subfamily": 1,
+        "belongs to the phospholipase a2 family. group iii subfamily": 1,
+        "belongs to the scolopendra toxin 4 family": 1,
+        "belongs to the ribosome-inactivating protein family": 1,
+        "belongs to the npy family": 1,
+        "belongs to the three-finger toxin family. short-chain subfamily. type ib cytotoxin sub-subfamily": 1,
+        "belongs to the grammistin family. group 3 subfamily": 1,
+        "belongs to the peptidase s1 family. snake venom subfamily": 2,
+        "belongs to the scolopendra toxin 9 family": 1,
+        "belongs to the venom metalloproteinase (m12b) family. p-iii subfamily. p-iiid sub-subfamily": 2,
+        "belongs to the pdgf/vegf growth factor family. snake venom vegf subfamily": 1,
+        "belongs to the venom kunitz-type family": 2,
+        "belongs to the ponericin-g family": 2,
+        "belongs to the limacoditoxin-7 family": 1,
+        "belongs to the actinoporin family. sea anemone subfamily": 5,
+        "belongs to the disintegrin-like family": 2,
+        "belongs to the limacoditoxin-1 (acp-like) family": 1,
+        "belongs to the limacoditoxin-12 family": 1,
+        "belongs to the limacoditoxin-13 family": 1,
+        "belongs to the venom kunitz-type family. sea anemone type 2 potassium channel toxin subfamily": 1,
+        "belongs to the ponericin-l family": 1,
+        "belongs to the glucagon family": 1,
+        "belongs to the neurotoxin 10 (hwtx-1) family. 67 (jztx-67) subfamily": 1,
+        "belongs to the conopeptide p-like superfamily": 2,
+        "belongs to the egf domain peptide family": 1,
+        "belongs to the bradykinin inhibitor peptide family": 1,
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily": 1,
+        "belongs to the venom metalloproteinase (m12b) family. p-iii subfamily. p-iiia sub-subfamily": 2,
+        "belongs to the phospholipase a2 family. group i subfamily": 3,
+        "belongs to the ngf-beta family": 1,
+        "belongs to the snaclec family": 1,
+        "belongs to the long chain scorpion toxin family. class 3 subfamily": 1,
+        "belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily": 1,
+        "belongs to the msdin fungal toxin family": 1,
+        "belongs to the natriuretic peptide family": 1,
+        "in the c-terminal section; belongs to the natriuretic peptide family": 1
+      },
+      "name_proxy_tokens": {
+        "serine_protease": 5,
+        "L_amino_acid_oxidase": 3,
+        "conotoxin_broad": 5,
+        "ribosome_inactivating": 7,
+        "conantokin": 2,
+        "metalloproteinase": 8,
+        "PLA2": 9,
+        "ponericin_name_class": 6,
+        "Kunitz": 4,
+        "snaclec": 2,
+        "natriuretic": 2
+      },
+      "explicit_disulfide": 22,
+      "explicit_modification": 39,
+      "full_feature_record_unavailable": 53,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "hemostasis_or_proteolysis": 21,
+        "membrane_or_lysis": 25,
+        "antimicrobial": 15,
+        "receptor_or_signaling": 19,
+        "ion_channel": 11
+      },
+      "fold_counts": [
+        28,
+        46,
+        39,
+        30,
+        46
+      ]
+    },
+    "both_correct": {
+      "n": 1610,
+      "features": {
+        "sequence_length": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 33.0
+        },
+        "cys_count": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 6.0
+        },
+        "cys_span_fraction": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.782608695652174
+        },
+        "net_charge_proxy": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "mean_hydropathy": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": -0.30941306755260245
+        },
+        "mean_plddt": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.738254756
+        },
+        "hydrophobic_contact_excess": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.09680137327262778
+        },
+        "positive_hydrophobic_contact_excess": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.0
+        },
+        "charge_hydrophobic_separation": {
+          "n_available": 1453,
+          "n_missing": 157,
+          "median": 0.5703408171576958
+        },
+        "nonlocal_contact_density": {
+          "n_available": 1610,
+          "n_missing": 0,
+          "median": 0.15295698924731183
+        }
+      },
+      "subtypes": {},
+      "curated_family_records": 10,
+      "curated_family_tokens": {
+        "belongs to the ectatomin family. ectatomin-et subfamily": 1,
+        "belongs to the staphylococcal hemolytic protein family": 1,
+        "belongs to the pardaxin family": 1,
+        "belongs to the cationic peptide 04 (cupiennin) family. 08 subfamily": 1,
+        "belongs to the scolopendra toxin 1 family": 1,
+        "belongs to the natriuretic peptide family": 1,
+        "belongs to the neurotoxin 10 (hwtx-1) family. 64 (jztx-20) subfamily": 1,
+        "belongs to the peptidase s1 family. snake venom subfamily": 1,
+        "belongs to the long (4 c-c) scorpion toxin superfamily. sodium channel inhibitor family": 2
+      },
+      "name_proxy_tokens": {
+        "conotoxin_broad": 191,
+        "PLA2": 37,
+        "ribosome_inactivating": 2,
+        "conantokin": 4,
+        "Kunitz": 5,
+        "snaclec": 9,
+        "metalloproteinase": 5,
+        "natriuretic": 13,
+        "serine_protease": 12,
+        "L_amino_acid_oxidase": 7,
+        "defensin": 1
+      },
+      "explicit_disulfide": 4,
+      "explicit_modification": 3,
+      "full_feature_record_unavailable": 1597,
+      "mechanism_candidate_mentions_excluding_negation_warning": {
+        "ion_channel": 299,
+        "receptor_or_signaling": 86,
+        "membrane_or_lysis": 23,
+        "antimicrobial": 14,
+        "hemostasis_or_proteolysis": 56
+      },
+      "fold_counts": [
+        329,
+        312,
+        310,
+        329,
+        330
+      ]
+    }
+  }
+}

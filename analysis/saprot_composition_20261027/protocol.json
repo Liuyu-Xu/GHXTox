@@ -1,0 +1,21 @@
+{
+ "stage":"before any fit in this study; exploratory hypothesis after prior perturbation findings",
+ "population":6387,
+ "evaluation":"reuse exact saved halves from saprot_explanation_20261026/crossfit_scores.npz; in each original neural heldout fold train probe on one half of groups and evaluate the other then reverse. No model, target or feature chosen by evaluation labels.",
+ "composition":"20 canonical amino-acid fractions in ACDEFGHIKLMNPQRSTVWY order plus length; all fractions and pair features from sequences only, no annotations or pLDDT",
+ "order":"400 ordered adjacent dipeptide frequencies minus expectation under uniform permutation conditional on exact counts: observed/(L-1) - (n_a*n_b - I(a=b)*n_a)/(L*(L-1)); no toxin labels or named family fields",
+ "arms":["constant_teacher","composition_linear","composition_quadratic","composition_RBF","composition_plus_order_linear","composition_order_kernel"],
+ "constant_teacher":"target mean on train half only; intercept baseline for reconstruction and fixed fusion, no features",
+ "linear":"train-half StandardScaler, centered-target Ridge alpha1; no tuning",
+ "quadratic":"explicit degree2 PolynomialFeatures include_biasFalse on raw21composition fields then train-half StandardScaler, centered-target Ridge alpha1;252 columns",
+ "RBF":"train-half standardized composition; K=exp(-squared_distance/21), alpha1; centered targets, add training mean; no gamma search",
+ "plus_order_linear":"421raw composition+residualdipeptide features, train-half StandardScaler and Ridge alpha1",
+ "order_kernel":"0.5 composition_RBF kernel +0.5 linear residual-order kernel; train-half StandardScaler on order, kernel normalized by mean train diagonal to match composition unit diagonal mass; alpha1 centered targets; no tuning",
+ "targets":"no toxicity labels for fitting. Joint independent regression targets: true frozen SaProt masked two-seed probability; mean480 SaProt features; first1024mean ProtT5 features. Scalar and multioutput targets fit independently through same ridge linear algebra. No neural/student deployment.",
+ "metrics":"teacher probability R2 and MAE (unbounded regression and clipped probability both), teacher binary decision agreement; representation skill=1-SSEprobe/SSEtrainhalfconstant, centered cosine secondary, no raw cosine claim. Also recover actual masked fusion using0.5 p_base2+0.5 clipped predicted_teacher; compare natural-label MCC/AP/FN/FP/rescue/harm to rawbase4 and actualfusion, metadata only. Constant fusion exposes trivial shrinkage.",
+ "primary_contrasts":[["composition_linear","constant_teacher"],["composition_quadratic","composition_linear"],["composition_RBF","composition_linear"],["composition_plus_order_linear","composition_linear"],["composition_order_kernel","composition_RBF"]],
+ "uncertainty":"2000 paired originalgroup bootstrap, R2scalar and feature-skill contrasts,95% and99% intervals for5 fixed contrasts per outcome family; feature families not pooled into biological significance. Five originalfold directions; conditional saved fits, no refit or external validation. Approximate classifier intervals descriptive.",
+ "practical_screen":"an arm reconstructs teacher behavior strongly only if scalarR2>=0.8, decisionagreement>=0.95, actual96rescue_recovery>=0.8, and no more errors than actualfusion+0.005*n. These thresholds are descriptive adequacy, not formal equivalence, causal attribution or method promotion. No parameter adjustment if failing.",
+ "report":"all fixed arms including negatives, lowCys positive and membrane76 errors on original sequences; any success is behavior approximation and may include dataset bias; no association deemed a biological toxicity law",
+ "guardrails":"No retraining pretrained/head networks, no external/Test1/Test2, no altered labels, no inference routing by true labels, no claim residual unexplained implies biological mechanism, no new hyperparameter or feature search, no fresh mutation encoding."
+}

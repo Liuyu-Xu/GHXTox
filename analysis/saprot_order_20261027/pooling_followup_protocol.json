@@ -1,0 +1,8 @@
+{
+ "stage":"bounded posthoc after primary sensitivity results; no additional mutations or neural training",
+ "reason":"SaProt reacts less in rescues AND harms, while input pooling differs (SaProt mean480 versus ProtT5 mean/max/std3072); avoid attributing head/summary sensitivity to biological mechanism",
+ "interventions":"same frozen two-seed baseline heads and originalfold; hold originalPhysChem9 fixed. Replace ONLY one original1024-d block at a time with mutant value (mean_only,max_only,std_only); compare all-three-changed PhysChem-clamped reference. Do not sum effects as additive because head nonlinear, hybrid features may be off-manifold.",
+ "representation":"for original/mutant mean vectors of both encoders report1-cosine and relativeL2; this compares sensitivity with same pooling family, not equal feature geometry, training objective or correctness",
+ "report":"whole four outcome roles, modes, fivefold and matched controls. Descriptive no new significance selection or best block claim. A changed head response is reliance, not superiority; low sensitivity can mean robustness or missing true sequence signals.",
+ "boundary":"no synthetic toxicity labels, no ranking/accuracy of mutants, no changed3D input, no new model deployment"
+}

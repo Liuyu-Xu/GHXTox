@@ -1,0 +1,47 @@
+{
+  "artifact_type": "ghxtox_full2795_residual_clipping",
+  "schema_version": 1,
+  "selection_scope": "training-only nested OOF",
+  "test_labels_used": false,
+  "selected_policy": "discrimination",
+  "decision": "replace_original_with_clipped_residual",
+  "parameters": {
+    "clip_pepflow": 1.5,
+    "clip_af2": 2.0
+  },
+  "fit_metrics_on_all_covered_oof": {
+    "accuracy": 0.9084078711985689,
+    "balanced_accuracy": 0.8733421109849491,
+    "precision": 0.8671328671328671,
+    "sensitivity": 0.793854033290653,
+    "specificity": 0.9528301886792453,
+    "f1": 0.8288770053475936,
+    "mcc": 0.7679050719957317,
+    "auroc": 0.9291089136607129,
+    "auprc": 0.8891437368204596,
+    "brier": 0.0842082137577689
+  },
+  "replacement_rule": "Nested full-OOF MCC must not decrease relative to original full2795, and at least one of BACC/AUROC/AUPRC must improve.",
+  "provenance": {
+    "full_manifest": {
+      "path": "D:\\dachuang2026\\ziliao\\train_cdhit080_fallback_folds.csv",
+      "sha256": "6293C9ECE5B0E5AB956CCF3A0DE60C7F075880667CEC98B5F5C1EF01A8290CB4"
+    },
+    "subset_manifest": {
+      "path": "D:\\dachuang2026\\ziliao\\multisource_1_30_full2795_folds.csv",
+      "sha256": "D77AD455ACB8372EC0A8D7D851270ABE6ACF3DA781AE20073B0C9390C5FB1C16"
+    },
+    "full_candidate": {
+      "path": "D:\\dachuang2026\\ziliao\\full_predictions.csv",
+      "sha256": "A61B965CACBB07EDAD71CCD3F77D239E78E850D4C44A9B03F0503B29C8BBDD5C"
+    },
+    "covered_base": {
+      "path": "D:\\dachuang2026\\ziliao\\covered_base_predictions.csv",
+      "sha256": "8CDAD4AC978642AA338255818737767E31422BE29CD4EF43314FD0624A1E5EB2"
+    },
+    "covered_candidate": {
+      "path": "D:\\dachuang2026\\ziliao\\covered_candidate_predictions.csv",
+      "sha256": "35D79582956908A2E7EA4B48CD92DAC593B5D428F0FAB3950C7473E14D61FC82"
+    }
+  }
+}

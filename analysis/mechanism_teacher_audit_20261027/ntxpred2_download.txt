@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>NTxPred2 - Neurotoxic Peptide Prediction</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="Neurotoxicity, Machine Learning, esm-2, ProtBERT, Embbeddings, Virtual screening, NTXpred2, prediction of neurotoxins, Webserver">
+        <meta content="" name="NTxPred2 is an advanced computational tool designed for predicting neurotoxins.">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top px-0">
+            <div class="container px-0">
+                <div class="topbar" style="background: #347aeb !important;">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-8">
+                            <div class="topbar-info d-flex flex-wrap">
+                                <a href="mailto:raghava@iiitd.ac.in" class="text-light me-4"><i class="fas fa-envelope text-white me-2"></i>raghava@iiitd.ac.in</a>
+                                <a href="tel://+9126907444" class="text-light"><i class="fas fa-phone-alt text-white me-2"></i>011-26907444</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="topbar-icon d-flex align-items-center justify-content-end">
+                                
+                                <a href="https://github.com/raghavagps" target="_blank" class="btn-square text-white me-2"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/raghavagps/" target="_blank" class="btn-square text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://scholar.google.co.in/citations?user=XK5GUiYAAAAJ&hl=en" target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-google"></i></a>
+                                <a href="mailto:raghava@iiitd.ac.in" target="_blank" class="btn-square text-white me-2"><i class="far fa-envelope"></i></a>
+                                <a href="https://www.researchgate.net/profile/Gajendra-Raghava" target="_blank" class="btn-square text-white me-2"><i class="fab fa-researchgate"></i></a>
+                                <a href="https://www.facebook.com/raghavagps" target="_blank" class="btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com" target="_blank" class="btn-square text-white me-2"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                    <a href="index.html" class="navbar-brand ms-3">
+                        <h1 class="text-primary display-5" style="color: #347aeb !important;">NTxPred2</h1>
+                    </a>
+                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="prediction.html" class="nav-item nav-link">Prediction</a>
+                            <a href="protein_scan.html" class="nav-item nav-link">Protein Scanning</a>
+                            <a href="design.html" class="nav-item nav-link">Design</a>
+                            <a href="important_tools1.html" class="nav-item nav-link">Important Tools</a>
+                            <a href="download.html" class="nav-item nav-link active" style="color: #3498eb;">Download</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">General</a>
+                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                    <a href="help.html" class="dropdown-item">Help</a>
+                                    <a href="team.html" class="dropdown-item">Team</a>
+                                    <a href="contact.html" class="dropdown-item">Contact</a>
+    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
+    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3" 
+       style="background: #347aeb; border: none;" 
+       onclick="copyCitation()">Cite us</a>  <!-- Added onclick handler -->
+</div>
+
+<!-- Add popup message HTML -->
+<div id="popup-message" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+    Citation copied
+</div>
+
+<!-- Add the script -->
+<script>
+function copyCitation() {
+    const citationText = "Rathore, A. S., Jain, S., & Raghava, G. P. (2024). Prediction of Neurotoxin Peptides. #Changes required# bioRxiv (Cold Spring Harbor Laboratory). https://doi.org/10.1101/2024.07.23.604887";
+    
+    const tempTextArea = document.createElement('textarea');
+    tempTextArea.value = citationText;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextArea);
+
+    const popup = document.getElementById('popup-message');
+    popup.style.display = 'block';
+    
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 2000);
+}
+</script>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4" style="color: #e0e0ff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">Download</h1>
+                <p class="fs-5 text-white mb-4" style="color: #e0e0ff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Standalone and pip Package</p>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Services Start -->
+                                <!-- Services Start -->
+        <div class="container-fluid about  py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                
+                    <div >
+                         
+                        <div class="tab-class bg-secondary p-4">
+                            <!-- <ul class="nav d-flex mb-2"> -->
+                                <div class="wrapper row1">
+                                    <section class="hoc container clear">
+                                        <!-- Left Column -->
+       
+        <h1 align="center" style="font-family: 'Times New Roman'; font-size: 36px; color: #2c3e50;">
+    <b>Standalone Version of NTxPred2</b>
+</h1>
+    </font>
+</div>
+
+					<td width="" align="left" margin-left ="0">
+                                        <br>
+                                        <style>
+                                                .btn {
+                                                    background: #347aeb; 
+                                                    border: none;
+                                                    color: white;
+                                                    padding: 12px 30px;
+                                                    cursor: pointer;
+                                                    font-size: 20px;
+                                                    text-transform: Capitalize;
+                                                    text-align: left;
+                                                }
+                                                
+                                                /* Darker background on mouse-over */
+                                                .btn:hover {
+                                                    background-color: #e06666 ;
+                                                }
+                                        </style>
+                                        <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+                                            <a href="download/ntxpred2.zip" class="btn" style="margin: 10px;"><i class="fa fa-download"></i> NTxPred2.zip</a>
+                                            <a href="download/Model.zip" class="btn" style="margin: 10px;"><i class="fa fa-download"></i> Model (reproducible)</a>
+                                            <a href="download/Model_whole.zip" class="btn" style="margin: 10px;"><i class="fa fa-download"></i> Model (trained on complete datatset)</a>
+                                            <a href="https://github.com/raghavagps/ntxpred2" target="_blank" class="btn" style="margin: 10px;"><i class="fa fa-download"></i> GitHub Link Standalone</a>
+                                        </div>
+                                        
+                                        <br>
+                                        
+                                        <hr style="border-top: 1px dashed black";>
+                                        <br>
+                                        <h1 align="center" style="font-family: 'Times New Roman'; font-size: 36px; color: #2c3e50;">
+    <b>Pip Installation</b>
+</h1>
+                                        <br>
+                                        <p class="lead" style="font-size: 14pt; text-align: justify;color:#301A03 ;font-family:Times New Roman;">Pip is a user-friendly tool that allows you to install and manage Python packages using minimum dependencies and commands. Therefore, for easy accessibility, we have incorporated our tool into the PyPI repository.</p>
+                                        <p class="lead" style="font-size: 14pt; text-align: justify;color:#301A03 ;font-family:Times New Roman;">The following command is required to install the package:</p>
+                                        <p class="lead" style="font-size: 14pt; text-align: justify;color:#301A03 ;font-family:Times New Roman;"><code>pip install ntxpred2</code></p>
+                                        <p class="lead" style="font-size: 14pt; text-align: justify;color:#301A03 ;font-family:Times New Roman;">To know about the classification option for the pip package, type the following command:</p>
+                                        
+                                        <p class="lead" style="font-size: 14pt; text-align: justify;color:#301A03 ;font-family:Times New Roman;"><code>ntxpred2 -h</code></p>
+                                        
+                                  
+                                        <p class="lead" style="font-size: 14pt; text-align: justify; color:#301A03; font-family: Times New Roman;">
+                                        For more detailed assistance on using the pip package and GitHub repository, <a href="https://webs.iiitd.edu.in/raghava/ntxpred2/help.html" style="color: #073ef5; text-decoration: underline;">click here</a>.
+                                        </p>
+
+                                  
+                                  <hr style="border-top: 1px dashed black";>
+                                  <br>
+                                   <h1 align="center" style="font-family: 'Times New Roman'; font-size: 36px; color: #2c3e50;">
+
+                                  
+                                  <!--<marquee width="80%" direction="left" height=200px>
+                                  Coming Soon!
+                                  </marquee> -->
+                                </section>
+                                 <div class="hoc container clear">
+    <!-- Peptide Dataset -->
+    
+<div style="background-color:#ff4d4d; padding:12px; border-radius:6px; color:white; font-weight:bold;">
+    NOTE: You can also find this tool on 
+    <a href="https://huggingface.co/raghavagps-group/NTxPred2" target="_blank" style="color:yellow; text-decoration:underline;">
+        HuggingFace
+    </a> or <a href="https://zenodo.org/records/15030415" target="_blank" style="color:yellow; text-decoration:underline;">
+        Zenodo
+    </a>
+    . <strong></strong>
+</div>    
+</div>
+<h1 align="center" style="font-family: 'Times New Roman'; font-size: 36px; color: #2c3e50;">
+    <b>Download Datasets</b>
+</h1>
+<br><br>
+
+<div class="hoc container clear">
+    <!-- Dataset Table Template -->
+    <style>
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: centre;
+            border: 2px solid #2c3e50;
+        }
+        th {
+            background: #347aeb;
+            color: white;
+            font-size: 22px;
+            font-family: 'Times New Roman';
+        }
+        td {
+            font-size: 22px;
+            color: #2c3e50;
+	    text-align: center; /* Centers text horizontally */
+            vertical-align: middle; /* Centers text vertically */
+            font-family: 'Times New Roman';
+        }
+        .icon {
+            
+            justify-content: center;
+            align-items: center;
+	    border: 2px solid #2c3e50;
+ 
+        }
+	/* Hover effect for the icon */
+    .icon a svg {
+        transition: 0.3s ease-in-out; /* Smooth transition */
+    }
+    .icon a:hover svg {
+        filter: brightness(0.7); /* Darkens the icon */
+        opacity: 0.8; /* Adds slight transparency */
+    }
+    </style>
+
+    <!-- Peptide Dataset -->
+    <table>
+        <tr>
+            <th style="width: 70%; text-align: center; vertical-align: middle;">Peptide Dataset</th>
+            <th style="width: 30%; text-align: center; vertical-align: middle;">Files</th>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Cross-validation dataset consists of <b>1403</b> peptides</td>
+            <td class="icon">
+                <a href="download/Dataset/peptides/cross_val_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Independent dataset consists of <b>351</b> peptides</td>
+            <td class="icon">
+                <a href="download/Dataset/peptides/independent_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+
+    <!-- Protein Dataset -->
+    
+    <table>
+        <tr>
+            <th style="width: 70%; text-align: center; vertical-align: middle;">Protein Dataset</th>
+            <th style="width: 30%; text-align: center; vertical-align: middle;">Files</th>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Cross-validation dataset consists of <b>1240</b> proteins</td>
+            <td class="icon">
+                <a href="download/Dataset/protein/cross_val_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Independent dataset consists of <b>310</b> proteins</td>
+            <td class="icon">
+                <a href="download/Dataset/protein/independent_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1-.708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <table>
+        <tr>
+            <th style="width: 70%; text-align: center; vertical-align: middle;">Combined Dataset (Peptide + Protein)</th>
+            <th style="width: 30%; text-align: center; vertical-align: middle;">Files</th>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Cross-validation dataset consists of <b>2643</b> peptides and proteins</td>
+            <td class="icon">
+                <a href="download/Dataset/protein/cross_val_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Independent dataset consists of <b>661</b> peptides and proteins</td>
+            <td class="icon">
+                <a href="download/Dataset/protein/independent_dataset.csv" target="_new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#347aeb" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1-.708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    
+</div>
+
+
+ 
+                                  <br><br>
+                                  
+                                  
+                                  <br>
+                                  
+                                  </td>
+                                  
+                                  </div>
+                                  <br>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                </div>                             
+                                
+        <!-- Services End -->
+        <!-- Services End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer" style="background-color: #347aeb; text-body py-0.01;">
+            <div class="container py-0.01">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-12">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white text-center" style="margin-top: 15px;">Our Services</h4>
+                            <div class="services-list">
+                                <a href="https://webs.iiitd.edu.in/raghava/ntxpred" target="_blank"><i class="fas fa-angle-right me-2"></i>NTXpred</a>
+				<a href="https://webs.iiitd.edu.in/raghava/neuropipred" target="_blank"><i class="fas fa-angle-right me-2"></i>NeuroPIpred</a>
+                                
+                                <a href="https://webs.iiitd.edu.in/raghava/toxinpred3" target="_blank"><i class="fas fa-angle-right me-2"></i>ToxinPred3.0</a>
+                                
+                                <a href="https://webs.iiitd.edu.in//raghava/hemopi2/" target="_blank"><i class="fas fa-angle-right me-2"></i>HemoPI2</a>
+                                <a href="https://webs.iiitd.edu.in/raghava/toxipred"target="_blank"><i class="fas fa-angle-right me-2"></i>ToxiPred</a>
+                                <a href="https://webs.iiitd.edu.in/raghava/toxinpred2"target="_blank"><i class="fas fa-angle-right me-2"></i>ToxinPred2.0</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright" style="background: #002b5a !important; color: white;">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#"></i></a>Thank You for Visiting</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a href="https://github.com/raghavagps" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/raghavagps/" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://scholar.google.co.in/citations?user=XK5GUiYAAAAJ&hl=en" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="fab fa-google"></i></a>
+                            <a href="mailto:raghava@iiitd.ac.in" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="far fa-envelope"></i></a>
+                            <a href="https://twitter.com" target="_blank"class="btn-hover-color btn-square text-white me-0"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.researchgate.net/profile/Gajendra-Raghava" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="fab fa-researchgate"></i></a>
+                            <a href="https://www.facebook.com/raghavagps" target="_blank"class="btn-hover-color btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 text-center text-md-end text-body">
+                        Designed By <a class="border-bottom" href="https://webs.iiitd.edu.in/raghava/index.html"target="_blank">@Raghava's Group</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+                <a href="#" class="btn btn-primary btn-md-square back-to-top"
+   style="background: #347aeb; border: none; color: white;">
+   <i class="fa fa-arrow-up" style="color: white;"></i>
+</a>
+ 
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+    </body>
+
+</html>

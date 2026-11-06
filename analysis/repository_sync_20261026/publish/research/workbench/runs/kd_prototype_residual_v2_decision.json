@@ -1,0 +1,18 @@
+{
+  "artifact_type": "kd_prototype_residual_v2_decision",
+  "version": "kpr-v2",
+  "date": "2026-09-05",
+  "decision": "stop_beta_search_not_promoted",
+  "checks": {
+    "C_vs_A_mcc_mean_delta": 0.00287,
+    "C_vs_A_required": 0.005,
+    "C_vs_B_seed2_not_lower": false,
+    "C_vs_B_mean_mcc_delta": 0.0007,
+    "C_vs_B_required": 0.002,
+    "selected_beta_concentration": "0.25"
+  },
+  "beta_search_ended": true,
+  "v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "runs/kd_proto_v2_B_seed*/manifest.json, runs/kd_proto_v2_C_seed*/manifest.json"
+}

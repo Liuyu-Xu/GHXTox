@@ -1,0 +1,29 @@
+{
+  "n_boot": 2000,
+  "seed": 20261106,
+  "resampling": "paired sequence group; not stratified by label or fold",
+  "deltas": {
+    "mcc": {
+      "estimate": 0.0035753220040555256,
+      "ci95": [
+        -0.0031615732770329586,
+        0.010350120548059682
+      ]
+    },
+    "auroc": {
+      "estimate": 0.0023272298777260447,
+      "ci95": [
+        0.0008040222126392355,
+        0.003988280562988986
+      ]
+    },
+    "auprc": {
+      "estimate": 0.0038053199145546834,
+      "ci95": [
+        0.001462376569299828,
+        0.006345623859732813
+      ]
+    }
+  },
+  "limitation": "post-hoc fixed predictions only; no training, selection, or model uncertainty"
+}

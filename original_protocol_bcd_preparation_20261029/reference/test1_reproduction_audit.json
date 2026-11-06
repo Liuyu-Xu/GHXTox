@@ -1,0 +1,11 @@
+{
+  "n": 1126,
+  "max_difference": 0.0036410465502799694,
+  "mean_difference": 0.00025658582034991743,
+  "changed_decisions": 0,
+  "MCC": 0.8704599749746912,
+  "AUPRC": 0.967431949785605,
+  "historical_MCC": 0.8704599749746912,
+  "three_d": "cached historical, not rerun from 3D weights",
+  "calibration": "refit original OOF with C=1e6"
+}

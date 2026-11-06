@@ -1,0 +1,470 @@
+[
+  {
+    "design": "sequence_edit_groups",
+    "fold": 0,
+    "model": "peptide",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.60444737474369,
+    "r2": -0.22592299477299793
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 0,
+    "model": "peptide_dose",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.683256461199534,
+    "r2": -0.23758363513293945
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 0,
+    "model": "peptide_dose_species",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.294914680767025,
+    "r2": -0.1945086046412794
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 0,
+    "model": "dose_species_only",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 25.2960356787676,
+    "r2": -0.25038576671493007
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 1,
+    "model": "peptide",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 21.486118547169465,
+    "r2": 0.10218185832482318
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 1,
+    "model": "peptide_dose",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 21.20302944694243,
+    "r2": 0.1282796782003599
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 1,
+    "model": "peptide_dose_species",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 21.14095736681672,
+    "r2": 0.1381775266757348
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 1,
+    "model": "dose_species_only",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 25.14482173854635,
+    "r2": -0.04135008901519499
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 2,
+    "model": "peptide",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.65696271255065,
+    "r2": 0.025023448936186576
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 2,
+    "model": "peptide_dose",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.409218628233845,
+    "r2": 0.03395403309508371
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 2,
+    "model": "peptide_dose_species",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.007461020702547,
+    "r2": 0.07554981643088332
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 2,
+    "model": "dose_species_only",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.729970104106965,
+    "r2": -0.12409119195199314
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 3,
+    "model": "peptide",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.727336760355225,
+    "r2": 0.036784824401559946
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 3,
+    "model": "peptide_dose",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.598781952408213,
+    "r2": 0.03721170593754586
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 3,
+    "model": "peptide_dose_species",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.47179349389718,
+    "r2": 0.06339722745769283
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 3,
+    "model": "dose_species_only",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 26.695632556597165,
+    "r2": -0.028782611749402554
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 4,
+    "model": "peptide",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.245818686537127,
+    "r2": 0.10159709360704994
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 4,
+    "model": "peptide_dose",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.77067966312488,
+    "r2": 0.14303303396308387
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 4,
+    "model": "peptide_dose_species",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 23.983527664363187,
+    "r2": 0.1322689172323197
+  },
+  {
+    "design": "sequence_edit_groups",
+    "fold": 4,
+    "model": "dose_species_only",
+    "train_rows": 2704,
+    "test_rows": 676,
+    "train_rows_purged": 0,
+    "unseen_test_species": [],
+    "mae_percentage_points": 26.90864656901907,
+    "r2": -0.016139923048003935
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 0,
+    "model": "peptide",
+    "train_rows": 2225,
+    "test_rows": 676,
+    "train_rows_purged": 479,
+    "unseen_test_species": [],
+    "mae_percentage_points": 22.073817507165888,
+    "r2": 0.07789872953374422
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 0,
+    "model": "peptide_dose",
+    "train_rows": 2225,
+    "test_rows": 676,
+    "train_rows_purged": 479,
+    "unseen_test_species": [],
+    "mae_percentage_points": 21.902975956534764,
+    "r2": 0.09827710095702391
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 0,
+    "model": "peptide_dose_species",
+    "train_rows": 2225,
+    "test_rows": 676,
+    "train_rows_purged": 479,
+    "unseen_test_species": [],
+    "mae_percentage_points": 22.02457666045315,
+    "r2": 0.08666792445025762
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 0,
+    "model": "dose_species_only",
+    "train_rows": 2225,
+    "test_rows": 676,
+    "train_rows_purged": 479,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.69620533451018,
+    "r2": -0.09021454390106198
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 1,
+    "model": "peptide",
+    "train_rows": 2123,
+    "test_rows": 676,
+    "train_rows_purged": 581,
+    "unseen_test_species": [
+      "lizard",
+      "pigeons"
+    ],
+    "mae_percentage_points": 28.201126014666645,
+    "r2": -0.2792903464466454
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 1,
+    "model": "peptide_dose",
+    "train_rows": 2123,
+    "test_rows": 676,
+    "train_rows_purged": 581,
+    "unseen_test_species": [
+      "lizard",
+      "pigeons"
+    ],
+    "mae_percentage_points": 28.831809861182183,
+    "r2": -0.31645733956452804
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 1,
+    "model": "peptide_dose_species",
+    "train_rows": 2123,
+    "test_rows": 676,
+    "train_rows_purged": 581,
+    "unseen_test_species": [
+      "lizard",
+      "pigeons"
+    ],
+    "mae_percentage_points": 27.90055918135711,
+    "r2": -0.26072542758571604
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 1,
+    "model": "dose_species_only",
+    "train_rows": 2123,
+    "test_rows": 676,
+    "train_rows_purged": 581,
+    "unseen_test_species": [
+      "lizard",
+      "pigeons"
+    ],
+    "mae_percentage_points": 30.205042151594668,
+    "r2": -0.34375818121118185
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 2,
+    "model": "peptide",
+    "train_rows": 2204,
+    "test_rows": 676,
+    "train_rows_purged": 500,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 23.535721961632735,
+    "r2": 0.1065257619554979
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 2,
+    "model": "peptide_dose",
+    "train_rows": 2204,
+    "test_rows": 676,
+    "train_rows_purged": 500,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 23.08061997323002,
+    "r2": 0.14145664107893363
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 2,
+    "model": "peptide_dose_species",
+    "train_rows": 2204,
+    "test_rows": 676,
+    "train_rows_purged": 500,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 23.20274787407887,
+    "r2": 0.13584952196067468
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 2,
+    "model": "dose_species_only",
+    "train_rows": 2204,
+    "test_rows": 676,
+    "train_rows_purged": 500,
+    "unseen_test_species": [
+      "dog"
+    ],
+    "mae_percentage_points": 26.920911906301644,
+    "r2": -0.07853715771317815
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 3,
+    "model": "peptide",
+    "train_rows": 2167,
+    "test_rows": 676,
+    "train_rows_purged": 537,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.428115796305704,
+    "r2": 0.11143634811966618
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 3,
+    "model": "peptide_dose",
+    "train_rows": 2167,
+    "test_rows": 676,
+    "train_rows_purged": 537,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.364691393487508,
+    "r2": 0.12727106203262628
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 3,
+    "model": "peptide_dose_species",
+    "train_rows": 2167,
+    "test_rows": 676,
+    "train_rows_purged": 537,
+    "unseen_test_species": [],
+    "mae_percentage_points": 20.22938645285326,
+    "r2": 0.1407244150007636
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 3,
+    "model": "dose_species_only",
+    "train_rows": 2167,
+    "test_rows": 676,
+    "train_rows_purged": 537,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.16423728861705,
+    "r2": -0.013538611626555452
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 4,
+    "model": "peptide",
+    "train_rows": 2173,
+    "test_rows": 676,
+    "train_rows_purged": 531,
+    "unseen_test_species": [],
+    "mae_percentage_points": 19.78831513477753,
+    "r2": 0.16411086827974875
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 4,
+    "model": "peptide_dose",
+    "train_rows": 2173,
+    "test_rows": 676,
+    "train_rows_purged": 531,
+    "unseen_test_species": [],
+    "mae_percentage_points": 19.71687034977545,
+    "r2": 0.17467724398814644
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 4,
+    "model": "peptide_dose_species",
+    "train_rows": 2173,
+    "test_rows": 676,
+    "train_rows_purged": 531,
+    "unseen_test_species": [],
+    "mae_percentage_points": 19.808911100868126,
+    "r2": 0.17391503149609933
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "fold": 4,
+    "model": "dose_species_only",
+    "train_rows": 2173,
+    "test_rows": 676,
+    "train_rows_purged": 531,
+    "unseen_test_species": [],
+    "mae_percentage_points": 24.317567873786455,
+    "r2": -0.04714793278780771
+  }
+]

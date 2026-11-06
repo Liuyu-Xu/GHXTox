@@ -1,0 +1,36 @@
+{
+  "fusion_3Di4": {
+    "persistent_wrong": {
+      "n_pairs": 12,
+      "support": {
+        "sequence_only": 8,
+        "name_class_proxy": 3,
+        "curated_family": 1
+      }
+    },
+    "persistent_correct": {
+      "n_pairs": 28,
+      "support": {
+        "name_class_proxy": 5,
+        "sequence_only": 22,
+        "curated_family": 1
+      }
+    }
+  },
+  "fusion_masked4": {
+    "persistent_wrong": {
+      "n_pairs": 11,
+      "support": {
+        "sequence_only": 9,
+        "name_class_proxy": 2
+      }
+    },
+    "persistent_correct": {
+      "n_pairs": 35,
+      "support": {
+        "name_class_proxy": 5,
+        "sequence_only": 30
+      }
+    }
+  }
+}

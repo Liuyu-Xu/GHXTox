@@ -1,0 +1,105 @@
+{
+  "artifact_type": "representation_shootout_v1",
+  "phase": "PepBERT-small/large frozen-encoder TriStat-MLP benchmark",
+  "version": "v1-0",
+  "status": "frozen_before_pepbert_feature_generation",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "ProtTox-3DKD v1": "immutable strict baseline; no code/checkpoint modification",
+    "frontend_change_allowed": false
+  },
+  "question": "Is a lightweight peptide-specific encoder representation (PepBERT-small/large, UniParc) better than the current frozen ProtT5 representation under the same TriStat+PhysChem+MLP protocol?",
+  "data": {
+    "train_records": 6387,
+    "fold_manifest": "D:\\dachuang2026\\GHXTox\\data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+    "fold_manifest_sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe",
+    "group_folds": "cdhit/group-aware audited folds; exactly folds 0-4",
+    "test_sets": "Test1/Test2 labels are never read"
+  },
+  "arms": {
+    "A": {
+      "encoder": "Frozen ProtT5 (prot_t5_xl_half_uniref50-enc), existing audited cache",
+      "cache": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\features.pt",
+      "cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+      "reference_runs": {
+        "seed20260905": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1",
+        "seed20260906": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_seed20260906_v1"
+      }
+    },
+    "B": {
+      "encoder": "Frozen PepBERT-small-UniParc (dzjxzyd/PepBERT-small-UniParc)",
+      "repo_sha256": "6a44918841d77f34e95e1202131281bfc19d6cbd",
+      "local_dir": "D:\\dachuang2026\\ziliao\\pepbert_small_UniParc",
+      "checkpoint_file": "tmodel_16.pt",
+      "checkpoint_sha256": "dcd287668e50141e6f11b43e9ef797200357ce27b396e9da685a585ef2bd272b",
+      "embedding_dim": 160,
+      "seq_len": 52,
+      "parameters": 1861469,
+      "feature_cache": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_features.pt"
+    },
+    "C": {
+      "encoder": "Frozen PepBERT-large-UniParc (dzjxzyd/PepBERT-large-UniParc)",
+      "repo_sha256": "7b0cbb2f925d05c9fca42c63c1712f94200fdb41",
+      "local_dir": "D:\\dachuang2026\\ziliao\\pepbert_large_UniParc",
+      "checkpoint_file": "tmodel_17.pt",
+      "checkpoint_sha256": "06bfab35c36d66a5ca875e6381b3a59eb982ef9d69ed905cfeeff592a4551a60",
+      "embedding_dim": 320,
+      "seq_len": 52,
+      "parameters": 4947869,
+      "feature_cache": "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_features.pt"
+    }
+  },
+  "feature_contract": {
+    "tokenization": "official PepBERT usage: [SOS] + character ids + [EOS], [PAD]-padded batches with PAD masked in encoder attention",
+    "residue_extraction": "drop SOS/EOS, keep exactly len(sequence) residue embeddings",
+    "pooling": "identical ghxtox tristat_pool: masked mean, max, population std over residues",
+    "physchem": "identical 9 deterministic descriptors",
+    "feature_order": "tristat(3*embedding_dim) concat physchem(9)",
+    "no_kd": true,
+    "no_3d": true,
+    "no_fancy_head": true
+  },
+  "training": {
+    "protocol": "exact existing ProtTox-TSK MLP pipeline (scripts/train_prottox_tsk.py), reused unchanged for B/C",
+    "head": "TriStatMLPHead: LayerNorm -> Linear(192) -> GELU -> Dropout(0.10) -> Linear(1)",
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "optimizer": "AdamW weight_decay=1e-4",
+    "batch": "full-batch per epoch, exactly as existing A runs",
+    "dropout": 0.1,
+    "seeds": [20260905, 20260906],
+    "per_fold_seed": "run_seed + fold",
+    "threshold": 0.5,
+    "folds": 5,
+    "output_dirs": {
+      "pepbert_small_uniparc": [
+        "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_seed20260905_v1",
+        "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_small_uniparc_seed20260906_v1"
+      ],
+      "pepbert_large_uniparc": [
+        "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_seed20260905_v1",
+        "D:\\dachuang2026\\GHXTox\\runs\\representation_shootout_v1\\pepbert_large_uniparc_seed20260906_v1"
+      ]
+    }
+  },
+  "metrics": {
+    "primary": ["mcc", "auprc", "brier"],
+    "secondary": ["auroc", "balanced_accuracy", "f1", "per-fold metrics"],
+    "operational": ["embedding generation time", "model parameters", "peak CUDA memory"],
+    "reference_context": "ProtTox-3DKD v1 OOF MCC 0.82631 / AUPRC 0.94294 / Brier 0.05764 is context only; not the shootout gate"
+  },
+  "continue_gate": {
+    "baseline": "A0 no-KD TriStat-MLP mean over seeds 20260905/20260906",
+    "per_candidate_requirements": {
+      "mean_mcc_not_lower_than_A": true,
+      "max_mean_auprc_decline_vs_A": 0.002,
+      "max_mean_brier_increase_vs_A": 0.002,
+      "minimum_primary_improvement": 0.002,
+      "improvement_metric": "at least one of mean MCC increase, mean AUPRC increase, or mean Brier decrease"
+    },
+    "fold_stability_report": "report 5-fold and 2-seed detail; do not post-hoc select folds",
+    "decision": "If B or C passes, continue with AMT-PepTox design on the better encoder only. If neither passes, stop the PepBERT representation line and do not spend further effort."
+  },
+  "promotion_gate_for_product": "not applicable; this is a representation diagnostic, not a product replacement. ProtTox-3DKD v1 remains the deployment baseline."
+}

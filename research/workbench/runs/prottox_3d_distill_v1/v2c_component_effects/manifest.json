@@ -1,0 +1,49 @@
+{
+  "artifact_type": "prottox_3dkd_v2c_component_effects",
+  "version": "v2c-1",
+  "definition": {
+    "full": "teacher_k normal forward",
+    "no_chem": "same checkpoint, chemical_site_branch=False, strict load allows only missing chemical_site_branch.* keys",
+    "no_geo": "fusion forward pre-hook zeroes spatial_h (structure channel, includes chemical residual because chemical branch is nested in spatial_h)",
+    "no_chem_no_geo": "no_chem model with the same no_geo fusion hook",
+    "delta_chem": "z_full - z_no_chem",
+    "delta_structure_total": "z_full - z_no_geo",
+    "delta_geo_conditional": "z_no_chem - z_no_chem_no_geo",
+    "terminology": "teacher component intervention effects; not causal/biological structure contributions"
+  },
+  "exports": [
+    {
+      "outer_fold": 0,
+      "file": "v2c_component_effects_outer0.pt",
+      "sha256": "c2250944bb8c7a5e58ecd0c2f7c5762bccd54ef94d91d1b9e61cf7132cd7d22b",
+      "checkpoint_sha256": "b361dbd9152e61f11e5d8bcdae79848dcdb0962169e717685d21890e94ecccb0"
+    },
+    {
+      "outer_fold": 1,
+      "file": "v2c_component_effects_outer1.pt",
+      "sha256": "73a67e58f7cd3c7a1dc9e4b93c4f530fa599f74763b491a7c8cf309593f0fe15",
+      "checkpoint_sha256": "88f4c4b41473cdc860455cd9c8035c2f65fe7768c855116165dfcf911899d168"
+    },
+    {
+      "outer_fold": 2,
+      "file": "v2c_component_effects_outer2.pt",
+      "sha256": "e77a62bbe23617b2b5e7bb1fb0e4ad830e985825347947e14692ea9b9df03fb9",
+      "checkpoint_sha256": "a4f1303a7f8bd5979917210f25a9cd8c47fc6fa81e2c38156b1512c2603dd745"
+    },
+    {
+      "outer_fold": 3,
+      "file": "v2c_component_effects_outer3.pt",
+      "sha256": "991e7aca45eeb1665364feae53b6a0fa4e196f921003a57e7bae611b6a17ff78",
+      "checkpoint_sha256": "0feb21d7a1333996852dbdb83d6ea6d2cb88380ad40e6862e0d5935418c130a0"
+    },
+    {
+      "outer_fold": 4,
+      "file": "v2c_component_effects_outer4.pt",
+      "sha256": "555479293c2278cd352657ca2ef204d7e466553789beda0635baf15be4304471",
+      "checkpoint_sha256": "01e23a6d23afabd0ebbc2123f8b68a8ec166b4cb621f593d81598087c08430d2"
+    }
+  ],
+  "selection_scope": "training diagnostic only; Test1/Test2 excluded",
+  "elapsed_seconds": 255.56461649999255,
+  "device": "cuda"
+}

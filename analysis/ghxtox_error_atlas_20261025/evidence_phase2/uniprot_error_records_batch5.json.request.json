@@ -1,0 +1,25 @@
+{
+  "retrieved_utc": "2026-10-25T05:44:20.030287+00:00",
+  "url": "https://rest.uniprot.org/uniprotkb/stream?query=accession%3AP31859+OR+accession%3AP40765+OR+accession%3AP55936+OR+accession%3AP56610+OR+accession%3AP83061+OR+accession%3AP84013+OR+accession%3AP85146+OR+accession%3AP86528+OR+accession%3AQ7M3C4+OR+accession%3AP80612+OR+accession%3AP85493+OR+accession%3AP85896&format=json",
+  "headers": {
+    "Vary": "accept,accept-encoding,x-uniprot-release,x-api-deployment-date, User-Agent, Accept-Encoding",
+    "Cache-Control": "public, max-age=43200",
+    "Content-Type": "application/json",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date",
+    "X-API-Deployment-Date": "15-October-2026",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Date": "Sun, 25 Oct 2026 05:44:19 GMT",
+    "Access-Control-Max-Age": "1728000",
+    "X-UniProt-Release": "2026_03",
+    "Transfer-Encoding": "chunked",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "keep-alive",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "X-UniProt-Release-Date": "02-September-2026"
+  },
+  "sha256": "d6ca1b8c07c43ede17287ebf6631f732092c40ea9ae6a9f53d2393610ce46cc1",
+  "purpose": "sequence identity and annotation recovery, not gold toxicity labeling"
+}

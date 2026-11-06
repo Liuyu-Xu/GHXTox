@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schemastore.org/schema",
+  "$id": "https://internal/mpce-3dkd/evidence-schema/v1.0",
+  "title": "MPCE-3DKD Evidence Schema v1.0",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "sequence",
+    "evidence_schema_version",
+    "model_architecture",
+    "model_version",
+    "prototype_profile_version",
+    "prototype_profile_sha256",
+    "analysis_level",
+    "prediction",
+    "probability",
+    "calibrated_probability",
+    "decision_threshold",
+    "prototype_evidence",
+    "cross_view_evidence",
+    "perturbation_stability",
+    "evidence_record",
+    "provenance"
+  ],
+  "properties": {
+    "sequence": {"type": "string"},
+    "evidence_schema_version": {"const": "1.0"},
+    "model_architecture": {"type": "string"},
+    "model_version": {"type": "string"},
+    "prototype_profile_version": {"type": ["string", "null"]},
+    "prototype_profile_sha256": {"type": ["string", "null"]},
+    "analysis_level": {"enum": ["base", "detailed"]},
+    "prediction": {"enum": ["Toxic", "Non-toxic"]},
+    "probability": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "calibrated_probability": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "decision_threshold": {"const": 0.5},
+    "prototype_evidence": {
+      "type": "object",
+      "required": ["per_seed", "representative_seed", "dominant_side", "dominant_pattern_id", "dominant_pattern_similarity", "dominant_model_associated_pattern", "interpretation_note"],
+      "properties": {
+        "per_seed": {"type": "object"},
+        "representative_seed": {"type": "string"},
+        "dominant_side": {"enum": ["toxic", "non_toxic"]},
+        "dominant_pattern_id": {"type": ["string", "null"]},
+        "dominant_pattern_similarity": {"type": ["number", "null"]},
+        "dominant_model_associated_pattern": {"type": ["string", "null"]},
+        "interpretation_note": {"type": "string"}
+      }
+    },
+    "cross_view_evidence": {
+      "type": "object",
+      "required": ["branch_removal_delta", "dominant_interaction", "dominant_removal_delta", "support_count", "support_fraction", "interpretation_note"],
+      "properties": {
+        "branch_removal_delta": {
+          "type": "object",
+          "properties": {
+            "mean_max": {"type": "number"},
+            "mean_std": {"type": "number"},
+            "max_std": {"type": "number"},
+            "sequence_physchem": {"type": "number"}
+          }
+        },
+        "dominant_interaction": {"enum": ["mean_max", "mean_std", "max_std", "sequence_physchem"]},
+        "dominant_removal_delta": {"type": ["number", "null"]},
+        "support_count": {"type": "integer", "minimum": 0, "maximum": 4},
+        "support_fraction": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "interpretation_note": {"type": "string"}
+      }
+    },
+    "perturbation_stability": {
+      "type": "object",
+      "required": ["analysis_performed"],
+      "properties": {
+        "analysis_performed": {"type": "boolean"},
+        "prediction_stability_score": {"type": ["number", "null"]},
+        "prediction_stability_label": {"enum": ["high", "moderate", "low", "not_computed"]},
+        "mean_abs_probability_delta": {"type": ["number", "null"]},
+        "max_abs_probability_shift": {"type": ["number", "null"]},
+        "label_flip_count": {"type": "integer", "minimum": 0},
+        "position_count": {"type": "integer", "minimum": 0},
+        "most_sensitive_positions": {"type": "array"},
+        "largest_probability_shift": {"type": ["object", "null"]},
+        "direction": {"enum": ["increases_toxicity_probability", "decreases_toxicity_probability", "no_change"]},
+        "position_analysis": {"type": "array"},
+        "decision_rules": {"type": "object"}
+      }
+    },
+    "evidence_record": {
+      "type": "object",
+      "required": ["probability_margin", "cross_view_support_fraction", "perturbation_stability", "evidence_consistency", "review_recommended", "review_priority", "reason", "note", "decision_rules"],
+      "properties": {
+        "probability_margin": {"type": "number"},
+        "cross_view_support_fraction": {"type": "number"},
+        "perturbation_stability": {"enum": ["high", "moderate", "low", "not_computed"]},
+        "evidence_consistency": {"enum": ["high", "moderate", "low"]},
+        "review_recommended": {"type": "boolean"},
+        "review_priority": {"enum": ["routine", "high"]},
+        "reason": {"type": "array", "items": {"type": "string"}},
+        "note": {"type": "string"},
+        "decision_rules": {"type": "object"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["teacher_used_during_inference", "structural_input_used_during_inference", "esmfold_used_during_inference"],
+      "properties": {
+        "teacher_used_during_inference": {"const": false},
+        "structural_input_used_during_inference": {"const": false},
+        "esmfold_used_during_inference": {"const": false}
+      }
+    }
+  }
+}

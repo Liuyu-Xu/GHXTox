@@ -1,0 +1,279 @@
+{
+  "summary": {
+    "database_blocks": 19,
+    "distinct_backbones": 7,
+    "distinct_pmid_identifiers": 6,
+    "distinct_state_pairs": 7,
+    "all_same_nonempty_SMILES": 19,
+    "single_terminal_field_difference_blocks": 19,
+    "scope": "parent verified metadata only; no effect-direction ranking or molecular design; subagent was interrupted by safety review"
+  },
+  "blocks": [
+    {
+      "record_ids": [
+        "1829",
+        "1833"
+      ],
+      "sequence": "KKLFKKILKFL",
+      "pmid": "17980935",
+      "species": "human",
+      "dose_uM": 50.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "1843",
+        "1847"
+      ],
+      "sequence": "KKLFKKILKFL",
+      "pmid": "17980935",
+      "species": "human",
+      "dose_uM": 100.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "2459",
+        "2468"
+      ],
+      "sequence": "KNWKGIAGMAKKLLGKNWKLM",
+      "pmid": "10879468",
+      "species": "human",
+      "dose_uM": 10.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "7041",
+        "7042"
+      ],
+      "sequence": "MLKKFRGMF",
+      "pmid": "28230084",
+      "species": "human",
+      "dose_uM": 50.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "7043",
+        "7044"
+      ],
+      "sequence": "WMLKKFRGMF",
+      "pmid": "28230084",
+      "species": "human",
+      "dose_uM": 50.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "7045",
+        "7046"
+      ],
+      "sequence": "MLKKFRGMF",
+      "pmid": "28230084",
+      "species": "human",
+      "dose_uM": 100.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "7047",
+        "7048"
+      ],
+      "sequence": "WMLKKFRGMF",
+      "pmid": "28230084",
+      "species": "human",
+      "dose_uM": 100.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "8912",
+        "8915"
+      ],
+      "sequence": "FIHHIIGGLFHVGKSIHDLIR",
+      "pmid": "29108968",
+      "species": "fish",
+      "dose_uM": 50.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "11996",
+        "12006"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 1.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "11997",
+        "12007"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 2.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "11998",
+        "12008"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 4.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "11999",
+        "12009"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 8.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12000",
+        "12010"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 16.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12001",
+        "12011"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 32.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12002",
+        "12012"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 64.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12003",
+        "12013"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 128.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12004",
+        "12014"
+      ],
+      "sequence": "FIRRIARLLRRIF",
+      "pmid": "34361810",
+      "species": "sheep",
+      "dose_uM": 256.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12226",
+        "12229"
+      ],
+      "sequence": "WLRRIKAWLRRIKA",
+      "pmid": "34819923",
+      "species": "horse",
+      "dose_uM": 150.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    },
+    {
+      "record_ids": [
+        "12288",
+        "12291"
+      ],
+      "sequence": "WLRRIKAWLRRIKA",
+      "pmid": "34819923",
+      "species": "horse",
+      "dose_uM": 375.0,
+      "same_nonempty_SMILES": true,
+      "exactly_one_terminal_field_changed": true,
+      "reported_pH": null,
+      "pH_unknown_not_proof_of_matching": true
+    }
+  ]
+}

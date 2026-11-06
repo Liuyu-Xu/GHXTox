@@ -1,0 +1,1146 @@
+[
+  {
+    "name": "W1",
+    "sequence": "WLKKLLKKLLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 59.82587136060239,
+        "lower": 57.932380236342034,
+        "upper": 61.71936248486275,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 82.73209904718435,
+        "lower": 82.02621669424317,
+        "upper": 83.43798140012552,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 759.7910343856579,
+        "lower": 745.2749053533998,
+        "upper": 774.307163417916,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 22.77700678579291,
+        "lower": 22.040810466774506,
+        "upper": 23.513203104811314,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 16.795555257793133,
+        "lower": 16.05935893877473,
+        "upper": 17.531751576811537,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 26.539532746954066,
+        "lower": 25.803336427935662,
+        "upper": 27.27572906597247,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 32.825735251632295,
+        "lower": 32.084994510891555,
+        "upper": 33.566475992373036,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 24.671809094586013,
+        "lower": 23.931068353845273,
+        "upper": 25.412549835326754,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 30.690183162882086,
+        "lower": 29.949442422141345,
+        "upper": 31.430923903622826,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 5.981451527999777,
+      "lower": 4.509058889962969,
+      "upper": 7.4538441660365855,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W2",
+    "sequence": "KWLKKLLKKLL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 16,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 76.58675727018635,
+        "lower": 74.693266145926,
+        "upper": 78.4802483944467,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 85.76701660295544,
+        "lower": 85.06113425001426,
+        "upper": 86.47289895589661,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 802.0106536090859,
+        "lower": 787.4945245768279,
+        "upper": 816.526782641344,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 24.32060718011544,
+        "lower": 23.584410861097037,
+        "upper": 25.056803499133846,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 20.558081218954285,
+        "lower": 19.82188489993588,
+        "upper": 21.29427753797269,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 30.302058708115197,
+        "lower": 29.565862389096793,
+        "upper": 31.0382550271336,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 32.825735251632295,
+        "lower": 32.084994510891555,
+        "upper": 33.566475992373036,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 24.089385797654156,
+        "lower": 23.348645056913416,
+        "upper": 24.830126538394897,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 33.408158548564195,
+        "lower": 32.667417807823455,
+        "upper": 34.148899289304936,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 3.762525961161156,
+      "lower": 2.2901333231243477,
+      "upper": 5.2349185991979645,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W3",
+    "sequence": "LKWLKKLLKKL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 21.036392541279515,
+        "lower": 19.14290141701916,
+        "upper": 22.92988366553987,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 77.10857534090262,
+        "lower": 76.40269298796144,
+        "upper": 77.81445769384379,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 528.5009464660056,
+        "lower": 513.9848174337476,
+        "upper": 543.0170754982637,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 21.619306490051013,
+        "lower": 20.88311017103261,
+        "upper": 22.355502809069417,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 18.91800579998661,
+        "lower": 18.181809480968205,
+        "upper": 19.654202119005014,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 22.77700678579291,
+        "lower": 22.040810466774506,
+        "upper": 23.513203104811314,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 24.089385797654156,
+        "lower": 23.348645056913416,
+        "upper": 24.830126538394897,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 25.254232391517874,
+        "lower": 24.513491650777134,
+        "upper": 25.994973132258615,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 23.02160975327903,
+        "lower": 22.28086901253829,
+        "upper": 23.76235049401977,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 2.7013006900644037,
+      "lower": 1.2289080520275952,
+      "upper": 4.173693328101212,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W4",
+    "sequence": "LLKWLKKLLKK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 4.514947858975311,
+        "lower": 2.6214567347149558,
+        "upper": 6.408438983235666,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 63.719233183088946,
+        "lower": 63.01335083014777,
+        "upper": 64.42511553603012,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 339.43047776978193,
+        "lower": 324.9143487375239,
+        "upper": 353.94660680204,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 15.734329986696405,
+        "lower": 14.998133667678001,
+        "upper": 16.47052630571481,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 15.155479838825457,
+        "lower": 14.419283519807053,
+        "upper": 15.891676157843861,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 20.075706095728506,
+        "lower": 19.339509776710102,
+        "upper": 20.81190241474691,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 21.953833708903908,
+        "lower": 21.213092968163167,
+        "upper": 22.694574449644648,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 17.585658981914857,
+        "lower": 16.844918241174117,
+        "upper": 18.326399722655598,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 25.254232391517874,
+        "lower": 24.513491650777134,
+        "upper": 25.994973132258615,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 0.5788501478709485,
+      "lower": -0.89354249016586,
+      "upper": 2.051242785907757,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W5",
+    "sequence": "KLLKWLKKLLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 22.473039904958142,
+        "lower": 20.579548780697788,
+        "upper": 24.366531029218496,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 70.41390426199578,
+        "lower": 69.70802190905461,
+        "upper": 71.11978661493696,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 517.4871327555459,
+        "lower": 502.9710037232878,
+        "upper": 532.0032617878039,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 18.91800579998661,
+        "lower": 18.181809480968205,
+        "upper": 19.654202119005014,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 15.155479838825457,
+        "lower": 14.419283519807053,
+        "upper": 15.891676157843861,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 23.838232056889638,
+        "lower": 23.102035737871233,
+        "upper": 24.57442837590804,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 26.80736118333622,
+        "lower": 26.06662044259548,
+        "upper": 27.54810192407696,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 19.8182816201537,
+        "lower": 19.07754087941296,
+        "upper": 20.559022360894442,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 27.97220777719998,
+        "lower": 27.23146703645924,
+        "upper": 28.71294851794072,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 3.7625259611611526,
+      "lower": 2.290133323124344,
+      "upper": 5.234918599197961,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W6",
+    "sequence": "KKLLKWLKKLL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 32.29013022342874,
+        "lower": 30.396639099168386,
+        "upper": 34.1836213476891,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 79.16160780510072,
+        "lower": 78.45572545215954,
+        "upper": 79.86749015804189,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 497.2951409530368,
+        "lower": 482.77901192077877,
+        "upper": 511.81126998529487,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 18.43563067676083,
+        "lower": 17.699434357742426,
+        "upper": 19.171826995779234,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 21.619306490051013,
+        "lower": 20.88311017103261,
+        "upper": 22.355502809069417,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 24.89945732798639,
+        "lower": 24.163261008967986,
+        "upper": 25.635653647004794,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 26.80736118333622,
+        "lower": 26.06662044259548,
+        "upper": 27.54810192407696,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 27.389784480268123,
+        "lower": 26.649043739527382,
+        "upper": 28.130525221008863,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 30.690183162882086,
+        "lower": 29.949442422141345,
+        "upper": 31.430923903622826,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": -3.183675813290183,
+      "lower": -4.656068451326991,
+      "upper": -1.7112831752533744,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W7",
+    "sequence": "LKKLLKWLKKL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 8.585448722731426,
+        "lower": 6.691957598471071,
+        "upper": 10.478939846991782,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 75.50185428196497,
+        "lower": 74.79597192902379,
+        "upper": 76.20773663490614,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 466.08933544006754,
+        "lower": 451.5732064078095,
+        "upper": 480.6054644723256,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 17.85678052888988,
+        "lower": 17.120584209871478,
+        "upper": 18.592976847908286,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 11.971804025535272,
+        "lower": 11.235607706516868,
+        "upper": 12.708000344553676,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 14.673104715599676,
+        "lower": 13.936908396581272,
+        "upper": 15.40930103461808,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 26.322008435892997,
+        "lower": 25.581267695152256,
+        "upper": 27.062749176633737,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 20.886057664528824,
+        "lower": 20.145316923788084,
+        "upper": 21.626798405269565,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 23.02160975327903,
+        "lower": 22.28086901253829,
+        "upper": 23.76235049401977,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 5.8849765033546095,
+      "lower": 4.412583865317801,
+      "upper": 7.357369141391418,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W8",
+    "sequence": "LLKKLLKWLKK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 8.585448722731426,
+        "lower": 6.691957598471071,
+        "upper": 10.478939846991782,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 69.87833057568324,
+        "lower": 69.17244822274206,
+        "upper": 70.58421292862441,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 401.84208879572,
+        "lower": 387.3259597634619,
+        "upper": 416.358217827978,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 15.734329986696405,
+        "lower": 14.998133667678001,
+        "upper": 16.47052630571481,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 10.910578754438523,
+        "lower": 10.174382435420119,
+        "upper": 11.646775073456928,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 14.673104715599676,
+        "lower": 13.936908396581272,
+        "upper": 15.40930103461808,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 25.73958513896114,
+        "lower": 24.9988443982204,
+        "upper": 26.48032587970188,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 20.303634367596924,
+        "lower": 19.562893626856184,
+        "upper": 21.044375108337665,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 20.303634367596924,
+        "lower": 19.562893626856184,
+        "upper": 21.044375108337665,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 4.823751232257882,
+      "lower": 3.3513585942210735,
+      "upper": 6.29614387029469,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W9",
+    "sequence": "KLLKKLLKWLK",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 64,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 14.332038177445925,
+        "lower": 12.43854705318557,
+        "upper": 16.22552930170628,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 73.98439550407943,
+        "lower": 73.27851315113826,
+        "upper": 74.6902778570206,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 412.8559025061797,
+        "lower": 398.33977347392164,
+        "upper": 427.37203153843774,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 15.734329986696405,
+        "lower": 14.998133667678001,
+        "upper": 16.47052630571481,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 20.558081218954285,
+        "lower": 19.82188489993588,
+        "upper": 21.29427753797269,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 24.89945732798639,
+        "lower": 24.163261008967986,
+        "upper": 25.635653647004794,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 26.322008435892997,
+        "lower": 25.581267695152256,
+        "upper": 27.062749176633737,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 31.175535910325312,
+        "lower": 30.43479516958457,
+        "upper": 31.916276651066052,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 32.825735251632295,
+        "lower": 32.084994510891555,
+        "upper": 33.566475992373036,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": -4.82375123225788,
+      "lower": -6.296143870294689,
+      "upper": -3.3513585942210717,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W10",
+    "sequence": "KKLLKKLLKWL",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 32,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 41.867779314619575,
+        "lower": 39.97428819035922,
+        "upper": 43.76127043887993,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 76.03742796827753,
+        "lower": 75.33154561533635,
+        "upper": 76.7433103212187,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 559.7067519789744,
+        "lower": 545.1906229467163,
+        "upper": 574.2228810112324,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 18.43563067676083,
+        "lower": 17.699434357742426,
+        "upper": 19.171826995779234,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 19.496855947857558,
+        "lower": 18.760659628839154,
+        "upper": 20.233052266875962,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 20.075706095728506,
+        "lower": 19.339509776710102,
+        "upper": 20.81190241474691,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 30.107759865950186,
+        "lower": 29.367019125209445,
+        "upper": 30.848500606690926,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 30.107759865950186,
+        "lower": 29.367019125209445,
+        "upper": 30.848500606690926,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 29.039983821575106,
+        "lower": 28.299243080834366,
+        "upper": 29.780724562315847,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": -1.0612252710967276,
+      "lower": -2.533617909133536,
+      "upper": 0.4111673669400808,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  },
+  {
+    "name": "W11",
+    "sequence": "LKKLLKKLLKW",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "source_pmid": "23344198",
+    "existing_direct_MHC5": {
+      "endpoint": "MHC_gt5percent",
+      "operator": "=",
+      "value": 128,
+      "unit": "ug/mL",
+      "rbc": "human",
+      "source": "Table 2; Methods 3.6",
+      "not_HC50": true
+    },
+    "digitized_values": {
+      "hemolysis_percent": {
+        "value": 4.514947858975311,
+        "lower": 2.6214567347149558,
+        "upper": 6.408438983235666,
+        "unit": "percent at128ug/mL",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6A"
+      },
+      "helicity_TFE_percent": {
+        "value": 71.39578935356877,
+        "lower": 70.6899070006276,
+        "upper": 72.10167170650995,
+        "unit": "CD-derived percent at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_top"
+      },
+      "theta_product_TFE_scaled": {
+        "value": 444.06170801914845,
+        "lower": 429.5455789868904,
+        "upper": 458.5778370514065,
+        "unit": "theta222*theta208*1e-6 at50%TFE",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "6B_middle"
+      },
+      "abs_theta222_TFE_scaled": {
+        "value": 16.216705109922206,
+        "lower": 15.480508790903801,
+        "upper": 16.95290142894061,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_SDS_scaled": {
+        "value": 8.209278064374118,
+        "lower": 7.473081745355713,
+        "upper": 8.945474383392522,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta222_DPC_scaled": {
+        "value": 17.85678052888988,
+        "lower": 17.120584209871478,
+        "upper": 18.592976847908286,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_TFE_scaled": {
+        "value": 27.389784480268123,
+        "lower": 26.649043739527382,
+        "upper": 28.130525221008863,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_SDS_scaled": {
+        "value": 17.585658981914857,
+        "lower": 16.844918241174117,
+        "upper": 18.326399722655598,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      },
+      "abs_theta208_DPC_scaled": {
+        "value": 27.389784480268123,
+        "lower": 26.649043739527382,
+        "upper": 28.130525221008863,
+        "unit": "absolute mean residue ellipticity*1e-3",
+        "tolerance_basis": "conservative4viewportpixel envelope for bar edge and axis reading; not a statistical confidence interval",
+        "source_figure": "3D"
+      }
+    },
+    "environment_contrast": {
+      "value": 8.007427045548088,
+      "lower": 6.535034407511279,
+      "upper": 9.479819683584896,
+      "unit": "difference of absolute ellipticity*1e-3;TFE-minusSDS",
+      "not_water_to_membrane_delta": true
+    },
+    "water_value": null,
+    "water_missing_reason": "Fig3A overlays unlabeled per-peptide curves; individual identities not recovered",
+    "data_status": "published_figure_digitization_not_raw_measurements"
+  }
+]

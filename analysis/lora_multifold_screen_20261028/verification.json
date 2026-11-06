@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "fold_audit": [
+    {
+      "fold": 0,
+      "selected": "lora_lr1e5",
+      "head_initialization_same": true,
+      "batch_orders_same": true,
+      "nonzero_lora_B_per_epoch": 144,
+      "AMP_skips": 0,
+      "n": 1271,
+      "epochs": {
+        "no_lora": 5,
+        "lora_lr1e5": 6,
+        "lora_lr3e5": 6
+      }
+    },
+    {
+      "fold": 1,
+      "selected": "lora_lr3e5",
+      "head_initialization_same": true,
+      "batch_orders_same": true,
+      "nonzero_lora_B_per_epoch": 144,
+      "AMP_skips": 0,
+      "n": 1229,
+      "epochs": {
+        "no_lora": 6,
+        "lora_lr1e5": 6,
+        "lora_lr3e5": 6
+      }
+    },
+    {
+      "fold": 2,
+      "selected": "lora_lr3e5",
+      "head_initialization_same": true,
+      "batch_orders_same": true,
+      "nonzero_lora_B_per_epoch": 144,
+      "AMP_skips": 0,
+      "n": 1273,
+      "epochs": {
+        "no_lora": 6,
+        "lora_lr1e5": 5,
+        "lora_lr3e5": 5
+      }
+    },
+    {
+      "fold": 3,
+      "selected": "lora_lr3e5",
+      "head_initialization_same": true,
+      "batch_orders_same": true,
+      "nonzero_lora_B_per_epoch": 144,
+      "AMP_skips": 0,
+      "n": 1291,
+      "epochs": {
+        "no_lora": 5,
+        "lora_lr1e5": 5,
+        "lora_lr3e5": 5
+      }
+    },
+    {
+      "fold": 4,
+      "selected": "lora_lr1e5",
+      "head_initialization_same": true,
+      "batch_orders_same": true,
+      "nonzero_lora_B_per_epoch": 144,
+      "AMP_skips": 0,
+      "n": 1323,
+      "epochs": {
+        "no_lora": 4,
+        "lora_lr1e5": 5,
+        "lora_lr3e5": 5
+      }
+    }
+  ],
+  "total_unique_samples": 6387,
+  "primary_folds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "first_fold_heldout_previously_inspected": true,
+  "no_Test1_Test2": true,
+  "CI_scope": "fixed predictions, paired sequence groups stratified by fold; excludes training/seed/selection uncertainty"
+}

@@ -1,0 +1,29 @@
+{
+  "artifact_type": "prottox_3dkd_v2c_protocol",
+  "version": "v2c-1",
+  "status": "frozen_before_generation",
+  "scope": "training_oof_diagnostic_only",
+  "external_test_labels_allowed": false,
+  "intervention_definitions": {
+    "full": "teacher_k normal forward",
+    "no_chem": "same checkpoint, chemical_site_branch=False, strict load allows only missing chemical_site_branch.* keys",
+    "no_geo": "fusion forward pre-hook zeroes spatial_h (structure channel, includes chemical residual because chemical branch is nested in spatial_h)",
+    "no_chem_no_geo": "no_chem model with the same no_geo fusion hook",
+    "delta_chem": "z_full - z_no_chem",
+    "delta_structure_total": "z_full - z_no_geo",
+    "delta_geo_conditional": "z_no_chem - z_no_chem_no_geo",
+    "terminology": "teacher component intervention effects; not causal/biological structure contributions"
+  },
+  "teacher": {
+    "checkpoint_root": "runs\\prottox_3d_distill_v1\\teacher_checkpoints",
+    "processed_train": "D:\\dachuang2026\\ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "outer_fold_manifest": "D:\\dachuang2026\\GHXTox\\data\\folds\\train_cdhit080_fallback_folds.csv"
+  },
+  "diagnostic_questions": [
+    "existence and magnitude of component intervention effects by fold",
+    "relationship with v1 correct/error and FP/FN/TP/TN",
+    "cross-fitted predictability of effects from TriStat+PhysChem (ridge and small MLP): R2, Spearman, sign accuracy"
+  ],
+  "frozen_v1_modified": false,
+  "training_authorized": false
+}

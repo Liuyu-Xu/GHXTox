@@ -1,0 +1,36 @@
+{
+  "scope": "pilot",
+  "cohort": "pilot400",
+  "retained": true,
+  "gate": "covered-cohort MCC non-decrease and at least one of BACC/AUROC/AUPRC improves",
+  "fixed_threshold": 0.677819,
+  "deltas": {
+    "mcc": 0.03180776843936772,
+    "balanced_accuracy": 0.014853342001950431,
+    "auroc": 0.0076517216373684915,
+    "auprc": 0.006436440558356793,
+    "brier": -0.010477006953933526
+  },
+  "paired_evidence": {
+    "auroc_bootstrap_95_ci": [
+      0.0034495261433821925,
+      0.012802880648145729
+    ],
+    "auroc_randomization_p": 0.000999000999000999,
+    "auprc_bootstrap_95_ci": [
+      0.001371024056692871,
+      0.01197908779103519
+    ],
+    "auprc_randomization_p": 0.026973026973026972,
+    "mcc_bootstrap_95_ci": [
+      -0.00788975224583489,
+      0.07313135644060956
+    ],
+    "brier_bootstrap_95_ci": [
+      -0.02038933261301495,
+      -0.0017978540500983196
+    ]
+  },
+  "interpretation": "Pilot supports stable ranking and probability-quality gains; fixed-threshold classification gains remain exploratory because their intervals cross zero.",
+  "next_action": "Run the prespecified full2034 pipeline without changing architecture, threshold, folds, or retention gate."
+}

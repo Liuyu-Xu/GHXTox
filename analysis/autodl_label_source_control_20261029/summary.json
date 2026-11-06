@@ -1,0 +1,27 @@
+{
+  "n": 33,
+  "conflict": 19,
+  "fragment": 8,
+  "with_cached_direct_assay_flag": 0,
+  "positive_sources": {
+    "ToxinPred3_lineage": 4,
+    "ToxiPep_lineage;ToxinPred3_lineage": 10,
+    "ToxiCompass_operational;ToxiPep_lineage;ToxinPred3_lineage": 2,
+    "ToxiCompass_operational": 3
+  },
+  "original_endpoints": {
+    "broad_toxicity_annotation": 33
+  },
+  "original_evidence": {
+    "binary_label_only": 33
+  },
+  "maomao_toxic": {
+    "2.0": 33
+  },
+  "maomao_hemolytic": {
+    "2.0": 7,
+    "999.0": 12,
+    "0.0": 7,
+    "1.0": 7
+  }
+}

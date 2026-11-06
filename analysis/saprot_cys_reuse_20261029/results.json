@@ -1,0 +1,760 @@
+{
+  "all": {
+    "masked_saprot": {
+      "n": 6387,
+      "counts": {
+        "both_correct": 5800,
+        "both_wrong": 247,
+        "harmed": 251,
+        "corrected": 89
+      },
+      "folds": {
+        "0": {
+          "both_correct": 1166,
+          "harmed": 48,
+          "both_wrong": 37,
+          "corrected": 20
+        },
+        "1": {
+          "both_correct": 1115,
+          "both_wrong": 56,
+          "corrected": 20,
+          "harmed": 38
+        },
+        "2": {
+          "both_correct": 1139,
+          "harmed": 64,
+          "both_wrong": 52,
+          "corrected": 18
+        },
+        "3": {
+          "both_correct": 1182,
+          "both_wrong": 46,
+          "harmed": 49,
+          "corrected": 14
+        },
+        "4": {
+          "both_wrong": 56,
+          "both_correct": 1198,
+          "corrected": 17,
+          "harmed": 52
+        }
+      }
+    },
+    "masked_fusion20": {
+      "n": 6387,
+      "counts": {
+        "both_correct": 6032,
+        "both_wrong": 319,
+        "harmed": 19,
+        "corrected": 17
+      },
+      "folds": {
+        "0": {
+          "both_correct": 1211,
+          "both_wrong": 54,
+          "harmed": 3,
+          "corrected": 3
+        },
+        "1": {
+          "both_correct": 1150,
+          "both_wrong": 70,
+          "harmed": 3,
+          "corrected": 6
+        },
+        "2": {
+          "both_correct": 1198,
+          "both_wrong": 66,
+          "harmed": 5,
+          "corrected": 4
+        },
+        "3": {
+          "both_correct": 1230,
+          "both_wrong": 57,
+          "corrected": 3,
+          "harmed": 1
+        },
+        "4": {
+          "both_wrong": 72,
+          "both_correct": 1243,
+          "harmed": 7,
+          "corrected": 1
+        }
+      }
+    },
+    "3Di_saprot": {
+      "n": 6387,
+      "counts": {
+        "both_correct": 5792,
+        "both_wrong": 255,
+        "harmed": 259,
+        "corrected": 81
+      },
+      "folds": {
+        "0": {
+          "both_correct": 1162,
+          "both_wrong": 42,
+          "harmed": 52,
+          "corrected": 15
+        },
+        "1": {
+          "both_correct": 1103,
+          "both_wrong": 50,
+          "harmed": 50,
+          "corrected": 26
+        },
+        "2": {
+          "both_correct": 1146,
+          "harmed": 57,
+          "both_wrong": 55,
+          "corrected": 15
+        },
+        "3": {
+          "both_correct": 1183,
+          "both_wrong": 48,
+          "harmed": 48,
+          "corrected": 12
+        },
+        "4": {
+          "both_wrong": 60,
+          "both_correct": 1198,
+          "harmed": 52,
+          "corrected": 13
+        }
+      }
+    },
+    "3Di_fusion20": {
+      "n": 6387,
+      "counts": {
+        "both_correct": 6031,
+        "both_wrong": 319,
+        "harmed": 20,
+        "corrected": 17
+      },
+      "folds": {
+        "0": {
+          "both_correct": 1213,
+          "both_wrong": 55,
+          "corrected": 2,
+          "harmed": 1
+        },
+        "1": {
+          "both_correct": 1150,
+          "both_wrong": 71,
+          "harmed": 3,
+          "corrected": 5
+        },
+        "2": {
+          "both_correct": 1198,
+          "both_wrong": 66,
+          "harmed": 5,
+          "corrected": 4
+        },
+        "3": {
+          "both_correct": 1227,
+          "both_wrong": 57,
+          "harmed": 4,
+          "corrected": 3
+        },
+        "4": {
+          "both_wrong": 70,
+          "both_correct": 1243,
+          "harmed": 7,
+          "corrected": 3
+        }
+      }
+    }
+  },
+  "low_pos": {
+    "masked_saprot": {
+      "n": 262,
+      "counts": {
+        "both_wrong": 128,
+        "harmed": 46,
+        "both_correct": 67,
+        "corrected": 21
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 20,
+          "both_correct": 17,
+          "harmed": 9,
+          "corrected": 2
+        },
+        "1": {
+          "both_wrong": 30,
+          "corrected": 6,
+          "harmed": 7,
+          "both_correct": 12
+        },
+        "2": {
+          "harmed": 10,
+          "both_wrong": 27,
+          "both_correct": 9,
+          "corrected": 5
+        },
+        "3": {
+          "both_wrong": 21,
+          "harmed": 8,
+          "corrected": 5,
+          "both_correct": 14
+        },
+        "4": {
+          "both_wrong": 30,
+          "both_correct": 15,
+          "harmed": 12,
+          "corrected": 3
+        }
+      }
+    },
+    "masked_fusion20": {
+      "n": 262,
+      "counts": {
+        "both_wrong": 147,
+        "both_correct": 106,
+        "harmed": 7,
+        "corrected": 2
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 22,
+          "both_correct": 26
+        },
+        "1": {
+          "both_wrong": 34,
+          "harmed": 1,
+          "both_correct": 18,
+          "corrected": 2
+        },
+        "2": {
+          "both_correct": 18,
+          "both_wrong": 32,
+          "harmed": 1
+        },
+        "3": {
+          "both_wrong": 26,
+          "both_correct": 21,
+          "harmed": 1
+        },
+        "4": {
+          "both_wrong": 33,
+          "both_correct": 23,
+          "harmed": 4
+        }
+      }
+    },
+    "3Di_saprot": {
+      "n": 262,
+      "counts": {
+        "both_wrong": 132,
+        "harmed": 55,
+        "both_correct": 58,
+        "corrected": 17
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 21,
+          "both_correct": 20,
+          "harmed": 6,
+          "corrected": 1
+        },
+        "1": {
+          "both_wrong": 26,
+          "harmed": 9,
+          "both_correct": 10,
+          "corrected": 10
+        },
+        "2": {
+          "harmed": 9,
+          "both_wrong": 29,
+          "both_correct": 10,
+          "corrected": 3
+        },
+        "3": {
+          "both_wrong": 25,
+          "harmed": 13,
+          "corrected": 1,
+          "both_correct": 9
+        },
+        "4": {
+          "both_wrong": 31,
+          "harmed": 18,
+          "both_correct": 9,
+          "corrected": 2
+        }
+      }
+    },
+    "3Di_fusion20": {
+      "n": 262,
+      "counts": {
+        "both_wrong": 147,
+        "both_correct": 107,
+        "harmed": 6,
+        "corrected": 2
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 22,
+          "both_correct": 26
+        },
+        "1": {
+          "both_wrong": 34,
+          "harmed": 1,
+          "both_correct": 18,
+          "corrected": 2
+        },
+        "2": {
+          "both_correct": 18,
+          "both_wrong": 32,
+          "harmed": 1
+        },
+        "3": {
+          "both_wrong": 26,
+          "both_correct": 21,
+          "harmed": 1
+        },
+        "4": {
+          "both_wrong": 33,
+          "both_correct": 24,
+          "harmed": 3
+        }
+      }
+    }
+  },
+  "low_neg": {
+    "masked_saprot": {
+      "n": 3537,
+      "counts": {
+        "both_correct": 3470,
+        "harmed": 50,
+        "corrected": 8,
+        "both_wrong": 9
+      },
+      "folds": {
+        "0": {
+          "both_correct": 681,
+          "corrected": 3,
+          "harmed": 10,
+          "both_wrong": 2
+        },
+        "1": {
+          "both_correct": 664,
+          "harmed": 9,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 701,
+          "harmed": 14,
+          "both_wrong": 3,
+          "corrected": 4
+        },
+        "3": {
+          "both_correct": 721,
+          "harmed": 7,
+          "both_wrong": 2
+        },
+        "4": {
+          "both_correct": 703,
+          "harmed": 10,
+          "both_wrong": 1,
+          "corrected": 1
+        }
+      }
+    },
+    "masked_fusion20": {
+      "n": 3537,
+      "counts": {
+        "both_correct": 3516,
+        "corrected": 3,
+        "both_wrong": 14,
+        "harmed": 4
+      },
+      "folds": {
+        "0": {
+          "both_correct": 690,
+          "corrected": 1,
+          "both_wrong": 4,
+          "harmed": 1
+        },
+        "1": {
+          "both_correct": 672,
+          "both_wrong": 1,
+          "harmed": 1
+        },
+        "2": {
+          "both_correct": 713,
+          "both_wrong": 5,
+          "corrected": 2,
+          "harmed": 2
+        },
+        "3": {
+          "both_correct": 728,
+          "both_wrong": 2
+        },
+        "4": {
+          "both_correct": 713,
+          "both_wrong": 2
+        }
+      }
+    },
+    "3Di_saprot": {
+      "n": 3537,
+      "counts": {
+        "both_correct": 3482,
+        "harmed": 38,
+        "corrected": 5,
+        "both_wrong": 12
+      },
+      "folds": {
+        "0": {
+          "harmed": 9,
+          "both_correct": 682,
+          "corrected": 2,
+          "both_wrong": 3
+        },
+        "1": {
+          "both_correct": 660,
+          "harmed": 13,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 709,
+          "harmed": 6,
+          "both_wrong": 5,
+          "corrected": 2
+        },
+        "3": {
+          "both_correct": 723,
+          "harmed": 5,
+          "corrected": 1,
+          "both_wrong": 1
+        },
+        "4": {
+          "both_correct": 708,
+          "harmed": 5,
+          "both_wrong": 2
+        }
+      }
+    },
+    "3Di_fusion20": {
+      "n": 3537,
+      "counts": {
+        "both_correct": 3515,
+        "harmed": 5,
+        "corrected": 2,
+        "both_wrong": 15
+      },
+      "folds": {
+        "0": {
+          "both_correct": 691,
+          "corrected": 1,
+          "both_wrong": 4
+        },
+        "1": {
+          "both_correct": 671,
+          "harmed": 2,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 713,
+          "both_wrong": 6,
+          "corrected": 1,
+          "harmed": 2
+        },
+        "3": {
+          "both_correct": 728,
+          "both_wrong": 2
+        },
+        "4": {
+          "both_correct": 712,
+          "harmed": 1,
+          "both_wrong": 2
+        }
+      }
+    }
+  },
+  "high_neg": {
+    "masked_saprot": {
+      "n": 240,
+      "counts": {
+        "both_correct": 147,
+        "harmed": 43,
+        "both_wrong": 38,
+        "corrected": 12
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 3,
+          "both_correct": 26,
+          "harmed": 10,
+          "corrected": 1
+        },
+        "1": {
+          "both_wrong": 11,
+          "both_correct": 22,
+          "corrected": 4,
+          "harmed": 5
+        },
+        "2": {
+          "harmed": 9,
+          "both_correct": 18,
+          "both_wrong": 9,
+          "corrected": 2
+        },
+        "3": {
+          "both_correct": 24,
+          "harmed": 15,
+          "both_wrong": 4
+        },
+        "4": {
+          "both_correct": 57,
+          "both_wrong": 11,
+          "corrected": 5,
+          "harmed": 4
+        }
+      }
+    },
+    "masked_fusion20": {
+      "n": 240,
+      "counts": {
+        "both_correct": 187,
+        "both_wrong": 49,
+        "corrected": 1,
+        "harmed": 3
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 3,
+          "both_correct": 35,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "1": {
+          "both_wrong": 15,
+          "both_correct": 27
+        },
+        "2": {
+          "both_correct": 26,
+          "both_wrong": 11,
+          "harmed": 1
+        },
+        "3": {
+          "both_correct": 39,
+          "both_wrong": 4
+        },
+        "4": {
+          "both_correct": 60,
+          "both_wrong": 16,
+          "harmed": 1
+        }
+      }
+    },
+    "3Di_saprot": {
+      "n": 240,
+      "counts": {
+        "both_correct": 166,
+        "both_wrong": 37,
+        "corrected": 13,
+        "harmed": 24
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 2,
+          "both_correct": 30,
+          "harmed": 6,
+          "corrected": 2
+        },
+        "1": {
+          "both_wrong": 9,
+          "both_correct": 23,
+          "corrected": 6,
+          "harmed": 4
+        },
+        "2": {
+          "both_correct": 23,
+          "both_wrong": 8,
+          "corrected": 3,
+          "harmed": 4
+        },
+        "3": {
+          "both_correct": 34,
+          "harmed": 5,
+          "both_wrong": 4
+        },
+        "4": {
+          "both_correct": 56,
+          "both_wrong": 14,
+          "corrected": 2,
+          "harmed": 5
+        }
+      }
+    },
+    "3Di_fusion20": {
+      "n": 240,
+      "counts": {
+        "both_correct": 187,
+        "both_wrong": 48,
+        "corrected": 2,
+        "harmed": 3
+      },
+      "folds": {
+        "0": {
+          "both_wrong": 3,
+          "both_correct": 35,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "1": {
+          "both_wrong": 15,
+          "both_correct": 27
+        },
+        "2": {
+          "both_correct": 26,
+          "both_wrong": 10,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "3": {
+          "both_correct": 39,
+          "both_wrong": 4
+        },
+        "4": {
+          "both_correct": 60,
+          "both_wrong": 16,
+          "harmed": 1
+        }
+      }
+    }
+  },
+  "high_pos": {
+    "masked_saprot": {
+      "n": 1063,
+      "counts": {
+        "both_correct": 1024,
+        "harmed": 32,
+        "both_wrong": 2,
+        "corrected": 5
+      },
+      "folds": {
+        "0": {
+          "both_correct": 206,
+          "harmed": 7,
+          "corrected": 3
+        },
+        "1": {
+          "both_correct": 212,
+          "both_wrong": 1,
+          "harmed": 4
+        },
+        "2": {
+          "both_correct": 189,
+          "harmed": 12,
+          "both_wrong": 1,
+          "corrected": 1
+        },
+        "3": {
+          "both_correct": 204,
+          "harmed": 4,
+          "corrected": 1
+        },
+        "4": {
+          "both_correct": 213,
+          "harmed": 5
+        }
+      }
+    },
+    "masked_fusion20": {
+      "n": 1063,
+      "counts": {
+        "both_correct": 1056,
+        "both_wrong": 6,
+        "corrected": 1
+      },
+      "folds": {
+        "0": {
+          "both_correct": 213,
+          "both_wrong": 3
+        },
+        "1": {
+          "both_correct": 216,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 201,
+          "both_wrong": 2
+        },
+        "3": {
+          "both_correct": 208,
+          "corrected": 1
+        },
+        "4": {
+          "both_correct": 218
+        }
+      }
+    },
+    "3Di_saprot": {
+      "n": 1063,
+      "counts": {
+        "both_correct": 1017,
+        "both_wrong": 6,
+        "harmed": 39,
+        "corrected": 1
+      },
+      "folds": {
+        "0": {
+          "both_correct": 205,
+          "both_wrong": 3,
+          "harmed": 8
+        },
+        "1": {
+          "both_correct": 213,
+          "harmed": 3,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 188,
+          "both_wrong": 1,
+          "harmed": 13,
+          "corrected": 1
+        },
+        "3": {
+          "both_correct": 204,
+          "harmed": 4,
+          "both_wrong": 1
+        },
+        "4": {
+          "both_correct": 207,
+          "harmed": 11
+        }
+      }
+    },
+    "3Di_fusion20": {
+      "n": 1063,
+      "counts": {
+        "both_correct": 1056,
+        "both_wrong": 7
+      },
+      "folds": {
+        "0": {
+          "both_correct": 213,
+          "both_wrong": 3
+        },
+        "1": {
+          "both_correct": 216,
+          "both_wrong": 1
+        },
+        "2": {
+          "both_correct": 201,
+          "both_wrong": 2
+        },
+        "3": {
+          "both_correct": 208,
+          "both_wrong": 1
+        },
+        "4": {
+          "both_correct": 218
+        }
+      }
+    }
+  }
+}

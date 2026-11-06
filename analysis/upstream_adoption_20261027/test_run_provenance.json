@@ -1,0 +1,13 @@
+{
+  "source_commit": "60854abd61c4f1fd8b65c2eb586a7d03d7588130",
+  "torch": "2.3.1+cu118",
+  "numpy": "1.26.4",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "structure_parameters": 1120562,
+  "loader_adapter": "supplied .bin, torch.load weights_only=True, strict assignment, tied embeddings",
+  "no_training": true,
+  "no_test_tuning": true,
+  "structure_checkpoint_sha256": "0f6992c2d984e62647dd81b941d34f68604a6d0ca8c40bb0420fba180c28cd65",
+  "config_sha256": "0a67c7a58658287596f32be0b6d823867aad0aaa83310a0dc93f1ce0754d2025"
+}

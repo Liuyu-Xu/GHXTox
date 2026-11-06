@@ -1,0 +1,245 @@
+{
+  "batch_size": 256,
+  "cache": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "records": 6387,
+    "sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a"
+  },
+  "device": "cuda",
+  "elapsed_seconds": 7.780463200004306,
+  "epochs": 20,
+  "folds": [
+    {
+      "accuracy": 0.9402045633359559,
+      "auprc": 0.9563797585554101,
+      "auroc": 0.9778251534669933,
+      "balanced_accuracy": 0.9179760500771115,
+      "brier": 0.04894826225872597,
+      "f1": 0.8926553672316384,
+      "fn": 49,
+      "fold": 0,
+      "fp": 27,
+      "mcc": 0.8520613700527823,
+      "n_test": 1271,
+      "n_train": 5116,
+      "precision": 0.9212827988338192,
+      "sensitivity": 0.8657534246575342,
+      "specificity": 0.9701986754966887,
+      "threshold": 0.5,
+      "tn": 879,
+      "tp": 316
+    },
+    {
+      "accuracy": 0.9292107404393816,
+      "auprc": 0.9415748376870621,
+      "auroc": 0.9696825853471424,
+      "balanced_accuracy": 0.9076396880194348,
+      "brier": 0.06281447148610515,
+      "f1": 0.8762446657183499,
+      "fn": 52,
+      "fold": 1,
+      "fp": 35,
+      "mcc": 0.8271869492897208,
+      "n_test": 1229,
+      "n_train": 5158,
+      "precision": 0.8979591836734694,
+      "sensitivity": 0.8555555555555555,
+      "specificity": 0.9597238204833142,
+      "threshold": 0.5,
+      "tn": 834,
+      "tp": 308
+    },
+    {
+      "accuracy": 0.9308719560094265,
+      "auprc": 0.9354942269516212,
+      "auroc": 0.9695820518789897,
+      "balanced_accuracy": 0.9047593520640094,
+      "brier": 0.06002498711786475,
+      "f1": 0.8724637681159421,
+      "fn": 55,
+      "fold": 2,
+      "fp": 33,
+      "mcc": 0.8259058170611009,
+      "n_test": 1273,
+      "n_train": 5114,
+      "precision": 0.9011976047904192,
+      "sensitivity": 0.8455056179775281,
+      "specificity": 0.9640130861504908,
+      "threshold": 0.5,
+      "tn": 884,
+      "tp": 301
+    },
+    {
+      "accuracy": 0.9310611928737413,
+      "auprc": 0.9413775508128512,
+      "auroc": 0.967861078843118,
+      "balanced_accuracy": 0.9072379590742561,
+      "brier": 0.05926429030477343,
+      "f1": 0.8737588652482269,
+      "fn": 53,
+      "fold": 3,
+      "fp": 36,
+      "mcc": 0.8268354955627257,
+      "n_test": 1291,
+      "n_train": 5096,
+      "precision": 0.8953488372093024,
+      "sensitivity": 0.853185595567867,
+      "specificity": 0.9612903225806452,
+      "threshold": 0.5,
+      "tn": 894,
+      "tp": 308
+    },
+    {
+      "accuracy": 0.9221466364323507,
+      "auprc": 0.9371989880715895,
+      "auroc": 0.9690778831247613,
+      "balanced_accuracy": 0.8959058842031948,
+      "brier": 0.06954813844451334,
+      "f1": 0.8590971272229823,
+      "fn": 62,
+      "fold": 4,
+      "fp": 41,
+      "mcc": 0.806007362697874,
+      "n_test": 1323,
+      "n_train": 5064,
+      "precision": 0.8845070422535212,
+      "sensitivity": 0.8351063829787234,
+      "specificity": 0.9567053854276664,
+      "threshold": 0.5,
+      "tn": 906,
+      "tp": 314
+    }
+  ],
+  "learning_rate": 0.001,
+  "model_name": "ProtTox-3D-Distill",
+  "model_version": "prottox-3d-distill-v1",
+  "oof_metrics": {
+    "accuracy": 0.9306403632378268,
+    "auprc": 0.9400435643572894,
+    "auroc": 0.9694463646408414,
+    "balanced_accuracy": 0.9066450473018411,
+    "brier": 0.06017636156785023,
+    "f1": 0.8747526152106304,
+    "fn": 271,
+    "fp": 172,
+    "mcc": 0.8274650118368378,
+    "precision": 0.8999418266433973,
+    "sensitivity": 0.8509350935093509,
+    "specificity": 0.9623550010943314,
+    "threshold": 0.5,
+    "tn": 4397,
+    "tp": 1547
+  },
+  "seed": 20260906,
+  "selection_scope": "training OOF only; Test1/Test2 excluded from model selection",
+  "teacher_targets": {
+    "dir": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets",
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "manifest": {
+      "artifact_type": "prottox_3d_distill_teacher_targets",
+      "device": "cuda",
+      "elapsed_seconds": 86.05533289996674,
+      "protocol": "D:\\dachuang2026\\GHXTox\\configs\\prottox_3d_distill_v1.json",
+      "records_total": 6387,
+      "role_counts_by_outer_fold": {
+        "0": {
+          "calibration": 670,
+          "fitting": 3830,
+          "inner_validation": 616
+        },
+        "1": {
+          "calibration": 633,
+          "fitting": 3884,
+          "inner_validation": 641
+        },
+        "2": {
+          "calibration": 668,
+          "fitting": 3809,
+          "inner_validation": 637
+        },
+        "3": {
+          "calibration": 636,
+          "fitting": 3816,
+          "inner_validation": 644
+        },
+        "4": {
+          "calibration": 624,
+          "fitting": 3840,
+          "inner_validation": 600
+        }
+      },
+      "selection_scope": "training OOF only; Test1/Test2 excluded",
+      "targets": [
+        {
+          "checkpoint_sha256": "b361dbd9152e61f11e5d8bcdae79848dcdb0962169e717685d21890e94ecccb0",
+          "elapsed_seconds": 19.813934299978428,
+          "file": "teacher_outer0_targets.csv",
+          "outer_fold": 0,
+          "role_counts": {
+            "calibration": 670,
+            "fitting": 3830,
+            "inner_validation": 616
+          },
+          "rows": 5116,
+          "sha256": "15225e74614eea6c5cb5ac8db40c79f412a38df4742a3c083f36e2251addf030"
+        },
+        {
+          "checkpoint_sha256": "88f4c4b41473cdc860455cd9c8035c2f65fe7768c855116165dfcf911899d168",
+          "elapsed_seconds": 36.72793759999331,
+          "file": "teacher_outer1_targets.csv",
+          "outer_fold": 1,
+          "role_counts": {
+            "calibration": 633,
+            "fitting": 3884,
+            "inner_validation": 641
+          },
+          "rows": 5158,
+          "sha256": "bb93b29360ebb0843779ec0f3ed2e70598897cf9d875716ffc07ea8deb326262"
+        },
+        {
+          "checkpoint_sha256": "a4f1303a7f8bd5979917210f25a9cd8c47fc6fa81e2c38156b1512c2603dd745",
+          "elapsed_seconds": 52.958395699970424,
+          "file": "teacher_outer2_targets.csv",
+          "outer_fold": 2,
+          "role_counts": {
+            "calibration": 668,
+            "fitting": 3809,
+            "inner_validation": 637
+          },
+          "rows": 5114,
+          "sha256": "ece628f01bb8a3e9f6463e63e750e30ad41ee0dc58a225b04cfb84dc8795c600"
+        },
+        {
+          "checkpoint_sha256": "0feb21d7a1333996852dbdb83d6ea6d2cb88380ad40e6862e0d5935418c130a0",
+          "elapsed_seconds": 69.04058369999984,
+          "file": "teacher_outer3_targets.csv",
+          "outer_fold": 3,
+          "role_counts": {
+            "calibration": 636,
+            "fitting": 3816,
+            "inner_validation": 644
+          },
+          "rows": 5096,
+          "sha256": "65459f1eb655c4bc6b840a96c3ae054368241c0c67f31cd9df875340e0f43573"
+        },
+        {
+          "checkpoint_sha256": "01e23a6d23afabd0ebbc2123f8b68a8ec166b4cb621f593d81598087c08430d2",
+          "elapsed_seconds": 86.05526519997511,
+          "file": "teacher_outer4_targets.csv",
+          "outer_fold": 4,
+          "role_counts": {
+            "calibration": 624,
+            "fitting": 3840,
+            "inner_validation": 600
+          },
+          "rows": 5064,
+          "sha256": "f15a2314ec105c631f1c8621c72f7bccbda95a6020faba4629eb7ddd30575b19"
+        }
+      ],
+      "teacher_definition": "strict-outer-fold single-structure GHXToxModel scratch bases from topology_strict_oof_v1_final.tar.gz",
+      "version": 1
+    }
+  },
+  "variant": "proxy_teacher_kd"
+}

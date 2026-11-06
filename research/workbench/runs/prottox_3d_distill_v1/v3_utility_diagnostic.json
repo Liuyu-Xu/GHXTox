@@ -1,0 +1,137 @@
+{
+  "artifact_type": "prottox_3dkd_v3_utility_diagnostic",
+  "version": "v3-0",
+  "utility_definition": "u = (y - p_base)^2 - (y - p_teacher)^2",
+  "helpful_definition": "u > 0.01",
+  "probe_folds": {
+    "0": {
+      "representation_only": {
+        "helpful_prevalence_valid": 0.06608969315499606,
+        "auroc_helpful": 0.5171801660849681,
+        "auprc_helpful": 0.11002645893813451,
+        "spearman_utility": -0.05016439899423747,
+        "r2_utility": -0.5928472985286628,
+        "sign_accuracy": 0.47364280094413846
+      },
+      "deployment_aware_confidence": {
+        "helpful_prevalence_valid": 0.06608969315499606,
+        "auroc_helpful": 0.7169535042323585,
+        "auprc_helpful": 0.25586912712455695,
+        "spearman_utility": -0.18184800506738613,
+        "r2_utility": -0.894639520228651,
+        "sign_accuracy": 0.44059795436664045
+      }
+    },
+    "1": {
+      "representation_only": {
+        "helpful_prevalence_valid": 0.0691619202603743,
+        "auroc_helpful": 0.5110037021801728,
+        "auprc_helpful": 0.0986376889398512,
+        "spearman_utility": 0.0002008736848168157,
+        "r2_utility": -0.3931686207162819,
+        "sign_accuracy": 0.4955248169243287
+      },
+      "deployment_aware_confidence": {
+        "helpful_prevalence_valid": 0.0691619202603743,
+        "auroc_helpful": 0.8685417523652817,
+        "auprc_helpful": 0.4643433466949536,
+        "spearman_utility": -0.11165021474944477,
+        "r2_utility": -0.7586114871246596,
+        "sign_accuracy": 0.48413344182262
+      }
+    },
+    "2": {
+      "representation_only": {
+        "helpful_prevalence_valid": 0.05970149253731343,
+        "auroc_helpful": 0.4900628764894693,
+        "auprc_helpful": 0.08516029797558039,
+        "spearman_utility": -0.049082841766995115,
+        "r2_utility": -0.5152242093649961,
+        "sign_accuracy": 0.4917517674783975
+      },
+      "deployment_aware_confidence": {
+        "helpful_prevalence_valid": 0.05970149253731343,
+        "auroc_helpful": 0.6891131337114716,
+        "auprc_helpful": 0.17616861347684776,
+        "spearman_utility": -0.09818642100716617,
+        "r2_utility": -0.789280310773945,
+        "sign_accuracy": 0.4713275726630008
+      }
+    },
+    "3": {
+      "representation_only": {
+        "helpful_prevalence_valid": 0.054996127033307515,
+        "auroc_helpful": 0.612860771184484,
+        "auprc_helpful": 0.10985422666953615,
+        "spearman_utility": -0.07340891729876231,
+        "r2_utility": -0.8047944138205076,
+        "sign_accuracy": 0.4608830364058869
+      },
+      "deployment_aware_confidence": {
+        "helpful_prevalence_valid": 0.054996127033307515,
+        "auroc_helpful": 0.8814015238974832,
+        "auprc_helpful": 0.37972887657630006,
+        "spearman_utility": -0.15725277636973328,
+        "r2_utility": -1.3785127116891847,
+        "sign_accuracy": 0.4624322230828815
+      }
+    },
+    "4": {
+      "representation_only": {
+        "helpful_prevalence_valid": 0.06500377928949358,
+        "auroc_helpful": 0.47647158353856855,
+        "auprc_helpful": 0.08923124666369442,
+        "spearman_utility": -0.027353230204026493,
+        "r2_utility": -0.5479738782001438,
+        "sign_accuracy": 0.4799697656840514
+      },
+      "deployment_aware_confidence": {
+        "helpful_prevalence_valid": 0.06500377928949358,
+        "auroc_helpful": 0.8491192118967494,
+        "auprc_helpful": 0.3866248291895996,
+        "spearman_utility": -0.12465431163347046,
+        "r2_utility": -0.9430436406109735,
+        "sign_accuracy": 0.48223733938019653
+      }
+    }
+  },
+  "aggregate": {
+    "representation_only": {
+      "helpful_prevalence_valid": 0.06299060245509698,
+      "auroc_helpful": 0.5215158198955325,
+      "auprc_helpful": 0.09858198383735933,
+      "spearman_utility": -0.03996170291584091,
+      "r2_utility": -0.5708016841261184,
+      "sign_accuracy": 0.4803544374873606
+    },
+    "deployment_aware_confidence": {
+      "helpful_prevalence_valid": 0.06299060245509698,
+      "auroc_helpful": 0.801025825220669,
+      "auprc_helpful": 0.3325469586124516,
+      "spearman_utility": -0.13471834576544017,
+      "r2_utility": -0.9528175340854828,
+      "sign_accuracy": 0.46814570626306784
+    },
+    "auroc_fold_counts_gt_0.60": {
+      "representation_only": 1,
+      "deployment_aware_confidence": 5
+    }
+  },
+  "oracle_upper_bound": {
+    "base_brier": 0.05759007907138314,
+    "oracle_brier": 0.03838303227305747,
+    "base_mcc": 0.8267984259383703,
+    "oracle_mcc": 0.8887294590699615,
+    "helpful_prevalence_overall": 0.06294034758102396
+  },
+  "gate": {
+    "deployment_aware_confidence": {
+      "helpful_prevalence_ge_0.05": true,
+      "mean_auroc_ge_0.65": true,
+      "at_least_4_of_5_auroc_gt_0.60": true,
+      "mean_spearman_ge_0.20": false,
+      "passed": false
+    }
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded; no frontend or v1 change"
+}

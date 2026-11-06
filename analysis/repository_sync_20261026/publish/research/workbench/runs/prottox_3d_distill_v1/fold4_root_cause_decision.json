@@ -1,0 +1,15 @@
+{
+  "artifact_type": "prottox_3dkd_v5_fold4_root_cause_decision",
+  "version": "v5-0",
+  "date": "2026-09-05",
+  "decision": "terminate_v5",
+  "findings": {
+    "engineering_error_found": false,
+    "fold4_data_anomaly": false,
+    "teacher4_training_clearly_failed": false,
+    "teacher4_ranking_weaker": true,
+    "interpretation": "real fold-level heterogeneity in teacher ranking capability"
+  },
+  "frozen_v1_modified": false,
+  "test1_test2_used": false
+}

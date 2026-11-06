@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "scope": "Representative sequence identity and literature checks, not original label adjudication",
+  "labels_changed": false,
+  "cases": [
+    {
+      "sample_id": "peptide_424",
+      "sequence": "MDFIIDIIKKIVGLFTGK",
+      "external_name": "Hemolysin H2C from Staphylococcus cohnii",
+      "identity_source": "https://webs.iiitd.edu.in/raghava/hemolytik2/Browse/cytotoxic.php",
+      "primary_paper": "https://pubmed.ncbi.nlm.nih.gov/18752624/",
+      "supported": "Exact sequence appears in Hemolytik2 with species-dependent hemolytic measurements and PMID 18752624. Original paper studies synergistic hemolysins.",
+      "not_established": "Original GHXTox label accession, whether a particular assay/condition determined its label, precise mechanism for this sequence in the GHXTox setting",
+      "implication": "Low-Cys false negative with independently recorded hemolytic activity; prioritize retrieval of original assay and concentration. Do not infer that all low-Cys errors share this endpoint."
+    },
+    {
+      "sample_id": "peptide_322",
+      "sequence": "TVSDPPARPAVFHSREELMNYVRELNRYFAIVGRPRF",
+      "external_name": "ConoNPY-Bt1 / Cono-NPY1",
+      "identity_source": "https://www.conoserver.org/?id=7536&page=card&table=protein",
+      "primary_paper": "https://doi.org/10.1093/abbs/gmq042",
+      "supported": "ConoServer reports exact sequence, venom source Conus betulinus, protein-level sequence evidence, and C-terminal amidation. Original paper identified NPY-like conopeptides.",
+      "not_established": "A specific experimentally verified receptor, an assay-specific toxic threshold, provenance of the GHXTox binary label",
+      "implication": "No-Cys venom peptide is a biologically plausible exception to a cysteine-rich toxin shortcut. Standard one-letter input omits documented amidation. Identity alone does not assign a receptor mechanism."
+    },
+    {
+      "sample_id": "peptide_1392",
+      "sequence": "MLTKFETKSARVKGLSFHPKRPWIL",
+      "external_name": "Human xenin-25",
+      "identity_source": "https://gpcrdb.org/ligand/8890/info/",
+      "primary_paper": "https://doi.org/10.1016/S0021-9258(18)41670-5",
+      "supported": "Exact sequence matches the human xenin entry in GPCRdb; the original paper isolated xenin from human gastric mucosa and studied pancreatic secretion.",
+      "not_established": "Whether the retained GHXTox positive label is erroneous; hormone identity neither establishes safety nor rules out dose-dependent toxicity",
+      "implication": "Prioritize original-label evidence recovery rather than automatically fitting a correction to force a positive prediction."
+    }
+  ]
+}

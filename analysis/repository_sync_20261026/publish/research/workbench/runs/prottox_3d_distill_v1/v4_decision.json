@@ -1,0 +1,16 @@
+{
+  "artifact_type": "prottox_3dkd_v4_decision",
+  "version": "v4-1",
+  "date": "2026-09-05",
+  "decision": "retain_as_ablation",
+  "candidate": "D uncertainty-gated privileged refinement",
+  "gate_summary": {
+    "D_vs_A_mean_mcc_advantage": 0.0045,
+    "D_vs_A_required_mcc": 0.005,
+    "D_vs_C_both_seeds_not_lower": false,
+    "note": "C (gate without teacher KD) is statistically equivalent to D"
+  },
+  "frozen_v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "runs/prottox_3d_distill_v1/v4_arm*/manifest.json"
+}

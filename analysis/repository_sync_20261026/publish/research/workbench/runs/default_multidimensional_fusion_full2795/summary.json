@@ -1,0 +1,46 @@
+{
+  "artifact_type": "ghxtox_multidimensional_public_default",
+  "schema_version": 1,
+  "model": "GHXTox-Multidimensional-Fusion",
+  "weight_1d": 0.72,
+  "weight_3d": 0.28,
+  "threshold": 0.47022256531284556,
+  "components": {
+    "1d": "calibrated three-seed LoRA-ProtT5 + bidirectional Mamba",
+    "3d": "pure structure_probability from the pLDDT-aware 3D expert with the retained audited multi-conformer residual"
+  },
+  "test1": {
+    "n": 1126,
+    "metrics": {
+      "accuracy": 0.9484902309058615,
+      "balanced_accuracy": 0.9329288151364764,
+      "precision": 0.9198717948717948,
+      "sensitivity": 0.896875,
+      "specificity": 0.9689826302729528,
+      "f1": 0.9082278481012658,
+      "mcc": 0.8725684363419314,
+      "auroc": 0.9810987903225806,
+      "auprc": 0.9674822972862476,
+      "brier": 0.040745268747575725
+    },
+    "one_d_source": "runs\\source_aware_multiconformer_frozen_test_20260808_r4_corrected\\test1_declared_1d_probabilities.csv",
+    "structure_source": "runs\\source_aware_multiconformer_frozen_test_20260808_r4_corrected\\test1_structure_predictions.csv"
+  },
+  "test2": {
+    "n": 582,
+    "metrics": {
+      "accuracy": 0.9484536082474226,
+      "balanced_accuracy": 0.8627109020116808,
+      "precision": 0.6481481481481481,
+      "sensitivity": 0.7608695652173914,
+      "specificity": 0.9645522388059702,
+      "f1": 0.7,
+      "mcc": 0.6745871660901532,
+      "auroc": 0.9432998053212199,
+      "auprc": 0.8043277428387687,
+      "brier": 0.04298697871260586
+    },
+    "one_d_source": "runs\\source_aware_multiconformer_frozen_test_20260808_r4_corrected\\test2_declared_1d_probabilities.csv",
+    "structure_source": "runs\\source_aware_multiconformer_frozen_test_20260808_r4_corrected\\test2_structure_predictions.csv"
+  }
+}

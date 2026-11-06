@@ -1,0 +1,12 @@
+{
+  "smoke_passed": true,
+  "regression_tests_passed": 6,
+  "same_initial_head": true,
+  "same_batch_order": true,
+  "optimizer_attempts_each": 2,
+  "all_successful_no_AMP_skip": true,
+  "repaired_adapter_B_updated_each": 144,
+  "no_lora_has_no_adapters": true,
+  "no_outer_test_predictions": true,
+  "performance_claim": false
+}

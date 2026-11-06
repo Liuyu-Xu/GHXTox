@@ -1,0 +1,16 @@
+{
+  "artifact_type": "prottox_3dkd_v5_ranking_decision",
+  "version": "v5-0",
+  "date": "2026-09-05",
+  "decision": "do_not_authorize_v5_yet",
+  "checks": {
+    "teacher_ranking_strong": true,
+    "teacher_corrects_v1_misorder": "true_on_4_of_5_folds",
+    "stability_across_5_folds": false,
+    "fold4_teacher_auroc": 0.9575,
+    "fold4_correction_rate": 0.45
+  },
+  "frozen_v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "v5_ranking_diagnostic.json"
+}

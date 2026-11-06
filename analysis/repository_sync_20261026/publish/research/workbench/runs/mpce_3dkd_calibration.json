@@ -1,0 +1,33 @@
+{
+  "decision_rule": "choose temperature scaling only if OOF Brier gain >= 0.0005 or ECE gain >= 0.002; otherwise identity",
+  "identity": {
+    "auprc": 0.9461762684198433,
+    "auroc": 0.9737063113183718,
+    "brier": 0.055729337505439146,
+    "ece": 0.04752495268567063,
+    "mcc": 0.8388820138156369
+  },
+  "identity_minus_temperature": {
+    "brier_gain": 0.005168493705787265,
+    "ece_gain": 0.03983866617423523
+  },
+  "model": "MPCE-3DKD two-seed averaged OOF",
+  "selected": "temperature_scaling",
+  "selected_summary": {
+    "auprc": 0.9461765466466654,
+    "auroc": 0.9737063113183719,
+    "brier": 0.05056084379965188,
+    "ece": 0.007686286511435391,
+    "mcc": 0.8388820138156369,
+    "temperature": 2.69177508354187
+  },
+  "selection_scope": "training OOF only; Test1/Test2 never read",
+  "temperature_scaling": {
+    "auprc": 0.9461765466466654,
+    "auroc": 0.9737063113183719,
+    "brier": 0.05056084379965188,
+    "ece": 0.007686286511435391,
+    "mcc": 0.8388820138156369,
+    "temperature": 2.69177508354187
+  }
+}

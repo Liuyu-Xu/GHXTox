@@ -1,0 +1,79 @@
+{
+  "artifact_type": "mpce_3dkd_polish_protocol",
+  "version": "v1-0",
+  "status": "frozen_before_polish",
+  "scope": "training_oof_only; Test1/Test2 never read",
+  "core_model": {
+    "name": "MPCE-3DKD",
+    "status": "frozen; no core architecture/checkpoint changes",
+    "deployment_baseline": "ProtTox-3DKD v1 remains immutable"
+  },
+  "allowed_work": [
+    "module ablation runs",
+    "prototype interpretability audit",
+    "low-rank interaction branch audit",
+    "probability calibration policy (identity vs temperature, selected once on training OOF)",
+    "full-data refit for the frozen MPCE-3DKD architecture using cross-fitted outer-holdout teacher targets",
+    "deployment-consistency audit between a standalone sequence runner and training-time inference",
+    "lightweight metrics report"
+  ],
+  "forbidden_work": [
+    "new attention/gate/encoder/KD variants",
+    "prototype-count or hyperparameter search",
+    "seed/threshold/fold post-hoc selection",
+    "v1 or frontend mutation"
+  ],
+  "steps": {
+    "1_module_ablations": {
+      "full": "existing MPCE-3DKD runs/mpce_3dkd_seed20260905_v1 and seed20260906_v1",
+      "no_kd": "existing MPCE-B runs/mpce_net_b_seed20260905_v1 and seed20260906_v1",
+      "no_multi_view_plain_tristat": "existing A0 TriStat-MLP (no KD) and ProtTox-3DKD v1 (MLP+KD) as architecture anchors",
+      "new_runs": {
+        "no_cross": "full MPCE-3DKD objective and prototypes, but low-rank interaction vector is absent (latent from concatenated views; interaction block zeroed in global input)",
+        "no_proto": "full MPCE-3DKD views/cross/KD, but prototype branch and prototype CE are removed",
+        "seeds": [20260905, 20260906],
+        "folds": 5,
+        "hyperparameters": "20 epochs, lr 1e-3, batch 256, threshold 0.5, KD T=2.0, KD weight 1.0, proto weight 0.5"
+      },
+      "report": "runs/mpce_3dkd_polish_module_ablations.md"
+    },
+    "2_prototype_interpretability": {
+      "inputs": "existing MPCE-3DKD fold checkpoints + audited training OOF cache",
+      "outputs": [
+        "per-peptide prototype assignment (toxic/non-toxic sides)",
+        "per-prototype usage/entropy and collapse check",
+        "sequence/PhysChem summary per prototype"
+      ],
+      "report": "runs/mpce_3dkd_prototype_audit.md"
+    },
+    "3_interaction_audit": {
+      "branches": ["mean*max", "mean*std", "max*std", "sequence*physchem"],
+      "method": "per-branch inference perturbation on OOF using frozen fold checkpoints; record activation magnitude and metric delta",
+      "report": "runs/mpce_3dkd_interaction_audit.md"
+    },
+    "4_calibration": {
+      "candidates": ["identity", "temperature scaling"],
+      "fit_scope": "MPCE-3DKD two-seed averaged training OOF only",
+      "selection": "one candidate selected once; not re-fit after Test1/Test2",
+      "report": "runs/mpce_3dkd_calibration.md"
+    },
+    "5_full_data_refit_and_deployment_audit": {
+      "teacher_target": "crossfit_teacher_targets_6387.csv (each sample supervised only by the teacher for its own outer fold)",
+      "seeds": [20260905, 20260906],
+      "checkpoint_outputs": [
+        "runs/mpce_3dkd_product_single_refit_v1"
+      ],
+      "encoder_consistency": "canonical product cache generated one sequence per ProtT5 forward (runs/mpce_3dkd_product_single_cache.pt) so arbitrary API queries reproduce training-time features exactly",
+      "audit": "standalone sequence runner vs training-time inference on fixed held-back sequences",
+      "report": "runs/mpce_3dkd_deployment_audit.md"
+    },
+    "6_lightweight_metrics": {
+      "inputs": [
+        "final full-refit checkpoint parameter counts",
+        "prototype/interaction audit artifacts",
+        "runner benchmark"
+      ],
+      "report": "runs/mpce_3dkd_lightweight_report.md"
+    }
+  }
+}

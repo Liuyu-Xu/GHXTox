@@ -1,0 +1,56 @@
+{
+  "GHXTox/train==CAPTP/train": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test1==CAPTP/test1": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test2==CAPTP/test2": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/train==ToxMSRC/train": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test1==ToxMSRC/test1": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test2==ToxMSRC/test2": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/train==StrucToxNet/train": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test1==StrucToxNet/test": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/train==ToxPLTC/train": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test1==ToxPLTC/test1": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "GHXTox/test2==ToxPLTC/test2": {
+    "same_multiset": true,
+    "same_order": true
+  },
+  "ToxMSRC/train_csv_vs_fasta_labels": {
+    "exact_agreement": true
+  },
+  "ToxMSRC/test1_csv_vs_fasta_labels": {
+    "exact_agreement": true
+  },
+  "ToxMSRC/test2_csv_vs_fasta_labels": {
+    "exact_agreement": true
+  },
+  "GHXTox_test2_subset_test1": true
+}

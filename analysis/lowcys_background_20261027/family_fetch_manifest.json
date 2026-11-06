@@ -1,0 +1,25 @@
+{
+  "url": "https://rest.uniprot.org/uniprotkb/stream?query=reviewed%3Atrue+AND+length%3A%5B7+TO+50%5D&format=tsv&fields=accession%2Cid%2Cprotein_name%2Corganism_name%2Clength%2Csequence%2Ccc_similarity",
+  "retrieved_utc": "2026-10-27T11:41:15.506160+00:00",
+  "headers": {
+    "Vary": "accept,accept-encoding,x-uniprot-release,x-api-deployment-date, User-Agent",
+    "Cache-Control": "public, max-age=43200",
+    "Content-Type": "text/plain;format=tsv",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date",
+    "X-API-Deployment-Date": "15-October-2026",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "Date": "Tue, 27 Oct 2026 11:40:05 GMT",
+    "Access-Control-Max-Age": "1728000",
+    "X-UniProt-Release": "2026_03",
+    "Transfer-Encoding": "chunked",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "X-UniProt-Release-Date": "02-September-2026"
+  },
+  "bytes": 2899873,
+  "sha256": "a5a21dcef007bcde1343ba77554ebc47398d6417bff12751cfcd09a191b05d08",
+  "purpose": "symmetric missing-family-field completion, no toxicity label certification"
+}

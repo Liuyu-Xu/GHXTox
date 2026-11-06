@@ -1,0 +1,27 @@
+{
+  "panel_size": 12,
+  "input_hashes_before": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\protocol.json": "2f3cd1a1c54b5957fda3f9637175f2c38ad014144bf145e25a4cbf4d26393fce",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd",
+    "D:\\dachuang2026\\GHXTox\\analysis\\label_ambiguity_map_20261025\\ectatomin_family_panel.json": "4d2f9d0d9aae93593673d9c466afe1c678dff7890a45e7ca75e29e10c84e073e",
+    "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\chemical_sites.py": "ff67a9c44cfa707b441af14b785e6315ea81f2b880cc11ae25c3b622cb40aca6",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\preprocess.py": "cc76e5164c98e34ca8d02afff89678181785b0e25baa8b0a3a76cdc21e10ce83"
+  },
+  "input_hashes_after": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\protocol.json": "2f3cd1a1c54b5957fda3f9637175f2c38ad014144bf145e25a4cbf4d26393fce",
+    "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd",
+    "D:\\dachuang2026\\GHXTox\\analysis\\label_ambiguity_map_20261025\\ectatomin_family_panel.json": "4d2f9d0d9aae93593673d9c466afe1c678dff7890a45e7ca75e29e10c84e073e",
+    "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\chemical_sites.py": "ff67a9c44cfa707b441af14b785e6315ea81f2b880cc11ae25c3b622cb40aca6",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\preprocess.py": "cc76e5164c98e34ca8d02afff89678181785b0e25baa8b0a3a76cdc21e10ce83"
+  },
+  "inputs_unchanged": true,
+  "sequence_label_and_coordinate_counts_match": true,
+  "fusion_formula_verified": true,
+  "model_trained": false,
+  "test_predictions_read": false,
+  "raw_pdb_recovered": false
+}

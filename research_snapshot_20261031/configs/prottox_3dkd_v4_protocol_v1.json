@@ -1,0 +1,60 @@
+{
+  "artifact_type": "prottox_3dkd_v4_protocol",
+  "version": "v4-1",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1": {
+    "name": "ProtTox-3DKD v1",
+    "read_only": true,
+    "oof_comparator": "mlp_teacher_kd dual-seed fold ensemble OOF (v1 fold-base)"
+  },
+  "architecture": {
+    "name": "Uncertainty-Gated Privileged Refinement",
+    "shared_representation": "Frozen ProtT5 TriStat + 9 PhysChem -> shared MLP projection (192d)",
+    "base_head": "shared -> z_base",
+    "privileged_head": "shared -> z_priv; receives BCE(label) and teacher KD during training",
+    "gate": "g = 1 - 2*|sigmoid(z_base) - 0.5|, clipped to [0,1], detached for loss weighting",
+    "final": "z_final = (1 - g)*z_base + g*z_priv",
+    "deployment": "sequence only; no ESMFold/3D/pLDDT/remote GPU"
+  },
+  "arms": {
+    "A": "ProtTox-3DKD v1 (existing frozen OOF control)",
+    "B": "same params, no uncertainty gate (fixed g=0.5), global KD to z_priv",
+    "C": "same params, uncertainty gate, no teacher KD",
+    "D": "same params, uncertainty gate, teacher KD weighted by g on z_priv"
+  },
+  "loss": {
+    "bce_final_weight": 1.0,
+    "bce_privileged_weight": 1.0,
+    "kd_temperature": 2.0,
+    "kd_lambda": 1.0,
+    "effective_kd_weight": "g (arm D) or 1.0 (arm B)"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "teacher_targets": "runs\\prottox_3d_distill_v1\\teacher_targets\\teacher_outer{k}_targets.csv",
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt"
+  },
+  "promotion_rule": {
+    "D_vs_A": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "D_vs_B": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.0
+    },
+    "D_vs_C": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.0
+    },
+    "test1_test2_allowed_for_selection": false
+  }
+}

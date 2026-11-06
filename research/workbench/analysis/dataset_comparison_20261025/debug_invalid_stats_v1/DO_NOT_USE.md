@@ -1,0 +1,1 @@
+Invalid preliminary alignment tables. parasail stats.length can omit initial gap columns, so these identities are not scientific results. Only ../alignment_to_train_v2.csv and ../alignment_to_known_v2.csv are valid. Preserved for diagnostic provenance.

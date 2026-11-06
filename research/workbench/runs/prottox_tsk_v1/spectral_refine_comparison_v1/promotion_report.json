@@ -1,0 +1,119 @@
+{
+  "artifact_type": "prottox_spectral_refine_promotion_report",
+  "controls": [
+    {
+      "oof_metrics": {
+        "accuracy": 0.7162987317989666,
+        "auprc": 0.4565297659828683,
+        "auroc": 0.6819193464542339,
+        "balanced_accuracy": 0.5859376975123645,
+        "brier": 0.20249902130816547,
+        "f1": 0.36242083040112594,
+        "fn": 1303,
+        "fp": 509,
+        "mcc": 0.21138168280749664,
+        "precision": 0.5029296875,
+        "sensitivity": 0.2832783278327833,
+        "specificity": 0.8885970671919458,
+        "threshold": 0.5,
+        "tn": 4060,
+        "tp": 515
+      },
+      "path": "runs\\prottox_tsk_v1\\spectral_refine_spectral_only_seed20260905_v1\\manifest.json",
+      "seed": 20260905,
+      "variant": "spectral_only"
+    },
+    {
+      "oof_metrics": {
+        "accuracy": 0.7053389697823704,
+        "auprc": 0.44586801830707706,
+        "auroc": 0.6844010347631393,
+        "balanced_accuracy": 0.585232341356263,
+        "brier": 0.20456649478449826,
+        "f1": 0.37182910547396525,
+        "fn": 1261,
+        "fp": 621,
+        "mcc": 0.1983316883725538,
+        "precision": 0.47283531409168084,
+        "sensitivity": 0.3063806380638064,
+        "specificity": 0.8640840446487197,
+        "threshold": 0.5,
+        "tn": 3948,
+        "tp": 557
+      },
+      "path": "runs\\prottox_tsk_v1\\spectral_refine_spectral_only_seed20260906_v1\\manifest.json",
+      "seed": 20260906,
+      "variant": "spectral_only"
+    },
+    {
+      "oof_metrics": {
+        "accuracy": 0.9271958666040394,
+        "auprc": 0.929645160966075,
+        "auroc": 0.9662897784635106,
+        "balanced_accuracy": 0.9065558394316122,
+        "brier": 0.05857046784422926,
+        "f1": 0.8703652076944522,
+        "fn": 257,
+        "fp": 208,
+        "mcc": 0.8199112335272213,
+        "precision": 0.8824194460146976,
+        "sensitivity": 0.8586358635863587,
+        "specificity": 0.9544758152768659,
+        "threshold": 0.5,
+        "tn": 4361,
+        "tp": 1561
+      },
+      "path": "runs\\prottox_tsk_v1\\spectral_refine_concat_seed20260905_v1\\manifest.json",
+      "seed": 20260905,
+      "variant": "concat"
+    },
+    {
+      "oof_metrics": {
+        "accuracy": 0.9286049788633162,
+        "auprc": 0.9302175543107772,
+        "auroc": 0.966268710477964,
+        "balanced_accuracy": 0.907706332025192,
+        "brier": 0.058292929079291386,
+        "f1": 0.8726256983240224,
+        "fn": 256,
+        "fp": 200,
+        "mcc": 0.8232394048625806,
+        "precision": 0.8864926220204313,
+        "sensitivity": 0.8591859185918592,
+        "specificity": 0.9562267454585248,
+        "threshold": 0.5,
+        "tn": 4369,
+        "tp": 1562
+      },
+      "path": "runs\\prottox_tsk_v1\\spectral_refine_concat_seed20260906_v1\\manifest.json",
+      "seed": 20260906,
+      "variant": "concat"
+    }
+  ],
+  "decision": "retain_as_ablation",
+  "frozen_rule": {
+    "both_seeds_mcc_not_lower": true,
+    "maximum_mean_auprc_decline": 0.002,
+    "minimum_mean_mcc_advantage": 0.005
+  },
+  "mean_delta": {
+    "auprc": 0.00034149988983600554,
+    "brier": -0.0005919305163158244,
+    "mcc": 0.0002053997967155774
+  },
+  "paired_deltas": [
+    {
+      "auprc": 6.163789341118164e-05,
+      "brier": -0.0007239141046684675,
+      "mcc": -0.0006635794692447794,
+      "seed": 20260905
+    },
+    {
+      "auprc": 0.0006213618862608294,
+      "brier": -0.00045994692796318126,
+      "mcc": 0.0010743790626759342,
+      "seed": 20260906
+    }
+  ],
+  "selection_scope": "paired training OOF only; Test1/Test2 excluded"
+}

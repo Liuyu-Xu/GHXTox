@@ -1,0 +1,18 @@
+{
+ "stage":"frozen before fitting explanatory controls; hypotheses follow previous exploratory contribution analysis",
+ "task":"Does calibration/Cys/length/family account for SaProt complementarity? No new neural training or distillation.",
+ "population":6387,
+ "source":"same-size saved baseline4 and fusion_3Di4/fusion_masked4; original labels/folds/groups unchanged",
+ "evaluation":"Within each original outer fold, sort unique group ids by SHA256 of group|saprot_explanation_v1 and alternate groups into halves. Fit control on one half, predict other half; reverse. Ten fits per explanatory arm; no original-fold sample used to train its associated base neural models. Avoid global OOF meta-fit leakage. Groups stay whole; no outcome stratification or hyperparameter search.",
+ "label_based_arms":["baseline4_raw","baseline4_bias_offset","baseline4_Platt","baseline4_CysLength","baseline4_CysLengthFamily","fusion_3Di4_raw","fusion_masked4_raw","fusion_3Di4_Platt","fusion_masked4_Platt"],
+ "bias_offset":"fixed slope1; minimize training-half unweighted Bernoulli NLL over intercept[-12,12]; no threshold tuning",
+ "Platt":"StandardScaler fit training half, LogisticRegression C1 lbfgs max_iter3000, unweighted; baseline score or candidate score only; same split for all arms",
+ "CysLength":"same logistic control using baseline score,length,Cys count,Cys fraction,Cys span,and baseline score times indicator(Cys>=4); no family or structure",
+ "CysLengthFamily":"CysLength + multi-hot cached curated-family/name-class annotations; vocabulary frequency>=5 training-half only; missing curated/name indicators; metadata diagnostic only, not deployment input or causal mechanism evidence",
+ "threshold":0.5,
+ "teacher_shift_reconstruction":"For each SaProt mode, train Ridge alpha1 with train-half-only StandardScaler and no toxicity-label use to predict fusion_probability-baseline_probability. Three feature sets: baseline score/probability/p*(1-p); plus CysLength; plus family metadata. Crossfit same halves. Approximate fusion probability clip[1e-12,1-1e-12]. Report out-of-sample R2/MAE of shift, prediction changes, recovered rescues and harms. R2 is predictability under these probes, not fraction of causal mechanism explained.",
+ "primary_comparisons":[["baseline4_Platt","baseline4_raw"],["baseline4_CysLength","baseline4_Platt"],["baseline4_CysLengthFamily","baseline4_CysLength"],["fusion_3Di4_Platt","baseline4_Platt"],["fusion_masked4_Platt","baseline4_Platt"],["fusion_3Di4_Platt","baseline4_CysLengthFamily"]],
+ "uncertainty":"2000 paired original-group bootstrap of saved crossfit predictions, MCC95% and Bonferroni99.1667% intervals over6 comparisons; conditional on frozen neural predictions and fitted controls, no model-refit uncertainty; exploratory. Also paired mean Brier/logloss intervals, no calibrated significance over secondary outcomes.",
+ "report":"MCC,AUPRC,AUROC,Brier,NLL,FN,FP; all five original folds; net rescue/harm relative raw baseline; lowCys positive and 76 membrane annotation-positive strata, not gold endpoints; no best-arm selection as confirmed finding",
+ "guardrails":"No use of test1/test2/new external outcomes; do not infer actual disulfide topology from Cys counts, no relabeling, no selective routing by true outcomes, no changing old neural weights or default GHXTox; original source hashes checked when loading. Stop after fixed controls, preserve negatives."
+}

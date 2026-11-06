@@ -1,0 +1,17 @@
+{
+  "artifact_type": "prottox_3dkd_v3_utility_decision",
+  "version": "v3-0",
+  "date": "2026-09-05",
+  "decision": "stop_v3_dual_expert",
+  "gate_failed_on": ["mean_spearman_ge_0.20"],
+  "gate_results": {
+    "helpful_prevalence_ge_0.05": true,
+    "mean_auroc_ge_0.65": true,
+    "at_least_4_of_5_auroc_gt_0.60": true,
+    "mean_spearman_ge_0.20": false
+  },
+  "keep_product": "ProtTox-3DKD v1",
+  "frozen_v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "v3_utility_diagnostic.json"
+}

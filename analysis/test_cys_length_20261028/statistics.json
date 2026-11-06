@@ -1,0 +1,478 @@
+{
+  "test1": {
+    "total": {
+      "n": 1126,
+      "errors": 59,
+      "error_rate": 0.052397868561278864,
+      "distinct_sequences": 1126,
+      "mean_cys": 1.9520426287744228,
+      "median_cys": 0.0,
+      "mean_length": 31.55595026642984,
+      "median_length": 32.0
+    },
+    "cys": {
+      "0–1": {
+        "1": {
+          "n": 60,
+          "errors": 25,
+          "error_rate": 0.4166666666666667,
+          "distinct_sequences": 60,
+          "mean_cys": 0.2833333333333333,
+          "median_cys": 0.0,
+          "mean_length": 24.616666666666667,
+          "median_length": 23.0
+        },
+        "0": {
+          "n": 622,
+          "errors": 6,
+          "error_rate": 0.00964630225080386,
+          "distinct_sequences": 622,
+          "mean_cys": 0.1382636655948553,
+          "median_cys": 0.0,
+          "mean_length": 30.659163987138264,
+          "median_length": 32.0
+        }
+      },
+      "2–3": {
+        "1": {
+          "n": 27,
+          "errors": 5,
+          "error_rate": 0.18518518518518517,
+          "distinct_sequences": 27,
+          "mean_cys": 2.3703703703703702,
+          "median_cys": 2,
+          "mean_length": 28.962962962962962,
+          "median_length": 28
+        },
+        "0": {
+          "n": 101,
+          "errors": 5,
+          "error_rate": 0.04950495049504951,
+          "distinct_sequences": 101,
+          "mean_cys": 2.366336633663366,
+          "median_cys": 2,
+          "mean_length": 35.524752475247524,
+          "median_length": 37
+        }
+      },
+      "4–6": {
+        "1": {
+          "n": 198,
+          "errors": 3,
+          "error_rate": 0.015151515151515152,
+          "distinct_sequences": 198,
+          "mean_cys": 5.363636363636363,
+          "median_cys": 6.0,
+          "mean_length": 30.2979797979798,
+          "median_length": 31.0
+        },
+        "0": {
+          "n": 75,
+          "errors": 12,
+          "error_rate": 0.16,
+          "distinct_sequences": 75,
+          "mean_cys": 4.986666666666666,
+          "median_cys": 5,
+          "mean_length": 37.973333333333336,
+          "median_length": 39
+        }
+      },
+      "≥7": {
+        "1": {
+          "n": 35,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 35,
+          "mean_cys": 8.314285714285715,
+          "median_cys": 8,
+          "mean_length": 41.57142857142857,
+          "median_length": 42
+        },
+        "0": {
+          "n": 8,
+          "errors": 3,
+          "error_rate": 0.375,
+          "distinct_sequences": 8,
+          "mean_cys": 8.125,
+          "median_cys": 8.0,
+          "mean_length": 39.125,
+          "median_length": 41.0
+        }
+      }
+    },
+    "length": {
+      "≤20": {
+        "1": {
+          "n": 68,
+          "errors": 16,
+          "error_rate": 0.23529411764705882,
+          "distinct_sequences": 68,
+          "mean_cys": 2.8529411764705883,
+          "median_cys": 4.0,
+          "mean_length": 15.970588235294118,
+          "median_length": 16.0
+        },
+        "0": {
+          "n": 187,
+          "errors": 4,
+          "error_rate": 0.0213903743315508,
+          "distinct_sequences": 187,
+          "mean_cys": 0.1925133689839572,
+          "median_cys": 0,
+          "mean_length": 15.481283422459892,
+          "median_length": 15
+        }
+      },
+      "21–30": {
+        "1": {
+          "n": 83,
+          "errors": 12,
+          "error_rate": 0.14457831325301204,
+          "distinct_sequences": 83,
+          "mean_cys": 3.9156626506024095,
+          "median_cys": 4,
+          "mean_length": 26.240963855421686,
+          "median_length": 26
+        },
+        "0": {
+          "n": 148,
+          "errors": 9,
+          "error_rate": 0.060810810810810814,
+          "distinct_sequences": 148,
+          "mean_cys": 1.25,
+          "median_cys": 0.0,
+          "mean_length": 25.93918918918919,
+          "median_length": 26.0
+        }
+      },
+      "31–40": {
+        "1": {
+          "n": 118,
+          "errors": 4,
+          "error_rate": 0.03389830508474576,
+          "distinct_sequences": 118,
+          "mean_cys": 5.177966101694915,
+          "median_cys": 6.0,
+          "mean_length": 35.16101694915254,
+          "median_length": 35.0
+        },
+        "0": {
+          "n": 245,
+          "errors": 7,
+          "error_rate": 0.02857142857142857,
+          "distinct_sequences": 245,
+          "mean_cys": 1.0448979591836736,
+          "median_cys": 0,
+          "mean_length": 35.76326530612245,
+          "median_length": 36
+        }
+      },
+      "≥41": {
+        "1": {
+          "n": 51,
+          "errors": 1,
+          "error_rate": 0.0196078431372549,
+          "distinct_sequences": 51,
+          "mean_cys": 5.96078431372549,
+          "median_cys": 6,
+          "mean_length": 45.09803921568628,
+          "median_length": 45
+        },
+        "0": {
+          "n": 226,
+          "errors": 6,
+          "error_rate": 0.02654867256637168,
+          "distinct_sequences": 226,
+          "mean_cys": 1.2699115044247788,
+          "median_cys": 0.0,
+          "mean_length": 45.676991150442475,
+          "median_length": 45.0
+        }
+      }
+    },
+    "class_correctness": {
+      "1": {
+        "0": {
+          "n": 287,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 287,
+          "mean_cys": 4.881533101045296,
+          "median_cys": 6,
+          "mean_length": 31.21951219512195,
+          "median_length": 32
+        },
+        "1": {
+          "n": 33,
+          "errors": 33,
+          "error_rate": 1.0,
+          "distinct_sequences": 33,
+          "mean_cys": 1,
+          "median_cys": 0,
+          "mean_length": 22.818181818181817,
+          "median_length": 21
+        }
+      },
+      "0": {
+        "0": {
+          "n": 780,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 780,
+          "mean_cys": 0.8525641025641025,
+          "median_cys": 0.0,
+          "mean_length": 32.06666666666667,
+          "median_length": 33.0
+        },
+        "1": {
+          "n": 26,
+          "errors": 26,
+          "error_rate": 1.0,
+          "distinct_sequences": 26,
+          "mean_cys": 3.8076923076923075,
+          "median_cys": 4.0,
+          "mean_length": 31.03846153846154,
+          "median_length": 30.0
+        }
+      }
+    }
+  },
+  "test2": {
+    "total": {
+      "n": 582,
+      "errors": 31,
+      "error_rate": 0.05326460481099656,
+      "distinct_sequences": 582,
+      "mean_cys": 1.0996563573883162,
+      "median_cys": 0.0,
+      "mean_length": 29.9020618556701,
+      "median_length": 31.0
+    },
+    "cys": {
+      "0–1": {
+        "1": {
+          "n": 18,
+          "errors": 9,
+          "error_rate": 0.5,
+          "distinct_sequences": 18,
+          "mean_cys": 0.05555555555555555,
+          "median_cys": 0.0,
+          "mean_length": 21.27777777777778,
+          "median_length": 14.0
+        },
+        "0": {
+          "n": 417,
+          "errors": 4,
+          "error_rate": 0.009592326139088728,
+          "distinct_sequences": 417,
+          "mean_cys": 0.1342925659472422,
+          "median_cys": 0,
+          "mean_length": 28.84652278177458,
+          "median_length": 29
+        }
+      },
+      "2–3": {
+        "1": {
+          "n": 5,
+          "errors": 2,
+          "error_rate": 0.4,
+          "distinct_sequences": 5,
+          "mean_cys": 2,
+          "median_cys": 2,
+          "mean_length": 21.4,
+          "median_length": 20
+        },
+        "0": {
+          "n": 62,
+          "errors": 4,
+          "error_rate": 0.06451612903225806,
+          "distinct_sequences": 62,
+          "mean_cys": 2.306451612903226,
+          "median_cys": 2.0,
+          "mean_length": 34.806451612903224,
+          "median_length": 37.0
+        }
+      },
+      "4–6": {
+        "1": {
+          "n": 21,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 21,
+          "mean_cys": 5.238095238095238,
+          "median_cys": 6,
+          "mean_length": 23.714285714285715,
+          "median_length": 16
+        },
+        "0": {
+          "n": 51,
+          "errors": 10,
+          "error_rate": 0.19607843137254902,
+          "distinct_sequences": 51,
+          "mean_cys": 4.96078431372549,
+          "median_cys": 4,
+          "mean_length": 37.15686274509804,
+          "median_length": 36
+        }
+      },
+      "≥7": {
+        "1": {
+          "n": 2,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 2,
+          "mean_cys": 9,
+          "median_cys": 9.0,
+          "mean_length": 40.5,
+          "median_length": 40.5
+        },
+        "0": {
+          "n": 6,
+          "errors": 2,
+          "error_rate": 0.3333333333333333,
+          "distinct_sequences": 6,
+          "mean_cys": 8.166666666666666,
+          "median_cys": 8.0,
+          "mean_length": 42,
+          "median_length": 43.0
+        }
+      }
+    },
+    "length": {
+      "≤20": {
+        "1": {
+          "n": 25,
+          "errors": 6,
+          "error_rate": 0.24,
+          "distinct_sequences": 25,
+          "mean_cys": 2.32,
+          "median_cys": 2,
+          "mean_length": 13.12,
+          "median_length": 13
+        },
+        "0": {
+          "n": 165,
+          "errors": 3,
+          "error_rate": 0.01818181818181818,
+          "distinct_sequences": 165,
+          "mean_cys": 0.20606060606060606,
+          "median_cys": 0,
+          "mean_length": 15.066666666666666,
+          "median_length": 15
+        }
+      },
+      "21–30": {
+        "1": {
+          "n": 6,
+          "errors": 3,
+          "error_rate": 0.5,
+          "distinct_sequences": 6,
+          "mean_cys": 2.3333333333333335,
+          "median_cys": 1.0,
+          "mean_length": 25.5,
+          "median_length": 25.5
+        },
+        "0": {
+          "n": 88,
+          "errors": 8,
+          "error_rate": 0.09090909090909091,
+          "distinct_sequences": 88,
+          "mean_cys": 1.2840909090909092,
+          "median_cys": 0.0,
+          "mean_length": 26.09090909090909,
+          "median_length": 26.0
+        }
+      },
+      "31–40": {
+        "1": {
+          "n": 10,
+          "errors": 1,
+          "error_rate": 0.1,
+          "distinct_sequences": 10,
+          "mean_cys": 4.5,
+          "median_cys": 6.0,
+          "mean_length": 35.2,
+          "median_length": 35.0
+        },
+        "0": {
+          "n": 142,
+          "errors": 4,
+          "error_rate": 0.028169014084507043,
+          "distinct_sequences": 142,
+          "mean_cys": 1.0985915492957747,
+          "median_cys": 0.0,
+          "mean_length": 35.78169014084507,
+          "median_length": 36.5
+        }
+      },
+      "≥41": {
+        "1": {
+          "n": 5,
+          "errors": 1,
+          "error_rate": 0.2,
+          "distinct_sequences": 5,
+          "mean_cys": 4.4,
+          "median_cys": 5,
+          "mean_length": 47.2,
+          "median_length": 48
+        },
+        "0": {
+          "n": 141,
+          "errors": 5,
+          "error_rate": 0.03546099290780142,
+          "distinct_sequences": 141,
+          "mean_cys": 1.4042553191489362,
+          "median_cys": 0,
+          "mean_length": 45.8936170212766,
+          "median_length": 46
+        }
+      }
+    },
+    "class_correctness": {
+      "1": {
+        "0": {
+          "n": 35,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 35,
+          "mean_cys": 3.8285714285714287,
+          "median_cys": 4,
+          "mean_length": 23.514285714285716,
+          "median_length": 16
+        },
+        "1": {
+          "n": 11,
+          "errors": 11,
+          "error_rate": 1.0,
+          "distinct_sequences": 11,
+          "mean_cys": 0.45454545454545453,
+          "median_cys": 0,
+          "mean_length": 22.363636363636363,
+          "median_length": 16
+        }
+      },
+      "0": {
+        "0": {
+          "n": 516,
+          "errors": 0,
+          "error_rate": 0.0,
+          "distinct_sequences": 516,
+          "mean_cys": 0.8236434108527132,
+          "median_cys": 0.0,
+          "mean_length": 30.459302325581394,
+          "median_length": 31.0
+        },
+        "1": {
+          "n": 20,
+          "errors": 20,
+          "error_rate": 1.0,
+          "distinct_sequences": 20,
+          "mean_cys": 3.8,
+          "median_cys": 4.0,
+          "mean_length": 30.85,
+          "median_length": 28.5
+        }
+      }
+    }
+  }
+}

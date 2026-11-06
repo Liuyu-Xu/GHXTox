@@ -1,0 +1,3 @@
+# Preserve published checksum-bearing research files byte for byte on all OSes.
+research/workbench/** -text
+research/legacy_hypeptox/** -text

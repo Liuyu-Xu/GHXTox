@@ -1,0 +1,28 @@
+{
+  "artifact": "runs\\prottox_tsk_v1\\features.pt",
+  "artifact_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+  "embedding_dim": 1024,
+  "encoder": {
+    "embedding_dim": 1024,
+    "frozen": true,
+    "identifier": "prot_t5_xl_half_uniref50-enc"
+  },
+  "feature_contract": [
+    "tristat_mean",
+    "tristat_max",
+    "tristat_std",
+    "physchem_9"
+  ],
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "num_records": 6387,
+  "selection": {
+    "limit": null,
+    "seed": 20260905,
+    "stratify_labels": false
+  },
+  "source": {
+    "path": "D:\\dachuang2026\\ziliao\\train_prott5_official_mean.pt",
+    "sha256": "71b8b55be48855e8feab3a3cc0c132229e85521be8db461be819c8fb9c0df2d5"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "artifact": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_canonical_cache.pt",
+  "artifact_sha256": "d8a898b59351c34ba4121d58804f962f4be117233ede401bd1cd8c9c0df63a22",
+  "encoder": {
+    "embedding_dim": 1024,
+    "frozen": true,
+    "identifier": "prot_t5_xl_half_uniref50-enc",
+    "snapshot": "D:\\dachuang2026\\ziliao\\huggingface_cache\\hub\\models--Rostlab--prot_t5_xl_half_uniref50-enc\\snapshots\\94a6abc029ae13029317b140b7424e012bf8dfbf",
+    "snapshot_sha256": "7f51ba885541c7dc569d46b796af57cc7a2ba7945107dced4f19d1b5ec091157"
+  },
+  "fold_manifest_sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe",
+  "purpose": "deployment product full-refit only; frozen OOF artifacts remain untouched",
+  "records": 6387,
+  "timing_seconds": 7.665449999971315
+}

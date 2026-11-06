@@ -1,0 +1,139 @@
+{
+  "selectivity": {
+    "original_studies": 3,
+    "named_series": 3,
+    "sequences": 22,
+    "strain_association_rows": 222,
+    "direct_HC50": 0,
+    "direct_threshold_MHC5": 16,
+    "not_ready_for_multistudy_training": true
+  },
+  "dose_confirmed_overlay": {
+    "remaining_rows": 3377,
+    "thresholds": {
+      "2": {
+        "panels": 503,
+        "rows": 1743,
+        "unique_sequences": 457,
+        "chemical_forms": 468,
+        "pmids": 172,
+        "edit_clusters": 313
+      },
+      "3": {
+        "panels": 284,
+        "rows": 1305,
+        "unique_sequences": 269,
+        "chemical_forms": 272,
+        "pmids": 90,
+        "edit_clusters": 200
+      },
+      "4": {
+        "panels": 152,
+        "rows": 909,
+        "unique_sequences": 141,
+        "chemical_forms": 143,
+        "pmids": 65,
+        "edit_clusters": 122
+      },
+      "5": {
+        "panels": 91,
+        "rows": 665,
+        "unique_sequences": 85,
+        "chemical_forms": 87,
+        "pmids": 44,
+        "edit_clusters": 78
+      }
+    },
+    "three_plus_dose_fold_span": {
+      "min": 2.5,
+      "q25": 5.0,
+      "median": 10.0,
+      "q75": 61.53846153846153,
+      "max": 2980.1779661016953
+    },
+    "three_plus_response_range_pp": {
+      "min": 0.0,
+      "q25": 1.9050000000000002,
+      "median": 19.0,
+      "q75": 51.0,
+      "max": 100.0
+    },
+    "three_plus_nonmonotone_any": 23,
+    "three_plus_drop_gt5pp": 0
+  },
+  "dose_conservative_sensitivity": {
+    "remaining_rows": 2804,
+    "thresholds": {
+      "2": {
+        "panels": 465,
+        "rows": 1632,
+        "unique_sequences": 423,
+        "chemical_forms": 433,
+        "pmids": 151,
+        "edit_clusters": 293
+      },
+      "3": {
+        "panels": 253,
+        "rows": 1208,
+        "unique_sequences": 238,
+        "chemical_forms": 241,
+        "pmids": 84,
+        "edit_clusters": 181
+      },
+      "4": {
+        "panels": 148,
+        "rows": 893,
+        "unique_sequences": 138,
+        "chemical_forms": 140,
+        "pmids": 62,
+        "edit_clusters": 119
+      },
+      "5": {
+        "panels": 91,
+        "rows": 665,
+        "unique_sequences": 85,
+        "chemical_forms": 87,
+        "pmids": 44,
+        "edit_clusters": 78
+      }
+    },
+    "three_plus_dose_fold_span": {
+      "min": 2.5,
+      "q25": 5.0,
+      "median": 8.0,
+      "q75": 61.53846153846153,
+      "max": 1020.4081632653061
+    },
+    "three_plus_response_range_pp": {
+      "min": 0.0,
+      "q25": 1.0,
+      "median": 12.0,
+      "q75": 48.5,
+      "max": 100.0
+    },
+    "three_plus_nonmonotone_any": 23,
+    "three_plus_drop_gt5pp": 0
+  },
+  "chemistry_metadata": {
+    "database_blocks": 19,
+    "distinct_backbones": 7,
+    "distinct_pmid_identifiers": 6,
+    "distinct_state_pairs": 7,
+    "all_same_nonempty_SMILES": 19,
+    "single_terminal_field_difference_blocks": 19,
+    "scope": "parent verified metadata only; no effect-direction ranking or molecular design; subagent was interrupted by safety review"
+  },
+  "subagent_status": {
+    "selectivity_audit": "completed",
+    "dose_response_audit": "completed",
+    "chemical_state_audit": "interrupted by system safety review; parent completed metadata checks only"
+  },
+  "model_requests": {
+    "subagents": {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "medium"
+    },
+    "main": "main model/effort controlled by current conversation settings; no tool switch available"
+  },
+  "decision": "dose-response is the most data-ready bounded risk-prediction pilot after endpoint provenance audit; selectivity has a within-study diagnostic panel but insufficient coherent multi-study data; chemical-state panel is a small metadata/input-consistency test, not new-model training evidence"
+}

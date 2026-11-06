@@ -1,0 +1,393 @@
+{
+  "1": {
+    "new_fp": {
+      "n": 11,
+      "flagged": 9,
+      "fragment": 6,
+      "conflict": 3,
+      "family_annotated_n": 6,
+      "top_families": [
+        [
+          "belongs to the frog skin active peptide (fsap) family. temporin subfamily",
+          2
+        ],
+        [
+          "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily",
+          1
+        ],
+        [
+          "belongs to the wrba family",
+          1
+        ],
+        [
+          "belongs to the frog skin active peptide (fsap) family. tryptophillin subfamily",
+          1
+        ],
+        [
+          "belongs to the ponericin-g family",
+          1
+        ]
+      ],
+      "databases": {
+        "unknown": 11
+      },
+      "seq_delta_median": 0.5464742923144068,
+      "fusion_delta_median": 0.39346149046637285,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 1,
+        "0.05_to_under_0.15": 6,
+        "at_least_0.15": 4
+      }
+    },
+    "corrected": {
+      "n": 3,
+      "flagged": 2,
+      "fragment": 2,
+      "conflict": 0,
+      "family_annotated_n": 1,
+      "top_families": [
+        [
+          "belongs to the globin family",
+          1
+        ]
+      ],
+      "databases": {
+        "unknown": 3
+      },
+      "seq_delta_median": -0.49794063542358236,
+      "fusion_delta_median": -0.3585172575049792,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 0,
+        "0.05_to_under_0.15": 0,
+        "at_least_0.15": 0
+      }
+    },
+    "both_wrong": {
+      "n": 0,
+      "flagged": 0,
+      "fragment": 0,
+      "conflict": 0,
+      "family_annotated_n": 0,
+      "top_families": [],
+      "databases": {},
+      "seq_delta_median": null,
+      "fusion_delta_median": null,
+      "new_fp_margin_bins": {}
+    },
+    "both_correct": {
+      "n": 660,
+      "flagged": 252,
+      "fragment": 226,
+      "conflict": 35,
+      "family_annotated_n": 418,
+      "top_families": [
+        [
+          "belongs to the bacterial ribosomal protein bl34 family",
+          40
+        ],
+        [
+          "belongs to the psbn family",
+          14
+        ],
+        [
+          "belongs to the psbt family",
+          12
+        ],
+        [
+          "belongs to the psbj family",
+          12
+        ],
+        [
+          "belongs to the psam family",
+          9
+        ],
+        [
+          "belongs to the psbm family",
+          9
+        ],
+        [
+          "belongs to the frog skin active peptide (fsap) family. temporin subfamily",
+          8
+        ],
+        [
+          "belongs to the petl family",
+          8
+        ]
+      ],
+      "databases": {
+        "unknown": 660
+      },
+      "seq_delta_median": 0.004330684051832599,
+      "fusion_delta_median": 0.00311809251731947,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 0,
+        "0.05_to_under_0.15": 0,
+        "at_least_0.15": 0
+      }
+    },
+    "entire_low_negative": {
+      "n": 674,
+      "flagged": 263,
+      "fragment": 234,
+      "conflict": 38,
+      "family_annotated_n": 425,
+      "top_families": [
+        [
+          "belongs to the bacterial ribosomal protein bl34 family",
+          40
+        ],
+        [
+          "belongs to the psbn family",
+          14
+        ],
+        [
+          "belongs to the psbt family",
+          12
+        ],
+        [
+          "belongs to the psbj family",
+          12
+        ],
+        [
+          "belongs to the frog skin active peptide (fsap) family. temporin subfamily",
+          10
+        ],
+        [
+          "belongs to the psam family",
+          9
+        ],
+        [
+          "belongs to the psbm family",
+          9
+        ],
+        [
+          "belongs to the petl family",
+          8
+        ]
+      ],
+      "databases": {
+        "unknown": 674
+      },
+      "seq_delta_median": 0.004544367284683322,
+      "fusion_delta_median": 0.0032719444449719917,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 1,
+        "0.05_to_under_0.15": 6,
+        "at_least_0.15": 4
+      }
+    }
+  },
+  "2": {
+    "new_fp": {
+      "n": 33,
+      "flagged": 27,
+      "fragment": 8,
+      "conflict": 19,
+      "family_annotated_n": 23,
+      "top_families": [
+        [
+          "belongs to the phenol-soluble modulin alpha peptides family",
+          3
+        ],
+        [
+          "belongs to the mcd family. mastoparan subfamily",
+          3
+        ],
+        [
+          "belongs to the frog skin active peptide (fsap) family. dermaseptin subfamily",
+          2
+        ],
+        [
+          "belongs to the gastrin/cholecystokinin family",
+          2
+        ],
+        [
+          "belongs to the mcd family. bombolitin subfamily",
+          2
+        ],
+        [
+          "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. long chain multifunctional peptide (group 2) family",
+          1
+        ],
+        [
+          "belongs to the sauvagine/corticotropin-releasing factor/urotensin i family",
+          1
+        ],
+        [
+          "belongs to the protease inhibitor i39 (alpha-2-macroglobulin) family",
+          1
+        ]
+      ],
+      "databases": {
+        "unknown": 33
+      },
+      "seq_delta_median": 0.5776172975857881,
+      "fusion_delta_median": 0.4158844542617674,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 9,
+        "0.05_to_under_0.15": 15,
+        "at_least_0.15": 9
+      }
+    },
+    "corrected": {
+      "n": 3,
+      "flagged": 3,
+      "fragment": 3,
+      "conflict": 0,
+      "family_annotated_n": 2,
+      "top_families": [
+        [
+          "belongs to the cystatin family",
+          1
+        ],
+        [
+          "belongs to the peroxidase family. classical plant (class iii) peroxidase subfamily",
+          1
+        ]
+      ],
+      "databases": {
+        "unknown": 3
+      },
+      "seq_delta_median": -0.40201448015327446,
+      "fusion_delta_median": -0.2894504257103576,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 0,
+        "0.05_to_under_0.15": 0,
+        "at_least_0.15": 0
+      }
+    },
+    "both_wrong": {
+      "n": 3,
+      "flagged": 2,
+      "fragment": 2,
+      "conflict": 0,
+      "family_annotated_n": 3,
+      "top_families": [
+        [
+          "belongs to the phospholipase a2 family. group ii subfamily",
+          1
+        ],
+        [
+          "belongs to the peptidase s8 family",
+          1
+        ],
+        [
+          "belongs to the motilin family",
+          1
+        ]
+      ],
+      "databases": {
+        "unknown": 3
+      },
+      "seq_delta_median": 0.07504665388538623,
+      "fusion_delta_median": 0.05403359079747805,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 0,
+        "0.05_to_under_0.15": 1,
+        "at_least_0.15": 2
+      }
+    },
+    "both_correct": {
+      "n": 683,
+      "flagged": 237,
+      "fragment": 209,
+      "conflict": 38,
+      "family_annotated_n": 465,
+      "top_families": [
+        [
+          "belongs to the bacterial ribosomal protein bl34 family",
+          49
+        ],
+        [
+          "belongs to the petl family",
+          18
+        ],
+        [
+          "belongs to the psbn family",
+          18
+        ],
+        [
+          "belongs to the psaj family",
+          13
+        ],
+        [
+          "belongs to the petn family",
+          13
+        ],
+        [
+          "belongs to the petg family",
+          11
+        ],
+        [
+          "belongs to the psai family",
+          10
+        ],
+        [
+          "belongs to the glucagon family",
+          10
+        ]
+      ],
+      "databases": {
+        "unknown": 683
+      },
+      "seq_delta_median": 0.01025590855151005,
+      "fusion_delta_median": 0.007384254157087235,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 0,
+        "0.05_to_under_0.15": 0,
+        "at_least_0.15": 0
+      }
+    },
+    "entire_low_negative": {
+      "n": 722,
+      "flagged": 269,
+      "fragment": 222,
+      "conflict": 57,
+      "family_annotated_n": 493,
+      "top_families": [
+        [
+          "belongs to the bacterial ribosomal protein bl34 family",
+          49
+        ],
+        [
+          "belongs to the petl family",
+          18
+        ],
+        [
+          "belongs to the psbn family",
+          18
+        ],
+        [
+          "belongs to the psaj family",
+          13
+        ],
+        [
+          "belongs to the petn family",
+          13
+        ],
+        [
+          "belongs to the petg family",
+          11
+        ],
+        [
+          "belongs to the psai family",
+          10
+        ],
+        [
+          "belongs to the glucagon family",
+          10
+        ]
+      ],
+      "databases": {
+        "unknown": 722
+      },
+      "seq_delta_median": 0.010348680783396414,
+      "fusion_delta_median": 0.007451050164045419,
+      "new_fp_margin_bins": {
+        "0_to_under_0.05": 9,
+        "0.05_to_under_0.15": 16,
+        "at_least_0.15": 11
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "inputs": {
+    "cv": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\cross_val_dataset.csv",
+      "sha256": "154029d2a389312a3146a187bd9c326d0b4d6601b49313829b3ccbf8df2ccc47"
+    },
+    "independent": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\independent_dataset.csv",
+      "sha256": "279a0a4f0972837633bf87304f25501d36fb029413cf77c150178f1011d78b2d"
+    },
+    "raw": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\environment_feasibility_20261025\\sources\\Hemolytik2_complete_data.csv",
+      "sha256": "60ea939eab999a375eb0b132afdce3f5ba0e21c753e32b50296df9b265647c42"
+    },
+    "main": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\error_evidence_linkage_20261025\\all_training_linked.json",
+      "sha256": "963268735f3608dbb15755327b045464b7fa8592b5df2cf3f74e6c95342ef106"
+    },
+    "ann": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\family_mechanism_comparison_20261026\\all_training_annotation_index.json",
+      "sha256": "0b8d7e071ffe39a8685bbaf15bc7cec7bb9bb5d474d80c852593d077c7c322e2"
+    },
+    "toxipep": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\Independent set\\independent test set.txt",
+      "sha256": "8be00c1a39bed2b83d4674104a3391e8b1b3d129fb64f691fb38edad6dcaf291"
+    },
+    "toxmamba": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\independent_test.csv",
+      "sha256": "3d268e971b197d502564d959e11164197baa3fe3e77f83afcdd5a469f0116e1e"
+    },
+    "test1": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test1.txt",
+      "sha256": "603d74875e62b13d6b561c90e890ae89dd4b557c55bd36e5cf1e399145546422"
+    },
+    "test2": {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test2.txt",
+      "sha256": "168b06ef8e9c7e0d0cc17ad575bbfca52ab502dfd956b36e77b4223909a6ebae"
+    }
+  },
+  "inputs_unchanged": true,
+  "source_threshold_checked_all1540": true,
+  "independent_outcomes_not_selected_or_scored": true,
+  "transitive_sequence_components_disjoint_per_fold": true,
+  "paper_disjointness_certified": false,
+  "model_fits": 0
+}

@@ -1,0 +1,13 @@
+method,split_name,metric,mean,median,ci95_lower,ci95_upper,valid_replicates,replicates,uncertainty_type
+equal_count_random_rejection,Test1,coverage,0.8854351687388986,0.8854351687388987,0.8854351687388987,0.8854351687388987,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test1,accepted_error_rate,0.05240040120361084,0.05215646940822467,0.04714142427281846,0.05717151454363089,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test1,accepted_mcc,0.8704642538025255,0.8701297849989649,0.8595853656594372,0.8829383360416898,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test1,accepted_balanced_accuracy,0.932315924268581,0.9320973726434015,0.9264626973620065,0.9392109879943445,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test1,accepted_sensitivity,0.8968979518943626,0.8964285714285715,0.8861209964412812,0.9097472924187726,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test1,accepted_specificity,0.9677338966427995,0.9676966292134831,0.9636871508379888,0.9730496453900709,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,coverage,0.8694158075601377,0.8694158075601375,0.8694158075601375,0.8694158075601375,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,accepted_error_rate,0.053273913043478276,0.0533596837944664,0.045454545454545456,0.05928853754940711,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,accepted_mcc,0.6670315585738679,0.6670770322656874,0.6241458174964405,0.7093298342670158,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,accepted_balanced_accuracy,0.8617002061906436,0.860960533681657,0.8392223726112349,0.888663967611336,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,accepted_sensitivity,0.7607178195846804,0.7619047619047619,0.717948717948718,0.8157894736842105,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort
+equal_count_random_rejection,Test2,accepted_specificity,0.9626825927966067,0.9631236442516269,0.9570815450643777,0.9698924731182795,5000,5000,distribution across uniform equal-count random masks on the fixed test cohort

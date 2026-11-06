@@ -1,0 +1,14 @@
+{
+  "state": "completed",
+  "completed_arms": [
+    "no_lora",
+    "lora_lr1e5",
+    "lora_lr3e5"
+  ],
+  "selected_lora_candidate_by_validation_only": "lora_lr1e5",
+  "no_lora_validation_BCE": 0.2345687768455589,
+  "selected_lora_validation_BCE": 0.2439497088042783,
+  "smoke_only": false,
+  "no_test_evaluation": "development stage only; subsequent exploratory outerfold0 evaluation is documented in evaluation_plan.json",
+  "seconds": 2343.317233324051
+}

@@ -1,0 +1,58 @@
+{
+  "experiment": "PLM-isolated spatial and chemical-site structure expert",
+  "selection_scope": "training-only CD-HIT 0.80 group-aware OOF",
+  "external_test_labels_used": false,
+  "architecture": {
+    "modality": "spatial_only",
+    "pretrained_language_model_embeddings": false,
+    "sequence_branch_executed": false,
+    "retained_inputs": [
+      "deterministic residue physicochemical descriptors",
+      "peptide-level physicochemical descriptors",
+      "pLDDT-aware C-alpha EGNN",
+      "full-atom chemical-site interaction graph"
+    ]
+  },
+  "independent_structure_oof": {
+    "threshold": 0.498057,
+    "balanced_accuracy": 0.8992122620009867,
+    "mcc": 0.7997547932975657,
+    "auroc": 0.9479117533114659,
+    "auprc": 0.8996730157861345,
+    "brier": 0.0693402385605571
+  },
+  "complementarity_vs_prott5": {
+    "probability_pearson_correlation": 0.8811953804465392,
+    "prediction_disagreement": 424,
+    "only_prott5_correct": 287,
+    "only_independent_structure_correct": 137,
+    "both_wrong": 233
+  },
+  "bounded_probability_fusion": {
+    "maximum_structure_weight": 0.35,
+    "crossfit_mcc": 0.8556747056174601,
+    "crossfit_auroc": 0.9720403754098325,
+    "crossfit_auprc": 0.9457436874954253,
+    "frozen_structure_weight": 0.3,
+    "frozen_threshold": 0.585,
+    "frozen_mcc": 0.8622216947435573
+  },
+  "bounded_logit_fusion": {
+    "maximum_structure_weight": 0.35,
+    "crossfit_mcc": 0.8547664422803218,
+    "crossfit_auroc": 0.9737376123254698,
+    "crossfit_auprc": 0.9460717026163994,
+    "frozen_structure_weight": 0.28,
+    "frozen_threshold": 0.6,
+    "frozen_mcc": 0.8627099213914649
+  },
+  "comparators": {
+    "pooled_prott5_oof_mcc": 0.8586185184928503,
+    "current_multidimensional_default_oof_mcc": 0.8693461082852422
+  },
+  "retention": {
+    "replace_default": false,
+    "retain_as_ablation": true,
+    "reason": "Isolation lowered probability correlation but weakened correct complementary evidence; neither bounded probability nor bounded logit fusion exceeded the current multidimensional default."
+  }
+}

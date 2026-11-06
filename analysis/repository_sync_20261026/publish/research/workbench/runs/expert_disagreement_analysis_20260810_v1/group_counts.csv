@@ -1,0 +1,9 @@
+split_name,outcome_group,group_public_name,sample_count,group_fraction,toxic_count,non_toxic_count,toxic_fraction
+Test1,both_correct,Both experts correct,1032,0.91651865008881,277,755,0.26841085271317827
+Test1,one_d_only_correct,1D expert only correct,29,0.02575488454706927,15,14,0.5172413793103449
+Test1,three_d_only_correct,3D expert only correct,24,0.021314387211367674,5,19,0.20833333333333334
+Test1,both_wrong,Both experts wrong,41,0.03641207815275311,23,18,0.5609756097560976
+Test2,both_correct,Both experts correct,529,0.9089347079037801,33,496,0.062381852551984876
+Test2,one_d_only_correct,1D expert only correct,13,0.022336769759450172,2,11,0.15384615384615385
+Test2,three_d_only_correct,3D expert only correct,15,0.02577319587628866,1,14,0.06666666666666667
+Test2,both_wrong,Both experts wrong,25,0.0429553264604811,10,15,0.4

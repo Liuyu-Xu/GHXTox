@@ -1,0 +1,39 @@
+{
+  "common_rescues": 70,
+  "common_harms": 33,
+  "exclusive_rescues": {
+    "fusion_3Di4": 31,
+    "fusion_masked4": 26
+  },
+  "paired_flips": [
+    {
+      "label": 0,
+      "has_structure_tokens": false,
+      "n": 744,
+      "structure_better": 9,
+      "masked_better": 7
+    },
+    {
+      "label": 0,
+      "has_structure_tokens": true,
+      "n": 3825,
+      "structure_better": 29,
+      "masked_better": 19
+    },
+    {
+      "label": 1,
+      "has_structure_tokens": false,
+      "n": 551,
+      "structure_better": 9,
+      "masked_better": 7
+    },
+    {
+      "label": 1,
+      "has_structure_tokens": true,
+      "n": 1267,
+      "structure_better": 13,
+      "masked_better": 23
+    }
+  ],
+  "scope": "allmasked differences are fold-trained head effects, not sample geometry effects"
+}

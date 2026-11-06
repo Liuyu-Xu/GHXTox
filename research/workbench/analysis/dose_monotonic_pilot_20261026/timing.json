@@ -1,0 +1,162 @@
+[
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 0,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.4944036001106724,
+    "train_points": 1010,
+    "test_points": 208
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 0,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.525750600034371,
+    "train_points": 1010,
+    "test_points": 208
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 1,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.6462170999730006,
+    "train_points": 866,
+    "test_points": 380
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 1,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.612180299940519,
+    "train_points": 866,
+    "test_points": 380
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 2,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5459566001081839,
+    "train_points": 952,
+    "test_points": 243
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 2,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5765709000406787,
+    "train_points": 952,
+    "test_points": 243
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 3,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5810217000544071,
+    "train_points": 1024,
+    "test_points": 217
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 3,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5905337000731379,
+    "train_points": 1024,
+    "test_points": 217
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 4,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5794502999633551,
+    "train_points": 1000,
+    "test_points": 257
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "fold": 4,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5827587000094354,
+    "train_points": 1000,
+    "test_points": 257
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 0,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5700959999812767,
+    "train_points": 916,
+    "test_points": 205
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 0,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5384515000041574,
+    "train_points": 916,
+    "test_points": 205
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 1,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5629736999981105,
+    "train_points": 769,
+    "test_points": 380
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 1,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5171347000868991,
+    "train_points": 769,
+    "test_points": 380
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 2,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.6022753999568522,
+    "train_points": 882,
+    "test_points": 232
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 2,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.6214600999373943,
+    "train_points": 882,
+    "test_points": 232
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 3,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5809902000473812,
+    "train_points": 965,
+    "test_points": 179
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 3,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.6281579999485984,
+    "train_points": 965,
+    "test_points": 179
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 4,
+    "model": "unconstrained",
+    "fit_predict_seconds": 0.5689710000297055,
+    "train_points": 952,
+    "test_points": 212
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "fold": 4,
+    "model": "monotonic_dose",
+    "fit_predict_seconds": 0.5519041999941692,
+    "train_points": 952,
+    "test_points": 212
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "artifact_type": "prottox_3dkd_v2a_decision",
+  "version": "v2a-1",
+  "date": "2026-09-05",
+  "decision": "retain_as_ablation",
+  "candidate": "ProtTox-3DKD-V2A residual KD",
+  "controls": ["v1 fold-base ensemble OOF", "mlp_teacher_kd OOF"],
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "frozen_v1_modified": false,
+  "next_candidate": "ProtTox-3DKD-V2B feature KD",
+  "report": "v2a_report.md"
+}

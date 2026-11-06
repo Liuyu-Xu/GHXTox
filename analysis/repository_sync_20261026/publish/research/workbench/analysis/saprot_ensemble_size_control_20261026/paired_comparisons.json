@@ -1,0 +1,44 @@
+[
+  {
+    "candidate": "fusion_masked4",
+    "reference": "baseline4",
+    "delta_MCC": 0.012948616771208843,
+    "delta_AUPRC": 0.0017984149755434498,
+    "CI95": [
+      0.00270818907510105,
+      0.022570886717848473
+    ],
+    "CI97_5": [
+      0.0011298836243066282,
+      0.024095680225405137
+    ],
+    "criteria": {
+      "MCC_atleast005": true,
+      "correctedCIpositive": true,
+      "AP_not_down_more002": true
+    },
+    "passed": true,
+    "scope": "same4head count;conditional OOF screen,not final independent validation"
+  },
+  {
+    "candidate": "fusion_3Di4",
+    "reference": "baseline4",
+    "delta_MCC": 0.014117959289043691,
+    "delta_AUPRC": 0.000516783969482959,
+    "CI95": [
+      0.0038769789938677304,
+      0.024446271966212654
+    ],
+    "CI97_5": [
+      0.0026387544146755067,
+      0.025502383022425582
+    ],
+    "criteria": {
+      "MCC_atleast005": true,
+      "correctedCIpositive": true,
+      "AP_not_down_more002": true
+    },
+    "passed": true,
+    "scope": "same4head count;conditional OOF screen,not final independent validation"
+  }
+]

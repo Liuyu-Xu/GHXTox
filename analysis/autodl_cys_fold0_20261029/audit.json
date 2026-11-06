@@ -1,0 +1,100 @@
+{
+  "n": 1271,
+  "n_groups": 1052,
+  "comparisons": {
+    "A->B": {
+      "mcc_delta": -0.017570556158765682,
+      "ci95_fixed_predictions": [
+        -0.052471899115305545,
+        0.01612902097199279
+      ],
+      "corrected": 31,
+      "harmed": 40
+    },
+    "B->C": {
+      "mcc_delta": 0.03423888339625569,
+      "ci95_fixed_predictions": [
+        0.003859769844034125,
+        0.06615716421208186
+      ],
+      "corrected": 36,
+      "harmed": 19
+    },
+    "C->D": {
+      "mcc_delta": 0.009425003564452972,
+      "ci95_fixed_predictions": [
+        -0.011907000390148215,
+        0.031691245119363935
+      ],
+      "corrected": 18,
+      "harmed": 13
+    },
+    "A->D": {
+      "mcc_delta": 0.026093330801942982,
+      "ci95_fixed_predictions": [
+        -0.005047876369390033,
+        0.05563327331889597
+      ],
+      "corrected": 35,
+      "harmed": 22
+    }
+  },
+  "groups": {
+    "low_pos": {
+      "n": 48,
+      "A": 42,
+      "B": 23,
+      "C": 17,
+      "D": 21
+    },
+    "low_neg": {
+      "n": 696,
+      "A": 2,
+      "B": 17,
+      "C": 17,
+      "D": 12
+    },
+    "high_pos": {
+      "n": 216,
+      "A": 2,
+      "B": 18,
+      "C": 8,
+      "D": 6
+    },
+    "high_neg": {
+      "n": 40,
+      "A": 12,
+      "B": 3,
+      "C": 3,
+      "D": 3
+    },
+    "mid": {
+      "n": 271,
+      "A": 23,
+      "B": 29,
+      "C": 28,
+      "D": 26
+    },
+    "flag": {
+      "n": 364,
+      "A": 34,
+      "B": 47,
+      "C": 44,
+      "D": 39
+    },
+    "unflag": {
+      "n": 907,
+      "A": 47,
+      "B": 43,
+      "C": 29,
+      "D": 29
+    }
+  },
+  "verification": {
+    "same_samples_order": true,
+    "same_initial_head": true,
+    "fusion_reconstructed": true,
+    "weights_absent": true,
+    "scope": "single fold seed; conditional on fixed historical 3D"
+  }
+}

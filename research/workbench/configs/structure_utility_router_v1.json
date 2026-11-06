@@ -1,0 +1,35 @@
+{
+  "artifact_type": "ghxtox_structure_utility_router_protocol",
+  "version": 1,
+  "status": "frozen_before_oof",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "input_contract": "D:\\dachuang2026\\GHXTox\\runs\\unified_inference_oof_v1\\contract.csv",
+  "input_contract_sha256": "619aa5e930cafadb7edc41f24cbd5734209623a35de90099b6abf8446aabd2a0",
+  "pre_esmfold_feature_columns": [
+    "sequence_length",
+    "cys_count",
+    "cys_fraction",
+    "cys_span_fraction",
+    "cys_min_gap_fraction",
+    "cys_adjacent_pairs",
+    "cys_terminal_count",
+    "sequence_seed_dispersion",
+    "sequence_seed_dispersion_available"
+  ],
+  "target": {
+    "loss": "brier",
+    "definition": "(p_seq-label)^2 - (p_struct-label)^2"
+  },
+  "model": {
+    "type": "ridge",
+    "alpha": 1.0
+  },
+  "route_policy": {
+    "structure_cost": 0.0025,
+    "trigger": "predicted_brier_gain_gt_structure_cost"
+  },
+  "classification_threshold": 0.47022256531284556,
+  "outer_folds": [0, 1, 2, 3, 4],
+  "selection": "No threshold, feature, model, or structure-cost tuning after cross-fitted OOF evaluation."
+}

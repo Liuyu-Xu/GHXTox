@@ -1,0 +1,192 @@
+{
+  "all": {
+    "original": {
+      "n": 6387,
+      "errors": 327,
+      "FN": 192,
+      "FP": 135,
+      "MCC": 0.8732971560275273,
+      "AUPRC": 0.9577424717702984,
+      "AUROC": 0.9780005085209769,
+      "Brier": 0.04312172845783044,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "fixed_previous": {
+      "n": 6387,
+      "errors": 328,
+      "FN": 197,
+      "FP": 131,
+      "MCC": 0.872790740559336,
+      "AUPRC": 0.9506218944989328,
+      "AUROC": 0.9765596990865644,
+      "Brier": 0.04576773935112775,
+      "corrected": 4,
+      "harmed": 5
+    },
+    "learned": {
+      "n": 6387,
+      "errors": 328,
+      "FN": 193,
+      "FP": 135,
+      "MCC": 0.8728952849282231,
+      "AUPRC": 0.9573204881357352,
+      "AUROC": 0.9778310015286931,
+      "Brier": 0.0431352524754205,
+      "corrected": 0,
+      "harmed": 1
+    }
+  },
+  "low_pos": {
+    "original": {
+      "n": 262,
+      "errors": 140,
+      "FN": 140,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4206322325882894,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "fixed_previous": {
+      "n": 262,
+      "errors": 140,
+      "FN": 140,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4206322325882894,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "learned": {
+      "n": 262,
+      "errors": 140,
+      "FN": 140,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4199443925589354,
+      "corrected": 0,
+      "harmed": 0
+    }
+  },
+  "low_neg": {
+    "original": {
+      "n": 3537,
+      "errors": 24,
+      "FN": 0,
+      "FP": 24,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.0093776547850361,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "fixed_previous": {
+      "n": 3537,
+      "errors": 24,
+      "FN": 0,
+      "FP": 24,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.0093776547850361,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "learned": {
+      "n": 3537,
+      "errors": 24,
+      "FN": 0,
+      "FP": 24,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.009440641374341746,
+      "corrected": 0,
+      "harmed": 0
+    }
+  },
+  "high_pos": {
+    "original": {
+      "n": 1063,
+      "errors": 6,
+      "FN": 6,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.01075583698497603,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "fixed_previous": {
+      "n": 1063,
+      "errors": 11,
+      "FN": 11,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.03755645171323887,
+      "corrected": 0,
+      "harmed": 5
+    },
+    "learned": {
+      "n": 1063,
+      "errors": 7,
+      "FN": 7,
+      "FP": 0,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.010832165319227665,
+      "corrected": 0,
+      "harmed": 1
+    }
+  },
+  "high_neg": {
+    "original": {
+      "n": 240,
+      "errors": 50,
+      "FN": 0,
+      "FP": 50,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.158575986285247,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "fixed_previous": {
+      "n": 240,
+      "errors": 46,
+      "FN": 0,
+      "FP": 46,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.11028856178252429,
+      "corrected": 4,
+      "harmed": 0
+    },
+    "learned": {
+      "n": 240,
+      "errors": 50,
+      "FN": 0,
+      "FP": 50,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.15842045046172587,
+      "corrected": 0,
+      "harmed": 0
+    }
+  }
+}

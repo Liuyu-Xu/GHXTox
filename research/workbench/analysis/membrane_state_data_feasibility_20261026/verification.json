@@ -1,0 +1,50 @@
+{
+  "source_hashes": {
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC4890124.xml": "0114a891fd4dc349b898b871fb76a431ee80a919b1b2599d456d60d841bedcbc",
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC6405874.xml": "c90195ee1a173472164c1d3b051988dcf56b0efe0dcec1328954dcd2f815abf2",
+    "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_selectivity_audit_20261026\\sources\\PMC6270530.xml": "1da8baf89cb23e778addb890f4f7576545059ae0494509e1a1e5ee1916edef36",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\cyclic2025.xml": "8c791ca8846ee8abae90be51b84fab774b053f984fde983699877e750763cd91",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\PG1_preprint.xml": "230a35a79a0b0b5f38f6781a1c1d2b05ad10aa9a9f076dfb680592d043cd9aed",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\PG1_tree.json": "c39bbec0ad83d941f65b57485a0c89ee542f8688281dcd95b6480c6efa9a05a6",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\README.md": "964bd2f853b93b71e0bea66ef404fd8c67e6c94ddc19fb2722d6d3232937162f",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\Cumulative_Peptide_data_PG1.xlsx": "3092c4893779186e133694335ca33f79af66aac90fcf73b0d287af6a0d4d240b",
+    "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_data_feasibility_20261026\\sources\\Cumulative_Peptide_data_PG1_v01.2.xlsx": "4bbda8a4efb55a672bc1722b65acdcb9d4d3debf27ca26af803eca74a9eac9cf"
+  },
+  "retrieval_content_validation": [
+    {
+      "file": "cyclic2025.xml",
+      "valid_article_xml": true,
+      "sha256": "8c791ca8846ee8abae90be51b84fab774b053f984fde983699877e750763cd91"
+    },
+    {
+      "file": "PG1_preprint.xml",
+      "valid_article_xml": true,
+      "sha256": "230a35a79a0b0b5f38f6781a1c1d2b05ad10aa9a9f076dfb680592d043cd9aed"
+    },
+    {
+      "file": "PG1_BioC.xml",
+      "valid_article_xml": false,
+      "sha256": "478f38e0765ee9c406831bb2fc27e8019ac5227c20c6b28ca0de582d8449354a"
+    }
+  ],
+  "n_studies": 5,
+  "workbook_source_versions_not_concatenated": true,
+  "repository_atomic_coordinate_files": [],
+  "repository_named_spectrum_files": [],
+  "no_model_fitting": true,
+  "no_simulations": true,
+  "no_original_labels_changed": true,
+  "old_three_source_manifest_hashes_agree": true,
+  "independent_workbook_row_counts": [
+    {
+      "file": "Cumulative_Peptide_data_PG1.xlsx",
+      "data_rows_from_sheet_XML": 96
+    },
+    {
+      "file": "Cumulative_Peptide_data_PG1_v01.2.xlsx",
+      "data_rows_from_sheet_XML": 93
+    }
+  ],
+  "five_study_scope_verified": true,
+  "candidate_upper_bound_not_training_records": 56
+}

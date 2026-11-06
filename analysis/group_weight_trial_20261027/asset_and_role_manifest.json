@@ -1,0 +1,84 @@
+{
+  "cache": {
+    "path": "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "bytes": 1176973278,
+    "sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b"
+  },
+  "config_checkpoint": {
+    "path": "D:\\dachuang2026\\GHXTox-ziliao\\best_model(1).pt",
+    "sha256": "a3c5d3c2d9da80ab56bc1e7b375ee4e9e34bb1bede11cfd20f367c5bc24db5c1",
+    "weights_used_only_for_strict_architecture_check": true
+  },
+  "roles": {
+    "path": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\runs\\structure_candidates_20261022\\protocol\\nested_roles.csv",
+    "sha256": "5751755402359782c552aacf43a6cf79592f305bc2d3f682198c1ddc16d16aaf"
+  },
+  "meta": {
+    "path": "D:\\dachuang2026\\GHXTox\\analysis\\lowcys_background_20261027\\all_samples_with_symmetric_family.json",
+    "sha256": "47fa3b7be5d9741821b62bc4e0ed673408c7b8d7f8202db3cafb781ec915b6e4"
+  },
+  "frozen_1d": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_calibrated.json",
+    "sha256": "016158c5577aa21abd612720089780d2006a3788f7e68cc8543741a589b507af",
+    "historical_Platt": {
+      "slope": 0.5498481070353904,
+      "intercept": -0.19662557810379658
+    }
+  },
+  "source_sha256": {
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\models\\dual_modal.py": "9732621249785adcda0060a8aa082d1d9f987f679990c54159008c8cf2fc5f5f",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\models\\layers.py": "1096e4e020abb30ea7451f8403b9bc25d3452b4365a65d4b77ffd165b261aa98",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\models\\chemical_sites.py": "cbe2df334b6abe4426cd902c77461672d1f3be1a8000427c24cde18749aaae0c",
+    "D:\\dachuang2026\\GHXTox\\src\\ghxtox\\data.py": "385f293e5207f43e4ede396b67a59abc9106651a2eea06a9ec0f51143f0c3711"
+  },
+  "model_params": 1530548,
+  "target_MCD_NDBP": [
+    "peptide_44",
+    "peptide_97",
+    "peptide_102",
+    "peptide_107",
+    "peptide_228",
+    "peptide_249",
+    "peptide_259",
+    "peptide_378",
+    "peptide_383",
+    "peptide_418",
+    "peptide_733"
+  ],
+  "group_isolation_passed": true,
+  "cuda": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "numpy": "1.26.4",
+  "roles_by_fold": {
+    "0": {
+      "train": 3789,
+      "validation": 639,
+      "calibration": 688,
+      "test": 1271
+    },
+    "1": {
+      "train": 3866,
+      "validation": 659,
+      "calibration": 633,
+      "test": 1229
+    },
+    "2": {
+      "train": 3806,
+      "validation": 630,
+      "calibration": 678,
+      "test": 1273
+    },
+    "3": {
+      "train": 3794,
+      "validation": 662,
+      "calibration": 640,
+      "test": 1291
+    },
+    "4": {
+      "train": 3773,
+      "validation": 658,
+      "calibration": 633,
+      "test": 1323
+    }
+  }
+}

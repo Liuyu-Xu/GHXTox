@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "external_test_labels_read": false,
+  "decision": "retain_phase25_3d_handoff",
+  "promotion_authorized": false,
+  "handoff_regeneration_authorized": false,
+  "gate": {
+    "overall_mcc_strictly_higher": false,
+    "overall_auprc_at_least_reference": true,
+    "short_mcc_strictly_higher": false,
+    "short_auprc_at_least_reference": true,
+    "at_least_three_fold_mcc_non_decreases": true,
+    "brier_within_tolerance": true,
+    "ece_10_within_tolerance": true,
+    "net_decision_corrections_strictly_positive": false,
+    "all_conditions_passed": false
+  }
+}

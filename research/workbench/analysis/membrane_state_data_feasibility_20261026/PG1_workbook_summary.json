@@ -1,0 +1,41 @@
+[
+  {
+    "file": "Cumulative_Peptide_data_PG1.xlsx",
+    "rows": 96,
+    "distinct_ids": 96,
+    "distinct_sequences": 93,
+    "numeric_hemolysis_rows": 96,
+    "hemolysis_range": [
+      0.07359976448075352,
+      89.3648340325311
+    ],
+    "columns": [
+      null,
+      "ID",
+      "Sequence",
+      "MBC",
+      "%Hemolysis"
+    ],
+    "CD_columns_present": false,
+    "coordinate_columns_present": false
+  },
+  {
+    "file": "Cumulative_Peptide_data_PG1_v01.2.xlsx",
+    "rows": 93,
+    "distinct_ids": 93,
+    "distinct_sequences": 93,
+    "numeric_hemolysis_rows": 93,
+    "hemolysis_range": [
+      0.07359976448075352,
+      89.3648340325311
+    ],
+    "columns": [
+      "ID",
+      "Sequence",
+      "MBC",
+      "%Hemolysis"
+    ],
+    "CD_columns_present": false,
+    "coordinate_columns_present": false
+  }
+]

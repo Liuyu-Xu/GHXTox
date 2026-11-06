@@ -1,0 +1,47 @@
+{
+  "artifact_type": "mpce_net_first_round_protocol",
+  "phase": "MPCE-B",
+  "version": "v1-0",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "ProtTox-3DKD v1": "immutable strict baseline; no code/checkpoint modification",
+    "frontend_change_allowed": false
+  },
+  "model": {
+    "name": "MPCE-Net B",
+    "views": {
+      "mean/max/std": "Frozen ProtT5 TriStat subvectors, each projected to 64d",
+      "physchem": "9 fixed descriptors projected to 64d"
+    },
+    "interactions": ["mean*h_max", "mean*h_std", "max*h_std", "mean_sequence*h_physchem"],
+    "global_branch": "MLP over projected views + interaction vector -> logit",
+    "prototype_branch": "4 prototypes per class in 96d latent; cosine similarity; LogSumExp class affinity",
+    "fusion": "z_final = z_global + alpha*z_proto, alpha learnable initialized to 0",
+    "loss": "BCE(final) + 0.5 * prototype class CE",
+    "kd": false,
+    "3d": false
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt"
+  },
+  "controls": {
+    "A0": "original TriStat-MLP no-KD OOF (existing runs/protox_tsk_v1 mlp_fivefold)",
+    "A1": "ProtTox-3DKD v1 strict baseline OOF (frozen)"
+  },
+  "promotion_gate": {
+    "B_vs_A1": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "note": "If B does not pass, do not implement ensemble C."
+  }
+}

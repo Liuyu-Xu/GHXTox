@@ -1,0 +1,60 @@
+{
+  "artifact_type": "prottox_3dkd_v2a_protocol",
+  "version": "v2a-1",
+  "status": "frozen_before_target_generation",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "frozen_v1": {
+    "name": "ProtTox-3DKD",
+    "version": "v1.0",
+    "read_only": true,
+    "oof_fold_checkpoints": "runs\\prottox_3d_distill_v1\\mlp_teacher_kd_seed{seed}_v1\\fold_{k}.pt",
+    "product_full_refit": "runs\\prottox_3d_distill_v1\\product_full_refit_v1"
+  },
+  "teacher": {
+    "definition": "strict-outer single-structure GHXToxModel scratch bases",
+    "outer_targets": "runs\\prottox_3d_distill_v1\\teacher_targets\\teacher_outer{k}_targets.csv",
+    "crossfit_targets": "runs\\prottox_3d_distill_v1\\teacher_targets\\crossfit_teacher_targets_6387.csv"
+  },
+  "candidate_architecture": {
+    "name": "ProtTox-3DKD-V2A",
+    "version": "v2a-1",
+    "formula": "z_final = z_base + g(x) * delta(x)",
+    "base_role_during_oof": "frozen v1 fold-k ensemble: mean sigmoid probability of seeds 20260905/20260906 then inverse-logit",
+    "base_role_at_deployment": "frozen v1 full-data product ensemble (later refit phase)",
+    "residual_target": "r = z_teacher_logit - z_base_logit",
+    "init": "residual output zero-initialized so z_final starts at z_base",
+    "gate": "input-dependent sigmoid gate g(x); separate zero-initialized residual head"
+  },
+  "loss": {
+    "label_bce_weight": 1.0,
+    "kd_weight": 1.0,
+    "kd_temperature": 2.0,
+    "residual_huber_weight": 1.0,
+    "residual_loss_kind": "huber"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5
+  },
+  "controls": {
+    "v1_oof_fold_ensemble": "same two seed v1 fold models, no residual",
+    "mlp_teacher_kd_oof": "runs/protox_3d_distill_v1/mlp_teacher_kd_seed{seed}_v1"
+  },
+  "promotion_rule": {
+    "decision_target": "frozen v1 fold ensemble OOF and mlp_teacher_kd OOF",
+    "both_seeds_or_fold_ensemble_mcc_not_lower": true,
+    "minimum_mean_mcc_advantage": 0.005,
+    "maximum_mean_auprc_decline": 0.002,
+    "maximum_mean_brier_increase": 0.002,
+    "test1_test2_allowed_for_selection": false
+  },
+  "boundaries": {
+    "no_v1_checkpoint_modification": true,
+    "no_frontend_change": true,
+    "no_test1_test2_access_until_frozen": true
+  }
+}

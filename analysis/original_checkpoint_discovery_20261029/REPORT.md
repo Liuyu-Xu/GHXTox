@@ -1,0 +1,9 @@
+# 原版权重定位与核对
+
+在 D:/dachuang2026/GHXTox-ziliao 目录找到 full_seed42.pt、full_seed123.pt、full_seed2025.pt；SHA256与 D:/dachuang2026/GHXTox/runs/lora_mamba_full 同名权重完全一致。已载入这三份checkpoint，seed分别42/123/2025、配置含LoRA rank8，每份144个LoRA B矩阵均为零；这是历史实际完整权重，不表示可以保证从头重训一样。
+
+同目录 best_model(1).pt 的SHA256 A3C5D3C2D9DA80AB56BC1E7B375EE4E9E34BB1BEDE11CFD20F367C5BC24DB5C1，完全匹配项目 runs/full2795_deployment_decision_20260808_v1/decision.json 的checkpoint_audit.full2795.sha256，与旧公开默认配置指向的 full2795 结构checkpoint为同一文件内容。best_model.pt SHA256 6EE6B1085C5132A706AD2A8814C7D474BAE1A16B8828BEEEAE30C721705EF134，匹配该审计的先前pilot，不要误用。该哈希确认来自既存工程审计，尚未在本轮重新完整前向验证。
+
+团队交接zip GHXTox_team_handoff_20261027.zip/GHXTox_team_handoff_20261027.zip 还包括三份full_seed和三份oof_seed42/123/2025.json；其结构权重 runs/default_no_inner_transformer_20261023/best_model.pt 是新版，不应与旧原版混淆。当前工程 runs/lora_mamba_full/oof_seed*.json 已有；原配置为 configs/default_multidimensional_fusion.json，训练折清单 data/folds/train_cdhit080_fallback_folds.csv。原版测试预测缓存已在 runs/default_multidimensional_fusion_single_structure/，单结构输入概率缓存 runs/single_structure_test_components/。
+
+后三种子权重和旧full2795的出现解决原版权重缺失，不自动解决原训练历史命令、环境/实际轮数和端到端相同实验协议的可复现性，也不代表刚从该目录完成完整推理。应按兼容配置在原始模型上严格加载、比对历史预测后用于正式对照；不要覆盖历史文件。

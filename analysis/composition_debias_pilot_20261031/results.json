@@ -1,0 +1,32 @@
+{
+  "BCE": {
+    "mcc": 0.7764273949653141,
+    "auroc": 0.9568796901167176,
+    "auprc": 0.912094693203456,
+    "errors": 56,
+    "low_pos_fn": 16,
+    "low_neg_fp": 7,
+    "high_neg_fp": 6,
+    "high_pos_fn": 4
+  },
+  "difficulty_weight": {
+    "mcc": 0.6931184385615838,
+    "auroc": 0.9345972412206128,
+    "auprc": 0.8358594295654805,
+    "errors": 80,
+    "low_pos_fn": 14,
+    "low_neg_fp": 27,
+    "high_neg_fp": 5,
+    "high_pos_fn": 6
+  },
+  "shortcut_loss": {
+    "mcc": 0.6634179341989568,
+    "auroc": 0.9151016964319956,
+    "auprc": 0.7998462763120606,
+    "errors": 89,
+    "low_pos_fn": 13,
+    "low_neg_fp": 34,
+    "high_neg_fp": 5,
+    "high_pos_fn": 7
+  }
+}

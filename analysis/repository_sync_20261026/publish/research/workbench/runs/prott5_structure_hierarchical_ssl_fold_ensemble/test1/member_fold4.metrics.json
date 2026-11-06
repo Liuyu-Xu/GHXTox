@@ -1,0 +1,60 @@
+{
+  "protocol": {
+    "feature_cache": "D:\\code\\Python\\26\u5927\u521b\\GHXTox\\data\\processed\\test1_geometry_ssl_fold4.temporary.pt",
+    "checkpoint": "runs/prott5_structure_hierarchical_ssl_oof/fold4/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9440497335701599,
+    "balanced_accuracy": 0.9241741625310174,
+    "precision": 0.921311475409836,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9702233250620348,
+    "sp": 0.9702233250620348,
+    "f1": 0.8992000000000001,
+    "mcc": 0.8609842729727634,
+    "brier": 0.042993661016225815,
+    "ece_10": 0.01968827098608017,
+    "tp": 281.0,
+    "tn": 782.0,
+    "fp": 24.0,
+    "fn": 39.0,
+    "auroc": 0.9817307692307693,
+    "auprc": 0.9653843736109705
+  },
+  "delta": {
+    "balanced_accuracy": 0.0006203473945409765,
+    "mcc": 0.0021418979105403135,
+    "auroc": 0.00020161290322595615,
+    "auprc": 0.00046501483113681186,
+    "brier": -0.0003212094306945801
+  },
+  "interaction_delta": {
+    "mean": -0.01637958735227585,
+    "mean_absolute": 0.060174360871315,
+    "max_absolute": 0.13638684153556824
+  }
+}

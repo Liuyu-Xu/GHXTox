@@ -1,0 +1,163 @@
+{
+  "arm": "supcon_all",
+  "smoke_only": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_total_loss": 0.743896777465209,
+      "contrastive_anchors": 3782,
+      "contrastive_loss_sum": 630.4553821086884,
+      "validation_unweighted_BCE": 0.3023870149317825,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "c9e36d42eb0bc1ce7a18815171c13c57c48eb5ff5f16cbe00425b43da158e86b",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 85.86047267913818
+    },
+    {
+      "epoch": 2,
+      "train_total_loss": 0.6246824552779786,
+      "contrastive_anchors": 3784,
+      "contrastive_loss_sum": 604.8573186397552,
+      "validation_unweighted_BCE": 0.20943629210449058,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "7ce9781d1194f423bd9ce0878379e54bb79f98aa5efbe099768d9b8861308634",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 168.6872899532318
+    },
+    {
+      "epoch": 3,
+      "train_total_loss": 0.5612384520145108,
+      "contrastive_anchors": 3770,
+      "contrastive_loss_sum": 587.9645717144012,
+      "validation_unweighted_BCE": 0.20010635562893847,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "4e226491c8abc4a445ce36d83b92b57e9da8ea99ef6bd760a5132852f20b3bc9",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 251.96666359901428
+    },
+    {
+      "epoch": 4,
+      "train_total_loss": 0.5009178671009866,
+      "contrastive_anchors": 3742,
+      "contrastive_loss_sum": 565.8830349445343,
+      "validation_unweighted_BCE": 0.21905036257112853,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "9f150fb6a42e5ff350c485493d32f74b99675442da49da3fedde6ed2db9aa825",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 335.04768109321594
+    },
+    {
+      "epoch": 5,
+      "train_total_loss": 0.4726624200272761,
+      "contrastive_anchors": 3770,
+      "contrastive_loss_sum": 566.664430975914,
+      "validation_unweighted_BCE": 0.1980086399349201,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "a88ae3a79e67dca38e73b6b9ccd293d8669fb5e31989e7557baab2c22f4b5ee9",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 418.0268111228943
+    },
+    {
+      "epoch": 6,
+      "train_total_loss": 0.41738472182097963,
+      "contrastive_anchors": 3753,
+      "contrastive_loss_sum": 547.8454304933548,
+      "validation_unweighted_BCE": 0.23516401238289306,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "284f70bdb8be18ec2663e3047f4b5c86336178865d69d948a53c66ecbe21fcd8",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 507.2533390522003
+    },
+    {
+      "epoch": 7,
+      "train_total_loss": 0.39004910960950595,
+      "contrastive_anchors": 3789,
+      "contrastive_loss_sum": 544.0485452413559,
+      "validation_unweighted_BCE": 0.24622175163305238,
+      "successful_optimizer_steps": 238,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "46012c754ef1c1775da8c929158180766ba18a2ff404580cffa1eed91bf139dc",
+      "gradient_audit": {
+        "adapter_tensors": 0,
+        "grad_present": 0
+      },
+      "LoRA_B_tensors_updated": 0,
+      "seconds_since_start": 605.945695400238
+    }
+  ],
+  "selected_epoch": 5,
+  "validation_BCE": 0.1980086399349201,
+  "initial_head_sha256": "7483d180a530a36a4553ba08daf2fe7384da5525252a6fa99146f67a8bcbcc1c",
+  "optimizer_groups": [
+    {
+      "name": "head",
+      "lr": 0.0003,
+      "parameter_count": 2500737
+    }
+  ],
+  "config": {
+    "plm": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\Rostlab\\prot_t5_xl_half_uniref50-enc",
+    "token_dim": 1024,
+    "d_model": 192,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "n_layers": 2,
+    "lora_rank": 0,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.1,
+    "dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "epochs": 15,
+    "fp16": true,
+    "grad_checkpoint": true,
+    "experiment": {
+      "name": "lora_mamba_1d_combinationA_autodl",
+      "scope": "LoRA task-adaptive ProtT5 + bidirectional Mamba (SSM) classifier",
+      "replaces": [
+        "protein LLM module",
+        "classification network module"
+      ]
+    },
+    "lora_learning_rate": 0.0003
+  },
+  "roles_used": [
+    "train",
+    "validation"
+  ],
+  "no_outer_evaluation_predictions": true,
+  "source_sha256": "d23a48662a37009353e61408bfc4a525e5d646ce9a71c5a895beda48b6d279f5"
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "arm": "toxicity_only",
+    "membrane76_FN": 41,
+    "membrane76_TP": 35,
+    "remaining6311": {
+      "n": 6311,
+      "MCC": 0.8302604397377177,
+      "AUPRC": 0.9378444277567671,
+      "AUROC": 0.9717039329842027,
+      "sensitivity": 0.886337543053961,
+      "specificity": 0.9490041584591814,
+      "TP": 1544,
+      "TN": 4336,
+      "FP": 233,
+      "FN": 198
+    },
+    "scope": "old annotation/error-selected diagnostic pool, not mechanistic-positive gold"
+  },
+  {
+    "arm": "real_hemolysis_aux",
+    "membrane76_FN": 43,
+    "membrane76_TP": 33,
+    "remaining6311": {
+      "n": 6311,
+      "MCC": 0.8324224910496204,
+      "AUPRC": 0.9407487949484133,
+      "AUROC": 0.9727568657043083,
+      "sensitivity": 0.886337543053961,
+      "specificity": 0.9503173560954257,
+      "TP": 1544,
+      "TN": 4342,
+      "FP": 227,
+      "FN": 198
+    },
+    "scope": "old annotation/error-selected diagnostic pool, not mechanistic-positive gold"
+  },
+  {
+    "arm": "permuted_hemolysis_aux",
+    "membrane76_FN": 40,
+    "membrane76_TP": 36,
+    "remaining6311": {
+      "n": 6311,
+      "MCC": 0.8345802328615824,
+      "AUPRC": 0.9389356278059112,
+      "AUROC": 0.9717870443730637,
+      "sensitivity": 0.8828932261768083,
+      "specificity": 0.9531626176406216,
+      "TP": 1538,
+      "TN": 4355,
+      "FP": 214,
+      "FN": 204
+    },
+    "scope": "old annotation/error-selected diagnostic pool, not mechanistic-positive gold"
+  }
+]

@@ -1,0 +1,216 @@
+{
+  "arm": "B",
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_loss": 0.4717738148828835,
+      "validation_unweighted_BCE": 0.23668123067790028,
+      "steps": 237,
+      "order_sha256": "2be8d93e84cd15e24ec04ce48e86ae27431571f6395c7c2bfba6bd11c0ef8813",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 161.65637922286987
+    },
+    {
+      "epoch": 2,
+      "train_weighted_loss": 0.3106647026895942,
+      "validation_unweighted_BCE": 0.23918214339816812,
+      "steps": 237,
+      "order_sha256": "3ec7b3704534082f527cebf8db3006b0d71fc827d5d9e2aee06721fa943f218b",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 326.0923249721527
+    },
+    {
+      "epoch": 3,
+      "train_weighted_loss": 0.20241550007610373,
+      "validation_unweighted_BCE": 0.25346134191612446,
+      "steps": 237,
+      "order_sha256": "775ea57c376a8f3cf0f553c8b9508b08339d6109d238d565d90bb1bf4cf4bed7",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 489.36997079849243
+    },
+    {
+      "epoch": 4,
+      "train_weighted_loss": 0.11659099998610824,
+      "validation_unweighted_BCE": 0.30596321828934847,
+      "steps": 237,
+      "order_sha256": "6af7763b7583af4da32c0b61b5c7fe4b5cd7a8163380e2428d4e9be4dbf09902",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 653.4470467567444
+    },
+    {
+      "epoch": 5,
+      "train_weighted_loss": 0.07361890022810298,
+      "validation_unweighted_BCE": 0.3337368617584643,
+      "steps": 237,
+      "order_sha256": "94f604556ac84d94aa4a7dae94b83d82155c2492536e24b1a0a2c6ef226e8d42",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 817.2200694084167
+    },
+    {
+      "epoch": 6,
+      "train_weighted_loss": 0.06019489048233201,
+      "validation_unweighted_BCE": 0.3856617878132668,
+      "steps": 237,
+      "order_sha256": "5c50fddb1410016ba570c4d661dfcbd2057d294ce3efb19c4c9d54d5b9bd7f33",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 979.5779089927673
+    },
+    {
+      "epoch": 7,
+      "train_weighted_loss": 0.0457533394630141,
+      "validation_unweighted_BCE": 0.42421353884172586,
+      "steps": 237,
+      "order_sha256": "76fd43f1f0f51dc42330a9a88f74cafb332a60aa35ea774608c51471b9a59cb6",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1144.2010905742645
+    },
+    {
+      "epoch": 8,
+      "train_weighted_loss": 0.03831163564056363,
+      "validation_unweighted_BCE": 0.3369075106199784,
+      "steps": 237,
+      "order_sha256": "7433a30d7cd91330dab8c9a33ab7882b13358ad85c6cd91ff3eb7dac625c07a1",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1307.4527299404144
+    },
+    {
+      "epoch": 9,
+      "train_weighted_loss": 0.03770854088440491,
+      "validation_unweighted_BCE": 0.35144982692805427,
+      "steps": 237,
+      "order_sha256": "7e7e1532a574c15bb6237b179096ab83c044aea27952e5c836938c1c7cd26095",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1470.7487382888794
+    },
+    {
+      "epoch": 10,
+      "train_weighted_loss": 0.0218144076860427,
+      "validation_unweighted_BCE": 0.38798046138846226,
+      "steps": 237,
+      "order_sha256": "83145137376d0ae568a400c02715e44272d6b68c491d87b67a8ab2f722ee0cce",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1634.7868914604187
+    },
+    {
+      "epoch": 11,
+      "train_weighted_loss": 0.026670332045714534,
+      "validation_unweighted_BCE": 0.47525109152338424,
+      "steps": 237,
+      "order_sha256": "7c0d7d54feb7625ed85badc26cab77143f567950fbc4b6f4cc28328227658df4",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1797.6771125793457
+    },
+    {
+      "epoch": 12,
+      "train_weighted_loss": 0.025274068122499316,
+      "validation_unweighted_BCE": 0.4422391837238089,
+      "steps": 237,
+      "order_sha256": "5317a35f06848bfb23b8c4e8d4a940608dcabde0383cf1827f8e254ccc314427",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 1961.405946969986
+    },
+    {
+      "epoch": 13,
+      "train_weighted_loss": 0.03140919935435986,
+      "validation_unweighted_BCE": 0.3978378565272575,
+      "steps": 237,
+      "order_sha256": "10fb0c04b745ec719d46c4bc3f3a88103df0e5f75e749b9c09b8e0b534230b74",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 2124.9382498264313
+    },
+    {
+      "epoch": 14,
+      "train_weighted_loss": 0.027435424928769703,
+      "validation_unweighted_BCE": 0.42013090467960024,
+      "steps": 237,
+      "order_sha256": "fd7ee019d5acb329bdce4745af4b262c24ef65b004892c565ead9dbcb2be23da",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 2290.0967693328857
+    },
+    {
+      "epoch": 15,
+      "train_weighted_loss": 0.017976037810698724,
+      "validation_unweighted_BCE": 0.4800440554609506,
+      "steps": 237,
+      "order_sha256": "3ee95a89d07342807de10738e2692d15e529b13b37990833f3aced4d1fb468a1",
+      "first_batch_gradient": {
+        "LoRA_B_tensors": 144,
+        "LoRA_B_grad_present": 144,
+        "head_grad_present": true
+      },
+      "LoRA_B_nonzero_at_epoch_end": 144,
+      "elapsed_seconds": 2454.7173693180084
+    }
+  ],
+  "selected_epoch_so_far": 1
+}

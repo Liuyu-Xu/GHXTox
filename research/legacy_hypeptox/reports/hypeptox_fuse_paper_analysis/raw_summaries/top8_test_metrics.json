@@ -1,0 +1,63 @@
+{
+  "accuracy": 0.9012681159420289,
+  "balanced_accuracy": 0.9012681159420289,
+  "precision": 0.9227099236641222,
+  "sensitivity": 0.8759057971014492,
+  "sn": 0.8759057971014492,
+  "recall": 0.8759057971014492,
+  "specificity": 0.9266304347826086,
+  "sp": 0.9266304347826086,
+  "f1": 0.8986988847583642,
+  "mcc": 0.8035706869389944,
+  "brier": 0.07604611665010452,
+  "ece_10": 0.025454441085457802,
+  "tp": 967.0,
+  "tn": 1023.0,
+  "fp": 81.0,
+  "fn": 137.0,
+  "auroc": 0.9590241677168663,
+  "auprc": 0.9606045016780125,
+  "threshold": 0.553624,
+  "num_samples": 2208.0,
+  "ensemble_size": 8.0,
+  "checkpoints": [
+    "runs/hypeptox_tuning/chemical_full_finetune_auprc_seed42/best_model.pt",
+    "runs/hypeptox_tuning/bilstm_smooth_auprc_seed123/best_model.pt",
+    "runs/hypeptox_tuning/geometry_focal_mcc_seed42/best_model.pt",
+    "runs/hypeptox_tuning/bilstm_smooth_auprc_seed42/best_model.pt",
+    "runs/hypeptox_tuning/chemical_branch_focal_mcc_seed2025/best_model.pt",
+    "runs/hypeptox_tuning/bilstm_focal_mcc_seed2025/best_model.pt",
+    "runs/hypeptox_tuning/bilstm_focal_mcc_seed42/best_model.pt",
+    "runs/hypeptox_tuning/geometry_focal_mcc_seed123/best_model.pt"
+  ],
+  "processed_files": [
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt",
+    "data/external/hypeptox_fuse/processed/test_chemical_sites_esm2.pt"
+  ],
+  "weights": [
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "checkpoint_epochs": [
+    18.0,
+    8.0,
+    29.0,
+    20.0,
+    16.0,
+    30.0,
+    13.0,
+    5.0
+  ]
+}

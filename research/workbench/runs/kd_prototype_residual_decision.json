@@ -1,0 +1,17 @@
+{
+  "artifact_type": "kd_global_prototype_residual_decision",
+  "version": "kpr-v1",
+  "date": "2026-09-05",
+  "decision": "not_promoted_vs_v1_but_ablation_supported",
+  "checks": {
+    "C_vs_A_mcc": "fail_by_0.002",
+    "C_vs_A_auprc": "pass",
+    "C_vs_A_brier": "pass",
+    "C_vs_B_mcc": "pass",
+    "C_vs_B_auprc": "pass",
+    "C_vs_B_brier": "pass"
+  },
+  "v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "runs/kd_proto_B_seed*/manifest.json, runs/kd_proto_C_seed*/manifest.json"
+}

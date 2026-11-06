@@ -1,0 +1,25 @@
+{
+  "n": 6387,
+  "base_dim": 3081,
+  "saprot_dim": 480,
+  "encoder": "westlake-repl/SaProt_35M_AF2",
+  "revision": "316cd4017d29f4657b959365f24b57f1ee278912",
+  "weights_sha256": "612d676d22c52953e27e923f8d402cd412548965539516d0c3ec98248e612f7f",
+  "input_sequences_sha256": "82d4008bc364f6219a4094716c0b2ae2ff79ca83690ac7e275cba56fe6bed9c9",
+  "base_cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+  "output_sha256": "fb3d122af5a203fc5016e36dead1779eb84008823a238d121ef9c119e6bc0e61",
+  "encoder_frozen": true,
+  "backbone_reconstructed_CB": true,
+  "plddt_mask_threshold": 70,
+  "allmasked_rows": 1295,
+  "allmasked_numerical_batch_max_difference": 0.0,
+  "allmasked_features_set_identical": true,
+  "pooling": "mean residues excludingCLS_EOS_padding",
+  "dtype": "float16 inference,float32 saved",
+  "elapsed_seconds": 11.596423625946045,
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "unused_legacy_rotary_position_keys": [
+    "esm.embeddings.position_embeddings.weight",
+    "esm.embeddings.position_ids"
+  ]
+}

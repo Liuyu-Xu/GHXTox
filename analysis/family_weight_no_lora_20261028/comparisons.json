@@ -1,0 +1,46 @@
+{
+  "sequence": [
+    {
+      "comparison": "A->B",
+      "delta_MCC": 0.02409640191356266,
+      "CI95_group_bootstrap": [
+        -0.006375904102074748,
+        0.05506569809051362
+      ],
+      "corrected": 37,
+      "harmed": 23
+    },
+    {
+      "comparison": "B->C",
+      "delta_MCC": -0.04018687132135457,
+      "CI95_group_bootstrap": [
+        -0.07208481529065475,
+        -0.007777815687736236
+      ],
+      "corrected": 23,
+      "harmed": 45
+    }
+  ],
+  "fusion": [
+    {
+      "comparison": "A->B",
+      "delta_MCC": 0.02290373946674873,
+      "CI95_group_bootstrap": [
+        -0.006345343091104977,
+        0.054534118787050535
+      ],
+      "corrected": 37,
+      "harmed": 24
+    },
+    {
+      "comparison": "B->C",
+      "delta_MCC": -0.04112379759342066,
+      "CI95_group_bootstrap": [
+        -0.07061862284078137,
+        -0.011747018533922576
+      ],
+      "corrected": 20,
+      "harmed": 43
+    }
+  ]
+}

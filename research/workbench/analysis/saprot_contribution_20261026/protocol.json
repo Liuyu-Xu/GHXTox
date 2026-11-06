@@ -1,0 +1,16 @@
+{
+ "task":"exploratory diagnosis of existing SaProt fixed-fusion OOF contributions; no training or selection of fusion weights",
+ "population":6387,
+ "primary_reference":"baseline4 from same-size control; baseline2 retained for attribution",
+ "candidates":["fusion_3Di4","fusion_masked4"],
+ "threshold":0.5,
+ "roles":["corrected:reference wrong and fusion correct","harmed:reference correct and fusion wrong","persistent_wrong:both wrong","persistent_correct:both correct"],
+ "features":["sequence_length","cys_count","cys_span_fraction","net_charge_proxy","mean_hydropathy","aromatic_fraction","proline_fraction","glycine_fraction","local_positive_excess","local_hydrophobic_excess","ideal_alpha_hydrophobic_moment","mean_plddt","hydrophobic_contact_excess","positive_hydrophobic_contact_excess","charge_hydrophobic_separation","nonlocal_contact_density","ca_radius_gyration","max_otherfold_kmer_cosine","unmasked_fraction"],
+ "feature_contrast":"corrected versus persistent_wrong within original label, not pooled classes; group bootstrap2000 for standardized mean differences; BH on two-sided bootstrap sign tails across all arm/label/feature contrasts; exploratory only",
+ "stability":"report direction by original 5 folds and both paired original seed comparisons. Stable feature requires n>=10 per outcome, >=4 informative folds and >=80% fold directions agree, both seeds same direction, BHq<0.05. Overlapping OOF training means not independent replication.",
+ "strata":"original label; Cys<4 vs>=4; length<=25 vs>25; entirelymasked vs some3Di; source label conflict and fragment flags; fixed cached mechanism mentions and curated/name families. No annotation does not mean absence.",
+ "matched_controls":"for each corrected sample seek persistent_wrong and persistent_correct controls, same label/fold, different sequence group, length ratio>=0.7. Rank verified cached family, then shared name-class proxy (reject conflicting known families), then sequence-only. Among same tier choose global alignment identity matches/maxlength highest, require>=0.4 and aligned-pair coverage>=0.7 both; no replacement of control group within arm/role. Sequence-only search top30 trigram Jaccard; family candidates all searched. No qualifying control stays unmatched. Never match by proposed spatial features.",
+ "structure_comparison":"common and exclusive rescues, 3Di versus masked decision flips with source feature availability; allmasked rows have identical embeddings but different fold-trained heads so their output differences are not per-sample geometry evidence",
+ "seed_stability":"original seeds20261026/27 compare paired baseline seed and 0.5 fusion for each; ensemble comparison remains baseline4. No extra model fits",
+ "limits":"reuse original labels and observational annotation; no causal mechanism, no gold label relabeling, no external or historic test use; any discovered subgroups require future frozen validation"
+}

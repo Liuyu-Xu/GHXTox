@@ -1,0 +1,28 @@
+{
+  "inputs_sha256_before": {
+    "analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd",
+    "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative20_review.csv": "15298a447a02e03529e21338adac52287aa8e9eed62f2149c3c420014e955cfc",
+    "analysis\\assay_evidence_20261025\\sample_audit.json": "033063bcefc848a70590c6d6ff287e5726e568634cb9582d9633c0fdc7f1147e",
+    "analysis\\assay_completion_20261025\\conditions.json": "247402a2e90e5f6e0799ad9d9bea40da7600421d22bdcd49c7668e8c7188c55c",
+    "analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793"
+  },
+  "inputs_sha256_after": {
+    "analysis\\expert_disagreement_20261025\\training_expert_atlas.csv": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+    "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd",
+    "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative20_review.csv": "15298a447a02e03529e21338adac52287aa8e9eed62f2149c3c420014e955cfc",
+    "analysis\\assay_evidence_20261025\\sample_audit.json": "033063bcefc848a70590c6d6ff287e5726e568634cb9582d9633c0fdc7f1147e",
+    "analysis\\assay_completion_20261025\\conditions.json": "247402a2e90e5f6e0799ad9d9bea40da7600421d22bdcd49c7668e8c7188c55c",
+    "analysis\\environment_feasibility_20261025\\model_records.json": "725378f6d32a67e6b5ea1781b00119b4ab72ae82a699f149b8b19e749ba4e793"
+  },
+  "train_rows": 6387,
+  "error_rows": 327,
+  "manual_rows": 36,
+  "original_labels_and_predictions_unchanged": true,
+  "automatic_relabeling": false,
+  "unreviewed_not_gold": true,
+  "error_annotation_coverage_only_for_errors": true,
+  "new_model_training": false,
+  "test_predictions_used": false,
+  "Oxy2a_correction_preserved": true
+}

@@ -1,0 +1,60 @@
+{
+  "protocol": {
+    "feature_cache": "data/processed/test1_prott5_structure_adapter.pt",
+    "checkpoint": "runs/prott5_structure_chemical_cross_attention_candidate/best_model.pt",
+    "threshold": 0.6,
+    "test_labels_used_for_selection": false
+  },
+  "baseline": {
+    "accuracy": 0.9431616341030196,
+    "balanced_accuracy": 0.9235538151364764,
+    "precision": 0.9183006535947712,
+    "sensitivity": 0.878125,
+    "sn": 0.878125,
+    "recall": 0.878125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8977635782747604,
+    "mcc": 0.858842375062223,
+    "brier": 0.043314870446920395,
+    "ece_10": 0.020800402387976646,
+    "tp": 281.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 39.0,
+    "auroc": 0.9815291563275433,
+    "auprc": 0.9649193587798337
+  },
+  "adapter": {
+    "accuracy": 0.9440497335701599,
+    "balanced_accuracy": 0.9251163151364764,
+    "precision": 0.9185667752442996,
+    "sensitivity": 0.88125,
+    "sn": 0.88125,
+    "recall": 0.88125,
+    "specificity": 0.9689826302729528,
+    "sp": 0.9689826302729528,
+    "f1": 0.8995215311004784,
+    "mcc": 0.8611308334793081,
+    "brier": 0.043189484626054764,
+    "ece_10": 0.019983064383268356,
+    "tp": 282.0,
+    "tn": 781.0,
+    "fp": 25.0,
+    "fn": 38.0,
+    "auroc": 0.9815718052109181,
+    "auprc": 0.9649747845156146
+  },
+  "delta": {
+    "balanced_accuracy": 0.0015625000000000222,
+    "mcc": 0.0022884584170850264,
+    "auroc": 4.264888337479622e-05,
+    "auprc": 5.5425735780878504e-05,
+    "brier": -0.0001253858208656311
+  },
+  "interaction_delta": {
+    "mean": -0.009962632320821285,
+    "mean_absolute": 0.03144051134586334,
+    "max_absolute": 0.12138154357671738
+  }
+}

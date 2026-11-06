@@ -1,0 +1,87 @@
+{
+  "selected_by_validation_only": "lora_lr3e5",
+  "metrics": {
+    "sequence": {
+      "no_lora": {
+        "n": 1291,
+        "MCC": 0.8000417001757365,
+        "AUPRC": 0.9310491179985404,
+        "AUROC": 0.9589983022071308,
+        "errors": 104,
+        "FP": 52,
+        "FN": 52
+      },
+      "lora_lr1e5": {
+        "n": 1291,
+        "MCC": 0.7787747639419316,
+        "AUPRC": 0.9329329180479927,
+        "AUROC": 0.9607318380841747,
+        "errors": 114,
+        "FP": 51,
+        "FN": 63
+      },
+      "lora_lr3e5": {
+        "n": 1291,
+        "MCC": 0.795208282057167,
+        "AUPRC": 0.9335546100640476,
+        "AUROC": 0.9616075417746404,
+        "errors": 106,
+        "FP": 50,
+        "FN": 56
+      }
+    },
+    "fusion": {
+      "no_lora": {
+        "n": 1291,
+        "MCC": 0.8308045155333155,
+        "AUPRC": 0.9449691708938003,
+        "AUROC": 0.9664641229559467,
+        "errors": 88,
+        "FP": 44,
+        "FN": 44
+      },
+      "lora_lr1e5": {
+        "n": 1291,
+        "MCC": 0.8269591636136181,
+        "AUPRC": 0.9456141473988744,
+        "AUROC": 0.9682065945849344,
+        "errors": 90,
+        "FP": 45,
+        "FN": 45
+      },
+      "lora_lr3e5": {
+        "n": 1291,
+        "MCC": 0.8355413657182946,
+        "AUPRC": 0.9457562380648847,
+        "AUROC": 0.9679266076907038,
+        "errors": 86,
+        "FP": 46,
+        "FN": 40
+      }
+    }
+  },
+  "comparisons": {
+    "sequence": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr3e5",
+      "delta_MCC": -0.004833418118569521,
+      "bootstrap_95CI": [
+        -0.02725957344209859,
+        0.017043565146572227
+      ],
+      "corrected": 15,
+      "harmed": 17
+    },
+    "fusion": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr3e5",
+      "delta_MCC": 0.004736850184979158,
+      "bootstrap_95CI": [
+        -0.016279581546360875,
+        0.024855566387840124
+      ],
+      "corrected": 16,
+      "harmed": 14
+    }
+  }
+}

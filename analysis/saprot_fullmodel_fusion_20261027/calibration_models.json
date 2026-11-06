@@ -1,0 +1,1602 @@
+[
+  {
+    "arm": "old",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -2.0642630696556403
+    ],
+    "scale": [
+      3.5879601692739023
+    ],
+    "coefficient": [
+      [
+        3.085810851945618
+      ]
+    ],
+    "intercept": [
+      -1.6107814189384633
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -1.754570243480922
+    ],
+    "scale": [
+      3.314669075218454
+    ],
+    "coefficient": [
+      [
+        3.137917112060604
+      ]
+    ],
+    "intercept": [
+      -1.541104421328884
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -5.821474618265607
+    ],
+    "scale": [
+      9.701442461056082
+    ],
+    "coefficient": [
+      [
+        4.140899391372856
+      ]
+    ],
+    "intercept": [
+      -2.708667034769797
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -7.654867415090545
+    ],
+    "scale": [
+      12.905218719595103
+    ],
+    "coefficient": [
+      [
+        4.266743395897218
+      ]
+    ],
+    "intercept": [
+      -2.7343662223264786
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -6.067429378676954
+    ],
+    "scale": [
+      10.017539323558127
+    ],
+    "coefficient": [
+      [
+        3.967106387956634
+      ]
+    ],
+    "intercept": [
+      -2.6183635082016488
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -6.065070061519453
+    ],
+    "scale": [
+      9.978915821456997
+    ],
+    "coefficient": [
+      [
+        3.879878991645195
+      ]
+    ],
+    "intercept": [
+      -2.5675333604596555
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -7.408079246360459
+    ],
+    "scale": [
+      13.239417371452534
+    ],
+    "coefficient": [
+      [
+        4.089488059907273
+      ]
+    ],
+    "intercept": [
+      -2.6135400541031255
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 0,
+    "evaluation_half": 0,
+    "n_fit": 618,
+    "mean": [
+      -8.815227953584497
+    ],
+    "scale": [
+      13.59780209507109
+    ],
+    "coefficient": [
+      [
+        4.0361588701844715
+      ]
+    ],
+    "intercept": [
+      -2.642226993970559
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -2.270910529573488
+    ],
+    "scale": [
+      3.5461593537028695
+    ],
+    "coefficient": [
+      [
+        3.816940578347812
+      ]
+    ],
+    "intercept": [
+      -2.111309634499041
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -1.8248806150782169
+    ],
+    "scale": [
+      3.3848852862089323
+    ],
+    "coefficient": [
+      [
+        3.6839238165263564
+      ]
+    ],
+    "intercept": [
+      -2.0853864003796394
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -5.909208048608745
+    ],
+    "scale": [
+      9.456859146831123
+    ],
+    "coefficient": [
+      [
+        4.667145789180283
+      ]
+    ],
+    "intercept": [
+      -3.2800786747522195
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -8.214578536251427
+    ],
+    "scale": [
+      13.513629516936014
+    ],
+    "coefficient": [
+      [
+        4.845139714737805
+      ]
+    ],
+    "intercept": [
+      -3.268996365280249
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -6.226302119893283
+    ],
+    "scale": [
+      9.893218942655169
+    ],
+    "coefficient": [
+      [
+        4.654760999541045
+      ]
+    ],
+    "intercept": [
+      -3.2613793816934904
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -6.083431202501834
+    ],
+    "scale": [
+      9.666532776638855
+    ],
+    "coefficient": [
+      [
+        4.455356196370146
+      ]
+    ],
+    "intercept": [
+      -3.170776659432798
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -7.960849176356383
+    ],
+    "scale": [
+      13.787738855146467
+    ],
+    "coefficient": [
+      [
+        4.596326213815796
+      ]
+    ],
+    "intercept": [
+      -3.1161606008442866
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 0,
+    "evaluation_half": 1,
+    "n_fit": 653,
+    "mean": [
+      -9.31129704026725
+    ],
+    "scale": [
+      14.145181126586651
+    ],
+    "coefficient": [
+      [
+        4.564770013934663
+      ]
+    ],
+    "intercept": [
+      -3.137672997832704
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -1.2697371520596634
+    ],
+    "scale": [
+      3.4939249713229334
+    ],
+    "coefficient": [
+      [
+        3.1921496659928645
+      ]
+    ],
+    "intercept": [
+      -1.6016195528517045
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -1.8283491387223643
+    ],
+    "scale": [
+      3.2500561228914044
+    ],
+    "coefficient": [
+      [
+        3.06309885772
+      ]
+    ],
+    "intercept": [
+      -1.5555482149909072
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -4.373078335029636
+    ],
+    "scale": [
+      7.7033278791456485
+    ],
+    "coefficient": [
+      [
+        3.9459533690966415
+      ]
+    ],
+    "intercept": [
+      -2.3244934445146055
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -6.292754887636983
+    ],
+    "scale": [
+      10.437672597130307
+    ],
+    "coefficient": [
+      [
+        3.716894155510286
+      ]
+    ],
+    "intercept": [
+      -2.130420041604359
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -5.256272441702993
+    ],
+    "scale": [
+      8.904932119167851
+    ],
+    "coefficient": [
+      [
+        3.62995081016838
+      ]
+    ],
+    "intercept": [
+      -2.1080961828295206
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -4.168105381031993
+    ],
+    "scale": [
+      7.544116212638293
+    ],
+    "coefficient": [
+      [
+        3.9651360619537117
+      ]
+    ],
+    "intercept": [
+      -2.3868671237421535
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -6.799283830306172
+    ],
+    "scale": [
+      11.309800167717427
+    ],
+    "coefficient": [
+      [
+        3.543592161053019
+      ]
+    ],
+    "intercept": [
+      -1.9843863864924007
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 1,
+    "evaluation_half": 0,
+    "n_fit": 613,
+    "mean": [
+      -6.378148898044768
+    ],
+    "scale": [
+      10.508730033361694
+    ],
+    "coefficient": [
+      [
+        3.6445912437656345
+      ]
+    ],
+    "intercept": [
+      -2.106701695161991
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -1.6337662446628052
+    ],
+    "scale": [
+      3.405467705129067
+    ],
+    "coefficient": [
+      [
+        3.3930431144732505
+      ]
+    ],
+    "intercept": [
+      -2.3946666104836467
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -2.1423009577479544
+    ],
+    "scale": [
+      3.1215983806788445
+    ],
+    "coefficient": [
+      [
+        3.1532338643812445
+      ]
+    ],
+    "intercept": [
+      -2.2255515169132334
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -5.34571078244085
+    ],
+    "scale": [
+      8.208786773410969
+    ],
+    "coefficient": [
+      [
+        4.4506762016633035
+      ]
+    ],
+    "intercept": [
+      -3.22956644838431
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -7.402172438805172
+    ],
+    "scale": [
+      10.610906747069786
+    ],
+    "coefficient": [
+      [
+        4.18190960530097
+      ]
+    ],
+    "intercept": [
+      -3.146432763322832
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -6.526264547092187
+    ],
+    "scale": [
+      9.510157725880012
+    ],
+    "coefficient": [
+      [
+        4.237707032533843
+      ]
+    ],
+    "intercept": [
+      -3.094821673514161
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -5.037575192894641
+    ],
+    "scale": [
+      8.093636888093132
+    ],
+    "coefficient": [
+      [
+        4.285466974037038
+      ]
+    ],
+    "intercept": [
+      -3.1254750360785954
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -8.038101732888101
+    ],
+    "scale": [
+      11.421792068115314
+    ],
+    "coefficient": [
+      [
+        3.8705500921216744
+      ]
+    ],
+    "intercept": [
+      -2.9425361892880977
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 1,
+    "evaluation_half": 1,
+    "n_fit": 616,
+    "mean": [
+      -7.549937791904652
+    ],
+    "scale": [
+      10.807540239068643
+    ],
+    "coefficient": [
+      [
+        4.065073262155927
+      ]
+    ],
+    "intercept": [
+      -3.05298185312228
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -2.1382921966321655
+    ],
+    "scale": [
+      3.4362680668128647
+    ],
+    "coefficient": [
+      [
+        3.5442999417962158
+      ]
+    ],
+    "intercept": [
+      -1.9387220962679586
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -1.7057511027633574
+    ],
+    "scale": [
+      3.754139162922066
+    ],
+    "coefficient": [
+      [
+        3.462398778809249
+      ]
+    ],
+    "intercept": [
+      -1.946574191604566
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -5.747343101217442
+    ],
+    "scale": [
+      9.985395262998436
+    ],
+    "coefficient": [
+      [
+        3.5822805429173634
+      ]
+    ],
+    "intercept": [
+      -2.343063455126903
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -7.063522702682022
+    ],
+    "scale": [
+      12.012262004966264
+    ],
+    "coefficient": [
+      [
+        3.478093141489913
+      ]
+    ],
+    "intercept": [
+      -2.1846696671432118
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -6.650360631148334
+    ],
+    "scale": [
+      10.807269835750077
+    ],
+    "coefficient": [
+      [
+        3.4526915742304816
+      ]
+    ],
+    "intercept": [
+      -2.2987514041593435
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -5.465285291037396
+    ],
+    "scale": [
+      10.027156930117659
+    ],
+    "coefficient": [
+      [
+        3.4679085540020274
+      ]
+    ],
+    "intercept": [
+      -2.2553229091706015
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -7.396362813442288
+    ],
+    "scale": [
+      12.421815430425426
+    ],
+    "coefficient": [
+      [
+        3.3110169993169603
+      ]
+    ],
+    "intercept": [
+      -2.0764181748381745
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 2,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -7.131904779289987
+    ],
+    "scale": [
+      12.176633503733452
+    ],
+    "coefficient": [
+      [
+        3.412468907424266
+      ]
+    ],
+    "intercept": [
+      -2.1622176214522115
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -2.4599158134852788
+    ],
+    "scale": [
+      3.3357981227027778
+    ],
+    "coefficient": [
+      [
+        2.9203753226653064
+      ]
+    ],
+    "intercept": [
+      -1.9405672702139611
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -1.963924378414493
+    ],
+    "scale": [
+      3.642375150162247
+    ],
+    "coefficient": [
+      [
+        3.1338059771321936
+      ]
+    ],
+    "intercept": [
+      -2.163426527494253
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -6.157680837795703
+    ],
+    "scale": [
+      9.393906603136593
+    ],
+    "coefficient": [
+      [
+        3.651037612556716
+      ]
+    ],
+    "intercept": [
+      -2.7020413409196613
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -7.202830218948628
+    ],
+    "scale": [
+      11.356791685319902
+    ],
+    "coefficient": [
+      [
+        3.6423017953945678
+      ]
+    ],
+    "intercept": [
+      -2.5221093482593764
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -6.957086913823988
+    ],
+    "scale": [
+      10.120048809095886
+    ],
+    "coefficient": [
+      [
+        3.6385330306637518
+      ]
+    ],
+    "intercept": [
+      -2.712065844777909
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -5.899882978991443
+    ],
+    "scale": [
+      9.471726945842175
+    ],
+    "coefficient": [
+      [
+        3.5203867007457457
+      ]
+    ],
+    "intercept": [
+      -2.605156542342692
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -7.643418733502777
+    ],
+    "scale": [
+      11.787486445506966
+    ],
+    "coefficient": [
+      [
+        3.5218317422737506
+      ]
+    ],
+    "intercept": [
+      -2.4490693493323192
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 2,
+    "evaluation_half": 1,
+    "n_fit": 639,
+    "mean": [
+      -7.254537083895029
+    ],
+    "scale": [
+      11.48953699977569
+    ],
+    "coefficient": [
+      [
+        3.4679137877357893
+      ]
+    ],
+    "intercept": [
+      -2.449315406209697
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -1.804619441191981
+    ],
+    "scale": [
+      3.5838875496462195
+    ],
+    "coefficient": [
+      [
+        3.439417814504923
+      ]
+    ],
+    "intercept": [
+      -1.9468051030517015
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -2.385818607402615
+    ],
+    "scale": [
+      3.5554760499974813
+    ],
+    "coefficient": [
+      [
+        3.0572702529411413
+      ]
+    ],
+    "intercept": [
+      -1.814922551496194
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -5.486221912539389
+    ],
+    "scale": [
+      8.767702069423414
+    ],
+    "coefficient": [
+      [
+        3.5971744667301526
+      ]
+    ],
+    "intercept": [
+      -2.478688452893358
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -6.61495373529591
+    ],
+    "scale": [
+      12.32778989757014
+    ],
+    "coefficient": [
+      [
+        3.505387766383452
+      ]
+    ],
+    "intercept": [
+      -2.250824425014784
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -5.723374837486526
+    ],
+    "scale": [
+      8.917979968327057
+    ],
+    "coefficient": [
+      [
+        3.5539941883399297
+      ]
+    ],
+    "intercept": [
+      -2.460564228081797
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -5.677192199939997
+    ],
+    "scale": [
+      9.392305491049006
+    ],
+    "coefficient": [
+      [
+        3.4911582270029027
+      ]
+    ],
+    "intercept": [
+      -2.3961527630246016
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -7.20362884450222
+    ],
+    "scale": [
+      12.75917337056852
+    ],
+    "coefficient": [
+      [
+        3.494135419521946
+      ]
+    ],
+    "intercept": [
+      -2.264260468067997
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 3,
+    "evaluation_half": 0,
+    "n_fit": 634,
+    "mean": [
+      -6.7583308288333965
+    ],
+    "scale": [
+      12.718902372279057
+    ],
+    "coefficient": [
+      [
+        3.3570786538403135
+      ]
+    ],
+    "intercept": [
+      -2.1942668178162448
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -1.9675057381402592
+    ],
+    "scale": [
+      3.544550691058739
+    ],
+    "coefficient": [
+      [
+        3.2220315475725667
+      ]
+    ],
+    "intercept": [
+      -2.050169209176808
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -2.505005743376792
+    ],
+    "scale": [
+      3.585262658564476
+    ],
+    "coefficient": [
+      [
+        3.1774928590580664
+      ]
+    ],
+    "intercept": [
+      -2.0410644365274804
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -6.224947365190473
+    ],
+    "scale": [
+      9.468108607925727
+    ],
+    "coefficient": [
+      [
+        4.381793601748574
+      ]
+    ],
+    "intercept": [
+      -3.237867235478932
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -7.34034848581407
+    ],
+    "scale": [
+      12.777198872271555
+    ],
+    "coefficient": [
+      [
+        4.111747598709748
+      ]
+    ],
+    "intercept": [
+      -2.8584431684136105
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -6.3879760462376804
+    ],
+    "scale": [
+      9.506228903758881
+    ],
+    "coefficient": [
+      [
+        4.013813777780477
+      ]
+    ],
+    "intercept": [
+      -3.0107164135625055
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -6.435220716660063
+    ],
+    "scale": [
+      10.057033357993584
+    ],
+    "coefficient": [
+      [
+        4.356348592786366
+      ]
+    ],
+    "intercept": [
+      -3.202773814982164
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -8.008910339036488
+    ],
+    "scale": [
+      13.102679554940812
+    ],
+    "coefficient": [
+      [
+        3.931240003920201
+      ]
+    ],
+    "intercept": [
+      -2.778259986296929
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 3,
+    "evaluation_half": 1,
+    "n_fit": 657,
+    "mean": [
+      -7.37358480700982
+    ],
+    "scale": [
+      13.231843387636408
+    ],
+    "coefficient": [
+      [
+        4.036334381320514
+      ]
+    ],
+    "intercept": [
+      -2.850113469291776
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -1.825404568190279
+    ],
+    "scale": [
+      3.4744365206018237
+    ],
+    "coefficient": [
+      [
+        2.8751339067153823
+      ]
+    ],
+    "intercept": [
+      -1.7669496882871398
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -2.132758494999076
+    ],
+    "scale": [
+      3.311589642599828
+    ],
+    "coefficient": [
+      [
+        3.065697980341421
+      ]
+    ],
+    "intercept": [
+      -1.8779692722889996
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -4.885142633572262
+    ],
+    "scale": [
+      8.729477516146984
+    ],
+    "coefficient": [
+      [
+        4.001094911092834
+      ]
+    ],
+    "intercept": [
+      -2.6060028464949396
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -5.743154495623393
+    ],
+    "scale": [
+      11.895297868118384
+    ],
+    "coefficient": [
+      [
+        3.443015134398518
+      ]
+    ],
+    "intercept": [
+      -2.0420881383007567
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -5.194334637209251
+    ],
+    "scale": [
+      9.279258953046348
+    ],
+    "coefficient": [
+      [
+        3.7117666912292977
+      ]
+    ],
+    "intercept": [
+      -2.487996183112569
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -5.058187115608603
+    ],
+    "scale": [
+      8.898812576844675
+    ],
+    "coefficient": [
+      [
+        3.9234160294012614
+      ]
+    ],
+    "intercept": [
+      -2.547952600843316
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -6.421151791646782
+    ],
+    "scale": [
+      12.26177325911129
+    ],
+    "coefficient": [
+      [
+        3.1935498769931367
+      ]
+    ],
+    "intercept": [
+      -1.9372692770696651
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 4,
+    "evaluation_half": 0,
+    "n_fit": 657,
+    "mean": [
+      -5.533348369787772
+    ],
+    "scale": [
+      12.139353543092318
+    ],
+    "coefficient": [
+      [
+        3.3377521449619114
+      ]
+    ],
+    "intercept": [
+      -2.01016622135438
+    ]
+  },
+  {
+    "arm": "old",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -1.8204104596288528
+    ],
+    "scale": [
+      3.4736373695802265
+    ],
+    "coefficient": [
+      [
+        3.2777012666237084
+      ]
+    ],
+    "intercept": [
+      -2.2669554520708393
+    ]
+  },
+  {
+    "arm": "new",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -2.1560745507254944
+    ],
+    "scale": [
+      3.2988472150093244
+    ],
+    "coefficient": [
+      [
+        3.174192803671109
+      ]
+    ],
+    "intercept": [
+      -2.22129589677247
+    ]
+  },
+  {
+    "arm": "teacher_masked",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -5.33623173206373
+    ],
+    "scale": [
+      8.987982791109696
+    ],
+    "coefficient": [
+      [
+        4.41332631191626
+      ]
+    ],
+    "intercept": [
+      -3.106757324728145
+    ]
+  },
+  {
+    "arm": "teacher_3Di",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -5.711495453036303
+    ],
+    "scale": [
+      11.802056885366357
+    ],
+    "coefficient": [
+      [
+        3.5748562045239356
+      ]
+    ],
+    "intercept": [
+      -2.315592266354713
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261026",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -5.567078645058625
+    ],
+    "scale": [
+      9.46400623532293
+    ],
+    "coefficient": [
+      [
+        4.1305344543752165
+      ]
+    ],
+    "intercept": [
+      -2.9367717564108795
+    ]
+  },
+  {
+    "arm": "teacher_masked_seed20261027",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -5.580717451529236
+    ],
+    "scale": [
+      9.147812309855354
+    ],
+    "coefficient": [
+      [
+        4.293190438932063
+      ]
+    ],
+    "intercept": [
+      -3.0586271643207565
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261026",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -6.283388375766106
+    ],
+    "scale": [
+      12.149033679937395
+    ],
+    "coefficient": [
+      [
+        3.528873807147451
+      ]
+    ],
+    "intercept": [
+      -2.322641571836181
+    ]
+  },
+  {
+    "arm": "teacher_3Di_seed20261027",
+    "fold": 4,
+    "evaluation_half": 1,
+    "n_fit": 666,
+    "mean": [
+      -5.55692555273774
+    ],
+    "scale": [
+      12.136312670310668
+    ],
+    "coefficient": [
+      [
+        3.372801173110307
+      ]
+    ],
+    "intercept": [
+      -2.2229122696279777
+    ]
+  }
+]

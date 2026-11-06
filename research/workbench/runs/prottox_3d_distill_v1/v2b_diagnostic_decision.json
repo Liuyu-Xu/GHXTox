@@ -1,0 +1,16 @@
+{
+  "artifact_type": "prottox_3dkd_v2b_feasibility_decision",
+  "version": "diagnostic-v1",
+  "date": "2026-09-05",
+  "decision": "do_not_train_v2b_feature_kd",
+  "reasons": [
+    "teacher pooled linear probe is stronger than TriStat+PhysChem probe (OOF MCC 0.782-0.822 vs 0.743-0.805), confirming pooled features contain toxicity signal",
+    "redundancy with sequence features is high: ridge R2 0.73-0.82 and first canonical correlation 0.966-0.993",
+    "concat probe gains over teacher pooled are small and inconsistent: MCC improves in 4/5 folds but AUROC and Brier do not improve",
+    "feature KD would mostly ask the student to reconstruct information already present in its own TriStat+PhysChem representation"
+  ],
+  "next": "prottox_3dkd_v2c_component_effect_diagnostic",
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "frozen_v1_modified": false,
+  "machine_results": "v2b_diagnostic.json"
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "phase": 33,
+  "status": "frozen_before_candidate_oof",
+  "scope": "fold-pure unified BioEmu decision-boundary specialist with exact Phase 25 fallback outside the frozen 600 rows",
+  "external_test_labels_read": false,
+  "inputs": {
+    "fold_manifest": "data/folds/train_cdhit080_fallback_folds.csv",
+    "legacy_manifests": [],
+    "legacy_cache_roots": [],
+    "legacy_source_names": [],
+    "bioemu_manifest": "data/bioemu_boundary_600/cache_600/conformer_manifest.csv",
+    "bioemu_cache_root": "data/bioemu_boundary_600/cache_600",
+    "boundary_import_summary": "data/bioemu_boundary_600/cache_600/import_summary.json",
+    "boundary_selection_summary": "data/bioemu_boundary_600/selection_summary.json",
+    "server_generation_report": "runs/bioemu_boundary_600_server/generation_feasibility.json",
+    "reference_oof": "runs/three_d_team_handoff/oof_3d_predictions.csv",
+    "phase30_protocol": "runs/ensemble_domain_ssl_3d/protocol.json",
+    "phase30_encoder_pattern": "runs/ensemble_domain_ssl_3d/fold_{fold}/encoder.pt",
+    "sha256": {
+      "data/folds/train_cdhit080_fallback_folds.csv": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4",
+      "data/bioemu_boundary_600/cache_600/conformer_manifest.csv": "9daae1dac116b26bc178e664a2865ed1235998762d4bb76543ab9dea223cd1f5",
+      "data/bioemu_boundary_600/cache_600/import_summary.json": "74ce2ae91ce1043875981a8fcb5b3d3cf52e781288d2b3445d7fd7b056c530d2",
+      "data/bioemu_boundary_600/selection_summary.json": "81ba5e1d31c2555be2d2037111aef4d8ed5e058ad6b6a75c5304ca58d8030ea1",
+      "runs/bioemu_boundary_600_server/generation_feasibility.json": "3bf4c709bf8a6a69618df42adc298dbfebe6f43a104f52c5148e7a9253d853a9",
+      "runs/three_d_team_handoff/oof_3d_predictions.csv": "4a241180743ad9e7c68165e636b67f24dfb6751de07ebc4fbe6241c2d7845fda",
+      "runs/ensemble_domain_ssl_3d/protocol.json": "87cc9f6e1f842e6cc18197d803feee7431c1c9b39689d56150914b21ad46ea01",
+      "runs/ensemble_domain_ssl_3d/fold_0/encoder.pt": "c62a5d794fb49194641fe2b010649df06872392f2e7652790bcf81e31c63044f",
+      "runs/ensemble_domain_ssl_3d/fold_1/encoder.pt": "d2da821ad6d431fec3fa6d9c5b0a29e095c829ef804ccc762fe6b22693b2a30f",
+      "runs/ensemble_domain_ssl_3d/fold_2/encoder.pt": "e4fa08a70b6063760762cdc4d375ffd5fd0e7eb752cb1c49b389e69441346ca0",
+      "runs/ensemble_domain_ssl_3d/fold_3/encoder.pt": "ab99b27524d41838ef2e911cad8795e70aff419a3dd2661536810e6abcc6cd5c",
+      "runs/ensemble_domain_ssl_3d/fold_4/encoder.pt": "263a3652af1cc15270094871d5320143bf9d2d19a1f97be3cd4498f185c4e141"
+    }
+  },
+  "cohort": {
+    "canonical_boundary_samples": 600,
+    "legacy_samples": 0,
+    "bioemu_samples": 600,
+    "matched_legacy_bioemu_pairs": 0,
+    "bioemu_only_samples": 600,
+    "folds": {
+      "0": 53,
+      "1": 235,
+      "2": 108,
+      "3": 145,
+      "4": 59
+    },
+    "length_strata": {
+      "11-15": 69,
+      "16-30": 246,
+      "31-50": 285
+    },
+    "positive": 394,
+    "negative": 206,
+    "source": "unified BioEmu-v1.2 only",
+    "generated": 574,
+    "reused_from_pilot": 26,
+    "total_filtered_conformers": 16510
+  },
+  "initialization": {
+    "encoder": "corresponding outer-fold Phase 30 GeometrySSLModel checkpoint",
+    "structure_feature_dim": 16,
+    "hidden_dim": 64,
+    "num_layers": 2,
+    "dropout": 0.1,
+    "trainable_encoder_modules": [
+      "encoder.layers.1"
+    ],
+    "frozen_encoder_modules": [
+      "encoder.input_projection",
+      "encoder.rbf",
+      "encoder.layers.0",
+      "encoder.norm"
+    ],
+    "unused_frozen_modules": [
+      "node_decoder",
+      "pair_decoder"
+    ]
+  },
+  "fine_tuning": {
+    "toxicity_training_inputs": "BioEmu ensemble tensors and labels only; Phase 25 scores prohibited during training",
+    "head": "LayerNorm projection over per-residue conformer mean/std, residue attention plus masked max pooling, one standalone logit",
+    "head_hidden_dim": 64,
+    "head_dropout": 0.1,
+    "epochs": 8,
+    "batch_size": 32,
+    "training_conformers_per_sample": 2,
+    "inference_max_conformers_per_sample": 8,
+    "encoder_learning_rate": 1e-05,
+    "head_learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "seed": 20260803,
+    "loss": "binary cross entropy with outer-training-fold positive weight equal to negatives divided by positives",
+    "early_stopping": false,
+    "checkpoint_selection": "fixed final epoch",
+    "threshold_search": false,
+    "seed_search": false,
+    "fusion_formula": "held_phase25_logit + 0.15*tanh(standalone_3d_logit)",
+    "maximum_absolute_logit_delta": 0.15,
+    "missing_policy": "exact Phase 25 probability fallback outside the frozen 600 boundary rows"
+  },
+  "evaluation": {
+    "decision_threshold": 0.677819,
+    "reference": {
+      "mcc": 0.8390181404798325,
+      "auprc": 0.9281708597568626,
+      "brier": 0.05939949004168534,
+      "ece_10": 0.05110902710928455
+    },
+    "length_reference_mcc": {
+      "11-15": 0.6504267492346457,
+      "16-30": 0.7812252492583115,
+      "31-50": 0.8919053414967528
+    },
+    "length_reference_auprc": {
+      "11-15": 0.6925766243278225,
+      "16-30": 0.9135098658052947,
+      "31-50": 0.9516045421689131
+    },
+    "source_probe": "not applicable: Phase 33 boundary cache contains one unified BioEmu generator source only",
+    "external_test_labels_read": false
+  },
+  "promotion_gate": {
+    "global_mcc_strictly_above": 0.8390181404798325,
+    "global_auprc_at_least": 0.9281708597568626,
+    "maximum_brier": 0.06039949004168534,
+    "maximum_ece_10": 0.05310902710928455,
+    "minimum_fold_mcc_non_decreases": 3,
+    "maximum_length_mcc_regression": 0.005,
+    "maximum_length_auprc_regression": 0.002,
+    "minimum_net_decision_corrections": 1,
+    "source_robustness_gate": "not_applicable_unified_bioemu_only",
+    "all_conditions_required": true
+  },
+  "prohibitions": [
+    "Phase 25 score or logit use during supervised training",
+    "Test1/Test2 access",
+    "post-hoc architecture, seed, epoch, threshold, evidence-weight, subset, checkpoint, or length-stratum selection",
+    "full BioEmu generation",
+    "3D handoff regeneration unless every promotion gate passes"
+  ]
+}

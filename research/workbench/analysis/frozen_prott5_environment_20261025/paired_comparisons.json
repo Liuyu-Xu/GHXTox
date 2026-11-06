@@ -1,0 +1,74 @@
+[
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "comparison": "add_dose",
+    "MAE_reduction_percentage_points": 0.07612744883163519,
+    "paired_cluster_bootstrap_95pct": [
+      -0.49866745710234694,
+      0.48214585429408585
+    ]
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "comparison": "add_species",
+    "MAE_reduction_percentage_points": 0.10553269350666057,
+    "paired_cluster_bootstrap_95pct": [
+      -0.04598142544355081,
+      0.2501290293220933
+    ]
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "comparison": "all_conditions",
+    "MAE_reduction_percentage_points": 0.18166014233829578,
+    "paired_cluster_bootstrap_95pct": [
+      -0.3437257554202661,
+      0.576734446397933
+    ]
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "comparison": "replace_handcrafted_by_ProtT5",
+    "MAE_reduction_percentage_points": -0.9337533496509813,
+    "paired_cluster_bootstrap_95pct": [
+      -2.1385853186547323,
+      0.4569465387018269
+    ]
+  },
+  {
+    "design": "sequence_edit_groups",
+    "comparison": "add_dose",
+    "MAE_reduction_percentage_points": 0.2828910949089112,
+    "paired_cluster_bootstrap_95pct": [
+      0.11090298911887445,
+      0.43866709064652065
+    ]
+  },
+  {
+    "design": "sequence_edit_groups",
+    "comparison": "add_species",
+    "MAE_reduction_percentage_points": -0.11507397922227489,
+    "paired_cluster_bootstrap_95pct": [
+      -0.6294132990404046,
+      0.27611859647718245
+    ]
+  },
+  {
+    "design": "sequence_edit_groups",
+    "comparison": "all_conditions",
+    "MAE_reduction_percentage_points": 0.1678171156866363,
+    "paired_cluster_bootstrap_95pct": [
+      -0.27160027928677344,
+      0.5199369035179837
+    ]
+  },
+  {
+    "design": "sequence_edit_groups",
+    "comparison": "replace_handcrafted_by_ProtT5",
+    "MAE_reduction_percentage_points": -0.1367392259688435,
+    "paired_cluster_bootstrap_95pct": [
+      -1.8407224828563098,
+      1.7329506411866045
+    ]
+  }
+]

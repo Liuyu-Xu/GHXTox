@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>NTxPred2 - Neurotoxic Peptide Prediction</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="Neurotoxicity, Machine Learning, esm-2, ProtBERT, Embbeddings, Virtual screening, NTXpred2, prediction of neurotoxins, Webserver">
+        <meta content="" name="NTxPred2 is an advanced computational tool designed for predicting neurotoxins.">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top px-0">
+            <div class="container px-0">
+                <div class="topbar" style="background: #347aeb !important;">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-8">
+                            <div class="topbar-info d-flex flex-wrap">
+                                <a href="mailto:raghava@iiitd.ac.in" class="text-light me-4"><i class="fas fa-envelope text-white me-2"></i>raghava@iiitd.ac.in</a>
+                                <a href="tel://+9126907444" class="text-light"><i class="fas fa-phone-alt text-white me-2"></i>011-26907444</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="topbar-icon d-flex align-items-center justify-content-end">
+                                <a href="https://github.com/raghavagps" target="_blank" class="btn-square text-white me-2"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/raghavagps/" target="_blank" class="btn-square text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://scholar.google.co.in/citations?user=XK5GUiYAAAAJ&hl=en" target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-google"></i></a>
+                                <a href="mailto:raghava@iiitd.ac.in" target="_blank" class="btn-square text-white me-2"><i class="far fa-envelope"></i></a>
+                                <a href="https://www.researchgate.net/profile/Gajendra-Raghava" target="_blank" class="btn-square text-white me-2"><i class="fab fa-researchgate"></i></a>
+                                <a href="https://www.facebook.com/raghavagps" target="_blank" class="btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com" target="_blank" class="btn-square text-white me-2"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                    <a href="index.html" class="navbar-brand ms-3">
+                        <h1 class="text-primary display-5" style="color: #347aeb !important;">NTxPred2</h1>
+                    </a>
+                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="prediction.html" class="nav-item nav-link">Prediction</a>
+                            <a href="protein_scan.html" class="nav-item nav-link">Protein Scanning</a>
+                            <a href="design.html" class="nav-item nav-link">Design</a>
+                            <a href="important_tools1.html" class="nav-item nav-link">Important Tools</a>
+                            <a href="download.html" class="nav-item nav-link">Download</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" style="color: #3498eb;" data-bs-toggle="dropdown">General</a>
+                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                    <a href="help.html" class="dropdown-item active">Help</a>
+                                    <a href="team.html" class="dropdown-item">Team</a>
+                                    <a href="contact.html" class="dropdown-item">Contact</a>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
+    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3" 
+       style="background: #347aeb; border: none;" 
+       onclick="copyCitation()">Cite us</a>  <!-- Added onclick handler -->
+</div>
+
+<!-- Add popup message HTML -->
+<div id="popup-message" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+    Citation copied
+</div>
+
+<!-- Add the script -->
+<script>
+function copyCitation() {
+    const citationText = "Rathore, A. S., Jain, S., & Raghava, G. P. (2024). Prediction of Neurotoxin Peptides. #Changes required# bioRxiv (Cold Spring Harbor Laboratory). https://doi.org/10.1101/2024.07.23.604887";
+    
+    const tempTextArea = document.createElement('textarea');
+    tempTextArea.value = citationText;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextArea);
+
+    const popup = document.getElementById('popup-message');
+    popup.style.display = 'block';
+    
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 2000);
+}
+</script>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4" style="color: #e0e0ff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">Help</h1>
+                <p class="fs-5 text-white mb-4" style="color: #e0e0ff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Provide Assistance</p>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Services Start -->
+        <div class="wrapper row2">
+            <section class="hoc container clear">
+          
+          <br>
+          <br>
+          
+          
+        <br><p align="justify"><font color="black" size="4">
+          This page serves as a comprehensive resource for users of NTxPred2, offering valuable assistance in effectively utilizing its diverse prediction modules. Within this guide, you will find detailed information, figures, and step-by-step instructions on leveraging each module integrated into NTxPred2. We aim to equip you with a clear understanding of how to navigate and make the most of every module within the platform. </p>
+          <br>
+            <a name="pred"></a>
+          <p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+  <b style="font-size: 22px;">GitHub & pip</b></p> 
+
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #4fc3f7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+        
+        body {
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: var(--primary);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+        }
+        
+        .badge-primary {
+            background-color: var(--primary);
+        }
+        
+        .badge-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .badge-success {
+            background-color: var(--success);
+        }
+        
+        .badge-info {
+            background-color: var(--info);
+        }
+        
+        .badge-warning {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+        
+        .badge-danger {
+            background-color: var(--danger);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .workflow-img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 0.5rem;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            background-color: var(--dark);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+    </style>
+
+    
+    <div class="container">
+        
+        
+        <section id="quick-start">
+            <div class="card">
+                <h2><span class="emoji">🧪</span> Quick Start for Reproducibility</h2>
+                <p>Follow these steps to replicate the core results of our paper:</p>
+                <div class="code-block">
+                    <pre># 1. Clone the repository
+git clone https://github.com/raghavagps/ntxpred2.git
+cd ntxpred2
+
+# 2. Set up the environment (conda recommended)
+conda env create -f environment.yml
+conda activate NTxPred2
+
+# 3. Download pre-trained models
+# Visit: https://webs.iiitd.edu.in/raghava/ntxpred2/download.html
+# Download the model ZIP and extract it in the root directory
+
+# 4. Run prediction on sample input
+python ntxpred2.py -i example.fasta -o output.csv -m 1 -j 1 -wd working_direcotory_path</pre>
+                </div>
+            </div>
+        </section>
+        
+        <section id="installation">
+            <div class="card">
+                <h2><span class="emoji">🛠️</span> Installation Options</h2>
+                
+                <h3><span class="emoji">🔹</span> PIP Installation</h3>
+                <p>To install NTxPred2 via PIP, run:</p>
+                <div class="code-block">
+                    <pre>pip install ntxpred2</pre>
+                </div>
+                <p>To check available options, type:</p>
+                <div class="code-block">
+                    <pre>ntxpred2 -h</pre>
+                </div>
+                
+                <h3><span class="emoji">🔹</span> Standalone Installation</h3>
+                <p>NTxPred2 is written in <strong>Python 3</strong> and requires the following dependencies:</p>
+                
+                <h4>✅ Required Libraries</h4>
+                <div class="code-block">
+                    <pre>python=3.10.7
+pytorch</pre>
+                </div>
+                <p>Additional required packages:</p>
+                <div class="code-block">
+                    <pre>pip install scikit-learn==1.5.2
+pip install pandas==1.5.3
+pip install numpy==1.25.2
+pip install torch==2.1.0
+pip install transformers==4.34.0
+pip install joblib==1.4.2
+pip install onnxruntime==1.15.1
+Bio (Biopython): 1.81
+tqdm: 4.64.1
+torch: 2.6.0</pre>
+                </div>
+                
+                <h3><span class="emoji">🔹</span> Installation using environment.yml</h3>
+                <ol>
+                    <li>Create a new Conda environment:
+                        <div class="code-block">
+                            <pre>conda env create -f environment.yml</pre>
+                        </div>
+                    </li>
+                    <li>Activate the environment:
+                        <div class="code-block">
+                            <pre>conda activate NTxPred2</pre>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="important-note">
+            <div class="card note">
+                <h2><span class="emoji">⚠️</span> Important Note</h2>
+                <ul>
+                    <li>Due to the large size of the model file, the model directory has been compressed and uploaded.</li>
+                    <li>Download the <strong>zip file</strong> from <a href="https://webs.iiitd.edu.in/raghava/ntxpred2/download.html">Download Page</a>.</li>
+                    <li><strong>Extract the file</strong> before using the code or model.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="classification">
+            <div class="card">
+                <h2><span class="emoji">🔬</span> Classification</h2>
+                <p><strong>NTxPred2</strong> classifies peptides and proteins as <strong>neurotoxic or non-neurotoxic</strong> based on their primary sequence.</p>
+                
+                <h3><span class="emoji">🔹</span> Model Options</h3>
+                <ul>
+                    <li><strong>ESM2-t30 (Peptide Model):</strong> For sequences <strong>7-50 amino acids</strong> long.</li>
+                    <li><strong>ET (Protein Model):</strong> For sequences <strong>≥ 51 amino acids</strong>.</li>
+                    <li><strong>ET (Combined Model):</strong> For sequences of <strong>mixed length</strong>.</li>
+                    <li><strong>Default Model:</strong> ESM2-t30 (Peptide Model), selected for best performance and efficiency.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="usage">
+            <div class="card">
+                <h2><span class="emoji">🚀</span> Usage</h2>
+                
+                <h3><span class="emoji">🔹</span> Minimum Usage</h3>
+                <div class="code-block">
+                    <pre>ntxpred2.py -h</pre>
+                </div>
+                <p>To run an example:</p>
+                <div class="code-block">
+                    <pre>ntxpred2.py -i example.fasta</pre>
+                </div>
+                
+                <h3><span class="emoji">🔹</span> Full Usage</h3>
+                <div class="code-block">
+                    <pre>usage: ntxpred2.py [-h]
+                   [-i INPUT]
+                   [-o OUTPUT]
+                   [-t THRESHOLD]
+                   [-j {1,2,3,4}]
+                   [-m {1,2,3}]
+                   [-d {1,2}]
+                   [-wd WORKING DIRECTORY]</pre>
+                </div>
+                
+                <h4>Required Arguments</h4>
+                <table>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>-i INPUT</code></td>
+                        <td>Input: Peptide or protein sequence (FASTA format or simple format)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-o OUTPUT</code></td>
+                        <td>Output file (default: <code>outfile.csv</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-t THRESHOLD</code></td>
+                        <td>Threshold (0-1, default: <code>0.5</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-j {1,2,3,4}</code></td>
+                        <td>Job type: 1-Prediction, 2-Protein Scanning, 3-Design, 4-Design all possible mutants</td>
+                    </tr>
+                    <tr>
+                        <td><code>-m {1,2,3}</code></td>
+                        <td>Model selection: 1-ESM2-t30 (Peptides), 2-ET (Proteins), 3-ET (Combined)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-wd WORKING</code></td>
+                        <td>Working directory for saving results</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section id="input-output">
+            <div class="card">
+                <h2><span class="emoji">📂</span> Input & Output Files</h2>
+                
+                <h3><span class="emoji">✅</span> Input File Format</h3>
+                <p>NTxPred2 supports two formats:</p>
+                <ol>
+                    <li><strong>FASTA Format:</strong> (Example: <code>example.fasta</code>)</li>
+                    <li><strong>Simple Format:</strong> (Example: <code>example.seq</code>, each sequence on a new line)</li>
+                </ol>
+                
+                <h3><span class="emoji">✅</span> Output File</h3>
+                <ul>
+                    <li>Results are saved in <strong>CSV format</strong>.</li>
+                    <li>If no output file is specified, results are stored in <code>outfile.csv</code>.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="jobs-features">
+            <div class="card">
+                <h2><span class="emoji">🔍</span> Jobs & Features</h2>
+                
+                <h3><span class="emoji">🔹</span> Job Types</h3>
+                <table>
+                    <tr>
+                        <th>Job</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">1️⃣</span> <strong>Prediction</strong></td>
+                        <td>Predicts whether input peptide/protein is neurotoxic or not.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">2️⃣</span> <strong>Protein Scanning</strong></td>
+                        <td>Identifies neurotoxic regions in a protein sequence.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">3️⃣</span> <strong>Design</strong></td>
+                        <td>Generates mutant peptides/proteins with a <strong>single amino acid/dipeptide</strong> at a specified position.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">4️⃣</span> <strong>Design All Possible Mutants</strong></td>
+                        <td>Generates and predicts <strong>all possible mutants</strong>.</td>
+                    </tr>
+                </table>
+                
+                <h3><span class="emoji">🔹</span> Additional Options</h3>
+                <table>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>-p POSITION</code></td>
+                        <td>Position to insert mutation (1-indexed)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-r RESIDUES</code></td>
+                        <td>Mutated residues (single/double letter amino acid codes)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-w {8-20}</code></td>
+                        <td>Window length (Protein Scan mode only, default: 12)</td>
+                    </tr>
+                    <tr>
+                        <td><code>-d {1,2}</code></td>
+                        <td>Display: 1-Neurotoxic only, 2-All peptides (default)</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section id="package-contents">
+            <div class="card">
+                <h2><span class="emoji">📑</span> Package Contents</h2>
+                <table>
+                    <tr>
+                        <th>File</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><strong>INSTALLATION</strong></td>
+                        <td>Installation instructions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LICENSE</strong></td>
+                        <td>License information</td>
+                    </tr>
+                    <tr>
+                        <td><strong>README.md</strong></td>
+                        <td>This file</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ntxpred2.py</strong></td>
+                        <td>Python program for classification</td>
+                    </tr>
+                    <tr>
+                        <td><strong>example.fasta</strong></td>
+                        <td>Example file (FASTA format)</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section id="pip-installation">
+            <div class="card">
+                <h2><span class="emoji">📦</span> PIP Installation (Again for Reference)</h2>
+                <div class="code-block">
+                    <pre>pip install ntxpred2</pre>
+                </div>
+                <p>Check options:</p>
+                <div class="code-block">
+                    <pre>ntxpred2 -h</pre>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cta">
+            <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem;">
+                <h2 style="color: white; border-bottom: 2px solid white;">🚀 Start predicting neurotoxicity with NTxPred2!</h2>
+                <a href="http://webs.iiitd.edu.in/raghava/ntxpred2" class="btn" style="background-color: white; color: var(--primary); font-size: 1.2rem; padding: 0.75rem 1.5rem;">Go to the NTxPred2 Prediction Page</a>
+            </div>
+        </section>
+    </div>
+ 
+
+          
+          <a name="pred"></a>
+          <p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+  <b style="font-size: 22px;">Prediction Module</b></p> 
+            <font color="black" size="3" align="center">
+          This module predicts neurotoxic/non-neurotoxic peptides/proteins based on the model selected by the user.
+            </font>
+          </p>
+          <div style="text-align: center;">
+            <img src="img/ntxpred2_help-1.jpg" alt="Snow" style="width: 1000px;">
+          </div><br><br>               
+                  
+          <a name="protein_scan"></a><p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+	  <b style="font-size: 22px;">Protein Scanning</b>
+          <font color="black" size="3" ><p align="justify">
+          This module allows users to particularly identify neurotoxic regions within a specified protein/peptide sequence.
+          <div style="text-align: center;">
+            <img src="img/ntxpred2_help-2.jpg" alt="Snow" style="width: 1000px;">
+          </div><br><br>
+         
+          <a name="Design"></a><p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+          <b style="font-size: 22px;">Design Module</b>
+                <br><font color="black" size="3" ><p align="justify">
+                This module design non-neurotoxic mutant peptides/proteins based on the user-specified residues and positions.
+                <div style="text-align: center;">
+                    <img src="img/ntxpred2_help-3.jpg" alt="Snow" style="width: 1000px;">
+                  </div><br><br>
+                  
+ <a name="important_tools"></a><p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+  <b style="font-size: 22px;">Important Tools</b>
+          <br><font color="black" size="3" ><p align="justify">
+          This page provides list of all the computational tools available for different types of toxicity prediction.
+          <div style="text-align: center;">
+              <img src="img/ntxpred2_help-4.jpg" alt="Snow" style="width:1000px;" align="center">:
+            </div><br><br>
+
+                  <a name="download"></a><p style="border: none; padding: 1em; background: #347aeb; color: white; text-align: left;">
+          <b style="font-size: 22px;">Download</b>
+                    <br><font color="black" size="3" ><p align="justify">
+                    This page allows to download the standalone and pip package of NTxPred2.
+                    <div style="text-align: center;">
+                        <img src="img/ntxpred2_help-5.jpg" alt="Snow" style="width: 1000px;">
+                      </div><br><br>
+                      
+          
+         
+         
+          <br>
+          <br>
+                              </nav>
+                          </div>
+                      </div>
+                  </div>
+        <!-- Services End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer" style="background-color: #347aeb; text-body py-0.01;">
+            <div class="container py-0.01">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-12">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white text-center" style="margin-top: 15px;">Our Services</h4>
+                            <div class="services-list">
+                                 <a href="https://webs.iiitd.edu.in/raghava/ntxpred" target="_blank"><i class="fas fa-angle-right me-2"></i>NTXpred</a>
+				 <a href="https://webs.iiitd.edu.in/raghava/hemopi" target="_blank"><i class="fas fa-angle-right me-2"></i>HemoPI</a>
+                                
+                                <a href="https://webs.iiitd.edu.in/raghava/toxinpred3" target="_blank"><i class="fas fa-angle-right me-2"></i>ToxinPred3.0</a>
+                                
+                                <a href="https://webs.iiitd.edu.in//raghava/hemopi2/" target="_blank"><i class="fas fa-angle-right me-2"></i>HemoPI2</a>
+                                <a href="https://webs.iiitd.edu.in/raghava/toxipred"target="_blank"><i class="fas fa-angle-right me-2"></i>ToxiPred</a>
+                                <a href="https://webs.iiitd.edu.in/raghava/toxinpred2"target="_blank"><i class="fas fa-angle-right me-2"></i>ToxinPred2.0</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright" style="background: #002b5a !important; color: white;">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#"></i></a>Thank You for Visiting</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a href="https://github.com/raghavagps"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/raghavagps/"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://scholar.google.co.in/citations?user=XK5GUiYAAAAJ&hl=en"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-google"></i></a>
+                            <a href="mailto:raghava@iiitd.ac.in"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="far fa-envelope"></i></a>
+                            <a href="https://twitter.com"target="_blank" class="btn-hover-color btn-square text-white me-0"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.researchgate.net/profile/Gajendra-Raghava"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-researchgate"></i></a>
+                            <a href="https://www.facebook.com/raghavagps"target="_blank" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 text-center text-md-end text-body">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom" href="https://webs.iiitd.edu.in/raghava/index.html"target="_blank" >@Raghava's Group</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-md-square back-to-top"
+   style="background: #347aeb; border: none; color: white;">
+   <i class="fa fa-arrow-up" style="color: white;"></i>
+</a>
+
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+    </body>
+
+</html>

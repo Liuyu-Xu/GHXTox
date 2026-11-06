@@ -1,0 +1,34 @@
+[
+  {
+    "name": "PG1_BioC.xml",
+    "url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_xml/PMC12044605/unicode",
+    "status": 200,
+    "bytes": 6140,
+    "sha256": "478f38e0765ee9c406831bb2fc27e8019ac5227c20c6b28ca0de582d8449354a",
+    "content_type": "text/html"
+  },
+  {
+    "name": "cyclic2025.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11891913/fullTextXML",
+    "status": 200,
+    "bytes": 182385,
+    "sha256": "8c791ca8846ee8abae90be51b84fab774b053f984fde983699877e750763cd91",
+    "content_type": "application/xml"
+  },
+  {
+    "name": "PG1_repository.json",
+    "url": "https://api.github.com/repos/ziul-bio/DMS_ML_AMP",
+    "status": 200,
+    "bytes": 5183,
+    "sha256": "7ade6b96471e4079fbede92fd78f38b8f9898acfe34fee31a2c7d7d8c5a3c5bb",
+    "content_type": "application/json; charset=utf-8"
+  },
+  {
+    "name": "PG1_tree.json",
+    "url": "https://api.github.com/repos/ziul-bio/DMS_ML_AMP/git/trees/main?recursive=1",
+    "status": 200,
+    "bytes": 45587,
+    "sha256": "c39bbec0ad83d941f65b57485a0c89ee542f8688281dcd95b6480c6efa9a05a6",
+    "content_type": "application/json; charset=utf-8"
+  }
+]

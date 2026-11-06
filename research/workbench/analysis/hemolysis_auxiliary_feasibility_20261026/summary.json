@@ -1,0 +1,107 @@
+{
+  "source_cv_rows": 1540,
+  "cv_unique_sequences": 1540,
+  "standard_scope_aux": 1428,
+  "label_counts": {
+    "0": 737,
+    "1": 691
+  },
+  "candidate_identity_linked_n": 759,
+  "candidate_hc50_linked_n": 52,
+  "reserved_sequences": {
+    "test1": 1126,
+    "test2": 582,
+    "toxipep": 958,
+    "hemopi_independent": 386,
+    "toxmamba": 958
+  },
+  "reserved_component_overlap_n": 930,
+  "sequence_safe_after_reserved_n": 498,
+  "joint_components": 7413,
+  "alignment_seconds": 20.70221185684204,
+  "near_rule": "unit-cost global edit distance <=floor(0.2*maxlen), with existing main groups unioned and transitive component purge; not standard CD-HIT identity",
+  "fold_counts": [
+    {
+      "fold": 0,
+      "original_main_train_n": 5116,
+      "main_train_n": 5058,
+      "main_test_n": 1271,
+      "aux_sequence_safe_n": 488,
+      "aux_after_available_citation_purge_n": 481,
+      "aux_label_counts": {
+        "1": 214,
+        "0": 267
+      },
+      "aux_with_candidate_pmid_n": 274,
+      "known_citation_links_purged": 7,
+      "unknown_primary_assay_sources_remain": true,
+      "paper_disjointness_certified": false
+    },
+    {
+      "fold": 1,
+      "original_main_train_n": 5158,
+      "main_train_n": 5084,
+      "main_test_n": 1229,
+      "aux_sequence_safe_n": 489,
+      "aux_after_available_citation_purge_n": 473,
+      "aux_label_counts": {
+        "0": 264,
+        "1": 209
+      },
+      "aux_with_candidate_pmid_n": 264,
+      "known_citation_links_purged": 16,
+      "unknown_primary_assay_sources_remain": true,
+      "paper_disjointness_certified": false
+    },
+    {
+      "fold": 2,
+      "original_main_train_n": 5114,
+      "main_train_n": 5090,
+      "main_test_n": 1273,
+      "aux_sequence_safe_n": 470,
+      "aux_after_available_citation_purge_n": 459,
+      "aux_label_counts": {
+        "1": 193,
+        "0": 266
+      },
+      "aux_with_candidate_pmid_n": 256,
+      "known_citation_links_purged": 11,
+      "unknown_primary_assay_sources_remain": true,
+      "paper_disjointness_certified": false
+    },
+    {
+      "fold": 3,
+      "original_main_train_n": 5096,
+      "main_train_n": 5033,
+      "main_test_n": 1291,
+      "aux_sequence_safe_n": 479,
+      "aux_after_available_citation_purge_n": 460,
+      "aux_label_counts": {
+        "1": 208,
+        "0": 252
+      },
+      "aux_with_candidate_pmid_n": 256,
+      "known_citation_links_purged": 19,
+      "unknown_primary_assay_sources_remain": true,
+      "paper_disjointness_certified": false
+    },
+    {
+      "fold": 4,
+      "original_main_train_n": 5064,
+      "main_train_n": 5026,
+      "main_test_n": 1323,
+      "aux_sequence_safe_n": 469,
+      "aux_after_available_citation_purge_n": 464,
+      "aux_label_counts": {
+        "1": 203,
+        "0": 261
+      },
+      "aux_with_candidate_pmid_n": 262,
+      "known_citation_links_purged": 5,
+      "unknown_primary_assay_sources_remain": true,
+      "paper_disjointness_certified": false
+    }
+  ],
+  "no_auxiliary_independent_rows_used": true,
+  "strict_assay_gold": false
+}

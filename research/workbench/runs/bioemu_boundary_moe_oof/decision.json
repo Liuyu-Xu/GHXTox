@@ -1,0 +1,40 @@
+{
+  "status": "complete",
+  "decision": "promote_as_project_research_default",
+  "promotion_authorized": true,
+  "promotion_scope": "project_research_default",
+  "pre_frozen_replication_required": true,
+  "production_unseen_inference_ready": false,
+  "retention_gate": {
+    "mcc_strictly_higher": true,
+    "balanced_accuracy_not_lower": true,
+    "f1_not_lower": true,
+    "auprc_not_lower": true,
+    "brier_not_higher": true,
+    "ece_10_increase_at_most_0_0001": true,
+    "at_least_three_fold_mcc_non_decreases": true,
+    "positive_net_decision_corrections": true,
+    "all_conditions_passed": true
+  },
+  "metrics": {
+    "accuracy": 0.9483325504931893,
+    "balanced_accuracy": 0.9276218987624305,
+    "precision": 0.9350877192982456,
+    "sensitivity": 0.8795379537953796,
+    "sn": 0.8795379537953796,
+    "recall": 0.8795379537953796,
+    "specificity": 0.9757058437294813,
+    "sp": 0.9757058437294813,
+    "f1": 0.9064625850340137,
+    "mcc": 0.8715969695075481,
+    "auroc": 0.9772987640195405,
+    "auprc": 0.9536610172625879,
+    "brier": 0.04447744301672913,
+    "ece_10": 0.026030286206817684,
+    "tp": 1599.0,
+    "tn": 4458.0,
+    "fp": 111.0,
+    "fn": 219.0,
+    "threshold": 0.6
+  }
+}

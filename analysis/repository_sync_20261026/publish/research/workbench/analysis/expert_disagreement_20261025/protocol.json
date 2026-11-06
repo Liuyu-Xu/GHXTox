@@ -1,0 +1,18 @@
+{
+  "scope": "descriptive archived training OOF only; no independent generalization claim",
+  "seed": 20261025,
+  "no_test_prediction_inputs": true,
+  "no_training_or_reweighting": true,
+  "evidence_tiers": ["fragment_or_cross_source_label_review", "identity_unresolved", "recovered_no_selected_flag_not_gold"],
+  "hypotheses": {
+    "H1": "Composition-matched experts favor different local charge/hydrophobic organizations; isolated predicted geometry is only a proxy, not membrane-bound structure.",
+    "H2": "Expert disagreement and fusion harm may track confidence, seed disagreement or sequence-neighborhood proxy rather than a new biological mechanism.",
+    "H3": "Persistently wrong low-Cys positives or high-Cys negatives after evidence stratification may reveal endpoint, modification or disulfide/oligomer-state information missing from the retained inputs. Annotation must not be fabricated."
+  },
+  "contrasts": ["structure_only_correct_minus_sequence_only_correct_label0", "structure_only_correct_minus_sequence_only_correct_label1", "fusion_FP_minus_TN_recovered_no_selected_flag", "fusion_FN_minus_TP_recovered_no_selected_flag"],
+  "matching": {"same_original_label_fold_evidence_tier": true, "different_group": true, "no_group_reuse_within_contrast": true, "length": 3, "net_charge_proxy": 2, "mean_hydropathy": 0.5, "cys_count": 1, "aromatic_fraction": 0.1, "order": "fewest eligible controls then source_index; nearest standardized distance"},
+  "stricter_sensitivity": {"cys_count": 0, "mean_plddt": 0.05, "low_plddt_fraction": 0.1, "max_otherfold_kmer_cosine": 0.1, "sequence_seed_std": 0.05, "biological_feature_tests_only": true},
+  "features": ["local_positive_excess", "local_hydrophobic_excess", "ideal_alpha_hydrophobic_moment", "ideal_beta_hydrophobic_moment", "hydrophobic_contact_excess", "like_charge_contact_excess", "positive_hydrophobic_contact_excess", "charge_hydrophobic_separation", "hydrophobic_patch_fraction", "nonlocal_contact_density", "mean_plddt", "low_plddt_fraction", "sequence_seed_std", "max_otherfold_kmer_cosine"],
+  "statistics": {"paired_bootstrap": 2000, "paired_sign_flip": 5000, "BH_family": "all primary contrast-feature tests; stricter sensitivity separate exploratory family", "cross_fold_directions": "report available folds and discovery0-2 versus3-4, no claim of blinded replication"},
+  "limitations": ["operating thresholds/calibration use all retained OOF labels", "historical upstream checkpoint selection not certified nested", "fold/source/family/endpoint confounding not eliminated by matching", "Cys number is not experimentally known disulfide connectivity", "no pLDDT cutoff or reweighting rule selected using these results", "new UniProt function annotations are leads, not gold endpoint labels"]
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "mode": "local_nonCys_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "low",
+    "n": 214,
+    "changed_fraction": 0.6470540209700019,
+    "probability_change_teacher": 0.14114375969591375,
+    "probability_change_baseline": 0.33602113131445815,
+    "normalized_logodds_teacher": 0.2162745469148793,
+    "normalized_logodds_baseline": 0.396790158941796
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "high",
+    "n": 135,
+    "changed_fraction": 0.526549539709199,
+    "probability_change_teacher": 0.10825158254040199,
+    "probability_change_baseline": 0.208017503120204,
+    "normalized_logodds_teacher": 0.20869878025873695,
+    "normalized_logodds_baseline": 0.34279373458188594
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "low",
+    "n": 298,
+    "changed_fraction": 0.6486715960948295,
+    "probability_change_teacher": 0.1472519982321929,
+    "probability_change_baseline": 0.29365346713370827,
+    "normalized_logodds_teacher": 0.20374662559306728,
+    "normalized_logodds_baseline": 0.3708241956749848
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "high",
+    "n": 116,
+    "changed_fraction": 0.4988158490824463,
+    "probability_change_teacher": 0.05633124854479103,
+    "probability_change_baseline": 0.2205385164161402,
+    "normalized_logodds_teacher": 0.1289998369009107,
+    "normalized_logodds_baseline": 0.331165811447628
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "low",
+    "n": 214,
+    "changed_fraction": 0.8472725160900481,
+    "probability_change_teacher": 0.18295398858141476,
+    "probability_change_baseline": 0.3641859238932279,
+    "normalized_logodds_teacher": 0.2902764241719272,
+    "normalized_logodds_baseline": 0.487969173553152
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "high",
+    "n": 135,
+    "changed_fraction": 0.7379801155480303,
+    "probability_change_teacher": 0.14853252979925566,
+    "probability_change_baseline": 0.2960124711259597,
+    "normalized_logodds_teacher": 0.28212698796866076,
+    "normalized_logodds_baseline": 0.49749194235893635
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "low",
+    "n": 298,
+    "changed_fraction": 0.8526160761151456,
+    "probability_change_teacher": 0.2070426384304721,
+    "probability_change_baseline": 0.2979931020128943,
+    "normalized_logodds_teacher": 0.2767292542651123,
+    "normalized_logodds_baseline": 0.4044451794144029
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "high",
+    "n": 116,
+    "changed_fraction": 0.7109441707686684,
+    "probability_change_teacher": 0.0818009890285155,
+    "probability_change_baseline": 0.2694191931259192,
+    "normalized_logodds_teacher": 0.1640008585950853,
+    "normalized_logodds_baseline": 0.43089538570498176
+  },
+  {
+    "mode": "Cys_relocation",
+    "original_label_metadata_only": 0,
+    "cys_bin": "low",
+    "n": 97,
+    "changed_fraction": 0.44892607369387544,
+    "probability_change_teacher": 0.09611244403918681,
+    "probability_change_baseline": 0.2789624275546458,
+    "normalized_logodds_teacher": 0.11323961550549674,
+    "normalized_logodds_baseline": 0.2742280368231174
+  },
+  {
+    "mode": "Cys_relocation",
+    "original_label_metadata_only": 0,
+    "cys_bin": "high",
+    "n": 135,
+    "changed_fraction": 0.6453342127904698,
+    "probability_change_teacher": 0.1339613660299366,
+    "probability_change_baseline": 0.3410904191308014,
+    "normalized_logodds_teacher": 0.2794970277500338,
+    "normalized_logodds_baseline": 0.5785812370773694
+  },
+  {
+    "mode": "Cys_relocation",
+    "original_label_metadata_only": 1,
+    "cys_bin": "low",
+    "n": 132,
+    "changed_fraction": 0.43180068760812795,
+    "probability_change_teacher": 0.08468015494433098,
+    "probability_change_baseline": 0.2973213394350054,
+    "normalized_logodds_teacher": 0.11276023096864436,
+    "normalized_logodds_baseline": 0.3041377453370113
+  },
+  {
+    "mode": "Cys_relocation",
+    "original_label_metadata_only": 1,
+    "cys_bin": "high",
+    "n": 116,
+    "changed_fraction": 0.6460816715932359,
+    "probability_change_teacher": 0.08112246087444491,
+    "probability_change_baseline": 0.33606663585455565,
+    "normalized_logodds_teacher": 0.17565784931223435,
+    "normalized_logodds_baseline": 0.5603474634113641
+  },
+  {
+    "mode": "global_all_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "low",
+    "n": 214,
+    "changed_fraction": 0.8819197365517496,
+    "probability_change_teacher": 0.1853440984758287,
+    "probability_change_baseline": 0.38648080920293165,
+    "normalized_logodds_teacher": 0.29718086343116756,
+    "normalized_logodds_baseline": 0.5108464412662349
+  },
+  {
+    "mode": "global_all_shuffle",
+    "original_label_metadata_only": 0,
+    "cys_bin": "high",
+    "n": 135,
+    "changed_fraction": 0.8932230814462706,
+    "probability_change_teacher": 0.20347981441713398,
+    "probability_change_baseline": 0.3842098443985664,
+    "normalized_logodds_teacher": 0.367316850066544,
+    "normalized_logodds_baseline": 0.6545587931214656
+  },
+  {
+    "mode": "global_all_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "low",
+    "n": 298,
+    "changed_fraction": 0.8858503356825748,
+    "probability_change_teacher": 0.1942447987322794,
+    "probability_change_baseline": 0.3088922590792754,
+    "normalized_logodds_teacher": 0.26374092081530315,
+    "normalized_logodds_baseline": 0.4150521442728545
+  },
+  {
+    "mode": "global_all_shuffle",
+    "original_label_metadata_only": 1,
+    "cys_bin": "high",
+    "n": 116,
+    "changed_fraction": 0.8835075053783081,
+    "probability_change_teacher": 0.1055424329152614,
+    "probability_change_baseline": 0.29647747628114657,
+    "normalized_logodds_teacher": 0.2023546798573481,
+    "normalized_logodds_baseline": 0.535762493252426
+  }
+]

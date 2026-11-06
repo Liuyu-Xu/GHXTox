@@ -1,0 +1,9 @@
+{
+  "slope": 0.5498516059174886,
+  "intercept": -0.19661824211707332,
+  "C": 1000000.0,
+  "oof_scheme": "mean raw probabilities of three seeds then Platt on logits",
+  "fusion_weight": 0.72,
+  "threshold": 0.47022256531284556,
+  "warning": "all OOF reused in calibration; not independent for OOF score"
+}

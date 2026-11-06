@@ -1,0 +1,3764 @@
+{
+  "scope": "candidate comparison pool, not 43 independent mechanistic failures or 33 gold matched controls",
+  "all76": [
+    {
+      "sample_id": "peptide_11",
+      "sequence": "IKFEPPLPPKKAHKKFWEDDGIYYPPNHNFP",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000010",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.027182008477052978",
+      "p_struct": "3.1730780800000002e-07",
+      "p_fusion": "0.019571134949664386",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:22438972). Is moderately active on L-Leu, L-His, and L-Phe, and very weakly active on L-Thr, and L-Cys (PubMed:22438972). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation. Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions (By similarity). Inhibits growth of B.subtilis strain ATCC 6633 (MIC=32 uM), E.faecalis strain ATCC 12953 (MIC=32 uM), S.aureus strain ATCC 29213 (MIC=32 uM), S.pyogenes strain ATCC 19615 (MIC=8 uM), E.coli strain ATCC 8739 (MIC=4 uM), K.pneumoniae strain ATCC 13885 (MIC=2 uM), P.mirabilis strain ATCC 25933 (MIC=2 uM), P.aeruginosa strain ATCC 15442 (MIC=8 uM) and S.typhimurium strain ATCC 14028 (MIC=8 uM) (PubMed:22438972). {ECO:0000250|UniProtKB:P0CC17, ECO:0000269|PubMed:22438972}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (Bm-LAO) (LAAO) (EC 1.4.3.2)",
+      "curated_family": [
+        "belongs to the flavin monoamine oxidase family. fig1 subfamily"
+      ],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/B3EWI9/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_18",
+      "sequence": "ADNKRPIWVMGGMVNSLAQIKEFVGLGLDNSEKDNKWYKQ",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000017",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.53512478895218496",
+      "p_struct": "0.0044716522099999996",
+      "p_fusion": "0.38654191066437316",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Induces, hemolysis, vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Induces, hemolysis, vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Dermonecrotic toxins cleave the phosphodiester linkage between the phosphate and headgroup of certain phospholipids (sphingolipid and lysolipid substrates), forming an alcohol (often choline) and a cyclic phosphate (By similarity). This toxin acts on sphingomyelin (SM) (By similarity). It may also act on ceramide phosphoethanolamine (CPE), lysophosphatidylcholine (LPC) and lysophosphatidylethanolamine (LPE), but not on lysophosphatidylserine (LPS), and lysophosphatidylglycerol (LPG) (By similarity). It acts by transphosphatidylation, releasing exclusively cyclic phosphate products as second products (By similarity). In vivo, intradermal injection induces dermonecrosis (PubMed:8819009). Induces, hemolysis, vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity). {ECO:0000250|UniProtKB:A0A0D4WTV1, ECO:0000250|UniProtKB:P0CE80, ECO:0000269|PubMed:8819009}."
+        ]
+      },
+      "annotation_name": "Dermonecrotic toxin LgSicTox-alphaI-1 (EC 4.6.1.-) (Phospholipase D) (PLD) (Sphingomyelin phosphodiesterase D 2) (SMD 2) (SMase D 2) (Sphingomyelinase D 2)",
+      "curated_family": [
+        "belongs to the arthropod phospholipase d family. class ii subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C2K2/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_44",
+      "sequence": "INLLKIAKGIIKSL",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000041",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.20885047170247922",
+      "p_struct": "0.016128074400000001",
+      "p_fusion": "0.15488820045778504",
+      "categories": [
+        "membrane_or_lysis",
+        "receptor_or_signaling",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has little hemolytic activity."
+        ],
+        "receptor_or_signaling": [
+          "Its mast cell degranulation activity may be related to the activation of G protein-coupled receptors in mast cells as well as interaction with other proteins located in cell endosomal membranes in the mast cells (By similarity)."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Antimicrobial and mast cell degranulating peptide.",
+          "Shows broad-spectrum antimicrobial activity against the Gram-positive bacteria S.aureus ATCC 6538 (MIC=5 ug/ml), S.saprophyticus CS (MIC=5 ug/ml), S.epidermidis CS (MIC=5 ug/ml), B.subtilis CCT 2471 (MIC=40 ug/ml), and the Gram-negative bacteria E.coli CCT 1371 (MIC=20 ug/ml), E.coli ATCC 25922 (MIC=50 ug/ml), and P.aeruginosa ATCC 15442 (MIC=20 ug/ml)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Antimicrobial and mast cell degranulating peptide. Shows broad-spectrum antimicrobial activity against the Gram-positive bacteria S.aureus ATCC 6538 (MIC=5 ug/ml), S.saprophyticus CS (MIC=5 ug/ml), S.epidermidis CS (MIC=5 ug/ml), B.subtilis CCT 2471 (MIC=40 ug/ml), and the Gram-negative bacteria E.coli CCT 1371 (MIC=20 ug/ml), E.coli ATCC 25922 (MIC=50 ug/ml), and P.aeruginosa ATCC 15442 (MIC=20 ug/ml). Also permeates anionic liposomes. Has little hemolytic activity. Blocks the lobster neuromuscular transmission. Induces the depolarization of the muscle membrane (PubMed:10775751, PubMed:15317499). Its mast cell degranulation activity may be related to the activation of G protein-coupled receptors in mast cells as well as interaction with other proteins located in cell endosomal membranes in the mast cells (By similarity). {ECO:0000250|UniProtKB:P01514, ECO:0000250|UniProtKB:P84914, ECO:0000269|PubMed:10775751, ECO:0000269|PubMed:15317499}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_44",
+            "sequence": "INLLKIAKGIIKSL",
+            "chemical_key": "INLLKIAKGIIKSL|amide|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 2,
+            "species": [
+              "human",
+              "mouse"
+            ],
+            "pmids": [
+              "31554187"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ]
+      },
+      "annotation_name": "Eumenine mastoparan-AF (EMP-AF) (Af-113)",
+      "curated_family": [
+        "belongs to the mcd family. mastoparan subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C022/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_58",
+      "sequence": "LFGFLIKLIPSLFGALSNIGRNRNQ",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000055",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.43473162401740134",
+      "p_struct": "0.048823930299999999",
+      "p_fusion": "0.32667746977652895",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Its hemolytic activity is inhibited by phospholipids, but not by cholesterol."
+        ],
+        "antimicrobial": [
+          "Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Thanks to its abundant amphiphilic alpha-helices, it may integrate into membrane phospholipids, leading to lysis of the membrane. Its hemolytic activity is inhibited by phospholipids, but not by cholesterol. Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups. Also has ichthyotoxic activity. {ECO:0000269|Ref.3}."
+        ]
+      },
+      "annotation_name": "Grammistin Gs F (Gs 1)",
+      "curated_family": [
+        "belongs to the grammistin family. group 1 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P69835/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_59",
+      "sequence": "LFGFLIPLLPHIIGAIPQVIGAIR",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000056",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.063505541471012575",
+      "p_struct": "0.0029133195099999998",
+      "p_fusion": "0.046539719321929053",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Its high hemolytic activity is inhibited by phospholipids, but not by cholesterol.",
+          "Its high hemolytic activity is inhibited by phospholipids, but not by cholesterol."
+        ],
+        "antimicrobial": [
+          "Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups.",
+          "Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Thanks to its abundant amphiphilic alpha-helices, it may integrate into membrane phospholipids, leading to lysis of the membrane. Its high hemolytic activity is inhibited by phospholipids, but not by cholesterol. Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups. Also has high ichthyotoxic activity. {ECO:0000269|Ref.3}.",
+          "FUNCTION: Thanks to its abundant amphiphilic alpha-helices, it may integrate into membrane phospholipids, leading to lysis of the membrane. Its high hemolytic activity is inhibited by phospholipids, but not by cholesterol. Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups. Also has high ichthyotoxic activity (By similarity). {ECO:0000250}."
+        ]
+      },
+      "annotation_name": "Grammistin Gs G (Gs 2); Grammistin Pp 4a",
+      "curated_family": [
+        "belongs to the grammistin family. group 1 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P69836/entry",
+        "https://www.uniprot.org/uniprotkb/P69837/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_68",
+      "sequence": "FRGLAKLLKIGLKSFARVLKKVLPKAAKAGKALAKSLADENAIRQQNQ",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000065",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.76073932544891099",
+      "p_struct": "0.98970711200000006",
+      "p_fusion": "0.82485030568321593",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has antimicrobial activity, hemolytic activity and insecticidal activity."
+        ],
+        "antimicrobial": [
+          "Has antimicrobial activity, hemolytic activity and insecticidal activity."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Disrupts cell membranes, particularly those rich in phosphocholine, through formation of pores. Has antimicrobial activity, hemolytic activity and insecticidal activity. {ECO:0000250|UniProtKB:P83247}."
+        ]
+      },
+      "annotation_name": "M-oxotoxin-Ot1b (M-OXTX-Ot1b) (Oxyopinin-1b)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HLF5/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_74",
+      "sequence": "WSTIVKLTICPTLKSMAKKCEGSIATMIKKKCDK",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000071",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.92785814848404724",
+      "p_struct": "0.026956481899999999",
+      "p_fusion": "0.67560568184051395",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "disulfide_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "At high concentrations (0.5-1 uM), it acts as a pore-forming protein that forms nonselective cation channels both in cell and artificial membranes (PubMed:7826413)."
+        ],
+        "ion_channel": [
+          "At high concentrations (0.5-1 uM), it acts as a pore-forming protein that forms nonselective cation channels both in cell and artificial membranes (PubMed:7826413)."
+        ]
+      },
+      "annotation_name": "Omega/M-ectatotoxin-Et1a subunit B (Omega/M-ECTX-Et1a subunit B) (Ectatomin subunit B) (EA) (Ectatomin-Et1 subunit B)",
+      "curated_family": [
+        "belongs to the ectatomin family. ectatomin-et subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "分子对象问题的具体案例/线索",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P49344/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_76",
+      "sequence": "GFLSALKKYLPIVLKHV",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000073",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.023504396287502536",
+      "p_struct": "0.00100220635",
+      "p_fusion": "0.017203783105001827",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Synthetic peptide exhibits hemolytic activities (less than melittin) and inhibits bacterial (M.luteus and E.coli) and fungal (F.oxysporum) growth at micromolar concentrations (PubMed:19109988)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Synthetic peptide exhibits hemolytic activities (less than melittin) and inhibits bacterial (M.luteus and E.coli) and fungal (F.oxysporum) growth at micromolar concentrations (PubMed:19109988). In the context of inflammation and cancer tests, is weakly cytotoxic to normal cells, induces calcium signaling but does not impact cAMP production (PubMed:36548715). In addition, prevents LPS-induced nitric oxid (NO) synthesis but does not affect the IP3 signaling and pro-inflammatory activation of endothelial cells (PubMed:36548715). Does not show significant antiproliferative activity on the breast cancer cell line MDA-MB-231 (PubMed:36548715). {ECO:0000269|PubMed:19109988}."
+        ]
+      },
+      "annotation_name": "Osmin",
+      "curated_family": [
+        "belongs to the xylopin-like family"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0CD70/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_94",
+      "sequence": "IWLTALKFLGKHAAKHLAKQQLSKL",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000090",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.3978707418184031",
+      "p_struct": "0.11551658099999999",
+      "p_fusion": "0.31881157678925021",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "manual_direct_hemolysis",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Antimicrobial peptide that forms pore that permeabilize the cell membrane."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Antimicrobial peptide that forms pore that permeabilize the cell membrane. Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane. Potently inhibits the growth of bacteria, yeast and Leishmania. Is lethal to lepidopteran larvae. May function both in the prey capture strategy as well as protection from infectious organisms arising from prey ingestion. {ECO:0000269|PubMed:18098329, ECO:0000269|PubMed:9442044}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_94",
+            "sequence": "IWLTALKFLGKHAAKHLAKQQLSKL",
+            "chemical_key": "IWLTALKFLGKHAAKHLAKQQLSKL|amide|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 2,
+            "species": [
+              "human",
+              "rabbit"
+            ],
+            "pmids": [
+              "31303986",
+              "9442044"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ],
+        "manual_direct_hemolysis": [
+          {
+            "record_id": "A09",
+            "sample_id": "peptide_94",
+            "endpoint": "溶血",
+            "assay_object": "兔红细胞",
+            "result": {
+              "metric": "溶血比例",
+              "raw": "200 μM约55%；<30 μM未检出",
+              "unit": "%及μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "室温，未给精确°C",
+            "reported_dose_series": "6.25–200 μM",
+            "source_id": "LY1998",
+            "location": "Hemolysis Assay；Fig7",
+            "evidence_status": "有直接测量记录",
+            "notes": "合成Lycotoxin I；PBS pH7.0；570nm；去离子水阳性、PBS阴性。不为II填同样数值。"
+          }
+        ]
+      },
+      "annotation_name": "M-lycotoxin-Hc1a (M-LCTX-Hc1a) (Lycotoxin I) (LyTx I) (Lycotoxin-1)",
+      "curated_family": [
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "直接效应支持的漏判候选",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.273.4.2059",
+        "https://www.uniprot.org/uniprotkb/P61507/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_97",
+      "sequence": "INLKALAALAKKIL",
+      "label": 1,
+      "fold": 1,
+      "group_id": "singleton_000096",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.03557912209721948",
+      "p_struct": "0.00042615705800000002",
+      "p_fusion": "0.025736291886238025",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "receptor_or_signaling",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Shows cytolytic activity against insect cell lines, as well as cytotoxicity against murine fibroblasts (L929), murine macrophages monocytes (RAW 264.7), and human embryonic kidney (HEK293) cells (PubMed:21184791, PubMed:33046640).",
+          "Also shows hemolytic activity against human erythrocytes (PubMed:21184791, PubMed:33046640)."
+        ],
+        "ion_channel": [
+          "In docking studies, it also shows high affinity for GABA(A), 5-HT1A (HTR1A), corticotropin-releasing factor receptor subtype 1 (CRHR1) and glucocorticoid receptors (NR3C1), suggesting the involvement of GABAergic, serotonergic and glucocorticoid mechanisms in its anxiolytic-like properties (PubMed:32059939)."
+        ],
+        "receptor_or_signaling": [
+          "FUNCTION: Antimicrobial and mast cell degranulating peptide that interacts with lipid bilayers and activates G protein-coupled receptors (PubMed:2117607, PubMed:30613778, PubMed:3129426).",
+          "It functions by activating connective tissue mast cells via the MRGPRX2 G protein-coupled receptors (PubMed:30613778).",
+          "Also stimulates nucleoside diphosphate kinases (NDPK) in many cell types, and indirectly stimulates G protein-coupled receptors through interaction with NDPK (PubMed:1338595, PubMed:7998971, PubMed:8573186).",
+          "In docking studies, it also shows high affinity for GABA(A), 5-HT1A (HTR1A), corticotropin-releasing factor receptor subtype 1 (CRHR1) and glucocorticoid receptors (NR3C1), suggesting the involvement of GABAergic, serotonergic and glucocorticoid mechanisms in its anxiolytic-like properties (PubMed:32059939)."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Antimicrobial and mast cell degranulating peptide that interacts with lipid bilayers and activates G protein-coupled receptors (PubMed:2117607, PubMed:30613778, PubMed:3129426).",
+          "Shows antimicrobial activity against some Gram-positive bacteria (S.aureus MIC=5 uM), Gram-negative bacteria (E.coli (MIC=50 uM), S.enterica), and fungi (B.cinerea (MIC=8 uM), C.albicans (MIC=25 uM), C.albicans, C.glabrata, and C.neoformans) (PubMed:21184791, PubMed:27104500).",
+          "Does not show antimicrobial activity against Gram-positive S.mutans (PubMed:27104500)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Antimicrobial and mast cell degranulating peptide that interacts with lipid bilayers and activates G protein-coupled receptors (PubMed:2117607, PubMed:30613778, PubMed:3129426). Shows antimicrobial activity against some Gram-positive bacteria (S.aureus MIC=5 uM), Gram-negative bacteria (E.coli (MIC=50 uM), S.enterica), and fungi (B.cinerea (MIC=8 uM), C.albicans (MIC=25 uM), C.albicans, C.glabrata, and C.neoformans) (PubMed:21184791, PubMed:27104500). Does not show antimicrobial activity against Gram-positive S.mutans (PubMed:27104500). Shows cytolytic activity against insect cell lines, as well as cytotoxicity against murine fibroblasts (L929), murine macrophages monocytes (RAW 264.7), and human embryonic kidney (HEK293) cells (PubMed:21184791, PubMed:33046640). Also has mast cell degranulation activity (PubMed:30613778, PubMed:540362). It functions by activating connective tissue mast cells via the MRGPRX2 G protein-coupled receptors (PubMed:30613778). Also stimulates nucleoside diphosphate kinases (NDPK) in many cell types, and indirectly stimulates G protein-coupled receptors through interaction with NDPK (PubMed:1338595, PubMed:7998971, PubMed:8573186). Also shows hemolytic activity against human erythrocytes (PubMed:21184791, PubMed:33046640). Interacts with membranes and may be able to switch from an in-plane to a transmembrane orientation in lipid bilayers (PubMed:11168364). Has anxiolytic properties that can be explained by its ability to stimulate monoamine exocytosis and reduce plasma corticosterone (PubMed:3129426, PubMed:32059939). In docking studies, it also shows high affinity for GABA(A), 5-HT1A (HTR1A), corticotropin-releasing factor receptor subtype 1 (CRHR1) and glucocorticoid receptors (NR3C1), suggesting the involvement of GABAergic, serotonergic and glucocorticoid mechanisms in its anxiolytic-like properties (PubMed:32059939). In vivo, when tested on a mouse dermonecrotic S.aureus infection model, topical treatment with this peptide enhances clearance of S.aureus and accelerates healing of dermonecrotic lesions (PubMed:30613778). In vivo, oral and intracerebroventricular administration into mice induces anxiolytic-like effects (PubMed:32059939). In vivo, peptide injection in the vicinity of the head and thorax of lepidopteran larvae induces feeding disorder followed by death due to starvation (PubMed:21184791). {ECO:0000269|PubMed:11168364, ECO:0000269|PubMed:1338595, ECO:0000269|PubMed:2117607, ECO:0000269|PubMed:21184791, ECO:0000269|PubMed:27104500, ECO:0000269|PubMed:30613778, ECO:0000269|PubMed:3129426, ECO:0000269|PubMed:32059939, ECO:0000269|PubMed:33046640, ECO:0000269|PubMed:540362, ECO:0000269|PubMed:7998971, ECO:0000269|PubMed:8573186}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_97",
+            "sequence": "INLKALAALAKKIL",
+            "chemical_key": "INLKALAALAKKIL|amide|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 6,
+            "species": [
+              "human",
+              "rat"
+            ],
+            "pmids": [
+              "10667861",
+              "26802742",
+              "27104500",
+              "28546807"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          },
+          {
+            "sample_id": "peptide_97",
+            "sequence": "INLKALAALAKKIL",
+            "chemical_key": "INLKALAALAKKIL|acid|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 1,
+            "species": [
+              "human"
+            ],
+            "pmids": [
+              "12354111"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ]
+      },
+      "annotation_name": "Mastoparan-L (MP-L) (Mast-L)",
+      "curated_family": [
+        "belongs to the mcd family. mastoparan subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P01514/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_102",
+      "sequence": "IDWLKLGKMVMDVL",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000097",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.062881925662336705",
+      "p_struct": "1.5504161599999999e-05",
+      "p_fusion": "0.045279327642130426",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Also causes moderate mast cell degranulation (ED(50)=100 uM) and low hemolysis (MIC=50 uM), and exhibits chemotactic activity for polymorphonucleated leukocytes (PMNL) (PubMed:15150833, PubMed:19463874)."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Antimicrobial peptide (PubMed:19463874)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Antimicrobial peptide (PubMed:19463874). Is active against both Gram-negative and -positive bacteria (Escherichia coli (MIC=38 uM), Pseudomonas aeruginosa (MIC=310 uM), Staphylococcus aureus (MIC=19 uM), and Bacillus cereus (MIC=38 uM)) (PubMed:19463874). Also causes moderate mast cell degranulation (ED(50)=100 uM) and low hemolysis (MIC=50 uM), and exhibits chemotactic activity for polymorphonucleated leukocytes (PMNL) (PubMed:15150833, PubMed:19463874). Its mast cell degranulation activity is probably due its interaction with G proteins, as well as interaction with certain regulaotry targets of exocytosisis at the level of mast cell endosomal membranes, such as the Rho GTPase CDC42 and exocyst complex component 7 (EXOC7) as components of the calcium-independent Fc-Epsilon-RI-mediated exocytosis pathway, the synaptosomal associated protein 29 (SNAP29), and GTP-binding protein Rab3D (RAB3D) as components of the calcium-dependent Fc-Epsilon-RI-mediated exocytosis pathway, and the Ras-related protein MRAS, a protein related to the mediation of cell shaping and proliferation following exocytosis (By similarity) (PubMed:22761183). In addition, this peptide shows trypanocidal effect on all developmental forms (epimastigote, trypomastigote and amastigote) of the Chagas disease parasite Trypanosoma cruzi Y strain, probably through the inhibition of the glycolysis enzyme GAPDH, as suggested by molecular docking (PubMed:28826757). {ECO:0000250|UniProtKB:P01514, ECO:0000269|PubMed:15150833, ECO:0000269|PubMed:19463874, ECO:0000269|PubMed:22761183, ECO:0000269|PubMed:28826757}."
+        ]
+      },
+      "annotation_name": "Polybia-mastoparan-III (Polybia-MP-III) (Polybia-MPIII) (Mastoparan peptide) (MP) (Venom protein 13b) (VP13b)",
+      "curated_family": [
+        "belongs to the mcd family. mastoparan subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84914/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_103",
+      "sequence": "SLALAGTIIEGASLTFSVLTTILDALGSVSRKIDVGVYNE",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000098",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.66259921837773794",
+      "p_struct": "0.0102490028",
+      "p_fusion": "0.47994115801597131",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cytolysis.",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers (By similarity).",
+          "This toxin shows hemolytic activities (PubMed:10665806)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cytolysis. Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers (By similarity). This toxin shows hemolytic activities (PubMed:10665806). {ECO:0000250|UniProtKB:P39088, ECO:0000269|PubMed:10665806}."
+        ]
+      },
+      "annotation_name": "Cytolysin EnT (DELTA-actitoxin)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DMX3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_107",
+      "sequence": "FKLGSFLKKAWKSKLAKKLRAKGKEMLKDYAKGLLEGGSEEVPGQ",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000102",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.51592597059579715",
+      "p_struct": "1.02496524e-05",
+      "p_fusion": "0.37146956873164594",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: At high concentrations, acts as a pore former in cellular membranes and causes the leakage of the cells.",
+          "At submicromolar concentrations, degranulates granulocytes and has a weak hemolytic activity against human red blood cells."
+        ],
+        "ion_channel": [
+          "Synergistically enhances the excitatory effects of short and long chain ion-channel-specific neurotoxins by interaction with the neuronal membranes."
+        ],
+        "antimicrobial": [
+          "Has a strong antibacterial activity against Gram-negative bacteria but is less active against Gram-positive bacteria.",
+          "Also has antifungal activity."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: At high concentrations, acts as a pore former in cellular membranes and causes the leakage of the cells. At submicromolar concentrations, degranulates granulocytes and has a weak hemolytic activity against human red blood cells. Also strongly inhibits the production of superoxide anions. Has a strong antibacterial activity against Gram-negative bacteria but is less active against Gram-positive bacteria. Also has antifungal activity. Induces reversible G protein dependent Ca(2+) release from intracellular stores and increase Ca(2+) influx in HL-60 cells. Induces the activation of the Rac pathway in granulocytes. Synergistically enhances the excitatory effects of short and long chain ion-channel-specific neurotoxins by interaction with the neuronal membranes. {ECO:0000269|PubMed:12354111, ECO:0000269|PubMed:12457879, ECO:0000269|PubMed:14575699, ECO:0000269|PubMed:15245865, ECO:0000269|Ref.1}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_107",
+            "sequence": "FKLGSFLKKAWKSKLAKKLRAKGKEMLKDYAKGLLEGGSEEVPGQ",
+            "chemical_key": "FKLGSFLKKAWKSKLAKKLRAKGKEMLKDYAKGLLEGGSEEVPGQ|acid|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 1,
+            "species": [
+              "human"
+            ],
+            "pmids": [
+              "12354111"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ]
+      },
+      "annotation_name": "Parabutoporin (PP) (Non-disulfide-bridged peptide 2.5) (NDBP-2.5) (Non-disulfide-bridged peptide 3.2) (NDBP-3.2)",
+      "curated_family": [
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. long chain multifunctional peptide (group 2) family"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P83312/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_110",
+      "sequence": "ASGENQAELKLATHNVYML",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000105",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.010254053225285177",
+      "p_struct": "0.083071440499999996",
+      "p_fusion": "0.030642921662205329",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Required, with sphingomyelinase, to effect target cell lysis (hemolysis)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Required, with sphingomyelinase, to effect target cell lysis (hemolysis)."
+        ]
+      },
+      "annotation_name": "Sphingomyelinase C (EC 3.1.4.12) (Beta-hemolysin) (Beta-toxin) (Neutral sphingomyelinase) (nSMase)",
+      "curated_family": [
+        "belongs to the neutral sphingomyelinase family"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P80924/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_119",
+      "sequence": "ADDINPKEECFFEDDYYEFE",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000114",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.5158517713334938",
+      "p_struct": "0.00041600581599999999",
+      "p_fusion": "0.37152975698859553",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:18384385). Is active on L-Met, L-Ile, L-Leu, L-Phe, L-Trp, and L-Tyr (PubMed:18384385). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation. Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions. {ECO:0000250, ECO:0000269|PubMed:18384385}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase L1 (LAAO-L1) (LAO) (EC 1.4.3.2)",
+      "curated_family": [
+        "belongs to the flavin monoamine oxidase family. fig1 subfamily"
+      ],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P86535/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_139",
+      "sequence": "MEKIANAVKSAIEAGQNQDWTKLGTSILDIVSNGVTELSKIFGF",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000134",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.94300116253695676",
+      "p_struct": "0.0131421015",
+      "p_fusion": "0.68264062544660886",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci.",
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci. {ECO:0000269|PubMed:3138972}.",
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci. {ECO:0000250}."
+        ]
+      },
+      "annotation_name": "Antibacterial protein 2 (Gonococcal growth inhibitor II); Antibacterial protein 2 homolog",
+      "curated_family": [
+        "belongs to the staphylococcal hemolytic protein family"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "该具体分子/终点证据不足",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P11698/entry",
+        "https://www.uniprot.org/uniprotkb/Q4L5M2/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_154",
+      "sequence": "DSDCKDKLPACGEYRGSFCKLEKVKSNCEKTCGVKC",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000149",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.86928297654043651",
+      "p_struct": "0.99980658300000003",
+      "p_fusion": "0.90582958634911437",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Has hemolytic activity (Ref.1)."
+        ],
+        "ion_channel": [
+          "Inhibits voltage-gated potassium channels (Kv1/KCNA) (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has hemolytic activity (Ref.1). Inhibits voltage-gated potassium channels (Kv1/KCNA) (By similarity). {ECO:0000250|UniProtKB:P29186, ECO:0000269|Ref.1}."
+        ]
+      },
+      "annotation_name": "U-metritoxin-Msn1a (U-MTTX-Msn1a) (Metridin)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P11495/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_160",
+      "sequence": "KIKWFKTMKSIAKFIAKEQMKKHLGGE",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000155",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.53201590595809045",
+      "p_struct": "0.19098979199999999",
+      "p_fusion": "0.43652859404982514",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Antimicrobial peptide that forms pore that permeabilize the cell membrane."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Antimicrobial peptide that forms pore that permeabilize the cell membrane. Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane. Potently inhibits the growth of bacteria, yeast and Leishmania. May function both in the prey capture strategy as well as protection from infectious organisms arising from prey ingestion (By similarity). {ECO:0000250|UniProtKB:P61507, ECO:0000269|PubMed:18098329, ECO:0000269|PubMed:9442044}."
+        ]
+      },
+      "annotation_name": "M-lycotoxin-Hc2a (M-LCTX-Hc2a) (Lycotoxin II) (LyTx II) (Lycotoxin-2)",
+      "curated_family": [
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "该具体分子/终点证据不足",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.273.4.2059",
+        "https://www.uniprot.org/uniprotkb/P61508/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_174",
+      "sequence": "SVDMVMKGIKLWPL",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000169",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.120744735628506",
+      "p_struct": "1.12601874e-05",
+      "p_fusion": "0.086939362504996315",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Venom component which lacks hemolytic or antibiotic properties, but produces an inflammatory response via mast cell degranulation and produces a chemotactic effect on leukocytes."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Venom component which lacks hemolytic or antibiotic properties, but produces an inflammatory response via mast cell degranulation and produces a chemotactic effect on leukocytes. {ECO:0000269|PubMed:15572194}."
+        ]
+      },
+      "annotation_name": "Polybine-2 (Polybine-II)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84389/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_179",
+      "sequence": "DENENLYGPNENKAKAKDLTAGASYLTKEAGCTKLQAGCTMYQAYN",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000174",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.13479216096731461",
+      "p_struct": "0.50417280200000003",
+      "p_fusion": "0.23821874045646654",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: This toxin is a potent hemolysin devoid of enzymatic activity.",
+          "Its hemolytic activity is inhibited by sphingomyelin but not by cholesterol.",
+          "May act as a pore-forming toxin."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: This toxin is a potent hemolysin devoid of enzymatic activity. Its hemolytic activity is inhibited by sphingomyelin but not by cholesterol. In erythrocyte membranes, it causes numerous cell membrane ruptures. It also exerces cytotoxicity to different cell lines. It exerces a positive inotropic effect. Also causes hemorrhage and necrosis by dilation of the blood vessels in the skin, and vascular leakage of fluids and rupture of alveolar walls of the lungs. Is a potent ichtyotoxin. May act as a pore-forming toxin. {ECO:0000269|PubMed:8868062, ECO:0000269|Ref.2}."
+        ]
+      },
+      "annotation_name": "Toxin Up-1 (UpI)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C1G1/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_201",
+      "sequence": "GVIPKKIWETVCPTVEPWAKKCSGDIATYIKRECGKL",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000196",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.41033624994129919",
+      "p_struct": "0.033050812800000003",
+      "p_fusion": "0.30469632754173542",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "disulfide_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "At high concentrations (0.5-1 uM), it acts as a pore-forming protein that forms nonselective cation channels both in cell and artificial membranes (PubMed:7826413)."
+        ],
+        "ion_channel": [
+          "At high concentrations (0.5-1 uM), it acts as a pore-forming protein that forms nonselective cation channels both in cell and artificial membranes (PubMed:7826413)."
+        ]
+      },
+      "annotation_name": "Omega/M-ectatotoxin-Et1a subunit A (Omega/M-ECTX-Et1a subunit A) (Ectatomin subunit A) (EA) (Ectatomin-Et1 subunit A)",
+      "curated_family": [
+        "belongs to the ectatomin family. ectatomin-et subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "分子对象问题的具体案例/线索",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P49343/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_203",
+      "sequence": "ADSRKPDDRYDMSGNDALGDVKLATYEDNPWETFK",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000198",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.34677310135462641",
+      "p_struct": "0.00159783103",
+      "p_fusion": "0.25012402566373104",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Dermonecrotic toxins cleave the phosphodiester linkage between the phosphate and headgroup of certain phospholipids (sphingolipid and lysolipid substrates), forming an alcohol (often choline) and a cyclic phosphate (By similarity). This toxin acts on sphingomyelin (SM) (By similarity). It may also act on ceramide phosphoethanolamine (CPE), lysophosphatidylcholine (LPC) and lysophosphatidylethanolamine (LPE), but not on lysophosphatidylserine (LPS), and lysophosphatidylglycerol (LPG) (By similarity). It acts by transphosphatidylation, releasing exclusively cyclic phosphate products as second products (By similarity). Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity). {ECO:0000250|UniProtKB:A0A0D4WTV1, ECO:0000250|UniProtKB:P0CE80}."
+        ]
+      },
+      "annotation_name": "Dermonecrotic toxin LgSicTox-beta-LOXN4 (EC 4.6.1.-) (Phospholipase D) (PLD) (Sphingomyelin phosphodiesterase D) (SMD) (SMase D) (Sphingomyelinase D)",
+      "curated_family": [
+        "belongs to the arthropod phospholipase d family. class ii subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C2K6/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_206",
+      "sequence": "FHPSLWVLIPQYIQLIRKILKSG",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000201",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.066507255540120672",
+      "p_struct": "0.013010971200000001",
+      "p_fusion": "0.051528295924886877",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: This cytolytic peptide has ability to disrupt the integrity of cell membranes from both prokaryotes and eukaryotes.",
+          "It has potent hemolytic activity on human erythrocytes and exhibits low antimicrobial activity against the Gram-negative bacterium E.coli (MIC>50 uM) and the Gram-positive bacterium S.aureus (MIC=25-50 uM)."
+        ],
+        "antimicrobial": [
+          "It has potent hemolytic activity on human erythrocytes and exhibits low antimicrobial activity against the Gram-negative bacterium E.coli (MIC>50 uM) and the Gram-positive bacterium S.aureus (MIC=25-50 uM)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: This cytolytic peptide has ability to disrupt the integrity of cell membranes from both prokaryotes and eukaryotes. It permeabilizes both negatively charged prokaryotic (PE:PG) and zwitterionic eukaryotic (PC:cholesterol) model membranes. It has potent hemolytic activity on human erythrocytes and exhibits low antimicrobial activity against the Gram-negative bacterium E.coli (MIC>50 uM) and the Gram-positive bacterium S.aureus (MIC=25-50 uM). Intracranial injection causes mice to shuffle backward until the encounter an obstacle, at which time the mouse jump into the air. The backward shuffle is reminiscent to the signature dance 'moonwalk' that gained widespread popularity after being performed by Michael Jackson. {ECO:0000269|PubMed:17927208}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_206",
+            "sequence": "FHPSLWVLIPQYIQLIRKILKSG",
+            "chemical_key": "FHPSLWVLIPQYIQLIRKILKSG|acid|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 2,
+            "species": [
+              "human"
+            ],
+            "pmids": [
+              "17927208"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ]
+      },
+      "annotation_name": "Conolysin-Mt1 (Moonwalker peptide) [Cleaved into: Conolysin-Mt2]",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C8S6/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_249",
+      "sequence": "FLGALLKIGAKLLPSVVGLFKKKQQ",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000242",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.023601242325874395",
+      "p_struct": "2.5897839800000001e-05",
+      "p_fusion": "0.017000145869773563",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "manual_direct_hemolysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "It shows cytotoxic activity against HEK293 cells (EC(50)=4-6 uM) and induces hemolysis in human erythrocytes (EC(50)=40-62 uM) (PubMed:34302796)."
+        ],
+        "antimicrobial": [
+          "It shows a relatively strong and broad-spectrum antibacterial activity against both Gram-positive and Gram-negative bacteria (MIC<20 uM) (PubMed:34302796)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Membrane-perturbating peptide with multiple activities (PubMed:34302796). It is insecticidal, since it induces reversible paralysis in insects (L.cuprina) after 1 hour, but fails to kill flies (PubMed:34302796). It shows a relatively strong and broad-spectrum antibacterial activity against both Gram-positive and Gram-negative bacteria (MIC<20 uM) (PubMed:34302796). It is also anthelmintic, since it potently inhibits the larval development of the major pathogenic nematode of ruminants (H.contortus, IC(50)=2.8 uM) (PubMed:34302796). Interestingly, only at 10 uM, it increases adult males motility of the other nematode B.malayi for 24 hours post-treatment, followed by a reduction in motility for the rest of the experiment (PubMed:34302796). It shows cytotoxic activity against HEK293 cells (EC(50)=4-6 uM) and induces hemolysis in human erythrocytes (EC(50)=40-62 uM) (PubMed:34302796). In addition, it causes an important increase in intracellular calcium concentration on neuronal and epithelial cell lines, which supports a non-specific membrane perturbation mechanism of action (PubMed:34302796). In vivo, it induces pain by intraplantar injection into mice, suggesting a defensive function against vertebrate predators (PubMed:34302796). {ECO:0000269|PubMed:34302796}."
+        ],
+        "manual_direct_hemolysis": [
+          {
+            "record_id": "A02",
+            "sample_id": "peptide_249",
+            "endpoint": "溶血",
+            "assay_object": "人红细胞",
+            "result": {
+              "metric": "HC50",
+              "raw": "39.9–61.5",
+              "unit": "μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "37°C",
+            "reported_dose_series": "方法未明确列出逐肽浓度梯度",
+            "source_id": "P2021",
+            "location": "Methods hemolysis offset21390；Table3",
+            "evidence_status": "有直接测量记录",
+            "notes": "0.5×10^8细胞/mL；405nm；1%Triton X-100阳性/1%DMSO in PBS阴性；两次独立实验，每次重复孔。大于号为未达半数效应，非绝对无毒。"
+          }
+        ]
+      },
+      "annotation_name": "M-poneritoxin-Na1b (M-PONTX-Na1b) (Poneratoxin) (Ponericin Pa II2) (U1-poneritoxin-Na1b) (U1-PONTX-Na1b)",
+      "curated_family": [
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "直接效应支持的漏判候选",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693",
+        "https://www.uniprot.org/uniprotkb/P0DSM4/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_250",
+      "sequence": "MQKLAEAIAAAVSAGQDKDWGKMGTSIVGIVENGITVLGKIFGF",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000243",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.84288316639086347",
+      "p_struct": "0.97394829999999999",
+      "p_fusion": "0.87958140380142169",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has hemolytic activity and also inhibits the growth of gonococci. {ECO:0000269|PubMed:3138972}."
+        ]
+      },
+      "annotation_name": "Antibacterial protein 1 (Gonococcal growth inhibitor I)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P11697/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_251",
+      "sequence": "MSGIVEAISNAVKSGLDHDWVNMGTSIADVVAKGADFIAGFFS",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000244",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.46168595813229463",
+      "p_struct": "9.02491934e-07",
+      "p_fusion": "0.33241414255299362",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Causes hemolysis of erythrocytes from sheep (HD(50)=7.53 mM), rabbit (HD(50)=28.07 mM), guinea pig (HD(50)=4.23 mM), dog (HD(50)=4.37 mM) and human (HD(50)=3.32 mM).",
+          "Acts synergistically with beta-hemolysins from S.aureus ATCC 25923.",
+          "Causes hemolysis of erythrocytes.",
+          "Acts synergistically with beta-hemolysins from S.aureus ATCC 25923."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Virulence factor. Causes hemolysis of erythrocytes from sheep (HD(50)=7.53 mM), rabbit (HD(50)=28.07 mM), guinea pig (HD(50)=4.23 mM), dog (HD(50)=4.37 mM) and human (HD(50)=3.32 mM). Acts synergistically with beta-hemolysins from S.aureus ATCC 25923. Cytotoxic towards human dermal fibroblasts. {ECO:0000269|PubMed:18752624}.",
+          "FUNCTION: Virulence factor. Causes hemolysis of erythrocytes. Acts synergistically with beta-hemolysins from S.aureus ATCC 25923. Cytotoxic towards human dermal fibroblasts. {ECO:0000269|PubMed:18752624}."
+        ]
+      },
+      "annotation_name": "Hemolysin H1C; Hemolysin H1U",
+      "curated_family": [
+        "belongs to the staphylococcal hemolytic protein family"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "化学形式证据冲突待确认",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P85219/entry",
+        "https://www.uniprot.org/uniprotkb/P85222/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_259",
+      "sequence": "GIWGTLAKIGIKAVPRVISMLKKKKQ",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000252",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.32005905015591685",
+      "p_struct": "0.093357533199999995",
+      "p_fusion": "0.25658262540826016",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has insecticidal and hemolytic activities."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has a broad spectrum of activity against both Gram-positive and Gram-negative bacteria and S.cerevisiae. Has insecticidal and hemolytic activities. May act by disrupting the integrity of the bacterial cell membrane. {ECO:0000269|PubMed:11279030}."
+        ]
+      },
+      "annotation_name": "M-poneritoxin-Ng1c (M-PONTX-Ng1c) (Poneratoxin) (Ponericin-W3)",
+      "curated_family": [
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P82425/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_288",
+      "sequence": "GKFSVFGKILRSIAKVFKGVGKVRKQFKTASDLDKNQ",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000281",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.61594718014049887",
+      "p_struct": "0.36401590700000003",
+      "p_fusion": "0.54540642366115921",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells."
+        ],
+        "ion_channel": [
+          "Has insecticidal activity against S.frugiperda ovarian cells by opening non-selective ion channels."
+        ],
+        "antimicrobial": [
+          "Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Disrupts biological membranes, particularly those rich in phosphocholine. Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells. Has insecticidal activity against S.frugiperda ovarian cells by opening non-selective ion channels. Enhances the insecticidal activity of spider venom neurotoxic peptides. {ECO:0000269|PubMed:11976325}."
+        ]
+      },
+      "annotation_name": "M-oxotoxin-Ot2a (M-OXTX-Ot2a) (Oxki2a) (Oxyopinin-2a)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "该具体分子/终点证据不足",
+      "full_record_available": false,
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.M200511200",
+        "https://www.uniprot.org/uniprotkb/P83248/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_291",
+      "sequence": "GIKDYLKKLLQKAINKIKSLRKKQDA",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000284",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.90327485403797703",
+      "p_struct": "0.99743241100000002",
+      "p_fusion": "0.92963896998734352",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: May have cytolytic and antimicrobial activity."
+        ],
+        "antimicrobial": [
+          "FUNCTION: May have cytolytic and antimicrobial activity."
+        ]
+      },
+      "annotation_name": "Oxyopinin-3a (Oxt-3a)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HLF9/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_314",
+      "sequence": "ASCTERKHDCTKDRHSCCRG",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000307",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.96940165818904478",
+      "p_struct": "0.99999415899999999",
+      "p_fusion": "0.97796755841611227",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Spider venom toxin that exhibits cytolytic activity by forming an alpha-helix across the membrane (By similarity)."
+        ]
+      },
+      "annotation_name": "Toxin CpTx-4a",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HKG4/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_324",
+      "sequence": "MKTIELITIFAMITTLMVTVVAGDPIDPKVLESLVGK",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000316",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.022056085247791467",
+      "p_struct": "3.3108066400000002e-05",
+      "p_fusion": "0.015889651637001855",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "May affect various processes in the aphid, including wound healing and hemolymph coagulation (PubMed:31557881)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "May affect various processes in the aphid, including wound healing and hemolymph coagulation (PubMed:31557881)."
+        ],
+        "antimicrobial": [
+          "Does not display any antibacterial or antifungal activity (PubMed:31557881)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Toxin that induces mild paralysis, and reduces survival and reproduction when injected into aphids (A.pisum) (PubMed:31557881). May affect various processes in the aphid, including wound healing and hemolymph coagulation (PubMed:31557881). It does not increase the sensitivity of the aphids to the chemical insecticides imidacloprid, methomyl and Spirotetramat (PubMed:31557881). Has no insecticidal activity when injected into blowfly (L.caesar) (PubMed:32182430). Does not display any antibacterial or antifungal activity (PubMed:31557881). {ECO:0000269|PubMed:31557881, ECO:0000269|PubMed:32182430}."
+        ]
+      },
+      "annotation_name": "U12-myrmicitoxin-Mri1a (U12-MYRTX-Mri1a) (U-MYRTX-MANr1)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/A0A6G9KHD3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_337",
+      "sequence": "ADNRRPIWVMLLSSYWQDGNSLGVDAIMTNYPEDVK",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000329",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.89024315200649562",
+      "p_struct": "0.0089392010099999999",
+      "p_fusion": "0.64347804572747691",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Dermonecrotic toxins cleave the phosphodiester linkage between the phosphate and headgroup of certain phospholipids (sphingolipid and lysolipid substrates), forming an alcohol (often choline) and a cyclic phosphate (By similarity). This toxin acts on sphingomyelin (SM) (By similarity). It may also act on ceramide phosphoethanolamine (CPE), lysophosphatidylcholine (LPC) and lysophosphatidylethanolamine (LPE), but not on lysophosphatidylserine (LPS), and lysophosphatidylglycerol (LPG) (By similarity). It acts by transphosphatidylation, releasing exclusively cyclic phosphate products as second products (By similarity). Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity). {ECO:0000250|UniProtKB:A0A0D4WTV1, ECO:0000250|UniProtKB:P0CE80}."
+        ]
+      },
+      "annotation_name": "Dermonecrotic toxin LgSicTox-beta-LOXN1/LOXN7 (EC 4.6.1.-) (Phospholipase D) (PLD) (Sphingomyelin phosphodiesterase D) (SMD) (SMase D) (Sphingomyelinase D)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C2K3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_347",
+      "sequence": "NWRKILGQIASVGAGLLGSLLAGYE",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000338",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.048970764822529642",
+      "p_struct": "0.0183043089",
+      "p_fusion": "0.040384157164221342",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has hemolytic activity."
+        ],
+        "antimicrobial": [
+          "Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Thanks to its abundant amphiphilic alpha-helices, it may integrate into membrane phospholipids, leading to lysis of the membrane. Has hemolytic activity. Has antibacterial activity with a broad spectrum against various species of bacteria including both Gram-positive and Gram-negative groups. Also has ichthyotoxic activity. {ECO:0000269|Ref.2}."
+        ]
+      },
+      "annotation_name": "Grammistin Pp 3",
+      "curated_family": [
+        "belongs to the grammistin family. group 3 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P69847/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_383",
+      "sequence": "INWLKLGKKVSAIL",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000374",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.15661088045260171",
+      "p_struct": "0.0014538143300000001",
+      "p_fusion": "0.11316690193827322",
+      "categories": [
+        "membrane_or_lysis",
+        "receptor_or_signaling",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has hemolytic activity (PubMed:15581688)."
+        ],
+        "receptor_or_signaling": [
+          "Its mast cell degranulation activity may be related to the activation of G protein-coupled receptors in mast cells as well as interaction with other proteins located in cell endosomal membranes in the mast cells (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Mast cell degranulating peptide. Has hemolytic activity (PubMed:15581688). Its mast cell degranulation activity may be related to the activation of G protein-coupled receptors in mast cells as well as interaction with other proteins located in cell endosomal membranes in the mast cells (By similarity). {ECO:0000250|UniProtKB:P01514, ECO:0000250|UniProtKB:P84914, ECO:0000269|PubMed:15581688}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_383",
+            "sequence": "INWLKLGKKVSAIL",
+            "chemical_key": "INWLKLGKKVSAIL|amide|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 1,
+            "species": [
+              "rat"
+            ],
+            "pmids": [
+              "15581688"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ]
+      },
+      "annotation_name": "Protopolybia-mastoparan-I (Protopolybia-MP-I) (Protopolybia-MPI)",
+      "curated_family": [
+        "belongs to the mcd family. mastoparan subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P69034/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_418",
+      "sequence": "FIGAALGALTAIPSIIKLFK",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000409",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.028019832464805779",
+      "p_struct": "1.81844285e-07",
+      "p_fusion": "0.020174330291059962",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has insecticidal and hemolytic activities."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has activity against Gram-positive bacteria. Has insecticidal and hemolytic activities. May act by disrupting the integrity of the bacterial cell membrane. {ECO:0000250|UniProtKB:P82428}."
+        ]
+      },
+      "annotation_name": "U1-poneritoxin-Ni1a (U1-PONTX-Ni1a) (Poneratoxin) (Ponericin Pi II1)",
+      "curated_family": [
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily. medium-length antimicrobial peptide (group 3) family. ponericin-w subfamily"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DSM3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_422",
+      "sequence": "RKRHPDCDKAADTRI",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000413",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.32799403425942603",
+      "p_struct": "0.62047433900000004",
+      "p_fusion": "0.40988851958678674",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Neurotoxin T1-1 is a presynaptic neurotoxin of the venom that exhibits indirect hemolytic activity against human erythrocytes."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Neurotoxin T1-1 is a presynaptic neurotoxin of the venom that exhibits indirect hemolytic activity against human erythrocytes. The B chain is homologous to venom basic protease inhibitors but has no protease inhibitor activity and is non-toxic. {ECO:0000269|PubMed:14769867}."
+        ]
+      },
+      "annotation_name": "Kunitz-type serine protease inhibitor homolog T1-1 B chain (Neurotoxin T1-1 B chain)",
+      "curated_family": [
+        "belongs to the venom kunitz-type family"
+      ],
+      "name_class": [
+        "Kunitz"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84471/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_424",
+      "sequence": "MDFIIDIIKKIVGLFTGK",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000415",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.010129671381064364",
+      "p_struct": "6.7856217399999995e-07",
+      "p_fusion": "0.0072935533917750615",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Causes hemolysis of erythrocytes from sheep (HD(50)=4.79 mM), rabbit (HD(50)=8.76 mM), guinea pig (HD(50)=2.00 mM), dog (HD(50)=5.35 mM) and human (HD(50)=6.34 mM).",
+          "Acts synergistically with beta-hemolysins from S.aureus ATCC 25923.",
+          "Causes hemolysis of erythrocytes.",
+          "Acts synergistically with beta-hemolysins from S.aureus ATCC 25923."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Virulence factor. Causes hemolysis of erythrocytes from sheep (HD(50)=4.79 mM), rabbit (HD(50)=8.76 mM), guinea pig (HD(50)=2.00 mM), dog (HD(50)=5.35 mM) and human (HD(50)=6.34 mM). Acts synergistically with beta-hemolysins from S.aureus ATCC 25923. Cytotoxic towards human dermal fibroblasts. {ECO:0000269|PubMed:18752624}.",
+          "FUNCTION: Virulence factor. Causes hemolysis of erythrocytes. Acts synergistically with beta-hemolysins from S.aureus ATCC 25923. Cytotoxic towards human dermal fibroblasts. {ECO:0000269|PubMed:18752624}."
+        ]
+      },
+      "annotation_name": "Hemolysin H2C; Hemolysin H2U",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "化学形式证据冲突待确认",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P85220/entry",
+        "https://www.uniprot.org/uniprotkb/P85223/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_431",
+      "sequence": "GWKDWLKKGKEWLKAKGPGIVKAALQAATQ",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000422",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.20466635940571534",
+      "p_struct": "7.9228135500000004e-07",
+      "p_fusion": "0.14736000061089444",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has insecticidal and non-hemolytic activity."
+        ],
+        "antimicrobial": [
+          "Also has antimicrobial activity against S.cerevisiae."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Shows a broad spectrum of activity against both Gram-positive and Gram-negative bacteria. Also has antimicrobial activity against S.cerevisiae. Has insecticidal and non-hemolytic activity. {ECO:0000250|UniProtKB:P82416}."
+        ]
+      },
+      "annotation_name": "U1-poneritoxin-Ng3b (U1-PONTX-Ng3b) (Poneratoxin) (Ponericin-G2)",
+      "curated_family": [
+        "belongs to the ponericin-g family"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P82415/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_444",
+      "sequence": "AGTKEWLNKAKDFIKEKGLGMLSAAANAALN",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000435",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.12052802490861661",
+      "p_struct": "1.24998596e-05",
+      "p_fusion": "0.086783677894891956",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "manual_direct_hemolysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "It is not cytotoxic to HEK293 cells and does not induce hemolysis in human erythrocytes (PubMed:34302796)."
+        ],
+        "antimicrobial": [
+          "It does not show antibacterial activity (MIC>40 uM) (PubMed:34302796)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Membrane-perturbating peptide with a few moderate activities (PubMed:34302796). It is insecticidal, since it induces reversible paralysis in insects (L.cuprina) after 1 hour, but fails to kill them (PubMed:34302796). It is also antiparasitic, since it moderately inhibits the larval development of the major pathogenic nematode of ruminants (H.contortus, IC(50)=23.2 uM) and reduces the motility of adult males of the other nematode B.malayi (PubMed:34302796). It does not show antibacterial activity (MIC>40 uM) (PubMed:34302796). It is not cytotoxic to HEK293 cells and does not induce hemolysis in human erythrocytes (PubMed:34302796). It does not cause an increase in intracellular calcium concentration on neuronal and epithelial cell lines (PubMed:34302796). {ECO:0000269|PubMed:34302796}."
+        ],
+        "manual_direct_hemolysis": [
+          {
+            "record_id": "A08",
+            "sample_id": "peptide_444",
+            "endpoint": "溶血",
+            "assay_object": "人红细胞",
+            "result": {
+              "metric": "HC50",
+              "raw": ">300",
+              "unit": "μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "37°C",
+            "reported_dose_series": "方法未明确列出逐肽浓度梯度",
+            "source_id": "P2021",
+            "location": "Methods hemolysis offset21390；Table3",
+            "evidence_status": "有直接测量记录",
+            "notes": "0.5×10^8细胞/mL；405nm；1%Triton X-100阳性/1%DMSO in PBS阴性；两次独立实验，每次重复孔。大于号为未达半数效应，非绝对无毒。"
+          }
+        ]
+      },
+      "annotation_name": "M-poneritoxin-Nc3b (M-PONTX-Nc3b) (Poneratoxin) (Ponericin Nc3b)",
+      "curated_family": [
+        "belongs to the ponericin-g family"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "实验终点或作用背景需区分",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693",
+        "https://www.uniprot.org/uniprotkb/P0DV18/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_448",
+      "sequence": "SAEVAGAVIEGAKLTFNVLQ",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000437",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.047441145724329073",
+      "p_struct": "0.321749866",
+      "p_fusion": "0.12424758740151694",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming toxin (PFT) that consists of a crown-shaped octamer or nonamer that forms cation-selective hydrophilic pores of about 1.5 nm (inside) and 13 nm (outside) and causes cytolysis (By similarity).",
+          "Also causes hemolysis (HC(50)=0.4 nM) (PubMed:31295915).",
+          "Interestingly, the Phe-16 is crucial for hemolysis (By similarity).",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Pore-forming toxin (PFT) that consists of a crown-shaped octamer or nonamer that forms cation-selective hydrophilic pores of about 1.5 nm (inside) and 13 nm (outside) and causes cytolysis (By similarity). It causes cardiac stimulation (By similarity). Also causes hemolysis (HC(50)=0.4 nM) (PubMed:31295915). Interestingly, the Phe-16 is crucial for hemolysis (By similarity). Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers (By similarity). It is probable that a dimeric form is an assembly intermediate before the complete oligomerization (By similarity). The formation of stable pores occurs only in vesicles composed of DOPC/SM (there is no oligomerization when the PFT is treated with vesicles of DOPC or SM alone) (By similarity). The transmembrane pore displays 8 lateral perforations, one at each subunit-subunit interface, partially occupied by the acyl-chain region of a bridging lipid (By similarity). Each pore contains 24 lipid molecules, firmly bound to each subunit, that is, 3 lipids (L1, L2, L3, L4 and/or L5) are associated to each subunit (By similarity). Lipid L1 bridges 2 subunits, whereas lipids L2 and L3 bind to sites at single subunit (By similarity). {ECO:0000250|UniProtKB:B9W5G6, ECO:0000269|PubMed:31295915}."
+        ]
+      },
+      "annotation_name": "DELTA-actitoxin-Afr1b (DELTA-AITX-Afr1b) (Alpha-helical pore-forming toxin) (PFT) (Cytolysin) (Fragaceatoxin A) (fraA)",
+      "curated_family": [
+        "belongs to the actinoporin family. sea anemone subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DUW8/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_463",
+      "sequence": "FVKELWDKVKKMGSAAWSAAKGAFA",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000450",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.26279173153820107",
+      "p_struct": "0.034266952400000002",
+      "p_fusion": "0.19880479337950477",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "manual_direct_hemolysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "It also shows moderate cytotoxic activity against HEK293 cells (EC(50)=48-57 uM) but does not induce hemolysis in human erythrocytes (PubMed:34302796)."
+        ],
+        "antimicrobial": [
+          "It shows moderate antibacterial activity against some Gram-positive and Gram-negative bacteria (PubMed:34302796)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Membrane-perturbating peptide with multiple activities (PubMed:34302796). It is insecticidal, since it induces reversible paralysis in insects (L.cuprina) after 1 hour, but fails to kill them (PubMed:34302796). It shows moderate antibacterial activity against some Gram-positive and Gram-negative bacteria (PubMed:34302796). It is also antiparasitic, since it moderately inhibits the larval development of the major pathogenic nematode of ruminants (H.contortus, IC(50)=23.2 uM), but fails to reduce the motility of adult males of the other nematode B.malayi (PubMed:34302796). It also shows moderate cytotoxic activity against HEK293 cells (EC(50)=48-57 uM) but does not induce hemolysis in human erythrocytes (PubMed:34302796). It also causes a moderate increase in intracellular calcium concentration on neuronal and epithelial cell lines, which supports a non-specific membrane perturbation mechanism of action (PubMed:34302796). {ECO:0000269|PubMed:34302796}."
+        ],
+        "manual_direct_hemolysis": [
+          {
+            "record_id": "A06",
+            "sample_id": "peptide_463",
+            "endpoint": "溶血",
+            "assay_object": "人红细胞",
+            "result": {
+              "metric": "HC50",
+              "raw": ">250",
+              "unit": "μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "37°C",
+            "reported_dose_series": "方法未明确列出逐肽浓度梯度",
+            "source_id": "P2021",
+            "location": "Methods hemolysis offset21390；Table3",
+            "evidence_status": "有直接测量记录",
+            "notes": "0.5×10^8细胞/mL；405nm；1%Triton X-100阳性/1%DMSO in PBS阴性；两次独立实验，每次重复孔。大于号为未达半数效应，非绝对无毒。"
+          }
+        ]
+      },
+      "annotation_name": "M-poneritoxin-Nc2a (M-PONTX-Nc2a) (Poneratoxin) (Ponericin Nc2a)",
+      "curated_family": [
+        "belongs to the ponericin-l family"
+      ],
+      "name_class": [
+        "ponericin_name_class"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "直接效应支持的漏判候选",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1016/j.bcp.2021.114693",
+        "https://www.uniprot.org/uniprotkb/P0DV16/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_477",
+      "sequence": "VVGGDECDINEHPFLAFLYSHGYFCGLTLINQEWVLTAAHCDRRFMRIYL",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000463",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.78300974452601957",
+      "p_struct": "0.975763559",
+      "p_fusion": "0.83698081257873413",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "It also shows 40% inhibition of the hemolytic activity promoted by the complement pathways and possess only a minor role in the induction of edema and pain in rat."
+        ],
+        "hemostasis_or_proteolysis": [
+          "It almost completely degrades both Aalpha (FGA) and Bbeta (FGB) chains of fibrinogen.",
+          "It presents a higher ability to degrade fibrin clots than BpirSP27.",
+          "It hydrolyzes chromogenic substrates S-2238 (used for testing thrombin activity), S-2222 (factor Xa), S-2266 (glandular kallikrein and factor XIa), and S-2302 (plasma kallikrein, factor XIa and XIIa).",
+          "Its minimum coagulant dose (MCD) is 20 ug.",
+          "It promotes platelet aggregation with a maximum of aggregation of 20%, regardless of the concentration increase or the presence of calcium."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom serine protease that interferes with the hemostatic system of the prey. It almost completely degrades both Aalpha (FGA) and Bbeta (FGB) chains of fibrinogen. It presents a higher ability to degrade fibrin clots than BpirSP27. It hydrolyzes chromogenic substrates S-2238 (used for testing thrombin activity), S-2222 (factor Xa), S-2266 (glandular kallikrein and factor XIa), and S-2302 (plasma kallikrein, factor XIa and XIIa). It shows a decrease in the clotting time of human plasma in the presence of increasing doses of the enzyme. Its minimum coagulant dose (MCD) is 20 ug. It promotes platelet aggregation with a maximum of aggregation of 20%, regardless of the concentration increase or the presence of calcium. It also shows 40% inhibition of the hemolytic activity promoted by the complement pathways and possess only a minor role in the induction of edema and pain in rat. {ECO:0000269|PubMed:22819993, ECO:0000269|PubMed:23499645}."
+        ]
+      },
+      "annotation_name": "Thrombin-like enzyme BpirSP41 (SVTLE) (EC 3.4.21.-) (Fibrinogen-clotting enzyme) (Snake venom serine protease) (SVSP)",
+      "curated_family": [],
+      "name_class": [
+        "serine_protease"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DL27/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_510",
+      "sequence": "FTCAISCDIKVNGKPCKGSGEKKCSGGWSCKFNVCVKV",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000487",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.95297673171576269",
+      "p_struct": "0.98350268600000001",
+      "p_fusion": "0.96152399891534912",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has no hemolytic activity against human erythrocytes."
+        ],
+        "ion_channel": [
+          "Probable ion channel inhibitor (By similarity)."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Has strong antifungal activity against C.albicans MDM8, C.krusei IOC 4559 (MIC=2.5-5 uM), C.glabrata IOC 45658 (MIC=2.5-5 uM), C.albicans IOC 45588 (MIC=2.5-5 uM), C.parapsilosis IOC 456416 (MIC=2.5-5 uM), C.tropicalis IOC 45608 (MIC=2.5-5 uM), C.guilliermondii IOC 455716 (MIC=2.5-5 uM) and A.niger (MIC=5-10 uM).",
+          "Lacks antifungal activity against B.bassiana.",
+          "Has no antibacterial effect against Gram-positive bacteria M.luteus, S.epidermidis, S.aureus or against Gram-negative bacteria E.coli and P.aeruginosa."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has strong antifungal activity against C.albicans MDM8, C.krusei IOC 4559 (MIC=2.5-5 uM), C.glabrata IOC 45658 (MIC=2.5-5 uM), C.albicans IOC 45588 (MIC=2.5-5 uM), C.parapsilosis IOC 456416 (MIC=2.5-5 uM), C.tropicalis IOC 45608 (MIC=2.5-5 uM), C.guilliermondii IOC 455716 (MIC=2.5-5 uM) and A.niger (MIC=5-10 uM). Lacks antifungal activity against B.bassiana. Has no antibacterial effect against Gram-positive bacteria M.luteus, S.epidermidis, S.aureus or against Gram-negative bacteria E.coli and P.aeruginosa. Has no hemolytic activity against human erythrocytes. Probable ion channel inhibitor (By similarity). {ECO:0000250}."
+        ]
+      },
+      "annotation_name": "U-theraphotoxin-Aju1a (U-TRTX-Aju1a) (Juruin)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/B3EWQ0/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_538",
+      "sequence": "AHDGNPLEECFREDDEEFFLEIAKNGLTATSNPKRVVIV",
+      "label": 1,
+      "fold": 4,
+      "group_id": "singleton_000537",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.53858197672708641",
+      "p_struct": "0.999920845",
+      "p_fusion": "0.66775685984350219",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:19944711). Shows activity on L-Leu (PubMed:19944711). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, and antiparasitic activities, as well as regulation of platelet aggregation. Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation. These different effects are probably due to different experimental conditions (By similarity). In addition, this protein inhibits dose-dependently the growth of Gram-positive, Gram-negative bacteria and yeast, probably by the generation of hydrogen peroxide. {ECO:0000250|UniProtKB:P0CC17, ECO:0000269|PubMed:19944711}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (BmarLAAO) (LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0CJ40/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_544",
+      "sequence": "HLLQFGDLIDKIAGRSGFWYYGFYGCYCGLGGRGRPQDATDRCCFVHDCC",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000510",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.86599415442671179",
+      "p_struct": "0.0085627213100000002",
+      "p_fusion": "0.6259133531540324",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that displays a potent enzymatic activity as measured by indirect hemolysis of red blood cells."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that displays a potent enzymatic activity as measured by indirect hemolysis of red blood cells.",
+          "Is neither lethal when injected into mice nor does it present anticoagulant activity.",
+          "Displays a moderate inhibitory activity on the aggregation of platelets induced by low levels of ADP, thrombin and arachidonate.",
+          "In contrast, strongly inhibits platelet aggregation induced by high doses of collagen."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that displays a potent enzymatic activity as measured by indirect hemolysis of red blood cells. Is neither lethal when injected into mice nor does it present anticoagulant activity. Displays a moderate inhibitory activity on the aggregation of platelets induced by low levels of ADP, thrombin and arachidonate. In contrast, strongly inhibits platelet aggregation induced by high doses of collagen. Shows myotoxic activity, increases the plasma creatine-kinase activity and induces edema and myonecrosis of mouse skeletal muscles. PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides. {ECO:0000269|PubMed:10728833, ECO:0000269|PubMed:12007562, ECO:0000269|PubMed:9408022}."
+        ]
+      },
+      "annotation_name": "Acidic phospholipase A2 1 (svPLA2) (EC 3.1.1.4) (LM-PLA2-I) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C932/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_562",
+      "sequence": "HLLQFEQLIRKIAGRGFRYYGFYGCYCGLGGQGRPQDATDRCCFVHDCC",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000510",
+      "existing_pattern": "C_一维对三维错融合对",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "TP",
+      "p_seq": "0.84403956754218401",
+      "p_struct": "0.010026156899999999",
+      "p_fusion": "0.61051581256237242",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that has a high indirect hemolytic activity and a potent inhibitory effect on platelet aggregation induced by ADP and collagen."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that has a high indirect hemolytic activity and a potent inhibitory effect on platelet aggregation induced by ADP and collagen."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that has a high indirect hemolytic activity and a potent inhibitory effect on platelet aggregation induced by ADP and collagen. Also produces a significant paw edema reaction in rats. This edematous response is abolished by pretreatment with either indomethacin or dexamethasone, suggesting the involvement of cyclo-oxygenase. May be myotoxic. PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides. {ECO:0000269|PubMed:12007562}."
+        ]
+      },
+      "annotation_name": "Phospholipase A2 2 (svPLA2) (EC 3.1.1.4) (LM-PLA2-II) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C933/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_572",
+      "sequence": "FEMQYCWSHSGVCRDKSERNNKPMAWTYCENRQKKCEF",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000531",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.84957799430496361",
+      "p_struct": "0.98229640699999998",
+      "p_fusion": "0.88673914985957381",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Does not show antimicrobial, myotoxic, hemolytic and cell-promoting activities."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Does not show antimicrobial, myotoxic, hemolytic and cell-promoting activities."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Does not show antimicrobial, myotoxic, hemolytic and cell-promoting activities. {ECO:0000269|PubMed:10417345}."
+        ]
+      },
+      "annotation_name": "Defensin-like peptide 3 (DLP-3)",
+      "curated_family": [],
+      "name_class": [
+        "defensin"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P82141/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_616",
+      "sequence": "HLFQFREMIKEMTGKEPVVSYAFYGCYCGKGGRGKPDAT",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000559",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.92968906244945915",
+      "p_struct": "0.99690836699999996",
+      "p_fusion": "0.94851046772361058",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows high myotoxic activities, induces mild edema, and shows cytolytic, and anti-coagulant activities, as well as intracerebral lethal effect (PubMed:10698689, PubMed:1524423)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows high myotoxic activities, induces mild edema, and shows cytolytic, and anti-coagulant activities, as well as intracerebral lethal effect (PubMed:10698689, PubMed:1524423)."
+        ]
+      },
+      "annotation_name": "Basic phospholipase A2 (svPLA2) (EC 3.1.1.4) (Myotoxin I) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DQP6/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_617",
+      "sequence": "ADDKNPLEECFREDDYEGFLEIAKNGLSTTSNPKRVVIVGAGMSGLAAY",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000560",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.53076522959740957",
+      "p_struct": "0.0052868248899999998",
+      "p_fusion": "0.38363127627933485",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:17983639). Shows activity on L-Leu (PubMed:17983639). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation. Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions (By similarity). In addition, this protein induces apoptosis and necrosis and has inhibitory effects on rat kidney function (decrease of blood flow and glomerular filtration). {ECO:0000250|UniProtKB:P0CC17, ECO:0000269|PubMed:17983639}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (BiLAO) (LAAO) (EC 1.4.3.2)",
+      "curated_family": [
+        "belongs to the flavin monoamine oxidase family. fig1 subfamily"
+      ],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DI87/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_619",
+      "sequence": "ANKRPVWIMGHMVNAVYQIDEFVNLGANSIDTDVS",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000562",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.5614743186269725",
+      "p_struct": "0.059933237700000003",
+      "p_fusion": "0.42104281596742021",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Dermonecrotic toxins cleave the phosphodiester linkage between the phosphate and headgroup of certain phospholipids (sphingolipid and lysolipid substrates), forming an alcohol (often choline) and a cyclic phosphate (By similarity). This toxin acts on sphingomyelin (SM) (By similarity). It may also act on ceramide phosphoethanolamine (CPE), lysophosphatidylcholine (LPC) and lysophosphatidylethanolamine (LPE), but not on lysophosphatidylserine (LPS), and lysophosphatidylglycerol (LPG) (By similarity). It acts by transphosphatidylation, releasing exclusively cyclic phosphate products as second products (By similarity). Induces dermonecrosis, hemolysis, increased vascular permeability, edema, inflammatory response, and platelet aggregation (By similarity). {ECO:0000250|UniProtKB:A0A0D4WTV1, ECO:0000250|UniProtKB:P0CE80}."
+        ]
+      },
+      "annotation_name": "Dermonecrotic toxin LrSicTox-alphaI-1 (EC 4.6.1.-) (Mammalian toxin) (Phospholipase D) (PLD) (Sphingomyelin phosphodiesterase D) (SMD) (SMase D) (Sphingomyelinase D)",
+      "curated_family": [
+        "belongs to the arthropod phospholipase d family. class ii subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/Q7M485/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_631",
+      "sequence": "VACRCESDGPDVRSATFTGTVDLWNCNTGWHKCIATYTAVASCCKKD",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000571",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.97376546610825698",
+      "p_struct": "0.99973767999999996",
+      "p_fusion": "0.98103768599794505",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Is potently lethal to crabs, although it showed neither lethal activity in mice nor hemolytic activity."
+        ],
+        "ion_channel": [
+          "May bind to voltage-gated sodium channels (Nav), thereby delaying their inactivation during signal transduction."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Is potently lethal to crabs, although it showed neither lethal activity in mice nor hemolytic activity. May bind to voltage-gated sodium channels (Nav), thereby delaying their inactivation during signal transduction. {ECO:0000269|PubMed:9133708}."
+        ]
+      },
+      "annotation_name": "Delta-halcutoxin-Hcg1a (Delta-HCTX-Hcg1a) (Halcurin)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C5G6/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_652",
+      "sequence": "GKLSGISKVLRAIAKFFKGVGKARKQFKEASDLDKNQ",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000585",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.81489036957008709",
+      "p_struct": "0.67899465599999997",
+      "p_fusion": "0.77683956977046276",
+      "categories": [
+        "membrane_or_lysis",
+        "ion_channel",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells."
+        ],
+        "ion_channel": [
+          "Has insecticidal activity against S.frugiperda ovarian cells by opening non-selective ion channels."
+        ],
+        "antimicrobial": [
+          "Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Disrupts biological membranes, particularly those rich in phosphocholine. Has antimicrobial activity against Gram-negative bacterium E.coli, Gram-positive bacteria B.subtilis and S.aureus, and hemolytic activity against sheep, pig and guinea pig red blood cells. Has insecticidal activity against S.frugiperda ovarian cells by opening non-selective ion channels. Enhances the insecticidal activity of spider venom neurotoxic peptides. {ECO:0000269|PubMed:11976325}."
+        ]
+      },
+      "annotation_name": "M-oxotoxin-Ot2c (M-OXTX-Ot2c) (Oxki2c) (Oxyopinin-2c)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "该具体分子/终点证据不足",
+      "full_record_available": false,
+      "source_urls": [
+        "https://doi.org/10.1074/jbc.M200511200",
+        "https://www.uniprot.org/uniprotkb/P83250/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_655",
+      "sequence": "NLVQFKTLIMKIAGRSVVYKYFYYGCYCGWGGIGQPRDATDRCCFVHD",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000587",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.8069532659428964",
+      "p_struct": "0.96315717700000003",
+      "p_fusion": "0.8506903610388854",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits indirect hemolytic activity (PubMed:17451767)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows myotoxicity and induces paw edema in mice (PubMed:17451767).",
+          "Inhibits platelet aggregation induced by ADP and collagen (PubMed:17451767)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows myotoxicity and induces paw edema in mice (PubMed:17451767). Exhibits indirect hemolytic activity (PubMed:17451767). Inhibits platelet aggregation induced by ADP and collagen (PubMed:17451767). PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides (PubMed:17451767). {ECO:0000269|PubMed:17451767}."
+        ]
+      },
+      "annotation_name": "Acidic phospholipase A2 (Bp-PLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HJU3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_699",
+      "sequence": "RQRHPDCDKPPDTGN",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000615",
+      "existing_pattern": "D其余_一维错三维对融合错",
+      "sequence_category": "FN",
+      "structure_category": "TP",
+      "fusion_category": "FN",
+      "p_seq": "0.13109040733984392",
+      "p_struct": "0.73998737299999995",
+      "p_fusion": "0.30158155772468764",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Neurotoxin T1-2 is a presynaptic neurotoxin of the venom that exhibits indirect hemolytic activity against human erythrocytes."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Neurotoxin T1-2 is a presynaptic neurotoxin of the venom that exhibits indirect hemolytic activity against human erythrocytes. The B chain is homologous to venom basic protease inhibitors but has no protease inhibitor activity and is non-toxic. {ECO:0000269|PubMed:14769867}."
+        ]
+      },
+      "annotation_name": "Kunitz-type serine protease inhibitor homolog T1-2 B chain (Neurotoxin T1-2 B chain)",
+      "curated_family": [
+        "belongs to the venom kunitz-type family"
+      ],
+      "name_class": [
+        "Kunitz"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84473/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_711",
+      "sequence": "ADDRNPLEEFRENNYEEFL",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000623",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.96039272320275948",
+      "p_struct": "0.78839707400000003",
+      "p_fusion": "0.91223394142598679",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme. Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation. Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions (By similarity). Induces apoptosis in HeLa cervical cancer cells. Both the caspase-dependent and the mitochondrial pathways seem to be involved in apoptosis (PubMed:17275856). {ECO:0000250, ECO:0000269|PubMed:17275856}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase ACTX-8 (LAAO) (LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DI85/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_721",
+      "sequence": "SVAVAGAVIEGATLTFNVLQ",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000437",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.054730612709981058",
+      "p_struct": "0.47289484700000001",
+      "p_fusion": "0.1718165983111864",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cardiac stimulation and cytolysis.",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers.",
+          "Cytolytic effects include red blood cells hemolysis, platelet aggregation and lysis, cytotoxic and cytostatic effects on fibroblasts."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Cytolytic effects include red blood cells hemolysis, platelet aggregation and lysis, cytotoxic and cytostatic effects on fibroblasts."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cardiac stimulation and cytolysis. Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers. Cytolytic effects include red blood cells hemolysis, platelet aggregation and lysis, cytotoxic and cytostatic effects on fibroblasts. Lethality in mammals has been ascribed to severe vasospasm of coronary vessels, cardiac arrhythmia, and inotropic effects. {ECO:0000250|UniProtKB:P07845}."
+        ]
+      },
+      "annotation_name": "Equinatoxin-1'' (DELTA-actitoxin) (Equinatoxin I'')",
+      "curated_family": [
+        "belongs to the actinoporin family. sea anemone subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C1H1/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_733",
+      "sequence": "AEIDFSGIPEDIIKEIKETNAKPPA",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000638",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.25608319740833924",
+      "p_struct": "0.082306079599999998",
+      "p_fusion": "0.20742560442200425",
+      "categories": [
+        "membrane_or_lysis",
+        "receptor_or_signaling",
+        "antimicrobial",
+        "hemolysis_text",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: [Cryptide TyPep-8]: Presents weak hemolytic activity at physiological concentrations (micromolar range), and weak lactate dehydrogenase (LDH) release from mast cells."
+        ],
+        "receptor_or_signaling": [
+          "FUNCTION: [Hypotensin-2]: Agonist of the B2 bradykinin receptor (BDKRB2) (By similarity)."
+        ],
+        "antimicrobial": [
+          "Does not induce mast cell degranulation, and antimicrobial effects (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: [Hypotensin-2]: Agonist of the B2 bradykinin receptor (BDKRB2) (By similarity). Potentiates the hypotensive effect of bradykinin (BK) and induces a direct vasorelaxing effect, independently of BK, by endothelium- and nitric oxide (NO)-dependent mechanisms in rat aortic ring preparations (By similarity). Does not inhibit the angiotensin-converting enzyme (ACE) (By similarity). Also exerts proangiogenic, antiinflammatory, and antifibrogenic activities (By similarity). Does not inhibit the angiotensin-converting enzyme (ACE) but weakly increases its activity, and weakly inhibits neprilysin (NEP) in a non-competitive manner (PubMed:18445483, PubMed:34941683). Exerts intermediate cytotoxicity and pro-inflammatory effects on mouse macrophages, and increases the phagocytic activity of these murine cells (By similarity) (PubMed:18445483, PubMed:34941683). {ECO:0000250|UniProtKB:P84189, ECO:0000269|PubMed:18445483, ECO:0000269|PubMed:34941683}.; FUNCTION: [Cryptide TyPep-8]: Presents weak hemolytic activity at physiological concentrations (micromolar range), and weak lactate dehydrogenase (LDH) release from mast cells. Does not induce mast cell degranulation, and antimicrobial effects (By similarity). In vivo, causes intense pain (but no edema formation), when injected in mice hind paws. Also induces discomfort and anxiety in mice, as it moderately diminishes locomotion and moderately increases rearing behavior (PubMed:38408354). {ECO:0000250|UniProtKB:P0DRF2, ECO:0000269|PubMed:38408354}."
+        ]
+      },
+      "annotation_name": "Hypotensin-2 (Hypotensin II) (TsHpt-II) (Toxin Ts14 2) [Cleaved into: Hypotensin-4 (Hypotensin IV) (TsHpt-IV) (Toxin Ts14 4); Cryptide TyPep-8]",
+      "curated_family": [
+        "belongs to the non-disulfide-bridged peptide (ndbp) superfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": true,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84190/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_741",
+      "sequence": "SLFELGKMILQETGKNPAQSYGAYGCNC",
+      "label": 1,
+      "fold": 1,
+      "group_id": "singleton_000740",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.73397865711846655",
+      "p_struct": "0.95694917400000001",
+      "p_fusion": "0.79641040184529599",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "This reorientation causes a transition between 'inactive' to 'active' states, causing alignment of C-terminal and membrane-docking sites (MDoS) side-by-side and putting the membrane-disruption sites (MDiS) in the same plane, exposed to solvent and in a symmetric position for both monomers (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 homolog that lacks enzymatic activity (PubMed:24724078)."
+        ]
+      },
+      "annotation_name": "Basic phospholipase A2 homolog BmatTX-II (svPLA2 homolog) (Lys49 PLA2-like)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DMK0/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_768",
+      "sequence": "ALAGTIIAGASLTFKILDEV",
+      "label": 1,
+      "fold": 3,
+      "group_id": "singleton_000767",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.065243314051955548",
+      "p_struct": "0.00032443183599999999",
+      "p_fusion": "0.047066027031487996",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cytolysis.",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers."
+        ]
+      },
+      "annotation_name": "Magnificalysin I (HMg I) (Cytolysin I) (DELTA-stichotoxin)",
+      "curated_family": [
+        "belongs to the actinoporin family. sea anemone subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P58689/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_781",
+      "sequence": "GVKDYFKKLLQKVINKIKSFRKKQEA",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000674",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.95436913300781812",
+      "p_struct": "0.99574476499999998",
+      "p_fusion": "0.96595430996562892",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: May have cytolytic and antimicrobial activity."
+        ],
+        "antimicrobial": [
+          "FUNCTION: May have cytolytic and antimicrobial activity."
+        ]
+      },
+      "annotation_name": "Oxyopinin-3b (Oxt-3b)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/C0HLG0/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_782",
+      "sequence": "LKCNKLIPLAYKTCPAGKNLCYKMYMVATP",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000675",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.96940165818904478",
+      "p_struct": "0.974488676",
+      "p_fusion": "0.97082602317611233",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Shows cytolytic activity on many different cells by forming pore in lipid membranes."
+        ]
+      },
+      "annotation_name": "Cytotoxin 3a (CTX3a)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P86539/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_793",
+      "sequence": "ADDKNPLEEAFREADYEVFLEIAKNGL",
+      "label": 1,
+      "fold": 0,
+      "group_id": "singleton_000792",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.78767910363616933",
+      "p_struct": "0.99997925799999998",
+      "p_fusion": "0.84712314685804191",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemolysis, edema, apoptosis, as well as induction of platelet aggregation (PubMed:11368308)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemolysis, edema, apoptosis, as well as induction of platelet aggregation (PubMed:11368308).",
+          "Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation (By similarity)."
+        ],
+        "antimicrobial": [
+          "This protein may also have antibacterial and antiparasitic activities (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:11368308). Shows activity on L-Leu (PubMed:11368308). Exhibits diverse biological activities, such as hemolysis, edema, apoptosis, as well as induction of platelet aggregation (PubMed:11368308). Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation (By similarity). These different effects are probably due to different experimental conditions. Unlike other snake venom L-amino acid oxidases, does not induce hemorrhage (PubMed:11368308). This protein may also have antibacterial and antiparasitic activities (By similarity). {ECO:0000250|UniProtKB:P0CC17, ECO:0000269|PubMed:11368308}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (LAAO) (LNV-LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C2D3/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_800",
+      "sequence": "NLYQFKEMIRYTIP",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000689",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.45035885165742817",
+      "p_struct": "0.094067096700000005",
+      "p_fusion": "0.35059716026934828",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that inhibits neuromuscular transmission by blocking acetylcholine release from the nerve termini and exhibits indirect hemolytic activity against human erythrocytes."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that inhibits neuromuscular transmission by blocking acetylcholine release from the nerve termini and exhibits indirect hemolytic activity against human erythrocytes."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that inhibits neuromuscular transmission by blocking acetylcholine release from the nerve termini and exhibits indirect hemolytic activity against human erythrocytes. PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides. {ECO:0000269|PubMed:14769867}."
+        ]
+      },
+      "annotation_name": "Basic phospholipase A2 T1-1 A chain (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase T1-1 A); Basic phospholipase A2 T1-2 A chain (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase T1-2 A)",
+      "curated_family": [
+        "belongs to the phospholipase a2 family. group i subfamily"
+      ],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P84472/entry",
+        "https://www.uniprot.org/uniprotkb/P84475/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_801",
+      "sequence": "SAALAGTIIDGASLGFDILNKV",
+      "label": 1,
+      "fold": 1,
+      "group_id": "singleton_000800",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.3973579577067064",
+      "p_struct": "0.13397915699999999",
+      "p_fusion": "0.32361189350882863",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cytolysis.",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers."
+        ]
+      },
+      "annotation_name": "Magnificalysin II (HMg II) (Cytolysin II) (DELTA-stichotoxin)",
+      "curated_family": [
+        "belongs to the actinoporin family. sea anemone subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P58690/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_821",
+      "sequence": "ADVRNPLEEFRETDYEVL",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_000704",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.59445925167670488",
+      "p_struct": "0.99995112399999997",
+      "p_fusion": "0.70799697592722755",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "May also induce hemolysis, apoptosis of vascular endothelial cells or tumor cell lines, and may have antiparasitic activities (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as slight hemorrhage, induction of platelet aggregation, edema in the mouse paw and bactericidal activity against both Gram-positive (S.aureus) and Gram-negative (E.coli) bacteria (PubMed:15142548).",
+          "Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as slight hemorrhage, induction of platelet aggregation, edema in the mouse paw and bactericidal activity against both Gram-positive (S.aureus) and Gram-negative (E.coli) bacteria (PubMed:15142548)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:15142548). Is highly active on L-Phe > L-Tyr > L-Met > L-Leu, and is weakly or not active on other amino acids (PubMed:15142548). Exhibits diverse biological activities, such as slight hemorrhage, induction of platelet aggregation, edema in the mouse paw and bactericidal activity against both Gram-positive (S.aureus) and Gram-negative (E.coli) bacteria (PubMed:15142548). May also induce hemolysis, apoptosis of vascular endothelial cells or tumor cell lines, and may have antiparasitic activities (By similarity). Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation. These different effects are probably due to different experimental conditions. {ECO:0000250, ECO:0000269|PubMed:15142548}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (Balt-LAAO-I) (LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DI86/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_826",
+      "sequence": "NLFQFARMINGKLGAFSV",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000708",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.23995948754512025",
+      "p_struct": "0.17779435199999999",
+      "p_fusion": "0.22255324959248657",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "It exhibits anticoagulant activities (by inhibiting activated coagulation factor X (F10)), it shows hemolytic and cytotoxic activities (cytotoxic concentration(50)=65.8 nM), and inhibits cell migration in human skin melanoma cells (IC(50)=25.6 nM)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that has several activities.",
+          "It exhibits anticoagulant activities (by inhibiting activated coagulation factor X (F10)), it shows hemolytic and cytotoxic activities (cytotoxic concentration(50)=65.8 nM), and inhibits cell migration in human skin melanoma cells (IC(50)=25.6 nM)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that has several activities. It exhibits anticoagulant activities (by inhibiting activated coagulation factor X (F10)), it shows hemolytic and cytotoxic activities (cytotoxic concentration(50)=65.8 nM), and inhibits cell migration in human skin melanoma cells (IC(50)=25.6 nM). In addition, it reduces tumor lung colonization of B16F10 melanoma cells in BALB/c mice by 65%. PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides. {ECO:0000269|PubMed:22091349}."
+        ]
+      },
+      "annotation_name": "Acidic phospholipase A2 Drs-PLA2 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [
+        "belongs to the phospholipase a2 family. group ii subfamily"
+      ],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DJP5/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_851",
+      "sequence": "NLFQFAEMIVKMTGKEAVH",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000728",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.68036696788103046",
+      "p_struct": "0.999982119",
+      "p_fusion": "0.769859210194342",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows enzymatic, indirect hemolytic and anticoagulant activities.",
+          "Interestingly, anti-PFIIc'serum completely inhibits anticoagulant activity, partially inhibits the indirect hemolytic activity, but does not inhibit enzymatic activity."
+        ],
+        "hemostasis_or_proteolysis": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows enzymatic, indirect hemolytic and anticoagulant activities.",
+          "Interestingly, anti-PFIIc'serum completely inhibits anticoagulant activity, partially inhibits the indirect hemolytic activity, but does not inhibit enzymatic activity."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Snake venom phospholipase A2 (PLA2) that shows enzymatic, indirect hemolytic and anticoagulant activities. Interestingly, anti-PFIIc'serum completely inhibits anticoagulant activity, partially inhibits the indirect hemolytic activity, but does not inhibit enzymatic activity. PLA2 catalyzes the calcium-dependent hydrolysis of the 2-acyl groups in 3-sn-phosphoglycerides. {ECO:0000269|PubMed:12236591}."
+        ]
+      },
+      "annotation_name": "Neutral phospholipase A2 RVV-PFIIc' (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)",
+      "curated_family": [],
+      "name_class": [
+        "PLA2"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DKX1/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_870",
+      "sequence": "DCCHNTQLPFIYKTCPEGCNL",
+      "label": 1,
+      "fold": 3,
+      "group_id": "reference_000742",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.98549316029622147",
+      "p_struct": "0.99923014600000004",
+      "p_fusion": "0.98933951629327943",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Has hemolytic activity under low-lecithin conditions (PubMed:17277458)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Has hemolytic activity under low-lecithin conditions (PubMed:17277458). Has low cytotoxic activity (By similarity). Inhibits the expression of VEGF and bFGF in human non-small-cell lung cancer cell line NCI-H1299 in a dose-dependent manner (PubMed:17277458). {ECO:0000250|UniProtKB:P14541, ECO:0000269|PubMed:17277458}."
+        ]
+      },
+      "annotation_name": "Cardiotoxin-like basic polypeptide ah (CLBPah)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C547/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_871",
+      "sequence": "NAAVAGAVIEGATLTFEVLQ",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000437",
+      "existing_pattern": "B_两路及融合都错",
+      "sequence_category": "FN",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.05407013339300127",
+      "p_struct": "0.218671843",
+      "p_fusion": "0.10015861208296092",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "FUNCTION: Pore-forming protein that forms cations-selective hydrophilic pores of around 1 nm and causes cardiac stimulation and cytolysis.",
+          "Pore formation is a multi-step process that involves specific recognition of membrane sphingomyelin (but neither cholesterol nor phosphatidylcholine) using aromatic rich region and adjacent phosphocholine (POC) binding site, firm binding to the membrane (mainly driven by hydrophobic interactions) accompanied by the transfer of the N-terminal region to the lipid-water interface and finally pore formation after oligomerization of monomers."
+        ]
+      },
+      "annotation_name": "Cytolysin tenebrosin-A (DELTA-actitoxin)",
+      "curated_family": [
+        "belongs to the actinoporin family. sea anemone subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P30833/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_999",
+      "sequence": "ADDRNPLEECFRETDYEEFLEIAKNGLSTT",
+      "label": 1,
+      "fold": 1,
+      "group_id": "singleton_000998",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.94415402945739668",
+      "p_struct": "0.95448446300000001",
+      "p_fusion": "0.94704655084932565",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities (By similarity)."
+        ],
+        "hemostasis_or_proteolysis": [
+          "It also interacts with endothelial cells, and inhibits collagen- and ADP-induced platelet aggregation.",
+          "L-LAAO family effects on platelets are controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities (By similarity)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:21539897). Is highly active against L-Met, L-Leu, L-norleucine (L-2-aminohexanoate), L-Trp, L-Phe, moderately active against L-Tyr, and no active on L-Gly, L-Ala, L-Val, L-Pro, L-His, L-Lys, L-Arg, L-Asp, L-Asn, L-Gln, L-Glu, L-Ser, and L-Thr (PubMed:21539897). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, antibacterial and antiparasitic activities (By similarity). In addition, this protein induces apoptosis. It also interacts with endothelial cells, and inhibits collagen- and ADP-induced platelet aggregation. L-LAAO family effects on platelets are controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions. {ECO:0000250|UniProtKB:P0CC17, ECO:0000269|PubMed:21539897}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (Bl-LAAO) (LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": true,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DI89/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1047",
+      "sequence": "ADSRNPLEEEFRETNYEEF",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000883",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.88908899440900424",
+      "p_struct": "0.99990725499999999",
+      "p_fusion": "0.92011810737448307",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "May also induce hemolysis, edema, antibacterial and antiparasitic activities."
+        ],
+        "hemostasis_or_proteolysis": [
+          "May also regulate platelet aggregation.",
+          "Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "May also induce hemolysis, edema, antibacterial and antiparasitic activities."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:10441379). Is active on L-Ile followed by L-Phe, L-Met, L-Val, L-Arg, L-Leu (PubMed:10441379). Exhibits diverse biological activities, such as hemorrhage (minimum hemorrhagic dose of 10 ug), and apoptosis. May also induce hemolysis, edema, antibacterial and antiparasitic activities. May also regulate platelet aggregation. Effects of snake L-amino oxidases on platelets are controversial, since they either induce aggregation or inhibit agonist-induced aggregation. These different effects are probably due to different experimental conditions. {ECO:0000269|PubMed:10441379}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase (ACL-LAO) (LAAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0CC16/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1199",
+      "sequence": "AYTTEQCRALNGTCRFYACFPKNVVIGKCDWLG",
+      "label": 1,
+      "fold": 0,
+      "group_id": "reference_001006",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.40415638654702857",
+      "p_struct": "0.98034334199999995",
+      "p_fusion": "0.56548873407386058",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Neither hemorrhagic nor hemolytic activities are detected."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Phospholipase A2 activity, proteolytic activity and arginine esterolytic activity are absent."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Lethal toxin which possesses an inhibitory effect on direct electrical stimulation of the isolated hemi-diaphragm. Neither hemorrhagic nor hemolytic activities are detected. Phospholipase A2 activity, proteolytic activity and arginine esterolytic activity are absent. {ECO:0000269|PubMed:3401225}."
+        ]
+      },
+      "annotation_name": "Helofensin-1 (Lethal toxin)",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/Q7LZ31/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1410",
+      "sequence": "ADDKNPLEECFCEDDDYCEG",
+      "label": 1,
+      "fold": 1,
+      "group_id": "singleton_001409",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.98193392575281013",
+      "p_struct": "0.99668914099999995",
+      "p_fusion": "0.98606538602202332",
+      "categories": [
+        "membrane_or_lysis",
+        "hemostasis_or_proteolysis",
+        "antimicrobial",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemostasis_or_proteolysis": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation.",
+          "Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation."
+        ],
+        "antimicrobial": [
+          "Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Catalyzes an oxidative deamination of predominantly hydrophobic and aromatic L-amino acids, thus producing hydrogen peroxide that may contribute to the diverse toxic effects of this enzyme (PubMed:18384385). Is active on L-Ile, L-Leu, L-Met, L-Phe, L-Trp, and L-Tyr (PubMed:18384385). Exhibits diverse biological activities, such as hemorrhage, hemolysis, edema, apoptosis of vascular endothelial cells or tumor cell lines, antibacterial and antiparasitic activities, as well as regulation of platelet aggregation. Its effect on platelets is controversial, since it either induces aggregation or inhibits agonist-induced aggregation. These different effects are probably due to different experimental conditions. {ECO:0000250, ECO:0000269|PubMed:18384385}."
+        ]
+      },
+      "annotation_name": "L-amino-acid oxidase L2 (LAAO-L2) (LAO) (EC 1.4.3.2)",
+      "curated_family": [],
+      "name_class": [
+        "L_amino_acid_oxidase"
+      ],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0DI90/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1434",
+      "sequence": "IWLTALKFLGKNLGKHLAKQQLAKL",
+      "label": 1,
+      "fold": 1,
+      "group_id": "reference_000090",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.48323327873053351",
+      "p_struct": "0.32173663400000002",
+      "p_fusion": "0.43801421820598418",
+      "categories": [
+        "membrane_or_lysis",
+        "antimicrobial",
+        "hemolysis_text",
+        "public_hemolysis_record",
+        "manual_direct_hemolysis",
+        "chemical_annotation"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Has moderate hemolytic activity (PubMed:19946788).",
+          "pore formation is reduced when cholesterol is present in the bilayers (PubMed:19946788)."
+        ],
+        "antimicrobial": [
+          "FUNCTION: Potent antimicrobial peptide with activity against Gram-positive bacteria (S.aureus (MIC=0.7-3.79 uM), S.epidermis (MIC=0.7 uM) and S.sanguinis (MIC=10.9 uM)), Gram-negative bacteria (E.coli (MIC=1.41-7.81 uM), A.actinomycetemcomitans (MIC=10.6 uM), P.aeruginosa (MIC=2.82 uM), A.baumannii (MIC=0.7 uM) and multidrug-resistant (MDR) K.pneumoniae strains (MIC=2-8 uM)), and yeasts (C.krusei (MIC=26.3 uM) and C.neoformans (MIC=13.2 uM)) (Probable) (PubMed:19946788, PubMed:27989223, PubMed:33175610, PubMed:40430498)."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Potent antimicrobial peptide with activity against Gram-positive bacteria (S.aureus (MIC=0.7-3.79 uM), S.epidermis (MIC=0.7 uM) and S.sanguinis (MIC=10.9 uM)), Gram-negative bacteria (E.coli (MIC=1.41-7.81 uM), A.actinomycetemcomitans (MIC=10.6 uM), P.aeruginosa (MIC=2.82 uM), A.baumannii (MIC=0.7 uM) and multidrug-resistant (MDR) K.pneumoniae strains (MIC=2-8 uM)), and yeasts (C.krusei (MIC=26.3 uM) and C.neoformans (MIC=13.2 uM)) (Probable) (PubMed:19946788, PubMed:27989223, PubMed:33175610, PubMed:40430498). Also reduces metabolic activity of Gram-positive and Gram-negative periodontal cells as well as of multispecies biofilm bacteria (PubMed:27989223). Has moderate hemolytic activity (PubMed:19946788). Forms pores in lipid bilayers in vitro; pore formation is reduced when cholesterol is present in the bilayers (PubMed:19946788). In vivo, in a murine pneumonia model, intraperitoneal injection reduces the bacterial load and inflammation in the lungs of animals (PubMed:40430498). {ECO:0000269|PubMed:19946788, ECO:0000269|PubMed:27989223, ECO:0000269|PubMed:33175610, ECO:0000269|PubMed:40430498, ECO:0000305|PubMed:29681894}."
+        ],
+        "public_hemolysis_record": [
+          {
+            "sample_id": "peptide_1434",
+            "sequence": "IWLTALKFLGKNLGKHLAKQQLAKL",
+            "chemical_key": "IWLTALKFLGKNLGKHLAKQQLAKL|amide|free|linear|L",
+            "original_label": "1",
+            "original_fusion_category": "FN",
+            "records": 3,
+            "species": [
+              "human",
+              "rabbit"
+            ],
+            "pmids": [
+              "33175610",
+              "33972716"
+            ],
+            "note": "原广义毒性标签；数据库分子形式与GHXTox输入仍需对应，不重新赋溶血TP/FN"
+          }
+        ],
+        "manual_direct_hemolysis": [
+          {
+            "record_id": "A11",
+            "sample_id": "peptide_1434",
+            "endpoint": "溶血",
+            "assay_object": "兔红细胞",
+            "result": {
+              "metric": "ED50",
+              "raw": "1.3×10^-4",
+              "unit": "M",
+              "converted_value": 130,
+              "converted_unit": "μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "37°C",
+            "reported_dose_series": "方法仅写不同浓度；Fig3显示对数曲线，不从坐标反推精确梯度",
+            "source_id": "L2010",
+            "location": "印刷137页Haemolytic assay；140页Fig3",
+            "evidence_status": "完整PDF及关键页视觉核实",
+            "notes": "PBS pH7；405nm；1%Triton X-100阳性。原文剂量点未逐项列出，不填完整梯度。"
+          },
+          {
+            "record_id": "A12",
+            "sample_id": "peptide_1434",
+            "endpoint": "溶血",
+            "assay_object": "羔羊红细胞",
+            "result": {
+              "metric": "ED50",
+              "raw": "42.54",
+              "unit": "μmol/L",
+              "converted_value": 42.54,
+              "converted_unit": "μM"
+            },
+            "exposure_minutes": 60,
+            "temperature": "37°C",
+            "reported_dose_series": "Fig7A：0.35–44.8 μmol/L；Methods总述另写0.17–91.25 μmol/L",
+            "source_id": "L2018",
+            "location": "Methods Hemolytic Assay；Fig7A",
+            "evidence_status": "原研究中原版LyeTxI对照组的直接测量",
+            "notes": "记录原版A组，非删His且N端乙酰化的I-b/B组。保留方法总范围与图示组范围的差别。跨研究差异不能全归因物种。"
+          }
+        ]
+      },
+      "annotation_name": "Antimicrobial peptide LyeTx 1 (Toxin LyeTx 1)",
+      "curated_family": [
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "直接效应支持的漏判候选",
+      "full_record_available": true,
+      "source_urls": [
+        "https://doi.org/10.1007/s00726-009-0385-x",
+        "https://www.uniprot.org/uniprotkb/C0HJU9/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1444",
+      "sequence": "LKCNKLVPLFYKTCPAGKNLCYKMFMVSNK",
+      "label": 1,
+      "fold": 2,
+      "group_id": "reference_000675",
+      "existing_pattern": "全部正确",
+      "sequence_category": "TP",
+      "structure_category": "TP",
+      "fusion_category": "TP",
+      "p_seq": "0.93252911982248821",
+      "p_struct": "0.99115914100000002",
+      "p_fusion": "0.94894552575219149",
+      "categories": [
+        "membrane_or_lysis"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Shows cytolytic activity by forming pore in lipid membranes (By similarity)."
+        ]
+      },
+      "annotation_name": "Cytotoxin najalgesin",
+      "curated_family": [],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": true,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": false,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C944/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    },
+    {
+      "sample_id": "peptide_1551",
+      "sequence": "KIKWFKTMKSLAKFLAKEQMKKHLGE",
+      "label": 1,
+      "fold": 4,
+      "group_id": "reference_000155",
+      "existing_pattern": "A_D_一维对三维错融合错",
+      "sequence_category": "TP",
+      "structure_category": "FN",
+      "fusion_category": "FN",
+      "p_seq": "0.5893762448530846",
+      "p_struct": "0.089543275500000005",
+      "p_fusion": "0.44942301343422092",
+      "categories": [
+        "membrane_or_lysis",
+        "hemolysis_text"
+      ],
+      "evidence": {
+        "membrane_or_lysis": [
+          "Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane."
+        ],
+        "hemolysis_text": [
+          "FUNCTION: Forms pore that permeabilize the cell membrane. Promotes efflux of calcium from synaptosomes, causes hemolysis, and dissipates voltage gradients across muscle membrane. Potently inhibits the growth of bacteria and yeast. May function both in the prey capture strategy as well as protection from infectious organisms arising from prey ingestion (By similarity). {ECO:0000250}."
+        ]
+      },
+      "annotation_name": "M-lycotoxin-Ls2a (M-LCTX-Ls2a) (Lycocitin-3)",
+      "curated_family": [
+        "belongs to the cationic peptide 04 (cupiennin) family. 05 subfamily"
+      ],
+      "name_class": [],
+      "annotation_negation_warning": false,
+      "fragment_flag": false,
+      "cross_source_label_disagreement": false,
+      "manual_status": "未核查",
+      "full_record_available": true,
+      "source_urls": [
+        "https://www.uniprot.org/uniprotkb/P0C2U8/entry"
+      ],
+      "role": "diagnostic_metadata_only_never_model_input"
+    }
+  ],
+  "correct33_ids": [
+    "peptide_68",
+    "peptide_74",
+    "peptide_103",
+    "peptide_139",
+    "peptide_154",
+    "peptide_250",
+    "peptide_288",
+    "peptide_291",
+    "peptide_314",
+    "peptide_337",
+    "peptide_477",
+    "peptide_510",
+    "peptide_538",
+    "peptide_544",
+    "peptide_562",
+    "peptide_572",
+    "peptide_616",
+    "peptide_631",
+    "peptide_652",
+    "peptide_655",
+    "peptide_711",
+    "peptide_741",
+    "peptide_781",
+    "peptide_782",
+    "peptide_793",
+    "peptide_821",
+    "peptide_851",
+    "peptide_870",
+    "peptide_999",
+    "peptide_1047",
+    "peptide_1199",
+    "peptide_1410",
+    "peptide_1444"
+  ],
+  "error43_ids": [
+    "peptide_11",
+    "peptide_18",
+    "peptide_44",
+    "peptide_58",
+    "peptide_59",
+    "peptide_76",
+    "peptide_94",
+    "peptide_97",
+    "peptide_102",
+    "peptide_107",
+    "peptide_110",
+    "peptide_119",
+    "peptide_160",
+    "peptide_174",
+    "peptide_179",
+    "peptide_201",
+    "peptide_203",
+    "peptide_206",
+    "peptide_249",
+    "peptide_251",
+    "peptide_259",
+    "peptide_324",
+    "peptide_347",
+    "peptide_383",
+    "peptide_418",
+    "peptide_422",
+    "peptide_424",
+    "peptide_431",
+    "peptide_444",
+    "peptide_448",
+    "peptide_463",
+    "peptide_617",
+    "peptide_619",
+    "peptide_699",
+    "peptide_721",
+    "peptide_733",
+    "peptide_768",
+    "peptide_800",
+    "peptide_801",
+    "peptide_826",
+    "peptide_871",
+    "peptide_1434",
+    "peptide_1551"
+  ],
+  "priority14_fusion_harms_ids": [
+    "peptide_18",
+    "peptide_58",
+    "peptide_94",
+    "peptide_107",
+    "peptide_119",
+    "peptide_160",
+    "peptide_201",
+    "peptide_251",
+    "peptide_617",
+    "peptide_619",
+    "peptide_800",
+    "peptide_801",
+    "peptide_1434",
+    "peptide_1551"
+  ],
+  "priority28_both_wrong_ids": [
+    "peptide_11",
+    "peptide_44",
+    "peptide_59",
+    "peptide_76",
+    "peptide_97",
+    "peptide_102",
+    "peptide_110",
+    "peptide_174",
+    "peptide_179",
+    "peptide_203",
+    "peptide_206",
+    "peptide_249",
+    "peptide_259",
+    "peptide_324",
+    "peptide_347",
+    "peptide_383",
+    "peptide_418",
+    "peptide_422",
+    "peptide_424",
+    "peptide_431",
+    "peptide_444",
+    "peptide_448",
+    "peptide_463",
+    "peptide_721",
+    "peptide_733",
+    "peptide_768",
+    "peptide_826",
+    "peptide_871"
+  ],
+  "remaining1_ids": [
+    "peptide_699"
+  ]
+}

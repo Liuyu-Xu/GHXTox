@@ -1,0 +1,65 @@
+{
+  "artifact_type": "ghxtox_quick_full_adaptive_router_oof",
+  "version": 1,
+  "training_oof_only": true,
+  "external_test_labels_used": false,
+  "cross_fitted": true,
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\quick_full_adaptive_router_v1.json",
+  "protocol_sha256": "01378610c4ec6ede7a0db94e26669b23d90043b7d408b8b989edeaeaa8879930",
+  "baseline_ledger": "D:\\dachuang2026\\GHXTox\\runs\\quick_full_margin_baseline_oof_v1\\quick_full_oof_ledger.csv",
+  "baseline_ledger_sha256": "c69df0fec7d229d0850b93826cc40e37e8839bc65b39398720aa11848f164dc0",
+  "features": [
+    "p_quick",
+    "quick_margin",
+    "sequence_seed_dispersion",
+    "sequence_length",
+    "net_charge_ph7",
+    "hydropathy_kd",
+    "basic_fraction",
+    "hydrophobic_fraction",
+    "aromatic_fraction",
+    "cys_count",
+    "cys_fraction",
+    "cys_span_fraction",
+    "cys_min_gap_fraction",
+    "cys_adjacent_pairs",
+    "cys_terminal_count"
+  ],
+  "post_full_features_used": false,
+  "route_policy": {
+    "trigger": "predicted_brier_gain_gt_full_analysis_cost",
+    "full_analysis_cost": 0.0025
+  },
+  "structure_rate": 0.24737748551745734,
+  "margin_baseline_rate": 0.10004697040864255,
+  "router": {
+    "brier": 0.04343846414692955,
+    "cost_adjusted_utility": 0.04405690786072319,
+    "mean_realized_gain_selected": 0.007815352227880686,
+    "corrected": 97,
+    "regressed": 48,
+    "net_corrections": 49
+  },
+  "margin_baseline": {
+    "brier": 0.04351699013475764,
+    "cost_adjusted_utility": 0.04376710756077925,
+    "mean_realized_gain_selected": 0.018539453890130658,
+    "corrected": 97,
+    "regressed": 48,
+    "net_corrections": 49
+  },
+  "quick_only": {
+    "brier": 0.04537180632949594,
+    "cost_adjusted_utility": 0.04537180632949594
+  },
+  "output": "D:\\dachuang2026\\GHXTox\\runs\\quick_full_adaptive_router_oof_v1\\cross_fitted_routes.csv",
+  "output_sha256": "ee87e8afea0a814eb91406742e88a90fa82dbe91f2acfa19887bc247bfef50b7",
+  "promotion": {
+    "decision": "retain_margin_baseline",
+    "criteria": {
+      "cost_adjusted_utility": "strictly lower than frozen margin baseline",
+      "net_corrections": "strictly positive",
+      "mean_realized_gain_selected": "strictly greater than full_analysis_cost"
+    }
+  }
+}

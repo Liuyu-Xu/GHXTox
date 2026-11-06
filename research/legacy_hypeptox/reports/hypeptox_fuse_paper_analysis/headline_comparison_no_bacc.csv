@@ -1,0 +1,10 @@
+metric,metric_key,ours,hypeptox_fuse,advantage_positive_is_better,direction,note
+ACC,accuracy,0.908514,0.906700,0.001814,ours_better,
+SN,sn,0.895833,0.883200,0.012633,ours_better,
+SP,sp,0.921196,0.930300,-0.009104,hypeptox_fuse_better,
+F1,f1,0.907339,0.904500,0.002839,ours_better,
+MCC,mcc,0.817292,0.814300,0.002992,ours_better,
+AUROC,auroc,0.958042,0.962400,-0.004358,hypeptox_fuse_better,
+AUPRC,auprc,0.961094,,,not_reported_by_hypeptox_fuse,HyPepTox-Fuse paper table did not report this metric.
+Brier,brier,0.079121,,,not_reported_by_hypeptox_fuse,HyPepTox-Fuse paper table did not report this metric.
+ECE-10,ece_10,0.053743,,,not_reported_by_hypeptox_fuse,HyPepTox-Fuse paper table did not report this metric.

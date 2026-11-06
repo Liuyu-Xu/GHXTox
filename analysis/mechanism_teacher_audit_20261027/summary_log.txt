@@ -1,0 +1,15 @@
+hemopi2 AUTHOR {'n': 386, 'MCC': 0.5894834685373935, 'AUROC': 0.8746660189458342, 'AUPRC': 0.8554072120854277, 'errors': 79}
+shared_low_cys_FN [('all', 151, 45), ('no_exact_public', 143, 39), ('below_0_7_public_edit_similarity', 138, 37), ('training_length_range_and_below_0_7', 127, 29)]
+physical_0_both_correct_pool [('all', 213, 98), ('no_exact_public', 213, 98), ('below_0_7_public_edit_similarity', 210, 95), ('training_length_range_and_below_0_7', 185, 73)]
+shared_high_cys_FP [('all', 64, 60), ('no_exact_public', 64, 60), ('below_0_7_public_edit_similarity', 63, 59), ('training_length_range_and_below_0_7', 49, 45)]
+physical_1_both_correct_pool [('all', 357, 350), ('no_exact_public', 345, 338), ('below_0_7_public_edit_similarity', 277, 270), ('training_length_range_and_below_0_7', 73, 66)]
+hemopi2_hybrid AUTHOR {'n': 386, 'MCC': 0.6514879106581565, 'AUROC': 0.9194802040320621, 'AUPRC': 0.906321877908149, 'errors': 67}
+shared_low_cys_FN [('all', 151, 51), ('no_exact_public', 143, 45), ('below_0_7_public_edit_similarity', 138, 43), ('training_length_range_and_below_0_7', 127, 36)]
+physical_0_both_correct_pool [('all', 213, 85), ('no_exact_public', 213, 85), ('below_0_7_public_edit_similarity', 210, 82), ('training_length_range_and_below_0_7', 185, 66)]
+shared_high_cys_FP [('all', 64, 56), ('no_exact_public', 64, 56), ('below_0_7_public_edit_similarity', 63, 55), ('training_length_range_and_below_0_7', 49, 41)]
+physical_1_both_correct_pool [('all', 357, 321), ('no_exact_public', 345, 309), ('below_0_7_public_edit_similarity', 277, 241), ('training_length_range_and_below_0_7', 73, 66)]
+ntxpred2 AUTHOR {'n': 351, 'MCC': 1.0, 'AUROC': 1.0, 'AUPRC': 1.0000000000000004, 'errors': 0}
+shared_low_cys_FN [('all', 151, 42), ('no_exact_public', 107, 15), ('below_0_7_public_edit_similarity', 99, 14), ('training_length_range_and_below_0_7', 99, 14)]
+physical_0_both_correct_pool [('all', 213, 71), ('no_exact_public', 166, 38), ('below_0_7_public_edit_similarity', 152, 33), ('training_length_range_and_below_0_7', 152, 33)]
+shared_high_cys_FP [('all', 64, 35), ('no_exact_public', 35, 27), ('below_0_7_public_edit_similarity', 33, 27), ('training_length_range_and_below_0_7', 33, 27)]
+physical_1_both_correct_pool [('all', 357, 47), ('no_exact_public', 322, 45), ('below_0_7_public_edit_similarity', 293, 40), ('training_length_range_and_below_0_7', 293, 40)]

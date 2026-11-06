@@ -1,0 +1,13 @@
+{
+ "reason":"Preflight mathematical reachability and verified LoRA backward disconnection require a change of experiment scope, NOT choosing arms by observed performance",
+ "original_protocol_preserved":"protocol.json",
+ "structural_stage_status":"Only outerfold0 A/B/C completed (3 fits,6 epochs each); remaining outerfolds intentionally stopped because8/11 target positives are unreachable when frozen1D and fixed fusion remain. No full fivefold result exists.",
+ "weight_levels_unchanged":{"A":1.0,"B_lowCys_positive":1.5,"C_MCD_NDBP_total":2.0},
+ "main_sequence_stage":"Repair gradient checkpointing consistently in all arms, then retrain actual1D LoRA+BiMamba with same outer/inner roles. Do not initialize from whole-data trained checkpoints.",
+ "native_sequence_settings":"15epochs,batch16,AdamW lr0.0003 wd0.01, same original class pos_weight calculated only in train role for A/B/C, extra sample weights1/1.5/2.0, same unweighted validation BCE selection and own calibration role",
+ "new_smoke_status":"Real supplied pretrained ProtT5 backbone, same 3 training-role examples and initial trainable parameters, 2 optimizer steps each A/B/C; all144 LoRA_B tensors have nonzero grads and updates in every arm",
+ "old_final_checkpoint_scope":"All144 LoRA_B tensors are exactly zero in each of final seeds42,123,2025. This proves zero LoRA additive output in those checkpoints, not absence of learned BiMamba/classifier parameters. No missing old fold checkpoint is inferred as inspected.",
+ "fairness":"All A/B/C must use the repaired training entrypoint; historical pre-fix A versus repaired B/C confounds bugfix and sample weighting",
+ "planned_sequence_results":"Not yet generated. Single-seed outputs are not the published three-seed ensemble. If run all3 seeds, calibrate ensemble only in heldout calibration roles before final full-fusion evaluation.",
+ "do_not_claim":"No full A/B/C efficacy ranking or improved generalization from smoke or one structural fold. Old results/checkpoints/predictions not overwritten."
+}

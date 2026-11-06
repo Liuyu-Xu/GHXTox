@@ -1,0 +1,81 @@
+{
+  "status": "complete",
+  "decision": "promote_recall_residual",
+  "promotion_authorized": true,
+  "selected_config": {
+    "name": "shallow_e80",
+    "hidden_layers": [
+      16
+    ],
+    "epochs": 80,
+    "alpha": 0.01
+  },
+  "full_gate_threshold": 0.9298851979999941,
+  "research_default_oof": null,
+  "test2": {
+    "rows": 582,
+    "disagreement_rows": 12,
+    "active_rows": 1,
+    "reference": {
+      "accuracy": 0.9432989690721649,
+      "balanced_accuracy": 0.8499756651524983,
+      "precision": 0.6181818181818182,
+      "sensitivity": 0.7391304347826086,
+      "sn": 0.7391304347826086,
+      "recall": 0.7391304347826086,
+      "specificity": 0.960820895522388,
+      "sp": 0.960820895522388,
+      "f1": 0.6732673267326733,
+      "mcc": 0.6455687533467624,
+      "auroc": 0.9577790395846852,
+      "auprc": 0.7849344823590492,
+      "brier": 0.04725696295912123,
+      "ece_10": 0.04380254414422234,
+      "tp": 34.0,
+      "tn": 515.0,
+      "fp": 21.0,
+      "fn": 12.0,
+      "threshold": 0.6
+    },
+    "metrics": {
+      "accuracy": 0.9450171821305842,
+      "balanced_accuracy": 0.8608452303698897,
+      "precision": 0.625,
+      "sensitivity": 0.7608695652173914,
+      "sn": 0.7608695652173914,
+      "recall": 0.7608695652173914,
+      "specificity": 0.960820895522388,
+      "sp": 0.960820895522388,
+      "f1": 0.6862745098039216,
+      "mcc": 0.660275815020711,
+      "auroc": 0.9577790395846852,
+      "auprc": 0.7849344823590492,
+      "brier": 0.04725696295912123,
+      "ece_10": 0.04380254414422234,
+      "tp": 35.0,
+      "tn": 515.0,
+      "fp": 21.0,
+      "fn": 11.0,
+      "threshold": 0.6
+    },
+    "delta": {
+      "accuracy": 0.0017182130584192379,
+      "balanced_accuracy": 0.010869565217391353,
+      "sensitivity": 0.021739130434782705,
+      "specificity": 0.0,
+      "f1": 0.013007183071248263,
+      "mcc": 0.01470706167394853,
+      "auroc": 0.0,
+      "auprc": 0.0,
+      "brier": 0.0,
+      "ece_10": 0.0
+    },
+    "other_metrics_nondecreasing": true,
+    "transitions": {
+      "changed": 1,
+      "corrected": 1,
+      "regressed": 0,
+      "net": 1
+    }
+  }
+}

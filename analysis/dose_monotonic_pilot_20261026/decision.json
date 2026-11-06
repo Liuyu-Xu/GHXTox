@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "primary_edit_group_CI_lower_positive": false,
+    "primary_at_least_four_folds_improved": false,
+    "sensitivity_MAE_reduction_positive": false,
+    "primary_increment_MAE_not_worse": true
+  },
+  "continue_gate_passed": false,
+  "action": "do_not_upscale_or_tune_on_these_results"
+}

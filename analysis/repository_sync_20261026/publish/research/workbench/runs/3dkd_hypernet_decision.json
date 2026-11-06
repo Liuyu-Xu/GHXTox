@@ -1,0 +1,13 @@
+{
+  "artifact_type": "3dkd_hypernet_decision",
+  "version": "v1",
+  "date": "2026-09-05",
+  "decision": "retain_as_ablation",
+  "checks": {
+    "C_vs_A": "fail",
+    "C_vs_D": "fail",
+    "C_vs_B": "fail"
+  },
+  "v1_modified": false,
+  "test1_test2_used": false
+}

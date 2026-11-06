@@ -1,0 +1,138 @@
+{
+  "old_checkpoint_inspection": [
+    {
+      "seed": 42,
+      "file": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\full_seed42.pt",
+      "B_tensors": 144,
+      "B_nonzero_tensors": 0
+    },
+    {
+      "seed": 123,
+      "file": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\full_seed123.pt",
+      "B_tensors": 144,
+      "B_nonzero_tensors": 0
+    },
+    {
+      "seed": 2025,
+      "file": "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\full_seed2025.pt",
+      "B_tensors": 144,
+      "B_nonzero_tensors": 0
+    }
+  ],
+  "new_actual_architecture_weighted_gradient_smoke": [
+    {
+      "arm": "A",
+      "samples": [
+        "peptide_44",
+        "peptide_4",
+        "peptide_1819"
+      ],
+      "extra_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_trainable_sha256": "25d95f3e8a4e12e0de90d8283db568b7799bd52c3984c44d2870de8baaf899e2",
+      "seconds": 1.132699728012085,
+      "peak_cuda_bytes": 2745782272,
+      "steps": [
+        {
+          "step": 1,
+          "loss": 1.8219470977783203,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 28.530881881713867
+        },
+        {
+          "step": 2,
+          "loss": 0.6642952561378479,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 9.402568817138672
+        }
+      ],
+      "B_nonzero_after_steps": 144,
+      "outer_eval_or_validation_used": false
+    },
+    {
+      "arm": "B",
+      "samples": [
+        "peptide_44",
+        "peptide_4",
+        "peptide_1819"
+      ],
+      "extra_weights": [
+        1.5,
+        1.5,
+        1.0
+      ],
+      "initial_trainable_sha256": "25d95f3e8a4e12e0de90d8283db568b7799bd52c3984c44d2870de8baaf899e2",
+      "seconds": 0.6461215019226074,
+      "peak_cuda_bytes": 2745782272,
+      "steps": [
+        {
+          "step": 1,
+          "loss": 1.9284621477127075,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 32.5794677734375
+        },
+        {
+          "step": 2,
+          "loss": 0.6128080487251282,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 7.670863628387451
+        }
+      ],
+      "B_nonzero_after_steps": 144,
+      "outer_eval_or_validation_used": false
+    },
+    {
+      "arm": "C",
+      "samples": [
+        "peptide_44",
+        "peptide_4",
+        "peptide_1819"
+      ],
+      "extra_weights": [
+        2.0,
+        1.5,
+        1.0
+      ],
+      "initial_trainable_sha256": "25d95f3e8a4e12e0de90d8283db568b7799bd52c3984c44d2870de8baaf899e2",
+      "seconds": 0.6267280578613281,
+      "peak_cuda_bytes": 2745782272,
+      "steps": [
+        {
+          "step": 1,
+          "loss": 1.9539121389389038,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 33.84965515136719
+        },
+        {
+          "step": 2,
+          "loss": 0.5849306583404541,
+          "B_grad_present": 144,
+          "B_grad_nonzero": 144,
+          "B_tensors": 144,
+          "gradient_norm_before_clip": 7.041479110717773
+        }
+      ],
+      "B_nonzero_after_steps": 144,
+      "outer_eval_or_validation_used": false
+    }
+  ],
+  "trainable_parameters": 13117569,
+  "frozen_parameters": 1208141824,
+  "model_source_sha256": "6037863c0c6e973fc96632343e00a6f415e5e79df0e768f0e406798d5ab75f1a",
+  "fix": "non-reentrant activation checkpointing; frozen embeddings no longer disconnect LoRA",
+  "no_OOF_performance_claim": true,
+  "no_old_checkpoint_overwrite": true
+}

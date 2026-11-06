@@ -1,0 +1,37 @@
+{
+  "base_cache": {
+    "model_name": "ProtTox-TSK",
+    "model_version": "prottox-tsk-v1",
+    "path": "runs\\prottox_tsk_v1\\features.pt",
+    "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+  },
+  "cache": {
+    "path": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "records": 6387,
+    "sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a"
+  },
+  "checks": {
+    "all_targets_finite": true,
+    "exact_fold_mapping": true,
+    "exact_label_mapping": true,
+    "exact_sequence_mapping": true,
+    "test_data_used": false
+  },
+  "fold_manifest": {
+    "path": "data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+    "sha256": "a2a2c1ed1ac5bc4e8efbcce6c50662950d2243f14b336ca46428faa2376f6dbe"
+  },
+  "format_version": 1,
+  "model_name": "ProtTox-StructGuide",
+  "model_version": "prottox-struct-guide-v1",
+  "structure_quality_source": {
+    "fields": [
+      "mean_plddt",
+      "min_plddt",
+      "low_plddt_fraction"
+    ],
+    "path": "runs\\conformer_ensemble_residual_oof\\full_calibrated_predictions.csv",
+    "scope": "training-only offline structure-quality targets; not inference inputs",
+    "sha256": "13aa080dea07af24945c89115575b592cc74106204e34741d6cdbb0f8ea05dc0"
+  }
+}

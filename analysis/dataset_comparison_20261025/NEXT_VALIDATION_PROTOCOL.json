@@ -1,0 +1,28 @@
+{
+  "task": "prospective_metadata_review_then_frozen_endpoint_validation",
+  "created": "2026-10-25",
+  "scope": "linear standard20 length11-50; unrepresented modifications require explicit separate handling",
+  "primary_candidate_panel": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\hemopi2_independent_priority_panel.csv",
+  "panel_sha256": "97437308e65b72cf5d923e673e8d08c3dd7231759f29e8fe84061ec66c8cc1a5",
+  "status": "candidate_manifest_frozen_for_evidence_review; not_final_gold_test",
+  "label_policy": "retain source HC50 and threshold100uM; validate assay comparability before binary scoring; unknown not negative",
+  "identity": "final traceback global identity<=40% to allGHXToxknown, no exact fragment containment",
+  "additional_exclusions": "same molecular entity/PTM/species/time/assay; family and study grouping",
+  "outcome_policy": "no GHXTox predictions inspected on these candidate records; do not develop from final outcomes",
+  "required_before_evaluation": [
+    "original assay provenance",
+    "chemistry/terminal forms",
+    "study/family grouping",
+    "frozen model/checkpoint/calibration hashes",
+    "fixed thresholds/metrics/paired resampling"
+  ],
+  "caution": "GHXTox broad toxin score applied to RBC endpoint is endpoint transfer, not a universal toxicity validation",
+  "metrics": [
+    "AUROC",
+    "AUPRC with prevalence",
+    "MCC at frozen threshold",
+    "sensitivity",
+    "specificity",
+    "paired confidence intervals; study/family clustering where possible"
+  ]
+}

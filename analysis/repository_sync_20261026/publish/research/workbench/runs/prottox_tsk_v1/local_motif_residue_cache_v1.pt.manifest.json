@@ -1,0 +1,32 @@
+{
+  "artifact": "runs\\prottox_tsk_v1\\local_motif_residue_cache_v1.pt",
+  "artifact_sha256": "48d6311505534c6a8256b1ae0ea762c3c86b016bf47f12a8aaab3b462f2e9f2a",
+  "base_cache": {
+    "model_name": "ProtTox-TSK",
+    "model_version": "prottox-tsk-v1",
+    "path": "runs\\prottox_tsk_v1\\features.pt",
+    "sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8"
+  },
+  "encoder": {
+    "embedding_dim": 1024,
+    "frozen": true,
+    "identifier": "prot_t5_xl_half_uniref50-enc",
+    "storage_dtype": "float16"
+  },
+  "feature_contract": [
+    "base_tristat_3072",
+    "base_physchem_9",
+    "frozen_residue_embeddings_float16"
+  ],
+  "format_version": "prottox-local-motif-residue-cache-v1",
+  "max_sequence_length": 50,
+  "model_name": "ProtTox-LocalMotif",
+  "model_version": "prottox-local-motif-residue-cache-v1",
+  "records": 6387,
+  "residues": 201994,
+  "scope": "LocalMotif candidate only; training cache; Test1/Test2 excluded",
+  "source": {
+    "path": "D:\\dachuang2026\\ziliao\\train_prott5_official_mean.pt",
+    "sha256": "71b8b55be48855e8feab3a3cc0c132229e85521be8db461be819c8fb9c0df2d5"
+  }
+}

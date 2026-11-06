@@ -1,0 +1,22 @@
+{
+  "checks_passed": true,
+  "model_rows": 3380,
+  "five_field_panels": 2137,
+  "three_plus_points": 1308,
+  "three_plus_pH_unknown": true,
+  "confirmed_raw_non_point_ids": [
+    "11995",
+    "12005",
+    "12015",
+    "12025"
+  ],
+  "confirmed_strict_non_point_ids": [
+    "11995",
+    "12005",
+    "12025"
+  ],
+  "no_fitting_or_prediction_access": true,
+  "source_xml_sha256": "e7ae0c227f315cbab43c472c7d3a365771f0e71202ce15dc5dcca1f1c6d3bcdf",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8348142/fullTextXML",
+  "table_id": "molecules-26-04654-t004"
+}

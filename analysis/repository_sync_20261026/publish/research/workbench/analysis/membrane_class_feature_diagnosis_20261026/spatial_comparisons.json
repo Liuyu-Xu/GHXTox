@@ -1,0 +1,117 @@
+[
+  {
+    "feature": "hydrophobic_contact_excess",
+    "n_valid": 76,
+    "missing_sample_ids": [],
+    "raw_group_difference": -0.01140639243702235,
+    "adjusted_residual_group_difference": -0.11505028056581203,
+    "ci95": [
+      -0.5051699790912305,
+      0.3401080343162374
+    ],
+    "ci9875": [
+      -0.6020141750255702,
+      0.4879373009375914
+    ],
+    "valid_draws": 5000,
+    "fold_differences": {
+      "0": 0.03502163825477668,
+      "1": -0.3773995432366205,
+      "2": 1.8739075858861565,
+      "3": -0.642006689458231,
+      "4": -0.312703120017945
+    },
+    "folds_same_sign": 3,
+    "no_simple_flag_difference": -0.35473552133820685,
+    "evidence_caution_difference": -0.1455940075659731,
+    "continue_screen_passed": false,
+    "scope": "residual association with old error; not causal effect, classifier gain, family-matched or heldout study validation"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "n_valid": 76,
+    "missing_sample_ids": [],
+    "raw_group_difference": -0.0019388483780280914,
+    "adjusted_residual_group_difference": 0.22723761407367477,
+    "ci95": [
+      -0.26693340101360835,
+      0.7234312368539727
+    ],
+    "ci9875": [
+      -0.3811136132129703,
+      0.8771336773316327
+    ],
+    "valid_draws": 5000,
+    "fold_differences": {
+      "0": -0.048921372461562224,
+      "1": 0.3344177069234696,
+      "2": -0.08486032992228086,
+      "3": 0.5891752701258166,
+      "4": -0.08806032012105286
+    },
+    "folds_same_sign": 2,
+    "no_simple_flag_difference": -0.23934707477421666,
+    "evidence_caution_difference": -0.5208867353483724,
+    "continue_screen_passed": false,
+    "scope": "residual association with old error; not causal effect, classifier gain, family-matched or heldout study validation"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "n_valid": 74,
+    "missing_sample_ids": [
+      "peptide_721",
+      "peptide_871"
+    ],
+    "raw_group_difference": 0.20729311859494248,
+    "adjusted_residual_group_difference": 0.37194544546180675,
+    "ci95": [
+      -0.13908654479444119,
+      0.8925691289416249
+    ],
+    "ci9875": [
+      -0.2841910036040424,
+      1.0400779937601805
+    ],
+    "valid_draws": 5000,
+    "fold_differences": {
+      "0": 1.1107668579007046,
+      "1": -0.16132194123483423,
+      "2": 0.43080208893977445,
+      "3": -0.03987245754082393,
+      "4": 0.3454131974267871
+    },
+    "folds_same_sign": 3,
+    "no_simple_flag_difference": 0.43903377955727585,
+    "evidence_caution_difference": 1.3889111679237127,
+    "continue_screen_passed": false,
+    "scope": "residual association with old error; not causal effect, classifier gain, family-matched or heldout study validation"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "n_valid": 76,
+    "missing_sample_ids": [],
+    "raw_group_difference": 0.07882192183257986,
+    "adjusted_residual_group_difference": 0.07900315857286565,
+    "ci95": [
+      -0.31973398469655323,
+      0.4855300493175899
+    ],
+    "ci9875": [
+      -0.4262911407554034,
+      0.5829667451279967
+    ],
+    "valid_draws": 5000,
+    "fold_differences": {
+      "0": -0.10299435618240045,
+      "1": -0.07969079002174316,
+      "2": 0.26336759041512525,
+      "3": 0.5869339547482085,
+      "4": -0.24345306951064252
+    },
+    "folds_same_sign": 2,
+    "no_simple_flag_difference": -0.15202154352072994,
+    "evidence_caution_difference": -0.2536209485625269,
+    "continue_screen_passed": false,
+    "scope": "residual association with old error; not causal effect, classifier gain, family-matched or heldout study validation"
+  }
+]

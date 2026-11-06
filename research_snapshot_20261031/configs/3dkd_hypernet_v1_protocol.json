@@ -1,0 +1,49 @@
+{
+  "artifact_type": "3d_hypernet_v1_protocol",
+  "phase": "3DKD-HyperNet",
+  "version": "v1",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "ProtTox-3DKD v1": "immutable product baseline"
+  },
+  "architecture": {
+    "base": "Frozen ProtT5 TriStat main features (3072) + 9 PhysChem context",
+    "dynamic_modulation": "W0 + U diag(g(physchem)) V, rank 16",
+    "kd": "outer-safe 3D teacher soft logit, temperature 2, weight 1, on final logit",
+    "deployment": "sequence only; no ESMFold/3D"
+  },
+  "arms": {
+    "A": "v1 frozen",
+    "B": "hypernetwork without KD (existing HNDP-C)",
+    "D": "static low-rank network with KD (new KD control)",
+    "C": "hypernetwork with KD (formal candidate)"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "teacher_targets": "runs\\prottox_3d_distill_v1\\teacher_targets\\teacher_outer{k}_targets.csv"
+  },
+  "promotion_gate": {
+    "C_vs_A": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "C_vs_D": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.002,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "C_vs_B": {
+      "both_seeds_mcc_not_lower": true
+    }
+  }
+}

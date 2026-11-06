@@ -1,0 +1,82 @@
+reference_model,candidate_model,metric,metric_key,reference_value,candidate_value,improvement_positive_is_better,ci95_lower,ci95_upper,bootstrap_probability_reference_better,iterations
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,ACC,accuracy,0.908514,0.882699,0.025815,0.015817,0.036232,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,SN,sn,0.895833,0.871377,0.024457,0.009058,0.039878,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,SP,sp,0.921196,0.894022,0.027174,0.012636,0.041689,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,F1,f1,0.907339,0.881356,0.025984,0.015208,0.036552,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,MCC,mcc,0.817292,0.765595,0.051697,0.031069,0.072508,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,AUROC,auroc,0.958120,0.944805,0.013315,0.008420,0.019067,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,AUPRC,auprc,0.961902,0.947806,0.014096,0.008281,0.021074,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,Brier,brier,0.079121,0.099622,0.020502,0.013101,0.028899,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 baseline,ECE-10,ece_10,0.053744,0.083744,0.030000,0.018768,0.041663,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,ACC,accuracy,0.908514,0.889493,0.019022,0.009964,0.028091,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,SN,sn,0.895833,0.863225,0.032609,0.019905,0.046196,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,SP,sp,0.921196,0.915761,0.005435,-0.006363,0.017233,0.745000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,F1,f1,0.907339,0.886512,0.020828,0.011627,0.030328,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,MCC,mcc,0.817292,0.780063,0.037229,0.019324,0.054667,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,AUROC,auroc,0.958120,0.955548,0.002572,-0.000997,0.006745,0.920000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,AUPRC,auprc,0.961902,0.960823,0.001079,-0.002182,0.004363,0.780000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,Brier,brier,0.079121,0.098065,0.018944,0.013729,0.025601,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM + AugMix,ECE-10,ece_10,0.053744,0.088704,0.034960,0.026225,0.044771,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,ACC,accuracy,0.908514,0.885417,0.023098,0.014040,0.033062,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,SN,sn,0.895833,0.836957,0.058877,0.043456,0.074298,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,SP,sp,0.921196,0.933877,-0.012681,-0.021762,-0.001766,0.010000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,F1,f1,0.907339,0.879581,0.027758,0.017750,0.038655,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,MCC,mcc,0.817292,0.774479,0.042812,0.025888,0.062164,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,AUROC,auroc,0.958120,0.944480,0.013640,0.009705,0.018422,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,AUPRC,auprc,0.961902,0.948178,0.013724,0.007858,0.020162,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,Brier,brier,0.079121,0.103172,0.024051,0.018668,0.030844,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-Geometry + AugMix,ECE-10,ece_10,0.053744,0.093746,0.040002,0.032363,0.050582,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,ACC,accuracy,0.908514,0.891304,0.017210,0.009500,0.026732,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,SN,sn,0.895833,0.868659,0.027174,0.015399,0.038089,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,SP,sp,0.921196,0.913949,0.007246,-0.003623,0.020856,0.875000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,F1,f1,0.907339,0.888786,0.018554,0.010412,0.028670,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,MCC,mcc,0.817292,0.783413,0.033879,0.018200,0.052685,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,AUROC,auroc,0.958120,0.945042,0.013078,0.008744,0.017022,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,AUPRC,auprc,0.961902,0.949180,0.012722,0.008036,0.018266,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,Brier,brier,0.079121,0.099750,0.020629,0.014932,0.027136,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,3D-v2 + AugMix,ECE-10,ece_10,0.053744,0.092309,0.038565,0.028315,0.048886,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,ACC,accuracy,0.908514,0.895380,0.013134,0.007235,0.019486,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,SN,sn,0.895833,0.874094,0.021739,0.009964,0.031726,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,SP,sp,0.921196,0.916667,0.004529,-0.002717,0.012704,0.875000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,F1,f1,0.907339,0.893105,0.014234,0.007601,0.021197,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,MCC,mcc,0.817292,0.791478,0.025813,0.014357,0.038597,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,AUROC,auroc,0.958120,0.956831,0.001289,-0.001509,0.004074,0.810000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,AUPRC,auprc,0.961902,0.961208,0.000694,-0.001481,0.002721,0.735000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,Brier,brier,0.079121,0.083461,0.004340,0.001127,0.007507,0.990000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2-BiLSTM 3-seed ensemble,ECE-10,ece_10,0.053744,0.053658,-0.000086,-0.006168,0.010093,0.700000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,ACC,accuracy,0.908514,0.902627,0.005888,0.001800,0.010417,0.985000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,SN,sn,0.895833,0.873188,0.022645,0.013587,0.029937,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,SP,sp,0.921196,0.932065,-0.010870,-0.016304,-0.005435,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,F1,f1,0.907339,0.899673,0.007666,0.002960,0.012518,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,MCC,mcc,0.817292,0.806653,0.010639,0.002222,0.019740,0.985000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,AUROC,auroc,0.958120,0.958094,0.000026,-0.000481,0.000462,0.560000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,AUPRC,auprc,0.961902,0.961807,0.000095,-0.000335,0.000508,0.715000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,Brier,brier,0.079121,0.079393,0.000273,-0.000544,0.001095,0.725000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2 6-model ensemble,ECE-10,ece_10,0.053744,0.050727,-0.003017,-0.009037,0.002022,0.245000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,ACC,accuracy,0.908514,0.903986,0.004529,-0.000453,0.009511,0.960000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,SN,sn,0.895833,0.875000,0.020833,0.013587,0.029891,1.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,SP,sp,0.921196,0.932971,-0.011775,-0.018116,-0.006341,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,F1,f1,0.907339,0.901119,0.006220,0.001176,0.011521,0.990000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,MCC,mcc,0.817292,0.809332,0.007960,-0.001519,0.017294,0.935000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,AUROC,auroc,0.958120,0.958120,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,AUPRC,auprc,0.961902,0.961902,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,Brier,brier,0.079121,0.079121,-0.000000,-0.000000,0.000000,0.105000,200
+ESM2+3D 7-model ensemble + validation threshold,ESM2+3D 7-model ensemble,ECE-10,ece_10,0.053744,0.053744,-0.000000,-0.000000,0.000000,0.100000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,ACC,accuracy,0.908514,0.908514,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,SN,sn,0.895833,0.895833,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,SP,sp,0.921196,0.921196,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,F1,f1,0.907339,0.907339,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,MCC,mcc,0.817292,0.817292,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,AUROC,auroc,0.958120,0.958042,0.000078,-0.000000,0.000251,0.690000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,AUPRC,auprc,0.961902,0.961088,0.000814,-0.000000,0.002444,0.710000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,Brier,brier,0.079121,0.077665,-0.001455,-0.003979,0.000644,0.100000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + temperature scaling,ECE-10,ece_10,0.053744,0.031499,-0.022245,-0.034495,-0.008553,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,ACC,accuracy,0.908514,0.908514,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,SN,sn,0.895833,0.895833,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,SP,sp,0.921196,0.921196,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,F1,f1,0.907339,0.907339,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,MCC,mcc,0.817292,0.817292,0.000000,0.000000,0.000000,0.000000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,AUROC,auroc,0.958120,0.958042,0.000078,-0.000000,0.000242,0.765000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,AUPRC,auprc,0.961902,0.961088,0.000814,-0.000000,0.002469,0.755000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,Brier,brier,0.079121,0.076951,-0.002169,-0.005067,0.000328,0.060000,200
+ESM2+3D 7-model ensemble + validation threshold,7-model + Platt scaling,ECE-10,ece_10,0.053744,0.033016,-0.020728,-0.030927,-0.005850,0.000000,200

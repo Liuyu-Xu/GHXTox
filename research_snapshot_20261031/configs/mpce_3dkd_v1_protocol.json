@@ -1,0 +1,63 @@
+{
+  "artifact_type": "mpce_3dkd_final_experiment_protocol",
+  "phase": "MPCE-3DKD",
+  "version": "v1-0",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "ProtTox-3DKD v1": "immutable strict deployment baseline; no code/checkpoint modification",
+    "frontend_change_allowed": false
+  },
+  "motivation": "MPCE-B supplies a sequence-only multi-view/multi-prototype architecture with higher MCC; frozen ProtTox-3DKD v1 supplies better AUPRC/Brier. This experiment trains MPCE-B from scratch with the same outer-safe 3D teacher soft targets instead of attaching a post-hoc residual to frozen v1.",
+  "model": {
+    "name": "MPCE-3DKD",
+    "architecture": "MPCE-Net B unchanged: mean/max/std views each projected to 64d, PhysChem projected to 64d, mean*max/mean*std/max*std/mean*physchem low-rank interactions, 4 prototypes per class in 96d cosine space, z_final = z_global + sigmoid(alpha)*z_proto with alpha zero-initialized",
+    "kd_applies_to": "z_final",
+    "kd_temperature": 2.0,
+    "kd_weight": 1.0,
+    "prototype_weight": 0.5,
+    "deployment": "sequence-only; 3D teacher and ESMFold are absent at inference"
+  },
+  "data": {
+    "cache": "D:\\dachuang2026\\GHXTox\\runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "cache_sha256": "9b89e8855ae44f0d93f6f2df8dc9ba0f739918bcb61923d70d1ef0a031c1120a",
+    "teacher_target_dir": "D:\\dachuang2026\\GHXTox\\runs\\prottox_3d_distill_v1\\teacher_targets",
+    "teacher_target_manifest_sha256": "c3a0ee347cbb0491f0264a94b1243ec5fdfb1cb91e823ada4ba7fcba48029498",
+    "teacher_definition": "strict-outer-fold single-structure GHXToxModel; teacher_outer{k} covers every sample outside student fold k; never emits student fold k",
+    "fold_scope": "same audited 6387-row/5-fold manifest bound by the cache; Test1/Test2 never read"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "per_fold_seed": "run_seed + fold",
+    "threshold": 0.5,
+    "loss": "BCE(z_final,y) + 0.5*prototype_class_CE + 1.0*KD(z_final, teacher_logit; T=2.0)",
+    "optimizer": "AdamW weight_decay=1e-4",
+    "output_dirs": [
+      "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_seed20260905_v1",
+      "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_seed20260906_v1"
+    ]
+  },
+  "comparisons": {
+    "A0": "original TriStat-MLP no-KD OOF (existing runs/prottox_tsk_v1 mlp_fivefold*)",
+    "A1": "ProtTox-3DKD v1 frozen two-seed ensemble OOF (context only, immutable)",
+    "B": "MPCE-B no-KD existing OOF runs/mpce_net_b_seed20260905_v1 and seed20260906_v1",
+    "D": "MPCE-3DKD (new candidate)"
+  },
+  "final_recommendation_gate": {
+    "D_vs_B": {
+      "max_mean_mcc_decline": 0.003,
+      "min_mean_auprc_delta": 0.0,
+      "min_mean_brier_improvement": 0.001,
+      "mean_definition": "average over seeds 20260905/20260906"
+    },
+    "decision": {
+      "pass": "MPCE-3DKD is the recommended final patent architecture; ProtTox-3DKD v1 remains the immutable deployment baseline",
+      "fail": "MPCE-B is retained as the final patent architecture; MPCE-3DKD is recorded as the final ablation; ProtTox-3DKD v1 remains the immutable deployment baseline"
+    },
+    "product_gate": "not applicable; this is the closing architecture experiment, not a product replacement"
+  }
+}

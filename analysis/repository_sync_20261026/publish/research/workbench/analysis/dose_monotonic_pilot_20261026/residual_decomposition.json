@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "monotonic_dose",
+    "macro_panel_MSE": 1217.2552430330056,
+    "macro_mean_offset_squared": 1018.3097595293268,
+    "macro_centered_shape_MSE": 198.94548350367893,
+    "mean_offset_share_of_squared_error": 0.8365622291279098,
+    "scope": "post-result descriptive decomposition; test-label means used only for diagnosis, never model input or adjusted prediction; not a new performance claim"
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "model": "unconstrained",
+    "macro_panel_MSE": 1171.1874075388948,
+    "macro_mean_offset_squared": 974.19862868755,
+    "macro_centered_shape_MSE": 196.98877885134476,
+    "mean_offset_share_of_squared_error": 0.8318042205855916,
+    "scope": "post-result descriptive decomposition; test-label means used only for diagnosis, never model input or adjusted prediction; not a new performance claim"
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "monotonic_dose",
+    "macro_panel_MSE": 1126.0217184085516,
+    "macro_mean_offset_squared": 919.688990316051,
+    "macro_centered_shape_MSE": 206.33272809250047,
+    "mean_offset_share_of_squared_error": 0.8167595484888885,
+    "scope": "post-result descriptive decomposition; test-label means used only for diagnosis, never model input or adjusted prediction; not a new performance claim"
+  },
+  {
+    "dataset": "confirmed_overlay_primary",
+    "model": "unconstrained",
+    "macro_panel_MSE": 1094.5911110106267,
+    "macro_mean_offset_squared": 881.6415315517015,
+    "macro_centered_shape_MSE": 212.9495794589252,
+    "mean_offset_share_of_squared_error": 0.8054528514649542,
+    "scope": "post-result descriptive decomposition; test-label means used only for diagnosis, never model input or adjusted prediction; not a new performance claim"
+  }
+]

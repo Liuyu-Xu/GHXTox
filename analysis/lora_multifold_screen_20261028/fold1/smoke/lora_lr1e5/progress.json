@@ -1,0 +1,20 @@
+{
+  "arm": "lora_lr1e5",
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_BCE": 0.877435564994812,
+      "validation_unweighted_BCE": 0.8815189003944397,
+      "successful_optimizer_steps": 2,
+      "AMP_skipped_steps": 0,
+      "order_sha256": "6d404aa79f5cac2c70c6124a479fd589a50f9fc48b6eadd3c2443d867ed9a005",
+      "gradient_audit": {
+        "adapter_tensors": 288,
+        "grad_present": 288
+      },
+      "LoRA_B_tensors_updated": 144,
+      "seconds_since_start": 8.218054294586182
+    }
+  ],
+  "selected_epoch": 1
+}

@@ -1,0 +1,31 @@
+{
+  "plm": "Rostlab/prot_t5_xl_half_uniref50-enc",
+  "token_dim": 1024,
+  "d_model": 192,
+  "d_state": 16,
+  "d_conv": 4,
+  "expand": 2,
+  "n_layers": 2,
+  "lora_rank": 8,
+  "lora_alpha": 16.0,
+  "lora_dropout": 0.1,
+  "dropout": 0.1,
+  "max_length": 128,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "epochs": 15,
+  "fp16": true,
+  "grad_checkpoint": true,
+  "mutation_aug": {
+    "enabled": true,
+    "rate": 0.2,
+    "max_mutations": 2,
+    "identity_threshold": 0.8
+  },
+  "experiment": {
+    "name": "lora_mamba_mutate",
+    "scope": "combination-A + controlled sequence-space point-mutation augmentation (fold-internal, leakage-filtered)",
+    "protocol": "synthetic positives generated only from each training fold; augmented sequences dropped if identity >= 0.8 to any train/val sequence; Test1/Test2 not used for generation or filtering"
+  }
+}

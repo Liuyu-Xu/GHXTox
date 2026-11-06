@@ -1,0 +1,17 @@
+{
+  "cohort": 763,
+  "original_sequences": 763,
+  "eligible_perturbation_records": 5538,
+  "sample_mode_records": 2769,
+  "composition_length_invariants": true,
+  "max_first8_physchem_difference": 8.881784197001252e-16,
+  "max_nonCys_all9_physchem_difference": 6.661338147750939e-16,
+  "all_parent_samples_heldout_by_scored_neural_models": true,
+  "source_hashes_unchanged": true,
+  "neural_models_trained": 0,
+  "mutant_toxicity_labels_assigned": false,
+  "mutant_classification_metrics_computed": false,
+  "all_manifest_compositions_independently_checked": true,
+  "pooling_key_alignment_checked": true,
+  "all_saved_scores_finite": true
+}

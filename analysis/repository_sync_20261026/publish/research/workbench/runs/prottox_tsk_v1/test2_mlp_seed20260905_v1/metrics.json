@@ -1,0 +1,44 @@
+{
+  "checkpoint": {
+    "metadata": {
+      "cache_path": "runs\\prottox_tsk_v1\\features.pt",
+      "cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+      "epochs": 20,
+      "fold_manifest": "data\\folds\\prottox_tsk_train_prott5_official_mean_folds_v1.csv",
+      "seed": 20261905,
+      "selection_scope": "full-data refit after OOF; not an OOF metric source",
+      "trained_records": 6387
+    },
+    "path": "runs\\prottox_tsk_v1\\mlp_fivefold_20epochs_v1\\final_model.pt",
+    "sha256": "89efdb930775df887e3856baa5a6e3f66dd70864315adf4b09a3f4b12b62a188"
+  },
+  "decision_threshold": 0.5,
+  "heldout_cache": {
+    "path": "runs\\prottox_tsk_v1\\test2_features.pt",
+    "sha256": "231d5865833981ad2421b10f987253aed90fb45e3fcb0f89eba39c6f2349d5e3",
+    "source": {
+      "path": "D:\\dachuang2026\\ziliao\\test2_prott5_structure_adapter.pt",
+      "sha256": "2ad97da5d9c8e5b79e866dd911e1c54e0d710e0c5a9e5aa37cc4524bc8db8bd4"
+    }
+  },
+  "leakage_checks": {
+    "checkpoint_training_cache_sha256": "1955e46398dee849f6d6e0240174633ccdb7abe6024bccf7f1509f733591bea8",
+    "heldout_cache_not_training_cache": true,
+    "test_set_not_used_for_model_or_threshold_selection": true
+  },
+  "metrics": {
+    "auprc": 0.6193465918363753,
+    "auroc": 0.9274010382868267,
+    "brier": 0.05662376257523224,
+    "fn": 17,
+    "fp": 25,
+    "mcc": 0.5428831303087144,
+    "threshold": 0.5,
+    "tn": 511,
+    "tp": 29
+  },
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "records": 582,
+  "split": "Test2"
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "fold": 0,
+    "arm": "A",
+    "oof_mean_abs_difference": 6.592942951136075e-05,
+    "oof_max_abs_difference": 0.0016744347735558884,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.8475255342536833,
+    "calibration_intercept": -0.8208622577894338
+  },
+  {
+    "fold": 0,
+    "arm": "B",
+    "oof_mean_abs_difference": 0.00013734757860491638,
+    "oof_max_abs_difference": 0.004806793016897126,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.8526468480996063,
+    "calibration_intercept": -1.3260774632112091
+  },
+  {
+    "fold": 0,
+    "arm": "C",
+    "oof_mean_abs_difference": 0.00012595194336704996,
+    "oof_max_abs_difference": 0.0037675987952506818,
+    "oof_decision_disagreements_0_5": 1,
+    "calibration_coef": 0.5609037990785714,
+    "calibration_intercept": -0.6277224893391974
+  },
+  {
+    "fold": 0,
+    "arm": "D",
+    "oof_mean_abs_difference": 0.00010753508041857725,
+    "oof_max_abs_difference": 0.005337600758227368,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5716628159025868,
+    "calibration_intercept": -0.07065435231566881
+  },
+  {
+    "fold": 1,
+    "arm": "A",
+    "oof_mean_abs_difference": 8.564266832236204e-05,
+    "oof_max_abs_difference": 0.004720964465143973,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.9230406234005764,
+    "calibration_intercept": -0.1476637549568487
+  },
+  {
+    "fold": 1,
+    "arm": "B",
+    "oof_mean_abs_difference": 9.168582331158305e-05,
+    "oof_max_abs_difference": 0.009261897900332716,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5233311990476838,
+    "calibration_intercept": -0.350569834655772
+  },
+  {
+    "fold": 1,
+    "arm": "C",
+    "oof_mean_abs_difference": 9.757364848768493e-05,
+    "oof_max_abs_difference": 0.004006902645191213,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5252992786455413,
+    "calibration_intercept": -0.7649818347683531
+  },
+  {
+    "fold": 1,
+    "arm": "D",
+    "oof_mean_abs_difference": 9.42242803440885e-05,
+    "oof_max_abs_difference": 0.006213211863575374,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.4534407628464596,
+    "calibration_intercept": -0.720343626702543
+  },
+  {
+    "fold": 2,
+    "arm": "A",
+    "oof_mean_abs_difference": 9.249838874891217e-05,
+    "oof_max_abs_difference": 0.008219356340475992,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.7420232821833741,
+    "calibration_intercept": -0.6316396504751762
+  },
+  {
+    "fold": 2,
+    "arm": "B",
+    "oof_mean_abs_difference": 0.00012042446861960789,
+    "oof_max_abs_difference": 0.006511456817104855,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.47872590603051624,
+    "calibration_intercept": -0.5319564758350043
+  },
+  {
+    "fold": 2,
+    "arm": "C",
+    "oof_mean_abs_difference": 0.00011536524532717296,
+    "oof_max_abs_difference": 0.003712373463625851,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5821992395880309,
+    "calibration_intercept": -0.49618620769716565
+  },
+  {
+    "fold": 2,
+    "arm": "D",
+    "oof_mean_abs_difference": 0.00011347620274713348,
+    "oof_max_abs_difference": 0.0030077165830286745,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5537858258892199,
+    "calibration_intercept": -0.541561447765513
+  },
+  {
+    "fold": 3,
+    "arm": "A",
+    "oof_mean_abs_difference": 9.017940911845147e-05,
+    "oof_max_abs_difference": 0.003929803792100617,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.7773899090303715,
+    "calibration_intercept": -0.470154453426937
+  },
+  {
+    "fold": 3,
+    "arm": "B",
+    "oof_mean_abs_difference": 0.000137671225559205,
+    "oof_max_abs_difference": 0.0075649249274797326,
+    "oof_decision_disagreements_0_5": 1,
+    "calibration_coef": 0.568123427991685,
+    "calibration_intercept": -1.595928069605641
+  },
+  {
+    "fold": 3,
+    "arm": "C",
+    "oof_mean_abs_difference": 0.0001318829737874338,
+    "oof_max_abs_difference": 0.006243501914832805,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5027377538248745,
+    "calibration_intercept": -1.1157660388773754
+  },
+  {
+    "fold": 3,
+    "arm": "D",
+    "oof_mean_abs_difference": 0.00012393631938954685,
+    "oof_max_abs_difference": 0.003761957020317286,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.5693311615246178,
+    "calibration_intercept": -0.7533485118153661
+  },
+  {
+    "fold": 4,
+    "arm": "A",
+    "oof_mean_abs_difference": 7.874153301562548e-05,
+    "oof_max_abs_difference": 0.005642637627476077,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.6313724760160796,
+    "calibration_intercept": -0.4999041285846212
+  },
+  {
+    "fold": 4,
+    "arm": "B",
+    "oof_mean_abs_difference": 9.072466472380362e-05,
+    "oof_max_abs_difference": 0.006525438529227046,
+    "oof_decision_disagreements_0_5": 1,
+    "calibration_coef": 0.5598729026046003,
+    "calibration_intercept": -0.5664979735298594
+  },
+  {
+    "fold": 4,
+    "arm": "C",
+    "oof_mean_abs_difference": 0.00010934508930482648,
+    "oof_max_abs_difference": 0.0032042203877015174,
+    "oof_decision_disagreements_0_5": 0,
+    "calibration_coef": 0.6050435324633141,
+    "calibration_intercept": -0.8993919154896042
+  },
+  {
+    "fold": 4,
+    "arm": "D",
+    "oof_mean_abs_difference": 0.00010664707417741649,
+    "oof_max_abs_difference": 0.006979519214268037,
+    "oof_decision_disagreements_0_5": 2,
+    "calibration_coef": 0.5677279668819778,
+    "calibration_intercept": -0.4187383066641866
+  }
+]

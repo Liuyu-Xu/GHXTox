@@ -1,0 +1,4003 @@
+[
+  {
+    "sample_id": "peptide_114",
+    "sequence": "GKCGEINGSCDECYGGSVTCDCY",
+    "original_label": 1,
+    "fold": 4,
+    "group_id": "reference_000109",
+    "cohort": "unreproduced_rescue",
+    "name": "U1-ctenitoxin-Co1a (U1-CNTX-Co1a) (Neurotoxin Oc F17-11)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P85266/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 23.0,
+      "cys_count": 5.0,
+      "cys_span_fraction": 0.8636363636363636,
+      "net_charge_proxy": -3.0,
+      "mean_hydropathy": -0.3086956521739131,
+      "aromatic_fraction": 0.08695652173913043,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.21739130434782608,
+      "local_positive_excess": 0.09937888198757763,
+      "local_hydrophobic_excess": 0.124223602484472,
+      "ideal_alpha_hydrophobic_moment": 0.11489198925850365,
+      "mean_plddt": 0.520843446,
+      "hydrophobic_contact_excess": 0.1873015873015873,
+      "positive_hydrophobic_contact_excess": -0.0007936507936507943,
+      "charge_hydrophobic_separation": 0.9470118559186412,
+      "nonlocal_contact_density": 0.17142857142857143,
+      "ca_radius_gyration": 7.388750211448355,
+      "max_otherfold_kmer_cosine": 0.1933005303144455,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": true,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": true,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [
+          "FUNCTION: Insecticidal neurotoxin that reversibly inhibits the N-methyl-D-aspartate (NMDA)-subtype of ionotropic glutamate receptor (GRIN) and inhibits inactivation of insect sodium channels (Nav)."
+        ],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [
+          "FUNCTION: Insecticidal neurotoxin that reversibly inhibits the N-methyl-D-aspartate (NMDA)-subtype of ionotropic glutamate receptor (GRIN) and inhibits inactivation of insect sodium channels (Nav)."
+        ],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.997302430917512,
+      0.9987295614630559
+    ],
+    "composition_estimates_raw": [
+      0.9310828751702727,
+      0.9381584925627882
+    ],
+    "composition_residual_raw": [
+      0.06621955574723937,
+      0.060571068900267755
+    ],
+    "composition_residual_clipped": [
+      0.06621955574723937,
+      0.060571068900267755
+    ],
+    "label_oriented_residual": [
+      0.06621955574723937,
+      0.060571068900267755
+    ],
+    "baseline_seed_probabilities": [
+      0.008919844245215618,
+      0.0198819448315287
+    ],
+    "seed_fusion_probabilities": [
+      0.5031111375813638,
+      0.5093057531472923
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.4700013597077441,
+      0.47902021869715844
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_225",
+    "sequence": "MRCLPVFVILLLLIASAPSVDDNAKGTQHKRIINWCCLTFYQCC",
+    "original_label": 1,
+    "fold": 3,
+    "group_id": "reference_001369",
+    "cohort": "unreproduced_rescue",
+    "name": "Conotoxin Sr5.5",
+    "name_class": [
+      "conotoxin_broad"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/C0KYC4/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 44.0,
+      "cys_count": 5.0,
+      "cys_span_fraction": 0.9534883720930233,
+      "net_charge_proxy": 2.0,
+      "mean_hydropathy": 0.6590909090909091,
+      "aromatic_fraction": 0.09090909090909091,
+      "proline_fraction": 0.045454545454545456,
+      "glycine_fraction": 0.022727272727272728,
+      "local_positive_excess": 0.33766233766233766,
+      "local_hydrophobic_excess": 0.45454545454545436,
+      "ideal_alpha_hydrophobic_moment": 0.08159903493674667,
+      "mean_plddt": 0.483118147,
+      "hydrophobic_contact_excess": 0.26399288308992513,
+      "positive_hydrophobic_contact_excess": -0.10336817653890824,
+      "charge_hydrophobic_separation": 0.484290852388365,
+      "nonlocal_contact_density": 0.0545876887340302,
+      "ca_radius_gyration": 18.56032866138422,
+      "max_otherfold_kmer_cosine": 0.10662904381752014,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:conotoxin_broad": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9950422592266722,
+      0.9935515277560332
+    ],
+    "composition_estimates_raw": [
+      0.5213655782403999,
+      0.5543905205354555
+    ],
+    "composition_residual_raw": [
+      0.47367668098627236,
+      0.4391610072205777
+    ],
+    "composition_residual_clipped": [
+      0.47367668098627236,
+      0.4391610072205777
+    ],
+    "label_oriented_residual": [
+      0.47367668098627236,
+      0.4391610072205777
+    ],
+    "baseline_seed_probabilities": [
+      0.2375055051679531,
+      0.26574488792360107
+    ],
+    "seed_fusion_probabilities": [
+      0.6162738821973126,
+      0.6296482078398171
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.3794355417041764,
+      0.41006770422952826
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_359",
+    "sequence": "GEEERKAMAELEAKKAQEALKA",
+    "original_label": 1,
+    "fold": 0,
+    "group_id": "reference_000350",
+    "cohort": "unreproduced_rescue",
+    "name": "Conantokin-Oc (Con-Oc)",
+    "name_class": [
+      "conantokin"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P0DP00/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 22.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": -1.0,
+      "mean_hydropathy": -1.1227272727272726,
+      "aromatic_fraction": 0.0,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.045454545454545456,
+      "local_positive_excess": 0.05844155844155843,
+      "local_hydrophobic_excess": 0.3051948051948051,
+      "ideal_alpha_hydrophobic_moment": 0.13669963084591108,
+      "mean_plddt": 0.912372768,
+      "hydrophobic_contact_excess": 0.036557610241820776,
+      "positive_hydrophobic_contact_excess": -0.022048364153627292,
+      "charge_hydrophobic_separation": 0.2770105252397229,
+      "nonlocal_contact_density": 0.19473684210526315,
+      "ca_radius_gyration": 9.777888666486911,
+      "max_otherfold_kmer_cosine": 0.10461680591106415,
+      "unmasked_fraction": 0.9090909090909091
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": true,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": true,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:conantokin": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [
+          "FUNCTION: Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors."
+        ],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [
+          "FUNCTION: Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors."
+        ],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9997353267091692,
+      0.9800872335846202
+    ],
+    "composition_estimates_raw": [
+      0.2995083095735673,
+      0.29886403534778067
+    ],
+    "composition_residual_raw": [
+      0.700227017135602,
+      0.6812231982368395
+    ],
+    "composition_residual_clipped": [
+      0.700227017135602,
+      0.6812231982368395
+    ],
+    "label_oriented_residual": [
+      0.700227017135602,
+      0.6812231982368395
+    ],
+    "baseline_seed_probabilities": [
+      0.4394006242689968,
+      0.14402234681758327
+    ],
+    "seed_fusion_probabilities": [
+      0.719567975489083,
+      0.5620547902011017
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.36945446692128203,
+      0.22144319108268196
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_420",
+    "sequence": "NERHVTCFYVKFGCKHTECITTIVFCWQTASDISSV",
+    "original_label": 1,
+    "fold": 4,
+    "group_id": "reference_000411",
+    "cohort": "unreproduced_rescue",
+    "name": "Conotoxin Cl14.10",
+    "name_class": [
+      "conotoxin_broad"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/D6C4I4/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 36.0,
+      "cys_count": 4.0,
+      "cys_span_fraction": 0.5428571428571428,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": 0.1611111111111111,
+      "aromatic_fraction": 0.1388888888888889,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.027777777777777776,
+      "local_positive_excess": 0.20238095238095238,
+      "local_hydrophobic_excess": 0.2976190476190475,
+      "ideal_alpha_hydrophobic_moment": 0.08098630056461001,
+      "mean_plddt": 0.594500005,
+      "hydrophobic_contact_excess": 0.1585290242579245,
+      "positive_hydrophobic_contact_excess": -0.029605518096566696,
+      "charge_hydrophobic_separation": 0.3875746355712777,
+      "nonlocal_contact_density": 0.08199643493761141,
+      "ca_radius_gyration": 15.64753193357522,
+      "max_otherfold_kmer_cosine": 0.09434977918863297,
+      "unmasked_fraction": 0.027777777777777776
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": true,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:conotoxin_broad": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9753000017291322,
+      0.9712088006014544
+    ],
+    "composition_estimates_raw": [
+      0.3685245658092747,
+      0.3426673459858022
+    ],
+    "composition_residual_raw": [
+      0.6067754359198576,
+      0.6285414546156523
+    ],
+    "composition_residual_clipped": [
+      0.6067754359198576,
+      0.6285414546156523
+    ],
+    "label_oriented_residual": [
+      0.6067754359198576,
+      0.6285414546156523
+    ],
+    "baseline_seed_probabilities": [
+      0.16216228716308626,
+      0.053850203302322715
+    ],
+    "seed_fusion_probabilities": [
+      0.5687311444461093,
+      0.5125295019518886
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.2653434264861805,
+      0.1982587746440624
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_493",
+    "sequence": "YKRCHIKGGHCFPKEKLICIPPSSDIGKMDCPWKRKCCKKRS",
+    "original_label": 1,
+    "fold": 3,
+    "group_id": "reference_000477",
+    "cohort": "unreproduced_rescue",
+    "name": "Crotamine-IV-2",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P86193/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 42.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.8292682926829268,
+      "net_charge_proxy": 9.0,
+      "mean_hydropathy": -0.861904761904762,
+      "aromatic_fraction": 0.07142857142857142,
+      "proline_fraction": 0.09523809523809523,
+      "glycine_fraction": 0.07142857142857142,
+      "local_positive_excess": 0.4285714285714285,
+      "local_hydrophobic_excess": 0.26190476190476186,
+      "ideal_alpha_hydrophobic_moment": 0.07805526495365821,
+      "mean_plddt": 0.758097589,
+      "hydrophobic_contact_excess": 0.06687826736370424,
+      "positive_hydrophobic_contact_excess": 0.03154095095842668,
+      "charge_hydrophobic_separation": 0.1398668988067998,
+      "nonlocal_contact_density": 0.13205128205128205,
+      "ca_radius_gyration": 9.006564624220905,
+      "max_otherfold_kmer_cosine": 0.3096197247505188,
+      "unmasked_fraction": 0.7857142857142857
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": true,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": true,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [
+          "It acts as a cell-penetrating peptide (CPP), and as a potent voltage-gated potassium channel (Kv) inhibitor."
+        ],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [
+          "It exhibits antimicrobial activities, and hind limb paralysis (By similarity)."
+        ],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.999203283327991,
+      0.9993854243807366
+    ],
+    "composition_estimates_raw": [
+      0.6424442600865008,
+      0.6618549345951598
+    ],
+    "composition_residual_raw": [
+      0.3567590232414902,
+      0.33753048978557687
+    ],
+    "composition_residual_clipped": [
+      0.3567590232414902,
+      0.33753048978557687
+    ],
+    "label_oriented_residual": [
+      0.3567590232414902,
+      0.33753048978557687
+    ],
+    "baseline_seed_probabilities": [
+      0.18069663829319463,
+      0.0053741635288819915
+    ],
+    "seed_fusion_probabilities": [
+      0.5899499608105928,
+      0.5023797939548093
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.41157044918984775,
+      0.33361454906202087
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_605",
+    "sequence": "GENEPPKKKAPDGCFGHKIDRIGSHSGLGCNKFKPGH",
+    "original_label": 1,
+    "fold": 3,
+    "group_id": "reference_000553",
+    "cohort": "unreproduced_rescue",
+    "name": "Natriuretic peptide PNP",
+    "name_class": [
+      "natriuretic"
+    ],
+    "curated_family": [
+      "belongs to the natriuretic peptide family"
+    ],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P82972/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 37.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.4444444444444444,
+      "net_charge_proxy": 3.0,
+      "mean_hydropathy": -1.191891891891892,
+      "aromatic_fraction": 0.05405405405405406,
+      "proline_fraction": 0.10810810810810811,
+      "glycine_fraction": 0.1891891891891892,
+      "local_positive_excess": 0.23938223938223935,
+      "local_hydrophobic_excess": 0.21235521235521232,
+      "ideal_alpha_hydrophobic_moment": 0.09514585101959315,
+      "mean_plddt": 0.494281054,
+      "hydrophobic_contact_excess": 0.060469187675070035,
+      "positive_hydrophobic_contact_excess": -0.0598389355742297,
+      "charge_hydrophobic_separation": 0.5150513493110925,
+      "nonlocal_contact_density": 0.08067226890756303,
+      "ca_radius_gyration": 13.507699362785887,
+      "max_otherfold_kmer_cosine": 0.20700044929981232,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": true,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": true,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": true,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": true,
+      "any_name_class": true,
+      "any_curated_family": true,
+      "direct_assay_record_cached": false,
+      "name_proxy:natriuretic": true,
+      "curated_family:belongs to the natriuretic peptide family": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [
+          "Stimulates cGMP production via the natriuretic peptide receptor-A (NPR1)."
+        ],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [
+          "Inhibits thrombin-induced platelet aggregation."
+        ],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [
+      [
+        14,
+        30
+      ]
+    ],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9945048393014546,
+      0.9868022098743753
+    ],
+    "composition_estimates_raw": [
+      0.5184472754627278,
+      0.49843640765676567
+    ],
+    "composition_residual_raw": [
+      0.47605756383872677,
+      0.4883658022176096
+    ],
+    "composition_residual_clipped": [
+      0.47605756383872677,
+      0.4883658022176096
+    ],
+    "label_oriented_residual": [
+      0.47605756383872677,
+      0.4883658022176096
+    ],
+    "baseline_seed_probabilities": [
+      0.0317445858522946,
+      0.022300819420822286
+    ],
+    "seed_fusion_probabilities": [
+      0.5131247125768746,
+      0.5045515146475987
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.2750959306575112,
+      0.260368613538794
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_618",
+    "sequence": "RSCIDTIPKSRCTAFQCKHSMKYRLSFCRKTCGTC",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_000561",
+    "cohort": "unreproduced_rescue",
+    "name": "Kappa-stichotoxin-She3a (Kappa-SHTX-She3a) (Potassium channel toxin ShK)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P29187/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 35.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.9411764705882353,
+      "net_charge_proxy": 7.0,
+      "mean_hydropathy": -0.45714285714285713,
+      "aromatic_fraction": 0.08571428571428572,
+      "proline_fraction": 0.02857142857142857,
+      "glycine_fraction": 0.02857142857142857,
+      "local_positive_excess": 0.19999999999999998,
+      "local_hydrophobic_excess": 0.19999999999999996,
+      "ideal_alpha_hydrophobic_moment": 0.20101881971706562,
+      "mean_plddt": 0.930488586,
+      "hydrophobic_contact_excess": 0.04841897233201581,
+      "positive_hydrophobic_contact_excess": 0.05023056653491434,
+      "charge_hydrophobic_separation": 0.111913934760085,
+      "nonlocal_contact_density": 0.17424242424242425,
+      "ca_radius_gyration": 8.048140994886047,
+      "max_otherfold_kmer_cosine": 0.09444395452737808,
+      "unmasked_fraction": 0.9428571428571428
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": true,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": true,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [
+          "Inhibits voltage-dependent potassium channels."
+        ],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [
+          "FUNCTION: Peptide with both antimicrobial and neurotoxin activities.",
+          "Shows antibacterial activity against all tested bacteria (the Gram-positive bacteria B.subtilis and S.aureus, and the Gram-negative bacteria S.typhimurium and P.aeruginosa) (PubMed:28796463)."
+        ],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9957160248179159,
+      0.9991527201148388
+    ],
+    "composition_estimates_raw": [
+      0.6207572578507208,
+      0.7073441588558635
+    ],
+    "composition_residual_raw": [
+      0.3749587669671951,
+      0.29180856125897525
+    ],
+    "composition_residual_clipped": [
+      0.3749587669671951,
+      0.29180856125897525
+    ],
+    "label_oriented_residual": [
+      0.3749587669671951,
+      0.29180856125897525
+    ],
+    "baseline_seed_probabilities": [
+      0.025547473003964743,
+      0.1023063501038709
+    ],
+    "seed_fusion_probabilities": [
+      0.5106317489109403,
+      0.5507295351093549
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.32315236542734277,
+      0.4048252544798672
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_635",
+    "sequence": "ANACTKQADCAEDECCLDNLFFKRPYCEMRYGAGKRCAAASVYKEDKDLY",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_000575",
+    "cohort": "unreproduced_rescue",
+    "name": "U3-ctenitoxin-Asp1a (U3-CNTX-Asp1a) (Venom protein ANC29C0)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P84001/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 50.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.673469387755102,
+      "net_charge_proxy": -1.0,
+      "mean_hydropathy": -0.632,
+      "aromatic_fraction": 0.12,
+      "proline_fraction": 0.02,
+      "glycine_fraction": 0.04,
+      "local_positive_excess": 0.26857142857142857,
+      "local_hydrophobic_excess": 0.2942857142857142,
+      "ideal_alpha_hydrophobic_moment": 0.020151461064009182,
+      "mean_plddt": 0.628921986,
+      "hydrophobic_contact_excess": 0.024022660439370347,
+      "positive_hydrophobic_contact_excess": -0.028541774779449927,
+      "charge_hydrophobic_separation": 0.2924861942781062,
+      "nonlocal_contact_density": 0.0726950354609929,
+      "ca_radius_gyration": 11.879594891934177,
+      "max_otherfold_kmer_cosine": 0.06847572326660156,
+      "unmasked_fraction": 0.44
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9980424959021258,
+      0.9990861171644768
+    ],
+    "composition_estimates_raw": [
+      0.5465922519555744,
+      0.5404258184341524
+    ],
+    "composition_residual_raw": [
+      0.4514502439465514,
+      0.45866029873032443
+    ],
+    "composition_residual_clipped": [
+      0.4514502439465514,
+      0.45866029873032443
+    ],
+    "label_oriented_residual": [
+      0.4514502439465514,
+      0.45866029873032443
+    ],
+    "baseline_seed_probabilities": [
+      0.09528531986085671,
+      0.19247290245514606
+    ],
+    "seed_fusion_probabilities": [
+      0.5466639078814913,
+      0.5957795098098115
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.32093878590821556,
+      0.3664493604446492
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_755",
+    "sequence": "KDGYLMEPNGCKLGCLTRPAKYCWEE",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_000654",
+    "cohort": "unreproduced_rescue",
+    "name": "",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 26.0,
+      "cys_count": 3.0,
+      "cys_span_fraction": 0.48,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": -0.7576923076923077,
+      "aromatic_fraction": 0.11538461538461539,
+      "proline_fraction": 0.07692307692307693,
+      "glycine_fraction": 0.11538461538461539,
+      "local_positive_excess": 0.13186813186813184,
+      "local_hydrophobic_excess": 0.2637362637362637,
+      "ideal_alpha_hydrophobic_moment": 0.14304875707365397,
+      "mean_plddt": 0.543080747,
+      "hydrophobic_contact_excess": 0.11304347826086958,
+      "positive_hydrophobic_contact_excess": 0.10579710144927537,
+      "charge_hydrophobic_separation": 0.3109806989928212,
+      "nonlocal_contact_density": 0.018115942028985508,
+      "ca_radius_gyration": 12.602294310001792,
+      "max_otherfold_kmer_cosine": 0.22538310289382935,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9995992002068064,
+      0.9993354481994318
+    ],
+    "composition_estimates_raw": [
+      0.5964482697655663,
+      0.569854461373011
+    ],
+    "composition_residual_raw": [
+      0.40315093044124006,
+      0.4294809868264208
+    ],
+    "composition_residual_clipped": [
+      0.40315093044124006,
+      0.4294809868264208
+    ],
+    "label_oriented_residual": [
+      0.40315093044124006,
+      0.4294809868264208
+    ],
+    "baseline_seed_probabilities": [
+      0.34079628508075294,
+      0.3919804657910091
+    ],
+    "seed_fusion_probabilities": [
+      0.6701977426437797,
+      0.6956579569952204
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.46862227742315965,
+      0.4809174635820101
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_765",
+    "sequence": "NLLQFENMIRNVAGRSGIWWYSD",
+    "original_label": 1,
+    "fold": 4,
+    "group_id": "reference_000661",
+    "cohort": "unreproduced_rescue",
+    "name": "Acidic phospholipase A2 Ts-A2 (svPLA2) (EC 3.1.1.4) (Phosphatidylcholine 2-acylhydrolase)",
+    "name_class": [
+      "PLA2"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P0DJP6/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 23.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": -0.35652173913043483,
+      "aromatic_fraction": 0.17391304347826086,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.08695652173913043,
+      "local_positive_excess": 0.19875776397515527,
+      "local_hydrophobic_excess": 0.22360248447204967,
+      "ideal_alpha_hydrophobic_moment": 0.13689493955238582,
+      "mean_plddt": 0.600339115,
+      "hydrophobic_contact_excess": 0.11152073732718894,
+      "positive_hydrophobic_contact_excess": 0.007373271889400922,
+      "charge_hydrophobic_separation": 0.8292476423126065,
+      "nonlocal_contact_density": 0.14761904761904762,
+      "ca_radius_gyration": 8.750751950816941,
+      "max_otherfold_kmer_cosine": 0.26134192943573,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:PLA2": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.7615419771684246,
+      0.7589124889709924
+    ],
+    "composition_estimates_raw": [
+      0.17205625923371914,
+      0.24176136716109559
+    ],
+    "composition_residual_raw": [
+      0.5894857179347055,
+      0.5171511218098968
+    ],
+    "composition_residual_clipped": [
+      0.5894857179347055,
+      0.5171511218098968
+    ],
+    "label_oriented_residual": [
+      0.5894857179347055,
+      0.5171511218098968
+    ],
+    "baseline_seed_probabilities": [
+      0.4548730714956901,
+      0.44762069083266287
+    ],
+    "seed_fusion_probabilities": [
+      0.6082075243320574,
+      0.6032665899018277
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.31346466536470463,
+      0.34469102899687926
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_900",
+    "sequence": "FLAKNVAKKLVSHVAKKQLE",
+    "original_label": 1,
+    "fold": 4,
+    "group_id": "singleton_000899",
+    "cohort": "unreproduced_rescue",
+    "name": "Short cationic peptide-4d (SCP-4d) (Short cationic peptide-4f) (SCP-4f) (Truncated variant of Cupiennin 4 family)",
+    "name_class": [],
+    "curated_family": [
+      "belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily"
+    ],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/B3EWW1/entry"
+    ],
+    "cached_papers": [
+      {
+        "pmid": "22672445",
+        "title": "Multicomponent venom of the spider Cupiennius salei: a bioanalytical investigation applying different strategies.",
+        "doi": "10.1111/j.1742-4658.2012.08650.x",
+        "abstract": "The multicomponent venom of the spider Cupiennius salei was separated by three different chromatographic strategies to facilitate subsequent analysis of peptidic venom components by tandem mass spectrometry (MALDI-TOF-MS and ESI-MS), Edman degradation and amino acid analysis: (a) desalting of the crude venom by RP-HPLC only, (b) chromatographic separation of the crude venom into 42 fractions by RP-HPLC, and (c) multidimensional purification of the crude venom by size exclusion and cation exchange chromatography and RP-HPLC. A total of 286 components were identified in the venom of C. salei by mass spectrometry and the sequence of 49 new peptides was determined de novo by Edman degradation and tandem mass spectrometry; 30 were C-terminally amidated. The novel peptides were assigned to two main groups: (a) short cationic peptides and (b) Cys-containing peptides with the inhibitor cystine knot motif. Bioinformatics revealed a limited number of substantial similarities, namely with the peptides CpTx1 from the spider Cheiracantium punctorium and U3-ctenitoxin-Asp1a from the South American fishing spider (Ancylometes sp.) and with sequences from a Lycosa singoriensis venom gland transcriptome analysis. The results clearly indicate that the quality of the data is strongly dependent on the chosen separation strategy. The combination of orthogonal analytical methods efficiently excludes alkali ion and matrix adducts, provides indispensable information for an unambiguous identification of isomasses, and results in the most comprehensive repertoire of peptides identified in the venom of C. salei so far.",
+        "cache": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.json",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22672445/"
+      }
+    ],
+    "features": {
+      "sequence_length": 20.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": 4.0,
+      "mean_hydropathy": -0.08999999999999997,
+      "aromatic_fraction": 0.05,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.17857142857142855,
+      "local_hydrophobic_excess": 0.2142857142857142,
+      "ideal_alpha_hydrophobic_moment": 0.1808250130651865,
+      "mean_plddt": 0.921409965,
+      "hydrophobic_contact_excess": 0.04812834224598933,
+      "positive_hydrophobic_contact_excess": -0.0600118835412953,
+      "charge_hydrophobic_separation": 0.3652574129930578,
+      "nonlocal_contact_density": 0.21568627450980393,
+      "ca_radius_gyration": 8.930400933238934,
+      "max_otherfold_kmer_cosine": 0.5325335264205933,
+      "unmasked_fraction": 0.9
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": true,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": true,
+      "any_name_class": false,
+      "any_curated_family": true,
+      "direct_assay_record_cached": false,
+      "curated_family:belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 20,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 20,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "Glutamic acid 1-amide",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "22672445"
+          }
+        ]
+      }
+    ],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.95394847321231,
+      0.9602900072542842
+    ],
+    "composition_estimates_raw": [
+      0.20062463769268957,
+      0.25726213655974217
+    ],
+    "composition_residual_raw": [
+      0.7533238355196205,
+      0.703027870694542
+    ],
+    "composition_residual_clipped": [
+      0.7533238355196205,
+      0.703027870694542
+    ],
+    "label_oriented_residual": [
+      0.7533238355196205,
+      0.703027870694542
+    ],
+    "baseline_seed_probabilities": [
+      0.09396090695226299,
+      0.050796436268376925
+    ],
+    "seed_fusion_probabilities": [
+      0.5239546900822865,
+      0.5055432217613306
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.14729277232247626,
+      0.15402928641405955
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_901",
+    "sequence": "ADCLAHLKLCKKNNDCCSKKCSRRGTNPEQRCR",
+    "original_label": 1,
+    "fold": 0,
+    "group_id": "reference_000763",
+    "cohort": "unreproduced_rescue",
+    "name": "Vejocalcin (VjCa)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P0DPT1/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 33.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.90625,
+      "net_charge_proxy": 6.0,
+      "mean_hydropathy": -1.196969696969697,
+      "aromatic_fraction": 0.0,
+      "proline_fraction": 0.030303030303030304,
+      "glycine_fraction": 0.030303030303030304,
+      "local_positive_excess": 0.2987012987012987,
+      "local_hydrophobic_excess": 0.3809523809523809,
+      "ideal_alpha_hydrophobic_moment": 0.14328344321540487,
+      "mean_plddt": 0.903424263,
+      "hydrophobic_contact_excess": 0.12619745845552297,
+      "positive_hydrophobic_contact_excess": 0.017448680351906165,
+      "charge_hydrophobic_separation": 0.7589761287141854,
+      "nonlocal_contact_density": 0.18924731182795698,
+      "ca_radius_gyration": 8.557432465575816,
+      "max_otherfold_kmer_cosine": 0.08535026013851166,
+      "unmasked_fraction": 0.9393939393939394
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": true,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [
+          "FUNCTION: This toxin stabilizes ryanodine receptor 1 (RyR1) opening in a long-lasting subconductance state (60% of the full conductance state) (PubMed:27114612)."
+        ],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9994285255532593,
+      0.9996736034317901
+    ],
+    "composition_estimates_raw": [
+      0.8649451067686478,
+      0.8632303213008766
+    ],
+    "composition_residual_raw": [
+      0.13448341878461156,
+      0.1364432821309135
+    ],
+    "composition_residual_clipped": [
+      0.13448341878461156,
+      0.1364432821309135
+    ],
+    "label_oriented_residual": [
+      0.13448341878461156,
+      0.1364432821309135
+    ],
+    "baseline_seed_probabilities": [
+      0.011770480156601816,
+      0.0006264449011303833
+    ],
+    "seed_fusion_probabilities": [
+      0.5055995028549305,
+      0.5001500241664603
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.4383577934626248,
+      0.4319283831010035
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1131",
+    "sequence": "ADDTSGDDCVDTNEDCVNWASTGQCEANPSYMRENC",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_000949",
+    "cohort": "unreproduced_rescue",
+    "name": "",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 36.0,
+      "cys_count": 4.0,
+      "cys_span_fraction": 0.7714285714285715,
+      "net_charge_proxy": -8.0,
+      "mean_hydropathy": -1.025,
+      "aromatic_fraction": 0.05555555555555555,
+      "proline_fraction": 0.027777777777777776,
+      "glycine_fraction": 0.05555555555555555,
+      "local_positive_excess": 0.11507936507936507,
+      "local_hydrophobic_excess": 0.15079365079365076,
+      "ideal_alpha_hydrophobic_moment": 0.08135856595981358,
+      "mean_plddt": 0.820113897,
+      "hydrophobic_contact_excess": 0.1115743678056739,
+      "positive_hydrophobic_contact_excess": 0.01785552433608266,
+      "charge_hydrophobic_separation": 0.4754542810508287,
+      "nonlocal_contact_density": 0.1051693404634581,
+      "ca_radius_gyration": 10.543157374895804,
+      "max_otherfold_kmer_cosine": 0.10685040056705475,
+      "unmasked_fraction": 0.75
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9999862282551766,
+      0.9999084703993123
+    ],
+    "composition_estimates_raw": [
+      0.7596738075049186,
+      0.6861202995223588
+    ],
+    "composition_residual_raw": [
+      0.24031242075025794,
+      0.31378817087695354
+    ],
+    "composition_residual_clipped": [
+      0.24031242075025794,
+      0.31378817087695354
+    ],
+    "label_oriented_residual": [
+      0.24031242075025794,
+      0.31378817087695354
+    ],
+    "baseline_seed_probabilities": [
+      0.017238673282318543,
+      0.23857585072185705
+    ],
+    "seed_fusion_probabilities": [
+      0.5086124507687475,
+      0.6192421605605847
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.3884562403936186,
+      0.4623480751221079
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1409",
+    "sequence": "TNTPEQQCYLQAKCYIEFYVVV",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_001165",
+    "cohort": "unreproduced_rescue",
+    "name": "Zinc metalloproteinase oxiagin (EC 3.4.24.-) (Snake venom metalloprotease) (SVMP)",
+    "name_class": [
+      "metalloproteinase"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P0DJJ4/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 22.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.2857142857142857,
+      "net_charge_proxy": -1.0,
+      "mean_hydropathy": -0.0590909090909092,
+      "aromatic_fraction": 0.18181818181818182,
+      "proline_fraction": 0.045454545454545456,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.0974025974025974,
+      "local_hydrophobic_excess": 0.3051948051948051,
+      "ideal_alpha_hydrophobic_moment": 0.06672456880506385,
+      "mean_plddt": 0.67353636,
+      "hydrophobic_contact_excess": -0.08328173374613003,
+      "positive_hydrophobic_contact_excess": -0.03684210526315789,
+      "charge_hydrophobic_separation": 0.5755285622095025,
+      "nonlocal_contact_density": 0.08947368421052632,
+      "ca_radius_gyration": 14.874640847527637,
+      "max_otherfold_kmer_cosine": 0.1530788242816925,
+      "unmasked_fraction": 0.3181818181818182
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:metalloproteinase": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.6079399937339022,
+      0.9724852546184806
+    ],
+    "composition_estimates_raw": [
+      0.2435319846530301,
+      0.26640531491194924
+    ],
+    "composition_residual_raw": [
+      0.36440800908087206,
+      0.7060799397065314
+    ],
+    "composition_residual_clipped": [
+      0.36440800908087206,
+      0.7060799397065314
+    ],
+    "label_oriented_residual": [
+      0.36440800908087206,
+      0.7060799397065314
+    ],
+    "baseline_seed_probabilities": [
+      0.46271884055809814,
+      0.34609925135401826
+    ],
+    "seed_fusion_probabilities": [
+      0.5353294171460001,
+      0.6592922529862494
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.3531254126055641,
+      0.30625228313298375
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1640",
+    "sequence": "MSDINATRLPAWLATCPCAGDDVNPLLTRGE",
+    "original_label": 1,
+    "fold": 4,
+    "group_id": "reference_001105",
+    "cohort": "unreproduced_rescue",
+    "name": "Phalloidin proprotein [Cleaved into: Phalloidin]",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/A8W7P3/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 31.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.06666666666666667,
+      "net_charge_proxy": -2.0,
+      "mean_hydropathy": -0.04516129032258067,
+      "aromatic_fraction": 0.03225806451612903,
+      "proline_fraction": 0.0967741935483871,
+      "glycine_fraction": 0.06451612903225806,
+      "local_positive_excess": 0.07834101382488479,
+      "local_hydrophobic_excess": 0.29493087557603676,
+      "ideal_alpha_hydrophobic_moment": 0.1335774972225967,
+      "mean_plddt": 0.546696782,
+      "hydrophobic_contact_excess": 0.11330049261083741,
+      "positive_hydrophobic_contact_excess": 0.014778325123152705,
+      "charge_hydrophobic_separation": 0.4214372953845068,
+      "nonlocal_contact_density": 0.06896551724137931,
+      "ca_radius_gyration": 11.17216939571206,
+      "max_otherfold_kmer_cosine": 0.5060360431671143,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9999806621874372,
+      0.9998177229239058
+    ],
+    "composition_estimates_raw": [
+      0.660356341588777,
+      0.6352510711856313
+    ],
+    "composition_residual_raw": [
+      0.3396243205986602,
+      0.3645666517382745
+    ],
+    "composition_residual_clipped": [
+      0.3396243205986602,
+      0.3645666517382745
+    ],
+    "label_oriented_residual": [
+      0.3396243205986602,
+      0.3645666517382745
+    ],
+    "baseline_seed_probabilities": [
+      0.0004818809419478753,
+      0.17605825528563263
+    ],
+    "seed_fusion_probabilities": [
+      0.5002312715646925,
+      0.5879379891047692
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.33041911126536244,
+      0.405654663235632
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1698",
+    "sequence": "MRCLPVFVILLLLIASASSVDDNAKGTQHRRIMAGCCPRFYQCCYPG",
+    "original_label": 1,
+    "fold": 3,
+    "group_id": "reference_001369",
+    "cohort": "unreproduced_rescue",
+    "name": "",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 47.0,
+      "cys_count": 5.0,
+      "cys_span_fraction": 0.8913043478260869,
+      "net_charge_proxy": 3.0,
+      "mean_hydropathy": 0.4234042553191489,
+      "aromatic_fraction": 0.0851063829787234,
+      "proline_fraction": 0.06382978723404255,
+      "glycine_fraction": 0.06382978723404255,
+      "local_positive_excess": 0.3221884498480243,
+      "local_hydrophobic_excess": 0.4893617021276594,
+      "ideal_alpha_hydrophobic_moment": 0.0780602645073404,
+      "mean_plddt": 0.507844687,
+      "hydrophobic_contact_excess": 0.1341991341991342,
+      "positive_hydrophobic_contact_excess": -0.05497835497835498,
+      "charge_hydrophobic_separation": 0.4543302016945189,
+      "nonlocal_contact_density": 0.0707070707070707,
+      "ca_radius_gyration": 22.3261107199008,
+      "max_otherfold_kmer_cosine": 0.10398916900157928,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.996211662396503,
+      0.9871340540999707
+    ],
+    "composition_estimates_raw": [
+      0.48053433044765265,
+      0.5550681445902362
+    ],
+    "composition_residual_raw": [
+      0.5156773319488503,
+      0.43206590950973445
+    ],
+    "composition_residual_clipped": [
+      0.5156773319488503,
+      0.43206590950973445
+    ],
+    "label_oriented_residual": [
+      0.5156773319488503,
+      0.43206590950973445
+    ],
+    "baseline_seed_probabilities": [
+      0.029455113892848415,
+      0.1764249356973771
+    ],
+    "seed_fusion_probabilities": [
+      0.5128333881446758,
+      0.5817794948986739
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.25499472217025054,
+      0.3657465401438067
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1780",
+    "sequence": "SDSGTTLVRRRLCGSELVTYLGELCLGN",
+    "original_label": 1,
+    "fold": 2,
+    "group_id": "reference_001429",
+    "cohort": "unreproduced_rescue",
+    "name": "",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 28.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.4444444444444444,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": 0.04642857142857142,
+      "aromatic_fraction": 0.03571428571428571,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.14285714285714285,
+      "local_positive_excess": 0.3214285714285714,
+      "local_hydrophobic_excess": 0.21428571428571425,
+      "ideal_alpha_hydrophobic_moment": 0.12876647342821246,
+      "mean_plddt": 0.537528574,
+      "hydrophobic_contact_excess": -0.12,
+      "positive_hydrophobic_contact_excess": -0.07384615384615385,
+      "charge_hydrophobic_separation": 0.9156307516485545,
+      "nonlocal_contact_density": 0.006153846153846154,
+      "ca_radius_gyration": 14.41825776405987,
+      "max_otherfold_kmer_cosine": 0.1824956238269806,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.9734314323252665,
+      0.9400435720729416
+    ],
+    "composition_estimates_raw": [
+      0.20499830618835957,
+      0.2434326009683065
+    ],
+    "composition_residual_raw": [
+      0.768433126136907,
+      0.6966109711046351
+    ],
+    "composition_residual_clipped": [
+      0.768433126136907,
+      0.6966109711046351
+    ],
+    "label_oriented_residual": [
+      0.768433126136907,
+      0.6966109711046351
+    ],
+    "baseline_seed_probabilities": [
+      0.13454464475247085,
+      0.08023035028800055
+    ],
+    "seed_fusion_probabilities": [
+      0.5539880385388687,
+      0.5101369611804711
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.1697714754704152,
+      0.16183147562815353
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_1807",
+    "sequence": "MSDINGTRLPWLATCPCVGEDVNPTLSRGER",
+    "original_label": 1,
+    "fold": 3,
+    "group_id": "reference_001452",
+    "cohort": "unreproduced_rescue",
+    "name": "MSDIN-like toxin proprotein 4 [Cleaved into: Toxin MSD4]",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/A0A023IWE1/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 31.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.06666666666666667,
+      "net_charge_proxy": -1.0,
+      "mean_hydropathy": -0.39032258064516123,
+      "aromatic_fraction": 0.03225806451612903,
+      "proline_fraction": 0.0967741935483871,
+      "glycine_fraction": 0.0967741935483871,
+      "local_positive_excess": 0.1889400921658986,
+      "local_hydrophobic_excess": 0.3917050691244239,
+      "ideal_alpha_hydrophobic_moment": 0.17008613592271407,
+      "mean_plddt": 0.535664618,
+      "hydrophobic_contact_excess": 0.18472906403940886,
+      "positive_hydrophobic_contact_excess": 0.0024630541871921152,
+      "charge_hydrophobic_separation": 0.9798750557444056,
+      "nonlocal_contact_density": 0.034482758620689655,
+      "ca_radius_gyration": 12.902421436560738,
+      "max_otherfold_kmer_cosine": 0.39554741978645325,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.996991454918199,
+      0.9921880224876309
+    ],
+    "composition_estimates_raw": [
+      0.625020009135276,
+      0.6080224796801786
+    ],
+    "composition_residual_raw": [
+      0.37197144578292296,
+      0.3841655428074523
+    ],
+    "composition_residual_clipped": [
+      0.37197144578292296,
+      0.3841655428074523
+    ],
+    "label_oriented_residual": [
+      0.37197144578292296,
+      0.3841655428074523
+    ],
+    "baseline_seed_probabilities": [
+      0.11659053320351052,
+      0.03903284538926357
+    ],
+    "seed_fusion_probabilities": [
+      0.5567909940608547,
+      0.5156104339384472
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.37080527116939327,
+      0.32352766253472104
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_2074",
+    "sequence": "MPMATTIDGTDYTNIMPSTVSTRVYLGCSIGIDTSTTGFTCFSWY",
+    "original_label": 0,
+    "fold": 1,
+    "group_id": "reference_001717",
+    "cohort": "unreproduced_rescue",
+    "name": "Non-structural protein of 4.8 kDa (ns4.8) (4.8 kDa accessory protein)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/Q8V6W4/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 45.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.29545454545454547,
+      "net_charge_proxy": -2.0,
+      "mean_hydropathy": 0.20444444444444432,
+      "aromatic_fraction": 0.13333333333333333,
+      "proline_fraction": 0.044444444444444446,
+      "glycine_fraction": 0.08888888888888889,
+      "local_positive_excess": 0.12063492063492062,
+      "local_hydrophobic_excess": 0.23809523809523808,
+      "ideal_alpha_hydrophobic_moment": 0.044512245749533275,
+      "mean_plddt": 0.447442204,
+      "hydrophobic_contact_excess": 0.047533861487349865,
+      "positive_hydrophobic_contact_excess": 0.010137149672033392,
+      "charge_hydrophobic_separation": 0.824140709056622,
+      "nonlocal_contact_density": 0.04318936877076412,
+      "ca_radius_gyration": 12.841325660053588,
+      "max_otherfold_kmer_cosine": 0.06905022263526917,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.016001156538650498,
+      0.007040285526800477
+    ],
+    "composition_estimates_raw": [
+      0.20317623768151405,
+      0.22404671870894993
+    ],
+    "composition_residual_raw": [
+      -0.18717508114286355,
+      -0.21700643318214946
+    ],
+    "composition_residual_clipped": [
+      -0.18717508114286355,
+      -0.21700643318214946
+    ],
+    "label_oriented_residual": [
+      0.18717508114286355,
+      0.21700643318214946
+    ],
+    "baseline_seed_probabilities": [
+      0.9536483380845688,
+      0.954053684343948
+    ],
+    "seed_fusion_probabilities": [
+      0.4848247473116096,
+      0.48054698493537423
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.5784122878830414,
+      0.5890502015264489
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_2664",
+    "sequence": "MPGKVQDFFLCSLLLCIVSAGWCG",
+    "original_label": 0,
+    "fold": 0,
+    "group_id": "reference_002306",
+    "cohort": "unreproduced_rescue",
+    "name": "Positive regulator of RepFIC repA1 expression (repA1 leader peptide)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P56980/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 24.0,
+      "cys_count": 3.0,
+      "cys_span_fraction": 0.5217391304347826,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": 1.1958333333333333,
+      "aromatic_fraction": 0.125,
+      "proline_fraction": 0.041666666666666664,
+      "glycine_fraction": 0.125,
+      "local_positive_excess": 0.10119047619047619,
+      "local_hydrophobic_excess": 0.2738095238095236,
+      "ideal_alpha_hydrophobic_moment": 0.06506398085653274,
+      "mean_plddt": 0.860208333,
+      "hydrophobic_contact_excess": 0.08995882166613872,
+      "positive_hydrophobic_contact_excess": -0.007496568472178229,
+      "charge_hydrophobic_separation": 1.2217245511618549,
+      "nonlocal_contact_density": 0.1774891774891775,
+      "ca_radius_gyration": 10.901483805856884,
+      "max_otherfold_kmer_cosine": 0.14516612887382507,
+      "unmasked_fraction": 0.9166666666666666
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.0004453257916200338,
+      7.931319069172248e-06
+    ],
+    "composition_estimates_raw": [
+      0.35606042989447884,
+      0.3477207598260612
+    ],
+    "composition_residual_raw": [
+      -0.3556151041028588,
+      -0.34771282850699203
+    ],
+    "composition_residual_clipped": [
+      -0.3556151041028588,
+      -0.34771282850699203
+    ],
+    "label_oriented_residual": [
+      0.3556151041028588,
+      0.34771282850699203
+    ],
+    "baseline_seed_probabilities": [
+      0.6920243227588313,
+      0.8860949670292779
+    ],
+    "seed_fusion_probabilities": [
+      0.34623482427522567,
+      0.4430514491741736
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.5240423763266551,
+      0.6169078634276697
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_2697",
+    "sequence": "TTKNYGNGVCNSVNWCQCGNVWASCNLATGCAAWLCKLA",
+    "original_label": 0,
+    "fold": 1,
+    "group_id": "reference_002339",
+    "cohort": "unreproduced_rescue",
+    "name": "Bacteriocin E50-52",
+    "name_class": [
+      "bacteriocin"
+    ],
+    "curated_family": [
+      "belongs to the bacteriocin class iia/ygngv family"
+    ],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P85148/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 39.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.6842105263157895,
+      "net_charge_proxy": 2.0,
+      "mean_hydropathy": 0.1641025641025641,
+      "aromatic_fraction": 0.10256410256410256,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.10256410256410256,
+      "local_positive_excess": 0.09157509157509157,
+      "local_hydrophobic_excess": 0.2783882783882783,
+      "ideal_alpha_hydrophobic_moment": 0.14668534224564436,
+      "mean_plddt": 0.576787174,
+      "hydrophobic_contact_excess": 0.0836079982421446,
+      "positive_hydrophobic_contact_excess": -0.012524719841793007,
+      "charge_hydrophobic_separation": 0.6003769578352932,
+      "nonlocal_contact_density": 0.18468468468468469,
+      "ca_radius_gyration": 8.219384361922947,
+      "max_otherfold_kmer_cosine": 0.11238547414541245,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": true,
+      "any_name_class": true,
+      "any_curated_family": true,
+      "direct_assay_record_cached": false,
+      "name_proxy:bacteriocin": true,
+      "curated_family:belongs to the bacteriocin class iia/ygngv family": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.10488060332814438,
+      0.001960936256323017
+    ],
+    "composition_estimates_raw": [
+      0.5906714682039617,
+      0.582735641918297
+    ],
+    "composition_residual_raw": [
+      -0.4857908648758173,
+      -0.580774705661974
+    ],
+    "composition_residual_clipped": [
+      -0.4857908648758173,
+      -0.580774705661974
+    ],
+    "label_oriented_residual": [
+      0.4857908648758173,
+      0.580774705661974
+    ],
+    "baseline_seed_probabilities": [
+      0.7753292243188225,
+      0.9831946514533692
+    ],
+    "seed_fusion_probabilities": [
+      0.4401049138234834,
+      0.4925777938548461
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.683000346261392,
+      0.7829651466858331
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_2811",
+    "sequence": "TKYYGNGVYCNSKKCWVDWGTAQGCIDVVIGQLGGGIPGKGKC",
+    "original_label": 0,
+    "fold": 3,
+    "group_id": "reference_002453",
+    "cohort": "unreproduced_rescue",
+    "name": "Bacteriocin divergicin M35",
+    "name_class": [
+      "bacteriocin"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P84962/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 43.0,
+      "cys_count": 4.0,
+      "cys_span_fraction": 0.7857142857142857,
+      "net_charge_proxy": 3.0,
+      "mean_hydropathy": -0.1883720930232558,
+      "aromatic_fraction": 0.11627906976744186,
+      "proline_fraction": 0.023255813953488372,
+      "glycine_fraction": 0.23255813953488372,
+      "local_positive_excess": 0.16943521594684385,
+      "local_hydrophobic_excess": 0.41196013289036537,
+      "ideal_alpha_hydrophobic_moment": 0.13951014872162232,
+      "mean_plddt": 0.47556743,
+      "hydrophobic_contact_excess": 0.03841463414634147,
+      "positive_hydrophobic_contact_excess": -0.022038327526132405,
+      "charge_hydrophobic_separation": 0.3898599215935981,
+      "nonlocal_contact_density": 0.06829268292682927,
+      "ca_radius_gyration": 11.210314432368166,
+      "max_otherfold_kmer_cosine": 0.14964701235294342,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": true,
+      "mention_negation_or_mixed:antimicrobial": true,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:bacteriocin": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [
+          "FUNCTION: Bacteriocin with antibacterial activity against many strains of L.monocytogenes, L.seeligeri, L.welshimeri, L.grayi, L.murayi, L.ivanovii, L.innocus, C.divergens and C.piscocola."
+        ],
+        "negation_or_mixed": [
+          "No antibacterial activity was detected against L.lactis, P.acidilactici, P.pentosaceus, L.salivarius, L.delbruekii, L.acidophilus, L.plantarum, L.casei, L.rhamnosus, S.thermophilus, P.freudenreichii, B.breve and E.coli."
+        ]
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.1698085103651297,
+      0.00017555631584272136
+    ],
+    "composition_estimates_raw": [
+      0.5014232103240507,
+      0.38848847351709
+    ],
+    "composition_residual_raw": [
+      -0.331614699958921,
+      -0.3883129172012473
+    ],
+    "composition_residual_clipped": [
+      -0.331614699958921,
+      -0.3883129172012473
+    ],
+    "label_oriented_residual": [
+      0.331614699958921,
+      0.3883129172012473
+    ],
+    "baseline_seed_probabilities": [
+      0.8057745028987732,
+      0.7772908019715086
+    ],
+    "seed_fusion_probabilities": [
+      0.48779150663195153,
+      0.3887331791436756
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.6535988566114119,
+      0.5828896377442992
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_3184",
+    "sequence": "KSTDFDYNNKKANYD",
+    "original_label": 0,
+    "fold": 3,
+    "group_id": "reference_002824",
+    "cohort": "unreproduced_rescue",
+    "name": "22 kDa cell wall protein",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P80802/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 15.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": -2.1466666666666665,
+      "aromatic_fraction": 0.2,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.08571428571428569,
+      "local_hydrophobic_excess": 0.009523809523809518,
+      "ideal_alpha_hydrophobic_moment": 0.08416798298761503,
+      "mean_plddt": 0.666406631,
+      "hydrophobic_contact_excess": -0.01282051282051282,
+      "positive_hydrophobic_contact_excess": -0.05128205128205128,
+      "charge_hydrophobic_separation": 0.3225921813578364,
+      "nonlocal_contact_density": 0.038461538461538464,
+      "ca_radius_gyration": 10.693125488287881,
+      "max_otherfold_kmer_cosine": 0.0922844409942627,
+      "unmasked_fraction": 0.06666666666666667
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      6.384234934265377e-05,
+      3.959959792439079e-05
+    ],
+    "composition_estimates_raw": [
+      0.21442926101265442,
+      0.19210101274132796
+    ],
+    "composition_residual_raw": [
+      -0.21436541866331177,
+      -0.19206141314340358
+    ],
+    "composition_residual_clipped": [
+      -0.21436541866331177,
+      -0.19206141314340358
+    ],
+    "label_oriented_residual": [
+      0.21436541866331177,
+      0.19206141314340358
+    ],
+    "baseline_seed_probabilities": [
+      0.9883735453484389,
+      0.9979789953099819
+    ],
+    "seed_fusion_probabilities": [
+      0.4942186938488907,
+      0.4990092974539532
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.6014014031805466,
+      0.5950400040256549
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_3415",
+    "sequence": "MKLLIVLTCISLCSCICTVVQRCASNKPHVLEDPCKVQH",
+    "original_label": 0,
+    "fold": 4,
+    "group_id": "reference_003050",
+    "cohort": "unreproduced_rescue",
+    "name": "ORF8a protein (Accessory protein 8a) (Protein non-structural 8a) (ns8a)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/Q7TFA0/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 39.0,
+      "cys_count": 6.0,
+      "cys_span_fraction": 0.6842105263157895,
+      "net_charge_proxy": 2.0,
+      "mean_hydropathy": 0.6435897435897439,
+      "aromatic_fraction": 0.0,
+      "proline_fraction": 0.05128205128205128,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.18315018315018314,
+      "local_hydrophobic_excess": 0.31868131868131855,
+      "ideal_alpha_hydrophobic_moment": 0.17085601075924364,
+      "mean_plddt": 0.558676898,
+      "hydrophobic_contact_excess": 0.16719660837307898,
+      "positive_hydrophobic_contact_excess": -0.0356827415650945,
+      "charge_hydrophobic_separation": 0.4862212685883195,
+      "nonlocal_contact_density": 0.07657657657657657,
+      "ca_radius_gyration": 21.033452526985368,
+      "max_otherfold_kmer_cosine": 0.08750160783529282,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.01811064800707798,
+      0.0026001340025078577
+    ],
+    "composition_estimates_raw": [
+      0.5487049847402858,
+      0.5225122622462544
+    ],
+    "composition_residual_raw": [
+      -0.5305943367332079,
+      -0.5199121282437466
+    ],
+    "composition_residual_clipped": [
+      -0.5305943367332079,
+      -0.5199121282437466
+    ],
+    "label_oriented_residual": [
+      0.5305943367332079,
+      0.5199121282437466
+    ],
+    "baseline_seed_probabilities": [
+      0.9738185473557386,
+      0.9949276861684139
+    ],
+    "seed_fusion_probabilities": [
+      0.4959645976814082,
+      0.49876391008546084
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.7612617660480121,
+      0.7587199742073341
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_3923",
+    "sequence": "MRFTFVLVIAATVAVLGFFGINAEPMPDPHAEPYPDAAINPKSVQSLLG",
+    "original_label": 0,
+    "fold": 2,
+    "group_id": "reference_003555",
+    "cohort": "unreproduced_rescue",
+    "name": "Venom peptide 3 (EpVP3) (VP3)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/D1MEI9/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 49.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": -2.0,
+      "mean_hydropathy": 0.5326530612244899,
+      "aromatic_fraction": 0.10204081632653061,
+      "proline_fraction": 0.12244897959183673,
+      "glycine_fraction": 0.061224489795918366,
+      "local_positive_excess": 0.10204081632653061,
+      "local_hydrophobic_excess": 0.4897959183673467,
+      "ideal_alpha_hydrophobic_moment": 0.05906177393681311,
+      "mean_plddt": 0.557236731,
+      "hydrophobic_contact_excess": 0.1151031180279698,
+      "positive_hydrophobic_contact_excess": 0.0006393861892583161,
+      "charge_hydrophobic_separation": 0.2476883271690115,
+      "nonlocal_contact_density": 0.06290471785383904,
+      "ca_radius_gyration": 24.957385440127265,
+      "max_otherfold_kmer_cosine": 0.0704810842871666,
+      "unmasked_fraction": 0.0
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      1.651580717158855e-05,
+      0.0018070447795501036
+    ],
+    "composition_estimates_raw": [
+      0.16364158753046276,
+      0.15934075509076578
+    ],
+    "composition_residual_raw": [
+      -0.16362507172329116,
+      -0.15753371031121569
+    ],
+    "composition_residual_clipped": [
+      -0.16362507172329116,
+      -0.15753371031121569
+    ],
+    "label_oriented_residual": [
+      0.16362507172329116,
+      0.15753371031121569
+    ],
+    "baseline_seed_probabilities": [
+      0.997173505812192,
+      0.9005955663119689
+    ],
+    "seed_fusion_probabilities": [
+      0.49859501080968177,
+      0.4512013055457595
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.5804075466713273,
+      0.5299681607013673
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_4051",
+    "sequence": "GKPNKPRPAPIKPRPPHPRL",
+    "original_label": 0,
+    "fold": 4,
+    "group_id": "reference_003111",
+    "cohort": "unreproduced_rescue",
+    "name": "Apidaecin 2+",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/C0HKX9/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 20.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": 6.0,
+      "mean_hydropathy": -1.7500000000000004,
+      "aromatic_fraction": 0.0,
+      "proline_fraction": 0.4,
+      "glycine_fraction": 0.05,
+      "local_positive_excess": 0.12857142857142856,
+      "local_hydrophobic_excess": 0.1357142857142857,
+      "ideal_alpha_hydrophobic_moment": 0.02875461527903207,
+      "mean_plddt": 0.708360016,
+      "hydrophobic_contact_excess": -0.013071895424836602,
+      "positive_hydrophobic_contact_excess": -0.09803921568627451,
+      "charge_hydrophobic_separation": 0.5244792450415054,
+      "nonlocal_contact_density": 0.0457516339869281,
+      "ca_radius_gyration": 13.18607236634016,
+      "max_otherfold_kmer_cosine": 0.3228134512901306,
+      "unmasked_fraction": 0.65
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": true,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": false,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [
+          "FUNCTION: Antimicrobial peptide active against many Gram-negative enterobacterial and plant-associated bacterial species."
+        ],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.0274409349102672,
+      0.16300808901318742
+    ],
+    "composition_estimates_raw": [
+      0.361221939423588,
+      0.43077044319820346
+    ],
+    "composition_residual_raw": [
+      -0.33378100451332077,
+      -0.26776235418501604
+    ],
+    "composition_residual_clipped": [
+      -0.33378100451332077,
+      -0.26776235418501604
+    ],
+    "label_oriented_residual": [
+      0.33378100451332077,
+      0.26776235418501604
+    ],
+    "baseline_seed_probabilities": [
+      0.9353051341229299,
+      0.7672304057018985
+    ],
+    "seed_fusion_probabilities": [
+      0.4813730345165986,
+      0.46511924735754295
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.648263536773259,
+      0.599000424450051
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_4086",
+    "sequence": "SVKSEVDNFDKHLKAESAPFNNE",
+    "original_label": 0,
+    "fold": 2,
+    "group_id": "reference_003679",
+    "cohort": "unreproduced_rescue",
+    "name": "Apolipophorin-1 (Apolipophorin-I) (apoLp-I)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/C0HKF3/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 23.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": -2.0,
+      "mean_hydropathy": -1.1086956521739133,
+      "aromatic_fraction": 0.08695652173913043,
+      "proline_fraction": 0.043478260869565216,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.15527950310559005,
+      "local_hydrophobic_excess": 0.124223602484472,
+      "ideal_alpha_hydrophobic_moment": 0.2121247284824985,
+      "mean_plddt": 0.718860865,
+      "hydrophobic_contact_excess": 0.034523809523809526,
+      "positive_hydrophobic_contact_excess": 0.017559523809523803,
+      "charge_hydrophobic_separation": 0.4639564951354004,
+      "nonlocal_contact_density": 0.1523809523809524,
+      "ca_radius_gyration": 11.363624611528358,
+      "max_otherfold_kmer_cosine": 0.10211534053087234,
+      "unmasked_fraction": 0.6086956521739131
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": true,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [
+          "FUNCTION: Constitutes the major component of lipophorin, which mediates transport for various types of lipids in hemolymph."
+        ],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.15847570282473464,
+      0.04140893004378358
+    ],
+    "composition_estimates_raw": [
+      0.4399608768191815,
+      0.4717614030435619
+    ],
+    "composition_residual_raw": [
+      -0.28148517399444684,
+      -0.4303524729997783
+    ],
+    "composition_residual_clipped": [
+      -0.28148517399444684,
+      -0.4303524729997783
+    ],
+    "label_oriented_residual": [
+      0.28148517399444684,
+      0.4303524729997783
+    ],
+    "baseline_seed_probabilities": [
+      0.6865086578109142,
+      0.8084046465259584
+    ],
+    "seed_fusion_probabilities": [
+      0.4224921803178243,
+      0.424906788284871
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.5632347673150478,
+      0.6400830247847601
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_4134",
+    "sequence": "ANNPGARKAIRKIEARTEVN",
+    "original_label": 0,
+    "fold": 0,
+    "group_id": "reference_003713",
+    "cohort": "unreproduced_rescue",
+    "name": "Small ribosomal subunit protein bS20 (30S ribosomal protein S20)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/Q9R4P2/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 20.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": 3.0,
+      "mean_hydropathy": -1.0550000000000002,
+      "aromatic_fraction": 0.0,
+      "proline_fraction": 0.05,
+      "glycine_fraction": 0.05,
+      "local_positive_excess": 0.3214285714285714,
+      "local_hydrophobic_excess": 0.22142857142857142,
+      "ideal_alpha_hydrophobic_moment": 0.12284704227458232,
+      "mean_plddt": 0.624835014,
+      "hydrophobic_contact_excess": 0.09010270774976656,
+      "positive_hydrophobic_contact_excess": -0.014005602240896364,
+      "charge_hydrophobic_separation": 0.1826999723613609,
+      "nonlocal_contact_density": 0.0915032679738562,
+      "ca_radius_gyration": 13.329289870983922,
+      "max_otherfold_kmer_cosine": 0.11576864123344421,
+      "unmasked_fraction": 0.05
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.11903085651182908,
+      0.03650641030296175
+    ],
+    "composition_estimates_raw": [
+      0.40007094515355457,
+      0.39571953871484095
+    ],
+    "composition_residual_raw": [
+      -0.28104008864172547,
+      -0.3592131284118792
+    ],
+    "composition_residual_clipped": [
+      -0.28104008864172547,
+      -0.3592131284118792
+    ],
+    "label_oriented_residual": [
+      0.28104008864172547,
+      0.3592131284118792
+    ],
+    "baseline_seed_probabilities": [
+      0.7841345513945474,
+      0.8240498844749329
+    ],
+    "seed_fusion_probabilities": [
+      0.4515827039531882,
+      0.4302781473889474
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.592102748274051,
+      0.609884711594887
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_5229",
+    "sequence": "HDRPKFCYLPADPGECLAHMRSF",
+    "original_label": 0,
+    "fold": 4,
+    "group_id": "reference_004439",
+    "cohort": "unreproduced_rescue",
+    "name": "Kunitz-type serine protease inhibitor C8 (BPTI-8) (Chymotrypsin inhibitor 8) (Chymotrypsin inhibitor B8) (Chymotrypsin inhibitor C8)",
+    "name_class": [
+      "Kunitz"
+    ],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P85039/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 23.0,
+      "cys_count": 2.0,
+      "cys_span_fraction": 0.4090909090909091,
+      "net_charge_proxy": 0.0,
+      "mean_hydropathy": -0.5826086956521739,
+      "aromatic_fraction": 0.13043478260869565,
+      "proline_fraction": 0.13043478260869565,
+      "glycine_fraction": 0.043478260869565216,
+      "local_positive_excess": 0.15527950310559005,
+      "local_hydrophobic_excess": 0.18012422360248442,
+      "ideal_alpha_hydrophobic_moment": 0.10943882721394817,
+      "mean_plddt": 0.659769595,
+      "hydrophobic_contact_excess": 0.08771121351766512,
+      "positive_hydrophobic_contact_excess": -0.01274961597542243,
+      "charge_hydrophobic_separation": 0.7629524037482877,
+      "nonlocal_contact_density": 0.14761904761904762,
+      "ca_radius_gyration": 8.26414489530664,
+      "max_otherfold_kmer_cosine": 0.08159150183200836,
+      "unmasked_fraction": 0.391304347826087
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": true,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false,
+      "name_proxy:Kunitz": true
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.014147830518191051,
+      0.0047078563223085556
+    ],
+    "composition_estimates_raw": [
+      0.5303544806950371,
+      0.527212859738301
+    ],
+    "composition_residual_raw": [
+      -0.5162066501768461,
+      -0.5225050034159925
+    ],
+    "composition_residual_clipped": [
+      -0.5162066501768461,
+      -0.5225050034159925
+    ],
+    "label_oriented_residual": [
+      0.5162066501768461,
+      0.5225050034159925
+    ],
+    "baseline_seed_probabilities": [
+      0.7660676743247614,
+      0.5350708971241277
+    ],
+    "seed_fusion_probabilities": [
+      0.3901077524214762,
+      0.2698893767232181
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.6482110775098993,
+      0.5311418784312144
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_6281",
+    "sequence": "TIEEVLNLPPYVVAA",
+    "original_label": 0,
+    "fold": 4,
+    "group_id": "reference_005081",
+    "cohort": "unreproduced_rescue",
+    "name": "15 kDa cell wall protein",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P80795/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 15.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": -2.0,
+      "mean_hydropathy": 0.8400000000000001,
+      "aromatic_fraction": 0.06666666666666667,
+      "proline_fraction": 0.13333333333333333,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.0,
+      "local_hydrophobic_excess": 0.03809523809523807,
+      "ideal_alpha_hydrophobic_moment": 0.29568900322108044,
+      "mean_plddt": 0.741226733,
+      "hydrophobic_contact_excess": 0.1307692307692308,
+      "positive_hydrophobic_contact_excess": 0.0,
+      "charge_hydrophobic_separation": null,
+      "nonlocal_contact_density": 0.1282051282051282,
+      "ca_radius_gyration": 9.205097178062141,
+      "max_otherfold_kmer_cosine": 0.08245252072811127,
+      "unmasked_fraction": 0.7333333333333333
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.039894078967064234,
+      0.0007107506171601458
+    ],
+    "composition_estimates_raw": [
+      0.23279225074169496,
+      0.07171265016056155
+    ],
+    "composition_residual_raw": [
+      -0.19289817177463073,
+      -0.0710018995434014
+    ],
+    "composition_residual_clipped": [
+      -0.19289817177463073,
+      -0.0710018995434014
+    ],
+    "label_oriented_residual": [
+      0.19289817177463073,
+      0.0710018995434014
+    ],
+    "baseline_seed_probabilities": [
+      0.8705511567741844,
+      0.9962996323328324
+    ],
+    "seed_fusion_probabilities": [
+      0.4552226178706244,
+      0.4985051914749963
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.5516717037579397,
+      0.534006141246697
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  },
+  {
+    "sample_id": "peptide_6296",
+    "sequence": "EDKYTDKYDNINLDE",
+    "original_label": 0,
+    "fold": 3,
+    "group_id": "reference_005095",
+    "cohort": "unreproduced_rescue",
+    "name": "Antennal odorant-binding protein (AOBP)",
+    "name_class": [],
+    "curated_family": [],
+    "source_urls": [
+      "https://www.uniprot.org/uniprotkb/P81285/entry"
+    ],
+    "cached_papers": [],
+    "features": {
+      "sequence_length": 15.0,
+      "cys_count": 0.0,
+      "cys_span_fraction": 0.0,
+      "net_charge_proxy": -4.0,
+      "mean_hydropathy": -2.0533333333333332,
+      "aromatic_fraction": 0.13333333333333333,
+      "proline_fraction": 0.0,
+      "glycine_fraction": 0.0,
+      "local_positive_excess": 0.15238095238095237,
+      "local_hydrophobic_excess": 0.15238095238095237,
+      "ideal_alpha_hydrophobic_moment": 0.027772612201966203,
+      "mean_plddt": 0.682526648,
+      "hydrophobic_contact_excess": 0.0,
+      "positive_hydrophobic_contact_excess": 0.059829059829059825,
+      "charge_hydrophobic_separation": 1.5155178044732671,
+      "nonlocal_contact_density": 0.11538461538461539,
+      "ca_radius_gyration": 9.634064885883136,
+      "max_otherfold_kmer_cosine": 0.08599896728992462,
+      "unmasked_fraction": 0.26666666666666666
+    },
+    "mechanism_flags": {
+      "mention_positive_candidate:membrane_or_lysis": false,
+      "mention_negation_or_mixed:membrane_or_lysis": false,
+      "mention_positive_candidate:ion_channel": false,
+      "mention_negation_or_mixed:ion_channel": false,
+      "mention_positive_candidate:receptor_or_signaling": false,
+      "mention_negation_or_mixed:receptor_or_signaling": false,
+      "mention_positive_candidate:hemostasis_or_proteolysis": false,
+      "mention_negation_or_mixed:hemostasis_or_proteolysis": false,
+      "mention_positive_candidate:antimicrobial": false,
+      "mention_negation_or_mixed:antimicrobial": false,
+      "explicit_disulfide_annotation": false,
+      "annotated_disulfide_crossing": false,
+      "explicit_modification_annotation": false,
+      "interchain_bond_annotation": false,
+      "fragment_reference_flag": true,
+      "cross_source_label_conflict": false,
+      "full_feature_record_cached": false,
+      "any_name_class": false,
+      "any_curated_family": false,
+      "direct_assay_record_cached": false
+    },
+    "mechanism_sentences": {
+      "membrane_or_lysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "ion_channel": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "receptor_or_signaling": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "hemostasis_or_proteolysis": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      },
+      "antimicrobial": {
+        "positive_candidates": [],
+        "negation_or_mixed": []
+      }
+    },
+    "explicit_disulfide_pairs": [],
+    "explicit_interchain_records": [],
+    "explicit_modification_records": [],
+    "manual_primary_status": "未核查",
+    "assay_summary": null,
+    "assay_records": [],
+    "teacher_probabilities": [
+      0.0001638326493325411,
+      3.682410696027469e-05
+    ],
+    "composition_estimates_raw": [
+      0.26955216103821616,
+      0.24077449453813066
+    ],
+    "composition_residual_raw": [
+      -0.2693883283888836,
+      -0.2407376704311704
+    ],
+    "composition_residual_clipped": [
+      -0.2693883283888836,
+      -0.2407376704311704
+    ],
+    "label_oriented_residual": [
+      0.2693883283888836,
+      0.2407376704311704
+    ],
+    "baseline_seed_probabilities": [
+      0.9678368096642448,
+      0.9959952433721917
+    ],
+    "seed_fusion_probabilities": [
+      0.4840003211567887,
+      0.4980160337395759
+    ],
+    "composition_seed_fusion_probabilities": [
+      0.6186944853512305,
+      0.6183848689551611
+    ],
+    "both_seed_baseline_wrong_and_actualfusion_correct": true,
+    "both_seed_baseline_correct_and_actualfusion_wrong": false,
+    "both_residual_directions_helpful": true,
+    "both_residual_directions_misleading": false,
+    "strict_useful_residual": true,
+    "strong_useful_residual": true,
+    "strict_misleading_residual": false,
+    "strong_misleading_residual": false
+  }
+]

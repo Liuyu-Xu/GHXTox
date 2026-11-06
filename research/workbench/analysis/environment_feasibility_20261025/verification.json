@@ -1,0 +1,23 @@
+{
+  "source_sha256": "60ea939eab999a375eb0b132afdce3f5ba0e21c753e32b50296df9b265647c42",
+  "atlas_before": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+  "atlas_after": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+  "same_sequence_groups_disjoint": true,
+  "paper_holdout_sequence_purged": true,
+  "test_predictions_used": false,
+  "ghxtox_weights_changed": false,
+  "target": "固定浓度下溶血百分比",
+  "HC50_not_input": true,
+  "censored_points_not_coerced": true,
+  "hyperparameter_search": false,
+  "all_fold_prediction_counts_per_model": {
+    "sequence_edit_groups::peptide": 3380,
+    "sequence_edit_groups::peptide_dose": 3380,
+    "sequence_edit_groups::peptide_dose_species": 3380,
+    "sequence_edit_groups::dose_species_only": 3380,
+    "paper_holdout_purged_sequence_groups::peptide": 3380,
+    "paper_holdout_purged_sequence_groups::peptide_dose": 3380,
+    "paper_holdout_purged_sequence_groups::peptide_dose_species": 3380,
+    "paper_holdout_purged_sequence_groups::dose_species_only": 3380
+  }
+}

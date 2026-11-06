@@ -1,0 +1,15 @@
+{
+  "artifact_type": "mpce_net_b2_decision",
+  "version": "b2-v1",
+  "date": "2026-09-05",
+  "decision": "retain_as_ablation",
+  "checks": {
+    "gated_vs_A1_mcc": "pass",
+    "gated_vs_A1_auprc": "fail",
+    "gated_vs_A1_brier": "fail",
+    "gated_vs_B": "not_better",
+    "gated_vs_fixed": "not_better"
+  },
+  "v1_modified": false,
+  "test1_test2_used": false
+}

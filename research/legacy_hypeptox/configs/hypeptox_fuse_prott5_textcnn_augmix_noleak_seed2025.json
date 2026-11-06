@@ -1,0 +1,43 @@
+{
+  "seed": 2025,
+  "data": {
+    "max_length": 128,
+    "structure_mode": "cached",
+    "structure_cache_dir": "data/structures"
+  },
+  "model": {
+    "modality": "sequence_only",
+    "sequence_architecture": "prott5_textcnn",
+    "sequence_kernels": [3, 5, 7],
+    "sequence_use_residual": true,
+    "textcnn_use_sequence_features": false,
+    "aa_embedding_dim": 32,
+    "group_embedding_dim": 12,
+    "hidden_dim": 192,
+    "dropout": 0.28,
+    "plm_embedding_dim": 1024,
+    "global_features": true
+  },
+  "train": {
+    "epochs": 35,
+    "batch_size": 48,
+    "learning_rate": 0.0004,
+    "weight_decay": 0.0002,
+    "val_fraction": 0.15,
+    "early_stop_patience": 9,
+    "pos_weight": "auto",
+    "loss": "focal_bce",
+    "focal_gamma": 1.5,
+    "monitor": "mcc"
+  },
+  "inference": {
+    "default_threshold": 0.5,
+    "threshold_source": "fixed neutral threshold before validation-threshold calibration"
+  },
+  "experiment": {
+    "name": "hypeptox_fuse_prott5_textcnn_augmix_noleak_seed2025",
+    "selection_data": "HyPepTox-Fuse train-fit split with training-only balanced feature-space augmentation",
+    "external_sets_used_for_selection": false,
+    "method_reference": "2026 JCIM ToxPLTC-style ProtT5 feature adjustment plus TextCNN sequence expert"
+  }
+}

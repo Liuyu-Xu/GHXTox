@@ -1,0 +1,50 @@
+{
+  "artifact_type": "mpce_prototype_residual_amplitude_validation_v2",
+  "version": "kpr-v2",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "global_definition": "p_global=(p1+p2)/2; z_global=logit(p_global)",
+    "outer_fold_safety": "v1 fold-k only; residual trains fold!=k; evaluates fold k"
+  },
+  "arms": {
+    "A": "frozen v1",
+    "B": "flat residual, beta inner-selected from {0.25,0.5,0.75}",
+    "C": "prototype residual, same beta candidates and same selection rule"
+  },
+  "beta_selection": {
+    "candidates": [0.25, 0.5, 0.75],
+    "inner_split": "per outer fold, label-stratified 20% inner validation; fixed seed 20260905+fold",
+    "rule": "eligible if inner AUPRC >= baseline-0.002 and inner Brier <= baseline+0.002; choose max inner MCC; ties choose smaller beta",
+    "fallback": "if none eligible, choose smallest beta",
+    "post_rule": "beta search stops after this protocol"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "v1_fold_template": "runs\\prottox_3d_distill_v1\\mlp_teacher_kd_seed{seed}_v1\\fold_{k}.pt"
+  },
+  "outer_gate": {
+    "C_vs_A": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "C_vs_B": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.002,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    }
+  },
+  "audit": {
+    "decision_flip_audit": true,
+    "selected_beta_by_fold_seed_arm": true
+  }
+}

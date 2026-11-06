@@ -1,0 +1,39 @@
+{
+  "artifact_type": "ghxtox_unified_inference_oof_contract",
+  "version": 1,
+  "rows": 6387,
+  "contract": "D:\\dachuang2026\\GHXTox\\runs\\unified_inference_oof_v1\\contract.csv",
+  "contract_sha256": "619aa5e930cafadb7edc41f24cbd5734209623a35de90099b6abf8446aabd2a0",
+  "prediction_source": "D:\\dachuang2026\\GHXTox\\runs\\selective_prediction_current_default_input_20260810_v1\\oof_predictions.csv",
+  "prediction_source_sha256": "def4749e825906f69caab1c715616b94defd0a8c7756737ab2d7318005c78afb",
+  "processed_train": "D:\\dachuang2026\\ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+  "processed_train_sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+  "fold_manifest": "D:\\dachuang2026\\ziliao\\train_cdhit080_fallback_folds.csv",
+  "fold_manifest_sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4",
+  "sequence_seed_oof": [
+    "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed42.json",
+    "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed2025.json",
+    "D:\\dachuang2026\\GHXTox\\runs\\lora_mamba_full\\oof_seed123.json"
+  ],
+  "sequence_seed_oof_sha256": [
+    "bd6d2c6e8d63b5905affb1db12398211d6d1c600a9c3aaf326f431b0d6445937",
+    "d4b730685eca50cf2ab1d8e8c4d7ee939c676d764b60903435711186de4ecb88",
+    "34821366963b499bff4b6af1a2e6f6c6703d5880f478e82b471974f35b791d7b"
+  ],
+  "pre_esmfold_feature_columns": [
+    "sequence_length",
+    "cys_count",
+    "cys_fraction",
+    "cys_span_fraction",
+    "cys_min_gap_fraction",
+    "cys_adjacent_pairs",
+    "cys_terminal_count",
+    "sequence_seed_dispersion",
+    "sequence_seed_dispersion_available"
+  ],
+  "post_structure_columns_excluded_from_router_features": [
+    "p_struct",
+    "p_fusion"
+  ],
+  "external_test_labels_used": false
+}

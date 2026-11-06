@@ -1,0 +1,20 @@
+{
+  "stage": "frozen before fitting or inspecting fullmodel/SaProt blended outcomes",
+  "task": "Compare saved old/full GHXTox and new/no-inner-Transformer GHXTox plus saved standalone SaProt probabilities; no neural training or test data",
+  "n": 6387,
+  "old_full": "analysis/error_evidence_linkage_20261025/all_training_linked.json:p_fusion; original threshold0.47022256531284556",
+  "new_full": "analysis/upstream_adoption_20261027/handoff/GHXTox_team_handoff_20261027/runs/structure_candidates_20261022/report/S3_plus_no_inner_transformer_oof.csv; per-row threshold",
+  "SaProt": "analysis/saprot_standalone_20261026/ensemble_scores.npz:SaProt_only_masked and SaProt_only_3Di, two seed mean probability represented by stablelogodds",
+  "alignment": "exact sample_id,sequence,label,fold,group; audit train/checkpoint IDs for available SaProt models and parent/new roles; no automatic equivalence of inner training protocols",
+  "calibration_split": "reuse original within-neural-heldout-fold group halves from saprot_explanation_20261026; train half1 predicthalf0 and reverse; 10fits/model; never fit meta on other OOFfolds whose neural training could include current rows",
+  "calibration": "train-half StandardScaler and unweighted LogisticRegression(C=1,lbfgs,max_iter3000) on one score; for full models use logit(prob)-logit(own frozen threshold), for SaProt use saved stablelogodds. Check positive slope. No learned blending/threshold selection.",
+  "primary_weight": "0.8 calibrated_full +0.2 calibrated_SaProt, threshold0.5, same fixed weight both model versions; preserve strong full model as main predictor",
+  "secondary_weight": "0.5+0.5 fixed equal probability average to check stronger reliance, threshold0.5; no weight sweep or selecting best as confirmed result",
+  "arms": "2 full versions x2SaProt modes x2predefined weights=8 contrasts vs respective same-calibration full baseline; raw full scores and natural decisions also reported",
+  "seed_diagnostics": "Repeat 0.2SaProt fusion for each of two saved SaProt seeds after same-half calibration, descriptive; sharedencoder/splits not independent replications",
+  "uncertainty": "2000 paired original-group bootstrap of fixed predictions, RNG20261027; report95% and99.375%(Bonferroni8) MCC deltaCI; no refitting bootstrap or independent validation claim",
+  "report": "MCC,AUPRC,AUROC,Brier,FN,FP,corrected/harmed,5fold results; lowCysoriginalpositives and old76membrane annotation subset descriptive, unknown not negative",
+  "size_control": "extra matching full GHXTox/sequence seeds unavailable in handoff; do not use lightweight4member control as full-sizecontrol or duplicate oldmodels; can report complement but not exclude ensemble-size explanation",
+  "continue_gate": "for primary masked0.2 exploratory candidate only: deltaMCC>=.005, correctedCI lower>0, at least4/5fold neterrors>=0, AUPRC delta>=-.002, both teacherseed diagnostics deltaMCC>=0. Passing permits further study not deployment/distillation.",
+  "guardrails": "old globalOOF calibration/selection already usedlabels and new reuses originalsequenceOOF; historical exploratory study, not strict new nestedvalidation; no test1/test2, no relabel/labelrouting, no changed default, no NNfit or GPU encoding; retain null/negative results"
+}

@@ -1,0 +1,39 @@
+{
+  "model_name": "ProtTox-SpectralRefine",
+  "model_version": "prottox-spectral-refine-v1",
+  "base": {
+    "model": "ProtTox-TSK TriStat-MLP",
+    "encoder": "frozen ProtT5",
+    "features": ["masked_mean_max_population_std", "physchem_9"]
+  },
+  "spectral_descriptor": {
+    "version": "physchem-dct-v1",
+    "transform": "within-sequence standardization followed by orthonormal DCT-II",
+    "channels": ["hydropathy", "charge_ph7", "polarity", "side_chain_volume", "flexibility", "aromaticity"],
+    "coefficients_per_channel": 8,
+    "energy_bands": ["low", "mid", "high"],
+    "dimension": 66
+  },
+  "architecture": {
+    "gated_residual": "z_final = z_base + sigmoid(gate([base, spectral])) * delta(spectral)",
+    "residual_output_initialization": "zero",
+    "single_user_visible_output": true
+  },
+  "training": {
+    "folds": 5,
+    "seeds": [20260905, 20260906],
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "variants": ["spectral_only", "concat", "gated_residual"],
+    "selection_scope": "training OOF only"
+  },
+  "promotion_rule": {
+    "candidate": "gated_residual",
+    "baseline": "paired TriStat-MLP",
+    "both_seeds_mcc_not_lower": true,
+    "minimum_mean_mcc_advantage": 0.005,
+    "maximum_mean_auprc_decline": 0.002,
+    "test1_test2_allowed_for_selection": false
+  },
+  "excluded_components": ["LoRA", "Bi-Mamba", "ESMFold", "3D features", "GNN", "molecular graph", "structure fusion", "FFT search", "wavelet search", "website changes"]
+}

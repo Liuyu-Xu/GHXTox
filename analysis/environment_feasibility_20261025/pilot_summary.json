@@ -1,0 +1,58 @@
+[
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "peptide",
+    "folds": 5,
+    "mae_percentage_points": 22.712215383865605,
+    "r2": 0.04546821245730803
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "peptide_dose",
+    "folds": 5,
+    "mae_percentage_points": 22.728389902303057,
+    "r2": 0.05239095491031165
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "peptide_dose_species",
+    "folds": 5,
+    "mae_percentage_points": 22.541851419555744,
+    "r2": 0.0648301814682406
+  },
+  {
+    "design": "paper_holdout_purged_sequence_groups",
+    "model": "dose_species_only",
+    "folds": 5,
+    "mae_percentage_points": 26.10119312501379,
+    "r2": -0.10780555821434845
+  },
+  {
+    "design": "sequence_edit_groups",
+    "model": "peptide",
+    "folds": 5,
+    "mae_percentage_points": 22.972314140343812,
+    "r2": 0.04021517009271458
+  },
+  {
+    "design": "sequence_edit_groups",
+    "model": "peptide_dose",
+    "folds": 5,
+    "mae_percentage_points": 22.77156136599988,
+    "r2": 0.05436554555007389
+  },
+  {
+    "design": "sequence_edit_groups",
+    "model": "peptide_dose_species",
+    "folds": 5,
+    "mae_percentage_points": 22.6073264601612,
+    "r2": 0.0734548290094239
+  },
+  {
+    "design": "sequence_edit_groups",
+    "model": "dose_species_only",
+    "folds": 5,
+    "mae_percentage_points": 25.542482186931796,
+    "r2": -0.05681375239936193
+  }
+]

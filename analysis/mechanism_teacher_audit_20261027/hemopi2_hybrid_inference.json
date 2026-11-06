@@ -1,0 +1,76 @@
+{
+  "variant": "author default -m 4, ESM2-t6 + MERCI",
+  "official_functions_unmodified": [
+    "MERCI_Processor_n",
+    "MERCI_Processor_p",
+    "Merci_after_processing_n",
+    "Merci_after_processing_p",
+    "hybrid"
+  ],
+  "threshold": 0.58,
+  "comparison": "> after public hybrid round(3), ESM file round(4); clipped score is not calibrated total toxicity probability",
+  "scanners": [
+    {
+      "command": [
+        "C:/Strawberry/perl/bin/perl.exe",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\merci\\MERCI_motif_locator.pl",
+        "-p",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\input.fasta",
+        "-i",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif\\pos_motif_1.txt",
+        "-o",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\merci_p_1.txt"
+      ],
+      "returncode": 0,
+      "motif_sha256": "78f9efd817451e807fb38fad9248c9317487bd31e069e6ee9b41ffe3b6a55a6a"
+    },
+    {
+      "command": [
+        "C:/Strawberry/perl/bin/perl.exe",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\merci\\MERCI_motif_locator.pl",
+        "-p",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\input.fasta",
+        "-i",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif\\pos_motif_2.txt",
+        "-o",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\merci_p_2.txt",
+        "-c",
+        "KOOLMAN-ROHM"
+      ],
+      "returncode": 0,
+      "motif_sha256": "26a75457012e8215d1a0ed7d90c8b1276af15380a1aee7c40deb2bcc32dbc93b"
+    },
+    {
+      "command": [
+        "C:/Strawberry/perl/bin/perl.exe",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\merci\\MERCI_motif_locator.pl",
+        "-p",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\input.fasta",
+        "-i",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif\\neg_motif_1.txt",
+        "-o",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\merci_n_1.txt"
+      ],
+      "returncode": 0,
+      "motif_sha256": "7d7455cc1874ab796cc1cfed55ef23c091047434cdadab9a7ed3804d1d4a1bed"
+    },
+    {
+      "command": [
+        "C:/Strawberry/perl/bin/perl.exe",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\merci\\MERCI_motif_locator.pl",
+        "-p",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\input.fasta",
+        "-i",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif\\neg_motif_2.txt",
+        "-o",
+        "D:\\dachuang2026\\GHXTox\\analysis\\mechanism_teacher_audit_20261027\\hemopi2\\motif_diagnostic\\merci_n_2.txt",
+        "-c",
+        "KOOLMAN-ROHM"
+      ],
+      "returncode": 0,
+      "motif_sha256": "56294741344da3d4f0fc2a1978b42519787494e015044cb6e1952ebde7a6a7d2"
+    }
+  ],
+  "rows": 6773,
+  "fit_calls": 0
+}

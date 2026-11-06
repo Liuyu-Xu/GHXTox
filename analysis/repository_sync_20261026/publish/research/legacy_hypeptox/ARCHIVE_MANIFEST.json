@@ -1,0 +1,307 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 903,
+    "sha256": "a66707f173ec6bd605d91c371127797279c837fa95f16790ad868b33a668d74d"
+  },
+  {
+    "path": "README.md",
+    "bytes": 124940,
+    "sha256": "12669ac24cf5fcb7bd90f4c9103d26fd5e459cde1c4e07e131c48e08b389c409"
+  },
+  {
+    "path": "configs/hypeptox_fuse_3d_v2.json",
+    "bytes": 2534,
+    "sha256": "b6f847fadb4c9384beffe1c6d7e70bb454067e06e54410be7c8709ee71eeccc2"
+  },
+  {
+    "path": "configs/hypeptox_fuse_3d_v2_augmix_noleak.json",
+    "bytes": 2649,
+    "sha256": "c911ca1c6dd533a5b0ea14656c9dbeebcf5be7923f477a84cf4858a2c28c9d38"
+  },
+  {
+    "path": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak.json",
+    "bytes": 1260,
+    "sha256": "47d3a56073176bf26e08d1217f71b54f93d5522dfd53e882d4df5c39798844fa"
+  },
+  {
+    "path": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak_seed123.json",
+    "bytes": 1269,
+    "sha256": "d7768632774495b97611228d9ffa93e688d97b8cc6a4768665a7b90a4e8b099a"
+  },
+  {
+    "path": "configs/hypeptox_fuse_prott5_textcnn_augmix_noleak_seed2025.json",
+    "bytes": 1271,
+    "sha256": "d9b7aa804bc1e445036356f6856df9130a8fc89d3857df53b209e2932c9e961f"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_focal_mcc_seed123.json",
+    "bytes": 1530,
+    "sha256": "ba9500e3930d229609c8365c60b6f1664b651e817e09a8f3f29a62c1652081ce"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_focal_mcc_seed2025.json",
+    "bytes": 1532,
+    "sha256": "ea613c0ccf1fb9fdcd45b07951a5a0c464281b1a6d3ba0137e6623055fc0d2a1"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_focal_mcc_seed42.json",
+    "bytes": 1528,
+    "sha256": "4dc7f1d2c25e8f443f41175f2863b935b2b26e559439ebcbc6762d46b5df3185"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed123.json",
+    "bytes": 1514,
+    "sha256": "7892f507595c371a1321446a9f46db72a3d9fca33bbeb12d181fdc05b66a3d66"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed2025.json",
+    "bytes": 1516,
+    "sha256": "5d00983a31959e579dc88dfd8cc420430b7cf48b123d13cca3efb7c4431e93b0"
+  },
+  {
+    "path": "configs/hypeptox_tuning/bilstm_smooth_auprc_seed42.json",
+    "bytes": 1512,
+    "sha256": "0e77e2060ada3b53ae3264fb40b4473073213503c0bc934f1bcf27e4a0224e2c"
+  },
+  {
+    "path": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed123.json",
+    "bytes": 3271,
+    "sha256": "d2bf21dad93456b2176879304b454977fe15d077ddd54698ee40982ef2ae1237"
+  },
+  {
+    "path": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed2025.json",
+    "bytes": 3273,
+    "sha256": "ed81fb82a685058c941262710eb0962faa2738bc7efd84a8bdbd4de2071f567a"
+  },
+  {
+    "path": "configs/hypeptox_tuning/chemical_branch_focal_mcc_seed42.json",
+    "bytes": 3269,
+    "sha256": "4c42b850b5a74bcc334741c4142ff916afcf948b2890074face88683185af21a"
+  },
+  {
+    "path": "configs/hypeptox_tuning/chemical_full_finetune_auprc_seed42.json",
+    "bytes": 3262,
+    "sha256": "7f36a897816588ad152cac0d2397c33ffdce8a32f9f2978fca4d7c8233902366"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_focal_mcc_seed123.json",
+    "bytes": 1837,
+    "sha256": "154d6b0b88997fc27b8778367c511eac8841b25370244248d7537585dd85d67d"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_focal_mcc_seed2025.json",
+    "bytes": 1839,
+    "sha256": "3cc76ede42777f0ef3c9bb3e108d40a746dd2fed14eb5a73cad6548fa8f8f31b"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_focal_mcc_seed42.json",
+    "bytes": 1835,
+    "sha256": "98b9db1b8a3ab955b43cbbb5fc73e095f1b8d6f94bd9f8914222e3b3300d5bc3"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed123.json",
+    "bytes": 1827,
+    "sha256": "eeecc759ceb9e3e32b7bcfd9ac9f4c95bc831622feeeeeb918a5db3391b09460"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed2025.json",
+    "bytes": 1829,
+    "sha256": "ce07c55e4da26c41aae81ece657764c9764e8449e9f8b4e02da1691b4af7b691"
+  },
+  {
+    "path": "configs/hypeptox_tuning/geometry_low_noise_auprc_seed42.json",
+    "bytes": 1825,
+    "sha256": "a0d3b74ac5b9ff309fadc9eadf07ab2b2211f36d97efac56fe53dab63d2cf62a"
+  },
+  {
+    "path": "configs/hypeptox_tuning/manifest.json",
+    "bytes": 6635,
+    "sha256": "bdb977cff3ba59189ba37e8ca10ccae6419a3a2a1ccf82507efeedb492a7193d"
+  },
+  {
+    "path": "docs/hypeptox_fuse_paper_analysis_plan.md",
+    "bytes": 4889,
+    "sha256": "7fe8260ff9366372aede9ed90aee3c76de292479afed96e488ed236492a45f3f"
+  },
+  {
+    "path": "docs/hypeptox_fuse_tuning_commands.ps1",
+    "bytes": 27731,
+    "sha256": "3b5d43f833d20c449e4be2df15a01882b84664b39196243c2329143648c7e61d"
+  },
+  {
+    "path": "docs/hypeptox_fuse_tuning_commands.sh",
+    "bytes": 27769,
+    "sha256": "5c1a34f110d96112fbab65a766093b6f95de9d22d3f476df05dc8f2f89839ff7"
+  },
+  {
+    "path": "docs/local_metric_optimization.md",
+    "bytes": 3792,
+    "sha256": "4cb248633e1b3776559657984423e031ff985c08f1e1c2bd1028f1e6bdeedccf"
+  },
+  {
+    "path": "docs/prediction_ensemble_search_autodl.md",
+    "bytes": 2410,
+    "sha256": "eca7a92c09b2c38a1b01264fb3031a1f3eb9a2084b6bc81df95bcd2c4f1ee892"
+  },
+  {
+    "path": "docs/prott5_textcnn_hypeptox_autodl.md",
+    "bytes": 7007,
+    "sha256": "6847eb9779bc38ebb07611cb36e247f61b65b9cc1ca203e946906019e2287923"
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 2625,
+    "sha256": "de0a5fadbdac7822dcb1cc9b5ef152f175decde4215b494dc7915b5e89f10332"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/ablation_progression.png",
+    "bytes": 291802,
+    "sha256": "c47623301bfd0d6c64f4add5d6ff895ca96ee87fefc30afabfc55a4a3e44bfe1"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/ablation_table_no_bacc.csv",
+    "bytes": 4106,
+    "sha256": "727428f222c727c1fa8c61035d2f6daa67fe84931cfbeced71fd8ea8b32c354f"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/calibration_brier_ece.png",
+    "bytes": 100643,
+    "sha256": "fffae5361424f6a356512f219206bafda336d3a7ef74a575b382983e248c0d15"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/final_roc_pr_calibration.png",
+    "bytes": 129208,
+    "sha256": "61a0ae7117f8d4eff8ad9d39043b20493da601df7de984df8c554315fd79d45f"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/headline_comparison_no_bacc.csv",
+    "bytes": 715,
+    "sha256": "30810ff419f944aae51a391c52c762edb9ecb56010edfcad8e18ff70b81adf4d"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/headline_delta_vs_hypeptox_fuse.png",
+    "bytes": 49650,
+    "sha256": "bb8af7c4fbe6f2e196984f3d31d9080d3753e836f76293b7d82ba8e8be2a5ee7"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/paired_bootstrap_vs_final.csv",
+    "bytes": 11442,
+    "sha256": "4f1944d8aea8a031a7f77a391cd98d291bdac9f7cd384856f255b32d7ea0c056"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/raw_summaries/seven_model_platt_summary.json",
+    "bytes": 3728,
+    "sha256": "ddcdfbd532115cc56db57755a41d4fd8a2e47932a46821cbaf83166cc55b1303"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top5_platt_summary.json",
+    "bytes": 3665,
+    "sha256": "6fa36f651eb26cae8ae82da419a35830cb9310b920eea98af873b4a8ee7b3617"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top8_test_metrics.json",
+    "bytes": 2008,
+    "sha256": "5f040768a4ea292102694cd6e80b035d65527720a08ecbdfa44a85e137a18144"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/raw_summaries/top8_val_metrics.json",
+    "bytes": 2825,
+    "sha256": "2d59fb0305dcda0e869537290acd4304173b235d45937d7d333c22f9398fe449"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/summary.json",
+    "bytes": 3646,
+    "sha256": "44175bbfefada01e241aac62a1429e343cc114d8c7a0a728eccd0e47159c5498"
+  },
+  {
+    "path": "reports/hypeptox_fuse_paper_analysis/tuning_summary.csv",
+    "bytes": 2810,
+    "sha256": "f4a7ceb9ef31ab8a88ebb84b61c6343f2e95b8a46d0489f3c2a4edd0176577aa"
+  },
+  {
+    "path": "src/ghxtox/attach_chemical_sites.py",
+    "bytes": 4197,
+    "sha256": "f66b110043fefb56b559cb4619059bc8c77396e7b9430398f540a730e668aab1"
+  },
+  {
+    "path": "src/ghxtox/augment_processed.py",
+    "bytes": 8645,
+    "sha256": "7fcbd52a0691f573a70078f38fb98a8a7ddf80ba91804c225f4aab0a7f4705e4"
+  },
+  {
+    "path": "src/ghxtox/calibrate_predictions.py",
+    "bytes": 9127,
+    "sha256": "6daa8f824f2bc55bc3aaf96bab701398dc2d098d65801f473fb7980d179e0d50"
+  },
+  {
+    "path": "src/ghxtox/ensemble_evaluate.py",
+    "bytes": 14380,
+    "sha256": "8e7cf9c17bb6a3c37fa4ac4fffd85c237476d3111112574e4fcf2d8067feaaa0"
+  },
+  {
+    "path": "src/ghxtox/evaluate.py",
+    "bytes": 8650,
+    "sha256": "2adfd6ab1ccb450800036be903b1c10ff486a4bdbba51f029b4ec86e51b6b723"
+  },
+  {
+    "path": "src/ghxtox/hypeptox_paper_analysis.py",
+    "bytes": 23618,
+    "sha256": "dc8ae4aeb47c66d39019029ecbcd66f0aa37942f173c1d818a845f35ad102f17"
+  },
+  {
+    "path": "src/ghxtox/hypeptox_tuning_matrix.py",
+    "bytes": 12979,
+    "sha256": "df4bdc26600a9a14fa5facf04aabd4f8c6e3ba5a10422d77fb23d2b1f4d8515a"
+  },
+  {
+    "path": "src/ghxtox/metrics.py",
+    "bytes": 3191,
+    "sha256": "92e7650c4bcc55f195979bbf5dd13c6c191c2b9d147b2b2eba297701bb310133"
+  },
+  {
+    "path": "src/ghxtox/models/dual_modal.py",
+    "bytes": 22701,
+    "sha256": "ba80f022e8f6564990af6156bfa0f5a65c2abc7d0a65d35cc037eb770d0d2590"
+  },
+  {
+    "path": "src/ghxtox/models/layers.py",
+    "bytes": 38604,
+    "sha256": "7cc25bc5c217a66accf97c4cccd091879961e86999a937faa4570b8ec8930406"
+  },
+  {
+    "path": "src/ghxtox/plm_embed.py",
+    "bytes": 14173,
+    "sha256": "69567ed76ed816e22ff5ba20d654b8b93969f82b202cca735bf2ca85f5a00da6"
+  },
+  {
+    "path": "src/ghxtox/prediction_ensemble_search.py",
+    "bytes": 16590,
+    "sha256": "e0f22375053609169937b388e6a3c3cbc7ee190d5aeac4c570a702f60906b1e1"
+  },
+  {
+    "path": "src/ghxtox/threshold_predictions.py",
+    "bytes": 6520,
+    "sha256": "4204f2687ccadf1a0f2c58fbd32c41946e93d8379f3d9a4e04c0c3d68e61caaa"
+  },
+  {
+    "path": "src/ghxtox/train.py",
+    "bytes": 36236,
+    "sha256": "5a933906c9accae5b0efee8241314dc0427c5e646a188c89eb2649406fab64d6"
+  },
+  {
+    "path": "tests/test_algorithm_optimization.py",
+    "bytes": 2971,
+    "sha256": "7a9f2c49c7a62db344b7a9bdfdd6c3ab0da6928a74c83af47e2fbfc578e119ab"
+  },
+  {
+    "path": "tests/test_hypeptox_paper_analysis.py",
+    "bytes": 809,
+    "sha256": "35ea405a88187f74ed947d4fc8612d43d3c4630f12f92593e28b78d1575d3a7c"
+  },
+  {
+    "path": "tests/test_smoke.py",
+    "bytes": 45367,
+    "sha256": "cf375c2d50ee502a3c42a1a86aa29bb1303d8f9d543da8f0f2ca801e1b3551e3"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "structure_screen": {
+    "criteria": {
+      "delta_MCC_at_least005": false,
+      "correctedCIpositive_vsbase": false,
+      "correctedCIpositive_vsmasked": false,
+      "bothseeds_nondecreasing_vsbase": false,
+      "AP_not_down_more002": true
+    },
+    "passed": false
+  },
+  "robust_loss_screen": {
+    "criteria": {
+      "delta_MCC_at_least005": false,
+      "correctedCIpositive_vsbase": false,
+      "bothseeds_nondecreasing_vsbase": false,
+      "AP_not_down_more002": false,
+      "sensitivity_not_down_more005": true
+    },
+    "passed": false
+  },
+  "automatic_distillation_or_GHXTox_integration": false,
+  "scope": "frozen35M approximatebackbone3Di featureprobe and fixedGCE; no universal rejection of structure or noise learning"
+}

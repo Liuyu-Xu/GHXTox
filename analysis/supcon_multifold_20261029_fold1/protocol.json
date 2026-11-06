@@ -1,0 +1,25 @@
+{
+  "outer_fold": 1,
+  "seed": 42,
+  "arms": {
+    "supcon_all": {},
+    "supcon_unflagged": {}
+  },
+  "baseline": "reused fold1 no_lora; exploratory",
+  "lambda": 0.1,
+  "temperature": 0.1,
+  "batch_size": 16,
+  "max_epochs": 8,
+  "patience": 2,
+  "head_lr": 0.0003,
+  "weight_decay": 0.01,
+  "positive_pair": "same original label, different sequence groups, other sample; within same random minibatch",
+  "negative_pair": "opposite original label, different sequence groups, same minibatch",
+  "anchor_rule": "requires >=1 positive and >=1 negative; singleton or excluded samples skipped; zero term if no eligible anchors",
+  "flags": "supcon_all includes all; supcon_unflagged excludes flagged from contrastive anchors and partners only, retains all for BCE; unflagged not gold",
+  "split": "group-separated train/validation/calibration/test; no Test1/Test2",
+  "fusion": "single 1D + fixed historical 3D; conditional not full 3seed",
+  "contrastive": "normalized pooled BiMamba representation; no extra projector",
+  "selection": "fixed lambda and temperature, minimum unweighted validation BCE, patience2; no outer fold tuning",
+  "biological_claim": "no claim of biological mechanism, no hard mining, no sample weighting"
+}

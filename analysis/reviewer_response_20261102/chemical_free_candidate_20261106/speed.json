@@ -1,0 +1,22 @@
+{
+  "test1_n": 1126,
+  "batch": 16,
+  "gpu": "RTX 4060 laptop",
+  "scope": "cached already-loaded structures; includes DataLoader/collate CPU, transfer, 3D forward, fixed fusion from cached 1D probabilities; excludes ProtT5 1D inference, structure generation, disk read",
+  "seconds": {
+    "original": [
+      5.1789314999914495,
+      5.167227800004184,
+      5.252388900000369
+    ],
+    "candidate": [
+      1.3276834999996936,
+      1.2381714999937685,
+      1.3515887999965344
+    ]
+  },
+  "median_seconds": {
+    "original": 5.1789314999914495,
+    "candidate": 1.3276834999996936
+  }
+}

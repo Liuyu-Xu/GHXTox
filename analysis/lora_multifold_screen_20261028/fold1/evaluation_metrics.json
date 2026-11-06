@@ -1,0 +1,87 @@
+{
+  "selected_by_validation_only": "lora_lr3e5",
+  "metrics": {
+    "sequence": {
+      "no_lora": {
+        "n": 1229,
+        "MCC": 0.8179590892816662,
+        "AUPRC": 0.9472457294788459,
+        "AUROC": 0.9720975578570515,
+        "errors": 91,
+        "FP": 26,
+        "FN": 65
+      },
+      "lora_lr1e5": {
+        "n": 1229,
+        "MCC": 0.8469859947820797,
+        "AUPRC": 0.9479865745346893,
+        "AUROC": 0.9728327579593403,
+        "errors": 77,
+        "FP": 29,
+        "FN": 48
+      },
+      "lora_lr3e5": {
+        "n": 1229,
+        "MCC": 0.8507733908492615,
+        "AUPRC": 0.9528586799492866,
+        "AUROC": 0.9730069684183609,
+        "errors": 75,
+        "FP": 26,
+        "FN": 49
+      }
+    },
+    "fusion": {
+      "no_lora": {
+        "n": 1229,
+        "MCC": 0.8305099290984609,
+        "AUPRC": 0.9489331379320035,
+        "AUROC": 0.9715765247410817,
+        "errors": 85,
+        "FP": 29,
+        "FN": 56
+      },
+      "lora_lr1e5": {
+        "n": 1229,
+        "MCC": 0.8555174131456573,
+        "AUPRC": 0.9530955217965859,
+        "AUROC": 0.9732099475770362,
+        "errors": 73,
+        "FP": 31,
+        "FN": 42
+      },
+      "lora_lr3e5": {
+        "n": 1229,
+        "MCC": 0.8531602575003068,
+        "AUPRC": 0.9537398175185768,
+        "AUROC": 0.973190768443933,
+        "errors": 74,
+        "FP": 29,
+        "FN": 45
+      }
+    }
+  },
+  "comparisons": {
+    "sequence": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr3e5",
+      "delta_MCC": 0.03281430156759535,
+      "bootstrap_95CI": [
+        0.006756976950263172,
+        0.060930249776679685
+      ],
+      "corrected": 26,
+      "harmed": 10
+    },
+    "fusion": {
+      "comparison": "selected LoRA vs no LoRA",
+      "selected": "lora_lr3e5",
+      "delta_MCC": 0.022650328401845887,
+      "bootstrap_95CI": [
+        0.0022050646263748726,
+        0.04511046403717995
+      ],
+      "corrected": 18,
+      "harmed": 7
+    }
+  }
+}

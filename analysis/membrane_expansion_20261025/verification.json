@@ -1,0 +1,16 @@
+{
+  "training_rows": 6387,
+  "shortlist": 9,
+  "direct_endpoint_core": 5,
+  "context_only": 4,
+  "core_original_positive": 4,
+  "core_original_positive_FN": 4,
+  "core_original_positive_TP": 0,
+  "independent_matched_assay_pairs": 0,
+  "original_label_changes": 0,
+  "model_training": false,
+  "test_prediction_access": false,
+  "atlas_sha256_before": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+  "atlas_sha256_after": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a",
+  "interpretation": "目的性小样本；跨研究/物种/剂量混杂；不得视为该机制全局错误率或模型提升证据"
+}

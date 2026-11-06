@@ -1,0 +1,118 @@
+{
+  "all_checks_pass": true,
+  "checkpoints": {
+    "original_candidate": {
+      "epoch": 8,
+      "path": "C:\\Users\\GAOKEHAN\\Downloads\\best_model.pt",
+      "sha256": "D6637F0AD931BE30B1EB90DA5CEB04CBE62B6FC0F57D272A5E88D010BD7D54C0"
+    },
+    "reconstructed_control": {
+      "epoch": 20,
+      "path": "runs\\original_fold0_control_reconstructed_from_candidate_v1\\best_model.pt",
+      "sha256": "24B865066A00FF5F205462D452775B09259AAB57962AD3FDD5229FB38029B726"
+    },
+    "reproduced_candidate": {
+      "epoch": 11,
+      "path": "runs\\original_fold0_candidate_reproduction_torch231_v1\\best_model.pt",
+      "sha256": "576D16E9D2C1574D0DF65A1FD1D85792EB8FE77B8DF69C52AE7E644D14DDB55D"
+    }
+  },
+  "checks": {
+    "candidate_absolute_auprc_difference": true,
+    "candidate_absolute_mcc_difference": true,
+    "candidate_decision_agreement_vs_original": true,
+    "candidate_minus_reproduced_control_auprc": true,
+    "candidate_minus_reproduced_control_mcc": true,
+    "candidate_nonchemical_tensors_bitwise_equal_to_reproduced_control": true,
+    "candidate_probability_mae_vs_original": true,
+    "candidate_probability_pearson_vs_original": true,
+    "control_absolute_auprc_difference": true,
+    "control_absolute_mcc_difference": true,
+    "exact_state_key_and_shape_schema": true,
+    "exact_validation_sample_identity": true
+  },
+  "decision": "pass_continue_to_folds_1_4",
+  "frozen_base_audit": {
+    "changed_nonchemical_tensor_count": 0,
+    "changed_nonchemical_tensor_names": [],
+    "max_absolute_difference": 0.0,
+    "nonchemical_tensor_count": 114
+  },
+  "metrics": {
+    "historical_candidate_target": {
+      "auprc": 0.9553630904293998,
+      "mcc": 0.8677315492423683,
+      "selected_epoch": 8
+    },
+    "historical_control_target": {
+      "auprc": 0.9529280615950917,
+      "mcc": 0.8616032263033445,
+      "selected_epoch": 20
+    },
+    "original_candidate_recomputed": {
+      "accuracy": 0.946498819826908,
+      "auprc": 0.9553633388540982,
+      "auroc": 0.9737579001481751,
+      "balanced_accuracy": 0.9256630076506698,
+      "f1": 0.9039548022598869,
+      "mcc": 0.8677315492423683,
+      "precision": 0.9329446064139941,
+      "recall": 0.8767123287671232
+    },
+    "reconstructed_control": {
+      "accuracy": 0.9441384736428009,
+      "auprc": 0.9529280615950917,
+      "auroc": 0.9734963258641024,
+      "balanced_accuracy": 0.9182814720735433,
+      "f1": 0.8981348637015782,
+      "mcc": 0.8616032263033445,
+      "precision": 0.9427710843373494,
+      "recall": 0.8575342465753425
+    },
+    "reproduced_candidate": {
+      "accuracy": 0.9457120377655389,
+      "auprc": 0.9542911847883425,
+      "auroc": 0.9732483594907618,
+      "balanced_accuracy": 0.9234751580029634,
+      "f1": 0.902127659574468,
+      "mcc": 0.8656735864157715,
+      "precision": 0.9352941176470588,
+      "recall": 0.8712328767123287
+    },
+    "reproduced_candidate_minus_control": {
+      "accuracy": 0.0015735641227380137,
+      "auprc": 0.0013631231932508259,
+      "auroc": -0.00024796637334056904,
+      "balanced_accuracy": 0.005193685929420155,
+      "f1": 0.003992795872889809,
+      "mcc": 0.004070360112427007,
+      "precision": -0.007476966690290521,
+      "recall": 0.013698630136986245
+    },
+    "reproduced_candidate_minus_original": {
+      "accuracy": -0.0007867820613690624,
+      "auprc": -0.0010721540657556705,
+      "auroc": -0.0005095406574132655,
+      "balanced_accuracy": -0.0021878496477063525,
+      "f1": -0.0018271426854188366,
+      "mcc": -0.0020579628265967598,
+      "precision": 0.002349511233064705,
+      "recall": -0.005479452054794498
+    }
+  },
+  "probability_agreement": {
+    "decision_agreement_at_0_5": 0.9976396560668945,
+    "decision_disagreements": 3,
+    "mean_absolute_error": 0.0028567586559802294,
+    "pearson": 0.9991287589073181
+  },
+  "protocol": {
+    "external_test_sets_used": false,
+    "fold": 0,
+    "fold_manifest": "data\\folds\\train_cdhit080_fallback_folds.csv",
+    "gate": "configs\\original_fold0_reproduction_gate.json",
+    "gate_sha256": "8F4B3B52293E555D4A23AF449DDAE06BA9EE0ECA7B785C5A50D9F0F70AB17D14",
+    "train": "D:\\dachuang2026\\ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "validation_samples": 1271
+  }
+}

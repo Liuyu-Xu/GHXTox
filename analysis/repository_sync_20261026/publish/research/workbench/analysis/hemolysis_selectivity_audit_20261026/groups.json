@@ -1,0 +1,74 @@
+[
+  {
+    "pmc": "PMC4890124",
+    "pmid": "27251456",
+    "doi": "10.1038/srep27258",
+    "scaffold": "PMAP36_truncations",
+    "unit": "uM",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4890124/",
+    "conditions": {
+      "mic_medium": "MHB",
+      "mic_time_h": 18,
+      "mic_temperature_C": 37,
+      "mic_inoculum": "approximately 1e5 CFU/mL suspension before equal-volume mixing; final value not silently inferred",
+      "rbc": "human",
+      "hemolysis_buffer": "PBS",
+      "hemolysis_time_h": 1,
+      "hemolysis_temperature_C": 37,
+      "rbc_density": null
+    },
+    "limitations": [
+      "PMAP-36 and RI12 six MIC cells each flagged c: values determined in previous reference 15",
+      "C77-31 named S. typhi in table but S. enterica serovar typhimurium in methods: unresolved",
+      "truncation series, not all equal-length point mutants",
+      "PMAP-36 lone Cys oxidation state unspecified"
+    ]
+  },
+  {
+    "pmc": "PMC6405874",
+    "pmid": "30846839",
+    "doi": "10.1038/s41598-019-40577-8",
+    "scaffold": "Pap12",
+    "unit": "uM",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6405874/",
+    "conditions": {
+      "mic_medium": "1% peptone",
+      "mic_time_h": 16,
+      "mic_temperature_C": 37,
+      "mic_inoculum": "2e6 CFU/mL bacterial suspensions",
+      "rbc": "fresh human",
+      "hemolysis_buffer": null,
+      "hemolysis_time_h": null,
+      "hemolysis_temperature_C": null,
+      "rbc_density": null
+    },
+    "limitations": [
+      "Table 2 HC10=200 uM for Pap12-1..5 is two-times-maximum substitution, not observed threshold",
+      "Pap12-6 Table 2 HC10=100 conflicts with body: only 3% hemolysis at 100 uM",
+      "hemolysis detailed methods delegated to ref23 and not recovered; no numeric zero inferred from no detectable hemolysis"
+    ]
+  },
+  {
+    "pmc": "PMC6270530",
+    "pmid": "23344198",
+    "doi": "10.3390/molecules18010859",
+    "scaffold": "L5K5W_position_isomers",
+    "unit": "ug/mL",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6270530/",
+    "conditions": {
+      "mic_medium": "broth microdilution; detailed medium delegated to previous ref21",
+      "mic_time_h": null,
+      "mic_temperature_C": null,
+      "rbc": "human",
+      "hemolysis_buffer": "PBS",
+      "hemolysis_time_h": 1,
+      "hemolysis_temperature_C": null,
+      "rbc_density": "10% v/v suspension; mixing dilution not specified here"
+    },
+    "limitations": [
+      "positional isomers/sequence rotations, not eleven independent scaffolds",
+      "MHC lowest tested dose causing >5% hemolysis; not HC50",
+      "temperature and MIC medium/time not explicitly recovered; never borrow from other paper"
+    ]
+  }
+]

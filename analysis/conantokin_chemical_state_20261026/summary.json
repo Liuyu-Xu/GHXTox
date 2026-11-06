@@ -1,0 +1,26 @@
+{
+  "n_existing_class": 6,
+  "errors": 3,
+  "correct": 3,
+  "all_six_Gla_annotated": true,
+  "Gla_presence_discriminates_errors": false,
+  "matched_Pr1_Pr2_Gla_same_positions": "4;7;11",
+  "Pr_study_ids": [
+    "peptide_195",
+    "peptide_854",
+    "peptide_218"
+  ],
+  "original_Pr_study_same_length": true,
+  "original_Pr_study_same_Gla_count": true,
+  "models_behavior": "57 sequence FN/structure TP/fusion FN;66 and195 sequence TP/structure FN/fusion FN;218,359,854 all TP",
+  "review_only_annotation_ids": [
+    "peptide_57",
+    "peptide_66",
+    "peptide_359"
+  ],
+  "chemical_state_in_input": "Gla positions encode E; Hyp positions encode P; terminal amide has no explicit input state",
+  "literal_P3_exactly_matches_Hyp3_within_six": true,
+  "same_sequence_different_chemical_state_controls": 0,
+  "training_decision": "do not train a Gla-present correction branch on these six; first seek direct same-backbone chemical-state contrasts if pursuing mechanism",
+  "original_thresholds_labels_weights_unchanged": true
+}

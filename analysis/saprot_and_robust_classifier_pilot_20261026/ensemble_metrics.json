@@ -1,0 +1,62 @@
+[
+  {
+    "arm": "baseline_BCE",
+    "n": 6387,
+    "MCC": 0.8206390730150533,
+    "AUPRC": 0.9398391185819263,
+    "AUROC": 0.9704665366952542,
+    "Brier": 0.06148234660136369,
+    "sensitivity": 0.8586358635863587,
+    "specificity": 0.9549135478222806,
+    "TN": 4363,
+    "FP": 206,
+    "FN": 257,
+    "TP": 1561,
+    "original_label_disagreements": 463
+  },
+  {
+    "arm": "plus_SaProt_masked_BCE",
+    "n": 6387,
+    "MCC": 0.8251537653991445,
+    "AUPRC": 0.9421375920326323,
+    "AUROC": 0.9711690035276236,
+    "Brier": 0.05990089776115771,
+    "sensitivity": 0.8685368536853685,
+    "specificity": 0.9531626176406216,
+    "TN": 4355,
+    "FP": 214,
+    "FN": 239,
+    "TP": 1579,
+    "original_label_disagreements": 453
+  },
+  {
+    "arm": "plus_SaProt_3Di_BCE",
+    "n": 6387,
+    "MCC": 0.8204933881587589,
+    "AUPRC": 0.940556247889552,
+    "AUROC": 0.9708423895574062,
+    "Brier": 0.061100937852710625,
+    "sensitivity": 0.8685368536853685,
+    "specificity": 0.9503173560954257,
+    "TN": 4342,
+    "FP": 227,
+    "FN": 239,
+    "TP": 1579,
+    "original_label_disagreements": 466
+  },
+  {
+    "arm": "baseline_GCE_q07",
+    "n": 6387,
+    "MCC": 0.8039375415315063,
+    "AUPRC": 0.8887681863644554,
+    "AUROC": 0.9577217297129145,
+    "Brier": 0.07544647979152568,
+    "sensitivity": 0.8927392739273927,
+    "specificity": 0.9279929962792733,
+    "TN": 4240,
+    "FP": 329,
+    "FN": 195,
+    "TP": 1623,
+    "original_label_disagreements": 524
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "artifact_type": "prottox_local_motif_promotion_report",
+  "control": [
+    {
+      "local_branch_parameters": 144623,
+      "oof_metrics": {
+        "accuracy": 0.9275090026616565,
+        "auprc": 0.9396792471780295,
+        "auroc": 0.9695970308346221,
+        "balanced_accuracy": 0.9072714888035094,
+        "brier": 0.0644822670073662,
+        "f1": 0.8710665552770815,
+        "fn": 254,
+        "fp": 209,
+        "mcc": 0.8207830125802165,
+        "precision": 0.8821206993795826,
+        "sensitivity": 0.8602860286028603,
+        "specificity": 0.9542569490041585,
+        "threshold": 0.5,
+        "tn": 4360,
+        "tp": 1564
+      },
+      "seed": 20260905,
+      "total_parameters": 756972
+    },
+    {
+      "local_branch_parameters": 144623,
+      "oof_metrics": {
+        "accuracy": 0.9259433223735714,
+        "auprc": 0.9367701853796493,
+        "auroc": 0.9685284626076966,
+        "balanced_accuracy": 0.9063427518063691,
+        "brier": 0.06758690031589551,
+        "f1": 0.8687205106855399,
+        "fn": 253,
+        "fp": 220,
+        "mcc": 0.8172174172392841,
+        "precision": 0.876750700280112,
+        "sensitivity": 0.8608360836083608,
+        "specificity": 0.9518494200043773,
+        "threshold": 0.5,
+        "tn": 4349,
+        "tp": 1565
+      },
+      "seed": 20260906,
+      "total_parameters": 756972
+    }
+  ],
+  "decision": "retain_as_ablation",
+  "frozen_rule": {
+    "both_seeds_mcc_not_lower": true,
+    "maximum_mean_auprc_decline": 0.002,
+    "minimum_mean_mcc_advantage": 0.005,
+    "parameter_matched_control_tolerance": 0.002
+  },
+  "mean_delta": {
+    "auprc": 0.010516076885831616,
+    "brier": 0.006559911025675148,
+    "mcc": 0.00033128898324441547
+  },
+  "paired_deltas": [
+    {
+      "auprc": 0.01126077031678585,
+      "brier": 0.0049879696726257,
+      "mcc": 0.008521491915596369,
+      "seed": 20260905
+    },
+    {
+      "auprc": 0.00977138345487738,
+      "brier": 0.008131852378724595,
+      "mcc": -0.007858913949107538,
+      "seed": 20260906
+    }
+  ],
+  "selection_scope": "paired training OOF only; Test1/Test2 excluded"
+}

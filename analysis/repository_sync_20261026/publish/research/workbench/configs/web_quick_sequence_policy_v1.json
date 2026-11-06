@@ -1,0 +1,55 @@
+{
+  "artifact_type": "ghxtox_web_quick_sequence_policy",
+  "version": 1,
+  "scope": "sequence-only three-seed 1D web quick prediction; independent from full fusion",
+  "training_source": "frozen training OOF only",
+  "external_test_labels_used": false,
+  "model": {
+    "experiment": "lora_mamba_1d_combinationA_autodl",
+    "seeds": [
+      42,
+      123,
+      2025
+    ],
+    "probability": "Platt-calibrated mean of the three full 1D seed probabilities",
+    "calibration": {
+      "slope": 0.5498516059174886,
+      "intercept": -0.19661824211707316
+    }
+  },
+  "decision": {
+    "threshold": 0.3920986715756582,
+    "threshold_selection": "maximum OOF balanced accuracy; highest value within 0.0005 of the maximum plateau"
+  },
+  "reject": {
+    "target_coverage": 0.9,
+    "realized_training_oof_coverage": 0.8999530295913575,
+    "reject_band": 0.26052025609268536,
+    "rule": "abs(p_seq - threshold) <= reject_band",
+    "label": "Uncertain"
+  },
+  "confidence": {
+    "review": "rejected by the frozen reject band",
+    "moderate": "accepted and abs(p_seq - threshold) <= high_margin",
+    "high": "accepted and abs(p_seq - threshold) > high_margin",
+    "high_margin": 0.3549099524336068
+  },
+  "inputs": [
+    {
+      "path": "D:/dachuang2026/ziliao/train_cdhit080_fallback_folds.csv",
+      "sha256": "6293c9ece5b0e5ab956ccf3a0de60c7f075880667cec98b5f5c1ef01a8290cb4"
+    },
+    {
+      "path": "runs/lora_mamba_full/oof_seed42.json",
+      "sha256": "bd6d2c6e8d63b5905affb1db12398211d6d1c600a9c3aaf326f431b0d6445937"
+    },
+    {
+      "path": "runs/lora_mamba_full/oof_seed123.json",
+      "sha256": "34821366963b499bff4b6af1a2e6f6c6703d5880f478e82b471974f35b791d7b"
+    },
+    {
+      "path": "runs/lora_mamba_full/oof_seed2025.json",
+      "sha256": "d4b730685eca50cf2ab1d8e8c4d7ee939c676d764b60903435711186de4ecb88"
+    }
+  ]
+}

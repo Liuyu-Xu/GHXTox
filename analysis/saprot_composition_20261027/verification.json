@@ -1,0 +1,20 @@
+{
+  "n": 6387,
+  "sequence_only_features": true,
+  "neural_models_loaded_or_trained": 0,
+  "new_GPU_embeddings": 0,
+  "teacher_target_labels_used": false,
+  "all_meta_groups_disjoint": true,
+  "all_eval_and_metatrain_same_original_neural_heldout_fold": true,
+  "source_hashes_unchanged": true,
+  "probe_fits": 50,
+  "constant_controls": 10,
+  "seconds": 12.534361362457275,
+  "practical_screen_note": "descriptive behavior reconstruction, not equivalence/causal attribution/model promotion",
+  "scalar_probe_models_replayed": 60,
+  "scalar_predictions_replayed": 38322,
+  "max_scalar_replay_difference": 8.215650382226158e-15,
+  "residual_dipeptide_frequency_sums_zero": true,
+  "all_replayed_meta_groups_disjoint": true,
+  "source_hashes_rechecked": true
+}

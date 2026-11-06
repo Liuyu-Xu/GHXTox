@@ -1,0 +1,381 @@
+[
+  {
+    "flag": "curated_family:belongs to the bacteriocin class iia/ygngv family",
+    "label": 0,
+    "n_stable_cases": 1,
+    "folds": [
+      1
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_2697"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:antimicrobial",
+    "label": 0,
+    "n_stable_cases": 2,
+    "folds": [
+      3,
+      4
+    ],
+    "retained_pairs": 1,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_2811",
+      "peptide_4051"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:membrane_or_lysis",
+    "label": 0,
+    "n_stable_cases": 1,
+    "folds": [
+      2
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_4086"
+    ]
+  },
+  {
+    "flag": "name_proxy:Kunitz",
+    "label": 0,
+    "n_stable_cases": 1,
+    "folds": [
+      4
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_5229"
+    ]
+  },
+  {
+    "flag": "name_proxy:bacteriocin",
+    "label": 0,
+    "n_stable_cases": 2,
+    "folds": [
+      1,
+      3
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_2697",
+      "peptide_2811"
+    ]
+  },
+  {
+    "flag": "curated_family:belongs to the cationic peptide 04 (cupiennin) family. 04 subfamily",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      4
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_900"
+    ]
+  },
+  {
+    "flag": "curated_family:belongs to the natriuretic peptide family",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      3
+    ],
+    "retained_pairs": 2,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_605"
+    ]
+  },
+  {
+    "flag": "explicit_disulfide_annotation",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      3
+    ],
+    "retained_pairs": 2,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_605"
+    ]
+  },
+  {
+    "flag": "explicit_modification_annotation",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      4
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_900"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:antimicrobial",
+    "label": 1,
+    "n_stable_cases": 2,
+    "folds": [
+      2,
+      3
+    ],
+    "retained_pairs": 1,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_493",
+      "peptide_618"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:hemostasis_or_proteolysis",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      3
+    ],
+    "retained_pairs": 2,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_605"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:ion_channel",
+    "label": 1,
+    "n_stable_cases": 4,
+    "folds": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "retained_pairs": 1,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": true,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_114",
+      "peptide_359",
+      "peptide_493",
+      "peptide_618"
+    ]
+  },
+  {
+    "flag": "mention_positive_candidate:receptor_or_signaling",
+    "label": 1,
+    "n_stable_cases": 4,
+    "folds": [
+      0,
+      3,
+      4
+    ],
+    "retained_pairs": 3,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": true,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_114",
+      "peptide_359",
+      "peptide_605",
+      "peptide_901"
+    ]
+  },
+  {
+    "flag": "name_proxy:PLA2",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      4
+    ],
+    "retained_pairs": 2,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_765"
+    ]
+  },
+  {
+    "flag": "name_proxy:conantokin",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      0
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_359"
+    ]
+  },
+  {
+    "flag": "name_proxy:conotoxin_broad",
+    "label": 1,
+    "n_stable_cases": 2,
+    "folds": [
+      3,
+      4
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_225",
+      "peptide_420"
+    ]
+  },
+  {
+    "flag": "name_proxy:metalloproteinase",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      2
+    ],
+    "retained_pairs": 0,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_1409"
+    ]
+  },
+  {
+    "flag": "name_proxy:natriuretic",
+    "label": 1,
+    "n_stable_cases": 1,
+    "folds": [
+      3
+    ],
+    "retained_pairs": 2,
+    "direct_context_pairs": 0,
+    "criteria": {
+      "atleast5_cases": false,
+      "atleast3folds": false,
+      "atleast5_pairs": false,
+      "direct_endpoint_consistent_pairs_atleast5": false
+    },
+    "passes": false,
+    "sample_ids": [
+      "peptide_605"
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghxtox"
+version = "0.1.0"
+description = "PLDDT-aware dual-modal peptide toxicity prediction framework."
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.23",
+    "torch>=2.0",
+    "networkx>=2.8",
+]
+
+[project.optional-dependencies]
+metrics = ["scikit-learn>=1.2"]
+similarity = ["biopython>=1.80"]
+reporting = ["matplotlib>=3.7", "scikit-learn>=1.2"]
+plm = ["fair-esm>=2.0.0", "transformers>=4.30", "sentencepiece>=0.1.99"]
+esmfold = ["fair-esm[esmfold]>=2.0.0"]
+atom-graph = ["rdkit>=2023.9"]
+api = ["fastapi>=0.115", "uvicorn[standard]>=0.30"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+ghxtox-preprocess = "ghxtox.preprocess:main"
+ghxtox-train = "ghxtox.train:main"
+ghxtox-predict = "ghxtox.multidimensional_default:main"
+ghxtox-multidimensional-predict = "ghxtox.multidimensional_default:main"
+ghxtox-structure-predict = "ghxtox.predict:main"
+ghxtox-evaluate = "ghxtox.evaluate:main"
+ghxtox-esmfold-cache = "ghxtox.esmfold_cache:main"
+ghxtox-esmfold-predict = "ghxtox.esmfold_predict:main"
+ghxtox-plm-embed = "ghxtox.plm_embed:main"
+ghxtox-optimize-threshold = "ghxtox.optimize_threshold:main"
+ghxtox-atom-graph = "ghxtox.atom_graph:main"
+ghxtox-bootstrap-ci = "ghxtox.bootstrap_ci:main"
+ghxtox-sequence-similarity = "ghxtox.sequence_similarity:main"
+ghxtox-similarity-subset-eval = "ghxtox.similarity_subset_eval:main"
+ghxtox-prepare-cdhit = "ghxtox.prepare_cdhit:main"
+ghxtox-prepare-toxinpred3 = "ghxtox.prepare_toxinpred3:main"
+ghxtox-cdhit-clusters = "ghxtox.cdhit_clusters:main"
+ghxtox-subset-processed = "ghxtox.subset_processed:main"
+ghxtox-report-figures = "ghxtox.report_figures:main"
+ghxtox-publication-analysis = "ghxtox.publication_analysis:main"
+ghxtox-mentor-report = "ghxtox.mentor_report:main"
+ghxtox-folds = "ghxtox.folds:main"
+ghxtox-oof = "ghxtox.oof:main"
+ghxtox-complementarity = "ghxtox.complementarity:main"
+ghxtox-triroute = "ghxtox.triroute:main"
+ghxtox-confidence-predict = "ghxtox.confidence_predict:main"
+ghxtox-triroute-apply = "ghxtox.triroute_apply:main"
+ghxtox-nested-folds = "ghxtox.nested_folds:main"
+ghxtox-interpret = "ghxtox.biological_interpretation:main"
+ghxtox-chemical-site-ablation = "ghxtox.chemical_site_ablation:main"
+ghxtox-chemical-site-report = "ghxtox.chemical_site_report:main"
+ghxtox-paper-validation = "ghxtox.paper_validation:main"
+ghxtox-oof-fusion = "ghxtox.oof_fusion:main"
+ghxtox-prott5-tokens = "ghxtox.prott5_tokens:main"
+ghxtox-validated-ensemble = "ghxtox.validated_ensemble:main"
+ghxtox-calibrate-predictions = "ghxtox.calibrate_predictions:main"
+ghxtox-nonnegative-stacking = "ghxtox.nonnegative_stacking:main"
+ghxtox-selective-3d-gate = "ghxtox.selective_3d_gate:main"
+ghxtox-coupled-fusion = "ghxtox.coupled_fusion:main"
+ghxtox-oof-source-diagnostics = "ghxtox.oof_source_diagnostics:main"
+ghxtox-bioemu-conformer-cache = "ghxtox.bioemu_conformer_cache:main"
+ghxtox-bioemu-source-analysis = "ghxtox.bioemu_source_analysis:main"
+ghxtox-bioemu-bounded-fusion = "ghxtox.bioemu_bounded_fusion:main"
+ghxtox-bioemu-pilot = "ghxtox.bioemu_pilot:main"
+ghxtox-three-d-team-handoff = "ghxtox.three_d_team_handoff:main"
+ghxtox-three-d-multiseed = "ghxtox.three_d_multiseed:main"
+ghxtox-physical-3d-descriptors = "ghxtox.physical_3d_descriptors:main"
+ghxtox-surface-3d-short = "ghxtox.surface_3d_short_specialist:main"
+ghxtox-short-margin-3d = "ghxtox.short_margin_3d:main"
+ghxtox-ensemble-domain-ssl-3d = "ghxtox.ensemble_domain_ssl_3d:main"
+ghxtox-length-calibration-3d = "ghxtox.length_conditioned_calibration_3d:main"
+ghxtox-partial-unfreeze-3d = "ghxtox.partial_unfreeze_3d:main"
+ghxtox-boundary-bioemu = "ghxtox.boundary_bioemu:main"
+ghxtox-boundary-specialist-3d = "ghxtox.boundary_specialist_3d:main"
+ghxtox-phase33-team-handoff = "ghxtox.phase33_team_handoff:main"
+ghxtox-bioemu-boundary-moe = "ghxtox.bioemu_boundary_moe:main"
+ghxtox-cross-dimension-attention = "ghxtox.cross_dimension_attention:main"
+ghxtox-web-api = "ghxtox.local_web_api:main"
+ghxtox-web-runner = "ghxtox.web_canonical_runner:main"
+ghxtox-prottox-tsk-cache = "ghxtox.prottox_tsk_cache:main"
+ghxtox-prottox-tsk-train = "ghxtox.train_prottox_tsk:main"
+ghxtox-prottox-tsk-predict = "ghxtox.predict_prottox_tsk:main"
+ghxtox-prottox-tsk-web-runner = "ghxtox.web_prottox_tsk_runner:main"
+ghxtox-prottox-tsk-manifest = "ghxtox.prottox_tsk_manifest:main"
+ghxtox-prottox-tsk-compare = "ghxtox.prottox_tsk_compare:main"
+ghxtox-prottox-tsk-evaluate = "ghxtox.evaluate_prottox_tsk:main"

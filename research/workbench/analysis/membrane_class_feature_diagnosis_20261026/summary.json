@@ -1,0 +1,22 @@
+{
+  "n": 76,
+  "semantics": {
+    "affirmative_annotation_not_gold": 38,
+    "tentative_or_similarity_only": 11,
+    "low_activity_text": 3,
+    "condition_or_cofactor_dependent_text": 4,
+    "dose_or_endpoint_mixed_text": 2,
+    "negative_endpoint_text": 8,
+    "unrelated_hemolymph": 1,
+    "indirect_hemolysis_text": 7,
+    "protective_inhibits_hemolysis": 1,
+    "structural_explanation_not_endpoint": 1
+  },
+  "no_simple_flag_n": 38,
+  "no_simple_flag_errors": 26,
+  "evidence_caution_n": 21,
+  "evidence_caution_errors": 15,
+  "new_spatial_feature_regressions": 20,
+  "new_toxicity_model_fits": 0,
+  "spatial_extraction_runs": 0
+}

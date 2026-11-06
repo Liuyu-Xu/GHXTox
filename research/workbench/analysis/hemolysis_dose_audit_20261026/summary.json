@@ -1,0 +1,533 @@
+{
+  "scope": "existing strict 3380 model records only; raw activity lexical categories separately",
+  "baseline": {
+    "panels": 2137,
+    "rows": 3380,
+    "unique_sequences": 1792,
+    "chemical_forms": 1839,
+    "pmids": 563,
+    "edit_clusters": 823
+  },
+  "thresholds": {
+    "2": {
+      "panels": 503,
+      "rows": 1746,
+      "unique_sequences": 457,
+      "chemical_forms": 468,
+      "pmids": 172,
+      "edit_clusters": 313
+    },
+    "3": {
+      "panels": 284,
+      "rows": 1308,
+      "unique_sequences": 269,
+      "chemical_forms": 272,
+      "pmids": 90,
+      "edit_clusters": 200
+    },
+    "4": {
+      "panels": 152,
+      "rows": 912,
+      "unique_sequences": 141,
+      "chemical_forms": 143,
+      "pmids": 65,
+      "edit_clusters": 122
+    },
+    "5": {
+      "panels": 91,
+      "rows": 668,
+      "unique_sequences": 85,
+      "chemical_forms": 87,
+      "pmids": 44,
+      "edit_clusters": 78
+    }
+  },
+  "n_doses_histogram": {
+    "1": 1634,
+    "2": 219,
+    "3": 132,
+    "4": 61,
+    "5": 9,
+    "6": 9,
+    "7": 27,
+    "8": 39,
+    "9": 2,
+    "10": 5
+  },
+  "parsed_reconciliation": {
+    "parsed_rows": 3447,
+    "same_value_duplicate_groups": 44,
+    "same_value_duplicate_extra_rows": 44,
+    "conflicting_groups": 10,
+    "conflicting_rows": 23,
+    "strict_rows": 3380
+  },
+  "three_plus": {
+    "dose_fold_span": {
+      "min": 2.5,
+      "q25": 5.0,
+      "median": 10.0,
+      "q75": 61.53846153846153,
+      "max": 2980.1779661016953
+    },
+    "response_range_pp": {
+      "min": 0.0,
+      "q25": 1.9050000000000002,
+      "median": 19.25,
+      "q75": 51.0,
+      "max": 100.0
+    },
+    "all_zero": 35,
+    "all_hundred": 5,
+    "constant_response": 44,
+    "nonmonotone_any": 25,
+    "drop_gt5pp": 2,
+    "drop_gt10pp": 2,
+    "excluded_same_dose_conflict_panels": 0,
+    "reported_pH_panels": 0,
+    "fold_span_ge10": 145,
+    "range_ge20pp": 141,
+    "cross_50percent": 87
+  },
+  "context_differences": {
+    "multi_context_forms": 216,
+    "multiple_pmids": 114,
+    "multiple_species": 83,
+    "multiple_pH_including_unknown": 62
+  },
+  "raw_activity_lexical_only": {
+    "rows": 13215,
+    "categories": {
+      "HC50_or_other_50_endpoint": 544,
+      "percent_with_bound_or_approx": 2753,
+      "other": 855,
+      "percent_other_expression": 9063
+    },
+    "note": "mutually exclusive lexical descriptors; not a new parsed eligible dataset; 50-endpoint category includes LC/HD/EC/IC50"
+  },
+  "concentration_of_three_plus": {
+    "top_pmids": [
+      [
+        "24376887",
+        41
+      ],
+      [
+        "28402481",
+        25
+      ],
+      [
+        "35638842",
+        25
+      ],
+      [
+        "34819923",
+        22
+      ],
+      [
+        "28067810",
+        14
+      ],
+      [
+        "24055160",
+        11
+      ],
+      [
+        "32752241",
+        10
+      ],
+      [
+        "30121851",
+        9
+      ],
+      [
+        "30192822",
+        5
+      ],
+      [
+        "27114317",
+        4
+      ]
+    ],
+    "largest_paper_share": 0.1443661971830986,
+    "paper_count_kish": 19.304930588798467,
+    "edit_cluster_count_kish": 100.56857855361596
+  },
+  "descriptive_fivefold_pmid_cluster_purge": [
+    {
+      "fold": 0,
+      "test_pmids": [
+        "24376887",
+        "23896552",
+        "25575476",
+        "32673701",
+        "23000095",
+        "25050859",
+        "26144972",
+        "26975251",
+        "28571698",
+        "29783753",
+        "31252047",
+        "33689880",
+        "35792128",
+        "37768945"
+      ],
+      "test": {
+        "panels": 57,
+        "rows": 221,
+        "unique_sequences": 56,
+        "chemical_forms": 57,
+        "pmids": 14,
+        "edit_clusters": 28
+      },
+      "train_before_purge": {
+        "panels": 227,
+        "rows": 1087,
+        "unique_sequences": 215,
+        "chemical_forms": 217,
+        "pmids": 76,
+        "edit_clusters": 176
+      },
+      "train_after_purge": {
+        "panels": 214,
+        "rows": 1017,
+        "unique_sequences": 206,
+        "chemical_forms": 207,
+        "pmids": 76,
+        "edit_clusters": 172
+      },
+      "purged_panels": 13
+    },
+    {
+      "fold": 1,
+      "test_pmids": [
+        "28402481",
+        "30121851",
+        "26342880",
+        "38655253",
+        "22974815",
+        "25271126",
+        "30555431",
+        "18827353",
+        "23624072",
+        "25055061",
+        "26549174",
+        "27104500",
+        "28904355",
+        "29910626",
+        "31541146",
+        "34908502",
+        "36009917",
+        "38043914"
+      ],
+      "test": {
+        "panels": 57,
+        "rows": 372,
+        "unique_sequences": 56,
+        "chemical_forms": 56,
+        "pmids": 18,
+        "edit_clusters": 55
+      },
+      "train_before_purge": {
+        "panels": 227,
+        "rows": 936,
+        "unique_sequences": 214,
+        "chemical_forms": 217,
+        "pmids": 72,
+        "edit_clusters": 150
+      },
+      "train_after_purge": {
+        "panels": 210,
+        "rows": 858,
+        "unique_sequences": 203,
+        "chemical_forms": 205,
+        "pmids": 69,
+        "edit_clusters": 145
+      },
+      "purged_panels": 17
+    },
+    {
+      "fold": 2,
+      "test_pmids": [
+        "35638842",
+        "30192822",
+        "27114317",
+        "30927490",
+        "11563967",
+        "11739390",
+        "24041699",
+        "25839356",
+        "33942149",
+        "24269604",
+        "25348533",
+        "26668630",
+        "27478151",
+        "28969703",
+        "30004427",
+        "32041161",
+        "34966367",
+        "36287965",
+        "38791374"
+      ],
+      "test": {
+        "panels": 57,
+        "rows": 241,
+        "unique_sequences": 54,
+        "chemical_forms": 54,
+        "pmids": 19,
+        "edit_clusters": 43
+      },
+      "train_before_purge": {
+        "panels": 227,
+        "rows": 1067,
+        "unique_sequences": 219,
+        "chemical_forms": 222,
+        "pmids": 71,
+        "edit_clusters": 163
+      },
+      "train_after_purge": {
+        "panels": 203,
+        "rows": 963,
+        "unique_sequences": 200,
+        "chemical_forms": 201,
+        "pmids": 68,
+        "edit_clusters": 157
+      },
+      "purged_panels": 24
+    },
+    {
+      "fold": 3,
+      "test_pmids": [
+        "34819923",
+        "32752241",
+        "32847054",
+        "31241636",
+        "15328050",
+        "24955933",
+        "26450121",
+        "12581207",
+        "19961432",
+        "24952727",
+        "25462167",
+        "26860588",
+        "28025839",
+        "29343843",
+        "30962256",
+        "32443921",
+        "35538042",
+        "36321228",
+        "8910461"
+      ],
+      "test": {
+        "panels": 57,
+        "rows": 220,
+        "unique_sequences": 57,
+        "chemical_forms": 57,
+        "pmids": 19,
+        "edit_clusters": 52
+      },
+      "train_before_purge": {
+        "panels": 227,
+        "rows": 1088,
+        "unique_sequences": 215,
+        "chemical_forms": 218,
+        "pmids": 71,
+        "edit_clusters": 152
+      },
+      "train_after_purge": {
+        "panels": 217,
+        "rows": 1028,
+        "unique_sequences": 209,
+        "chemical_forms": 211,
+        "pmids": 69,
+        "edit_clusters": 148
+      },
+      "purged_panels": 10
+    },
+    {
+      "fold": 4,
+      "test_pmids": [
+        "28067810",
+        "24055160",
+        "23770440",
+        "24389272",
+        "15127790",
+        "34361810",
+        "21241661",
+        "25209888",
+        "28733329",
+        "18325325",
+        "20955730",
+        "24981062",
+        "26041027",
+        "26876358",
+        "28122029",
+        "29379033",
+        "31128493",
+        "33316868",
+        "35576531",
+        "36480332"
+      ],
+      "test": {
+        "panels": 56,
+        "rows": 254,
+        "unique_sequences": 54,
+        "chemical_forms": 56,
+        "pmids": 20,
+        "edit_clusters": 37
+      },
+      "train_before_purge": {
+        "panels": 228,
+        "rows": 1054,
+        "unique_sequences": 218,
+        "chemical_forms": 220,
+        "pmids": 70,
+        "edit_clusters": 169
+      },
+      "train_after_purge": {
+        "panels": 216,
+        "rows": 990,
+        "unique_sequences": 211,
+        "chemical_forms": 212,
+        "pmids": 67,
+        "edit_clusters": 163
+      },
+      "purged_panels": 12
+    }
+  ],
+  "exploratory_quality_screen": {
+    "rule": ">=3 doses, >=10fold span, >=20pp range, max all-pair decrease <=5pp, no excluded same-dose conflict; descriptive only, not prevalidated inclusion criteria",
+    "panels": 75,
+    "rows": 417,
+    "unique_sequences": 68,
+    "chemical_forms": 69,
+    "pmids": 41,
+    "edit_clusters": 57
+  },
+  "limitations": [
+    "Missing pH is grouped as unknown, not evidence of identical pH",
+    "No incubation time/temperature/RBC density/buffer fields; panels are metadata groups, not established complete experimental curves",
+    "Sequence uniqueness is not biological independence; reused edit clusters are approximate relatedness groups, not validated families",
+    "No fit/training/GHXTox test predictions used"
+  ],
+  "source_endpoint_audit": {
+    "confirmed_raw_records": 4,
+    "confirmed_raw_SI_column_errors": 3,
+    "valid_raw_HC50_derived_points": 1,
+    "confirmed_records_in_strict": 3,
+    "strict_SI_column_errors": 2,
+    "strict_HC50_derived_points": 1,
+    "exact50_rows_in_strict": 576,
+    "exact50_scope": "50% is a review flag, not proof of HC50; quarantine is intentionally conservative and may exclude real measurements",
+    "sensitivity": {
+      "confirmed_non_point_exclusion": {
+        "remaining_rows": 3377,
+        "thresholds": {
+          "2": {
+            "panels": 503,
+            "rows": 1743,
+            "unique_sequences": 457,
+            "chemical_forms": 468,
+            "pmids": 172,
+            "edit_clusters": 313
+          },
+          "3": {
+            "panels": 284,
+            "rows": 1305,
+            "unique_sequences": 269,
+            "chemical_forms": 272,
+            "pmids": 90,
+            "edit_clusters": 200
+          },
+          "4": {
+            "panels": 152,
+            "rows": 909,
+            "unique_sequences": 141,
+            "chemical_forms": 143,
+            "pmids": 65,
+            "edit_clusters": 122
+          },
+          "5": {
+            "panels": 91,
+            "rows": 665,
+            "unique_sequences": 85,
+            "chemical_forms": 87,
+            "pmids": 44,
+            "edit_clusters": 78
+          }
+        },
+        "three_plus_dose_fold_span": {
+          "min": 2.5,
+          "q25": 5.0,
+          "median": 10.0,
+          "q75": 61.53846153846153,
+          "max": 2980.1779661016953
+        },
+        "three_plus_response_range_pp": {
+          "min": 0.0,
+          "q25": 1.9050000000000002,
+          "median": 19.0,
+          "q75": 51.0,
+          "max": 100.0
+        },
+        "three_plus_nonmonotone_any": 23,
+        "three_plus_drop_gt5pp": 0
+      },
+      "all_exact50_quarantine": {
+        "remaining_rows": 2804,
+        "thresholds": {
+          "2": {
+            "panels": 465,
+            "rows": 1632,
+            "unique_sequences": 423,
+            "chemical_forms": 433,
+            "pmids": 151,
+            "edit_clusters": 293
+          },
+          "3": {
+            "panels": 253,
+            "rows": 1208,
+            "unique_sequences": 238,
+            "chemical_forms": 241,
+            "pmids": 84,
+            "edit_clusters": 181
+          },
+          "4": {
+            "panels": 148,
+            "rows": 893,
+            "unique_sequences": 138,
+            "chemical_forms": 140,
+            "pmids": 62,
+            "edit_clusters": 119
+          },
+          "5": {
+            "panels": 91,
+            "rows": 665,
+            "unique_sequences": 85,
+            "chemical_forms": 87,
+            "pmids": 44,
+            "edit_clusters": 78
+          }
+        },
+        "three_plus_dose_fold_span": {
+          "min": 2.5,
+          "q25": 5.0,
+          "median": 8.0,
+          "q75": 61.53846153846153,
+          "max": 1020.4081632653061
+        },
+        "three_plus_response_range_pp": {
+          "min": 0.0,
+          "q25": 1.0,
+          "median": 12.0,
+          "q75": 48.5,
+          "max": 100.0
+        },
+        "three_plus_nonmonotone_any": 23,
+        "three_plus_drop_gt5pp": 0
+      }
+    },
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8348142/#molecules-26-04654-t004",
+    "retrieval": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8348142/fullTextXML",
+    "cache": "PMID34361810_fulltext.xml"
+  }
+}

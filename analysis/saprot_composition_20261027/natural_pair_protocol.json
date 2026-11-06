@@ -1,0 +1,6 @@
+{
+ "stage":"bounded descriptive followup after probe results; no additional fitting",
+ "question":"Are there different natural sequences of identical20AA counts under the same frozen-fold predictors? A direct countercheck to claiming composition fully determines teacher output.",
+ "rules":"enumerate ALL unordered pairs in exact20AAcount+sameoriginalfold bins; sequences must differ; never filter by labels/probabilities to obtain examples. All counts and source sequence uniqueness checked. Report same/differentgroup, original label concordance and continuous teacher/base probability gaps. Optional gap>=0.25 is fixed descriptive count, not new mechanism threshold.",
+ "interpretation":"natural observational sequence pairs can differ in annotation/chemical states/biology; model probability gaps show behavior depends on more than this composition, not experimental causation or mechanism. Few pairs do not establish generality. No relabeling or training."
+}

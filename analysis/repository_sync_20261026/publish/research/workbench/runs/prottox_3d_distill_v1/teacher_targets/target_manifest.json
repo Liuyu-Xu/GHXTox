@@ -1,0 +1,104 @@
+{
+  "artifact_type": "prottox_3d_distill_teacher_targets",
+  "version": 1,
+  "protocol": "D:\\dachuang2026\\GHXTox\\configs\\prottox_3d_distill_v1.json",
+  "teacher_definition": "strict-outer-fold single-structure GHXToxModel scratch bases from topology_strict_oof_v1_final.tar.gz",
+  "records_total": 6387,
+  "targets": [
+    {
+      "outer_fold": 0,
+      "file": "teacher_outer0_targets.csv",
+      "rows": 5116,
+      "role_counts": {
+        "fitting": 3830,
+        "inner_validation": 616,
+        "calibration": 670
+      },
+      "sha256": "15225e74614eea6c5cb5ac8db40c79f412a38df4742a3c083f36e2251addf030",
+      "checkpoint_sha256": "b361dbd9152e61f11e5d8bcdae79848dcdb0962169e717685d21890e94ecccb0",
+      "elapsed_seconds": 19.813934299978428
+    },
+    {
+      "outer_fold": 1,
+      "file": "teacher_outer1_targets.csv",
+      "rows": 5158,
+      "role_counts": {
+        "fitting": 3884,
+        "inner_validation": 641,
+        "calibration": 633
+      },
+      "sha256": "bb93b29360ebb0843779ec0f3ed2e70598897cf9d875716ffc07ea8deb326262",
+      "checkpoint_sha256": "88f4c4b41473cdc860455cd9c8035c2f65fe7768c855116165dfcf911899d168",
+      "elapsed_seconds": 36.72793759999331
+    },
+    {
+      "outer_fold": 2,
+      "file": "teacher_outer2_targets.csv",
+      "rows": 5114,
+      "role_counts": {
+        "fitting": 3809,
+        "inner_validation": 637,
+        "calibration": 668
+      },
+      "sha256": "ece628f01bb8a3e9f6463e63e750e30ad41ee0dc58a225b04cfb84dc8795c600",
+      "checkpoint_sha256": "a4f1303a7f8bd5979917210f25a9cd8c47fc6fa81e2c38156b1512c2603dd745",
+      "elapsed_seconds": 52.958395699970424
+    },
+    {
+      "outer_fold": 3,
+      "file": "teacher_outer3_targets.csv",
+      "rows": 5096,
+      "role_counts": {
+        "fitting": 3816,
+        "inner_validation": 644,
+        "calibration": 636
+      },
+      "sha256": "65459f1eb655c4bc6b840a96c3ae054368241c0c67f31cd9df875340e0f43573",
+      "checkpoint_sha256": "0feb21d7a1333996852dbdb83d6ea6d2cb88380ad40e6862e0d5935418c130a0",
+      "elapsed_seconds": 69.04058369999984
+    },
+    {
+      "outer_fold": 4,
+      "file": "teacher_outer4_targets.csv",
+      "rows": 5064,
+      "role_counts": {
+        "fitting": 3840,
+        "inner_validation": 600,
+        "calibration": 624
+      },
+      "sha256": "f15a2314ec105c631f1c8621c72f7bccbda95a6020faba4629eb7ddd30575b19",
+      "checkpoint_sha256": "01e23a6d23afabd0ebbc2123f8b68a8ec166b4cb621f593d81598087c08430d2",
+      "elapsed_seconds": 86.05526519997511
+    }
+  ],
+  "role_counts_by_outer_fold": {
+    "0": {
+      "fitting": 3830,
+      "inner_validation": 616,
+      "calibration": 670
+    },
+    "1": {
+      "fitting": 3884,
+      "inner_validation": 641,
+      "calibration": 633
+    },
+    "2": {
+      "fitting": 3809,
+      "inner_validation": 637,
+      "calibration": 668
+    },
+    "3": {
+      "fitting": 3816,
+      "inner_validation": 644,
+      "calibration": 636
+    },
+    "4": {
+      "fitting": 3840,
+      "inner_validation": 600,
+      "calibration": 624
+    }
+  },
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "elapsed_seconds": 86.05533289996674,
+  "device": "cuda"
+}

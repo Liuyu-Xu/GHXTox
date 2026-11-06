@@ -1,0 +1,202 @@
+[
+  {
+    "feature": "hydrophobic_contact_excess",
+    "fold": 0,
+    "n_train": 61,
+    "n_test": 15,
+    "training_y_mean": 0.08833554937413823,
+    "training_y_sd": 0.12206279256497753,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_contact_excess",
+    "fold": 1,
+    "n_train": 57,
+    "n_test": 19,
+    "training_y_mean": 0.08968557792648107,
+    "training_y_sd": 0.1223859183218385,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_contact_excess",
+    "fold": 2,
+    "n_train": 65,
+    "n_test": 11,
+    "training_y_mean": 0.07056988638703879,
+    "training_y_sd": 0.06340653095640843,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_contact_excess",
+    "fold": 3,
+    "n_train": 59,
+    "n_test": 17,
+    "training_y_mean": 0.0909395957068343,
+    "training_y_sd": 0.12028501974467273,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_contact_excess",
+    "fold": 4,
+    "n_train": 62,
+    "n_test": 14,
+    "training_y_mean": 0.08716126108703354,
+    "training_y_sd": 0.11908942394308752,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "fold": 0,
+    "n_train": 61,
+    "n_test": 15,
+    "training_y_mean": -0.016484814685417244,
+    "training_y_sd": 0.04600326605676249,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "fold": 1,
+    "n_train": 57,
+    "n_test": 19,
+    "training_y_mean": -0.019987280724378092,
+    "training_y_sd": 0.042427225961165424,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "fold": 2,
+    "n_train": 65,
+    "n_test": 11,
+    "training_y_mean": -0.019451922326953947,
+    "training_y_sd": 0.04875385386893096,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "fold": 3,
+    "n_train": 59,
+    "n_test": 17,
+    "training_y_mean": -0.025529855619590952,
+    "training_y_sd": 0.043407125391815654,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "positive_hydrophobic_contact_excess",
+    "fold": 4,
+    "n_train": 62,
+    "n_test": 14,
+    "training_y_mean": -0.01779071699656024,
+    "training_y_sd": 0.04753346276575369,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "fold": 0,
+    "n_train": 59,
+    "n_test": 15,
+    "training_y_mean": 0.640473968224857,
+    "training_y_sd": 0.37212982748277845,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "fold": 1,
+    "n_train": 55,
+    "n_test": 19,
+    "training_y_mean": 0.5345785301347655,
+    "training_y_sd": 0.3153512506720342,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "fold": 2,
+    "n_train": 65,
+    "n_test": 9,
+    "training_y_mean": 0.6469391599889015,
+    "training_y_sd": 0.38754432713633663,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "fold": 3,
+    "n_train": 57,
+    "n_test": 17,
+    "training_y_mean": 0.6169723531235793,
+    "training_y_sd": 0.39402668383818873,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "charge_hydrophobic_separation",
+    "fold": 4,
+    "n_train": 60,
+    "n_test": 14,
+    "training_y_mean": 0.6248946617620111,
+    "training_y_sd": 0.3891958718777811,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "fold": 0,
+    "n_train": 61,
+    "n_test": 15,
+    "training_y_mean": 0.8470258655575833,
+    "training_y_sd": 0.21137131851751675,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "fold": 1,
+    "n_train": 57,
+    "n_test": 19,
+    "training_y_mean": 0.8434916607384388,
+    "training_y_sd": 0.22231808335645298,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "fold": 2,
+    "n_train": 65,
+    "n_test": 11,
+    "training_y_mean": 0.8337981816145872,
+    "training_y_sd": 0.21833402640143698,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "fold": 3,
+    "n_train": 59,
+    "n_test": 17,
+    "training_y_mean": 0.8278943105660324,
+    "training_y_sd": 0.22453882087224344,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  },
+  {
+    "feature": "hydrophobic_patch_fraction",
+    "fold": 4,
+    "n_train": 62,
+    "n_test": 14,
+    "training_y_mean": 0.8410979400183652,
+    "training_y_sd": 0.20268380648472245,
+    "groups_disjoint": true,
+    "task": "predict spatial feature, not toxicity or error"
+  }
+]

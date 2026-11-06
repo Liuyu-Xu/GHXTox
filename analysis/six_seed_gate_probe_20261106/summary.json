@@ -1,0 +1,166 @@
+{
+  "protocol": "PROTOCOL.md",
+  "source_sha256": {
+    "manifest": "5ccae957f2c4129f5e67c3ff66f48071dff7f32eba72edd7f97a8523acde8840",
+    "previous_results": "2b3ef7cb4159d4fbd0bdbebdae9c01cb5208c034da3e992f9899cbd9255f10a2",
+    "previous_comparator": "a0f887143d87ba999f251886cc11f809104802711a00589daae888496bd02ffa"
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "calibration_fit_n": 329,
+      "probe_train_n": 20,
+      "probe_train_target_counts": {
+        "0": 13,
+        "1": 7
+      },
+      "probe_train_groups_by_target": {
+        "0": 13,
+        "1": 6
+      },
+      "held_disagreement_n": 69,
+      "held_structure_correct": 18,
+      "held_sequence_correct": 51,
+      "fit_allowed": false,
+      "methods": {
+        "margin": {
+          "ranking_auroc": 0.7810457516339869,
+          "n": 69,
+          "corrects": 16,
+          "harms": 24,
+          "net": -8
+        }
+      },
+      "held_fixed_fusion_changed": {
+        "n": 18,
+        "corrects": 9,
+        "harms": 9
+      }
+    },
+    {
+      "fold": 1,
+      "calibration_fit_n": 319,
+      "probe_train_n": 18,
+      "probe_train_target_counts": {
+        "0": 12,
+        "1": 6
+      },
+      "probe_train_groups_by_target": {
+        "0": 12,
+        "1": 6
+      },
+      "held_disagreement_n": 79,
+      "held_structure_correct": 21,
+      "held_sequence_correct": 58,
+      "fit_allowed": false,
+      "methods": {
+        "margin": {
+          "ranking_auroc": 0.8727422003284071,
+          "n": 79,
+          "corrects": 18,
+          "harms": 10,
+          "net": 8
+        }
+      },
+      "held_fixed_fusion_changed": {
+        "n": 14,
+        "corrects": 11,
+        "harms": 3
+      }
+    },
+    {
+      "fold": 2,
+      "calibration_fit_n": 323,
+      "probe_train_n": 22,
+      "probe_train_target_counts": {
+        "0": 16,
+        "1": 6
+      },
+      "probe_train_groups_by_target": {
+        "0": 14,
+        "1": 5
+      },
+      "held_disagreement_n": 64,
+      "held_structure_correct": 24,
+      "held_sequence_correct": 40,
+      "fit_allowed": false,
+      "methods": {
+        "margin": {
+          "ranking_auroc": 0.7270833333333333,
+          "n": 64,
+          "corrects": 16,
+          "harms": 14,
+          "net": 2
+        }
+      },
+      "held_fixed_fusion_changed": {
+        "n": 16,
+        "corrects": 9,
+        "harms": 7
+      }
+    },
+    {
+      "fold": 3,
+      "calibration_fit_n": 309,
+      "probe_train_n": 14,
+      "probe_train_target_counts": {
+        "0": 7,
+        "1": 7
+      },
+      "probe_train_groups_by_target": {
+        "0": 7,
+        "1": 7
+      },
+      "held_disagreement_n": 55,
+      "held_structure_correct": 17,
+      "held_sequence_correct": 38,
+      "fit_allowed": false,
+      "methods": {
+        "margin": {
+          "ranking_auroc": 0.6578947368421053,
+          "n": 55,
+          "corrects": 10,
+          "harms": 11,
+          "net": -1
+        }
+      },
+      "held_fixed_fusion_changed": {
+        "n": 11,
+        "corrects": 5,
+        "harms": 6
+      }
+    },
+    {
+      "fold": 4,
+      "calibration_fit_n": 313,
+      "probe_train_n": 24,
+      "probe_train_target_counts": {
+        "0": 18,
+        "1": 6
+      },
+      "probe_train_groups_by_target": {
+        "0": 18,
+        "1": 6
+      },
+      "held_disagreement_n": 59,
+      "held_structure_correct": 16,
+      "held_sequence_correct": 43,
+      "fit_allowed": false,
+      "methods": {
+        "margin": {
+          "ranking_auroc": 0.6686046511627908,
+          "n": 59,
+          "corrects": 12,
+          "harms": 22,
+          "net": -10
+        }
+      },
+      "held_fixed_fusion_changed": {
+        "n": 18,
+        "corrects": 9,
+        "harms": 9
+      }
+    }
+  ],
+  "note": "fold training labels used for model fitting only; held labels for evaluation only; not tested on Test1/Test2"
+}

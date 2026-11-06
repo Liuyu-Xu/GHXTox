@@ -1,0 +1,100 @@
+{
+  "success": true,
+  "smoke": false,
+  "fold": 1,
+  "seed": 42,
+  "arm": "B",
+  "initial_head_sha256": "c6f332be2aead421ca70ae0e5812a06e5a9d4d7de3d3d6f2fa22d5f23506571f",
+  "selected_validation_bce": 0.22159472218641493,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_mean": 0.5567797435955568,
+      "validation_bce": 0.4358351757843414,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 35.48624014854431
+    },
+    {
+      "epoch": 2,
+      "train_loss_mean": 0.34604389253572737,
+      "validation_bce": 0.31822402373211484,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 66.25367331504822
+    },
+    {
+      "epoch": 3,
+      "train_loss_mean": 0.25276252596777643,
+      "validation_bce": 0.2763092569528895,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 96.84593224525452
+    },
+    {
+      "epoch": 4,
+      "train_loss_mean": 0.1924190416240349,
+      "validation_bce": 0.22159472218641493,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 127.06740498542786
+    },
+    {
+      "epoch": 5,
+      "train_loss_mean": 0.1395534204558685,
+      "validation_bce": 0.41408518542912043,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 156.68242859840393
+    },
+    {
+      "epoch": 6,
+      "train_loss_mean": 0.08996165723372482,
+      "validation_bce": 0.5483585952394054,
+      "anchor_counts": {
+        "ordinary": 0,
+        "low": 0,
+        "high": 0
+      },
+      "seconds": 186.4026665687561
+    }
+  ],
+  "metrics": {
+    "sequence": {
+      "MCC": 0.831344999056746,
+      "AUPRC": 0.9419083042082644,
+      "FN": 50,
+      "FP": 35,
+      "low_positive_FN": 31,
+      "low_positive_n": 55,
+      "high_negative_FP": 12,
+      "high_negative_n": 42
+    },
+    "fusion": {
+      "MCC": 0.8394736936031935,
+      "AUPRC": 0.9470049798544675,
+      "FN": 47,
+      "FP": 34,
+      "low_positive_FN": 31,
+      "low_positive_n": 55,
+      "high_negative_FP": 14,
+      "high_negative_n": 42
+    }
+  },
+  "note": "historical 3D OOF and threshold; conditional exploratory fusion, not full nested or external validation"
+}

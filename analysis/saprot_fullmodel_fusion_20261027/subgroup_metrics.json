@@ -1,0 +1,482 @@
+{
+  "old_raw": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3284664644849962,
+      "TP": 246,
+      "TN": 0,
+      "FP": 0,
+      "FN": 175
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3967638484174123,
+      "TP": 33,
+      "TN": 0,
+      "FP": 0,
+      "FN": 43
+    }
+  },
+  "old_cal": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.336671713145479,
+      "TP": 229,
+      "TN": 0,
+      "FP": 0,
+      "FN": 192
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4105719435403354,
+      "TP": 31,
+      "TN": 0,
+      "FP": 0,
+      "FN": 45
+    }
+  },
+  "old_masked_w20": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33523898368777627,
+      "TP": 227,
+      "TN": 0,
+      "FP": 0,
+      "FN": 194
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.40472065366017723,
+      "TP": 32,
+      "TN": 0,
+      "FP": 0,
+      "FN": 44
+    }
+  },
+  "old_masked_w50": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3440136766530788,
+      "TP": 221,
+      "TN": 0,
+      "FP": 0,
+      "FN": 200
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.40533586299555746,
+      "TP": 35,
+      "TN": 0,
+      "FP": 0,
+      "FN": 41
+    }
+  },
+  "old_masked_w20_seed20261026": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33542706767076225,
+      "TP": 224,
+      "TN": 0,
+      "FP": 0,
+      "FN": 197
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.40279841652382414,
+      "TP": 32,
+      "TN": 0,
+      "FP": 0,
+      "FN": 44
+    }
+  },
+  "old_masked_w20_seed20261027": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33418207385766535,
+      "TP": 229,
+      "TN": 0,
+      "FP": 0,
+      "FN": 192
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4054644812055481,
+      "TP": 32,
+      "TN": 0,
+      "FP": 0,
+      "FN": 44
+    }
+  },
+  "old_3Di_w20": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3377312686682682,
+      "TP": 225,
+      "TN": 0,
+      "FP": 0,
+      "FN": 196
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.41052558649092236,
+      "TP": 32,
+      "TN": 0,
+      "FP": 0,
+      "FN": 44
+    }
+  },
+  "old_3Di_w50": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.35135010864856786,
+      "TP": 207,
+      "TN": 0,
+      "FP": 0,
+      "FN": 214
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4208369431942708,
+      "TP": 30,
+      "TN": 0,
+      "FP": 0,
+      "FN": 46
+    }
+  },
+  "old_3Di_w20_seed20261026": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3397256595714253,
+      "TP": 223,
+      "TN": 0,
+      "FP": 0,
+      "FN": 198
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4155857623179041,
+      "TP": 31,
+      "TN": 0,
+      "FP": 0,
+      "FN": 45
+    }
+  },
+  "old_3Di_w20_seed20261027": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3355868972367646,
+      "TP": 228,
+      "TN": 0,
+      "FP": 0,
+      "FN": 193
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.40711092385940567,
+      "TP": 33,
+      "TN": 0,
+      "FP": 0,
+      "FN": 43
+    }
+  },
+  "new_raw": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.31238528306387314,
+      "TP": 237,
+      "TN": 0,
+      "FP": 0,
+      "FN": 184
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4066669076997589,
+      "TP": 31,
+      "TN": 0,
+      "FP": 0,
+      "FN": 45
+    }
+  },
+  "new_cal": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3325823302013595,
+      "TP": 235,
+      "TN": 0,
+      "FP": 0,
+      "FN": 186
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.43102565413989835,
+      "TP": 30,
+      "TN": 0,
+      "FP": 0,
+      "FN": 46
+    }
+  },
+  "new_masked_w20": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3318166353843168,
+      "TP": 227,
+      "TN": 0,
+      "FP": 0,
+      "FN": 194
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.42418864929440087,
+      "TP": 28,
+      "TN": 0,
+      "FP": 0,
+      "FN": 48
+    }
+  },
+  "new_masked_w50": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3417332946370131,
+      "TP": 222,
+      "TN": 0,
+      "FP": 0,
+      "FN": 199
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4204143232243597,
+      "TP": 31,
+      "TN": 0,
+      "FP": 0,
+      "FN": 45
+    }
+  },
+  "new_masked_w20_seed20261026": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33173850732292803,
+      "TP": 228,
+      "TN": 0,
+      "FP": 0,
+      "FN": 193
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.42166733584961386,
+      "TP": 29,
+      "TN": 0,
+      "FP": 0,
+      "FN": 47
+    }
+  },
+  "new_masked_w20_seed20261027": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.3307624582969301,
+      "TP": 229,
+      "TN": 0,
+      "FP": 0,
+      "FN": 192
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.42482703788232196,
+      "TP": 29,
+      "TN": 0,
+      "FP": 0,
+      "FN": 47
+    }
+  },
+  "new_3Di_w20": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.335113847973018,
+      "TP": 227,
+      "TN": 0,
+      "FP": 0,
+      "FN": 194
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.42873337756763547,
+      "TP": 29,
+      "TN": 0,
+      "FP": 0,
+      "FN": 47
+    }
+  },
+  "new_3Di_w50": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.35032742602032907,
+      "TP": 220,
+      "TN": 0,
+      "FP": 0,
+      "FN": 201
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.43394633380196285,
+      "TP": 28,
+      "TN": 0,
+      "FP": 0,
+      "FN": 48
+    }
+  },
+  "new_3Di_w20_seed20261026": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33726012942778794,
+      "TP": 224,
+      "TN": 0,
+      "FP": 0,
+      "FN": 197
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4338808476958638,
+      "TP": 29,
+      "TN": 0,
+      "FP": 0,
+      "FN": 47
+    }
+  },
+  "new_3Di_w20_seed20261027": {
+    "lowCys_positive": {
+      "n": 421,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.33297869837070304,
+      "TP": 233,
+      "TN": 0,
+      "FP": 0,
+      "FN": 188
+    },
+    "membrane76_annotation_only": {
+      "n": 76,
+      "MCC": null,
+      "AUPRC": null,
+      "AUROC": null,
+      "Brier": 0.4254288709653778,
+      "TP": 31,
+      "TN": 0,
+      "FP": 0,
+      "FN": 45
+    }
+  }
+}

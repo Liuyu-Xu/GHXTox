@@ -1,0 +1,20 @@
+{
+  "samples": 6387,
+  "original_folds": 5,
+  "subfolds": 10,
+  "source_hashes_unchanged": true,
+  "neural_models_trained": 0,
+  "new_label_control_fits": 60,
+  "label_free_ridge_fits": 60,
+  "all_meta_train_evaluation_groups_disjoint": true,
+  "all_meta_train_and_evaluation_same_original_neural_heldout_fold": true,
+  "all_evaluations_have_one_crossfit_prediction": true,
+  "no_external_tests_used": true,
+  "interpretation": "exploratory conditional comparison, not independent confirmation",
+  "replayed_label_controls_and_probes": 140,
+  "replayed_scalar_predictions": 89418,
+  "max_coefficient_replay_difference": 0.0,
+  "split_membership_independently_checked": true,
+  "source_hashes_rechecked": true,
+  "neural_models_loaded_or_trained_for_check": 0
+}

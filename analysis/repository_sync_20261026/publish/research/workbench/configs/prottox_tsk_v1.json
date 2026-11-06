@@ -1,0 +1,18 @@
+{
+  "model_name": "ProtTox-TSK",
+  "model_version": "prottox-tsk-v1",
+  "encoder": {
+    "identifier": "prot_t5_xl_half_uniref50-enc",
+    "frozen": true,
+    "lora": false
+  },
+  "pooling": "masked_mean_max_population_std",
+  "physchem_features": ["length", "net_charge_ph7", "mean_kyte_doolittle_hydropathy", "basic_fraction", "hydrophobic_fraction", "aromatic_fraction", "cysteine_count", "cysteine_fraction", "minimum_cysteine_spacing"],
+  "controls": {
+    "mlp": {"hidden_dim": 192, "dropout": 0.1},
+    "kan": {"hidden_dim": 128, "dropout": 0.05, "grid_size": 8}
+  },
+  "training": {"folds": 5, "seed": 20260905, "epochs": 20, "learning_rate": 0.001, "selection": "compare same-protocol OOF MLP and KAN; do not promote KAN without stable benefit"},
+  "deployment_policy": {"calibration": "optional post-head Platt artifact fitted from training OOF only", "selection": "cross-fitted calibration; screening=maximize F2, balanced=maximize MCC, strict=maximize F0.5", "heldout_test_selection": false},
+  "excluded_ghxtox_components": ["LoRA", "Bi-Mamba", "GHXTox Projection", "Mean Pooling", "three-seed ensemble", "Quick-to-Full routing", "ESMFold", "ESM2 3D features", "3D expert", "fusion", "Soft-Cys", "topology", "molecular graph", "cross attention"]
+}

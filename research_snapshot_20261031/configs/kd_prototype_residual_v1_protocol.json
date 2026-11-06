@@ -1,0 +1,51 @@
+{
+  "artifact_type": "kd_global_prototype_residual_protocol",
+  "version": "kpr-v1",
+  "status": "frozen_before_training",
+  "scope": "training_oof_only",
+  "external_test_labels_allowed": false,
+  "v1_boundary": {
+    "global_definition": "p_global=(p_seed1+p_seed2)/2; z_global=logit(p_global)",
+    "fold_safety": "outer fold k uses v1 fold-k checkpoints only; residuals train on fold!=k and evaluate on k",
+    "v1_modified": false
+  },
+  "arms": {
+    "A": "frozen v1 only: z_final=z_global",
+    "B": "v1 + parameter-matched flat MLP residual: z_final=z_global+0.25*tanh(delta_mlp)",
+    "C": "v1 + multi-view low-rank interaction + multi-prototype residual: z_final=z_global+0.25*tanh(delta_proto)"
+  },
+  "loss": {
+    "B": "BCE(final)",
+    "C": "BCE(final)+0.5*prototype class CE; no teacher KD in residual",
+    "global": "frozen v1; no gradient"
+  },
+  "training": {
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "seeds": [20260905, 20260906],
+    "threshold": 0.5,
+    "residual_scale": 0.25,
+    "cache": "runs\\prottox_tsk_v1\\structure_quality_proxy_v1.pt",
+    "v1_fold_template": "runs\\prottox_3d_distill_v1\\mlp_teacher_kd_seed{seed}_v1\\fold_{k}.pt"
+  },
+  "promotion_rule": {
+    "C_vs_A": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.005,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    },
+    "C_vs_B": {
+      "both_seeds_mcc_not_lower": true,
+      "minimum_mean_mcc_advantage": 0.002,
+      "maximum_mean_auprc_decline": 0.002,
+      "maximum_mean_brier_increase": 0.002
+    }
+  },
+  "audit": {
+    "decision_flip_audit": true,
+    "fields": ["v1_probability", "final_probability", "residual_tanh", "label", "fold"],
+    "categories": ["v1_fp_to_correct", "v1_fn_to_correct", "v1_correct_to_wrong", "v1_correct_stays_correct"]
+  }
+}

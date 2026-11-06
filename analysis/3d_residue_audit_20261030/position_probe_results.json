@@ -1,0 +1,47 @@
+[
+  {
+    "fold": 0,
+    "n": 527,
+    "test_n": 176,
+    "first_position_length_count_mae": 0.11830677279870425,
+    "first_position_spatial_length_count_mae": 0.09732898701858811,
+    "span_length_count_mae": 0.11601087954413494,
+    "span_spatial_length_count_mae": 0.10288466613053289
+  },
+  {
+    "fold": 1,
+    "n": 500,
+    "test_n": 156,
+    "first_position_length_count_mae": 0.12157099145339469,
+    "first_position_spatial_length_count_mae": 0.11103848995337054,
+    "span_length_count_mae": 0.12434462436741885,
+    "span_spatial_length_count_mae": 0.12174228270871322
+  },
+  {
+    "fold": 2,
+    "n": 500,
+    "test_n": 160,
+    "first_position_length_count_mae": 0.12175581481815652,
+    "first_position_spatial_length_count_mae": 0.09044012898255852,
+    "span_length_count_mae": 0.11663566861657026,
+    "span_spatial_length_count_mae": 0.08552266343237655
+  },
+  {
+    "fold": 3,
+    "n": 513,
+    "test_n": 138,
+    "first_position_length_count_mae": 0.14167284387743886,
+    "first_position_spatial_length_count_mae": 0.10193123614991959,
+    "span_length_count_mae": 0.13144273066980905,
+    "span_spatial_length_count_mae": 0.11084300370438806
+  },
+  {
+    "fold": 4,
+    "n": 548,
+    "test_n": 160,
+    "first_position_length_count_mae": 0.113559761544836,
+    "first_position_spatial_length_count_mae": 0.12164749567157995,
+    "span_length_count_mae": 0.12563694645908763,
+    "span_spatial_length_count_mae": 0.1275294328764501
+  }
+]

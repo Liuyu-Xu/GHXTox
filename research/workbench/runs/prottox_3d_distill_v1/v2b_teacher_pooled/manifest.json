@@ -1,0 +1,50 @@
+{
+  "artifact_type": "prottox_3dkd_v2b_teacher_pooled",
+  "version": "diagnostic-v1",
+  "exports": [
+    {
+      "outer_fold": 0,
+      "rows": 6387,
+      "dim": 256,
+      "file": "teacher_pooled_outer0.pt",
+      "sha256": "2976719633d00576ccc0909b6e7c290da0c586536cc62d22eaf85d617b41d1e8",
+      "checkpoint_sha256": "b361dbd9152e61f11e5d8bcdae79848dcdb0962169e717685d21890e94ecccb0"
+    },
+    {
+      "outer_fold": 1,
+      "rows": 6387,
+      "dim": 256,
+      "file": "teacher_pooled_outer1.pt",
+      "sha256": "d561a14d03ba775aca95fb46c12cdaf2b040fcc271c4a0a58ce62c3502ed91a2",
+      "checkpoint_sha256": "88f4c4b41473cdc860455cd9c8035c2f65fe7768c855116165dfcf911899d168"
+    },
+    {
+      "outer_fold": 2,
+      "rows": 6387,
+      "dim": 256,
+      "file": "teacher_pooled_outer2.pt",
+      "sha256": "e894896d4f3cab07e54827145dace9e5b6cc7b4816b507daf60596c42cde99f5",
+      "checkpoint_sha256": "a4f1303a7f8bd5979917210f25a9cd8c47fc6fa81e2c38156b1512c2603dd745"
+    },
+    {
+      "outer_fold": 3,
+      "rows": 6387,
+      "dim": 256,
+      "file": "teacher_pooled_outer3.pt",
+      "sha256": "428aa1fc873ec542d16ef577e907aa411296d22e2577f8068f73963c79b916a6",
+      "checkpoint_sha256": "0feb21d7a1333996852dbdb83d6ea6d2cb88380ad40e6862e0d5935418c130a0"
+    },
+    {
+      "outer_fold": 4,
+      "rows": 6387,
+      "dim": 256,
+      "file": "teacher_pooled_outer4.pt",
+      "sha256": "9f1da639e9e1db8e771447414e9282b947a0aa43effeb5122ba938a52c9aa242",
+      "checkpoint_sha256": "01e23a6d23afabd0ebbc2123f8b68a8ec166b4cb621f593d81598087c08430d2"
+    }
+  ],
+  "definition": "result['embedding'] = masked-mean of fused sequence/spatial nodes before classifier input/global concatenation",
+  "selection_scope": "training data only; Test1/Test2 excluded",
+  "elapsed_seconds": 94.23007789999247,
+  "device": "cuda"
+}

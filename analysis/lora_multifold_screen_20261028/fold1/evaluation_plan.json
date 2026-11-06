@@ -1,0 +1,18 @@
+{
+  "status": "fixed before evaluation",
+  "selected_by_validation_only": "lora_lr3e5",
+  "arms_evaluated": [
+    "no_lora",
+    "lora_lr1e5",
+    "lora_lr3e5"
+  ],
+  "calibration": "Platt on calibration only",
+  "sequence_threshold": 0.5,
+  "fusion": "0.72 sequence + 0.28 historical frozen 3D OOF",
+  "fusion_threshold": 0.47022256531284556,
+  "evaluation": "outerfold1 evaluation, dataset previously studied; not independent external validation",
+  "no_Test1_Test2": true,
+  "metrics": "MCC,AUPRC,AUROC,FN,FP,corrected and harmed",
+  "bootstrap": "2000 group paired conditional fixed predictions, no model selection uncertainty",
+  "selection_rule": "do not select or tune using evaluation"
+}

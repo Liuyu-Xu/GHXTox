@@ -1,0 +1,43 @@
+{
+  "n": 6387,
+  "expert_disagreements": 334,
+  "expert_groups": {
+    "both_correct": 5824,
+    "both_wrong": 229,
+    "sequence_only_correct": 186,
+    "structure_only_correct": 148
+  },
+  "corrections": 98,
+  "harms": 48,
+  "evidence_tiers": {
+    "recovered_no_selected_flag_not_gold": 3592,
+    "fragment_or_label_review": 1875,
+    "identity_unresolved": 920
+  },
+  "common_half_disagreements": 311,
+  "corrections_by_evidence": {
+    "fragment_or_label_review": 67,
+    "recovered_no_selected_flag_not_gold": 23,
+    "identity_unresolved": 8
+  },
+  "harms_by_evidence": {
+    "recovered_no_selected_flag_not_gold": 22,
+    "fragment_or_label_review": 21,
+    "identity_unresolved": 5
+  },
+  "primary_pairs": {
+    "fusion_FP_minus_TN_no_selected_flag": 20,
+    "fusion_FN_minus_TP_no_selected_flag": 18,
+    "structure_minus_sequence_label0": 11,
+    "structure_minus_sequence_label1": 3
+  },
+  "strict_pairs": {
+    "fusion_FN_minus_TP_no_selected_flag": 1
+  },
+  "primary_q_lt05": [],
+  "strict_q_lt05": [],
+  "review_queue": 24,
+  "external_test_predictions_used": false,
+  "model_training": false,
+  "archived_oof_not_certified_nested": true
+}

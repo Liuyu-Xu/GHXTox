@@ -1,0 +1,18 @@
+[
+  {
+    "teacher": "SaProt_only_masked",
+    "both_correct": 5670,
+    "baseline_wrong_teacher_correct": 205,
+    "baseline_correct_teacher_wrong": 254,
+    "both_wrong": 258,
+    "scope": "oracle diagnostic requiring true labels; counts are not achievable routing improvement"
+  },
+  {
+    "teacher": "SaProt_only_3Di",
+    "both_correct": 5674,
+    "baseline_wrong_teacher_correct": 191,
+    "baseline_correct_teacher_wrong": 250,
+    "both_wrong": 272,
+    "scope": "oracle diagnostic requiring true labels; counts are not achievable routing improvement"
+  }
+]

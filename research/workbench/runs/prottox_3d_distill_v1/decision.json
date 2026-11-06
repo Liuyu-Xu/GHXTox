@@ -1,0 +1,20 @@
+{
+  "artifact_type": "prottox_3d_distill_decision",
+  "version": 1,
+  "date": "2026-09-05",
+  "decision": "product_model_mlp_teacher_kd",
+  "product_candidate": "mlp_teacher_kd",
+  "ablation_retained": "proxy_teacher_kd",
+  "stage1_gate": {
+    "decision": "promote_proxy_teacher_kd_and_mlp_teacher_kd",
+    "target": "retained TriStat-MLP"
+  },
+  "stage2_head_to_head_target": "mlp_teacher_kd",
+  "selection_scope": "training OOF only; Test1/Test2 excluded",
+  "deployment_replacement": "api_runner_frozen_v1_0; website switch and Test1/Test2 audit pending",
+  "deployment_freeze": "DEPLOYMENT_FREEZE_v1.md",
+  "full_refit": "product_full_refit_v1/ensemble_manifest.json",
+  "head_to_head": "head2head_analysis.json",
+  "report": "PRODUCT_MODEL_DECISION.md",
+  "machine_report": "promotion_report.json"
+}

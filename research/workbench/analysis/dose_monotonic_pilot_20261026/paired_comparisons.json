@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "confirmed_overlay_primary",
+    "MAE_reduction_pp": -0.5596808029474186,
+    "paired_edit_group_bootstrap_CI95": [
+      -1.1982670962309718,
+      0.0729026173812211
+    ],
+    "paired_pmid_bootstrap_CI95": [
+      -1.1018032598203145,
+      0.18096154467960918
+    ],
+    "fold_MAE_reduction_pp": {
+      "0": -0.5565340833899758,
+      "1": -0.7492105835990149,
+      "2": -1.727377205293096,
+      "3": -0.2796891936825908,
+      "4": 0.5335871914807094
+    },
+    "folds_improved": 1,
+    "increment_MAE_reduction_pp": 0.14977919430737024,
+    "scope": "fixed exploratory OOF predictions; not retraining/measurement uncertainty"
+  },
+  {
+    "dataset": "all_exact50_quarantine_sensitivity",
+    "MAE_reduction_pp": -0.4406189326436525,
+    "paired_edit_group_bootstrap_CI95": [
+      -1.0338116767736194,
+      0.15050796334304722
+    ],
+    "paired_pmid_bootstrap_CI95": [
+      -1.177206237527551,
+      0.40160647194679483
+    ],
+    "fold_MAE_reduction_pp": {
+      "0": -1.0455886727138017,
+      "1": -0.09973791012916287,
+      "2": 0.37183710349128457,
+      "3": -0.7849174832486884,
+      "4": -0.780401957362129
+    },
+    "folds_improved": 1,
+    "increment_MAE_reduction_pp": 0.2393491201099568,
+    "scope": "fixed exploratory OOF predictions; not retraining/measurement uncertainty"
+  }
+]

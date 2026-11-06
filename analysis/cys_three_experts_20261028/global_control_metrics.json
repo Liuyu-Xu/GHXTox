@@ -1,0 +1,70 @@
+{
+  "metrics": {
+    "D": {
+      "n": 6387,
+      "errors": 498,
+      "FP": 165,
+      "FN": 333,
+      "MCC": 0.8048379804539931,
+      "AUPRC": 0.9266543972476535,
+      "Brier": 0.06139409170319099
+    },
+    "E": {
+      "n": 6387,
+      "errors": 371,
+      "FP": 140,
+      "FN": 231,
+      "MCC": 0.8557228671451704,
+      "AUPRC": 0.9520829609687828,
+      "Brier": 0.046996289905913625
+    }
+  },
+  "audit": [
+    {
+      "fold": 0,
+      "train_groups": 3156,
+      "selected_C": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "fold": 1,
+      "train_groups": 3155,
+      "selected_C": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "fold": 2,
+      "train_groups": 3154,
+      "selected_C": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "fold": 3,
+      "train_groups": 3154,
+      "selected_C": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "fold": 4,
+      "train_groups": 3155,
+      "selected_C": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "note": "3 bootstrap global models, same 3 classifiers count but each sees full sample pool; fixed .5 baseline combination; not matched FLOPs"
+}

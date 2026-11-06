@@ -1,0 +1,132 @@
+{
+  "protocol": {
+    "seed": 20261106,
+    "resamples": 2000,
+    "sampling": "paired sequence-group bootstrap, no class/fold stratification",
+    "difference": "fusion minus six-seed",
+    "ranking": "pooled across folds, AP for AUPRC",
+    "warning": "exploratory after prior results; fixed predictions, does not include retraining or model selection uncertainty"
+  },
+  "prediction_sha256": "1816b147c5a49c672b4d89bb6b3849544bda43c90c38d99f8c19f720b8b4bea4",
+  "manifest_sha256": "5ccae957f2c4129f5e67c3ff66f48071dff7f32eba72edd7f97a8523acde8840",
+  "modes": {
+    "fixed": {
+      "auroc_fusion_minus_six": 0.0011326149029872168,
+      "auroc_delta_ci95": [
+        -0.0007949091404747422,
+        0.0030808747894938925
+      ],
+      "auprc_fusion_minus_six": 0.00043580889758765284,
+      "auprc_delta_ci95": [
+        -0.0031631354462008793,
+        0.003872924707895594
+      ],
+      "categories": {
+        "label0_both_correct": 4402,
+        "label0_fusion_only_correct": 13,
+        "label0_six_only_correct": 24,
+        "label0_both_wrong": 130,
+        "label1_both_correct": 1570,
+        "label1_fusion_only_correct": 30,
+        "label1_six_only_correct": 20,
+        "label1_both_wrong": 198
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "n": 1271,
+          "auroc_delta": -0.0008693942967734625,
+          "auprc_delta": -0.002881028189750001,
+          "mcc_delta": -0.015673387454469556
+        },
+        {
+          "fold": 1,
+          "n": 1229,
+          "auroc_delta": -0.0012290627796956999,
+          "auprc_delta": 0.0007647652911043634,
+          "mcc_delta": 0.014299809614383596
+        },
+        {
+          "fold": 2,
+          "n": 1273,
+          "auroc_delta": 0.0010981706345801756,
+          "auprc_delta": 0.0004429577125926176,
+          "mcc_delta": 0.00410207260454909
+        },
+        {
+          "fold": 3,
+          "n": 1291,
+          "auroc_delta": 0.0024349924046107585,
+          "auprc_delta": 0.002524865182307434,
+          "mcc_delta": -0.0029261311951053193
+        },
+        {
+          "fold": 4,
+          "n": 1323,
+          "auroc_delta": 0.0017917724505155386,
+          "auprc_delta": 0.0015037994608604333,
+          "mcc_delta": 0.00042309251342220744
+        }
+      ]
+    },
+    "tuned": {
+      "auroc_fusion_minus_six": 0.0008123815226783737,
+      "auroc_delta_ci95": [
+        -0.0011242867714667064,
+        0.002827365875915527
+      ],
+      "auprc_fusion_minus_six": 0.00013621732002111475,
+      "auprc_delta_ci95": [
+        -0.0035239868408724175,
+        0.00349288006171694
+      ],
+      "categories": {
+        "label0_both_correct": 4403,
+        "label0_fusion_only_correct": 36,
+        "label0_six_only_correct": 38,
+        "label0_both_wrong": 92,
+        "label1_both_correct": 1507,
+        "label1_fusion_only_correct": 38,
+        "label1_six_only_correct": 61,
+        "label1_both_wrong": 212
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "n": 1271,
+          "auroc_delta": -0.0008693942967734625,
+          "auprc_delta": -0.002881028189750001,
+          "mcc_delta": -0.014279648721269078
+        },
+        {
+          "fold": 1,
+          "n": 1229,
+          "auroc_delta": -0.0012290627796956999,
+          "auprc_delta": 0.0007647652911043634,
+          "mcc_delta": 0.010253669971957091
+        },
+        {
+          "fold": 2,
+          "n": 1273,
+          "auroc_delta": 2.6037518532584514e-05,
+          "auprc_delta": -0.0007639421943258506,
+          "mcc_delta": -0.04326048683924644
+        },
+        {
+          "fold": 3,
+          "n": 1291,
+          "auroc_delta": 0.0024349924046107585,
+          "auprc_delta": 0.002524865182307434,
+          "mcc_delta": 0.003962622133593552
+        },
+        {
+          "fold": 4,
+          "n": 1323,
+          "auroc_delta": 0.0015165472151701387,
+          "auprc_delta": 7.809522266422064e-05,
+          "mcc_delta": -0.007210938066271044
+        }
+      ]
+    }
+  }
+}

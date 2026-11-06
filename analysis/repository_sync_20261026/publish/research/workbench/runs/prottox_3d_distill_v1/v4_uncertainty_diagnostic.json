@@ -1,0 +1,185 @@
+{
+  "artifact_type": "prottox_3dkd_v4_uncertainty_diagnostic",
+  "version": "v4-0",
+  "uncertainty_definition": "|p_base - 0.5| quintiles; Q1 most certain, Q5 most uncertain",
+  "utility_definition": "u=(y-p_base)^2-(y-p_teacher)^2; helpful if u>0.01",
+  "quintiles": [
+    {
+      "uncertainty_quintile": 1,
+      "margin_range": [
+        0.499999815024438,
+        0.5
+      ],
+      "n": 1278,
+      "mean_margin": 0.4999999647259762,
+      "mean_entropy": 6.096263835100118e-07,
+      "helpful_prevalence": 0.000782472613458529,
+      "mean_delta_brier": -0.0018024406455670859,
+      "base_mcc": 0.9954958059873354,
+      "teacher_mcc": 0.982420383959485,
+      "base_tp_tn_fp_fn": [
+        122,
+        1155,
+        0,
+        1
+      ],
+      "teacher_tp_tn_fp_fn": [
+        123,
+        1151,
+        4,
+        0
+      ],
+      "teacher_wins_over_base": 1,
+      "teacher_loses_to_base": 4,
+      "net_corrections": -3
+    },
+    {
+      "uncertainty_quintile": 2,
+      "margin_range": [
+        0.4999935578680379,
+        0.4999998147477811
+      ],
+      "n": 1277,
+      "mean_margin": 0.4999980619950613,
+      "mean_entropy": 2.67195263441295e-05,
+      "helpful_prevalence": 0.004698512137823023,
+      "mean_delta_brier": 0.0009523536250217604,
+      "base_mcc": 0.9767667799521145,
+      "teacher_mcc": 0.977043649212823,
+      "base_tp_tn_fp_fn": [
+        269,
+        998,
+        5,
+        5
+      ],
+      "teacher_tp_tn_fp_fn": [
+        272,
+        995,
+        8,
+        2
+      ],
+      "teacher_wins_over_base": 5,
+      "teacher_loses_to_base": 5,
+      "net_corrections": 0
+    },
+    {
+      "uncertainty_quintile": 3,
+      "margin_range": [
+        0.49985738804389257,
+        0.4999935321970952
+      ],
+      "n": 1277,
+      "mean_margin": 0.4999567268789738,
+      "mean_entropy": 0.0004642485032326994,
+      "helpful_prevalence": 0.014095536413469069,
+      "mean_delta_brier": 0.0011014388467240166,
+      "base_mcc": 0.9475427945742166,
+      "teacher_mcc": 0.9447061594165106,
+      "base_tp_tn_fp_fn": [
+        359,
+        890,
+        5,
+        23
+      ],
+      "teacher_tp_tn_fp_fn": [
+        373,
+        874,
+        21,
+        9
+      ],
+      "teacher_wins_over_base": 16,
+      "teacher_loses_to_base": 18,
+      "net_corrections": -2
+    },
+    {
+      "uncertainty_quintile": 4,
+      "margin_range": [
+        0.49528026580810547,
+        0.4998573064804077
+      ],
+      "n": 1277,
+      "mean_margin": 0.4988265137231371,
+      "mean_entropy": 0.00862765308941592,
+      "helpful_prevalence": 0.04385277995301488,
+      "mean_delta_brier": 0.022294941744560683,
+      "base_mcc": 0.8614887621911538,
+      "teacher_mcc": 0.8997977495580101,
+      "base_tp_tn_fp_fn": [
+        412,
+        783,
+        23,
+        59
+      ],
+      "teacher_tp_tn_fp_fn": [
+        447,
+        770,
+        36,
+        24
+      ],
+      "teacher_wins_over_base": 51,
+      "teacher_loses_to_base": 29,
+      "net_corrections": 22
+    },
+    {
+      "uncertainty_quintile": 5,
+      "margin_range": [
+        0.001835167407989502,
+        0.4952725269831717
+      ],
+      "n": 1278,
+      "mean_margin": 0.3776737910382747,
+      "mean_entropy": 0.28909363774442437,
+      "helpful_prevalence": 0.41471048513302033,
+      "mean_delta_brier": 0.08335420463181893,
+      "base_mcc": 0.48224479834639694,
+      "teacher_mcc": 0.7517021414725935,
+      "base_tp_tn_fp_fn": [
+        384,
+        569,
+        141,
+        184
+      ],
+      "teacher_tp_tn_fp_fn": [
+        494,
+        627,
+        83,
+        74
+      ],
+      "teacher_wins_over_base": 249,
+      "teacher_loses_to_base": 81,
+      "net_corrections": 168
+    }
+  ],
+  "overall": {
+    "helpful_prevalence": 0.09566306560200408,
+    "mean_utility": 0.02118623578654348,
+    "spearman_margin_vs_utility": -0.6701040598274279,
+    "spearman_entropy_vs_utility": 0.6701084177650031,
+    "spearman_logit_magnitude_vs_utility": -0.6701084177650031,
+    "net_corrections_overall": 185
+  },
+  "monotonic_check": {
+    "q1_to_q5_helpful_prevalence": [
+      0.000782472613458529,
+      0.004698512137823023,
+      0.014095536413469069,
+      0.04385277995301488,
+      0.41471048513302033
+    ],
+    "q1_to_q5_mean_delta_brier": [
+      -0.0018024406455670859,
+      0.0009523536250217604,
+      0.0011014388467240166,
+      0.022294941744560683,
+      0.08335420463181893
+    ],
+    "q1_to_q5_net_corrections": [
+      -3,
+      0,
+      -2,
+      22,
+      168
+    ]
+  },
+  "selection_scope": "training OOF descriptive diagnostic only; Test1/Test2 excluded"
+}

@@ -1,0 +1,99 @@
+{
+  "commit": "60854abd61c4f1fd8b65c2eb586a7d03d7588130",
+  "source": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\source",
+  "source_only_clone": true,
+  "new_checkpoint_found": true,
+  "new_test_run": "completed_test1_and_test2_full_public_inference",
+  "new_oof_found": true,
+  "adoption": "old_local_default_retained_new_candidate_preserved",
+  "old_metrics": {
+    "test1": {
+      "accuracy": 0.9476021314387212,
+      "balanced_accuracy": 0.9323084677419355,
+      "precision": 0.9169329073482428,
+      "sensitivity": 0.896875,
+      "specificity": 0.967741935483871,
+      "f1": 0.9067930489731437,
+      "mcc": 0.8704599749746912,
+      "auroc": 0.9810561414392059,
+      "auprc": 0.9674027821512894,
+      "brier": 0.04099079713633286
+    },
+    "test2": {
+      "accuracy": 0.9467353951890034,
+      "balanced_accuracy": 0.8617780661907852,
+      "precision": 0.6363636363636364,
+      "sensitivity": 0.7608695652173914,
+      "specificity": 0.9626865671641791,
+      "f1": 0.693069306930693,
+      "mcc": 0.6673395851029228,
+      "auroc": 0.9432592472420506,
+      "auprc": 0.804583043874505,
+      "brier": 0.04363189818710903
+    }
+  },
+  "assets": [
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\test1_chemical_sites_final_esm2.pt",
+      "exists": true,
+      "bytes": 203708951
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\test2_chemical_sites_final_esm2.pt",
+      "exists": true,
+      "bytes": 99917127
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\test1_lora_mamba_light.pt",
+      "exists": true,
+      "bytes": 80722
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\test2_lora_mamba_light.pt",
+      "exists": true,
+      "bytes": 44050
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\full_seed42.pt",
+      "exists": true,
+      "bytes": 52592322
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\full_seed123.pt",
+      "exists": true,
+      "bytes": 52592678
+    },
+    {
+      "role": "existing_input_or_sequence_weight",
+      "path": "D:\\dachuang2026\\GHXTox-ziliao\\full_seed2025.pt",
+      "exists": true,
+      "bytes": 52593098
+    },
+    {
+      "role": "required_new_structure_weight",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\source\\runs\\default_no_inner_transformer_20261023\\best_model.pt",
+      "exists": false
+    },
+    {
+      "role": "required_new_structure_weight",
+      "path": "D:\\dachuang2026\\GHXTox\\runs\\default_no_inner_transformer_20261023\\best_model.pt",
+      "exists": false
+    }
+  ],
+  "searched_roots": [
+    "D:\\dachuang2026\\GHXTox",
+    "D:\\dachuang2026\\GHXTox-ziliao",
+    "D:/dachuang2026",
+    "C:/Users/GAOKEHAN/Downloads",
+    "C:/Users/GAOKEHAN/Documents/基于深度卷积神经网络的蛋白质毒性预测方法"
+  ],
+  "limitations": "Filename search excluded .git,node_modules,huggingface_cache,site-packages; not proof that no renamed new checkpoint exists elsewhere.",
+  "new_checkpoint_path": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\handoff\\GHXTox_team_handoff_20261027\\runs\\default_no_inner_transformer_20261023\\best_model.pt",
+  "comparison": "D:\\dachuang2026\\GHXTox\\analysis\\upstream_adoption_20261027\\comparison.json"
+}

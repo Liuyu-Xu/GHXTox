@@ -1,0 +1,260 @@
+{
+  "manual_axis_calibration": {
+    "hemolysis_percent": {
+      "figure": "6A",
+      "view": [
+        2048,
+        1043
+      ],
+      "roi": [
+        140,
+        80,
+        825,
+        270
+      ],
+      "kind": "black",
+      "baseline": 267,
+      "ticks": [
+        [
+          267,
+          0
+        ],
+        [
+          98,
+          80
+        ]
+      ],
+      "unit": "percent at128ug/mL"
+    },
+    "helicity_TFE_percent": {
+      "figure": "6B_top",
+      "view": [
+        2048,
+        1043
+      ],
+      "roi": [
+        140,
+        380,
+        825,
+        540
+      ],
+      "kind": "black",
+      "baseline": 536,
+      "ticks": [
+        [
+          536,
+          60
+        ],
+        [
+          400,
+          84
+        ]
+      ],
+      "unit": "CD-derived percent at50%TFE"
+    },
+    "theta_product_TFE_scaled": {
+      "figure": "6B_middle",
+      "view": [
+        2048,
+        1043
+      ],
+      "roi": [
+        140,
+        575,
+        825,
+        754
+      ],
+      "kind": "gray",
+      "baseline": 751,
+      "ticks": [
+        [
+          751,
+          250
+        ],
+        [
+          627,
+          700
+        ]
+      ],
+      "unit": "theta222*theta208*1e-6 at50%TFE"
+    },
+    "abs_theta222_TFE_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        838,
+        1865,
+        1010
+      ],
+      "kind": "blue",
+      "baseline": 1007,
+      "ticks": [
+        [
+          1007,
+          0
+        ],
+        [
+          844,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "50%TFE"
+    },
+    "abs_theta222_SDS_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        838,
+        1865,
+        1010
+      ],
+      "kind": "red",
+      "baseline": 1007,
+      "ticks": [
+        [
+          1007,
+          0
+        ],
+        [
+          844,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "10mMSDS"
+    },
+    "abs_theta222_DPC_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        838,
+        1865,
+        1010
+      ],
+      "kind": "green",
+      "baseline": 1007,
+      "ticks": [
+        [
+          1007,
+          0
+        ],
+        [
+          844,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "2mMDPC"
+    },
+    "abs_theta208_TFE_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        1036,
+        1865,
+        1226
+      ],
+      "kind": "blue",
+      "baseline": 1223,
+      "ticks": [
+        [
+          1223,
+          0
+        ],
+        [
+          1061,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "50%TFE"
+    },
+    "abs_theta208_SDS_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        1036,
+        1865,
+        1226
+      ],
+      "kind": "red",
+      "baseline": 1223,
+      "ticks": [
+        [
+          1223,
+          0
+        ],
+        [
+          1061,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "10mMSDS"
+    },
+    "abs_theta208_DPC_scaled": {
+      "figure": "3D",
+      "view": [
+        1887,
+        1344
+      ],
+      "roi": [
+        1115,
+        1036,
+        1865,
+        1226
+      ],
+      "kind": "green",
+      "baseline": 1223,
+      "ticks": [
+        [
+          1223,
+          0
+        ],
+        [
+          1061,
+          30
+        ]
+      ],
+      "unit": "absolute mean residue ellipticity*1e-3",
+      "environment": "2mMDPC"
+    }
+  },
+  "feature_extraction": "color/black connected components, all11 ordered by original W1..W11 labels",
+  "pixel_tolerance_viewport": 4,
+  "image_dimensions": {
+    "fig6": [
+      4048,
+      2062
+    ],
+    "fig3": [
+      3601,
+      2564
+    ]
+  },
+  "source_hashes": {
+    "L5_fig6.png": "7ab29028c0f7b9427ee5a0b2958408a140dd2b67576abb60c563a98b7506ae51",
+    "L5_fig3.png": "5e3cfa3a06e65eddfa74846df6c006c3e509b927bb54d6ce0dd2ccef99dc210d"
+  }
+}

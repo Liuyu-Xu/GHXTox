@@ -1,0 +1,33 @@
+﻿comparison,label,feature,n_pairs,status,mean_case_minus_control,ci_low,ci_high,p,fold_differences,discovery_mean,internal_check_mean,same_split_direction,q_BH32
+failure50_vs_rescue98,0,hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,positive_hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,like_charge_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,charge_hydrophobic_separation,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,hydrophobic_patch_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,local_positive_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,ideal_alpha_hydrophobic_moment,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,0,sg_close_edge_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,positive_hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,like_charge_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,charge_hydrophobic_separation,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,hydrophobic_patch_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,local_positive_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,ideal_alpha_hydrophobic_moment,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_rescue98,1,sg_close_edge_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,positive_hydrophobic_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,like_charge_contact_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,charge_hydrophobic_separation,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,hydrophobic_patch_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,local_positive_excess,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,ideal_alpha_hydrophobic_moment,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,0,sg_close_edge_fraction,0,insufficient_pairs,,,,1.0,{},,,,1.0
+failure50_vs_all_fusion_correct,1,hydrophobic_contact_excess,1,insufficient_pairs,-0.004470752264869898,,,1.0,{3: -0.004470752264869898},,-0.004470752264869898,,1.0
+failure50_vs_all_fusion_correct,1,positive_hydrophobic_contact_excess,1,insufficient_pairs,0.003224127488833356,,,1.0,{3: 0.003224127488833356},,0.003224127488833356,,1.0
+failure50_vs_all_fusion_correct,1,like_charge_contact_excess,1,insufficient_pairs,-0.05543947308653191,,,1.0,{3: -0.05543947308653191},,-0.05543947308653191,,1.0
+failure50_vs_all_fusion_correct,1,charge_hydrophobic_separation,1,insufficient_pairs,0.09272208041063823,,,1.0,{3: 0.09272208041063823},,0.09272208041063823,,1.0
+failure50_vs_all_fusion_correct,1,hydrophobic_patch_fraction,1,insufficient_pairs,0.09999999999999998,,,1.0,{3: 0.09999999999999998},,0.09999999999999998,,1.0
+failure50_vs_all_fusion_correct,1,local_positive_excess,1,insufficient_pairs,0.08187308187308184,,,1.0,{3: 0.08187308187308184},,0.08187308187308184,,1.0
+failure50_vs_all_fusion_correct,1,ideal_alpha_hydrophobic_moment,1,insufficient_pairs,-0.012653909747873462,,,1.0,{3: -0.012653909747873462},,-0.012653909747873462,,1.0
+failure50_vs_all_fusion_correct,1,sg_close_edge_fraction,1,insufficient_pairs,0.0,,,1.0,{3: 0.0},,0.0,,1.0

@@ -1,0 +1,41 @@
+{
+  "status": "exploratory_training_only_cohort_expansion",
+  "anchors": ["peptide_249", "peptide_463", "peptide_94", "peptide_1434"],
+  "selection_uses_predictions_or_labels": false,
+  "primary_sequence_neighbor": {
+    "alignment": "Biopython PairwiseAligner global; match=2 mismatch=-1 gap_open=-3 gap_extend=-0.5; first optimal alignment",
+    "identity_definition": "identical aligned residue pairs / max(sequence lengths), including gaps implicitly in denominator; not CD-HIT identity",
+    "min_identity": 0.4,
+    "min_length_ratio": 0.7
+  },
+  "primary_physicochemical": {
+    "min_length": 15,
+    "max_length": 50,
+    "max_cys": 1,
+    "min_net_charge_KR_minus_DE": 2,
+    "min_mean_Kyte_Doolittle": 0.0,
+    "meaning": "low-Cys cationic hydrophobic short-peptide candidate, not confirmed membrane toxicity"
+  },
+  "annotation_screen": {
+    "source": "existing training_uniprot_exact_matches.csv Function [CC] only",
+    "regex": "hemol|haemol|cytol|pore.form|membrane.disrupt|membrane.permeabili|membrane.lysi",
+    "meaning": "function mentions only; may contain negatives, similarity inference or whole-molecule claims, not direct endpoint validation"
+  },
+  "cohorts_reported": ["sequence_neighbor", "physicochemical", "annotation_mention", "union", "physicochemical_non_neighbor"],
+  "primary_statistics_exclude_anchor_groups": true,
+  "discovery_folds": [0, 1, 2],
+  "internal_replication_folds": [3, 4],
+  "internal_replication_blinded": false,
+  "rates": "FN/(TP+FN) for original positives and FP/(FP+TN) for original negatives; label/fold stratified; group bootstrap CI",
+  "bootstrap_replicates": 2000,
+  "seed": 20261025,
+  "feature_comparison": {
+    "cohort": "physicochemical excluding anchor groups",
+    "cases": "original positive fusion FN",
+    "controls": "original positive fusion TP from same cohort",
+    "match": "same fold, different group, length difference <=3, KR-DE charge difference <=2, mean hydropathy difference <=0.5, Cys difference <=1; greedy smallest eligible pool then normalized distance then sample_id; no group reused",
+    "features": ["local_positive_excess", "local_hydrophobic_excess", "ideal_alpha_hydrophobic_moment", "hydrophobic_contact_excess", "charge_hydrophobic_separation", "mean_plddt"],
+    "inference": "paired mean difference FN minus TP; paired bootstrap CI and 5000 random sign flips; BH over 12 tests (6 features x 2 partitions); null/low counts retained"
+  },
+  "restrictions": ["no test predictions", "no model training", "no label changes", "no reweighting", "no threshold tuning", "sequence proximity and descriptor matching are not experimental mechanism evidence", "anchor discovery and historical OOF selection biases persist"]
+}

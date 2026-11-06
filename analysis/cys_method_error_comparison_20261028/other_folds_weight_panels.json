@@ -1,0 +1,330 @@
+{
+  "0": {
+    "all": {
+      "sequence": {
+        "n": 1271,
+        "baseline_errors": 70,
+        "weight_errors": 81,
+        "corrected": 11,
+        "harmed": 22
+      },
+      "fusion": {
+        "n": 1271,
+        "baseline_errors": 63,
+        "weight_errors": 69,
+        "corrected": 9,
+        "harmed": 15
+      }
+    },
+    "low_positive": {
+      "sequence": {
+        "n": 73,
+        "baseline_errors": 39,
+        "weight_errors": 39,
+        "corrected": 6,
+        "harmed": 6
+      },
+      "fusion": {
+        "n": 73,
+        "baseline_errors": 36,
+        "weight_errors": 32,
+        "corrected": 6,
+        "harmed": 2
+      }
+    },
+    "high_negative": {
+      "sequence": {
+        "n": 85,
+        "baseline_errors": 13,
+        "weight_errors": 13,
+        "corrected": 2,
+        "harmed": 2
+      },
+      "fusion": {
+        "n": 85,
+        "baseline_errors": 12,
+        "weight_errors": 13,
+        "corrected": 2,
+        "harmed": 3
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "n": 364,
+        "baseline_errors": 40,
+        "weight_errors": 44,
+        "corrected": 5,
+        "harmed": 9
+      },
+      "fusion": {
+        "n": 364,
+        "baseline_errors": 37,
+        "weight_errors": 38,
+        "corrected": 5,
+        "harmed": 6
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "n": 907,
+        "baseline_errors": 30,
+        "weight_errors": 37,
+        "corrected": 6,
+        "harmed": 13
+      },
+      "fusion": {
+        "n": 907,
+        "baseline_errors": 26,
+        "weight_errors": 31,
+        "corrected": 4,
+        "harmed": 9
+      }
+    }
+  },
+  "1": {
+    "all": {
+      "sequence": {
+        "n": 1229,
+        "baseline_errors": 91,
+        "weight_errors": 82,
+        "corrected": 15,
+        "harmed": 6
+      },
+      "fusion": {
+        "n": 1229,
+        "baseline_errors": 85,
+        "weight_errors": 77,
+        "corrected": 13,
+        "harmed": 5
+      }
+    },
+    "low_positive": {
+      "sequence": {
+        "n": 87,
+        "baseline_errors": 51,
+        "weight_errors": 43,
+        "corrected": 9,
+        "harmed": 1
+      },
+      "fusion": {
+        "n": 87,
+        "baseline_errors": 47,
+        "weight_errors": 40,
+        "corrected": 7,
+        "harmed": 0
+      }
+    },
+    "high_negative": {
+      "sequence": {
+        "n": 85,
+        "baseline_errors": 18,
+        "weight_errors": 18,
+        "corrected": 0,
+        "harmed": 0
+      },
+      "fusion": {
+        "n": 85,
+        "baseline_errors": 18,
+        "weight_errors": 19,
+        "corrected": 0,
+        "harmed": 1
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "n": 380,
+        "baseline_errors": 42,
+        "weight_errors": 37,
+        "corrected": 11,
+        "harmed": 6
+      },
+      "fusion": {
+        "n": 380,
+        "baseline_errors": 40,
+        "weight_errors": 36,
+        "corrected": 8,
+        "harmed": 4
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "n": 849,
+        "baseline_errors": 49,
+        "weight_errors": 45,
+        "corrected": 4,
+        "harmed": 0
+      },
+      "fusion": {
+        "n": 849,
+        "baseline_errors": 45,
+        "weight_errors": 41,
+        "corrected": 5,
+        "harmed": 1
+      }
+    }
+  },
+  "2": {
+    "all": {
+      "sequence": {
+        "n": 1273,
+        "baseline_errors": 87,
+        "weight_errors": 96,
+        "corrected": 13,
+        "harmed": 22
+      },
+      "fusion": {
+        "n": 1273,
+        "baseline_errors": 74,
+        "weight_errors": 87,
+        "corrected": 5,
+        "harmed": 18
+      }
+    },
+    "low_positive": {
+      "sequence": {
+        "n": 85,
+        "baseline_errors": 43,
+        "weight_errors": 46,
+        "corrected": 4,
+        "harmed": 7
+      },
+      "fusion": {
+        "n": 85,
+        "baseline_errors": 35,
+        "weight_errors": 39,
+        "corrected": 0,
+        "harmed": 4
+      }
+    },
+    "high_negative": {
+      "sequence": {
+        "n": 79,
+        "baseline_errors": 17,
+        "weight_errors": 14,
+        "corrected": 3,
+        "harmed": 0
+      },
+      "fusion": {
+        "n": 79,
+        "baseline_errors": 18,
+        "weight_errors": 16,
+        "corrected": 2,
+        "harmed": 0
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "n": 379,
+        "baseline_errors": 44,
+        "weight_errors": 49,
+        "corrected": 4,
+        "harmed": 9
+      },
+      "fusion": {
+        "n": 379,
+        "baseline_errors": 39,
+        "weight_errors": 41,
+        "corrected": 2,
+        "harmed": 4
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "n": 894,
+        "baseline_errors": 43,
+        "weight_errors": 47,
+        "corrected": 9,
+        "harmed": 13
+      },
+      "fusion": {
+        "n": 894,
+        "baseline_errors": 35,
+        "weight_errors": 46,
+        "corrected": 3,
+        "harmed": 14
+      }
+    }
+  },
+  "4": {
+    "all": {
+      "sequence": {
+        "n": 1323,
+        "baseline_errors": 99,
+        "weight_errors": 116,
+        "corrected": 22,
+        "harmed": 39
+      },
+      "fusion": {
+        "n": 1323,
+        "baseline_errors": 98,
+        "weight_errors": 110,
+        "corrected": 22,
+        "harmed": 34
+      }
+    },
+    "low_positive": {
+      "sequence": {
+        "n": 83,
+        "baseline_errors": 56,
+        "weight_errors": 46,
+        "corrected": 13,
+        "harmed": 3
+      },
+      "fusion": {
+        "n": 83,
+        "baseline_errors": 54,
+        "weight_errors": 43,
+        "corrected": 15,
+        "harmed": 4
+      }
+    },
+    "high_negative": {
+      "sequence": {
+        "n": 120,
+        "baseline_errors": 26,
+        "weight_errors": 22,
+        "corrected": 4,
+        "harmed": 0
+      },
+      "fusion": {
+        "n": 120,
+        "baseline_errors": 24,
+        "weight_errors": 23,
+        "corrected": 1,
+        "harmed": 0
+      }
+    },
+    "flagged": {
+      "sequence": {
+        "n": 377,
+        "baseline_errors": 50,
+        "weight_errors": 53,
+        "corrected": 13,
+        "harmed": 16
+      },
+      "fusion": {
+        "n": 377,
+        "baseline_errors": 49,
+        "weight_errors": 51,
+        "corrected": 13,
+        "harmed": 15
+      }
+    },
+    "unflagged_not_gold": {
+      "sequence": {
+        "n": 946,
+        "baseline_errors": 49,
+        "weight_errors": 63,
+        "corrected": 9,
+        "harmed": 23
+      },
+      "fusion": {
+        "n": 946,
+        "baseline_errors": 49,
+        "weight_errors": 59,
+        "corrected": 9,
+        "harmed": 19
+      }
+    }
+  }
+}

@@ -1,0 +1,314 @@
+[
+  {
+    "name": "RI21",
+    "sequence": "RRLRKKTRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "direct_host_endpoint": {
+      "endpoint": "MHC_5percent",
+      "operator": "=",
+      "value": 32.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "none",
+      "not_HC50": true
+    },
+    "source_pmid": "27251456",
+    "native_image": "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_numeric_recovery_20261026\\sources\\PMAP_page3_image0_X1.jpg",
+    "figure": "Figure2/PDFpage3",
+    "wavelength_nm": 222,
+    "x_window_pixels": [
+      262,
+      277
+    ],
+    "calibration": {
+      "x195": 85,
+      "x250": 460,
+      "y_zero": 153,
+      "y_tick": 263,
+      "tick_value": -4,
+      "water_y": [
+        156,
+        175
+      ],
+      "mimic_y": [
+        202,
+        232
+      ]
+    },
+    "digitized_intervals": {
+      "water": {
+        "lower": -0.5454545454545454,
+        "upper": -0.03636363636363636,
+        "value": null,
+        "ink_y_pixels": [
+          157,
+          165
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      },
+      "membrane_mimic_union": {
+        "lower": -2.618181818181818,
+        "upper": -1.8545454545454545,
+        "value": null,
+        "ink_y_pixels": [
+          207,
+          222
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      }
+    },
+    "state_contrast_interval": {
+      "lower": -2.581818181818182,
+      "upper": -1.309090909090909,
+      "value": null,
+      "unit": "theta222 times1e-4,deg*cm2/dmol",
+      "scope": "envelope for eitherTFE/SDS minuswater; does not rank separate TFE vsSDS"
+    },
+    "TFE_separate_value": null,
+    "SDS_separate_value": null,
+    "reason": "curves overlap near222nm; shared conservative union only",
+    "status": "approximate_published_figure_intervals_not_raw_spectra"
+  },
+  {
+    "name": "RI18",
+    "sequence": "RKKTRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "direct_host_endpoint": {
+      "endpoint": "MHC_5percent",
+      "operator": "=",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "none",
+      "not_HC50": true
+    },
+    "source_pmid": "27251456",
+    "native_image": "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_numeric_recovery_20261026\\sources\\PMAP_page3_image0_X1.jpg",
+    "figure": "Figure2/PDFpage3",
+    "wavelength_nm": 222,
+    "x_window_pixels": [
+      771,
+      786
+    ],
+    "calibration": {
+      "x195": 594,
+      "x250": 969,
+      "y_zero": 153,
+      "y_tick": 263,
+      "tick_value": -4,
+      "water_y": [
+        158,
+        180
+      ],
+      "mimic_y": [
+        200,
+        230
+      ]
+    },
+    "digitized_intervals": {
+      "water": {
+        "lower": -0.6545454545454545,
+        "upper": -0.07272727272727272,
+        "value": null,
+        "ink_y_pixels": [
+          158,
+          168
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      },
+      "membrane_mimic_union": {
+        "lower": -2.618181818181818,
+        "upper": -1.709090909090909,
+        "value": null,
+        "ink_y_pixels": [
+          203,
+          222
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      }
+    },
+    "state_contrast_interval": {
+      "lower": -2.5454545454545454,
+      "upper": -1.0545454545454545,
+      "value": null,
+      "unit": "theta222 times1e-4,deg*cm2/dmol",
+      "scope": "envelope for eitherTFE/SDS minuswater; does not rank separate TFE vsSDS"
+    },
+    "TFE_separate_value": null,
+    "SDS_separate_value": null,
+    "reason": "curves overlap near222nm; shared conservative union only",
+    "status": "approximate_published_figure_intervals_not_raw_spectra"
+  },
+  {
+    "name": "TI15",
+    "sequence": "TRKRLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "direct_host_endpoint": {
+      "endpoint": "MHC_5percent",
+      "operator": ">",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "right",
+      "not_HC50": true
+    },
+    "source_pmid": "27251456",
+    "native_image": "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_numeric_recovery_20261026\\sources\\PMAP_page3_image0_X1.jpg",
+    "figure": "Figure2/PDFpage3",
+    "wavelength_nm": 222,
+    "x_window_pixels": [
+      262,
+      277
+    ],
+    "calibration": {
+      "x195": 85,
+      "x250": 460,
+      "y_zero": 504,
+      "y_tick": 611,
+      "tick_value": -3,
+      "water_y": [
+        507,
+        524
+      ],
+      "mimic_y": [
+        549,
+        575
+      ]
+    },
+    "digitized_intervals": {
+      "water": {
+        "lower": -0.3925233644859813,
+        "upper": -0.028037383177570093,
+        "value": null,
+        "ink_y_pixels": [
+          508,
+          515
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      },
+      "membrane_mimic_union": {
+        "lower": -1.794392523364486,
+        "upper": -1.3457943925233644,
+        "value": null,
+        "ink_y_pixels": [
+          555,
+          565
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      }
+    },
+    "state_contrast_interval": {
+      "lower": -1.766355140186916,
+      "upper": -0.9532710280373831,
+      "value": null,
+      "unit": "theta222 times1e-4,deg*cm2/dmol",
+      "scope": "envelope for eitherTFE/SDS minuswater; does not rank separate TFE vsSDS"
+    },
+    "TFE_separate_value": null,
+    "SDS_separate_value": null,
+    "reason": "curves overlap near222nm; shared conservative union only",
+    "status": "approximate_published_figure_intervals_not_raw_spectra"
+  },
+  {
+    "name": "RI12",
+    "sequence": "RLKKIGKVLKWI",
+    "chemical_form": {
+      "c_terminal": "amide",
+      "n_terminal": "free as drawn; no added cap reported",
+      "stereochemistry": "standard residues as written",
+      "topology": "linear chain; PMAP-36 Cys oxidation not explicitly established"
+    },
+    "direct_host_endpoint": {
+      "endpoint": "MHC_5percent",
+      "operator": ">",
+      "value": 128.0,
+      "unit": "uM",
+      "rbc": "human",
+      "source": "Table 4; Methods Quantification of hemolytic activity",
+      "censoring": "right",
+      "not_HC50": true
+    },
+    "source_pmid": "27251456",
+    "native_image": "D:\\dachuang2026\\GHXTox\\analysis\\membrane_state_numeric_recovery_20261026\\sources\\PMAP_page3_image0_X1.jpg",
+    "figure": "Figure2/PDFpage3",
+    "wavelength_nm": 222,
+    "x_window_pixels": [
+      771,
+      786
+    ],
+    "calibration": {
+      "x195": 594,
+      "x250": 969,
+      "y_zero": 486,
+      "y_tick": 611,
+      "tick_value": -1.5,
+      "water_y": [
+        490,
+        513
+      ],
+      "mimic_y": [
+        524,
+        550
+      ]
+    },
+    "digitized_intervals": {
+      "water": {
+        "lower": -0.228,
+        "upper": -0.048,
+        "value": null,
+        "ink_y_pixels": [
+          493,
+          502
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      },
+      "membrane_mimic_union": {
+        "lower": -0.672,
+        "upper": -0.468,
+        "value": null,
+        "ink_y_pixels": [
+          528,
+          539
+        ],
+        "unit": "theta222 times1e-4,deg*cm2/dmol",
+        "tolerance": "marker/stroke envelope plus3nativepixels and wavelength window about222±1nm; not95%CI"
+      }
+    },
+    "state_contrast_interval": {
+      "lower": -0.624,
+      "upper": -0.24000000000000002,
+      "value": null,
+      "unit": "theta222 times1e-4,deg*cm2/dmol",
+      "scope": "envelope for eitherTFE/SDS minuswater; does not rank separate TFE vsSDS"
+    },
+    "TFE_separate_value": null,
+    "SDS_separate_value": null,
+    "reason": "curves overlap near222nm; shared conservative union only",
+    "status": "approximate_published_figure_intervals_not_raw_spectra"
+  }
+]

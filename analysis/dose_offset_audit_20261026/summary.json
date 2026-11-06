@@ -1,0 +1,83 @@
+{
+  "n_fits": 0,
+  "group_summaries_descriptive_only": true,
+  "missingness": {
+    "confirmed_overlay_primary": {
+      "panels": 284,
+      "pH_known_panels": 0,
+      "point_fields": [
+        "MAP",
+        "c_terminal",
+        "chemical_key",
+        "dose_uM",
+        "edit_group",
+        "fold",
+        "hemolysis_percent",
+        "id",
+        "measurement_status",
+        "n_terminal",
+        "name",
+        "origin",
+        "pH",
+        "panel_id",
+        "panel_n_points",
+        "pmid",
+        "raw_activity",
+        "sequence",
+        "species",
+        "supporting_database_ids"
+      ]
+    },
+    "all_exact50_quarantine_sensitivity": {
+      "panels": 253,
+      "pH_known_panels": 0,
+      "point_fields": [
+        "MAP",
+        "c_terminal",
+        "chemical_key",
+        "dose_uM",
+        "edit_group",
+        "fold",
+        "hemolysis_percent",
+        "id",
+        "measurement_status",
+        "n_terminal",
+        "name",
+        "origin",
+        "pH",
+        "panel_id",
+        "panel_n_points",
+        "pmid",
+        "raw_activity",
+        "sequence",
+        "species",
+        "supporting_database_ids"
+      ]
+    }
+  },
+  "cache_matches": [
+    {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_chemistry_audit_20261026\\sources\\PMC8348142.xml",
+      "pmids": [
+        "34361810"
+      ],
+      "sha256": "e7ae0c227f315cbab43c472c7d3a365771f0e71202ce15dc5dcca1f1c6d3bcdf"
+    },
+    {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_chemistry_audit_20261026\\sources\\PMC8606745.xml",
+      "pmids": [
+        "34819923"
+      ],
+      "sha256": "badc88dcb8993c00a8c17e23c40444cc37a6d88ba3b1b379ba126eb13f12f075"
+    },
+    {
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\hemolysis_dose_audit_20261026\\PMID34361810_fulltext.xml",
+      "pmids": [
+        "34361810"
+      ],
+      "sha256": "e7ae0c227f315cbab43c472c7d3a365771f0e71202ce15dc5dcca1f1c6d3bcdf"
+    }
+  ],
+  "matched_context_pairs": 20,
+  "interpretation": "No causal attribution; groups confounded by peptide/background/source. Literal50 is not a confirmed error flag. Unknown time/temp/buffer/density not imputed."
+}

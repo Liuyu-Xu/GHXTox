@@ -1,0 +1,18 @@
+{
+  "artifact": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_test1_canonical_single_features.pt",
+  "artifact_sha256": "51fad41396386a801cd2ac5727263f715fd0d250886bc5bb1c4a8d4a34df7867",
+  "encoder": {
+    "embedding_dim": 1024,
+    "forward_mode": "one_sequence_per_forward",
+    "frozen": true,
+    "identifier": "prot_t5_xl_half_uniref50-enc",
+    "snapshot": "D:\\dachuang2026\\ziliao\\huggingface_cache\\hub\\models--Rostlab--prot_t5_xl_half_uniref50-enc\\snapshots\\94a6abc029ae13029317b140b7424e012bf8dfbf",
+    "snapshot_sha256": "7f51ba885541c7dc569d46b796af57cc7a2ba7945107dced4f19d1b5ec091157"
+  },
+  "records": 1126,
+  "source": {
+    "path": "D:\\dachuang2026\\ziliao\\test1_prott5_official_mean.pt",
+    "sha256": "fdabaa64100d8eb15119027ecceb914ae5b52c470c99474b9ca233d88884cf14"
+  },
+  "timing_seconds": 23.670721800008323
+}

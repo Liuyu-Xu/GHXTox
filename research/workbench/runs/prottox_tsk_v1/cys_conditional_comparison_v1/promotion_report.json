@@ -1,0 +1,81 @@
+{
+  "artifact_type": "prottox_cys_conditional_promotion_report",
+  "controls": [
+    {
+      "low_cys_toxic_sensitivity": 0.2633587786259542,
+      "oof_metrics": {
+        "accuracy": 0.9256301863159543,
+        "auprc": 0.9292606630673235,
+        "auroc": 0.9657743953427954,
+        "balanced_accuracy": 0.904799130602489,
+        "brier": 0.05926716429113992,
+        "f1": 0.8676511563109501,
+        "fn": 261,
+        "fp": 214,
+        "mcc": 0.8160840776358992,
+        "precision": 0.8791643139469226,
+        "sensitivity": 0.8564356435643564,
+        "specificity": 0.9531626176406216,
+        "threshold": 0.5,
+        "tn": 4355,
+        "tp": 1557
+      },
+      "path": "runs\\prottox_tsk_v1\\cys_conditional_shared_residual_seed20260905_v1\\manifest.json",
+      "seed": 20260905
+    },
+    {
+      "low_cys_toxic_sensitivity": 0.27099236641221375,
+      "oof_metrics": {
+        "accuracy": 0.9268827305464225,
+        "auprc": 0.9282510249727391,
+        "auroc": 0.9656022398037571,
+        "balanced_accuracy": 0.9055090013269219,
+        "brier": 0.058924528229077955,
+        "f1": 0.8695166247555183,
+        "fn": 262,
+        "fp": 205,
+        "mcc": 0.8189464806032863,
+        "precision": 0.8835888699602499,
+        "sensitivity": 0.8558855885588559,
+        "specificity": 0.955132414094988,
+        "threshold": 0.5,
+        "tn": 4364,
+        "tp": 1556
+      },
+      "path": "runs\\prottox_tsk_v1\\cys_conditional_shared_residual_seed20260906_v1\\manifest.json",
+      "seed": 20260906
+    }
+  ],
+  "decision": "retain_as_ablation",
+  "frozen_rule": {
+    "both_seeds_mcc_not_lower": true,
+    "maximum_mean_auprc_decline": 0.002,
+    "minimum_each_seed_low_cys_sensitivity_improvement": 0.05,
+    "minimum_mean_mcc_advantage": 0.005
+  },
+  "mean_delta": {
+    "auprc": -5.8781828119414126e-05,
+    "brier": -8.550647589321975e-06,
+    "low_cys_toxic_sensitivity_delta": 0.0038167938931297773,
+    "mcc": 0.0015011089192727978
+  },
+  "paired_deltas": [
+    {
+      "auprc": 1.1320514456181208e-05,
+      "brier": -1.5549251257296337e-05,
+      "low_cys_toxic_sensitivity": 0.26717557251908397,
+      "low_cys_toxic_sensitivity_delta": 0.0038167938931297773,
+      "mcc": 0.0026373127609981006,
+      "seed": 20260905
+    },
+    {
+      "auprc": -0.00012888417069500946,
+      "brier": -1.5520439213476123e-06,
+      "low_cys_toxic_sensitivity": 0.2824427480916031,
+      "low_cys_toxic_sensitivity_delta": 0.0038167938931297773,
+      "mcc": 0.0003649050775474949,
+      "seed": 20260906
+    }
+  ],
+  "selection_scope": "paired training OOF only; Test1/Test2 excluded"
+}

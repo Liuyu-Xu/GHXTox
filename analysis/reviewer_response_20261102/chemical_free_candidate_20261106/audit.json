@@ -1,0 +1,27 @@
+{
+  "source_sha256": "a3c5d3c2d9da80ab56bc1e7b375ee4e9e34bb1bede11cfd20f367c5bc24db5c1",
+  "candidate_sha256": "b21e1d3fa0fff04adcd6141bf9ea4151abee9381af0655874112123c6c3749c7",
+  "retained_tensors": 133,
+  "removed_tensors": 28,
+  "removed_parameters": 55512,
+  "source_bytes": 6188914,
+  "candidate_bytes": 5947174,
+  "datasets": {
+    "test1": {
+      "n": 1126,
+      "max_3d_diff": 0.0,
+      "max_fused_diff": 0.0,
+      "decision_mismatches": 0,
+      "data_loader_plus_3d_gpu_seconds": 1.497180499995011,
+      "input_cache_sha256": "89ac1c003f62732a28a573b13f7b09b19330dfc3666e42baa4b92151d33b659d"
+    },
+    "test2": {
+      "n": 582,
+      "max_3d_diff": 0.0,
+      "max_fused_diff": 0.0,
+      "decision_mismatches": 0,
+      "data_loader_plus_3d_gpu_seconds": 0.6503822000086075,
+      "input_cache_sha256": "232ccfe54776b5e5c4be9240f4f8597e9c467d1a33775c1f9ed071017dd9b959"
+    }
+  }
+}

@@ -1,0 +1,2467 @@
+{
+  "created_utc": "2026-10-25T11:34:24.535489+00:00",
+  "source_workspace": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法",
+  "destination_repo": "D:\\dachuang2026\\GHXTox",
+  "action": "copy_and_SHA256_verify; originals retained",
+  "files": [
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\all_training_atlas.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\all_training_atlas.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\all_training_atlas.csv",
+      "bytes": 5406440,
+      "sha256": "7035430ed25206988c298bec8cebb2fcd8371c092a14ce1782a187218d1d8bb8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\audit_summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\audit_summary.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\audit_summary.json",
+      "bytes": 5601,
+      "sha256": "992d726e79924587d879614b754c9ba0644961da2b89f0a8054eb389f3d420f9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\build_atlas.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\build_atlas.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\build_atlas.py",
+      "bytes": 21641,
+      "sha256": "5f5633933b4c23c5a9295906d49a51c4b06e3ddb05084810db910ae6de3fe864"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\cys_error_rates.png",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\cys_error_rates.png",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\cys_error_rates.png",
+      "bytes": 78197,
+      "sha256": "40e33fd452c45c492c19fb835c2eb2ca50bf99087bf064a8675d51191afbd482"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\cys_stratum_by_fold.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\cys_stratum_by_fold.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\cys_stratum_by_fold.csv",
+      "bytes": 765,
+      "sha256": "70182604cc85e461cdbeabad672dd18e9345c02d192b7316f09ba04d8af307b1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\cys_stratum_risks.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\cys_stratum_risks.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\cys_stratum_risks.csv",
+      "bytes": 382,
+      "sha256": "e4b06ae92b406eeacdbc955201d0e156c9049078fab5e3473a71096201d10893"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\errors_only.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\errors_only.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\errors_only.csv",
+      "bytes": 272506,
+      "sha256": "2a250c68ed640b68f2ab2e0de1f663b39a06a6076d049c4cfc9c3f61eda304d4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_findings.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_findings.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_findings.json",
+      "bytes": 2677,
+      "sha256": "4c8bb177802f73e1928748c42952bdc05e12314e460c61282f5fa34072ec8c50"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_source_verification.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_source_verification.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_source_verification.json",
+      "bytes": 352,
+      "sha256": "823e4e1569e5b44e1e9d55467489545c2157b1b16fda45f45f50d031ea24bec8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_training_source.fasta",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_training_source.fasta",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\captp_training_source.fasta",
+      "bytes": 278638,
+      "sha256": "4a7e173b121510e0945facae0eac0e3a9e3636fbc90111469d17d0cb0208d07b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_G9_1.html",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_G9_1.html",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_G9_1.html",
+      "bytes": 11241,
+      "sha256": "719d0bce9af5c643b3dc7b266b55c7552f1fe9fc618b06954e094b1c535af29d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_pc16c.html",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_pc16c.html",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\conoserver_pc16c.html",
+      "bytes": 10793,
+      "sha256": "69cf1f70c1dbaffa5d6f379bd7dc09b7911acfc251711d8d455bfb2cbb318298"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\entity_stratified_error_rates.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\entity_stratified_error_rates.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\entity_stratified_error_rates.csv",
+      "bytes": 705,
+      "sha256": "7357f601c2b1e1f29d4b257e55b26f76b10c7c3ae93063d6f0811a286c049273"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_accession_evidence_ledger.csv",
+      "bytes": 377212,
+      "sha256": "c40b885b8b1ccdd2f53e972fd92b5dc595a9c70caec77e5d347c883aba6fe0bd"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_evidence_flags.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_evidence_flags.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_evidence_flags.csv",
+      "bytes": 303156,
+      "sha256": "f4d5c205cce0f6c8fce2114a3bad4ba98b16b37a4c953231ae9894fd707e1774"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_primary_reference_links.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_primary_reference_links.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\error_primary_reference_links.csv",
+      "bytes": 121086,
+      "sha256": "7c2f2ed9b1fb4ebf1a3ea53add3631b0b469c0bc332b4d59e8817191ea67e781"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\errors_uniprot_exact_matches.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\errors_uniprot_exact_matches.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\errors_uniprot_exact_matches.csv",
+      "bytes": 506518,
+      "sha256": "a0c49a1d9500fb50557fc8bab02f8f541c6fe4d278c6760ca798e22f7b2933fe"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\EVIDENCE_REPORT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\EVIDENCE_REPORT.md",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\EVIDENCE_REPORT.md",
+      "bytes": 10200,
+      "sha256": "bdf6ed5ff089e5dffeab35b66b1610e22889435036151e713510894ba649ceed"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fetch_uniprot.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fetch_uniprot.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fetch_uniprot.py",
+      "bytes": 2937,
+      "sha256": "7810f1d79e3ceead08696acf589df1ed897dd048face1ab2187274433a587af2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fragment_probe_P83245.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fragment_probe_P83245.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\fragment_probe_P83245.json",
+      "bytes": 1032,
+      "sha256": "9dfbdd5731e6ab68aaa84b9426b8616c03012098350ad633f0280a5931a55b0a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\identity_recovery_summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\identity_recovery_summary.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\identity_recovery_summary.json",
+      "bytes": 245,
+      "sha256": "44458f65d980eb729a5460ec4ad03d496ae01259994e7994d7512bb307a7ffcb"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\negative_current_toxin_keyword_review.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\negative_current_toxin_keyword_review.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\negative_current_toxin_keyword_review.csv",
+      "bytes": 80095,
+      "sha256": "185f335013b1e3a167a58de0dbea35c87d48a4c7a10054651ba61b0726b3f79e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\NEXT_EXPERIMENT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\NEXT_EXPERIMENT.md",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\NEXT_EXPERIMENT.md",
+      "bytes": 4161,
+      "sha256": "443fe7f155dbe3bd33b781cc1c05e619368a9ea6beda25f97334db0dddd63e67"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative20_review.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative20_review.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative20_review.csv",
+      "bytes": 7528,
+      "sha256": "15298a447a02e03529e21338adac52287aa8e9eed62f2149c3c420014e955cfc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.json",
+      "bytes": 104256,
+      "sha256": "8ac01911cb4b71c7e6e99217f8558c7cf975feae271e52fac8fc33e98899651b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\representative_paper_abstracts.request.json",
+      "bytes": 806,
+      "sha256": "844161bfda928ca425df59e7a593ce479fda3a5dfb60d388e113aded955f3db5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\source_cache_manifest.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\source_cache_manifest.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\source_cache_manifest.csv",
+      "bytes": 2237,
+      "sha256": "08d9ef5704cce1d5d7382597c995d809972a26a9602ce52496be0a0d4aa80e8f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summarize_evidence.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summarize_evidence.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summarize_evidence.py",
+      "bytes": 20513,
+      "sha256": "daee6cdbdf97668060a22b62e34f7502812ce019ee2e7ad5fff8ca656b36d1e4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summary.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\summary.json",
+      "bytes": 1160,
+      "sha256": "258e47cfe617998dfb350df16f6e56766cfe3b74570483f17801a27e617ccecc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_evidence_flags.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_evidence_flags.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_evidence_flags.csv",
+      "bytes": 6035540,
+      "sha256": "61451a17321f3bc65c5875bebe0d61daacc9604936324f4e604746942056b3bb"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\training_uniprot_exact_matches.csv",
+      "bytes": 10279133,
+      "sha256": "b4c32b7626783f43d8794318de45a6f9d648d6c0027710dd1dce2a78f9edc0fc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "bytes": 410085,
+      "sha256": "af336b5c965da4cce90d9dd4faf5571ad048c06c8c5a913d0c269ada5b6fa4de"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json.request.json",
+      "bytes": 2691,
+      "sha256": "c857f796a7a4486ee3fb3f93c5459fb236c66c91375b761ddf02cfc689593c95"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json",
+      "bytes": 343028,
+      "sha256": "feeff819e282764fedc1434e441a4c6ee3fb9810f6a979bba02f2e3cb6a24de2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch1.json.request.json",
+      "bytes": 2695,
+      "sha256": "c15db115ee0c030cd520083db518d018eb038700f6bbe5331958f80e59ba8873"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json",
+      "bytes": 339207,
+      "sha256": "3a4d6c65b08652cfb9969395f2ed13e74ffa0c18774af5c4a1cd6722e8c7e6a3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch2.json.request.json",
+      "bytes": 2695,
+      "sha256": "7938ac43b9be6218a6698d344172e721b5ce9ffcbe9ce4ad3535e0a9556a89ef"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json",
+      "bytes": 272471,
+      "sha256": "48a7ae99cef4eaa0c0bcee07aac8fd82117b2ff06cffe9e5e9d82511f550e1a1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch3.json.request.json",
+      "bytes": 2691,
+      "sha256": "da91447c2bf974a8890ac6e886ceb83d9e648c7545ead06dd88d6aefc846aace"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json",
+      "bytes": 381694,
+      "sha256": "23d496b94c24583a227a7c51c7e0a960fb0bb47979e455506088c561417506c4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch4.json.request.json",
+      "bytes": 2691,
+      "sha256": "01a1a7939a41fad01d3e66987e8948db3093ed9831eae89081627c803c4a3334"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json",
+      "bytes": 49792,
+      "sha256": "d6ca1b8c07c43ede17287ebf6631f732092c40ea9ae6a9f53d2393610ce46cc1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch5.json.request.json",
+      "bytes": 1635,
+      "sha256": "b88700369cac0e0723da5ba0c20edc3ff2de94e063c2f66e7ac66799ffa7a4d1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.request.json",
+      "bytes": 1264,
+      "sha256": "8f14298dbcfaf7b626575eb266304a750cb1fac88391da037badfb19769b2ffe"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.tsv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.tsv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_fragment_accessions.tsv",
+      "bytes": 98361,
+      "sha256": "7fa267882490a0eb9d9ad6f0815a4a893d5a0816b392674411408da2382b6d37"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe.json",
+      "bytes": 1464,
+      "sha256": "30ddb694cd70bcc9e50df5e91411de93f5d4d4dea02d39582330b8e9319c5a30"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe_valid.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe_valid.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_query_probe_valid.json",
+      "bytes": 4037,
+      "sha256": "a7013feacd2fddb441f941c7a882f2e093e1332b7308a78dca0628f4ce5364e8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv",
+      "bytes": 6441676,
+      "sha256": "788faa68973fdee8398bd4863d96e0a010723d65dcc8d6999f0ed72c528bb67d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv.request.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_reviewed_length11_50_20261025.tsv.request.json",
+      "bytes": 1543,
+      "sha256": "98b1be92690e78d0cb8170e0abcfb100b787e1ec55cd2dff34b8f37ab95e354b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\verification.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\verification.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\verification.json",
+      "bytes": 290,
+      "sha256": "bf089c508d0d4ae267c16026a82cb44bd4dccb86f95b7a96068959e76f4de627"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue.csv",
+      "bytes": 4316,
+      "sha256": "00d631dee1f9de2bdac093cdd75dd4a334e92188c49e706832725018d044d4d2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue_annotated.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue_annotated.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\evidence_review_queue_annotated.csv",
+      "bytes": 6620,
+      "sha256": "2246b2712fbd5adc7c3b4609713722f8ca2385925acc278c6c6d271683a37ee9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\finalize_report.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\finalize_report.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\finalize_report.py",
+      "bytes": 8126,
+      "sha256": "dada39df7f6d98939452c061bf966fffe18ecc423e1b490d000ab3bf105208fa"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\fold_metrics.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\fold_metrics.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\fold_metrics.csv",
+      "bytes": 911,
+      "sha256": "ad490f41dcd983d915da342a75af9569579f022109e33d093f285e02006279a9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\fusion_changes.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\fusion_changes.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\fusion_changes.csv",
+      "bytes": 119964,
+      "sha256": "26683eddead9ac1dfb4a0bfc0ab5760dcabe7ea891f4e1912ec81ec2a8dab681"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\input_manifest.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\input_manifest.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\input_manifest.csv",
+      "bytes": 1648,
+      "sha256": "ee9292a4d7665656f40f34322f7ee89163fa0b9292469bdffcac5fd2fc061fc8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\matched_feature_tests.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\matched_feature_tests.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\matched_feature_tests.csv",
+      "bytes": 8481,
+      "sha256": "83961a32f19208b7caa27cc0707eba03313f7b73befa319d84a0768a18a6ab9a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\matched_pairs.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\matched_pairs.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\matched_pairs.csv",
+      "bytes": 14168,
+      "sha256": "7dc60972cfda3336d70cc7c8686f02f07e9792a78b853478412d933350b441f3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\matching_balance.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\matching_balance.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\matching_balance.csv",
+      "bytes": 848,
+      "sha256": "eef6f28e2a0fb9249a41fd7cb9ad187a774f334719f265feea9135ca82afae08"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\matching_coverage.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\matching_coverage.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\matching_coverage.csv",
+      "bytes": 160,
+      "sha256": "bbc72987128f2ce0281c8f0c604b23df3541350e2c71d882cb9bff2cbaad8529"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\protocol.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\protocol.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\protocol.json",
+      "bytes": 2073,
+      "sha256": "2f3cd1a1c54b5957fda3f9637175f2c38ad014144bf145e25a4cbf4d26393fce"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\REPORT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\REPORT.md",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\REPORT.md",
+      "bytes": 9399,
+      "sha256": "3597a3e21d649c3e9d4564099cb083d21669dce5ec3fc6458e2c443c4a7f4acc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\run.stderr.log",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\run.stderr.log",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\run.stderr.log",
+      "bytes": 1971,
+      "sha256": "333db25c11ebdeed66e1b1f3260bad9c42ddd5016bd96e7ef1ca15112c1af256"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\run.stdout.log",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\run.stdout.log",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\run.stdout.log",
+      "bytes": 5366,
+      "sha256": "2279eaa64067a8bae82252620e7c0fc1ffb94b747281d5d56f5e527363339030"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\sensitivity.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\sensitivity.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\sensitivity.py",
+      "bytes": 6349,
+      "sha256": "05bb14315e938ebc21bc258de1973b9e0668377445e8b9fb362ff95844b7e24c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_feature_tests.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_feature_tests.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\sensitivity_feature_tests.csv",
+      "bytes": 2954,
+      "sha256": "bbe5deba6b3dfc678e817a975a4eca524a127fc87d17b9f940a2275a2666dd1a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_matched_pairs.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_matched_pairs.csv",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\sensitivity_matched_pairs.csv",
+      "bytes": 1263,
+      "sha256": "3f9f84a96814a9ded519d2e271f7a37b676bdf9d22cc1897289f918f4022946b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\sensitivity_summary.json",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\sensitivity_summary.json",
+      "bytes": 8050,
+      "sha256": "9e8bbdad31fc84b41edb782157e22005a29935d6164013759861fec5a917f441"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\ghxtox_error_atlas_20261025\\verify_results.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\verify_results.py",
+      "relative_to_repo": "analysis\\ghxtox_error_atlas_20261025\\verify_results.py",
+      "bytes": 2119,
+      "sha256": "be5669d6be9f4ec2ef01844b26c268f1b79550d06e1026d4daa635ea464a88d3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__init__.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__init__.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__init__.py",
+      "bytes": 3382,
+      "sha256": "91ec2446d9fca55b65272f7ef0ebcd900b0385219e8493d868e03e30cbf7bcd5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v1.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v1.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v1.py",
+      "bytes": 173455,
+      "sha256": "df9a50fb316d5adf4f8d36f47af871780d4a77bc61a2137d2dcb57fe766c704c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v2.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v2.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\bindings_v2.py",
+      "bytes": 862638,
+      "sha256": "2f8cd580d3297b8b8ddeaece313e1c43687067bb1abe6a003e0adc0f63e6d308"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\cpuid.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\cpuid.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\cpuid.h",
+      "bytes": 595,
+      "sha256": "300dc39a6f898df89028284257349e863e4acc102905037cf86d68320a0df11a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\function_lookup.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\function_lookup.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\function_lookup.h",
+      "bytes": 2450525,
+      "sha256": "5e4ecc5229a971a13a6ec7c9b9b847c352df29693f3e237ddae23ab4c4892a75"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_altivec.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_altivec.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_altivec.h",
+      "bytes": 14947,
+      "sha256": "e6533a82e25ceefba3e15bd6fab4d6009da24aa53932b5141918bba8fd0e2f97"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_avx.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_avx.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_avx.h",
+      "bytes": 857,
+      "sha256": "a5d268e1ba9c7734dfa92a086eeab9250758cd4e6fa2b2a61d667a465743bcad"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_neon.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_neon.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_neon.h",
+      "bytes": 2988,
+      "sha256": "6e3408e517de798ce45e9e1beca7625764fbd12a4c239e54701ca6d4f2e62432"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_sse.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_sse.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\internal_sse.h",
+      "bytes": 856,
+      "sha256": "7bae6571abaa5928ef7e04d27ae02aa765144e4639175e6450f4e0b021c3e070"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\io.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\io.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\io.h",
+      "bytes": 2668,
+      "sha256": "f8c752e617839fdb5cd99f62398b051b5a9a1e1b04a33f90b4562eefd38e87b6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum100.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum100.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum100.h",
+      "bytes": 3723,
+      "sha256": "8daf4cca4f5e987997937e11145a5c2a9657ca4bb72139f7dd9c2e98cbe83dc0"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum30.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum30.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum30.h",
+      "bytes": 3710,
+      "sha256": "7349ead5513fb5359eb3818737a949bf9f95dde00d33915542cb0444bd8c07fc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum35.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum35.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum35.h",
+      "bytes": 3710,
+      "sha256": "5f7f3a2695ec4a3efbbcfe0d72677010b36b90b9d25b4a44a2e736e715f4abc6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum40.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum40.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum40.h",
+      "bytes": 3710,
+      "sha256": "b94e45784d8e412c1031dd5993f3acefd69f03bf1a95508b466e1d6b1ab37817"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum45.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum45.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum45.h",
+      "bytes": 3710,
+      "sha256": "06a896fbe2771db9941a294b1d2e636284564c68cdc403c34c551f9835f88468"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum50.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum50.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum50.h",
+      "bytes": 3710,
+      "sha256": "e1713fef036afa488a6951008c47fd5bd1f9d3e4316a1f80bbc0b4de88e74a79"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum55.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum55.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum55.h",
+      "bytes": 3710,
+      "sha256": "c73b9c47af57428ca8ec94259d4a0abf206601b0b382c63972357d41c8e07fb7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum60.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum60.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum60.h",
+      "bytes": 3710,
+      "sha256": "9be9ed63a45f5f4c26e75e1bcc78fe84236e34d8ad307e91d8ab591f8c0a383c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum62.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum62.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum62.h",
+      "bytes": 3710,
+      "sha256": "89decd09f3cc66bb8e03d32b10f219fa9bbeb3d5ad6f51662fb686f2bc8ec96e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum65.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum65.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum65.h",
+      "bytes": 3710,
+      "sha256": "5abfad137f72a293a6ad4789b156dff43c3b42afa8fd41096b26d06c4a3cc837"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum70.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum70.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum70.h",
+      "bytes": 3710,
+      "sha256": "2c886bbdcfc51f356ded6fe39de508f301e606edf5df5548caf64727e0389cec"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum75.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum75.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum75.h",
+      "bytes": 3710,
+      "sha256": "f1ad43ca0f4b955aa0ad83158d4a1baa229e9848b73b5d6fba40d808d841e49c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum80.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum80.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum80.h",
+      "bytes": 3712,
+      "sha256": "f7f4c425ffdaeab635c387f7c91d14316c93daa41d4a73388935360a5207dfd9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum85.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum85.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum85.h",
+      "bytes": 3710,
+      "sha256": "f2c7af76a604bf3dada8fab8c83a9019d2779987ec8b82e3f234429758b98f5b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum90.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum90.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum90.h",
+      "bytes": 3710,
+      "sha256": "db2d868a9c56fdb96aa47fe72fdbc0b05109b19b94b2713ebb9d89016c4a94fd"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum_map.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum_map.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosum_map.h",
+      "bytes": 1434,
+      "sha256": "c412aad7f147ac5acfcb869ac9b607cc1deb057e7cf5eae3906b1f5e6e544ccb"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosumn.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosumn.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\blosumn.h",
+      "bytes": 3701,
+      "sha256": "92ad4dbfd2d5219508849adb8ca6b6650a5536d5cf8933f6dc631900a4a79ebc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\dnafull.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\dnafull.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\dnafull.h",
+      "bytes": 3214,
+      "sha256": "8d5a77c2beb3b8299cf1dadb89d48b9408a60537dca01040c7d212851776c549"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\nuc44.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\nuc44.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\nuc44.h",
+      "bytes": 3388,
+      "sha256": "0164bfd85c4608d14e7c942802d27aa523c850d9865686a9d24344e6732c79a7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam10.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam10.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam10.h",
+      "bytes": 3667,
+      "sha256": "9363e80d5feddaae19b3721ec21cb0f306e7f4b0be6460b2bbcf3076c06b8586"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam100.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam100.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam100.h",
+      "bytes": 3674,
+      "sha256": "d424bf7a0256eabcdabf6894b886d4c19ff2bbd0ab9afd86a21118b06ef8bd17"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam110.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam110.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam110.h",
+      "bytes": 3674,
+      "sha256": "4178852e8c4f969e84c1904da95ca9bac93c1892ff1c68d239e3dc7ae1b9c8a1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam120.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam120.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam120.h",
+      "bytes": 3675,
+      "sha256": "4830ff61d20a95e04c3b0e0e09bb98e17b73ade0ea47e8bd5bcf1afe2a524582"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam130.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam130.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam130.h",
+      "bytes": 3675,
+      "sha256": "fe87150cdff90b5de6c76bb5c8ff0b2abe5cc17c812ad2d3f8ffbb173dd241f7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam140.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam140.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam140.h",
+      "bytes": 3675,
+      "sha256": "8fc05fe74a891215d550bd95f5e37c906be8f6c43d5a630431aa723fabf6500a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam150.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam150.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam150.h",
+      "bytes": 3675,
+      "sha256": "d8aee731819d1b5cc7e2def6e537d9b195b7a1e12611935289917d99bb643804"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam160.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam160.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam160.h",
+      "bytes": 3675,
+      "sha256": "31540e89a983082f6888d2487905c271f9faa08d0bd9c8d432dffbe47dad1fe2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam170.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam170.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam170.h",
+      "bytes": 3677,
+      "sha256": "2b526c6ed596343761dc6cf34472e17a07d7834d89c98413d8398bfdf97f7355"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam180.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam180.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam180.h",
+      "bytes": 3677,
+      "sha256": "c1944402acda920e30862aa6175e2c2bc1227b353ed2b916e276e062103243e6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam190.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam190.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam190.h",
+      "bytes": 3675,
+      "sha256": "5807467f7ae2096674d190b5f797ef7b7003908c5df3c0b2524b1505fc466702"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam20.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam20.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam20.h",
+      "bytes": 3667,
+      "sha256": "56bb241958bc89fe1252b42bb942e6f0e8a7ef2fa5607e8adaa8e81583831a1b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam200.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam200.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam200.h",
+      "bytes": 3675,
+      "sha256": "fe1ef43a742877d9e1d1cb8950d44e50a657ad2389bd3c2eff6d601d559c3af6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam210.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam210.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam210.h",
+      "bytes": 3675,
+      "sha256": "ecb26ad1d4d46838b43eb88ada46658ce7ac6d77b2e30687089c2558e307c05f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam220.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam220.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam220.h",
+      "bytes": 3675,
+      "sha256": "aab9b2b59a2f7bf114d4b6630f08a00334961d0e07093be92f43087a086de7a5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam230.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam230.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam230.h",
+      "bytes": 3676,
+      "sha256": "342e62df9aef618ca7f3575a375ed4c97616d111f797ea75e388e1eacfdb8f21"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam240.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam240.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam240.h",
+      "bytes": 3676,
+      "sha256": "91265fff1f61cab442db319501ec92c21517f57b1b80af81d384abb31dd9f14a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam250.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam250.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam250.h",
+      "bytes": 3676,
+      "sha256": "0eebcbbe3309f1d8695eb270dd0a60c3fbed21947c52c4947f73af27e12be42d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam260.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam260.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam260.h",
+      "bytes": 3676,
+      "sha256": "95bebc310b554f449c0f27f1cdea03f6d024ef1c371be1eda26d04335336e875"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam270.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam270.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam270.h",
+      "bytes": 3678,
+      "sha256": "379be83317dda1444a902d5d4ce7bdaa6ce7ee0584b04583368a08026a999d5c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam280.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam280.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam280.h",
+      "bytes": 3676,
+      "sha256": "d5c42f58505c3be28576079940fa8de44a2e0622e8408d3f0fccf90871a9832b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam290.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam290.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam290.h",
+      "bytes": 3676,
+      "sha256": "bbbd1beccda099d165b5dc7c5cb7d31d5a9fb501c02c160ac56f27df619d8e45"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam30.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam30.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam30.h",
+      "bytes": 3667,
+      "sha256": "149cf1fd11b5647c1967933985ba1e3cf0c0cb1f02aac0dc0991c1b6d1c47781"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam300.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam300.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam300.h",
+      "bytes": 3676,
+      "sha256": "f697f51f1559f11a153ff3b94a0f4795548b6371c50e0d09cc8b7819171c1a8c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam310.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam310.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam310.h",
+      "bytes": 3676,
+      "sha256": "276a12d29b11dbae13d266ad9b511de8c957fdf122d317fbd7f5f6b6cda1315b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam320.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam320.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam320.h",
+      "bytes": 3676,
+      "sha256": "399a3c0a65ddfc7066bdf7f4d778e67811cc387dd2fabfaf1926a9ce99e4a311"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam330.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam330.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam330.h",
+      "bytes": 3676,
+      "sha256": "982ae6dbbfc25d759c0f6a6b8079345e2d16e8f2fa1f0a8fb0c21db662fd61c8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam340.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam340.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam340.h",
+      "bytes": 3676,
+      "sha256": "43cc2706c91ec39a8693235546088efecd9d7f48f9b1ad11c225e10626d16a27"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam350.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam350.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam350.h",
+      "bytes": 3678,
+      "sha256": "b35c8c09b7aab0716de2d44bda8c467d145d4c2e926669060df16ed7af414370"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam360.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam360.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam360.h",
+      "bytes": 3676,
+      "sha256": "31ed043efb62472618623d3cdbc9b01b3d7cd8abaee3696e81dcb9fe0db6354e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam370.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam370.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam370.h",
+      "bytes": 3676,
+      "sha256": "fc85e9df86b6771b765df2d456e681cae5433f08634a69753e28df48262c3893"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam380.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam380.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam380.h",
+      "bytes": 3676,
+      "sha256": "b4e6af5ff221e2d414a2250952ebe5bd9f3bdf50caf25762766216458d317739"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam390.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam390.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam390.h",
+      "bytes": 3676,
+      "sha256": "17532ed5c333795db17504fe21fa30df182d215f1ed7ad19f6f96e2067311d4a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam40.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam40.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam40.h",
+      "bytes": 3667,
+      "sha256": "e940bd569ec9fde7388396151c849642dcd978dc08e518b16f384fe51b17ec67"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam400.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam400.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam400.h",
+      "bytes": 3676,
+      "sha256": "9dd7ec0c36c5bcec71aed5dc4deecbf15a9152697cf83a54f0ea1ef44adfe1b1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam410.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam410.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam410.h",
+      "bytes": 3678,
+      "sha256": "0fa0c6ac4627958256497f243ac6fc9458a007f24e140d5129d6a744f5f7b8b1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam420.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam420.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam420.h",
+      "bytes": 3678,
+      "sha256": "bc51c87b35b3d801b9bc8e6101a37deee11890063c342dc4078cb1d2f7259ee8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam430.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam430.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam430.h",
+      "bytes": 3676,
+      "sha256": "66abb9eb06044c7317abd8e9f813950b6e687e3f0f113e3d4552216a24b7ca1c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam440.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam440.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam440.h",
+      "bytes": 3676,
+      "sha256": "4a5d648d506de0723ab33d991ba44df82f2d29b944bc0737b1842cfeb568d5c6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam450.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam450.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam450.h",
+      "bytes": 3676,
+      "sha256": "f948d82693a30578a1a920729550d0207dae7ddecda7d1f0839cb1d2fa49e270"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam460.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam460.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam460.h",
+      "bytes": 3677,
+      "sha256": "ddef60023e83d773e0017bf0b9064b06fc202425c176ec18cd2f06bf87c67310"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam470.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam470.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam470.h",
+      "bytes": 3680,
+      "sha256": "7eb8c9f75d227e7c5f0c0b35c8371985f2f0fa8653493b17ec5b018886cd1d0c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam480.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam480.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam480.h",
+      "bytes": 3680,
+      "sha256": "163814bd264421ed7d8e55aa3331621d82e095005126e5f7ff5a1df503bf9a21"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam490.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam490.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam490.h",
+      "bytes": 3678,
+      "sha256": "d9f0a946f5af065804b5e965e353b2c05e8c894ea16c61a6b0a28acd4c69209a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam50.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam50.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam50.h",
+      "bytes": 3667,
+      "sha256": "877ee235a5f95bb5bf268acbb83679c5b4ccb6a66f7f68de4d23f533410bb665"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam500.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam500.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam500.h",
+      "bytes": 3678,
+      "sha256": "68e70d446f14fe44ee585882e0943b892fd81a5377e308bc921869d0ac3d670e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam60.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam60.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam60.h",
+      "bytes": 3667,
+      "sha256": "91f2aa633f8fb24026aafb62e4c92e1fd2596eeb9dc4e1fe8753061a7a323550"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam70.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam70.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam70.h",
+      "bytes": 3667,
+      "sha256": "4fa595c7ae039342f1bbac7bd171d6a0583f2cc5418bcec50b797eaeb6a34648"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam80.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam80.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam80.h",
+      "bytes": 3667,
+      "sha256": "25f58ce6771004db09e1fb6f778c1e6d3723a7ba2a5d97be44fcebf51466fd33"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam90.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam90.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam90.h",
+      "bytes": 3667,
+      "sha256": "4807a86e20f6280e11edbc59aa1c85dfd5e6ca9183a75eb4b0378212fc4ada5d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam_map.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam_map.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrices\\pam_map.h",
+      "bytes": 1422,
+      "sha256": "b1f54ba46a51e56e7324bfc9c3307193e6f0429b270451a71ea5c6356785a714"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrix_lookup.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrix_lookup.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\matrix_lookup.h",
+      "bytes": 4568,
+      "sha256": "4e34439adc03be629216431bb0f5a12f1cad317ebfcc8431925b0e27ca203842"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\memory.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\memory.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\memory.h",
+      "bytes": 6465,
+      "sha256": "d2e32a427afa88b8b01dffc25dec4604027a91ed2ee6e6d53b881b1bd8d9de7c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\stats.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\stats.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail\\stats.h",
+      "bytes": 1419,
+      "sha256": "92570ffa9a94e16e2333941cab4283689dbf12adf9a9da35a2ba5174cce767e6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail.h",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail.h",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\include\\parasail.h",
+      "bytes": 3898101,
+      "sha256": "28914ce24212b0f229f5d09ea2007b6d153af786f65d8db91557fd3743881bee"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\parasail.dll",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail\\parasail.dll",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\parasail.dll",
+      "bytes": 7358464,
+      "sha256": "360c782eee2598b552a98edb41f339cc3081998795e60114ff2d2e151d83ce89"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\COPYING",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\COPYING",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\COPYING",
+      "bytes": 2392,
+      "sha256": "8909a5c2167380cf4a95548c15088e3de58625544c55931f5acce47c8d8e8b5e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\INSTALLER",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\INSTALLER",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\INSTALLER",
+      "bytes": 4,
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\METADATA",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\METADATA",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\METADATA",
+      "bytes": 21650,
+      "sha256": "5eecaa15e217536916de77fd2ded515791819bdbc4fecfd6709c552735e6936c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\RECORD",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\RECORD",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\RECORD",
+      "bytes": 9200,
+      "sha256": "e24fc30fb580e0895a0695a9c35b34f3e791be02ce0c67a37fdf5e3500bc1d6d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\REQUESTED",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\REQUESTED",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\REQUESTED",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\top_level.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\top_level.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\top_level.txt",
+      "bytes": 9,
+      "sha256": "d4bb301d00331452ef9fa2d858d14a2e2d587d42ad13ede7f66527255f8bf74e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\WHEEL",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\WHEEL",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\_vendor\\parasail-1.3.4.dist-info\\WHEEL",
+      "bytes": 122,
+      "sha256": "0fa33d20cae9846497b0bf3d3c39515407242034d7c1a9f25bbec4dc6e5cd0fd"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\align_candidates.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\align_candidates.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\align_candidates.py",
+      "bytes": 4829,
+      "sha256": "4c60abab431dd1678ba82647e568a64d4f2a16ece17ad77a5ad938c87ce5183f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\alignment_protocol.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\alignment_protocol.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\alignment_protocol.json",
+      "bytes": 969,
+      "sha256": "f2307b4f9508a28bb88e7bf68d4c2e02bea7712491008325126e042e70e3c229"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\alignment_to_known_v2.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\alignment_to_known_v2.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\alignment_to_known_v2.csv",
+      "bytes": 1109966,
+      "sha256": "f792021b588023a21ca03e18292fd4c1874736795e41eb662364c0c9e79ff091"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\alignment_to_train_v2.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\alignment_to_train_v2.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\alignment_to_train_v2.csv",
+      "bytes": 1130186,
+      "sha256": "ecfa3360c31225c5a63cbbf1a8727c21b3ee345ddbecbf43574dd13c4e6ae1f1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\all_records.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\all_records.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\all_records.csv",
+      "bytes": 42362852,
+      "sha256": "ded9b03e0e7babd218b7dba9bd659da6675c97f809e4bfd9f1a6b00857206a62"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\audit_datasets.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\audit_datasets.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\audit_datasets.py",
+      "bytes": 11882,
+      "sha256": "941afe332c9e2aeddf981ed92e6f13adcc74279201050fd2b596d3d2e9f864e9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\binary_download_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\binary_download_manifest.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\binary_download_manifest.json",
+      "bytes": 408,
+      "sha256": "d0ba1eb35ab833556e32dc539d328f89dc2350d5f57ad6f63f20f816a9e7439b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\dataset_inventory.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\dataset_inventory.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\dataset_inventory.csv",
+      "bytes": 1785,
+      "sha256": "8478755dcfe08ba04520e5e9a39f460251c35e3356f72974ee56e95f0b58dd4f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\dataset_relationships.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\dataset_relationships.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\dataset_relationships.csv",
+      "bytes": 1169,
+      "sha256": "de6b3a17ed7b397d6d596a9952705165882ece839fb6ad88cfd33df83713e3c3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_known.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_known.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_known.csv",
+      "bytes": 1092190,
+      "sha256": "9ef61e7fb9af7f663c5f98cd7b1dbcc850cf5edc5035efd6d78bcd351e4e7ef8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_train.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_train.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\alignment_to_train.csv",
+      "bytes": 1110915,
+      "sha256": "a7c00ddc5c3a13975d56e8f5394b6b30a01b76bf63dd1935e65b2d78b80b2ccf"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\DO_NOT_USE.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\DO_NOT_USE.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\debug_invalid_stats_v1\\DO_NOT_USE.md",
+      "bytes": 254,
+      "sha256": "7d23bf4a21a61a16bde99987eaae5ce3cc8aced4231e76842befe4c88aeef962"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\download_spec.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\download_spec.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\download_spec.json",
+      "bytes": 11455,
+      "sha256": "c930a3b8a4346d7ab1bb3f8b0e65b2bd24196c4c3790275f417ccec57c6db321"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\extend_maomao.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\extend_maomao.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\extend_maomao.py",
+      "bytes": 4403,
+      "sha256": "50ed7143efacc6cc58c0de7a1a3067349f9154ac5b5d0fa0cda598db38ef808b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\external_candidates_aligned.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\external_candidates_aligned.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\external_candidates_aligned.csv",
+      "bytes": 18696478,
+      "sha256": "358155ed43ade233ff7d64484f5aba6c795ddf88835264403f08568136d03d85"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\external_record_candidates.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\external_record_candidates.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\external_record_candidates.csv",
+      "bytes": 12978908,
+      "sha256": "4720cc045aeb67a3647abe026ae04307b0057bda9e029de464a3a1c7161c2850"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\external_screen_counts.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\external_screen_counts.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\external_screen_counts.csv",
+      "bytes": 1280,
+      "sha256": "46d930a77cc4f4357b9d4f03440ec78633586980540392ed63a567b2c14602d8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\external_similarity_screen.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\external_similarity_screen.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\external_similarity_screen.csv",
+      "bytes": 1154,
+      "sha256": "de2d4792dcc02dd96ab7cb341d6fc6a2c1fb6dd7761929856fe6910eff9d9f95"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\fallback_large_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\fallback_large_manifest.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\fallback_large_manifest.json",
+      "bytes": 1355,
+      "sha256": "019a4fc76aa6f9f594fb38c1f5ab481c47eef1a436a623e89e22bce806f34053"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\fetch_maomao_core.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\fetch_maomao_core.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\fetch_maomao_core.py",
+      "bytes": 2468,
+      "sha256": "210e6f6d3810f2a4627d58e47d4b7fb0da042dc4e696baed3fa01f89e0498b90"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\final_summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\final_summary.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\final_summary.json",
+      "bytes": 1650,
+      "sha256": "af3119c5efd8bbdba270ac2da33e4c908f56d1e299662419c663d2688b0e796f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\FINAL_VERIFICATION.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\FINAL_VERIFICATION.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\FINAL_VERIFICATION.json",
+      "bytes": 1229,
+      "sha256": "0644dfd110b3178ab0c5f4952973f16b456ba53f37c678350501a2dcd05807a9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\finalize_comparison.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\finalize_comparison.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\finalize_comparison.py",
+      "bytes": 21723,
+      "sha256": "5a07400558675b03e0a20eb9eb78ef2a8eee5d923382a7b59a583f01e92bf9ac"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\ghxtox_label_disagreement_review.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\ghxtox_label_disagreement_review.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\ghxtox_label_disagreement_review.csv",
+      "bytes": 273541,
+      "sha256": "4562794ad5db2dd310fe8edb3cb3daa08a03adae4cd0a491800232d705d3841f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\ghxtox_vs_hemopi2_endpoint_review.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\ghxtox_vs_hemopi2_endpoint_review.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\ghxtox_vs_hemopi2_endpoint_review.csv",
+      "bytes": 18705,
+      "sha256": "12e4643e1eee67c92971a43356eae303f567ab8b0525062595788f0da6bde2f2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\hemopi2_independent_priority_panel.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\hemopi2_independent_priority_panel.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\hemopi2_independent_priority_panel.csv",
+      "bytes": 49382,
+      "sha256": "97437308e65b72cf5d923e673e8d08c3dd7231759f29e8fe84061ec66c8cc1a5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\historical_identity_strata_counts.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\historical_identity_strata_counts.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\historical_identity_strata_counts.csv",
+      "bytes": 192,
+      "sha256": "43e15edb0cc3350b90e756d29799cb3d7d716e2cda7698d3d4de8ab57b4a45f9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\historical_tests_identity_to_train.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\historical_tests_identity_to_train.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\historical_tests_identity_to_train.csv",
+      "bytes": 209648,
+      "sha256": "944e4dd099d91b3d89e9f5f975ba8371fdd9398ab8a1a691153f67b9070e2889"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\input_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\input_manifest.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\input_manifest.json",
+      "bytes": 12490,
+      "sha256": "0f113ad3f102d09318b6d98980ffc7c3735ed670e894b7dacbdcccaed1abd52f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\label_evidence_definitions.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\label_evidence_definitions.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\label_evidence_definitions.csv",
+      "bytes": 2255,
+      "sha256": "51ceeff810a18268987ecd7810b0463554c170bfbe53a7b8e3f42bceca3907c4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\low_identity_review_candidates.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\low_identity_review_candidates.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\low_identity_review_candidates.csv",
+      "bytes": 5740553,
+      "sha256": "b3b5664675893d77b940cb90a8dcc591a796ebf503a9e7b4cdf9668433984d65"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\maomao_endpoint_cross_reference.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\maomao_endpoint_cross_reference.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\maomao_endpoint_cross_reference.csv",
+      "bytes": 2493451,
+      "sha256": "a006304b82a40f0dee5d8f78d98b299c7b91380fc5b29576d2c3a86f5fec730b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\maomao_endpoint_state_counts.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\maomao_endpoint_state_counts.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\maomao_endpoint_state_counts.csv",
+      "bytes": 562,
+      "sha256": "2beb4a5bafe8d4100904052e58eb7f02c7e811c9d374fd83a970395770d39b09"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\maomao_quantitative_candidates.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\maomao_quantitative_candidates.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\maomao_quantitative_candidates.csv",
+      "bytes": 63222,
+      "sha256": "9d637e3423f85088b6b1be57ef8b6b1df805908d8d3543ec02ca6e5a27f7aee7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\maomao_summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\maomao_summary.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\maomao_summary.json",
+      "bytes": 760,
+      "sha256": "5a48ae77fd84fd840ed6e89b0f7a382da878b265b4dd5154ddf8ef38bd5c71cc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\NEXT_VALIDATION_PROTOCOL.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\NEXT_VALIDATION_PROTOCOL.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\NEXT_VALIDATION_PROTOCOL.json",
+      "bytes": 1627,
+      "sha256": "6402493662134042693465489cf8e346ad91f1947af536c134c13d3ae9fbaac1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\pairwise_exact_overlap.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\pairwise_exact_overlap.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\pairwise_exact_overlap.csv",
+      "bytes": 42753,
+      "sha256": "56a6f556eded5c3ac2b6ac4865386baf3f80fb5fbcbbc6cffcd891b2aca21225"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\REPORT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\REPORT.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\REPORT.md",
+      "bytes": 7929,
+      "sha256": "0ace955db3166d5a71863b1c7cbb4c5c8787a9af5937d5f4703388bdc756ca1e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\same_sequence_label_review.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\same_sequence_label_review.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\same_sequence_label_review.csv",
+      "bytes": 158748,
+      "sha256": "8d43c952170b5ef1ca236510b74d77ebd09e6101f43ae918eee6970133d04f2c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\source_cache_sha256.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\source_cache_sha256.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\source_cache_sha256.csv",
+      "bytes": 8881,
+      "sha256": "2574b6c9767f2ed3f76e9273910039b2c9761bc515ec49ea95a04506c7ba1899"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\source_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\source_manifest.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\source_manifest.json",
+      "bytes": 23713,
+      "sha256": "7bda9d9fcd45213382044866d60c81b5586b88b25b67078e22390bb26eb12ff4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\source_manifest_extended.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\source_manifest_extended.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\source_manifest_extended.json",
+      "bytes": 25532,
+      "sha256": "573ce274ba56fe278e6f9f69a825b08a701ee10545950661eaf338171d42b5ab"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_neg.fa",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_neg.fa",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_neg.fa",
+      "bytes": 41265,
+      "sha256": "81444cd5f1e1cfbdc33ff768e13ecc7d81d6c8efcc2c8a4ddbd859ff25ab6f8f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_pos.fa",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_pos.fa",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\test_pos.fa",
+      "bytes": 40570,
+      "sha256": "d616d10e7ccc17a1e0c3615d24df36388d6c0360d6932e0e7d1b2ff6b76b8cb2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_neg.fa",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_neg.fa",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_neg.fa",
+      "bytes": 166353,
+      "sha256": "deb796c2786ff42698bd6d23e93841542e89e223f53efee329ca68688a3954e7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_pos.fa",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_pos.fa",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\raw_dataset\\train_pos.fa",
+      "bytes": 167055,
+      "sha256": "e48aca41795398bbc87b9ffbe0d8f95eb0c8a29d2f5a270b109f3c989b331050"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse\\README.md",
+      "bytes": 13226,
+      "sha256": "d3108fb784dfa55dba8ae682c881c4dae7559d02f455d5954ab0962caaccb2d3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cbbl-skku-org__HyPepTox-Fuse_tree.json",
+      "bytes": 8390,
+      "sha256": "3469dc52fd5cb18fd2545cd45f2c9c014c96d6f0c2527dad51a56baa8272a113"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\binary_manifest.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\binary_manifest.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\binary_manifest.csv",
+      "bytes": 2586854,
+      "sha256": "fc712da6cb1f11c6f0ea253eb40dff20a485666fd148dc40fb6c5e5d59ae0ce3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\target_manifest.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\target_manifest.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\data\\benchmark\\target_manifest.csv",
+      "bytes": 1644644,
+      "sha256": "443e804551a2cafcff1a6e3162a724fbcb42eef400b20793f50d101b16bad669"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\BENCHMARK_CARD.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\BENCHMARK_CARD.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\BENCHMARK_CARD.md",
+      "bytes": 5334,
+      "sha256": "867f5015001c8b7da132540f9f768e49c01ba1c269a67f70fecbebcb0cea1875"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\source_of_truth\\original_data_sources.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\source_of_truth\\original_data_sources.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\docs\\source_of_truth\\original_data_sources.json",
+      "bytes": 1793,
+      "sha256": "6c33e828564df1ba82d3b35860d855d5a836fc0aabc0cb68aa8233f64bcf3e04"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass\\README.md",
+      "bytes": 7953,
+      "sha256": "5e6b48479e867816c5da30c4983b0db55039666aabd4dffb131e979322463295"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\cihebiyql__ToxiCompass_tree.json",
+      "bytes": 71498,
+      "sha256": "d87fd8dbfe52c8f47c262e4669be79b76bf71698aaae5caab3df38fe7942950f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\test.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\test.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\test.txt",
+      "bytes": 48462,
+      "sha256": "d7a2314d271e0681fedfc00c8de701fa889f4a323f1b411feb03bcdf377e09ad"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\train.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\train.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.8\\train.txt",
+      "bytes": 196036,
+      "sha256": "f6ef7cc8624a8adb6246cee8658b08395e1fac972f24e41c8f8117b78fea2697"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\test.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\test.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\test.txt",
+      "bytes": 61153,
+      "sha256": "510375db59b90cf1d6162711a379d6e45393dad39315f637e16d4ccd8f292d72"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\train.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\train.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\0.9\\train.txt",
+      "bytes": 248499,
+      "sha256": "a557c8f81c3598cd67c589f7da1e82bff7c68780d06c0219ab59f47fa3a032f3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\Independent set\\independent test set.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\Independent set\\independent test set.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\Dataset\\Independent set\\independent test set.txt",
+      "bytes": 28891,
+      "sha256": "8be00c1a39bed2b83d4674104a3391e8b1b3d129fb64f691fb38edad6dcaf291"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep\\README.md",
+      "bytes": 2316,
+      "sha256": "250fbd1d791145df6d4d4e7d71e901048a1a12b0daa84f15a6feaec3ba10a23c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\GGCL7__ToxiPep_tree.json",
+      "bytes": 6557,
+      "sha256": "5cf2a344d49b2619d1d2879468f8da6c97bc967786aba96198d85da373087b0f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test1.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test1.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test1.txt",
+      "bytes": 49045,
+      "sha256": "603d74875e62b13d6b561c90e890ae89dd4b557c55bd36e5cf1e399145546422"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test2.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test2.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\test2.txt",
+      "bytes": 27190,
+      "sha256": "168b06ef8e9c7e0d0cc17ad575bbfca52ab502dfd956b36e77b4223909a6ebae"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\train_data.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\train_data.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\data\\train_data.txt",
+      "bytes": 278639,
+      "sha256": "2ad719324f6a8680461eb2cefc2f8bc7b183ed8e8545e342614c5fca55069145"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP\\README.md",
+      "bytes": 1543,
+      "sha256": "93cb032907284495a77c9881e68a04b12aff1ecab3194f89bc66f4636639dc70"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__CAPTP_tree.json",
+      "bytes": 6487,
+      "sha256": "cfa021a76ef4419ddcc7ee9c3b280687bcbeeaaba28779ce36f6f59cce47f618"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides.txt",
+      "bytes": 416852,
+      "sha256": "fe993001361778c8b33e7c4f018939fd3996c5cb211460246904ff04dc8f1140"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides_cdhit0.9.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides_cdhit0.9.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\all_peptides_cdhit0.9.txt",
+      "bytes": 327682,
+      "sha256": "73934e263ce8ef36c26989d43c7fde4d8e6e4fcd213729f323a579c2493c51ee"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\test_data.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\test_data.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\test_data.txt",
+      "bytes": 49045,
+      "sha256": "603d74875e62b13d6b561c90e890ae89dd4b557c55bd36e5cf1e399145546422"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\train_data.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\train_data.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\data\\train_data.txt",
+      "bytes": 278639,
+      "sha256": "2ad719324f6a8680461eb2cefc2f8bc7b183ed8e8545e342614c5fca55069145"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet\\README.md",
+      "bytes": 2430,
+      "sha256": "d9381f5eeaffa0d40793dceb71bdc3e32f51dea9a150e1aa0bd8d834bb6b5459"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\jiaoshihu__StrucToxNet_tree.json",
+      "bytes": 22263,
+      "sha256": "e047d1f60723cb4164cddbd3e8068a26032966e04d587c260727a8780892e37d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\audit_endpoint_counts.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\audit_endpoint_counts.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\audit_endpoint_counts.csv",
+      "bytes": 262,
+      "sha256": "65c37d639f2e27865b6551888bd338996eedd35da7a787b67bf00e2fbb76ce0a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\core_tail.bin",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\core_tail.bin",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\core_tail.bin",
+      "bytes": 65536,
+      "sha256": "9ffcd97101924c84fdb102983cf7257032bc897380e50cb54687edd36e6d8338"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_sequence_pivot.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_sequence_pivot.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_sequence_pivot.csv",
+      "bytes": 9273084,
+      "sha256": "487eeedba8ceb10d9567bbf8c0c95f4ec527997d717a29980e4e5789680a9a4b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_toxicity_measurements.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_toxicity_measurements.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\maomao_toxicity_measurements.csv",
+      "bytes": 30528,
+      "sha256": "59b95913c0861324ea72fcbce047bae95f773761ab2613fb33fad9159e740d69"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\metadata_toxicity_properties.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\metadata_toxicity_properties.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\metadata_toxicity_properties.json",
+      "bytes": 1309,
+      "sha256": "4fd9200c5d6cf15e2d97173863d39268321f7a031320f2e8a79eb6047688fd4a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\README.md",
+      "bytes": 39827,
+      "sha256": "2e5d36943c0f706d80882660457929135bbb1a96bdfed71c5e4cdbe21fddff3e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\selective_download_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\selective_download_manifest.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\selective_download_manifest.json",
+      "bytes": 5188,
+      "sha256": "786a7d405b30cf16fb1cffbe172c0e0c8b8ac333ef18875362d8a05331510a2a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\zenodo_record.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\zenodo_record.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao\\zenodo_record.json",
+      "bytes": 14455,
+      "sha256": "0d31a6fb624cd932daf5b03e682c3a490469e7e71cd5dd3079b97385f11913df"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\kren-ai-lab__maomao_tree.json",
+      "bytes": 55003,
+      "sha256": "2807d9ef122c35715eeb9bb5eaaac7968cacd8e452f9b7d09bae050fa6458aa3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\independent_test.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\independent_test.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\independent_test.csv",
+      "bytes": 43385,
+      "sha256": "3d268e971b197d502564d959e11164197baa3fe3e77f83afcdd5a469f0116e1e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\test.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\test.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\test.csv",
+      "bytes": 65638,
+      "sha256": "d9dc5bbc8ba990436452faecbdd0892bace23afac487067e3eefce4439bbed54"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\train.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\train.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\data\\Toxi_data\\train.csv",
+      "bytes": 276714,
+      "sha256": "17c9628520deb3753367d3684dd7b5b335f244aaf413e62f922b5226973e65fe"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba\\README.md",
+      "bytes": 9546,
+      "sha256": "3363c683b06ab89823b34ad23f6d7e4c6b0f1ab8b0991848cfa053bd67832ea3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Marscolono__ToxMamba_tree.json",
+      "bytes": 9164,
+      "sha256": "308a3a1fe0999098788ce27c195d9c7dde58120594f688cb7eaeb8d5821254cf"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\cross_val_dataset.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\cross_val_dataset.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\cross_val_dataset.csv",
+      "bytes": 41447,
+      "sha256": "154029d2a389312a3146a187bd9c326d0b4d6601b49313829b3ccbf8df2ccc47"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\independent_dataset.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\independent_dataset.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\Dataset\\independent_dataset.csv",
+      "bytes": 10433,
+      "sha256": "279a0a4f0972837633bf87304f25501d36fb029413cf77c150178f1011d78b2d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2\\README.md",
+      "bytes": 11652,
+      "sha256": "ef62634b58d33d28e33a323e3a81d3e52861596dfd056f07c669e0dfaf214d58"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__HemoPI2_tree.json",
+      "bytes": 5583,
+      "sha256": "5e5e605712cda7e3393e4fcd76664723cd3a130b13c56a3c5317a58f6010e907"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_neg.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_neg.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_neg.csv",
+      "bytes": 25815,
+      "sha256": "02025359f3408dfefa370daab4e55127e6386e1107b188c40cbfe0f002ecb635"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_pos.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_pos.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\test_pos.csv",
+      "bytes": 25120,
+      "sha256": "8ae4f741516e6be495eae9bac22c47a7aaed14d3100139398e9dcc6a33ae6ee2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_neg.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_neg.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_neg.csv",
+      "bytes": 101253,
+      "sha256": "f3af853b8a8d9552bafdd1a9f11d8b0d044b78feade28da7d22b257360466c60"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_pos.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_pos.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\dataset\\train_pos.csv",
+      "bytes": 101955,
+      "sha256": "3b4530dece2bf17283a60350e503d626239afec6cb70ca285f04cdc914d2d956"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3\\README.md",
+      "bytes": 4733,
+      "sha256": "46681dc5478eec74ee0b2e4b75fbbbb037e59a84c529f02ecde0ef8d1281970e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\raghavagps__toxinpred3_tree.json",
+      "bytes": 5285,
+      "sha256": "bc98d102c4cc287caaf7a68e84f5b75947e33ca053368d09b1b553d2fc51683d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test1.fasta",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test1.fasta",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test1.fasta",
+      "bytes": 49045,
+      "sha256": "603d74875e62b13d6b561c90e890ae89dd4b557c55bd36e5cf1e399145546422"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test2.fasta",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test2.fasta",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\test2.fasta",
+      "bytes": 27190,
+      "sha256": "168b06ef8e9c7e0d0cc17ad575bbfca52ab502dfd956b36e77b4223909a6ebae"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\train_data.fasta",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\train_data.fasta",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\train_data.fasta",
+      "bytes": 278639,
+      "sha256": "2ad719324f6a8680461eb2cefc2f8bc7b183ed8e8545e342614c5fca55069145"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test1.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test1.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test1.csv",
+      "bytes": 2259,
+      "sha256": "952dde9dfcc4253647dd0d6c25697a17f5ad6e18abca61d13737cbb4d92576de"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test2.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test2.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_test2.csv",
+      "bytes": 1171,
+      "sha256": "278599c91ed501b47ac3c8e37d05abd38c6938dc56215f65b689a3d5c2602921"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_train.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_train.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\Raw data\\y_train.csv",
+      "bytes": 12781,
+      "sha256": "dabb477b75846a6602b4b2582d20031a7b6574eef49bbbff86289440d257e017"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC\\README.md",
+      "bytes": 2409,
+      "sha256": "4c41c04515670431120a3186dc392594e02ea10ce8f508a732eadab0748c152b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\Renjingyi123__ToxMSRC_tree.json",
+      "bytes": 10217,
+      "sha256": "5537f09ca92eb095bffd1f0617cb321a6c7826d91cd761d506e5b5a2308a3473"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox\\Data\\merged_data.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox\\Data\\merged_data.csv",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox\\Data\\merged_data.csv",
+      "bytes": 141907,
+      "sha256": "aa4c4eefb685f7eda773417aae8beae87f31988bfcfb7c21ea9fea8f608ecd17"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\WYLqlit__PeptiTox_tree.json",
+      "bytes": 2699,
+      "sha256": "7d3e0fe64176b94811d67c7bd6c0be5aebee805353a8888cb0f633a95dc3820c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Datasets.rar",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Datasets.rar",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Datasets.rar",
+      "bytes": 143016,
+      "sha256": "e6cd29dfe859aa044d4aba7f464ea1ad9040198f44c864710e2ef4df36755f73"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\neg_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\neg_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\neg_fasta.txt",
+      "bytes": 37103,
+      "sha256": "fdb12586f7905f577d99a1ac31a9e0e36cb35de05b3cb160903b3f9517db2f52"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\pos_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\pos_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest1\\pos_fasta.txt",
+      "bytes": 14195,
+      "sha256": "d3f7b66e38705ade84899219c3fb9e1c1faca22cb4889f086ea09f7a5f0f11b9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\neg_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\neg_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\neg_fasta.txt",
+      "bytes": 25982,
+      "sha256": "332e1780df9089e58a32868060985eb089053bba44a63b481910786ef53a960b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\pos_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\pos_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\Indtest2\\pos_fasta.txt",
+      "bytes": 1897,
+      "sha256": "e4aec8d8e30dd2aaf3d2f57408ec167ef83202e097eeb16664053a76d13187fb"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\README.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\README.md",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\README.md",
+      "bytes": 2662,
+      "sha256": "b07d255593599497a7e6ac293d9b0ab56ec3734dffd9728d3bb8c292a926ecec"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\neg_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\neg_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\neg_fasta.txt",
+      "bytes": 208813,
+      "sha256": "af562e0c853f000e177d6f4347200ba54ccf85fce55ce659a860c188f31b4cb4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\pos_fasta.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\pos_fasta.txt",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC\\train\\pos_fasta.txt",
+      "bytes": 82597,
+      "sha256": "66248f34e54a519ded89b7bd33fe4c4358d12c21b3589c85c13d3d95bcfdc318"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC_tree.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC_tree.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\sources\\yunyunliang88__ToxPLTC_tree.json",
+      "bytes": 1620,
+      "sha256": "ca0483684b14bf044cab700116d62e47b05b395da55f72121f5ade4603fc86d1"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\summary.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\summary.json",
+      "bytes": 248,
+      "sha256": "8f3c2cfe0a1a08171574c88b40485a1925808ba461260e732658fd24f8d1a1dc"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\verification.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\verification.json",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\verification.json",
+      "bytes": 1309,
+      "sha256": "9271283ff295c5d4ba9d0d45e1c40861bfa0ad1019b588d81ced163919ecdcb6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\dataset_comparison_20261025\\verify_comparison.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\dataset_comparison_20261025\\verify_comparison.py",
+      "relative_to_repo": "analysis\\dataset_comparison_20261025\\verify_comparison.py",
+      "bytes": 4820,
+      "sha256": "412da292f093be6d5632ce1c9c3830280ec8a0b46bb7ae1be04b32be0d44352f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\analyze.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\analyze.py",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\analyze.py",
+      "bytes": 9767,
+      "sha256": "c8ce301ba71b7330b3e14eda68925e8617702694576e0a05bc87cd6371b74a8c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\association_statistics.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\association_statistics.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\association_statistics.csv",
+      "bytes": 3433,
+      "sha256": "974a5e9a9a5b69e2698ca5c0205da79f0e6fa930b0db315725823d1d4a70c9db"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\class_adjusted_association.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\class_adjusted_association.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\class_adjusted_association.csv",
+      "bytes": 279,
+      "sha256": "f5142d9b6209a9d4ade2f17d7206373f9a936bc897a192a2314db507c005d473"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\class_stratified_association.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\class_stratified_association.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\class_stratified_association.csv",
+      "bytes": 1539,
+      "sha256": "897212fb74b94f5c2f525bf02e4203d8007fa5af8685e68bc17fe71a2b91864a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\evidence_flags_before_outcome_join.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\evidence_flags_before_outcome_join.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\evidence_flags_before_outcome_join.csv",
+      "bytes": 277411,
+      "sha256": "de385e636660b2b04ffff24240742da6d3ae2136c13a31f3d404a47d7e6d27f7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\input_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\input_manifest.json",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\input_manifest.json",
+      "bytes": 2163,
+      "sha256": "88a20c32f0b213a0064e9a2db1a654877d1d74d92c0a2b462da1de89ead31401"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\protocol.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\protocol.json",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\protocol.json",
+      "bytes": 1129,
+      "sha256": "07c5b6069edf67002d3c6ad3d3c534397e0d629de562bed851cdfd7e58d2b17a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\REPORT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\REPORT.md",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\REPORT.md",
+      "bytes": 6001,
+      "sha256": "64346775c301cc20a12ca421a80dcfff582ddcad122d78ebeb4eceb1a94e7728"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\summary.json",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\summary.json",
+      "bytes": 732,
+      "sha256": "793f04a3cec16be40f2e78838f7b8cc2cb13fa1b5db07599d5a50055402286fb"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\test1_2x2.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test1_2x2.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\test1_2x2.csv",
+      "bytes": 168,
+      "sha256": "9fd4a7fe2ce28617cd9524d70454a82090a2b74e8cb7571916d7c5f1e82bb86f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\test1_sample_audit.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test1_sample_audit.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\test1_sample_audit.csv",
+      "bytes": 311124,
+      "sha256": "7a0933dbaf6f1a76d9a3812c0ba4e3498b74e96b3b5c177750b5c5435f38dd8c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\test2_2x2.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test2_2x2.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\test2_2x2.csv",
+      "bytes": 168,
+      "sha256": "5706ab674ff6fd6b3ba2f64c8194e1a350cfb972f275010b80f9582ff2c84a62"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\test2_sample_audit.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\test2_sample_audit.csv",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\test2_sample_audit.csv",
+      "bytes": 162518,
+      "sha256": "5447670c2b96381be5a335f8ecf63c240ef6f9588548817c0c7b03be2b3313e0"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\verification.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\verification.json",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\verification.json",
+      "bytes": 322,
+      "sha256": "c12b5a81d144d351588bdce8cc7aff4d32765d0aec22ae9f396d658e569c9896"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\test_ambiguity_association_20261025\\write_report.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\test_ambiguity_association_20261025\\write_report.py",
+      "relative_to_repo": "analysis\\test_ambiguity_association_20261025\\write_report.py",
+      "bytes": 7157,
+      "sha256": "f5378ce9e62774595af6c4412576349f6f8e05806c3b40eabc0d45044c19f482"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\analyze.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\analyze.py",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\analyze.py",
+      "bytes": 12080,
+      "sha256": "891282bcaf8dff2c785032486669ca402782714cb92cba8fe56dc2d604ba744c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\artifact_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\artifact_manifest.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\artifact_manifest.json",
+      "bytes": 5361,
+      "sha256": "eab1bb10af2aac82fa93247e0399304d2f9f16818c670b01c1762e3902e94c78"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\biological_hypotheses.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\biological_hypotheses.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\biological_hypotheses.json",
+      "bytes": 6055,
+      "sha256": "7a56864620038db321bcd191d1a0e530254ea50a2b1ff13b17e7e7cd4d18d219"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\both_wrong.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\both_wrong.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\both_wrong.csv",
+      "bytes": 234360,
+      "sha256": "a52a632c3ee9005f0b51835890f05616cb9412a6472710a23c14f693844d41d0"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_annotation_ledger.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_annotation_ledger.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_annotation_ledger.csv",
+      "bytes": 37887,
+      "sha256": "977afa5566dc1fbe6cb552f065da529e1effcebc6412347948653a4c31c0a28e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_annotations_new.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_annotations_new.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_annotations_new.json",
+      "bytes": 44066,
+      "sha256": "c14543fc03c795fb845c903a588c666432c18aaaf493831a1e35aa5d7f1ab858"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_annotations_new.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_annotations_new.request.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_annotations_new.request.json",
+      "bytes": 1526,
+      "sha256": "8b34e1afe4b53cc857e399f9892e87d665a468f78feb83dba2301396d6e33634"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_paper_abstracts.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_paper_abstracts.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_paper_abstracts.json",
+      "bytes": 6338,
+      "sha256": "9ae74e767ca9490394f7ad15d55481722b922d213be9060276d357f9e6891478"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_paper_abstracts.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_paper_abstracts.request.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_paper_abstracts.request.json",
+      "bytes": 949,
+      "sha256": "c457bd55e23d7650cccac7bd02eb29e889ee0e5edd77c0368863ff89b25c2bd3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.json",
+      "bytes": 214314,
+      "sha256": "7089d247ffa8e75b08eb820c709117b89807b25f8bb2214ecfd5ba83aa7632b4"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.request.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.request.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_paper_abstracts_grouped.request.json",
+      "bytes": 955,
+      "sha256": "bad45e0b8dad991ac8208d5bf1ac8593752f74bbaac34db2e84843ce373ddc52"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\case_reference_links.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\case_reference_links.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\case_reference_links.csv",
+      "bytes": 12174,
+      "sha256": "3f41cb3d83e2a346fc0987e5373ad6ca8cf5ee46ef6e38b1202a96853bda2789"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\cys_expert_strata.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\cys_expert_strata.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\cys_expert_strata.csv",
+      "bytes": 2726,
+      "sha256": "f80e21bbb8024197b85ba8abe29f74c226e0daa06ba5ea501891148146ca4762"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\expert_disagreements.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\expert_disagreements.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\expert_disagreements.csv",
+      "bytes": 344856,
+      "sha256": "280db5a17e006dfa39b9de50aa7d482b403ac4399a3876f014797ffc83d9c4e2"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\expert_groups_by_evidence.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\expert_groups_by_evidence.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\expert_groups_by_evidence.csv",
+      "bytes": 1301,
+      "sha256": "c1cf06c7be31b8a872222c4f96ff8297077ff8df525a6a471b8c6d93c18f7308"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\fusion_corrections.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\fusion_corrections.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\fusion_corrections.csv",
+      "bytes": 100922,
+      "sha256": "578591bf319e087b6ffd22f95c522056e232b405b44ea5c6fb20b562db229fbd"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\fusion_harms.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\fusion_harms.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\fusion_harms.csv",
+      "bytes": 50748,
+      "sha256": "96544f9982b255d229b16e29a1f4331103b648af88b3d86925473bcd8127923c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\implementation_audit.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\implementation_audit.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\implementation_audit.json",
+      "bytes": 526,
+      "sha256": "80ffade0ebe94a5b1de5f6265befe69db1d4ffb9484bf45e9e5fae58b8da6e08"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\input_manifest.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\input_manifest.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\input_manifest.json",
+      "bytes": 1210,
+      "sha256": "1fee36104495d385da5c24adee2ae0b91b20eb473ed22016d0ab6e97e70f683b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\matching_coverage.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\matching_coverage.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\matching_coverage.csv",
+      "bytes": 2071,
+      "sha256": "c333057c943fe1e4f09cdbeb4c16e180ffbb66535a6adba3f13e85bc3172634d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\mechanism_review_queue.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\mechanism_review_queue.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\mechanism_review_queue.csv",
+      "bytes": 27791,
+      "sha256": "6960be6e7a23dba93cd8b46e5e876c68597be758034a9bccb92fd32cd2552cb7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\outcome_cells.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\outcome_cells.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\outcome_cells.csv",
+      "bytes": 409,
+      "sha256": "5cef8045d65a7f965fd54189cfb967ae6c4c15b63872576b6175be3e5400ec42"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\primary_matched_pairs.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\primary_matched_pairs.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\primary_matched_pairs.csv",
+      "bytes": 8697,
+      "sha256": "c77fe092337885dc0c2ae49455634b9c0f65d6c2d5d55d902ba983aeccc58e0c"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\primary_matched_tests.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\primary_matched_tests.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\primary_matched_tests.csv",
+      "bytes": 13832,
+      "sha256": "a39f130bf903b3f3381acb8206055b382d8f74a6c8afa99040618c3a0c3718c0"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\primary_matching_balance.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\primary_matching_balance.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\primary_matching_balance.csv",
+      "bytes": 3426,
+      "sha256": "e8def7a5d5cce165646d5aa823a3aa83b2cc8e15ebfc29b75074b01def2c0de0"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\protocol.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\protocol.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\protocol.json",
+      "bytes": 2774,
+      "sha256": "39e1f5075b2ec7f3075d280706ec7495a1d311bfd4ffbb04d3a2a10fae91aae5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\recover_case_annotations.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\recover_case_annotations.py",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\recover_case_annotations.py",
+      "bytes": 6229,
+      "sha256": "54e661a68b6c2b5666c5cbe994acf03a4f6f16c37718e4c1e6c2cd344f186707"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\REPORT.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\REPORT.md",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\REPORT.md",
+      "bytes": 8619,
+      "sha256": "33442b4f08997151bac035a5b22faa0c5486e2ddf729120595a104f5b540b56e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\strict_matched_pairs.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\strict_matched_pairs.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\strict_matched_pairs.csv",
+      "bytes": 280,
+      "sha256": "e4470e1a7549d5a65f06b0efcc01919a699a9f87b439692fb08a1cf4cb6c1030"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\strict_matched_tests.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\strict_matched_tests.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\strict_matched_tests.csv",
+      "bytes": 80,
+      "sha256": "ca2e74d389663a3e6f76eda64912d3a7dca5de1f7b0c777f3ff5d5550edc0758"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\strict_matching_balance.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\strict_matching_balance.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\strict_matching_balance.csv",
+      "bytes": 831,
+      "sha256": "ff52b6469f186cff63917e7c259aa37059720dcbe71e15c57d074ffc455a7058"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\summary.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\summary.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\summary.json",
+      "bytes": 1198,
+      "sha256": "8108df5c37d8d06f6669dc52216b0e4b78e36eb694febf10fcbcf20dd41bb28f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\training_expert_atlas.csv",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\training_expert_atlas.csv",
+      "bytes": 6667310,
+      "sha256": "1a2b40caa5cfb28a9c7475f2fa3a1f91f5a8a9926465aa353790d3ccb41d608a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\verification.json",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\verification.json",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\verification.json",
+      "bytes": 577,
+      "sha256": "e2450a461ade28af2fdaff842a3a1bda1e15d2d3d5ff71c3168db4dbe2b44ec5"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\verify_results.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\verify_results.py",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\verify_results.py",
+      "bytes": 4431,
+      "sha256": "41ade4455bd6c0a32627290f6281bfd55c0f440405b8a3f7c43e324dbf124e54"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\analysis\\expert_disagreement_20261025\\write_report.py",
+      "destination": "D:\\dachuang2026\\GHXTox\\analysis\\expert_disagreement_20261025\\write_report.py",
+      "relative_to_repo": "analysis\\expert_disagreement_20261025\\write_report.py",
+      "bytes": 10017,
+      "sha256": "b309e1f24f85f02a5e33621373c85cad3c9f078e88d428a0b2a947ff003d6009"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-ghxtox-reading\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-ghxtox-reading\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-ghxtox-reading\\findings.md",
+      "bytes": 2028,
+      "sha256": "9f8a08ebee3bb86cdc0d205a713d397492fe1a15fb42be27cad75363999c4ab9"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-ghxtox-reading\\manuscript.txt",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-ghxtox-reading\\manuscript.txt",
+      "relative_to_repo": ".planning\\2026-10-25-ghxtox-reading\\manuscript.txt",
+      "bytes": 65535,
+      "sha256": "67e5631abe3017715e7dba49c7ee66d0acf525bdbfc4d54a7f6f0dfd074045a7"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-ghxtox-reading\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-ghxtox-reading\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-ghxtox-reading\\progress.md",
+      "bytes": 254,
+      "sha256": "23f0011b4ca61120c16c19f0e80d09bb7786560c509256e24f12b2ffff01a9b6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-ghxtox-reading\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-ghxtox-reading\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-ghxtox-reading\\task_plan.md",
+      "bytes": 215,
+      "sha256": "04f33efeca50f7d459f43af293e3f7ce51ccf1f9126ee962b223b5f95d9db01d"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-biology-directions\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-biology-directions\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-biology-directions\\findings.md",
+      "bytes": 3356,
+      "sha256": "76058d719dd603a122b228f9b68655b1c1dc9f407c5120a9a5de703120caea12"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-biology-directions\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-biology-directions\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-biology-directions\\progress.md",
+      "bytes": 336,
+      "sha256": "3b27fdf8e549c6a6ee5541897292417efe35eae431e8040f5838a56e9d350e53"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-biology-directions\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-biology-directions\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-biology-directions\\task_plan.md",
+      "bytes": 283,
+      "sha256": "a86f2a8253d24f77b32646bf93f9900c7601a4d96a043f59684a4a873d748b0f"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-error-atlas\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-error-atlas\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-error-atlas\\findings.md",
+      "bytes": 4379,
+      "sha256": "789ca47732e907041720c53f3a685172e9fa9b4dfa1e5943f861e8ecd81b4935"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-error-atlas\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-error-atlas\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-error-atlas\\progress.md",
+      "bytes": 2122,
+      "sha256": "96743bb90e76ff2356d596a00d61cad83b7956692ded69ecb0c1eeab6e97f73a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-error-atlas\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-error-atlas\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-error-atlas\\task_plan.md",
+      "bytes": 1178,
+      "sha256": "b1d6403a35def6ff71cc5c7370003f99040f57e07b8f7a832d8ab63d8e568915"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-dataset-comparison\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-dataset-comparison\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-dataset-comparison\\findings.md",
+      "bytes": 1653,
+      "sha256": "8010f1070bf3e92f365fa7c256a8797181d0994dedc7a2615e05c31a9017d9c3"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-dataset-comparison\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-dataset-comparison\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-dataset-comparison\\progress.md",
+      "bytes": 1518,
+      "sha256": "0e145db9b75c849746ea7932909d1e4184c41d25bce482a437418a45d8946cd6"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-dataset-comparison\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-dataset-comparison\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-dataset-comparison\\task_plan.md",
+      "bytes": 1253,
+      "sha256": "dd98d2acb0678d87bf8bcc4240640c758fada74d784194ba7ec0119e233e48c8"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-test-ambiguity\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-test-ambiguity\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-test-ambiguity\\findings.md",
+      "bytes": 465,
+      "sha256": "91f881219da9422cc2fb4ad3185d449e05a9c47c85f460c06697a2e5e8702c66"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-test-ambiguity\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-test-ambiguity\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-test-ambiguity\\progress.md",
+      "bytes": 239,
+      "sha256": "aba664846eaea836f78ffb3d6fd0c121e6f074d1efe690529a400af9edd8902a"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-test-ambiguity\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-test-ambiguity\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-test-ambiguity\\task_plan.md",
+      "bytes": 345,
+      "sha256": "f12cef089aac74d4717e1ae9e0a530579a3b66f89a63062650465d677a9caeba"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-expert-disagreement\\findings.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-expert-disagreement\\findings.md",
+      "relative_to_repo": ".planning\\2026-10-25-expert-disagreement\\findings.md",
+      "bytes": 1122,
+      "sha256": "1748c86fe01fdd54a493bb32ec88d12de2b90f303a9b1f8ed378bb2f12207e79"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-expert-disagreement\\progress.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-expert-disagreement\\progress.md",
+      "relative_to_repo": ".planning\\2026-10-25-expert-disagreement\\progress.md",
+      "bytes": 1305,
+      "sha256": "cac416c7b8447be5c8a9b194d471681465a57aee6347baa01324f9045518269b"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Documents\\基于深度卷积神经网络的蛋白质毒性预测方法\\.planning\\2026-10-25-expert-disagreement\\task_plan.md",
+      "destination": "D:\\dachuang2026\\GHXTox\\.planning\\2026-10-25-expert-disagreement\\task_plan.md",
+      "relative_to_repo": ".planning\\2026-10-25-expert-disagreement\\task_plan.md",
+      "bytes": 1262,
+      "sha256": "8cdcfd9d2012f8b48dc12f61e089f4265634ba1d5cf17bcb1a1cd7a6e611475e"
+    },
+    {
+      "source": "C:\\Users\\GAOKEHAN\\Downloads\\Manuscript for GHXTox.docx",
+      "destination": "D:\\dachuang2026\\GHXTox\\docs\\research_sources_20261025\\Manuscript for GHXTox.docx",
+      "relative_to_repo": "docs\\research_sources_20261025\\Manuscript for GHXTox.docx",
+      "bytes": 1205604,
+      "sha256": "9805e0d38659df6788cc4e9e4cda00f1d5351abb571cca5b025037e98de43687"
+    }
+  ],
+  "skipped_regenerable_python_cache": [
+    "analysis\\ghxtox_error_atlas_20261025\\__pycache__\\build_atlas.cpython-310.pyc",
+    "analysis\\dataset_comparison_20261025\\__pycache__\\align_candidates.cpython-310.pyc",
+    "analysis\\dataset_comparison_20261025\\__pycache__\\audit_datasets.cpython-310.pyc",
+    "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__pycache__\\__init__.cpython-310.pyc",
+    "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__pycache__\\bindings_v1.cpython-310.pyc",
+    "analysis\\dataset_comparison_20261025\\_vendor\\parasail\\__pycache__\\bindings_v2.cpython-310.pyc"
+  ],
+  "historical_paths_policy": "Existing scientific manifests retain original source paths; use path_aliases.json for relocation."
+}

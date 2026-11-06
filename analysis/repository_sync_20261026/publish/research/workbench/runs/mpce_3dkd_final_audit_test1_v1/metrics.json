@@ -1,0 +1,37 @@
+{
+  "checkpoint_manifest": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_product_single_refit_v1\\ensemble_manifest.json",
+    "sha256": "ab9d6ee0d501ce6923bf477f01194344093aaccfe65e16d12ca8ca7713a56b66"
+  },
+  "decision_threshold": 0.5,
+  "heldout_cache": {
+    "path": "D:\\dachuang2026\\GHXTox\\runs\\mpce_3dkd_test1_canonical_single_features.pt",
+    "records": 1126,
+    "sha256": "51fad41396386a801cd2ac5727263f715fd0d250886bc5bb1c4a8d4a34df7867"
+  },
+  "metrics": {
+    "accuracy": 0.9404973357015985,
+    "auprc": 0.9523087196026869,
+    "auroc": 0.9735460607940447,
+    "balanced_accuracy": 0.9179241625310174,
+    "brier": 0.050995005979271826,
+    "f1": 0.8921095008051529,
+    "fn": 43,
+    "fp": 24,
+    "mcc": 0.851843403205136,
+    "precision": 0.920265780730897,
+    "sensitivity": 0.865625,
+    "specificity": 0.9702233250620348,
+    "threshold": 0.5,
+    "tn": 782,
+    "tp": 277
+  },
+  "model_name": "MPCE-3DKD-Product",
+  "model_version": "mpce-3dkd-product-v1",
+  "notes": [
+    "Test2 is a labeled subset of Test1 and is reported only as a historical audit split"
+  ],
+  "records": 1126,
+  "selection_scope": "final read-only audit after architecture/checkpoint/threshold were frozen; no tuning on Test1/Test2",
+  "split": "Test1"
+}

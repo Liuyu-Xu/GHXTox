@@ -1,0 +1,14 @@
+{
+  "artifact_type": "mpce_net_b_decision",
+  "version": "b-v1",
+  "date": "2026-09-05",
+  "decision": "retain_as_ablation_do_not_add_c",
+  "checks": {
+    "B_vs_A1_mcc": "pass",
+    "B_vs_A1_auprc": "fail",
+    "B_vs_A1_brier": "fail"
+  },
+  "v1_modified": false,
+  "test1_test2_used": false,
+  "machine_results": "runs/mpce_net_b_seed20260905_v1/manifest.json, runs/mpce_net_b_seed20260906_v1/manifest.json"
+}

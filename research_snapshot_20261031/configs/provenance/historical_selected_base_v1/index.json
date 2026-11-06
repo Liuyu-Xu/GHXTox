@@ -1,0 +1,48 @@
+{
+  "artifact_type": "ghxtox_historical_selected_base_provenance_index",
+  "version": 1,
+  "generated_on": "2026-09-04",
+  "entries": [
+    {
+      "fold": 0,
+      "provenance": "fold0_historical_selected_base.provenance.json",
+      "sha256": "DBFE9BBBCF9C77D6603EA6369A2C243D3F3DB9795FD2DA06C2E15543A963AF60",
+      "checkpoint": "D:\\dachuang2026\\ziliao\\fusion_aware_residual_screen_package_20260809_v1\\repository\\runs\\original_fold0_candidate_reproduction_torch231_v1\\best_model.pt",
+      "checkpoint_sha256": "576D16E9D2C1574D0DF65A1FD1D85792EB8FE77B8DF69C52AE7E644D14DDB55D",
+      "strict_topology_oof_eligible": false
+    },
+    {
+      "fold": 1,
+      "provenance": "fold1_historical_selected_base.provenance.json",
+      "sha256": "B466EE625C371438189AADCD3EC11452ADAD71B2146646F0471CAE509A7EDA57",
+      "checkpoint": "D:\\dachuang2026\\ziliao\\fusion_aware_residual_screen_package_20260809_v1\\repository\\runs\\original_lineage_candidate_fold1_torch231_v1\\best_model.pt",
+      "checkpoint_sha256": "7FE4F73CA0748148C0E12CFEF59702C5C9BA22C1A9E91D3C5DB0DC5F013F059C",
+      "strict_topology_oof_eligible": false
+    },
+    {
+      "fold": 2,
+      "provenance": "fold2_historical_selected_base.provenance.json",
+      "sha256": "BA18F3CCC112F52F9FC46D495FD4C2E735B642BC1FCBFC324130F575BD87B1DD",
+      "checkpoint": "D:\\dachuang2026\\ziliao\\fusion_aware_residual_screen_package_20260809_v1\\repository\\runs\\original_lineage_base_fold2_zero_chemical_fallback_v1\\best_model.pt",
+      "checkpoint_sha256": "86E36B82040EB585E609F2D9091F98948FCDF57C620A039454C97745D8429F93",
+      "strict_topology_oof_eligible": false
+    },
+    {
+      "fold": 3,
+      "provenance": "fold3_historical_selected_base.provenance.json",
+      "sha256": "B6AE2BB3AB6EDF5A782DC0B5F60FEDB84445E10AAB7AD31A4E3AE93764B02403",
+      "checkpoint": "D:\\dachuang2026\\ziliao\\fusion_aware_residual_screen_package_20260809_v1\\repository\\runs\\original_lineage_candidate_fold3_torch231_v1\\best_model.pt",
+      "checkpoint_sha256": "09FBBC10F699F5BDFC31D541CF6E2534ACB1AE327D80ECEBD934C00E0C9B27BE",
+      "strict_topology_oof_eligible": false
+    },
+    {
+      "fold": 4,
+      "provenance": "fold4_historical_selected_base.provenance.json",
+      "sha256": "721E852F5C4DDCD04419069923EDF98D29C12DD58F9D6BFB2E531E99CFDD6937",
+      "checkpoint": "D:\\dachuang2026\\ziliao\\fusion_aware_residual_screen_package_20260809_v1\\repository\\runs\\original_lineage_candidate_fold4_torch231_v1\\best_model.pt",
+      "checkpoint_sha256": "E0EE18760458588E359852E8398E2CE7D362F0AED9E1FBD3D9902A2FCDBEB525",
+      "strict_topology_oof_eligible": false
+    }
+  ],
+  "conclusion": "Five historical base checkpoints are fully identified for audit but are not valid frozen initializations for strict topology OOF."
+}

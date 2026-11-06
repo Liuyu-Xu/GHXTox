@@ -1,0 +1,59 @@
+{
+  "seed": 2025,
+  "data": {
+    "max_length": 128,
+    "structure_mode": "cached",
+    "structure_cache_dir": "data/structures"
+  },
+  "model": {
+    "modality": "sequence_only",
+    "sequence_architecture": "multiscale_1d",
+    "sequence_use_multiscale": false,
+    "sequence_use_bilstm": true,
+    "sequence_use_residual": false,
+    "aa_embedding_dim": 32,
+    "group_embedding_dim": 12,
+    "hidden_dim": 160,
+    "dropout": 0.24,
+    "plm_embedding_dim": 1280,
+    "global_features": true
+  },
+  "train": {
+    "epochs": 45,
+    "batch_size": 40,
+    "learning_rate": 0.0004,
+    "weight_decay": 0.00015,
+    "val_fraction": 0.15,
+    "early_stop_patience": 10,
+    "pos_weight": "auto",
+    "monitor": "mcc",
+    "scheduler": "cosine",
+    "min_learning_rate": 3e-05,
+    "ema_decay": 0.995,
+    "ema_start_epoch": 2,
+    "selection_score": {
+      "mcc": 1.0,
+      "auroc": 0.2,
+      "auprc": 0.2
+    },
+    "selection_constraints": {
+      "sn": {
+        "min": 0.875
+      },
+      "sp": {
+        "min": 0.91
+      }
+    },
+    "selection_penalty_weight": 8.0,
+    "loss": "focal_bce",
+    "focal_gamma": 1.5,
+    "save_auxiliary_checkpoints": true
+  },
+  "experiment": {
+    "name": "hypeptox_tuning_bilstm_focal_mcc_seed2025",
+    "tuning_variant": "bilstm_focal_mcc",
+    "reason": "Increase sequence expert capacity and use focal BCE to improve hard-sample MCC/SN.",
+    "selection_data": "HyPepTox-Fuse train-fit/train-val split; independent test untouched.",
+    "external_sets_used_for_selection": false
+  }
+}

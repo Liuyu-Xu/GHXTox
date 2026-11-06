@@ -1,0 +1,968 @@
+[
+  {
+    "sample_id": "peptide_57",
+    "name": "Conantokin-Gm",
+    "accession": "P0DOZ6",
+    "organism": "Conus gloriamaris",
+    "sequence": "GAKERNNAEAVRERLEEI",
+    "length": 18,
+    "original_label": 1,
+    "fold": 2,
+    "sequence_result": "FN",
+    "structure_result": "TP",
+    "fusion_result": "FN",
+    "p_seq": 0.2428022214309803,
+    "p_struct": 0.827544034,
+    "p_fusion": 0.4065299289503058,
+    "mean_plddt": 0.871633291,
+    "gla_present": true,
+    "gla_count": 3,
+    "gla_positions": "4;9;13",
+    "hyp_positions": "",
+    "terminal_amide_status": "未注释，不能据此判定游离端",
+    "chemical_evidence_codes": "ECO:0000303",
+    "chemical_annotation_pmids": "17153339",
+    "original_Pr_paper": false,
+    "evidence_origin": "ECO:0000303出版物注释，所引17153339为综述",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0DOZ6/entry",
+    "source": {
+      "accession": "P0DOZ6",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0DOZ6/entry",
+      "sha256": "af336b5c965da4cce90d9dd4faf5571ad048c06c8c5a913d0c269ada5b6fa4de",
+      "reused_old_cache": true
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 9,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 9,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 13,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 13,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000250"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  },
+  {
+    "sample_id": "peptide_66",
+    "name": "Conantokin-Qu",
+    "accession": "P0DOZ4",
+    "organism": "Conus quercinus",
+    "sequence": "GYEEREVAETVRELDAA",
+    "length": 17,
+    "original_label": 1,
+    "fold": 1,
+    "sequence_result": "TP",
+    "structure_result": "FN",
+    "fusion_result": "FN",
+    "p_seq": 0.4938059385550679,
+    "p_struct": 0.0126763731,
+    "p_fusion": 0.3590896602276489,
+    "mean_plddt": 0.851817608,
+    "gla_present": true,
+    "gla_count": 5,
+    "gla_positions": "3;4;6;9;13",
+    "hyp_positions": "",
+    "terminal_amide_status": "未注释，不能据此判定游离端",
+    "chemical_evidence_codes": "ECO:0000303",
+    "chemical_annotation_pmids": "17153339",
+    "original_Pr_paper": false,
+    "evidence_origin": "ECO:0000303出版物注释，所引17153339为综述",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0DOZ4/entry",
+    "source": {
+      "accession": "P0DOZ4",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0DOZ4/entry",
+      "sha256": "af336b5c965da4cce90d9dd4faf5571ad048c06c8c5a913d0c269ada5b6fa4de",
+      "reused_old_cache": true
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 3,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 3,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 6,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 6,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 9,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 9,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 13,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 13,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000250"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  },
+  {
+    "sample_id": "peptide_195",
+    "name": "Conantokin-Pr1",
+    "accession": "P0C8E0",
+    "organism": "Conus parius",
+    "sequence": "GEDEYAEGIREYQLIHGKI",
+    "length": 19,
+    "original_label": 1,
+    "fold": 0,
+    "sequence_result": "TP",
+    "structure_result": "FN",
+    "fusion_result": "FN",
+    "p_seq": 0.5090629331351214,
+    "p_struct": 0.0481557921,
+    "p_fusion": 0.38000893364528743,
+    "mean_plddt": 0.722915828,
+    "gla_present": true,
+    "gla_count": 3,
+    "gla_positions": "4;7;11",
+    "hyp_positions": "",
+    "terminal_amide_status": "未注释，不能据此判定游离端",
+    "chemical_evidence_codes": "ECO:0000269",
+    "chemical_annotation_pmids": "17962189",
+    "original_Pr_paper": true,
+    "evidence_origin": "ECO:0000269原始研究引用",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0C8E0/entry",
+    "source": {
+      "accession": "P0C8E0",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\ghxtox_error_atlas_20261025\\evidence_phase2\\uniprot_error_records_batch0.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0C8E0/entry",
+      "sha256": "af336b5c965da4cce90d9dd4faf5571ad048c06c8c5a913d0c269ada5b6fa4de",
+      "reused_old_cache": true
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 7,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 7,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 11,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 11,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors. This toxin has highest potency for the NR2B/GRIN2B subunit. It induces sleep in 10-day-old mice when injected intracranially, and hyperactivity in 24-day-old mice"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  },
+  {
+    "sample_id": "peptide_218",
+    "name": "Conantokin-Pr3",
+    "accession": "P0C8E2",
+    "organism": "Conus parius",
+    "sequence": "GEPEVAKWAEGLREKAASN",
+    "length": 19,
+    "original_label": 1,
+    "fold": 3,
+    "sequence_result": "TP",
+    "structure_result": "TP",
+    "fusion_result": "TP",
+    "p_seq": 0.4214532354968286,
+    "p_struct": 0.687416613,
+    "p_fusion": 0.4959229811977166,
+    "mean_plddt": 0.852273643,
+    "gla_present": true,
+    "gla_count": 3,
+    "gla_positions": "4;10;14",
+    "hyp_positions": "3",
+    "terminal_amide_status": "明确酰胺化注释",
+    "chemical_evidence_codes": "ECO:0000269",
+    "chemical_annotation_pmids": "17962189",
+    "original_Pr_paper": true,
+    "evidence_origin": "ECO:0000269原始研究引用",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0C8E2/entry",
+    "source": {
+      "accession": "P0C8E2",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\conantokin_chemical_state_20261026\\sources\\P0C8E2.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0C8E2/entry",
+      "sha256": "05e1c6de601efde57168351e2aae11071e4fbd83294150aa350c68f6151282ad",
+      "reused_old_cache": false
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 3,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 3,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-hydroxyproline",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 10,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 10,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 14,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 14,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 19,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 19,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "Asparagine amide",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors. This toxin has the highest potency for the NR2B/GRIN2B subunit. It induces sleep in 10-day-old mice when injected intracranially, and hyperactivity in 24-day-old mice"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  },
+  {
+    "sample_id": "peptide_359",
+    "name": "Conantokin-Oc",
+    "accession": "P0DP00",
+    "organism": "Conus ochroleucus",
+    "sequence": "GEEERKAMAELEAKKAQEALKA",
+    "length": 22,
+    "original_label": 1,
+    "fold": 0,
+    "sequence_result": "TP",
+    "structure_result": "TP",
+    "fusion_result": "TP",
+    "p_seq": 0.41118061218597596,
+    "p_struct": 0.999999166,
+    "p_fusion": 0.5760498072539026,
+    "mean_plddt": 0.912372768,
+    "gla_present": true,
+    "gla_count": 4,
+    "gla_positions": "3;4;10;18",
+    "hyp_positions": "",
+    "terminal_amide_status": "未注释，不能据此判定游离端",
+    "chemical_evidence_codes": "ECO:0000303",
+    "chemical_annotation_pmids": "17153339",
+    "original_Pr_paper": false,
+    "evidence_origin": "ECO:0000303出版物注释，所引17153339为综述",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0DP00/entry",
+    "source": {
+      "accession": "P0DP00",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\conantokin_chemical_state_20261026\\sources\\P0DP00.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0DP00/entry",
+      "sha256": "f0391af4011467dfff30be97f267dfb8cce656b96fa4ce5f2b68e9397402304a",
+      "reused_old_cache": false
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 3,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 3,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 10,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 10,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 18,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 18,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000303",
+            "source": "PubMed",
+            "id": "17153339"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000250"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  },
+  {
+    "sample_id": "peptide_854",
+    "name": "Conantokin-Pr2",
+    "accession": "P0C8E1",
+    "organism": "Conus parius",
+    "sequence": "DEPEYAEAIREYQLKYGKI",
+    "length": 19,
+    "original_label": 1,
+    "fold": 3,
+    "sequence_result": "TP",
+    "structure_result": "TP",
+    "fusion_result": "TP",
+    "p_seq": 0.903274854037977,
+    "p_struct": 0.961803973,
+    "p_fusion": 0.9196630073473434,
+    "mean_plddt": 0.754605234,
+    "gla_present": true,
+    "gla_count": 3,
+    "gla_positions": "4;7;11",
+    "hyp_positions": "3",
+    "terminal_amide_status": "未注释，不能据此判定游离端",
+    "chemical_evidence_codes": "ECO:0000269",
+    "chemical_annotation_pmids": "17962189",
+    "original_Pr_paper": true,
+    "evidence_origin": "ECO:0000269原始研究引用",
+    "direct_same_backbone_modified_unmodified_pair_available": false,
+    "source_url": "https://www.uniprot.org/uniprotkb/P0C8E1/entry",
+    "source": {
+      "accession": "P0C8E1",
+      "path": "D:\\dachuang2026\\GHXTox\\analysis\\conantokin_chemical_state_20261026\\sources\\P0C8E1.json",
+      "url": "https://www.uniprot.org/uniprotkb/P0C8E1/entry",
+      "sha256": "4a4359e7ace2f988fb0e5435aee450db16e0e75ff47a8cd5e57532f7ac3e994f",
+      "reused_old_cache": false
+    },
+    "modification_features": [
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 3,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 3,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-hydroxyproline",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 4,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 4,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 7,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 7,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      },
+      {
+        "type": "Modified residue",
+        "location": {
+          "start": {
+            "value": 11,
+            "modifier": "EXACT"
+          },
+          "end": {
+            "value": 11,
+            "modifier": "EXACT"
+          }
+        },
+        "description": "4-carboxyglutamate",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ]
+      }
+    ],
+    "function_texts_and_evidence": [
+      {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "17962189"
+          }
+        ],
+        "value": "Conantokins inhibit N-methyl-D-aspartate (NMDA) receptors. This toxin has the highest potency for the NR2B/GRIN2B subunit and a smaller potency for the NR2D/GRIN2D subunits. It induces sleep in 10-day-old mice when injected intracranially, and hyperactivity in 24-day-old mice"
+      }
+    ],
+    "reference_metadata": {
+      "17962189": {
+        "title": "Novel conantokins from Conus parius venom are specific antagonists of N-methyl-D-aspartate receptors.",
+        "doi": "10.1074/jbc.m706611200",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": false,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17962189/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      },
+      "17153339": {
+        "title": "Hyperhydroxylation: a new strategy for neuronal targeting by venomous marine molluscs.",
+        "doi": "10.1007/978-3-540-30880-5_4",
+        "publication_types": [
+          "Research Support, Non-U.S. Gov't",
+          "Review",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "is_review": true,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17153339/",
+        "abstract_cached": true,
+        "full_methods_checked": false
+      }
+    },
+    "causal_error_explanation_established": false
+  }
+]

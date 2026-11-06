@@ -1,0 +1,187 @@
+[
+  {
+    "case_cohort": "unreproduced_rescue",
+    "strict_only": false,
+    "control_role": "persistent_wrong",
+    "n_pairs": 8,
+    "distinct_cases": 8,
+    "distinct_case_groups": 8,
+    "folds": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "family_support": {
+      "sequence_only": 6,
+      "name_class_proxy": 2
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": 0.375,
+      "cys_count": 0.125,
+      "cys_span_fraction": 0.08760377388134741,
+      "net_charge_proxy": 1.125,
+      "mean_hydropathy": -0.4007554475390772,
+      "mean_plddt": -0.029825821499999995,
+      "hydrophobic_contact_excess": 0.07118612636004931,
+      "positive_hydrophobic_contact_excess": 0.02938765422005888,
+      "charge_hydrophobic_separation": -0.20756856573063504,
+      "ca_radius_gyration": -1.6805792307288119
+    }
+  },
+  {
+    "case_cohort": "unreproduced_rescue",
+    "strict_only": false,
+    "control_role": "persistent_correct",
+    "n_pairs": 21,
+    "distinct_cases": 21,
+    "distinct_case_groups": 21,
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "family_support": {
+      "name_class_proxy": 4,
+      "sequence_only": 17
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": -0.14285714285714285,
+      "cys_count": -0.47619047619047616,
+      "cys_span_fraction": -0.042955164660744546,
+      "net_charge_proxy": 0.19047619047619047,
+      "mean_hydropathy": -0.2669446250594088,
+      "mean_plddt": -0.040497907619047625,
+      "hydrophobic_contact_excess": 0.014138494374804517,
+      "positive_hydrophobic_contact_excess": -0.003309023443237836,
+      "charge_hydrophobic_separation": -0.0003275578824087434,
+      "ca_radius_gyration": 0.3114028315884761
+    }
+  },
+  {
+    "case_cohort": "unreproduced_rescue",
+    "strict_only": true,
+    "control_role": "persistent_wrong",
+    "n_pairs": 6,
+    "distinct_cases": 6,
+    "distinct_case_groups": 6,
+    "folds": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "family_support": {
+      "name_class_proxy": 2,
+      "sequence_only": 4
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": 0.8333333333333334,
+      "cys_count": 0.5,
+      "cys_span_fraction": 0.10792022792022792,
+      "net_charge_proxy": 0.8333333333333334,
+      "mean_hydropathy": -0.3105166428948158,
+      "mean_plddt": -0.025362153833333317,
+      "hydrophobic_contact_excess": 0.05294262416033899,
+      "positive_hydrophobic_contact_excess": 0.038537392974203194,
+      "charge_hydrophobic_separation": -0.35178342020410347,
+      "ca_radius_gyration": -0.7208964286899947
+    }
+  },
+  {
+    "case_cohort": "unreproduced_rescue",
+    "strict_only": true,
+    "control_role": "persistent_correct",
+    "n_pairs": 9,
+    "distinct_cases": 9,
+    "distinct_case_groups": 9,
+    "folds": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "family_support": {
+      "name_class_proxy": 2,
+      "sequence_only": 7
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": -0.3333333333333333,
+      "cys_count": -0.5555555555555556,
+      "cys_span_fraction": -0.05719977494482234,
+      "net_charge_proxy": 0.2222222222222222,
+      "mean_hydropathy": -0.5533059940531608,
+      "mean_plddt": -0.02616562100000002,
+      "hydrophobic_contact_excess": -0.02161121989147975,
+      "positive_hydrophobic_contact_excess": -0.01638131611825287,
+      "charge_hydrophobic_separation": -0.009503931065259645,
+      "ca_radius_gyration": 0.8870914285298317
+    }
+  },
+  {
+    "case_cohort": "reproduced_rescue",
+    "strict_only": false,
+    "control_role": "persistent_wrong",
+    "n_pairs": 3,
+    "distinct_cases": 3,
+    "distinct_case_groups": 3,
+    "folds": [
+      2,
+      4
+    ],
+    "family_support": {
+      "sequence_only": 3
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": -1.0,
+      "cys_count": -0.3333333333333333,
+      "cys_span_fraction": 0.0045454545454545565,
+      "net_charge_proxy": -1.3333333333333333,
+      "mean_hydropathy": -0.17441578599775395,
+      "mean_plddt": -0.05217903833333337,
+      "hydrophobic_contact_excess": -0.0797447332945545,
+      "positive_hydrophobic_contact_excess": 0.08661370297576576,
+      "charge_hydrophobic_separation": -0.4178434795946839,
+      "ca_radius_gyration": 0.3720340567704013
+    }
+  },
+  {
+    "case_cohort": "reproduced_rescue",
+    "strict_only": false,
+    "control_role": "persistent_correct",
+    "n_pairs": 14,
+    "distinct_cases": 14,
+    "distinct_case_groups": 14,
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "family_support": {
+      "name_class_proxy": 1,
+      "sequence_only": 13
+    },
+    "direct_context_matched_pairs": 0,
+    "mean_case_minus_control": {
+      "sequence_length": -1.0,
+      "cys_count": -0.35714285714285715,
+      "cys_span_fraction": -0.05181419532370439,
+      "net_charge_proxy": 0.5,
+      "mean_hydropathy": 0.023265542489981313,
+      "mean_plddt": -0.05124432921428572,
+      "hydrophobic_contact_excess": -0.033386587711198866,
+      "positive_hydrophobic_contact_excess": 0.035349347417629094,
+      "charge_hydrophobic_separation": -0.13075306638805892,
+      "ca_radius_gyration": 1.5555411102343395
+    }
+  }
+]

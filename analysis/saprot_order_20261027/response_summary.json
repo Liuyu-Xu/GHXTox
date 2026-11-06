@@ -1,0 +1,1202 @@
+[
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline2",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.27926878916466435,
+    "normalized_logodds_change": 0.3671180768298418,
+    "original_decision_changed": 0.30996068152031453
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "teacher2",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.12481552886273795,
+    "normalized_logodds_change": 0.19677269185052862,
+    "original_decision_changed": 0.13040629095674966
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline4",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.27684298170645083,
+    "normalized_logodds_change": 0.3646928861033292,
+    "original_decision_changed": 0.3119266055045872
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "fusion_masked4",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.17937439313835962,
+    "normalized_logodds_change": 0.23176849593555168,
+    "original_decision_changed": 0.20511140235910877
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline2_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.27926878916466435,
+    "normalized_logodds_change": 0.3671180768298418,
+    "original_decision_changed": 0.30996068152031453
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline4_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.6038276834575953,
+    "absolute_probability_change": 0.27684298170645083,
+    "normalized_logodds_change": 0.3646928861033292,
+    "original_decision_changed": 0.3119266055045872
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline2",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.5140297967874211,
+    "normalized_logodds_change": 0.38137519609119797,
+    "original_decision_changed": 0.6666666666666666
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "teacher2",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.10190953208249305,
+    "normalized_logodds_change": 0.1928846380126428,
+    "original_decision_changed": 0.08333333333333333
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline4",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.4999249151051653,
+    "normalized_logodds_change": 0.37555113543206303,
+    "original_decision_changed": 0.6875
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "fusion_masked4",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.26210183267769444,
+    "normalized_logodds_change": 0.2541996363496176,
+    "original_decision_changed": 0.18229166666666666
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline2_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.5140297967874211,
+    "normalized_logodds_change": 0.38137519609119797,
+    "original_decision_changed": 0.6666666666666666
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline4_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.6055461602320857,
+    "absolute_probability_change": 0.4999249151051653,
+    "normalized_logodds_change": 0.37555113543206303,
+    "original_decision_changed": 0.6875
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline2",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.4347522450707346,
+    "normalized_logodds_change": 0.36908807805744337,
+    "original_decision_changed": 0.5645161290322581
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "teacher2",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.13428375658914593,
+    "normalized_logodds_change": 0.16703983622416693,
+    "original_decision_changed": 0.14516129032258066
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline4",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.42789306939102684,
+    "normalized_logodds_change": 0.354932215547284,
+    "original_decision_changed": 0.5887096774193549
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "fusion_masked4",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.24881206481618248,
+    "normalized_logodds_change": 0.19072965897195424,
+    "original_decision_changed": 0.2903225806451613
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline2_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.4347522450707346,
+    "normalized_logodds_change": 0.36908807805744337,
+    "original_decision_changed": 0.5645161290322581
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline4_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.6102305694396035,
+    "absolute_probability_change": 0.42789306939102684,
+    "normalized_logodds_change": 0.354932215547284,
+    "original_decision_changed": 0.5887096774193549
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.2367902764527474,
+    "normalized_logodds_change": 0.3363482207102488,
+    "original_decision_changed": 0.23163841807909605
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "teacher2",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.1447693278662353,
+    "normalized_logodds_change": 0.1857846615243775,
+    "original_decision_changed": 0.16666666666666666
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.23615049950487846,
+    "normalized_logodds_change": 0.3368325757953378,
+    "original_decision_changed": 0.2344632768361582
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "fusion_masked4",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.16701731477531093,
+    "normalized_logodds_change": 0.19841314156573225,
+    "original_decision_changed": 0.21610169491525424
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.2367902764527474,
+    "normalized_logodds_change": 0.3363482207102488,
+    "original_decision_changed": 0.23163841807909605
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.6158236619487184,
+    "absolute_probability_change": 0.23615049950487846,
+    "normalized_logodds_change": 0.3368325757953378,
+    "original_decision_changed": 0.2344632768361582
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.21098338080632817,
+    "normalized_logodds_change": 0.40457507101762824,
+    "original_decision_changed": 0.22111553784860558
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "teacher2",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.10309561143097756,
+    "normalized_logodds_change": 0.22110118967016598,
+    "original_decision_changed": 0.09362549800796813
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.2116006217727309,
+    "normalized_logodds_change": 0.4022439597604817,
+    "original_decision_changed": 0.20916334661354583
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "fusion_masked4",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.1480095959300651,
+    "normalized_logodds_change": 0.2803693479630767,
+    "original_decision_changed": 0.17729083665338646
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.21098338080632817,
+    "normalized_logodds_change": 0.40457507101762824,
+    "original_decision_changed": 0.22111553784860558
+  },
+  {
+    "mode": "local_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.5846701970548336,
+    "absolute_probability_change": 0.2116006217727309,
+    "normalized_logodds_change": 0.4022439597604817,
+    "original_decision_changed": 0.20916334661354583
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline2",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.3118637511370963,
+    "normalized_logodds_change": 0.4483556272163838,
+    "original_decision_changed": 0.3256880733944954
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "teacher2",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.17089340243631818,
+    "normalized_logodds_change": 0.2643456297727326,
+    "original_decision_changed": 0.18676277850589776
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline4",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.30975889007588736,
+    "normalized_logodds_change": 0.4441302858714411,
+    "original_decision_changed": 0.33355176933158587
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "fusion_masked4",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.21100615961721736,
+    "normalized_logodds_change": 0.2935096853966627,
+    "original_decision_changed": 0.23787680209698558
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline2_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.3118637511370963,
+    "normalized_logodds_change": 0.4483556272163838,
+    "original_decision_changed": 0.3256880733944954
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "all",
+    "model": "baseline4_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.8092958696379203,
+    "absolute_probability_change": 0.30975889007588736,
+    "normalized_logodds_change": 0.4441302858714411,
+    "original_decision_changed": 0.33355176933158587
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline2",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.5032014461628429,
+    "normalized_logodds_change": 0.43941523984050185,
+    "original_decision_changed": 0.5885416666666666
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "teacher2",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.16653858080150163,
+    "normalized_logodds_change": 0.2503269095335036,
+    "original_decision_changed": 0.15625
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline4",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.5091375685917611,
+    "normalized_logodds_change": 0.44133205112472834,
+    "original_decision_changed": 0.640625
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "fusion_masked4",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.28246768292568286,
+    "normalized_logodds_change": 0.2651566834427774,
+    "original_decision_changed": 0.2552083333333333
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline2_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.5032014461628429,
+    "normalized_logodds_change": 0.43941523984050185,
+    "original_decision_changed": 0.5885416666666666
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "corrected",
+    "model": "baseline4_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.8153264125550602,
+    "absolute_probability_change": 0.5091375685917611,
+    "normalized_logodds_change": 0.44133205112472834,
+    "original_decision_changed": 0.640625
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline2",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.4892210671941685,
+    "normalized_logodds_change": 0.43754273511776265,
+    "original_decision_changed": 0.5725806451612904
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "teacher2",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.21973628791303912,
+    "normalized_logodds_change": 0.22728800287479645,
+    "original_decision_changed": 0.27419354838709675
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline4",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.502066435786311,
+    "normalized_logodds_change": 0.43923418717385454,
+    "original_decision_changed": 0.6774193548387096
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "fusion_masked4",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.2596145369105364,
+    "normalized_logodds_change": 0.23248287758640868,
+    "original_decision_changed": 0.25806451612903225
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline2_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.4892210671941685,
+    "normalized_logodds_change": 0.43754273511776265,
+    "original_decision_changed": 0.5725806451612904
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "harmed",
+    "model": "baseline4_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.7985891121575076,
+    "absolute_probability_change": 0.502066435786311,
+    "normalized_logodds_change": 0.43923418717385454,
+    "original_decision_changed": 0.6774193548387096
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.26770588140560625,
+    "normalized_logodds_change": 0.3836294392235728,
+    "original_decision_changed": 0.2598870056497175
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "teacher2",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.1865397921350074,
+    "normalized_logodds_change": 0.24439992300331626,
+    "original_decision_changed": 0.22033898305084745
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.26111941737648087,
+    "normalized_logodds_change": 0.3785966009729206,
+    "original_decision_changed": 0.2443502824858757
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "fusion_masked4",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.2001090872192999,
+    "normalized_logodds_change": 0.2464223200482948,
+    "original_decision_changed": 0.2457627118644068
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.26770588140560625,
+    "normalized_logodds_change": 0.3836294392235728,
+    "original_decision_changed": 0.2598870056497175
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.8220325430921464,
+    "absolute_probability_change": 0.26111941737648087,
+    "normalized_logodds_change": 0.3785966009729206,
+    "original_decision_changed": 0.2443502824858757
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.25715185299740423,
+    "normalized_logodds_change": 0.5457331054938908,
+    "original_decision_changed": 0.25697211155378485
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "teacher2",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.13842719536081893,
+    "normalized_logodds_change": 0.3069916465337343,
+    "original_decision_changed": 0.1294820717131474
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.2545993377413046,
+    "normalized_logodds_change": 0.53883591578782,
+    "original_decision_changed": 0.25697211155378485
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "fusion_masked4",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.18703619148599956,
+    "normalized_logodds_change": 0.3858382814330411,
+    "original_decision_changed": 0.2151394422310757
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.25715185299740423,
+    "normalized_logodds_change": 0.5457331054938908,
+    "original_decision_changed": 0.25697211155378485
+  },
+  {
+    "mode": "global_nonCys_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.7916707877293316,
+    "absolute_probability_change": 0.2545993377413046,
+    "normalized_logodds_change": 0.53883591578782,
+    "original_decision_changed": 0.25697211155378485
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "baseline2",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.3152848096250167,
+    "normalized_logodds_change": 0.4371980723281062,
+    "original_decision_changed": 0.33958333333333335
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "teacher2",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.0999909945831872,
+    "normalized_logodds_change": 0.17495208845493332,
+    "original_decision_changed": 0.08645833333333333
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "baseline4",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.3120558726507541,
+    "normalized_logodds_change": 0.4261500259725434,
+    "original_decision_changed": 0.346875
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "fusion_masked4",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.18645218438855374,
+    "normalized_logodds_change": 0.24754172943685687,
+    "original_decision_changed": 0.21354166666666666
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "baseline2_clamped",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.3160151384360251,
+    "normalized_logodds_change": 0.43864385853867566,
+    "original_decision_changed": 0.33958333333333335
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "all",
+    "model": "baseline4_clamped",
+    "n": 480,
+    "mean_changed_fraction": 0.5471023178002241,
+    "absolute_probability_change": 0.31276084806281507,
+    "normalized_logodds_change": 0.4271246358071797,
+    "original_decision_changed": 0.3458333333333333
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "baseline2",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.47612686497994067,
+    "normalized_logodds_change": 0.4650561515662664,
+    "original_decision_changed": 0.576271186440678
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "teacher2",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.06450537417992865,
+    "normalized_logodds_change": 0.15644939808624633,
+    "original_decision_changed": 0.025423728813559324
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "baseline4",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.48486000684373065,
+    "normalized_logodds_change": 0.4459514809159515,
+    "original_decision_changed": 0.635593220338983
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "fusion_masked4",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.2385527796278067,
+    "normalized_logodds_change": 0.2595017262854764,
+    "original_decision_changed": 0.211864406779661
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "baseline2_clamped",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.48001942295225625,
+    "normalized_logodds_change": 0.47028962080823383,
+    "original_decision_changed": 0.576271186440678
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "corrected",
+    "model": "baseline4_clamped",
+    "n": 59,
+    "mean_changed_fraction": 0.5544421951942181,
+    "absolute_probability_change": 0.4881399325457187,
+    "normalized_logodds_change": 0.4496898190632514,
+    "original_decision_changed": 0.6440677966101694
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "baseline2",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.47054503405094555,
+    "normalized_logodds_change": 0.4336756099065789,
+    "original_decision_changed": 0.5543478260869565
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "teacher2",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.12978277871467933,
+    "normalized_logodds_change": 0.1850778921437404,
+    "original_decision_changed": 0.13043478260869565
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "baseline4",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.46828740565388455,
+    "normalized_logodds_change": 0.4104192483460256,
+    "original_decision_changed": 0.6739130434782609
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "fusion_masked4",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.2612825802275837,
+    "normalized_logodds_change": 0.22348765901986364,
+    "original_decision_changed": 0.1956521739130435
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "baseline2_clamped",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.4708956881566066,
+    "normalized_logodds_change": 0.43269004035079567,
+    "original_decision_changed": 0.5434782608695652
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "harmed",
+    "model": "baseline4_clamped",
+    "n": 46,
+    "mean_changed_fraction": 0.5283726941012642,
+    "absolute_probability_change": 0.4695436138282102,
+    "normalized_logodds_change": 0.4090232440740221,
+    "original_decision_changed": 0.6630434782608695
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "baseline2",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.27026154023303045,
+    "normalized_logodds_change": 0.35732358628308064,
+    "original_decision_changed": 0.26635514018691586
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "teacher2",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.1174085285839874,
+    "normalized_logodds_change": 0.13514588452144227,
+    "original_decision_changed": 0.11448598130841121
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "baseline4",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.26543390421863433,
+    "normalized_logodds_change": 0.34708755479568115,
+    "original_decision_changed": 0.2570093457943925
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "fusion_masked4",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.1692393872483796,
+    "normalized_logodds_change": 0.18308626563676708,
+    "original_decision_changed": 0.22429906542056074
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "baseline2_clamped",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.27102271544179507,
+    "normalized_logodds_change": 0.3586739155637926,
+    "original_decision_changed": 0.26869158878504673
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_wrong",
+    "model": "baseline4_clamped",
+    "n": 214,
+    "mean_changed_fraction": 0.5275883623670892,
+    "absolute_probability_change": 0.2660593050789629,
+    "normalized_logodds_change": 0.3479508455804563,
+    "original_decision_changed": 0.2546728971962617
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "baseline2",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.27182721993776077,
+    "normalized_logodds_change": 0.5341642003403688,
+    "original_decision_changed": 0.2888198757763975
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "teacher2",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.08133184711469266,
+    "normalized_logodds_change": 0.23174960027999225,
+    "original_decision_changed": 0.059006211180124224
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "baseline4",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.26606212612245594,
+    "normalized_logodds_change": 0.528477347469483,
+    "original_decision_changed": 0.2670807453416149
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "fusion_masked4",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.16885842824126146,
+    "normalized_logodds_change": 0.3357051870662504,
+    "original_decision_changed": 0.20496894409937888
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "baseline2_clamped",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.27146619711404263,
+    "normalized_logodds_change": 0.5350435073545982,
+    "original_decision_changed": 0.2888198757763975
+  },
+  {
+    "mode": "Cys_relocation",
+    "role": "persistent_correct",
+    "model": "baseline4_clamped",
+    "n": 161,
+    "mean_changed_fraction": 0.5757016742387174,
+    "absolute_probability_change": 0.2657717610370069,
+    "normalized_logodds_change": 0.5292644452241724,
+    "original_decision_changed": 0.2670807453416149
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "baseline2",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.34209240185776,
+    "normalized_logodds_change": 0.5026481831100448,
+    "original_decision_changed": 0.3623853211009174
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "teacher2",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.1798968338932241,
+    "normalized_logodds_change": 0.282113259239405,
+    "original_decision_changed": 0.18610747051114024
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "baseline4",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.33734753461056566,
+    "normalized_logodds_change": 0.49751423250007365,
+    "original_decision_changed": 0.36435124508519
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "fusion_masked4",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.2292664000668417,
+    "normalized_logodds_change": 0.3241333998855086,
+    "original_decision_changed": 0.2581913499344692
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "baseline2_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.3412588100414284,
+    "normalized_logodds_change": 0.5032007037424077,
+    "original_decision_changed": 0.3610747051114024
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "all",
+    "model": "baseline4_clamped",
+    "n": 763,
+    "mean_changed_fraction": 0.885696212679701,
+    "absolute_probability_change": 0.3363193081028149,
+    "normalized_logodds_change": 0.4978847408814032,
+    "original_decision_changed": 0.3623853211009174
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "baseline2",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.5441198158026093,
+    "normalized_logodds_change": 0.5130770787421862,
+    "original_decision_changed": 0.6510416666666666
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "teacher2",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.16623414750856577,
+    "normalized_logodds_change": 0.2698322814793029,
+    "original_decision_changed": 0.14583333333333334
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "baseline4",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.537399441220075,
+    "normalized_logodds_change": 0.5052594323363121,
+    "original_decision_changed": 0.6822916666666666
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "fusion_masked4",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.28745757544500444,
+    "normalized_logodds_change": 0.31791136042459667,
+    "original_decision_changed": 0.23958333333333334
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "baseline2_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.5420463397149574,
+    "normalized_logodds_change": 0.5114646546992397,
+    "original_decision_changed": 0.6458333333333334
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "corrected",
+    "model": "baseline4_clamped",
+    "n": 96,
+    "mean_changed_fraction": 0.8930159249578292,
+    "absolute_probability_change": 0.5352633625793217,
+    "normalized_logodds_change": 0.5033251609538135,
+    "original_decision_changed": 0.6822916666666666
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "baseline2",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.4579844704747296,
+    "normalized_logodds_change": 0.46713298432927997,
+    "original_decision_changed": 0.5483870967741935
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "teacher2",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.21700108581251085,
+    "normalized_logodds_change": 0.26305816141342087,
+    "original_decision_changed": 0.25
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "baseline4",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.4599302537906701,
+    "normalized_logodds_change": 0.4624283085358181,
+    "original_decision_changed": 0.6209677419354839
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "fusion_masked4",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.2850395562675305,
+    "normalized_logodds_change": 0.26536823798729264,
+    "original_decision_changed": 0.3225806451612903
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "baseline2_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.4561545047469346,
+    "normalized_logodds_change": 0.46791392503366436,
+    "original_decision_changed": 0.5403225806451613
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "harmed",
+    "model": "baseline4_clamped",
+    "n": 62,
+    "mean_changed_fraction": 0.8867928031664,
+    "absolute_probability_change": 0.4597597615601704,
+    "normalized_logodds_change": 0.4640061306193635,
+    "original_decision_changed": 0.6129032258064516
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.285923801808271,
+    "normalized_logodds_change": 0.42034370484891614,
+    "original_decision_changed": 0.2782485875706215
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "teacher2",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.18805433345150366,
+    "normalized_logodds_change": 0.24288020733562168,
+    "original_decision_changed": 0.21045197740112995
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.2785833883556106,
+    "normalized_logodds_change": 0.41422357609253435,
+    "original_decision_changed": 0.269774011299435
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "fusion_masked4",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.20623622103021017,
+    "normalized_logodds_change": 0.2583551493861192,
+    "original_decision_changed": 0.24717514124293785
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline2_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.2863075969086298,
+    "normalized_logodds_change": 0.4215803347165512,
+    "original_decision_changed": 0.2782485875706215
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_wrong",
+    "model": "baseline4_clamped",
+    "n": 354,
+    "mean_changed_fraction": 0.8871147433492204,
+    "absolute_probability_change": 0.278513484937916,
+    "normalized_logodds_change": 0.4151047809052768,
+    "original_decision_changed": 0.2725988700564972
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.31541409279226795,
+    "normalized_logodds_change": 0.6235109466485362,
+    "original_decision_changed": 0.3247011952191235
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "teacher2",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.16445221010956063,
+    "normalized_logodds_change": 0.34684987399685574,
+    "original_decision_changed": 0.15139442231075698
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.31343277823835336,
+    "normalized_logodds_change": 0.6206882582760651,
+    "original_decision_changed": 0.31274900398406374
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "fusion_masked4",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.22571418834660759,
+    "normalized_logodds_change": 0.43379976045411717,
+    "original_decision_changed": 0.2649402390438247
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline2_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.31358388386059377,
+    "normalized_logodds_change": 0.6238702321218471,
+    "original_decision_changed": 0.3247011952191235
+  },
+  {
+    "mode": "global_all_shuffle",
+    "role": "persistent_correct",
+    "model": "baseline4_clamped",
+    "n": 251,
+    "mean_changed_fraction": 0.8806251336124283,
+    "absolute_probability_change": 0.3112648222712352,
+    "normalized_logodds_change": 0.6209217900481115,
+    "original_decision_changed": 0.3047808764940239
+  }
+]

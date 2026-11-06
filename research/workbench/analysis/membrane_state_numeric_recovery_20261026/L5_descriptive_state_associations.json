@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "feature": "abs_theta222_TFE_scaled",
+      "pearson_r2": 0.7467159491826413
+    },
+    {
+      "feature": "abs_theta222_SDS_scaled",
+      "pearson_r2": 0.3474940427176545
+    },
+    {
+      "feature": "abs_theta222_DPC_scaled",
+      "pearson_r2": 0.59278357911569
+    },
+    {
+      "feature": "abs_theta222_TFE_minus_SDS",
+      "pearson_r2": 4.179927405483602e-05
+    }
+  ],
+  "scope": "post-recovery11peptide within-study descriptive correlations, no out-of-sample prediction, no hypothesis significance or mechanism causality"
+}

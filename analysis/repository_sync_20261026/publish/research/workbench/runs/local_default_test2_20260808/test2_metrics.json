@@ -1,0 +1,53 @@
+{
+  "model": "GHXTox-Multidimensional-Fusion",
+  "n": 582,
+  "weight_1d": 0.72,
+  "threshold": 0.47022256531284556,
+  "checkpoint_seeds": [
+    42,
+    123,
+    2025
+  ],
+  "oof_seeds": [
+    42,
+    123,
+    2025
+  ],
+  "checkpoints": [
+    "runs/lora_mamba_full/full_seed42.pt",
+    "runs/lora_mamba_full/full_seed123.pt",
+    "runs/lora_mamba_full/full_seed2025.pt"
+  ],
+  "oof_jsons": [
+    "runs/lora_mamba_full/oof_seed42.json",
+    "runs/lora_mamba_full/oof_seed123.json",
+    "runs/lora_mamba_full/oof_seed2025.json"
+  ],
+  "structure_checkpoint": "runs/3d_v2_conformer_ensemble_candidate/best_model.pt",
+  "conformer_extension": {
+    "enabled": true,
+    "processed": "data\\processed\\test2_chemical_sites_final_esm2.pt",
+    "output": "runs\\local_default_test2_20260808\\test2_chemical_sites_multiconformer.pt",
+    "total_records": 582,
+    "covered_records": 284,
+    "coverage_fraction": 0.4879725085910653,
+    "matching_policy": "unique_sequence",
+    "unused_manifest_records": 202,
+    "pilot_output": null,
+    "pilot_fold_manifest": null,
+    "available_records": 284,
+    "mean_absolute_logit_delta_available": 0.20904654264450073
+  },
+  "metrics": {
+    "accuracy": 0.9467353951890034,
+    "balanced_accuracy": 0.8617780661907852,
+    "precision": 0.6363636363636364,
+    "sensitivity": 0.7608695652173914,
+    "specificity": 0.9626865671641791,
+    "f1": 0.693069306930693,
+    "mcc": 0.6673395851029228,
+    "auroc": 0.9435025957170667,
+    "auprc": 0.804978521457559,
+    "brier": 0.04380640785549117
+  }
+}
