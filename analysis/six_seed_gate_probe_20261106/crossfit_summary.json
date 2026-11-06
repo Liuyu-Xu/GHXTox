@@ -1,0 +1,585 @@
+{
+  "protocol": "CROSSFIT_PROTOCOL.md",
+  "seed": 20261106,
+  "n_outer": 6387,
+  "folds": [
+    {
+      "fold": 0,
+      "calibration_n": 639,
+      "calibration_crossfit_group_a": 329,
+      "calibration_crossfit_group_b": 310,
+      "disagreement_train_n": 42,
+      "train_target_counts": {
+        "0": 24,
+        "1": 18
+      },
+      "train_target_unique_groups": {
+        "0": 24,
+        "1": 15
+      },
+      "fit_allowed": true,
+      "outer_n": 1271,
+      "outer_disagreement_n": 65,
+      "outer_3d_correct": 16,
+      "outer_1d_correct": 49,
+      "calibration_full": {
+        "1d": [
+          0.60350303379735,
+          -0.27295631424643263
+        ],
+        "3d": [
+          0.28190014537060043,
+          -0.046659791779777526
+        ]
+      },
+      "methods": {
+        "margin": {
+          "auc": 0.8048469387755102,
+          "n": 65,
+          "corrects": 14,
+          "harms": 15,
+          "net": -1
+        },
+        "probability": {
+          "auc": 0.6594387755102041,
+          "n": 65,
+          "corrects": 5,
+          "harms": 12,
+          "net": -7
+        },
+        "probability_cys_length": {
+          "auc": 0.6313775510204082,
+          "n": 65,
+          "corrects": 3,
+          "harms": 13,
+          "net": -10
+        }
+      },
+      "selected_fixed_3d_weight": 0.2
+    },
+    {
+      "fold": 1,
+      "calibration_n": 638,
+      "calibration_crossfit_group_a": 319,
+      "calibration_crossfit_group_b": 319,
+      "disagreement_train_n": 40,
+      "train_target_counts": {
+        "0": 29,
+        "1": 11
+      },
+      "train_target_unique_groups": {
+        "0": 29,
+        "1": 11
+      },
+      "fit_allowed": true,
+      "outer_n": 1229,
+      "outer_disagreement_n": 82,
+      "outer_3d_correct": 21,
+      "outer_1d_correct": 61,
+      "calibration_full": {
+        "1d": [
+          0.5950801326038828,
+          -0.5373451902200015
+        ],
+        "3d": [
+          0.2800806478302097,
+          0.04667078689607394
+        ]
+      },
+      "methods": {
+        "margin": {
+          "auc": 0.8485558157689306,
+          "n": 82,
+          "corrects": 17,
+          "harms": 12,
+          "net": 5
+        },
+        "probability": {
+          "auc": 0.7798594847775175,
+          "n": 82,
+          "corrects": 0,
+          "harms": 0,
+          "net": 0
+        },
+        "probability_cys_length": {
+          "auc": 0.8165495706479313,
+          "n": 82,
+          "corrects": 1,
+          "harms": 0,
+          "net": 1
+        }
+      },
+      "selected_fixed_3d_weight": 0.28
+    },
+    {
+      "fold": 2,
+      "calibration_n": 623,
+      "calibration_crossfit_group_a": 323,
+      "calibration_crossfit_group_b": 300,
+      "disagreement_train_n": 41,
+      "train_target_counts": {
+        "0": 28,
+        "1": 13
+      },
+      "train_target_unique_groups": {
+        "0": 25,
+        "1": 12
+      },
+      "fit_allowed": true,
+      "outer_n": 1273,
+      "outer_disagreement_n": 63,
+      "outer_3d_correct": 24,
+      "outer_1d_correct": 39,
+      "calibration_full": {
+        "1d": [
+          0.6393673681953836,
+          -0.5362963922371902
+        ],
+        "3d": [
+          0.4561840160406434,
+          -0.512498193188545
+        ]
+      },
+      "methods": {
+        "margin": {
+          "auc": 0.7211538461538461,
+          "n": 63,
+          "corrects": 15,
+          "harms": 14,
+          "net": 1
+        },
+        "probability": {
+          "auc": 0.6121794871794872,
+          "n": 63,
+          "corrects": 0,
+          "harms": 0,
+          "net": 0
+        },
+        "probability_cys_length": {
+          "auc": 0.6773504273504274,
+          "n": 63,
+          "corrects": 0,
+          "harms": 0,
+          "net": 0
+        }
+      },
+      "selected_fixed_3d_weight": 0.28
+    },
+    {
+      "fold": 3,
+      "calibration_n": 626,
+      "calibration_crossfit_group_a": 309,
+      "calibration_crossfit_group_b": 317,
+      "disagreement_train_n": 27,
+      "train_target_counts": {
+        "0": 19,
+        "1": 8
+      },
+      "train_target_unique_groups": {
+        "0": 19,
+        "1": 8
+      },
+      "fit_allowed": false,
+      "outer_n": 1291,
+      "outer_disagreement_n": 51,
+      "outer_3d_correct": 16,
+      "outer_1d_correct": 35,
+      "calibration_full": {
+        "1d": [
+          0.7992702599667658,
+          -0.21565248955256888
+        ],
+        "3d": [
+          0.5969483380891699,
+          -0.380960296856971
+        ]
+      },
+      "methods": {
+        "margin": {
+          "auc": 0.6839285714285714,
+          "n": 51,
+          "corrects": 12,
+          "harms": 14,
+          "net": -2
+        }
+      },
+      "selected_fixed_3d_weight": 0.28
+    },
+    {
+      "fold": 4,
+      "calibration_n": 635,
+      "calibration_crossfit_group_a": 313,
+      "calibration_crossfit_group_b": 322,
+      "disagreement_train_n": 42,
+      "train_target_counts": {
+        "0": 25,
+        "1": 17
+      },
+      "train_target_unique_groups": {
+        "0": 25,
+        "1": 16
+      },
+      "fit_allowed": true,
+      "outer_n": 1323,
+      "outer_disagreement_n": 58,
+      "outer_3d_correct": 16,
+      "outer_1d_correct": 42,
+      "calibration_full": {
+        "1d": [
+          0.5513565533768287,
+          -0.7177564329361681
+        ],
+        "3d": [
+          0.5294040885367549,
+          -0.9743967287668313
+        ]
+      },
+      "methods": {
+        "margin": {
+          "auc": 0.6711309523809524,
+          "n": 58,
+          "corrects": 12,
+          "harms": 21,
+          "net": -9
+        },
+        "probability": {
+          "auc": 0.49851190476190477,
+          "n": 58,
+          "corrects": 0,
+          "harms": 0,
+          "net": 0
+        },
+        "probability_cys_length": {
+          "auc": 0.6235119047619048,
+          "n": 58,
+          "corrects": 4,
+          "harms": 2,
+          "net": 2
+        }
+      },
+      "selected_fixed_3d_weight": 0.1
+    }
+  ],
+  "methods": {
+    "sequence": {
+      "mcc": 0.8560086799504347,
+      "auroc": 0.9720167792660203,
+      "auprc": 0.9497854368754624,
+      "sensitivity": 0.8707370737073707,
+      "specificity": 0.9704530531845043,
+      "errors": 370,
+      "corrects_vs_sequence": 0,
+      "harms_vs_sequence": 0,
+      "mcc_delta_vs_sequence_ci95": [
+        0.0,
+        0.0
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 22,
+          "corrects": 0,
+          "harms": 0
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 127,
+          "corrects": 0,
+          "harms": 0
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 10,
+          "corrects": 0,
+          "harms": 0
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 1,
+          "corrects": 0,
+          "harms": 0
+        }
+      }
+    },
+    "fixed_028": {
+      "mcc": 0.8596058425740709,
+      "auroc": 0.9740455660799172,
+      "auprc": 0.9525800595174776,
+      "sensitivity": 0.8751375137513752,
+      "specificity": 0.9706719194572117,
+      "errors": 361,
+      "corrects_vs_sequence": 44,
+      "harms_vs_sequence": 35,
+      "mcc_delta_vs_sequence_ci95": [
+        -0.003408773591580705,
+        0.010631188116680467
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 14,
+          "corrects": 9,
+          "harms": 1
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 128,
+          "corrects": 3,
+          "harms": 4
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 11,
+          "corrects": 0,
+          "harms": 1
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 1,
+          "corrects": 1,
+          "harms": 1
+        }
+      }
+    },
+    "selected_fixed": {
+      "mcc": 0.8615485969298574,
+      "auroc": 0.9740883039934547,
+      "auprc": 0.9528329679229334,
+      "sensitivity": 0.8762376237623762,
+      "specificity": 0.9713285182753337,
+      "errors": 356,
+      "corrects_vs_sequence": 36,
+      "harms_vs_sequence": 22,
+      "mcc_delta_vs_sequence_ci95": [
+        -0.0002825665150941514,
+        0.011525108092491769
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 13,
+          "corrects": 9,
+          "harms": 0
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 126,
+          "corrects": 3,
+          "harms": 2
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 11,
+          "corrects": 0,
+          "harms": 1
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 0,
+          "corrects": 1,
+          "harms": 0
+        }
+      }
+    },
+    "margin": {
+      "mcc": 0.8538890780520926,
+      "auroc": 0.9696507241006439,
+      "auprc": 0.9453840042834102,
+      "sensitivity": 0.8740374037403741,
+      "specificity": 0.9678266579120157,
+      "errors": 376,
+      "corrects_vs_sequence": 70,
+      "harms_vs_sequence": 76,
+      "mcc_delta_vs_sequence_ci95": [
+        -0.01129757233417846,
+        0.007633424394807107
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 16,
+          "corrects": 13,
+          "harms": 7
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 132,
+          "corrects": 10,
+          "harms": 15
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 11,
+          "corrects": 0,
+          "harms": 1
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 1,
+          "corrects": 1,
+          "harms": 1
+        }
+      }
+    },
+    "probability": {
+      "mcc": 0.8532585566831337,
+      "auroc": 0.9716613924469708,
+      "auprc": 0.949097525085043,
+      "sensitivity": 0.8685368536853685,
+      "specificity": 0.9697964543663822,
+      "errors": 377,
+      "corrects_vs_sequence": 5,
+      "harms_vs_sequence": 12,
+      "mcc_delta_vs_sequence_ci95": [
+        -0.005988735794272388,
+        7.34466867146962e-05
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 21,
+          "corrects": 3,
+          "harms": 2
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 130,
+          "corrects": 0,
+          "harms": 3
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 10,
+          "corrects": 0,
+          "harms": 0
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 2,
+          "corrects": 0,
+          "harms": 1
+        }
+      }
+    },
+    "probability_cys_length": {
+      "mcc": 0.8532359708155239,
+      "auroc": 0.9715411243466217,
+      "auprc": 0.9488790205529019,
+      "sensitivity": 0.8679867986798679,
+      "specificity": 0.9700153206390895,
+      "errors": 377,
+      "corrects_vs_sequence": 8,
+      "harms_vs_sequence": 15,
+      "mcc_delta_vs_sequence_ci95": [
+        -0.006681169789501756,
+        0.0007852880016022651
+      ],
+      "subgroups": {
+        "zero_label0": {
+          "n": 3006,
+          "seq_errors": 22,
+          "errors": 22,
+          "corrects": 1,
+          "harms": 1
+        },
+        "zero_label1": {
+          "n": 207,
+          "seq_errors": 127,
+          "errors": 129,
+          "corrects": 0,
+          "harms": 2
+        },
+        "seven_plus_label0": {
+          "n": 43,
+          "seq_errors": 10,
+          "errors": 10,
+          "corrects": 0,
+          "harms": 0
+        },
+        "seven_plus_label1": {
+          "n": 260,
+          "seq_errors": 1,
+          "errors": 2,
+          "corrects": 0,
+          "harms": 1
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "margin_pred": {
+      "fixed_pred": {
+        "delta_mcc": -0.005716764521978335,
+        "group_bootstrap_ci95": [
+          -0.01227527943649406,
+          0.0007466664700149585
+        ]
+      },
+      "selected_fixed_pred": {
+        "delta_mcc": -0.007659518877764837,
+        "group_bootstrap_ci95": [
+          -0.015226999009764647,
+          -0.00019551934061172126
+        ]
+      }
+    },
+    "probability_pred": {
+      "fixed_pred": {
+        "delta_mcc": -0.006347285890937249,
+        "group_bootstrap_ci95": [
+          -0.013230437981272278,
+          0.0004123649436216398
+        ]
+      },
+      "selected_fixed_pred": {
+        "delta_mcc": -0.008290040246723751,
+        "group_bootstrap_ci95": [
+          -0.014478980073470324,
+          -0.0024518665515125652
+        ]
+      }
+    },
+    "probability_cys_length_pred": {
+      "fixed_pred": {
+        "delta_mcc": -0.006369871758546974,
+        "group_bootstrap_ci95": [
+          -0.0131370603985837,
+          0.00024107489478189593
+        ]
+      },
+      "selected_fixed_pred": {
+        "delta_mcc": -0.008312626114333477,
+        "group_bootstrap_ci95": [
+          -0.015132222501952692,
+          -0.002058563114679019
+        ]
+      }
+    }
+  },
+  "notes": [
+    "post-hoc calibration cross-fitting; no Test1/Test2; neither deployed nor continuous adaptive fusion",
+    "gate ranking uses chosen branch score; it is not verified as calibrated probability",
+    "pooled fixed predictions group bootstrap ignores training, model selection and previous exploration uncertainty",
+    "old 3D upstream lineage is not certified by this exercise"
+  ]
+}

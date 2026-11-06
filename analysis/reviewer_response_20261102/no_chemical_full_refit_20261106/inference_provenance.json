@@ -1,0 +1,15 @@
+{
+  "checkpoint_sha256": "89f0f1757cb32ed3ce64fc9e28bdead13c1955e8fcf8026b3fb0dc03c9d5c4a5",
+  "epoch": 9,
+  "output": "raw sigmoid 3D, no recalibration; combine with historical 1D; retained original fixed fusion and threshold",
+  "datasets": {
+    "test1": {
+      "n": 1126,
+      "input_sha256": "89ac1c003f62732a28a573b13f7b09b19330dfc3666e42baa4b92151d33b659d"
+    },
+    "test2": {
+      "n": 582,
+      "input_sha256": "232ccfe54776b5e5c4be9240f4f8597e9c467d1a33775c1f9ed071017dd9b959"
+    }
+  }
+}

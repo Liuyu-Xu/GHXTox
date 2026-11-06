@@ -1,0 +1,157 @@
+{
+  "protocol": "PROTOCOL.md",
+  "calibration": {
+    "3": {
+      "slope": 0.5498516059174886,
+      "intercept": -0.19661824211707338
+    },
+    "6": {
+      "slope": 0.6261053000994811,
+      "intercept": -0.29059554950148314
+    }
+  },
+  "checkpoint_sha256": {
+    "42": "681d8db00b0bf83153859b82461478659084d0fac7ffc875c5429323f4491937",
+    "123": "e6e178ee99aebf34a5908984f78fabaa45203e42a441eab90974c4804515baea",
+    "2025": "293f2ccb513ba821f12e3a636b5a3859469de882515537396b6043221a97105f",
+    "314": "cd8d2cac698189d2f1e8814914819edf21fb4f70a91f50d35fb1593b6e81b772",
+    "2718": "7cdee431aef5b9acdf140f8fc32d67f15554af9d04b070e13a4aa74c70ffba3d",
+    "2026": "41b962c04e65114bc64f03e30ad58f1e4df6cddf48df8e965e4020f1f3908aeb"
+  },
+  "results": {
+    "test1": {
+      "n": 1126,
+      "metrics": {
+        "historical_fusion_cached": {
+          "MCC": 0.8706547925541638,
+          "AUROC": 0.9810794044665012,
+          "AUPRC": 0.9675271346591741,
+          "sensitivity": 0.9,
+          "specificity": 0.966501240694789,
+          "TP": 288,
+          "FN": 32,
+          "TN": 779,
+          "FP": 27
+        },
+        "six_sequence": {
+          "MCC": 0.872253284826185,
+          "AUROC": 0.9825217121588089,
+          "AUPRC": 0.967971043185695,
+          "sensitivity": 0.890625,
+          "specificity": 0.9714640198511166,
+          "TP": 285,
+          "FN": 35,
+          "TN": 783,
+          "FP": 23
+        },
+        "six_plus_3d": {
+          "MCC": 0.8777605459057072,
+          "AUROC": 0.9824131513647643,
+          "AUPRC": 0.9686279552652977,
+          "sensitivity": 0.9125,
+          "specificity": 0.9652605459057072,
+          "TP": 292,
+          "FN": 28,
+          "TN": 778,
+          "FP": 28
+        },
+        "three_fusion_recomputed": {
+          "MCC": 0.8706547925541638,
+          "AUROC": 0.9810755272952854,
+          "AUPRC": 0.9675149512959007,
+          "sensitivity": 0.9,
+          "specificity": 0.966501240694789,
+          "TP": 288,
+          "FN": 32,
+          "TN": 779,
+          "FP": 27
+        }
+      },
+      "paired": {
+        "six_sequence": {
+          "MCC_delta_vs_cached": 0.0015984922720212458,
+          "MCC_delta_ci95": [
+            -0.01844821957743842,
+            0.022774466145895976
+          ]
+        },
+        "six_plus_3d": {
+          "MCC_delta_vs_cached": 0.007105753351543398,
+          "MCC_delta_ci95": [
+            -0.008326869328605468,
+            0.022597479051557904
+          ]
+        }
+      },
+      "old_1d_max_abs_difference": 0.005040157980679361,
+      "cached_vs_recomputed_decision_changes": 0
+    },
+    "test2": {
+      "n": 582,
+      "metrics": {
+        "historical_fusion_cached": {
+          "MCC": 0.660275815020711,
+          "AUROC": 0.9431375730045425,
+          "AUPRC": 0.8056624559143638,
+          "sensitivity": 0.7608695652173914,
+          "specificity": 0.960820895522388,
+          "TP": 35,
+          "FN": 11,
+          "TN": 515,
+          "FP": 21
+        },
+        "six_sequence": {
+          "MCC": 0.6598912923355238,
+          "AUROC": 0.9484506813757301,
+          "AUPRC": 0.8005796681398502,
+          "sensitivity": 0.7391304347826086,
+          "specificity": 0.9645522388059702,
+          "TP": 34,
+          "FN": 12,
+          "TN": 517,
+          "FP": 19
+        },
+        "six_plus_3d": {
+          "MCC": 0.6533878131065503,
+          "AUROC": 0.9464633354964309,
+          "AUPRC": 0.8049166433155927,
+          "sensitivity": 0.7608695652173914,
+          "specificity": 0.9589552238805971,
+          "TP": 35,
+          "FN": 11,
+          "TN": 514,
+          "FP": 22
+        },
+        "three_fusion_recomputed": {
+          "MCC": 0.660275815020711,
+          "AUROC": 0.9431375730045425,
+          "AUPRC": 0.8056080863404473,
+          "sensitivity": 0.7608695652173914,
+          "specificity": 0.960820895522388,
+          "TP": 35,
+          "FN": 11,
+          "TN": 515,
+          "FP": 21
+        }
+      },
+      "paired": {
+        "six_sequence": {
+          "MCC_delta_vs_cached": -0.000384522685187183,
+          "MCC_delta_ci95": [
+            -0.061333926421519386,
+            0.05822959419297974
+          ]
+        },
+        "six_plus_3d": {
+          "MCC_delta_vs_cached": -0.006888001914160724,
+          "MCC_delta_ci95": [
+            -0.03793261060854756,
+            0.02242559671953284
+          ]
+        }
+      },
+      "old_1d_max_abs_difference": 0.003032465545112717,
+      "cached_vs_recomputed_decision_changes": 0
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "test1": {
+    "mcc_sixplus_minus_six": 0.005507261079522152,
+    "ci95": [
+      -0.017179859463622285,
+      0.027580983151959382
+    ],
+    "sixplus_only_correct": 15,
+    "six_only_correct": 13
+  },
+  "test2": {
+    "mcc_sixplus_minus_six": -0.006503479228973541,
+    "ci95": [
+      -0.07131305761058204,
+      0.05989531855870501
+    ],
+    "sixplus_only_correct": 5,
+    "six_only_correct": 7
+  }
+}

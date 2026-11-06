@@ -1,0 +1,84 @@
+{
+  "status": "post-hoc sensitivity; thresholds selected only within each fold calibration select half, not blinded discovery",
+  "thresholds": [
+    {
+      "fold": 0,
+      "sequence_threshold": 0.56,
+      "structure_threshold": 0.8,
+      "fit_n": 329,
+      "select_n": 310
+    },
+    {
+      "fold": 1,
+      "sequence_threshold": 0.58,
+      "structure_threshold": 0.56,
+      "fit_n": 319,
+      "select_n": 319
+    },
+    {
+      "fold": 2,
+      "sequence_threshold": 0.36,
+      "structure_threshold": 0.72,
+      "fit_n": 323,
+      "select_n": 300
+    },
+    {
+      "fold": 3,
+      "sequence_threshold": 0.74,
+      "structure_threshold": 0.58,
+      "fit_n": 309,
+      "select_n": 317
+    },
+    {
+      "fold": 4,
+      "sequence_threshold": 0.46,
+      "structure_threshold": 0.22,
+      "fit_n": 313,
+      "select_n": 322
+    }
+  ],
+  "cys": [
+    {
+      "group": "<4",
+      "label": 0,
+      "n": 4124,
+      "both_correct": 3989,
+      "sequence_only_correct": 70,
+      "structure_only_correct": 39,
+      "both_wrong": 26
+    },
+    {
+      "group": "<4",
+      "label": 1,
+      "n": 421,
+      "both_correct": 124,
+      "sequence_only_correct": 95,
+      "structure_only_correct": 35,
+      "both_wrong": 167
+    },
+    {
+      "group": ">=4",
+      "label": 0,
+      "n": 445,
+      "both_correct": 344,
+      "sequence_only_correct": 38,
+      "structure_only_correct": 9,
+      "both_wrong": 54
+    },
+    {
+      "group": ">=4",
+      "label": 1,
+      "n": 1397,
+      "both_correct": 1307,
+      "sequence_only_correct": 42,
+      "structure_only_correct": 29,
+      "both_wrong": 19
+    }
+  ],
+  "total": {
+    "both_correct": 5764,
+    "sequence_only_correct": 245,
+    "structure_only_correct": 112,
+    "both_wrong": 266
+  }
+}

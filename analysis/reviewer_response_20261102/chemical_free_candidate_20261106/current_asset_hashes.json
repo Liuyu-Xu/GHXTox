@@ -1,0 +1,34 @@
+[
+  {
+    "path": "runs/default_no_chemical_20261106/best_model.pt",
+    "sha256": "b21e1d3fa0fff04adcd6141bf9ea4151abee9381af0655874112123c6c3749c7"
+  },
+  {
+    "path": "configs/default_multidimensional_fusion.json",
+    "sha256": "57dcdad91a5bb84f186cf23852429fdf09ed3a66443ac6cbf85ec059331c8b7b"
+  },
+  {
+    "path": "src/ghxtox/multidimensional_default.py",
+    "sha256": "8f1c935e816ce1bac7b9f4ab2cd841dee750d456198f9125f0fd8e71220d32a1"
+  },
+  {
+    "path": "src/ghxtox/models/dual_modal.py",
+    "sha256": "c80998eb11398f0eb7e0ea6a334e7b73463a7bb3a7b83b58fad764ed17cd79c5"
+  },
+  {
+    "path": "src/ghxtox/web_canonical_runner.py",
+    "sha256": "e5fd6ceb47a762f00c2a7a8a778f52b96d4385bc13f553657d9bf9ca921d0583"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed42.pt",
+    "sha256": "681d8db00b0bf83153859b82461478659084d0fac7ffc875c5429323f4491937"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed123.pt",
+    "sha256": "e6e178ee99aebf34a5908984f78fabaa45203e42a441eab90974c4804515baea"
+  },
+  {
+    "path": "runs/lora_mamba_full/full_seed2025.pt",
+    "sha256": "293f2ccb513ba821f12e3a636b5a3859469de882515537396b6043221a97105f"
+  }
+]

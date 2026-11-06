@@ -1,0 +1,440 @@
+{
+  "method": "fixed 0.72/0.28; fixed original threshold; 3D monotonic Platt on each nested calibration split; historical three-seed 1D calibrated globally over OOF, not strictly nested; fixed-model group bootstrap 2000",
+  "results": {
+    "A_base": {
+      "MCC": 0.868876155788366,
+      "AUROC": 0.9772446493938078,
+      "AUPRC": 0.9555308914870323,
+      "errors": 338
+    },
+    "A_site": {
+      "MCC": 0.8684235709365805,
+      "AUROC": 0.9773165213216441,
+      "AUPRC": 0.9555211004167093,
+      "errors": 339
+    },
+    "B_base": {
+      "MCC": 0.8641279301020812,
+      "AUROC": 0.9773943524796778,
+      "AUPRC": 0.9542174895782596,
+      "errors": 350
+    },
+    "B_site": {
+      "MCC": 0.8645837548312714,
+      "AUROC": 0.9774289641702186,
+      "AUPRC": 0.9541719082020597,
+      "errors": 349
+    },
+    "C_base": {
+      "MCC": 0.8676201167814677,
+      "AUROC": 0.9754148647519599,
+      "AUPRC": 0.9528994713347558,
+      "errors": 341
+    },
+    "C_site": {
+      "MCC": 0.8668662823177565,
+      "AUROC": 0.9754455638166136,
+      "AUPRC": 0.9528937477067541,
+      "errors": 343
+    },
+    "D_base": {
+      "MCC": 0.8679974391580237,
+      "AUROC": 0.9764097552237168,
+      "AUPRC": 0.953791360133658,
+      "errors": 340
+    },
+    "D_site": {
+      "MCC": 0.8684235709365805,
+      "AUROC": 0.9765079922306085,
+      "AUPRC": 0.9538874224333381,
+      "errors": 339
+    }
+  },
+  "site_vs_A_site": {
+    "B": {
+      "delta_MCC": -0.003839816105309146,
+      "MCC_CI95": [
+        -0.008965685763224433,
+        0.001213582647554459
+      ],
+      "delta_AUPRC": -0.001349192214649686,
+      "AUPRC_CI95": [
+        -0.004314798617453344,
+        0.0010396382567843133
+      ],
+      "corrected": 17,
+      "harmed": 27
+    },
+    "C": {
+      "delta_MCC": -0.001557288618823982,
+      "MCC_CI95": [
+        -0.007881772208903532,
+        0.004801856103271493
+      ],
+      "delta_AUPRC": -0.0026273527099552885,
+      "AUPRC_CI95": [
+        -0.005418408665900873,
+        -8.817724162243391e-05
+      ],
+      "corrected": 28,
+      "harmed": 32
+    },
+    "D": {
+      "delta_MCC": 0.0,
+      "MCC_CI95": [
+        -0.006019531167895742,
+        0.006649918136519711
+      ],
+      "delta_AUPRC": -0.0016336779833712178,
+      "AUPRC_CI95": [
+        -0.0036779438525140875,
+        0.00030672648684497666
+      ],
+      "corrected": 31,
+      "harmed": 31
+    }
+  },
+  "site_vs_backbone": {
+    "A": {
+      "delta_MCC": -0.0004525848517854536,
+      "MCC_CI95": [
+        -0.0025145295844452324,
+        0.001510889459855011
+      ],
+      "delta_AUPRC": -9.791070322950901e-06,
+      "AUPRC_CI95": [
+        -0.0008859967125064816,
+        0.0008622131010323383
+      ],
+      "corrected": 3,
+      "harmed": 4
+    },
+    "B": {
+      "delta_MCC": 0.00045582472919014627,
+      "MCC_CI95": [
+        -0.001482976240148079,
+        0.002465175945657341
+      ],
+      "delta_AUPRC": -4.558137619992131e-05,
+      "AUPRC_CI95": [
+        -0.00040408461281642437,
+        0.0003189883704427102
+      ],
+      "corrected": 4,
+      "harmed": 3
+    },
+    "C": {
+      "delta_MCC": -0.0007538344637111338,
+      "MCC_CI95": [
+        -0.001908853523193052,
+        0.0
+      ],
+      "delta_AUPRC": -5.723628001774728e-06,
+      "AUPRC_CI95": [
+        -0.00012576139334343205,
+        0.00011887491424706622
+      ],
+      "corrected": 0,
+      "harmed": 2
+    },
+    "D": {
+      "delta_MCC": 0.00042613177855677087,
+      "MCC_CI95": [
+        -0.0015520563926277931,
+        0.0024237252741754196
+      ],
+      "delta_AUPRC": 9.606229968017743e-05,
+      "AUPRC_CI95": [
+        -0.0003241891234229938,
+        0.0005545612929645612
+      ],
+      "corrected": 4,
+      "harmed": 3
+    }
+  },
+  "C_fold4": {
+    "A": {
+      "MCC": 0.8605569047742126,
+      "AUROC": 0.9746399604574356,
+      "AUPRC": 0.9480199064497736,
+      "errors": 75
+    },
+    "B": {
+      "MCC": 0.8588094542676762,
+      "AUROC": 0.9736626300298816,
+      "AUPRC": 0.9448086217627992,
+      "errors": 76
+    },
+    "C": {
+      "MCC": 0.8583790219756167,
+      "AUROC": 0.9696690556966007,
+      "AUPRC": 0.9410909617222842,
+      "errors": 76
+    },
+    "D": {
+      "MCC": 0.8623101561554617,
+      "AUROC": 0.9743394594351705,
+      "AUPRC": 0.9470871667873265,
+      "errors": 74
+    }
+  },
+  "3D_calibration": {
+    "A_base": [
+      {
+        "method": "platt",
+        "scale": 0.28190014528366303,
+        "bias": -0.04665990596176232,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.2800806470445515,
+        "bias": 0.046670773657312224,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.45618403541499813,
+        "bias": -0.5124982016013925,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.5969483391529012,
+        "bias": -0.38096040250591784,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.529404097116684,
+        "bias": -0.974396739074667,
+        "monotonic": true
+      }
+    ],
+    "A_site": [
+      {
+        "method": "platt",
+        "scale": 0.27674866247995106,
+        "bias": -0.1905914504821709,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.2812871211880396,
+        "bias": -0.08670260668349432,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.4378970989491398,
+        "bias": -0.5498849424051787,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.6390033451900416,
+        "bias": -0.35401365567444015,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.529404097116684,
+        "bias": -0.974396739074667,
+        "monotonic": true
+      }
+    ],
+    "B_base": [
+      {
+        "method": "platt",
+        "scale": 0.2858867214201798,
+        "bias": 0.015961062368303087,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.6038290298402428,
+        "bias": -0.33652533902273135,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.7743210587278634,
+        "bias": -0.3617442001856078,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.29341859896448313,
+        "bias": 0.5321963484982281,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.4525051253068405,
+        "bias": -0.6730123108014067,
+        "monotonic": true
+      }
+    ],
+    "B_site": [
+      {
+        "method": "platt",
+        "scale": 0.2845918075746161,
+        "bias": -0.0591473996462942,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.5349735597231152,
+        "bias": -0.19055506593681046,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.7305967478290141,
+        "bias": -0.6285793917742646,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.28442996307814983,
+        "bias": 0.127852336085584,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.4617309938686043,
+        "bias": -0.7652926863059807,
+        "monotonic": true
+      }
+    ],
+    "C_base": [
+      {
+        "method": "platt",
+        "scale": 0.31661457237907503,
+        "bias": -0.28424793061780196,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.35080404243334057,
+        "bias": -0.1670000673366107,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.7475817762885482,
+        "bias": -0.4362078994719178,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.8869855841114602,
+        "bias": -0.8474597584713323,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.9054477755165187,
+        "bias": -1.1097122333200997,
+        "monotonic": true
+      }
+    ],
+    "C_site": [
+      {
+        "method": "platt",
+        "scale": 0.31661457237907503,
+        "bias": -0.28424793061780196,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.35080404243334057,
+        "bias": -0.1670000673366107,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.7475817762885482,
+        "bias": -0.4362078994719178,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.8869855841114602,
+        "bias": -0.8474597584713323,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.8655820032411059,
+        "bias": -1.0100718474988974,
+        "monotonic": true
+      }
+    ],
+    "D_base": [
+      {
+        "method": "platt",
+        "scale": 0.5509480495571961,
+        "bias": -0.16512339996461364,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.25241926653337565,
+        "bias": -0.2836911810346505,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.791552720816918,
+        "bias": -0.40279406416831015,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.8614755517313832,
+        "bias": -1.1490278349281235,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.26558703095814185,
+        "bias": 0.13156672294219618,
+        "monotonic": true
+      }
+    ],
+    "D_site": [
+      {
+        "method": "platt",
+        "scale": 0.5147281142187745,
+        "bias": -0.16336519413844017,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.2821288367542352,
+        "bias": -0.7503586109568499,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.791552720816918,
+        "bias": -0.40279406416831015,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.8614755517313832,
+        "bias": -1.1490278349281235,
+        "monotonic": true
+      },
+      {
+        "method": "platt",
+        "scale": 0.2564980601623728,
+        "bias": -0.04374126600141695,
+        "monotonic": true
+      }
+    ]
+  },
+  "warning": "Exploratory; 1D global calibration has seen labels of all OOF samples; 1D was trained on a different non-nested split; common calibration and threshold historically selected; not strict end-to-end nested OOF. A fold4 post-hoc fallback; seed uncertainty absent."
+}

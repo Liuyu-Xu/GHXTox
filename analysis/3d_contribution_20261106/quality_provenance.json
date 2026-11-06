@@ -1,0 +1,23 @@
+{
+  "training_oof": {
+    "path": "D:\\dachuang2026\\GHXTox-ziliao\\train_chemical_sites_final_esm2_multisource_1_30_full2795.pt",
+    "sha256": "f8a6ddf7dd81198142ad8c30a0f7926de1967618b01720bd90cb483a45dfdb5b",
+    "n": 6387,
+    "identity_checks": "sample_id, sequence, original label",
+    "cache_hash_matches_prediction_run": true
+  },
+  "test1": {
+    "path": "D:\\dachuang2026\\GHXTox-ziliao\\test1_chemical_sites_final_esm2.pt",
+    "sha256": "89ac1c003f62732a28a573b13f7b09b19330dfc3666e42baa4b92151d33b659d",
+    "n": 1126,
+    "identity_checks": "sample_id, sequence, original label",
+    "cache_hash_matches_prediction_run": true
+  },
+  "test2": {
+    "path": "D:\\dachuang2026\\GHXTox-ziliao\\test2_chemical_sites_final_esm2.pt",
+    "sha256": "232ccfe54776b5e5c4be9240f4f8597e9c467d1a33775c1f9ed071017dd9b959",
+    "n": 582,
+    "identity_checks": "sample_id, sequence, original label",
+    "cache_hash_matches_prediction_run": true
+  }
+}

@@ -1,5 +1,13 @@
 # GHXTox
 
+## 最新研究进展（2026-11-06）
+
+本节优先于下方历史交接记录。原有三个种子和新增三个种子的全量训练及五折预测已完成，无需重训旧种子。六种子一维与三维按历史比例 0.72/0.28 融合：训练 OOF MCC 0.85580→0.85937，Test1 0.87225→0.87776，Test2 0.65989→0.65339；差异不支持稳定收益的结论。Test2 是 Test1 子集，测试集曾用于开发。
+
+在训练 OOF 上，加入三维纠错43条、添错34条；Cys=0 的原有毒组纠错5条、添错6条，Cys≥7的原无毒组仅43条。长度21–35的原有毒组纠错18条、添错8条，同长度原无毒组纠错3条、添错9条；结构置信度分层亦未支持简单加权规则。此前概率和 Cys/长度门控探索没有稳定超过固定融合。以上均是探索性结果，不构成生物机制或独立验证。[三维作用报告](analysis/3d_contribution_20261106/REPORT.md)；[门控探索](analysis/six_seed_gate_probe_20261106/REPORT.md)；[六种子对照](analysis/six_seed_fusion_cys_20261106/REPORT.md)。
+
+三维分支也使用 ESM2 序列表示，现有化学位点和 pLDDT 消融不能单独证明几何贡献。下一步先复用现有六种子预测，检查并构建匹配划分的无结构序列对照，先做技术检查再决定五折训练；Test1/2 的回顾性结果不能当作盲测。大型权重、结构缓存和中间文件不随本次研究记录上传。
+
 ## RTX 4080 Super training and reviewer experiments
 
 The [training package](research/rtx4080_training/README.md) includes the six-seed grouped OOF scripts, fold manifest, historical structural predictions, and pLDDT ablation switches. Its six-seed pipeline has passed a small GPU smoke test on an RTX 4060. The 4080 Super environment and complete training have not yet been tested. The pLDDT experiment still requires verification of the baseline and upstream training provenance before matched retraining.
